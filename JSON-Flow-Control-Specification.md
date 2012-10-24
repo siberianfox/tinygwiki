@@ -67,12 +67,14 @@ struct tinyG_block_packet {
         char *packet;                // newline/null terminated string 
 } 
 
-but! since we want to preserve the plain text readability, the header should be base64 encoded. this creates a 9 byte header after encoding the first 6 bytes (8+1 for whitespace delimiter). not bad for a sequence number *and* a checksum. transmit/receive line blocks might look like 
+but! since we want to preserve the plain text readability, the header should be base64 encoded. this creates a 9 byte header after encoding the first 6 bytes (8+1 for whitespace delimiter). not bad for a sequence number *and* a checksum. transmit/receive line blocks might look like
+
         MGJGZmZm {"gc":"g00x150y100"}}\n                              (31 chars)
         aGVhZGVy {"r":{"bd":{"qr":{"lix":2513,"pba":24}},"sc":0}}\n 
         YW5vdGg= {"r":{"ack":0,"sc":0}}\n 
 
 a little more compact than: 
+
         {"r":{"gc":"g00x150y100"},"sn":"234923","cks":"23049898234"}\n  (61 chars) 
         {"r":{"bd":{"qr":{"lix":2513,"pba":24}},"sn":"234923","sc":0,"cks":"2853327449"}} 
         {"r":{"ack":0,"sn":"234923","sc":0,"cks":"2853327449"}} 
