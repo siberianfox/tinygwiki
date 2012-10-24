@@ -6,6 +6,7 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 1. Provide a failsafe protocol reliable enough to drive big, dangerous machines
 
+
 1. Provide flow control to eliminate the buffer overflows: w/packet acknowledgement
 1. Provide a reliable way to detect and report that an error was encountered
 1. Provide a retransmission mechanism in case of communications problems or other command corruption
