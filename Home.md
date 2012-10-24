@@ -12,7 +12,7 @@ There is also a google group about TinyG development over here: [TinyG Developme
 This is a conversation about new development, options, related products like controllers and android tablets, etc.
 
 Other pages on this wiki:
-* [JSON Flow Control SPecifications](http://www.synthetos.com/)
+* [JSON Flow Control Specification](https://github.com/synthetos/TinyG/wiki/JSON-Flow-Control-Specification)
 
 Please come visit / join any or all of the above.
 
