@@ -11,5 +11,8 @@ Someone once called our forum "moribund". I take this as a compliment because wi
 There is also a google group about TinyG development over here: [TinyG Development Google Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/devTinyG)<br>
 This is a conversation about new development, options, related products like controllers and android tablets, etc.
 
+Other pages on this wiki:
+* [JSON Flow Control SPecifications](http://www.synthetos.com/)
+
 Please come visit / join any or all of the above.
 
