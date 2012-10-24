@@ -91,5 +91,8 @@ Alden's comments: How about making it so the whole thing is parsable by off-the-
 ##References
 * [RFC1122](http://tools.ietf.org/html/rfc1122)
 * [Wikipedia OSI Transport Comparison](http://en.wikipedia.org/wiki/Transport_layer#Comparison_of_OSI_transport_protocols)
-* 
+* [TCP's use of sequence numbers](http://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
+* ["Sequence Number [SN] (32 bits): In a sliding window protocol like TCP, the sequence number allows both TCP stacks to know what packets have been received and which ones have not. Say for instance I get mail messages 1,2,3,5,6,7,8,9, and 10 from you when I know you are sending 10 messages. If you numbered each of your messages, I can look through and see that I do not have message number 4, and I can tell you to send me another copy of that."](http://mike.passwall.com/networking/tcppacket.html)
+* [RTP RFC](http://tools.ietf.org/html/rfc1889)
+
 
