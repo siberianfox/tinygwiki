@@ -21,11 +21,11 @@ state on corrupt input data
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
 
-1. Use a datagram packetized design: JSON blocks and gcode blocks are a natural packet
+1. Use a datagram packetized design: JSON blocks and gcode blocks are a natural packet. The <LF> is the packet (line) terminator 
 
-1. Use a checksum for packet verification. Using the Java Hashcode algorithm
+1. Use a checksum for packet verification. Using the Java Hashcode algorithm. See calculate_hash() in util.c
 
-1. Implement idepempotency for GETs and PUTs
+1. Implement idepempotency for GETs and PUTs. On the GET side what this means is that requesting the same data element or resource multiple times will not change the system (firmware) state. On the PUT side this means that writing the same packet to the system more than once will not change the state beyond the first PUT. While PUT idempotency is possible for most commands some Gcode modes prevent this (e.g. relative mode, and some cycle starts). These should be documented as exceptions to idempotent behavior, and in true REST fashion they shojld be invoked using POST, not PUT.  How this is done is the subject of other design features.
 
 1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is sufficient to manage planner buffer size in that the input buffers block when space is not available in the planner buffer
 
