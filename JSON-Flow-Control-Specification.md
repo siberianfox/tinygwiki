@@ -29,7 +29,7 @@ state on corrupt input data
 
 1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is sufficient to manage planner buffer size in that the input buffers block when space is not available in the planner buffer
 
-Matt's comments on one way to do this:
+###Matt's comments on one way to do this
 Here's one approach, essentially stolen from tried-and-true network 
 protocols: 
 
@@ -53,6 +53,37 @@ with slow start - you don't know how big a window to use. So you might
 start with only 2-3 lines being sent at first, until you get an ACK.   
 Then you keep growing the window until you start getting 
 retransmissions, and then you make the window a little smaller. 
+
+###Mike's proposal
+
+i would propose a packetized tinyG protocol: 
+
+// 8 byte header + N bytes for json / gcode block 
+struct tinyG_block_packet { 
+        uint8  packet_type; // always zero for now, never know when you'll need to expand... 
+        uint24 sequence_number;                // at 32bits we base64 will add another 3 bytes to our header. need to detect roll-over, could probably be reduced to 8bit then. 
+        uint16 checksum; 
+        uint8 whitespace;                // always a space, so parser knows where end of header is. 
+        char *packet;                // newline/null terminated string 
+} 
+
+but! since we want to preserve the plain text readability, the header should be base64 encoded. this creates a 9 byte header after encoding the first 6 bytes (8+1 for whitespace delimiter). not bad for a sequence number *and* a checksum. transmit/receive line blocks might look like 
+        MGJGZmZm {"gc":"g00x150y100"}}\n                              (31 chars)
+        aGVhZGVy {"r":{"bd":{"qr":{"lix":2513,"pba":24}},"sc":0}}\n 
+        YW5vdGg= {"r":{"ack":0,"sc":0}}\n 
+
+a little more compact than: 
+        {"r":{"gc":"g00x150y100"},"sn":"234923","cks":"23049898234"}\n  (61 chars) 
+        {"r":{"bd":{"qr":{"lix":2513,"pba":24}},"sn":"234923","sc":0,"cks":"2853327449"}} 
+        {"r":{"ack":0,"sn":"234923","sc":0,"cks":"2853327449"}} 
+
+if the header is missing, (because it was typed by hand) tinyG should be able to recover. 
+
+Alden's comments: How about making it so the whole thing is parsable by off-the-shelf JSON parsers, even if the base64 block is opaque and requires further handling. Also, shorten the tags to 1 character, since parsing is always context-dependent we only need to worry about collisions in the context of what can co-exist in any given packet. "q" = reQuest, "a" = Ack, "s" = Status, "h" = Header.
+
+        {"q":{"gc":"g00x150y100"}},"h":"MGJGZmZm"}\n                   (44 chars) 
+        {"r":{"b":{"q":{"x":2513,"a":24,"h":"aGVhZGVy"}},"sc":0}}\n
+        {"r":{"a":0,"s":0,"h":"YW5vdGg="}}\n 
 
 
 ##References
