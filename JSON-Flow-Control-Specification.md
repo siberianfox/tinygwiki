@@ -4,7 +4,7 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 ##Requirements (problem domain)
 
-Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._
+Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._ (Edit: because that's awesome. --mikest)
 
 1. Provide flow control to eliminate the buffer overflows: w/packet acknowledgement
 1. Provide a reliable way to detect and report that an error was encountered, and not change system 
@@ -14,8 +14,9 @@ state on corrupt input data
 1. Provide a way for the UI to be aware of and therefore manage the number of blocks in the planner buffer
 1. Offer a protocol that will work from a variety of transports including USB serial, TCP/IP, and direct file reads (SD cards)
 1. Find the balance between minimizing communications overhead and providing human readable (debuggable) and easily parsable data structures
-1. Take advantage of full duplex communications (i.e. avoid half duplex solutions)
-1. Structure the solution such that it works naturally with REST principles
+1. Take advantage of full duplex communications (i.e. avoid half duplex solutions) (Edit: wireless? many transport layers are half-duplex).
+1. Structure the solution such that it works naturally within [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) constraints (excluding code-on-demand) 
+1. Always maintain control of the machine while streaming. _halt_ & _feedhold_
 
 ##Design (solution domain)
 
@@ -27,7 +28,7 @@ state on corrupt input data
 
 1. Implement idepempotency for GETs and PUTs. For GETs this means that requesting the same data element or resource (data group) multiple times will not change the state of the firmware. for PUTs this means that writing the same packet to the system more than once will not change the state beyond the first PUT. While PUT idempotency is possible for most commands, there are some Gcode modes where this is not possible - e.g. motion in relative mode, and some cycle starts like a homing cycle start (interesting - we could MAKE it behave idempotently). These exception cases should be documented and in true REST fashion they should be invoked using POST, not PUT.  How this is done is the subject of other design features.
 
-1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is sufficient to manage planner buffer size in that the input buffers block when space is not available in the planner buffer
+1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is _insufficient_ to managing planner buffer size in that the input buffers blocking when space is not available in the planner buffer _would cause a loss of machine control on planing buffer overflow._
 
 ###Matt's comments on one way to do this
 Here's one approach, essentially stolen from tried-and-true network 
