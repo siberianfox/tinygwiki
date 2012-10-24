@@ -4,10 +4,10 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 ##Requirements
 
-* Failsafe protocol capable of driving big, dangerous machines
-* Eliminate the buffer overflows
-* Provide a reliable way to indicate that the error was hit
-* Provide a mechanism to detect and retransmit in case of communications problems or other command corruption
+1. * Failsafe protocol capable of driving big, dangerous machines
+1. * Eliminate the buffer overflows
+1. * Provide a reliable way to indicate that the error was hit
+1. * Provide a mechanism to detect and retransmit in case of communications problems or other command corruption
 
 ##Design
 
