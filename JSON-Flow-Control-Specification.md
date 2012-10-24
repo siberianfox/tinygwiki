@@ -18,3 +18,6 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
 1. 
 
+##References
+*[RFC1122](http://tools.ietf.org/html/rfc1122)
+
