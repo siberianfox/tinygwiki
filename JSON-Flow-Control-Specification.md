@@ -4,13 +4,13 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 ##Requirements
 
-1. * Failsafe protocol capable of driving big, dangerous machines
-1. * Eliminate the buffer overflows
-1. * Provide a reliable way to indicate that the error was hit
-1. * Provide a mechanism to detect and retransmit in case of communications problems or other command corruption
+1. Failsafe protocol capable of driving big, dangerous machines
+1. Eliminate the buffer overflows
+1. Provide a reliable way to indicate that the error was hit
+1. Provide a mechanism to detect and retransmit in case of communications problems or other command corruption
 
 ##Design
 
-* Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
-*
+1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
+1. 
 
