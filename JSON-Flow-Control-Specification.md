@@ -4,8 +4,7 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 ##Requirements (problem domain)
 
-1. Provide a failsafe protocol reliable enough to drive big, dangerous machines
-
+Provide a failsafe protocol reliable enough to drive big, dangerous machines
 
 1. Provide flow control to eliminate the buffer overflows: w/packet acknowledgement
 1. Provide a reliable way to detect and report that an error was encountered
