@@ -4,7 +4,7 @@ Last updated by: Alden - 10/24/12 - 8:55 EST
 
 ##Requirements (problem domain)
 
-Mike's summary: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control very dangerous machines._
+Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._
 
 1. Provide flow control to eliminate the buffer overflows: w/packet acknowledgement
 1. Provide a reliable way to detect and report that an error was encountered, and not change system 
