@@ -29,6 +29,32 @@ state on corrupt input data
 
 1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is sufficient to manage planner buffer size in that the input buffers block when space is not available in the planner buffer
 
+Matt's comments on one way to do this:
+Here's one approach, essentially stolen from tried-and-true network 
+protocols: 
+
+Add a sequence number on the TinyG end.  It might already exist to count 
+the input lines. 
+Add a means of synchronizing sequence numbers on both sides as part of 
+initialization. 
+Add a wrapper for host messages similar to "r" and "bd" which contains a 
+sequence number and checksum.  For every line received, TinyG: 
+1.  Checks checksum.  If fail, discard line and transmit FAIL message 
+with sequence number. 
+2.  Checks received seq number.  If not == to current seq number, 
+discard line and transmit FAIL message with desired seq number. 
+3.  Increment local seq number. 
+
+On completion of a line, send qr containing the line's sequence number 
+along with current stuff (this might replace lix and pbr). 
+
+On the host side, you need to deal with essentially a sliding window 
+with slow start - you don't know how big a window to use. So you might 
+start with only 2-3 lines being sent at first, until you get an ACK.   
+Then you keep growing the window until you start getting 
+retransmissions, and then you make the window a little smaller. 
+
+
 ##References
 * [RFC1122](http://tools.ietf.org/html/rfc1122)
 * [Wikipedia OSI Transport Comparison](http://en.wikipedia.org/wiki/Transport_layer#Comparison_of_OSI_transport_protocols)
