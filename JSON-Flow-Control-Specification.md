@@ -19,6 +19,9 @@ state on corrupt input data
 1. Always maintain control of the machine while streaming. _halt_ & _feedhold_
 
 ##Design (solution domain)
+###Mike: Please feel free to scribble all over what's here --Alden
+
+--- Insert Design Here ---
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
 
@@ -30,7 +33,6 @@ state on corrupt input data
 
 1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is _insufficient_ to managing planner buffer size in that the input buffers blocking when space is not available in the planner buffer _would cause a loss of machine control on planing buffer overflow._
 
-###Mike: Insert Design Here --Alden
 
 ##Historical Notes
 ###Matt's comments on one way to do this
