@@ -22,8 +22,26 @@ state on corrupt input data
 ###Mike: Please feel free to scribble all over what's here --Alden
 
 --- Insert Design Here ---
+###Packet format
+All messages sent from TinyG are of the format:
 
-1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues
+    {"b":<body>,"f":"<b64-footer>", "cks":"<b64-checksum>"}<lf>
+
+The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful.
+
+The structure looks like:
+
+   typedef struct {
+     uint8 protocol_version;   // zero for now
+     uint8 status_code;        // error code for the previously sent message, usually 0 for "OK"
+     uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
+   } tinyg_packet_footer_t;
+
+(Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.)
+
+--- Insert Design Here ---
+
+1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
 
 1. Use a datagram packetized design: JSON blocks and gcode blocks are a natural packet. The <LF> is the packet (line) terminator 
 
@@ -31,7 +49,7 @@ state on corrupt input data
 
 1. Implement idepempotency for GETs and PUTs. For GETs this means that requesting the same data element or resource (data group) multiple times will not change the state of the firmware. for PUTs this means that writing the same packet to the system more than once will not change the state beyond the first PUT. While PUT idempotency is possible for most commands, there are some Gcode modes where this is not possible - e.g. motion in relative mode, and some cycle starts like a homing cycle start (interesting - we could MAKE it behave idempotently). These exception cases should be documented and in true REST fashion they should be invoked using POST, not PUT.  How this is done is the subject of other design features.
 
-1. Use a host-generated sequence number and sliding window protocol to manage both input buffer size and planner buffer size. Note that managing input buffer size is _insufficient_ to managing planner buffer size in that the input buffers blocking when space is not available in the planner buffer _would cause a loss of machine control on planing buffer overflow._
+1. Use a token based flow control algorithm to manage both input buffer size and planner buffer size. Note that managing input buffer size is _insufficient_ to managing planner buffer size in that the input buffers blocking when space is not available in the planner buffer _would cause a loss of machine control on planing buffer overflow._
 
 
 ##Historical Notes
@@ -101,5 +119,4 @@ Alden's comments: How about making it so the whole thing is parsable by off-the-
 * [Sequence Number SN for 32 bits](http://mike.passwall.com/networking/tcppacket.html): In a sliding window protocol like TCP, the sequence number allows both TCP stacks to know what packets have been received and which ones have not. Say for instance I get mail messages 1,2,3,5,6,7,8,9, and 10 from you when I know you are sending 10 messages. If you numbered each of your messages, I can look through and see that I do not have message number 4, and I can tell you to send me another copy of that.
 * [RTP RFC](http://tools.ietf.org/html/rfc1889)
 * [Wikipedia Sliding Window](http://en.wikipedia.org/wiki/Sliding_window) See the "Go Back N" approach
-
 
