@@ -1,6 +1,6 @@
 _These sections will probably move to separate pages once they are big enough. For now, let's just start typing._
 
-Last updated by: Alden - 10/24/12 - 8:55 EST
+Last updated by: Estee - 10/26/12 - 12:10 PST
 
 ##Requirements (problem domain)
 
@@ -25,19 +25,27 @@ state on corrupt input data
 ###Packet format
 All messages sent from TinyG are of the format:
 
-    {"b":<body>,"f":"<b64-footer>", "cks":"<b64-checksum>"}<lf>
+    {"b":<body>,"f":"<b64-footer><space><b64-crc16>"}<lf>
 
-The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful.
+The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block.
 
 The structure looks like:
 
-   typedef struct {
-     uint8 protocol_version;   // zero for now
-     uint8 status_code;        // error code for the previously sent message, usually 0 for "OK"
-     uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
-   } tinyg_packet_footer_t;
+    typedef struct {
+       uint8 protocol_version;   // zero for now
+       uint8 status_code;        // success, fail?
+       uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
+    } tinyg_packet_footer_t;
 
 (Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.)
+
+A line would go from looking like so:
+
+    {"r":{"bd":{"qr":{"lix":0,"pba":24}},"sc":0,"cks":"2895404244"}}
+
+to so:
+
+    {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
 
 --- Insert Design Here ---
 
@@ -119,4 +127,3 @@ Alden's comments: How about making it so the whole thing is parsable by off-the-
 * [Sequence Number SN for 32 bits](http://mike.passwall.com/networking/tcppacket.html): In a sliding window protocol like TCP, the sequence number allows both TCP stacks to know what packets have been received and which ones have not. Say for instance I get mail messages 1,2,3,5,6,7,8,9, and 10 from you when I know you are sending 10 messages. If you numbered each of your messages, I can look through and see that I do not have message number 4, and I can tell you to send me another copy of that.
 * [RTP RFC](http://tools.ietf.org/html/rfc1889)
 * [Wikipedia Sliding Window](http://en.wikipedia.org/wiki/Sliding_window) See the "Go Back N" approach
-
