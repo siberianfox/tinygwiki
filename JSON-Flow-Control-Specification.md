@@ -22,9 +22,9 @@ state on corrupt input data
 ###Packet format
 All messages sent from TinyG are of the format:
 
-    {"b":<body>,"f":"<b64-footer><space><b64-crc16>"}<lf>
+    {"b":<body>,"f":"<b64-footer><space><b64-hashcode>"}<lf>
 
-The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block.
+The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block. The checksum is computed as a Java hashcode.
 
 The structure looks like:
 
