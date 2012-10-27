@@ -53,8 +53,8 @@ Commands sent to TinyG fall into classes that need to be handled differently
 
 	Class  | Commands    | Notes
 	-------|-------------|-------------------------
-	Cycle  | G0, G1, G2... | Most gcode G and M commands are Cycle commands that are queued to the planning queue for synchronized execution. Execution of these commands occurs in a "cycle". Exceptions are noted below. This class of commands return a Q report response when the command has completed.
-	Configs  | "$" commands  | Refers to commands that set the machine configuration, such as xvm=10000. These commands are not accepted when the machine is in cycle, and will return an error if attempted. WHen a command 
+	Cycle  | G0, G1, G2... | Most gcode G and M commands are Cycle commands that are queued to the planning queue for synchronized execution. Execution of these commands occurs in a "cycle". Exceptions are noted below. Cycle commands return a Q report response when the command has completed.
+	Config  | "$" commands  | Refers to commands that set the machine configuration, such as xvm=10000. These commands are not accepted when the machine is in cycle, and will return an error if attempted. Config commands return an Ack response when they have completed. These commands should not be buffered - i.e. the host should wait until the Ack response is received before sending the next command _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_.   
 	Homing  | G28.1 | Homing cycles are not technically part of the Gcode specification although TinyG has implemented them as a special machine cycle
 	Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue).
 	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold
