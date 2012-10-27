@@ -43,6 +43,8 @@ to so:
 
     {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
 
+The 'lix' element is the line index. It is incremented for every command that is inserted to the planner buffer. It is returned when that command has completed executing. THe 'pba' element indicates the number of buffers available in the planner. These 2 elements can be used by the host to manage the depth of the planner buffer.
+
 ###Command Classes
 Commands sent to TinyG fall into classes that need to be handled differently
 
