@@ -43,6 +43,18 @@ to so:
 
     {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
 
+###Command Classes
+Commands sent to TinyG fall into classes that need to be handled differently
+
+	Commands                | Notes
+	------------------------|-------------------------
+	G0, G1, G2...           | 02 - SPI ~SS
+	03 - Dir/PWM/GPIO       | 04 - SPI SCK
+	05 - ~Enable            | 06 - SPI MISO
+	07 - MS0/GPIO           | 08 - SPI MOSI
+	09 - MS1/GPIO           | 10 - I2C SDA
+
+
 ###Design Considerations
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
