@@ -19,9 +19,6 @@ state on corrupt input data
 1. Always maintain control of the machine while streaming. _halt_ & _feedhold_
 
 ##Design (solution domain)
-###Mike: Please feel free to scribble all over what's here --Alden
-
---- Insert Design Here ---
 ###Packet format
 All messages sent from TinyG are of the format:
 
