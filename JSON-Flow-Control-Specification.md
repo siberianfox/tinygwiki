@@ -46,15 +46,13 @@ to so:
 The `lix` element is the line index. It is incremented for every command that is inserted to the planner buffer. It is returned when that command has completed executing. The `pba` element indicates the number of buffers available in the planner. These 2 elements can be used by the host to manage the depth of the planner buffer.
 
 ###Command Classes
+_(This is a start on documenting the return cases we need to support --Alden)_ 
 Commands sent to TinyG fall into classes that need to be handled differently
 
 	Commands                | Notes
 	------------------------|-------------------------
-	G0, G1, G2...           | 02 - SPI ~SS
-	03 - Dir/PWM/GPIO       | 04 - SPI SCK
-	05 - ~Enable            | 06 - SPI MISO
-	07 - MS0/GPIO           | 08 - SPI MOSI
-	09 - MS1/GPIO           | 10 - I2C SDA
+	G0, G1, G2...           | Standard gcode commands that are queued to the planning buffer. Most G and M codes fall into this category. Exceptions are noted below.
+	"$" commands            | Configuration commands 
 
 
 ###Design Considerations
