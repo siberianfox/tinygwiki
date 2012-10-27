@@ -55,9 +55,9 @@ Commands sent to TinyG fall into classes that need to be handled differently
 	-------|-------------|-------------------------
 	Cycle  | G0, G1, G2... | Most gcode G and M commands are Cycle commands that are queued to the planning queue for synchronized execution. Execution of these commands occurs in a "cycle". Exceptions are noted below. Cycle commands return a Q report response when the command has completed.
 	Config  | "$" commands  | Refers to commands that set the machine configuration, such as xvm=10000. These commands are not accepted when the machine is in cycle, and will return an error if attempted. Config commands return an Ack response when they have completed. These commands should not be buffered - i.e. the host should wait until the Ack response is received before sending the next command _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_.   
-	Homing  | G28.1 | Homing cycles are not technically part of the Gcode specification although TinyG has implemented them as a special machine cycle
-	Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue).
-	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold
+	Homing  | G28.1 | Homing cycles are not technically part of the Gcode specification although TinyG has implemented them as a special machine cycle. Currently homing may be called from within a Gcode "file", but this function may be broken out so that it cannot be executed during a cycle.
+	Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
+	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when that planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
 	Abort | `^x` | An abort performs a software reset of the machine. ALl position and state are lost.
 
 _(Note: on a mac at least it requires <ctrl><option>TAB to insert that initial tab for the table)_
