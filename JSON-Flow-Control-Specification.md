@@ -51,9 +51,12 @@ Commands sent to TinyG fall into classes that need to be handled differently
 
 	Class  | Commands    | Notes
 	-------|-------------|-------------------------
-	Sync'd  | G0, G1, G2... | Most gcode G and M commands are queued to the planning queue for synchronized execution. Exceptions are noted below.
-	Configs  | "$" commands  | Configuration commands that set the machine configuration.
-	Configs  | "$" commands  | Configuration commands that set the machine configuration.
+	Cycle  | G0, G1, G2... | Most gcode G and M commands are Cycle commands that are queued to the planning queue for synchronized execution. Exceptions are noted below. Execution of these commands occurs in a "cycle". When a cycle is operating any non-cycle commands will be accepted. (Q: Is this absolutely true?)
+	Configs  | "$" commands  | Refers to commands that set the machine configuration, such as xvm=10000. These commands are not accepted when the machine is in cycle.
+	Homing  | G28.1 | Homing cycles are not technically part of the Gcode specification although TinyG has implemented them as a special machine cycle
+	Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue).
+	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold
+	Abort | `^x` | An abort performs a software reset of the machine. ALl position and state are lost.
 
 _(Note: on a mac at least it requires <ctrl><option>TAB to insert that initial tab for the table)_
 
