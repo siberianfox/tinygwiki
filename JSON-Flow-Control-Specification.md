@@ -1,6 +1,5 @@
-_These sections will probably move to separate pages once they are big enough. For now, let's just start typing._
-
 Last updated by: Estee - 10/26/12 - 12:10 PST
+Edits by:        Alden - 10/27/12 - 9:00 EST
 
 ##Requirements (problem domain)
 
@@ -34,7 +33,7 @@ The structure looks like:
        uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
     } tinyg_packet_footer_t;
 
-(Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.)
+(Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.) Understood --Alden
 
 A line would go from looking like so:
 
@@ -44,7 +43,7 @@ to so:
 
     {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
 
---- Insert Design Here ---
+###Design Considerations
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
 
