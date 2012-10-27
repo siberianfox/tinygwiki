@@ -49,11 +49,13 @@ The `lix` element is the line index. It is incremented for every command that is
 _(This is a start on documenting the return cases we need to support --Alden)_ 
 Commands sent to TinyG fall into classes that need to be handled differently
 
-	Class  | Commands                | Notes
-	-------|------------------------|-------------------------
-	Queued  | G0, G1, G2...           | Standard gcode commands that are queued to the planning buffer. Most G and M codes fall into this category. Exceptions are noted below.
-	Config  | "$" commands            | Configuration commands 
+	Class  | Commands    | Notes
+	-------|-------------|-------------------------
+	Sync'd  | G0, G1, G2... | Most gcode G and M commands are queued to the planning queue for synchronized execution. Exceptions are noted below.
+	Configs  | "$" commands  | Configuration commands that set the machine configuration.
+	Configs  | "$" commands  | Configuration commands that set the machine configuration.
 
+_(Note: on a mac at least it requires <ctrl><option>TAB to insert that initial tab for the table)_
 
 ###Design Considerations
 
