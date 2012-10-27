@@ -1,4 +1,5 @@
 Last updated by: Estee - 10/26/12 - 12:10 PST
+
 Edits by:        Alden - 10/27/12 - 9:00 EST
 
 ##Requirements (problem domain)
@@ -47,6 +48,7 @@ The `lix` element is the line index. It is incremented for every command that is
 
 ###Command Classes
 _(This is a start on documenting the return cases we need to support --Alden)_ 
+
 Commands sent to TinyG fall into classes that need to be handled differently
 
 	Class  | Commands    | Notes
