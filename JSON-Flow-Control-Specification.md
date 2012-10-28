@@ -61,7 +61,7 @@ Commands sent to TinyG fall into classes that need to be handled differently
 	Abort | `^x` | An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
 	G10 L2 | G10 L2 | G10 L2 commands set the offsets for the Gcode coordinate systems G54 - G59. These commands are handled specially. They are accepted as synchronized commands and take effect immediately, but the NVM update to the offsets is deferred until after the cycle is complete. They (do / do not?) return an ACK when this occurs.  
 
-_(Note: on a mac at least it requires <ctrl><option>TAB to insert that initial tab for the table)_
+_(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
 
 ###Design Considerations
 
