@@ -49,13 +49,24 @@ Unwrapped form presents the command as-is, with no body or footer. Examples:
     {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
     {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
 
-Wrapped form presents the command in a body and footer wrapper. The above examples become:
+Wrapped form presents the command in a body and footer wrapper. This form is useful for noisy environments to ensure proper command transfer. The above examples become:
 
     {"b":{"x":""},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
     {"b":{"xvm":12000},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
     {"b":{"gc":"g0 x100"},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
 
-This form is useful for noisy environments to ensure proper command transfer.
+The footer contains a 2 element array of packet flow control information. As it's only useful for machine comms it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
+
+The b64-footer structure looks like:
+
+    typedef struct {
+       uint8 protocol_version;   // one for now
+       uint8 status_code;        // 0=OK (success), anything else is an exception (positive integers)
+       uint8 input_available;    // For responses: number of free bytes in tinyG's input buffer
+                                 // For commands: number of bytes in body element (between the quotes) 
+    } tinyg_packet_footer_t;
+
+The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
 
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
@@ -73,18 +84,7 @@ Every JSON command returns an acknowledgement response (Ack). Acks are returned 
 
 The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled (ee=0) the body returns null in this format: "b":""
 
-The footer contains a 2 element array of packet flow control information. As it's only useful for machine comms it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
-
-The b64-footer structure looks like:
-
-    typedef struct {
-       uint8 protocol_version;   // one for now
-       uint8 status_code;        // 0=OK (success), anything else is an exception (positive integers)
-       uint8 input_available;    // For responses: number of free bytes in tinyG's input buffer
-                                 // For commands: number of bytes in body element (between the quotes) 
-    } tinyg_packet_footer_t;
-
-The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
+The footer is the same structure as described for the Command.
 
 ### Queue Reports
 Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
