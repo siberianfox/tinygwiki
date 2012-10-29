@@ -40,8 +40,28 @@ Additional command classes and some exceptions are noted below:
 
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
 
-###JSON Mode Protocol
-* Every JSON command returns a ACK response when it has either finished execution or been placed onto the planner queue (in the case of synchronized commands). See Ack format for details
+##JSON Mode Protocol
+### Ack Responses
+Every JSON command returns a ACK response. Ack format is:
+
+    {"b":<body>,"f":"<b64-footer><space><b64-hashcode>"}<lf>
+
+The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled the body returns null in this format: "b":""  
+
+and returns 
+
+The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block. The checksum is computed as a Java hashcode.
+
+The structure looks like:
+
+    typedef struct {
+       uint8 protocol_version;   // zero for now
+       uint8 status_code;        // success, fail?
+       uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
+    } tinyg_packet_footer_t;
+
+
+Config commands return an A when it has either finished execution (in the case of or been placed onto the planner queue (in the case of synchronized commands). See Ack format for details
 * Queue reports (`qr`) may be enabled. If enabled each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
 * Echo is disabled automatically if in JSON mode
 
