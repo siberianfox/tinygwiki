@@ -1,6 +1,6 @@
     Revised by: Estee - 10/26/12 - 12:10 PST
     Revised by: Alden - 10/27/12 - 9:00 EST - started a section on command types
-    Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr packet formats`
+    Revised by: Alden - 10/29/12 - 9:00 EST - (INCOMPLETE EDIT FOR NOW) took a crack at revised Ack and Qr packet formats`
 
 #Requirements
 
