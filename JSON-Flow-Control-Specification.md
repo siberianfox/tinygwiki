@@ -39,26 +39,6 @@ Additional command Types and some exceptions are noted below:
 
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB). But this only works on my laptop and not on my iMac_
 
-### Command Synchronization
-The basic rule is: Only one command should be sent at a time. 
-
-Each command sent should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
-
-By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
-
-_(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
-
-### Command Replay and Idempotency
-Idempotency is the behavior that a command sent twice will not change the state of the system - i.e. it has the effect of only sending the command once. Understanding the idempotency of a system enables a set of "compensating transactions" to manage transmission errors and non-response cases.
-
-In TinyG, all GET commands are idempotent. That is - any read operation can be performed multiple times without fear of changing system state.
-
-In TinyG, most write commands are idempotent, but not all (due to Gcode operation), and only if you obey certain rules. Rule #1: Only one command should be sent at a time. If this is true then a wide variety of compensating transactions are possible. 
-
-_NB: In keeping with REST thinking, any idempotent write command is considered a PUT, and non-idempotent write command is considered a POST_
-
-The thought process for deciding which Gcode commands are idempotent, and under what circumstances is to ask "If I sent this command twice would it cause the system to be in a different state than if I only sent it once?"
-
 ##JSON Mode Protocol
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
@@ -93,34 +73,30 @@ The b64-hashcode checksum is computed as a Java hashcode. (insert reference here
 Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
 
 
-###Packet format
-All messages sent from TinyG are of the format:
+### Command Synchronization
+The basic rule is: Only one command should be sent at a time. 
 
-    {"b":<body>,"f":"<b64-footer><space><b64-hashcode>"}<lf>
+Each command sent should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
 
-The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block. The checksum is computed as a Java hashcode.
+By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
 
-The structure looks like:
+_(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
 
-    typedef struct {
-       uint8 protocol_version;   // zero for now
-       uint8 status_code;        // success, fail?
-       uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
-    } tinyg_packet_footer_t;
+### Command Replay and Idempotency
+Idempotency is the behavior that a command sent twice will not change the state of the system - i.e. it has the effect of only sending the command once. Understanding the idempotency of a system enables a set of "compensating transactions" to manage transmission errors and non-response cases.
 
-(Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.) Understood --Alden
+In TinyG, all GET commands are idempotent. That is - any read operation can be performed multiple times without fear of changing system state.
 
-A line would go from looking like so:
+In TinyG, most write commands are idempotent, but not all (due to Gcode operation), and only if you obey certain rules. Rule #1: Only one command should be sent at a time. If this is true then a wide variety of compensating transactions are possible. 
 
-    {"r":{"bd":{"qr":{"lix":0,"pba":24}},"sc":0,"cks":"2895404244"}}
+_NB: In keeping with REST thinking, any idempotent write command is considered a PUT, and non-idempotent write command is considered a POST_
 
-to so:
+The thought process for deciding which Gcode commands are idempotent, and under what circumstances is to ask "If I sent this command twice would it cause the system to be in a different state than if I only sent it once?"
 
-    {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
 
-The `lix` element is the line index. It is incremented for every command that is inserted to the planner buffer. It is returned when that command has completed executing. The `pba` element indicates the number of buffers available in the planner. These 2 elements can be used by the host to manage the depth of the planner buffer.
 
-###Packet format
+
+
 
 ###Async Commands
 
@@ -201,6 +177,34 @@ Alden's comments: How about making it so the whole thing is parsable by off-the-
         {"q":{"gc":"g00x150y100"}},"h":"MGJGZmZm"}\n                   (44 chars) 
         {"r":{"b":{"q":{"x":2513,"a":24,"h":"aGVhZGVy"}},"sc":0}}\n
         {"r":{"a":0,"s":0,"h":"YW5vdGg="}}\n 
+
+
+###Mike's Packet Format Notes:
+All messages sent from TinyG are of the format:
+
+    {"b":<body>,"f":"<b64-footer><space><b64-hashcode>"}<lf>
+
+The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block. The checksum is computed as a Java hashcode.
+
+The structure looks like:
+
+    typedef struct {
+       uint8 protocol_version;   // zero for now
+       uint8 status_code;        // success, fail?
+       uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
+    } tinyg_packet_footer_t;
+
+(Alden: the "r" wrapper is redundant, every message from tinyG should be a response. Echo is not useful for the json stream.) Understood --Alden
+
+A line would go from looking like so:
+
+    {"r":{"bd":{"qr":{"lix":0,"pba":24}},"sc":0,"cks":"2895404244"}}
+
+to so:
+
+    {"b":{"qr":{"lix":0,"pba":24}},"f":"ZmZm ZmY="}
+
+The `lix` element is the line index. It is incremented for every command that is inserted to the planner buffer. It is returned when that command has completed executing. The `pba` element indicates the number of buffers available in the planner. These 2 elements can be used by the host to manage the depth of the planner buffer.
 
 
 ##References
