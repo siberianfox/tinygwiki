@@ -43,12 +43,12 @@ _(Note: To insert that initial TAB for the table (at least on a mac) requires CT
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
 
-	Type  | Notes
+	Command Type  | Notes
 	-------|-------------------------
-	Cycle commands | An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
-	Config commands | An ack is returned when the command has been successfully executed or has failed.
-	Off-Cycle commands | An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
-	Async commands | Do not generate Acks. The results of feedhold and cycle start are apparently only by queue reports or status reports. Aborts will send the system through the startup messages.
+	Cycle | An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
+	Config | An ack is returned when the command has been successfully executed or has failed.
+	Off-Cycle | An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
+	Async | Do not generate Acks. The results of feedhold and cycle start are apparently only by queue reports or status reports. Aborts will send the system through the startup messages.
 
 Ack format is:
 
