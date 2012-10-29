@@ -63,7 +63,7 @@ The b64-footer structure looks like:
     typedef struct {
        uint8 protocol_version;   // zero for now
        uint8 status_code;        // success, fail?
-       uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
+       uint8 input_available;    // number of free bytes in tinyG's input buffer.
     } tinyg_packet_footer_t;
 
 The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
