@@ -37,15 +37,17 @@ Additional command Types and some exceptions are noted below:
 	Startup | RESET,`^x` | System startup will return two startup responses. (1) the initialization response, and (2) the system ready response. See their respective definitions for details.
 	G10s | G10 L2 | G10 commands are "Official" gcode commands that set machine parameters. G10 L2 is the only G10 command implemented in TinyG, and it updates the Gcode coordinate system offsets for the G54 - G59 coordinate systems. In this regard it is redundant with the $G54x=100.... series of commands. Technically the G10s should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they are valid in Gcode files and therefore valid in cycles. G10s are handled specially. They are accepted as Cycle commands and take effect immediately but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
 
-_(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
+_(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB). But this only works on my laptop and not on my iMac_
 
 ##JSON Mode Protocol
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
-* Cycle commands: An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
-* Config commands: An ack is returned when the command has been successfully executed or has failed.
-* Off-Cycle commands: An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
-* Async commands: Do not generate Acks. The results of feedhold and cycle start are apparently only by queue reports or status reports. Aborts will send the system through the startup messages.
+	Type  | Notes
+	-------|-------------------------
+	Cycle commands | An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
+	Config commands | An ack is returned when the command has been successfully executed or has failed.
+	Off-Cycle commands | An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
+	Async commands | Do not generate Acks. The results of feedhold and cycle start are apparently only by queue reports or status reports. Aborts will send the system through the startup messages.
 
 Ack format is:
 
