@@ -21,7 +21,7 @@ state on corrupt input data
 #Design
 
 ##Command Classes
-Commands sent to TinyG fall into classes that have different handling:
+Most commands sent to TinyG fall into one of two broad classes:
 
 	Class  | Examples    | Notes
 	-------|-------------|-------------------------
