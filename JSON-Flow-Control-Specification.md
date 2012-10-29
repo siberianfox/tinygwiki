@@ -44,11 +44,11 @@ The basic rule is: Only one command should be sent at a time.
 
 Each command sent should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
 
-By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Idempotency, below)
+By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
 
 _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
 
-### Command Idempotency
+### Command Replay and Idempotency
 Idempotency is the behavior that a command sent twice will not change the state of the system - i.e. it has the effect of only sending the command once. Understanding the idempotency of a system enables a set of "compensating transactions" to manage transmission errors and non-response cases.
 
 In TinyG, all GET commands are idempotent. That is - any read operation can be performed multiple times without fear of changing system state.
