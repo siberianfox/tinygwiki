@@ -25,7 +25,7 @@ Commands sent to TinyG fall into classes that have different handling:
 
 	Class  | Examples    | Notes
 	-------|-------------|-------------------------
-	Cycle  | G0, G1, G2, G3, G4, G20, G21, G90, G91... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G1), but some are not (e.g. G21) (see _Note_). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start). _Note: Whether a cycle command is queued or not, the order-of-arrival is preserved. For example, a G91 to set incremental mode will only affect Gcode the current and later Gcode block - it does not affect commands already in the queue._
+	Cycle  | G0, G1, G2, G3, G20, G21, G90, G91... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G1), but some are not (e.g. G21) (see _Note_). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start). _Note: Whether a cycle command is queued or not, the order-of-arrival is preserved. For example, a G91 to set incremental mode will only affect Gcode the current and later Gcode block - it does not affect commands already in the queue._
 	Config  | "$" commands  | Config commands set the machine configuration (e.g. xvm=10000). Config commands are not accepted during a cycle and will return an error if attempted in-cycle.
 
 Additional command classes and some exceptions are noted below:
