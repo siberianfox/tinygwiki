@@ -40,6 +40,23 @@ Additional command Types and some exceptions are noted below:
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB). But this only works on my laptop and not on my iMac_
 
 ##JSON Mode Protocol
+### Commands
+Commands in JSON mode are sent as JSON packets which may unwrapped or wrapped.
+
+Unwrapped form presents the command as-is, with no body or footer. Examples:
+
+    {"x":""}<lf>          get the X resource
+    {"xvm":12000}<lf>     set the X max imum velocity to 12000 mm/min (assuming the system is in G21 mode)
+    {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
+
+Wrapped form presents the command in a body and footer wrapper. The above examples become:
+
+    {"b":{"x":""},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
+    {"b":{"xvm":12000},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
+    {"b":{"gc":"g0 x100"},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
+
+This form is useful for noisy environments to ensure proper command transfer.
+
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
 
@@ -80,7 +97,7 @@ Where 'x' is the line index and 'a' is the available blocks in the planner buffe
 ### Command Synchronization
 The basic rule is: Only one command should be sent at a time. 
 
-Each command sent should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
+The client should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
 
 By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
 
