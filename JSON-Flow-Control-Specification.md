@@ -46,7 +46,7 @@ Commands in JSON mode are sent as JSON packets which may unwrapped or wrapped.
 Unwrapped form presents the command as-is, with no body or footer. Examples:
 
     {"x":""}<lf>          get the X resource
-    {"xvm":12000}<lf>     set the X max imum velocity to 12000 mm/min (assuming the system is in G21 mode)
+    {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
     {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
 
 Wrapped form presents the command in a body and footer wrapper. The above examples become:
