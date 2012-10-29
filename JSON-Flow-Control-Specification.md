@@ -1,6 +1,6 @@
     Revised by: Estee - 10/26/12 - 12:10 PST
     Revised by: Alden - 10/27/12 - 9:00 EST - started a section on command types
-    Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr formats`
+    Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr packet formats`
 
 ##Requirements (problem domain)
 
@@ -19,6 +19,38 @@ state on corrupt input data
 1. Always maintain control of the machine while streaming. _halt_ & _feedhold_
 
 ##Design (solution domain)
+
+##Command Classes
+Commands sent to TinyG fall into classes that need to be handled differently:
+
+	Class  | Commands    | Notes
+	-------|-------------|-------------------------
+	Cycle  | G0, G1, G2... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G1), but some are not (e.g. G21). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start).
+	Config  | "$" commands  | Config commands set the machine configuration (e.g. xvm=10000). Config commands are not accepted during a cycle and will return an error if attempted in-cycle.
+
+Additional command classes and some exceptions are noted below:
+
+	Class  | Commands    | Notes
+	-------|-------------|-------------------------
+	Off-cycle | G28.1 | Some machine commands are not executed in cycle. Homing is the notable example. Currently homing is mapped to G28.1, which makes it appear as a Cycle command. Technically this is not correct. Homing is a "front panel function" that actually has no Gcode equivalent. This function should be broken out so that it cannot occur in a Gcode cycle - and therefore should not be in a Gcode "file".
+	Async | `!`, `~`,`^x` | Feedholds, cycle starts and aborts are asynchronous commands that can arrive at any time (in cycle or out).  See their respective definitions for details.
+	G10s | G10 L2 | G10 L2 commands are "Official" gcode commands that set the offsets for the Gcode coordinate systems G54 - G59. Technically these should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they may be found in cycles. G10s are therefore handled specially. They are accepted as Cycle commands and take effect immediately, but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
+
+	Async Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
+	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
+	Abort | `^x` | An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
+
+_(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
+
+###JSON Mode Protocol
+* Every JSON command returns a ACK response when it has either finished execution or been placed onto the planner queue (in the case of synchronized commands). See Ack format for details
+* Queue reports (`qr`) may be enabled. If enabled each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
+* Echo is disabled automatically if in JSON mode
+
+* In JSON mode there are 2 types of responses: an Ack response and a planner queue report response
+* Ack responses are always returned
+* QConfig commands return an Ack response when they have completed. These commands should not be buffered - i.e. the host should wait until the Ack response is received before sending the next command _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
+
 ###Packet format
 All messages sent from TinyG are of the format:
 
@@ -46,24 +78,10 @@ to so:
 
 The `lix` element is the line index. It is incremented for every command that is inserted to the planner buffer. It is returned when that command has completed executing. The `pba` element indicates the number of buffers available in the planner. These 2 elements can be used by the host to manage the depth of the planner buffer.
 
-###Command Classes
-_(This is a start on documenting the return cases we need to support --Alden)_ 
+###Packet format
 
-Commands sent to TinyG fall into classes that need to be handled differently
 
-	Class  | Commands    | Notes
-	-------|-------------|-------------------------
-	Cycle  | G0, G1, G2... | Most gcode G and M commands are Cycle commands that are queued to the planning queue for synchronized execution. Execution of these commands occurs in a "cycle". Exceptions are noted below. Cycle commands return a Q report response when the command has completed.
-	Config  | "$" commands  | Refers to commands that set the machine configuration, such as xvm=10000. These commands are not accepted when the machine is in cycle, and will return an error if attempted in-cycle. Config commands return an Ack response when they have completed. These commands should not be buffered - i.e. the host should wait until the Ack response is received before sending the next command _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_.   
-	Homing  | G28.1 | Homing cycles are not technically part of the Gcode specification although TinyG has implemented them as a special machine cycle. Currently homing may be called from within a Gcode "file", but this function may be broken out so that it cannot be executed during a cycle.
-	Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
-	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
-	Abort | `^x` | An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
-	G10 L2 | G10 L2 | G10 L2 commands set the offsets for the Gcode coordinate systems G54 - G59. These commands are handled specially. They are accepted as synchronized commands and take effect immediately, but the NVM update to the offsets is deferred until after the cycle is complete. They (do / do not?) return an ACK when this occurs.  
-
-_(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
-
-###Design Considerations
+##Design Considerations
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
 
