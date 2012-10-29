@@ -81,26 +81,25 @@ Every JSON command returns an acknowledgement response (Ack). Acks are returned 
 
 ####Ack format is:
 
-    {"b":<body>,"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
+    {"b":<body>,"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
 
 The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled (ee=0) the body returns null in this format: "b":""
 
 The footer is the same structure as described for the Command.
 
 ### Queue Reports
-Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
+Queue reports are generated asynchronously if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
 
-    {"b":{"qr":{"x":0,"a":24}},"f":"[<b64-footer>,<b64-hashcode>]"}
+    {"b":{"qr":{"lx":0,"pb":24}},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
 
-Where 'x' is the line index and 'a' is the available blocks in the planner buffer
-
+Where 'lx' is the line index and 'pb' is the available blocks in the planner buffer
 
 ### Command Synchronization
-The basic rule is: Only one command should be sent at a time. 
+The basic rule is: **Only one command should be sent at a time.** 
 
-The client should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
+The client should wait for an Ack response before sending the next command - i.e. commands should not be buffered. Given that Cycle commands Ack when they are queued to the planner buffer this mode of operation still supports filling the planner queue.
 
-By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
+By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the planner queue and will not return an Ack until that command has been placed on the queue (or failed to do so). This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Replay and Idempotency, below)
 
 _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
 
@@ -115,10 +114,7 @@ _NB: In keeping with REST thinking, any idempotent write command is considered a
 
 The thought process for deciding which Gcode commands are idempotent, and under what circumstances is to ask "If I sent this command twice would it cause the system to be in a different state than if I only sent it once?"
 
-
-
-
-
+_Need more details of idempotentcy here. Or do we?_
 
 ###Async Commands
 
@@ -126,8 +122,9 @@ The thought process for deciding which Gcode commands are idempotent, and under 
 
 * Cycle Start (`~`) Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
 
-* Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
+* Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a pair of system startup messages - an init message and a ready message.
 
+##Historical Notes
 ##Design Considerations
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
@@ -140,8 +137,6 @@ The thought process for deciding which Gcode commands are idempotent, and under 
 
 1. Use a token based flow control algorithm to manage both input buffer size and planner buffer size. Note that managing input buffer size is _insufficient_ to managing planner buffer size in that the input buffers blocking when space is not available in the planner buffer _would cause a loss of machine control on planing buffer overflow._
 
-
-##Historical Notes
 ###Matt's comments on one way to do this
 Here's one approach, essentially stolen from tried-and-true network 
 protocols: 
