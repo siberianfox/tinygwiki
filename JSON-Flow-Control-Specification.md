@@ -2,7 +2,7 @@
     Revised by: Alden - 10/27/12 - 9:00 EST - started a section on command types
     Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr packet formats`
 
-##Requirements (problem domain)
+#Requirements
 
 Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._ (Edit: because that's awesome. --mikest)
 
@@ -18,7 +18,7 @@ state on corrupt input data
 1. Structure the solution such that it works naturally within [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) constraints (excluding code-on-demand) 
 1. Always maintain control of the machine while streaming. _halt_ & _feedhold_
 
-##Design (solution domain)
+#Design
 
 ##Command Classes
 Commands sent to TinyG fall into classes that have different handling:
