@@ -51,10 +51,11 @@ Unwrapped form presents the command as-is, with no body or footer. Examples:
 
 Wrapped form presents the command in a body and footer wrapper. This form is useful for noisy environments to ensure proper command transfer. The above examples become:
 
-    {"b":{"x":""},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
-    {"b":{"xvm":12000},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
-    {"b":{"gc":"g0 x100"},"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
-
+    {"b":{"x":""},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
+    {"b":{"xvm":12000},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
+    {"b":{"gc":"g0 x100"},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
+    {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>    (actual example of the above)
+ 
 The footer contains a 2 element array of packet flow control information. As it's only useful for machine comms it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
 
 The b64-footer structure looks like:
@@ -66,7 +67,7 @@ The b64-footer structure looks like:
                                  // For commands: number of bytes in body element (between the quotes) 
     } tinyg_packet_footer_t;
 
-The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
+The b64-hashcode checksum is computed as a Java hashcode, modulo 9999 to limit it to 4 digits. (insert reference here).
 
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
