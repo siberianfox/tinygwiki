@@ -70,7 +70,11 @@ The b64-hashcode checksum is computed as a Java hashcode. (insert reference here
 
 
 ### Queue Reports
-Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
+Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
+
+    {"b":{"qr":{"x":0,"a":24}},"f":"[<b64-footer>,<b64-hashcode>]"}
+
+Where 'x' is the line index and 'a' is the available blocks in the planner buffer
 
 
 ### Command Synchronization
