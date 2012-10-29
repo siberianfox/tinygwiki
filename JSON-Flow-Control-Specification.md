@@ -1,6 +1,6 @@
-`Revised by: Estee - 10/26/12 - 12:10 PST
-Revised by: Alden - 10/27/12 - 9:00 EST - started a section on command types
-Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr formats`
+    Revised by: Estee - 10/26/12 - 12:10 PST
+    Revised by: Alden - 10/27/12 - 9:00 EST - started a section on command types
+    Revised by: Alden - 10/29/12 - 8:00 EST - took a crack at revised Ack and Qr formats`
 
 ##Requirements (problem domain)
 
