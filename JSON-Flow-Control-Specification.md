@@ -39,24 +39,44 @@ Additional command Types and some exceptions are noted below:
 
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB). But this only works on my laptop and not on my iMac_
 
+### Command Synchronization
+The basic rule is: Only one command should be sent at a time. 
+
+Each command sent should wait for an Ack response before sending the next command. Commands should not be buffered. Given that many Cycle commands queue to the planner this still allows filling the planner queue.
+
+By following this behavior the client can expect Ack responses to be returned for all commands within 100 milliseconds or less - with the following exception: Cycle commands that queue to the planner will block until there is space in the queue and will not return an Ack until that command can be placed on the queue. This behavior allows the client to handle non-responses in a coherent manner using compensating transactions (See Command Idempotency, below)
+
+_(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
+
+### Command Idempotency
+Idempotency is the behavior that a command sent twice will not change the state of the system - i.e. it has the effect of only sending the command once. Understanding the idempotency of a system enables a set of "compensating transactions" to manage transmission errors and non-response cases.
+
+In TinyG, all GET commands are idempotent. That is - any read operation can be performed multiple times without fear of changing system state.
+
+In TinyG, most write commands are idempotent, but not all (due to Gcode operation), and only if you obey certain rules. Rule #1: Only one command should be sent at a time. If this is true then a wide variety of compensating transactions are possible. 
+
+_NB: In keeping with REST thinking, any idempotent write command is considered a PUT, and non-idempotent write command is considered a POST_
+
+The thought process for deciding which Gcode commands are idempotent, and under what circumstances is to ask "If I sent this command twice would it cause the system to be in a different state than if I only sent it once?"
+
 ##JSON Mode Protocol
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
 
 	Command Type  | Notes
 	-------|-------------------------
-	Cycle | An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
-	Config | An ack is returned when the command has been successfully executed or has failed.
+	Cycle | An ack is returned when the command is successfully accepted - either executed or put on the planner queue. A negative acknowledgement (NAK) may be returned at any time during processing.
+	Config | An ack is returned when the command has been successfully executed or has failed (NAK).
 	Off-Cycle | An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
-	Async | Do not generate Acks. The results of feedhold and cycle start are apparently only by queue reports or status reports. Aborts will send the system through the startup messages.
+	Async | Async commands do not generate Acks. The results of feedhold and cycle start are apparent only by queue reports or status reports. Aborts will send the system through the startup messages.
 
-Ack format is:
+####Ack format is:
 
     {"b":<body>,"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
 
-The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled the body returns null in this format: "b":""
+The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled (ee=0) the body returns null in this format: "b":""
 
-The footer contains a 2 element array of packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
+The footer contains a 2 element array of packet flow control information. As it's only useful for machine comms it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
 
 The b64-footer structure looks like:
 
@@ -69,16 +89,9 @@ The b64-footer structure looks like:
 The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
 
 
+### Queue Reports
+Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
 
-
-
-Config commands return an A when it has either finished execution (in the case of or been placed onto the planner queue (in the case of synchronized commands). See Ack format for details
-* Queue reports (`qr`) may be enabled. If enabled each command in the planner queue will be reported when it has finished execution (completed). See Qr format for details.
-* Echo is disabled automatically if in JSON mode
-
-* In JSON mode there are 2 types of responses: an Ack response and a planner queue report response
-* Ack responses are always returned
-* QConfig commands return an Ack response when they have completed. These commands should not be buffered - i.e. the host should wait until the Ack response is received before sending the next command _(Note: some of this has to do with working around the severe non-volatile memory errata to the xmega family that requires you to shut down interrupts during writes to NVM. This type of operation ensures that no characters are lost during these intervals)_. 
 
 ###Packet format
 All messages sent from TinyG are of the format:
