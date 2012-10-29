@@ -42,6 +42,7 @@ _(Note: To insert that initial TAB for the table (at least on a mac) requires CT
 ##JSON Mode Protocol
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
+
 	Type  | Notes
 	-------|-------------------------
 	Cycle commands | An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
