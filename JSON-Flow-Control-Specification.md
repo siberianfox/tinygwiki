@@ -20,45 +20,50 @@ state on corrupt input data
 
 #Design
 
-##Command Classes
-Most commands sent to TinyG fall into one of two broad classes:
+##Command Types
+Most commands sent to TinyG fall into one of two broad types:
 
-	Class  | Examples    | Notes
+	Type  | Examples    | Notes
 	-------|-------------|-------------------------
 	Cycle  | G0, G1, G2, G3, G20, G21, G90, G91 ... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G0 or G1), but some are not (e.g. G20 or G21). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start). _Note: Whether a cycle command is queued or not, the order-of-arrival is preserved. For example, a G91 to set incremental mode will only affect the current and later Gcode block - it does not affect commands already in the queue._
 	Config  | "$" commands  | Config commands set the machine configuration (e.g. xvm=10000). Config commands are not accepted during a cycle and will return an error if attempted in-cycle.
 
-Additional command classes and some exceptions are noted below:
+Additional command Types and some exceptions are noted below:
 
-	Class  | Examples    | Notes
+	Type  | Examples    | Notes
 	-------|-------------|-------------------------
 	Off-cycle | G28.1 | Some machine commands are not executed in cycle. Homing is the notable example. Currently homing is mapped to G28.1, which makes it appear as a Cycle command. Technically this is not correct. Homing is a "front panel function" that actually has no Gcode equivalent. This function should be broken out so that it cannot occur in a Gcode cycle - and therefore should not be in a Gcode "file".
 	Async | `!`, `~`,`^x` | Feedholds, cycle starts and aborts are asynchronous commands that can arrive at any time (in cycle or out).  See their respective definitions for details.
 	G10s | G10 L2 | G10 commands are "Official" gcode commands that set machine parameters. G10 L2 is the only G10 command implemented in TinyG, and it updates the Gcode coordinate system offsets for the G54 - G59 coordinate systems. In this regard it is redundant with the $G54x=100.... series of commands. Technically the G10s should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they are valid in Gcode files and therefore valid in cycles. G10s are handled specially. They are accepted as Cycle commands and take effect immediately but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
 
-
-
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
 
 ##JSON Mode Protocol
 ### Ack Responses
-Every JSON command returns a ACK response. Ack format is:
+Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
+* Cycle commands: An ack is returned when the command is successfully accepted (either executed or put on the planner queue). A negative acknowledgement (NAK) may be returned at any time during processing.
+* Config commands:
 
-    {"b":<body>,"f":"<b64-footer><space><b64-hashcode>"}<lf>
+Ack format is:
 
-The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled the body returns null in this format: "b":""  
+    {"b":<body>,"f":"[<b64-footer>,<b64-hashcode>]"}<lf>
 
-and returns 
+The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled the body returns null in this format: "b":""
 
-The footer contains packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added after the first base4 block. The checksum is computed as a Java hashcode.
+The footer contains a 2 element array of packet flow control information. As its only useful for machine comms, it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
 
-The structure looks like:
+The b64-footer structure looks like:
 
     typedef struct {
        uint8 protocol_version;   // zero for now
        uint8 status_code;        // success, fail?
        uint8 input_available;    // number of free bytes in tinyG's input buffer. client is free to send up to this many until it has been told otherwise.
     } tinyg_packet_footer_t;
+
+The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
+
+
+
 
 
 Config commands return an A when it has either finished execution (in the case of or been placed onto the planner queue (in the case of synchronized commands). See Ack format for details
