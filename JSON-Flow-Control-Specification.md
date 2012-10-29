@@ -78,13 +78,13 @@ The footer contains a 2 element array of packet flow control information. As it'
 The b64-footer structure looks like:
 
     typedef struct {
-       uint8 protocol_version;   // zero for now
-       uint8 status_code;        // success, fail?
-       uint8 input_available;    // number of free bytes in tinyG's input buffer.
+       uint8 protocol_version;   // one for now
+       uint8 status_code;        // 0=OK (success), anything else is an exception (positive integers)
+       uint8 input_available;    // For responses: number of free bytes in tinyG's input buffer
+                                 // For commands: number of bytes in body element (between the quotes) 
     } tinyg_packet_footer_t;
 
 The b64-hashcode checksum is computed as a Java hashcode. (insert reference here).
-
 
 ### Queue Reports
 Queue reports are generated asynchronously to command processing if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
