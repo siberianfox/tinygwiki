@@ -34,11 +34,9 @@ Additional command classes and some exceptions are noted below:
 	-------|-------------|-------------------------
 	Off-cycle | G28.1 | Some machine commands are not executed in cycle. Homing is the notable example. Currently homing is mapped to G28.1, which makes it appear as a Cycle command. Technically this is not correct. Homing is a "front panel function" that actually has no Gcode equivalent. This function should be broken out so that it cannot occur in a Gcode cycle - and therefore should not be in a Gcode "file".
 	Async | `!`, `~`,`^x` | Feedholds, cycle starts and aborts are asynchronous commands that can arrive at any time (in cycle or out).  See their respective definitions for details.
-	G10s | G10 L2 | G10 L2 commands are "Official" gcode commands that set the offsets for the Gcode coordinate systems G54 - G59. Technically these should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they may be found in cycles. G10s are therefore handled specially. They are accepted as Cycle commands and take effect immediately, but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
+	G10s | G10 L2 | G10 commands are "Official" gcode commands that set machine parameters. G10 L2 is the only G10 command implemented in TinyG, and it updates the Gcode coordinate system offsets for the G54 - G59 coordinate systems. In this regard it is redundant with the $G54x=100.... series of commands. Technically the G10s should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they are valid in Gcode files and therefore valid in cycles. G10s are handled specially. They are accepted as Cycle commands and take effect immediately but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
 
-	Async Feedhold | `!` | Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
-	Cycle Start | `~` | Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
-	Abort | `^x` | An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
+
 
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB)_
 
@@ -80,6 +78,13 @@ The `lix` element is the line index. It is incremented for every command that is
 
 ###Packet format
 
+###Async Commands
+
+* Async Feedhold (`!`) Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
+
+* Cycle Start (`~`) Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
+
+* Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a repeat of system startup messages.
 
 ##Design Considerations
 
