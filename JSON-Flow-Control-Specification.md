@@ -23,14 +23,14 @@ state on corrupt input data
 ##Command Classes
 Commands sent to TinyG fall into classes that have different handling:
 
-	Class  | Commands    | Notes
+	Class  | Examples    | Notes
 	-------|-------------|-------------------------
-	Cycle  | G0, G1, G2... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G1), but some are not (e.g. G21) (see _Note_). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start). _Note: Whether a cycle command is queued or not, the order-of-arrival is preserved. For example, a G91 to set incremental mode will only affect Gcode the current and later Gcode block - it does not affect commands already in the queue._
+	Cycle  | G0, G1, G2, G3, G4, G20, G21, G90, G91... | Cycle commands are executed in a Gcode machine cycle. Most cycle commands are queued to the planner buffer (e.g. G1), but some are not (e.g. G21) (see _Note_). Cycle commands are accepted at any time during machine operation (see Cycle Start and Auto-Cycle Start). _Note: Whether a cycle command is queued or not, the order-of-arrival is preserved. For example, a G91 to set incremental mode will only affect Gcode the current and later Gcode block - it does not affect commands already in the queue._
 	Config  | "$" commands  | Config commands set the machine configuration (e.g. xvm=10000). Config commands are not accepted during a cycle and will return an error if attempted in-cycle.
 
 Additional command classes and some exceptions are noted below:
 
-	Class  | Commands    | Notes
+	Class  | Examples    | Notes
 	-------|-------------|-------------------------
 	Off-cycle | G28.1 | Some machine commands are not executed in cycle. Homing is the notable example. Currently homing is mapped to G28.1, which makes it appear as a Cycle command. Technically this is not correct. Homing is a "front panel function" that actually has no Gcode equivalent. This function should be broken out so that it cannot occur in a Gcode cycle - and therefore should not be in a Gcode "file".
 	Async | `!`, `~`,`^x` | Feedholds, cycle starts and aborts are asynchronous commands that can arrive at any time (in cycle or out).  See their respective definitions for details.
