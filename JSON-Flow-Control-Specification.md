@@ -143,7 +143,14 @@ _Need more details of idempotentcy here. Or do we?_
 
 * Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a pair of system startup messages - an init message and a ready message.
 
-##Historical Notes
+
+
+
+
+
+
+
+#Historical Notes
 ##Design Considerations
 
 1. Do not use XON/XOFF. It's not uniformly supported and is too dependent on host timing issues. Instead use a token based flow control algorithm.
