@@ -58,17 +58,12 @@ Wrapped form presents the command in a body and footer wrapper. This form is use
  
 The footer contains a 4 element array of packet flow control information as per the following:
 
-The b64-footer structure looks like:
-
-    typedef struct {
-       uint8 protocol_version;   // one for now
-       uint8 status_code;        // 0=OK (success), anything else is an exception (positive integers)
-       uint8 input_available;    // For responses: number of free bytes in tinyG's input buffer
-                                 // For commands: number of bytes in body element (between the quotes) 
-       uint32 checksum;          // Java hashcode truncated to 4 digits
-    } tinyg_packet_footer_t;
-
-The checksum is computed as a Java hashcode, modulo 9999 to limit it to 4 digits. (insert reference here).
+	Element  | Notes
+	-------|-------------------------
+	<protocol_version> | Initially set to 1. Will increment as protocol changes are made that would affect UI clients
+	<status_code> | 0 is OK. ALl others are exceptions. See tinyg.h for details
+	<input_available> | Indicates how many characters are available in the input buffer. Do not use this for stuffing the queue, however - See Command Synchronization. (Technically this element is superfluous in this incarnation, but may not be for more advanced transports) 
+	<checksum> | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode()) from which a modulo 9999 is taken to fix the length to 4 characters. The modulus result is left zero padded to ensure all results are 4 digits. See compute_checksum() in util.c for C code.
 
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
