@@ -99,9 +99,9 @@ Where 'lx' is the line index and 'pb' is the available blocks in the planner buf
 Status reports may be enabled to report machine position and state during movement. These are designed for display and feedback only and should not be used for flow control purposes.
 
 ### Startup Messages
-There are 3 startup messages:
+There are 3 startup messages.
 
-Loading configs from EEPROM is the normal initialization message. A status code of 15 means the system is initializing and is not ready for use. Do not send any commands yet.
+Loading configs from EEPROM is the normal initialization message. A status code of 15 (Initializing) means the system is initializing and is not ready for use. Do not send any commands yet.
 
     {"b":{"fv":0.950,"fb":343.020,"msg":"Loading configs from EEPROM"},"f":[1,15,255,3594]}
 
@@ -109,7 +109,7 @@ Initializing configs from a profile occurs if EEPROM is not initialized, is dete
 
     {"b":{"fv":0.950,"fb":343.020,"msg":"Initializing configs to Shapeoko 375mm profile"},"f":[1,15,255,9350]}
 
-System ready is sent following either of the above messages. A status code of OK (0) measn it's OK to send commands
+System ready is sent following either of the above messages. Status code 0 (OK) means it's OK to send commands.
 
     {"b":{"fv":0.950,"fb":343.020,"msg":"SYSTEM READY"},"f":[1,0,255,6586]}
 
