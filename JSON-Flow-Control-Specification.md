@@ -95,6 +95,9 @@ Queue reports are generated asynchronously if queue reports are enabled. If enab
 
 Where 'lx' is the line index and 'pb' is the available blocks in the planner buffer
 
+### Status Reports
+Status reports may be enabled to report machine position and state during movement. These are designed for display and feedback only and should not be used for flow control purposes.
+
 ### Command Synchronization
 The basic rule is: **Only one command should be sent at a time.** 
 
