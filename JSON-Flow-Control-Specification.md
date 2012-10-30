@@ -65,7 +65,7 @@ The footer contains a 4 element array of packet flow control information as per 
 	protocol_version | Initially set to 1. This number will be incremented as protocol changes are made that would affect UI clients
 	status_code | 0 is OK. All others are exceptions. See tinyg.h for details
 	input_available | Indicates how many characters are available in the input buffer. Do not use this for stuffing the queue, however - See Command Synchronization. (Technically this element is superfluous in this incarnation, but may not be for more advanced transports) 
-	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode() ) from which a modulo 9999 is taken to fix the length to 4 characters. The modulus result is left zero padded to ensure all results are 4 digits. See compute_checksum() in util.c for C code.
+	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to fix the length to 4 characters. The modulus result is left zero padded to ensure all results are 4 digits. See compute_checksum() in util.c for C code.
 
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
