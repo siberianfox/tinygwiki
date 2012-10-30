@@ -51,10 +51,12 @@ Unwrapped form presents the command as-is, with no body or footer. Examples:
 
 Wrapped form presents the command in a body and footer wrapper. This form is useful for noisy environments to ensure proper command transfer. The above examples become:
 
-    {"b":{"x":""},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
-    {"b":{"xvm":12000},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
-    {"b":{"gc":"g0 x100"},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
-    {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>    (actual example of the above)
+    {"b":{"x":""},"f":[1,0,255,1234]}<lf>
+    {"b":{"xvm":12000},"f":[1,0,255,1234]}<lf>
+    {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>
+    
+    where  "f":[1,0,255,1234]  
+       is  "f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}
  
 The footer contains a 4 element array of packet flow control information as per the following:
 
