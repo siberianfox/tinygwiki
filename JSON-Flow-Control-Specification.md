@@ -103,7 +103,7 @@ There are 3 startup messages:
 
 Loading configs from EEPROM is the normal initialization message. A status code of 15 means the system is initializing and is not ready for use. Do not send any commands yet.
 
-   {"b":{"fv":0.950,"fb":343.020,"msg":"Loading configs from EEPROM"},"f":[1,15,255,3594]}
+    {"b":{"fv":0.950,"fb":343.020,"msg":"Loading configs from EEPROM"},"f":[1,15,255,3594]}
 
 Initializing configs from a profile occurs if EEPROM is not initialized, is detected to be corrupted, or if a new firmware build is encountered. Status code is 15, so don't send commands.
 
@@ -111,7 +111,7 @@ Initializing configs from a profile occurs if EEPROM is not initialized, is dete
 
 System ready is sent following either of the above messages. A status code of OK (0) measn it's OK to send commands
 
-   {"b":{"fv":0.950,"fb":343.020,"msg":"SYSTEM READY"},"f":[1,0,255,6586]}
+    {"b":{"fv":0.950,"fb":343.020,"msg":"SYSTEM READY"},"f":[1,0,255,6586]}
 
 ### Command Synchronization
 The basic rule is: **Only one command should be sent at a time.** 
