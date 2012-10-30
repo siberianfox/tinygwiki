@@ -34,7 +34,7 @@ Additional command Types and some exceptions are noted below:
 	-------|-------------|-------------------------
 	Off-cycle | G28.1 | Some machine commands are not executed in cycle. Homing is the notable example. Currently homing is mapped to G28.1, which makes it appear as a Cycle command. Technically this is not correct. Homing is a "front panel function" that actually has no Gcode equivalent. This function should be broken out so that it cannot occur in a Gcode cycle - and therefore should not be in a Gcode "file".
 	Async | `!`, `~`,`^x` | Feedholds, cycle starts and aborts are asynchronous commands that can arrive at any time (in cycle or out).  See their respective definitions for details.
-	Startup | RESET,`^x` | System startup will return two startup responses. (1) the initialization response, and (2) the system ready response. See their respective definitions for details.
+	Startup | RESET,`^x` | System startup will return two startup responses. (1) the initialization response, and (2) the system ready response. See Startup Messages for details.
 	G10s | G10 L2 | G10 commands are "Official" gcode commands that set machine parameters. G10 L2 is the only G10 command implemented in TinyG, and it updates the Gcode coordinate system offsets for the G54 - G59 coordinate systems. In this regard it is redundant with the $G54x=100.... series of commands. Technically the G10s should be Config commands that cannot be executed while in cycle, but Gcode defines these commands and they are valid in Gcode files and therefore valid in cycles. G10s are handled specially. They are accepted as Cycle commands and take effect immediately but the Non-Volatile-Memory (NVM) update is deferred until after the cycle is complete. The update is silent and does not return an ACK when it occurs.
 
 _(Note: To insert that initial TAB for the table (at least on a mac) requires CTRL OPTION TAB). But this only works on my laptop and not on my iMac_
@@ -97,6 +97,21 @@ Where 'lx' is the line index and 'pb' is the available blocks in the planner buf
 
 ### Status Reports
 Status reports may be enabled to report machine position and state during movement. These are designed for display and feedback only and should not be used for flow control purposes.
+
+### Startup Messages
+There are 3 startup messages:
+
+Loading configs from EEPROM is the normal initialization message. A status code of 15 means the system is initializing and is not ready for use. Do not send any commands yet.
+
+   {"b":{"fv":0.950,"fb":343.020,"msg":"Loading configs from EEPROM"},"f":[1,15,255,3594]}
+
+Initializing configs from a profile occurs if EEPROM is not initialized, is detected to be corrupted, or if a new firmware build is encountered. Status code is 15, so don't send commands.
+
+    {"b":{"fv":0.950,"fb":343.020,"msg":"Initializing configs to Shapeoko 375mm profile"},"f":[1,15,255,9350]}
+
+System ready is sent following either of the above messages. A status code of OK (0) measn it's OK to send commands
+
+   {"b":{"fv":0.950,"fb":343.020,"msg":"SYSTEM READY"},"f":[1,0,255,6586]}
 
 ### Command Synchronization
 The basic rule is: **Only one command should be sent at a time.** 
