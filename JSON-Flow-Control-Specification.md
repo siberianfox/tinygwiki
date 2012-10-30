@@ -56,7 +56,7 @@ Wrapped form presents the command in a body and footer wrapper. This form is use
     {"b":{"gc":"g0 x100"},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
     {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>    (actual example of the above)
  
-The footer contains a 2 element array of packet flow control information. As it's only useful for machine comms it doesn't need to be expanded out into plain text, and as such is a base 64 encoded structure. A client can pretty print it if that's useful. As the checksum can be part of the packet footer (it can't include itself) its added as the second element after the first base64 block. 
+The footer contains a 4 element array of packet flow control information as per the following:
 
 The b64-footer structure looks like:
 
@@ -65,9 +65,10 @@ The b64-footer structure looks like:
        uint8 status_code;        // 0=OK (success), anything else is an exception (positive integers)
        uint8 input_available;    // For responses: number of free bytes in tinyG's input buffer
                                  // For commands: number of bytes in body element (between the quotes) 
+       uint32 checksum;          // Java hashcode truncated to 4 digits
     } tinyg_packet_footer_t;
 
-The b64-hashcode checksum is computed as a Java hashcode, modulo 9999 to limit it to 4 digits. (insert reference here).
+The checksum is computed as a Java hashcode, modulo 9999 to limit it to 4 digits. (insert reference here).
 
 ### Ack Responses
 Every JSON command returns an acknowledgement response (Ack). Acks are returned according to the command type.
