@@ -75,7 +75,7 @@ Every JSON command returns an acknowledgement response (Ack). Acks are returned 
 
 	Command Type  | Notes
 	-------|-------------------------
-	Cycle | An ack is returned when the command is successfully accepted - either executed or put on the planner queue. A negative acknowledgement (NAK) may be returned at any time during processing.
+	Cycle | An ack is returned when the command is successfully accepted - either executed or put on the planner queue. A negative acknowledgement (NAK) is an Ack with a non-zero status code, and may be returned at any time during processing.
 	Config | An ack is returned when the command has been successfully executed or has failed (NAK).
 	Off-Cycle | An ack is returned when the command is accepted for processing. Off cycle commands may also generate queue reports and status reports depending on the command and configuration settings.
 	Async | Async commands do not generate Acks. The results of feedhold and cycle start are apparent only by queue reports or status reports. Aborts will send the system through the startup messages.
