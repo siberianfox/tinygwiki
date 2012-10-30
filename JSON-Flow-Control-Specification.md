@@ -79,7 +79,7 @@ Every JSON command returns an acknowledgement response (Ack). Acks are returned 
 
 ####Ack format is:
 
-    {"b":<body>,"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
+    {"b":<body>,"f":[1,0,255,1234]}<lf>
 
 The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled (ee=0) the body returns null in this format: "b":""
 
@@ -88,7 +88,7 @@ The footer is the same structure as described for the Command.
 ### Queue Reports
 Queue reports are generated asynchronously if queue reports are enabled. If enabled, each command in the planner queue will be reported when it has finished execution (completed). Format is:
 
-    {"b":{"qr":{"lx":0,"pb":24}},"f":[<protocol_version>,<status_code>,<input_available>,<checksum>]}<lf>
+    {"b":{"qr":{"lx":0,"pb":24}},"f":[1,0,255,1234]}<lf>
 
 Where 'lx' is the line index and 'pb' is the available blocks in the planner buffer
 
