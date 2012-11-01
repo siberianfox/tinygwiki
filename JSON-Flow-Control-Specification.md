@@ -111,7 +111,15 @@ System ready is sent following either of the above messages. Status code 0 (OK) 
 
     {"b":{"fv":0.950,"fb":343.020,"msg":"SYSTEM READY"},"f":[1,0,255,6586]}
 
-### Command Synchronization
+###Async Commands
+
+* Async Feedhold (`!`) Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
+
+* Cycle Start (`~`) Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
+
+* Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a pair of system startup messages - an init message and a ready message.
+
+## Command Synchronization
 The basic rule is: **Only one command should be sent at a time.** 
 
 The client should wait for an Ack response before sending the next command - i.e. commands should not be buffered. Given that Cycle commands Ack when they are queued to the planner buffer this mode of operation still supports filling the planner queue.
@@ -131,17 +139,7 @@ _NB: In keeping with REST thinking, any idempotent write command is considered a
 
 The thought process for deciding which Gcode commands are idempotent, and under what circumstances is to ask "If I sent this command twice would it cause the system to be in a different state than if I only sent it once?"
 
-_Need more details of idempotentcy here. Or do we?_
-
-###Async Commands
-
-* Async Feedhold (`!`) Feedholds are accepted at any point in a cycle and ere executed immediately (i.e. not synchronized to the planning queue). The response to a feedhold will be a Q report for the move that was halted.
-
-* Cycle Start (`~`) Cycle start begins a cycle or resumes a cycle from a feedhold. There is no response to a cycle start. Note that cycle starts may also be generated automatically by the system under certain circumstances - i.e. when the planner begins to fill it will automatically start a cycle at some point unless it has been already started by an explicit cycle start command. 
-
-* Abort (`^x`) An abort performs a software reset of the machine. All position and state are lost. Response to a abort is a pair of system startup messages - an init message and a ready message.
-
-
+_Need more details of idempotency here. Or perhaps we save this for later_
 
 
 
