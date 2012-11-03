@@ -82,7 +82,7 @@ Every JSON command returns an acknowledgement response (Ack). Acks are returned 
 
     {"b":<body>,"f":[1,0,255,1234]}<lf>
 
-The body echos the command that was sent, in normalized form (all caps, no whitespace). If echo is disabled (ee=0) the body returns null in this format: "b":""
+The body echos the command that was sent, in normalized form (all lowercase, no whitespace).
 
 The footer is the same structure as described for the Command.
 
