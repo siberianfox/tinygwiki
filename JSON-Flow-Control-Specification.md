@@ -2,7 +2,7 @@
     Revised by: Estee - 10/26/12 - 12:10 AM PST
     Revised by: Alden - 10/27/12 - 9:00 PM EST - started a section on command types
     Revised by: Alden - 10/29/12 - 6:36 PM EST - took a crack at revised Ack and Qr packet formats before the power went out
-
+    Revised by: Alden - 11/26/12 - 8:36 AM EST - added section for RX buffer Ack protocol
 #Requirements
 
 Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._ (Edit: because that's awesome. --mikest)
@@ -144,8 +144,23 @@ _Need more details of idempotency here. Or perhaps we save this for later_
 ##RX Buffer Ack Protocol
 ![RX Buffer Ack Protocol](https://dl.dropbox.com/u/45988398/tg%20-%20AckProtocol%20-%20121125.png)
 
-Please note: The example shows 'a', but the code in dev uses 'k'
+The diagram illustrates an example state machine and message flow for the RX ack protocol. This protocol avoids planner block starvation by keeping the TinyG RX buffer as full as possible at all times. 
 
+How it works: The host keeps track of the space (bytes) available in the RX buffer and does not transmit if the next line of text won't fit in the buffer. The host initializes the buf_char count to 250 (OK, it could be 254). It then subtracts the length of the text line (including the trailing linefeed) each time it sends a line of text. When TinyG pulls a line of text from the buffer it immediately returns the length of that line in an ack message in this format:
+
+`{"k":47}`
+
+(Please note: The diagram shows "a", but the code in dev uses "k")
+
+If the host loses sync in can request the buffer free space by issuing:
+
+`{"k":""}`
+
+In this case the returned value is the absolute number of free bytes, not the number removed.
+
+If the host transmits too many bytes and causes a buffer full error TinyG will return:
+
+`{"k":-1}`
 
 
 #Historical Notes
