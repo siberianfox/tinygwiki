@@ -148,7 +148,7 @@ The diagram illustrates an example state machine and message flow for the RX ack
 
 How it works: The host keeps track of the space (bytes) available in the RX buffer and does not transmit if the next line of text won't fit in the buffer. The host initializes the buf_char count to 250 (OK, it could be 254). It then subtracts the length of the text line (including the trailing linefeed) each time it sends a line of text. When TinyG pulls a line of text from the buffer it immediately returns the length of that line in an ack message in this format:
 
-`{"k":47}`
+`{"k":42}`
 
 (Please note: The diagram shows "a", but the code in dev uses "k")
 
