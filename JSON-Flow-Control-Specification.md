@@ -141,8 +141,10 @@ The thought process for deciding which Gcode commands are idempotent, and under 
 
 _Need more details of idempotency here. Or perhaps we save this for later_
 
+##RX Buffer Ack Protocol
+!(RX Buffer Ack Protocol)[https://dl.dropbox.com/u/45988398/tg%20-%20AckProtocol%20-%20121125.png]
 
-
+Please note: The example shows 'a', but the code in dev uses 'k'
 
 
 
