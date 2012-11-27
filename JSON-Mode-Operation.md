@@ -19,10 +19,9 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 	value | A value is the number, string, or true/false setting for a name. Values can also be NULL, which has special meaning in TinyG. A name and a value is a name:value pair aka NV pair.
 	group | A group is a collection of one or more NV pairs. A group can also be called a **resource** in the REST way of speaking.
 	configs | Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions. Configs should not be changed while in a machining cycle. Xfr is an example of a config. So is 1po.
- 	gcode model | The gcode model is the set of dynamic parameters that are used and affected by Gcode execution. The current position of the X axis is an example of a gcode model value. Note that X position is not part of the X config group.
-
-There are two main resource models: the **static model** which has all the settings and parameters, and the **dynamic model** which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
-
+	gcode values | Gcode values are the dynamic parameters that are used and affected by Gcode execution. The current position of the X axis is an example of a gcode value. 
+	config model (static model) | The static model is one of two main resource models in the system. It holds all the configs and should not be changed during Gcode execution.
+	Gcode model (dynamic model) | The dynamic model is the other one. It holds all the values that rae set up and used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
 
 ## JSON Overview & TinyG Subset
 
