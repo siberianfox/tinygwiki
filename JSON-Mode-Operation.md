@@ -28,6 +28,7 @@ This table illustrates general use of JSON cmmands. Don't worry if you don;t und
 	---------|--------------|-------------
 	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1234]}<nl>| Get X axis maximum velocity
 	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,11,1234]}<nl>| Set X axis maximum velocity to 15000
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,11,1234]}<nl>| Alternate form to set X axis maximum velocity to 15000
 
 #Details
 ## JSON Overview & TinyG Subset
