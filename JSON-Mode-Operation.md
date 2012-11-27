@@ -60,7 +60,7 @@ JSON sets the level of verbosity in JSON responses. It is set by {"je":N} where 
 
 ### Names and Tokens 
 
-JSON names are short mnemonic tokens that can be 1 - 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Both friendly names and tokens are case insensitive and cannot contain whitespace or the separator characters: quote("), comma (,), colon (:), equal (=), or pipe(|). Requests may contain either friendly names or tokens,&nbsp;but responses will always be in token form. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details TinyG Configuration] for a complete list of the tokens and friendly-names used for settings. Some examples are provided below: 
+JSON names are short mnemonic tokens that can be 1 to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Tokens are case insensitive and can only contian alphanumeric characters. See [TinyG Configuration](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details) for a complete list of the tokens used for settings. Some examples are provided below: 
 
 JSON name strings and the $ parameters are identical. 
 
