@@ -71,7 +71,7 @@ JSON name strings and the $ parameters are identical. Generally speaking, JSON r
 	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
 	home | $home | {"home":""} | Homing state
 
-##JSON Request Formats
+##JSON Request and Response Formats
 
 JSON requests are used to perform the following actions: 
 
@@ -82,15 +82,52 @@ JSON requests are used to perform the following actions:
 * Submit a block (line) of Gcode to perform any supported Gcode command 
 * Special functions and actions;
  * Request a status report 
-  * Set status report contents 
-  * Run a self test 
-  * Reset parameters to defaults
+ * Set status report contents 
+ * Run a self test 
+ * Reset parameters to defaults
 
-This is explained in the next sections. 
+JSON responses are in the following general form.
+##JSON Mode Protocol
+### Commands
+Commands in JSON mode are sent as JSON packets which may unwrapped or wrapped.
+
+Unwrapped form presents the command as-is, with no body or footer. Examples:
+
+    {"x":""}<lf>          get the X resource
+    {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
+    {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
+
+Wrapped form presents the command in a body and footer wrapper. This form is useful for noisy environments to ensure proper command transfer. The above examples become:
+
+    {"b":{"x":""},"f":[1,0,255,1234]}<lf>
+    {"b":{"xvm":12000},"f":[1,0,255,1234]}<lf>
+    {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>
+    
+    where  "f":[1,0,255,1234]  
+       is  "f":[<protocol_version>, <status_code>, <input_available>, <checksum>]
+ 
+The footer contains a 4 element array of packet flow control information as per the following:
+
+	Element  | Notes
+	-------|-------------------------
+	protocol_version | Initially set to 1. This number will be incremented as protocol changes are made that would affect UI clients
+	status_code | 0 is OK. All others are exceptions. See tinyg.h for details
+	input_available | Indicates how many characters are available in the input buffer. Do not use this for stuffing the queue, however - See Command Synchronization. (Technically this element is superfluous in this incarnation, but may not be for more advanced transports) 
+	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to fix the length to 4 characters. The modulus result is left zero padded to ensure all results are 4 digits. See compute_checksum() in util.c for C code.
+
+
+
+	Token | as Text | as JSON | Description
+	------|---------|---------|--------------
+	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
+	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
+	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
+	home | $home | {"home":""} | Homing state
+
 
 ###Reading Configuration Parameters (GET)
 
-To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are:<br> 
+To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
 {| width="1200" border="1" cellpadding="1" cellspacing="1"
 |-
@@ -98,6 +135,14 @@ To get a parameter pass an object with a null value. The value is returned in th
 | Response 
 | Comments
 |-
+	Request | Response | Description
+	------|---------|---------|--------------
+	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
+	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
+	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
+	home | $home | {"home":""} | Homing state
+
+
 | {"xfr":""} 
 | {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
 | return x max feed rate
