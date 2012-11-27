@@ -2,13 +2,13 @@
 
 **NOTE: THIS PAGE DESCRIBES JSON HANDLING IN RELEASE 0.95 AND LATER. CURRENTLY THIS CODE IS ONLY IN DEV AND EDGE BRANCHES> IF YOU WANT TO EXPERIMENT WE RECOMMEND USING THE EDGE BRANCH**
 
-''For documentation on JSON in 0.93 and 0.94 see ''[[Projects:TinyG-Communications|''TinyG-JSON-deprecated'']] 
+For documentation on JSON in 0.93 and 0.94 see ''[[Projects:TinyG-Communications|''TinyG-JSON-deprecated'']] 
 
 <br> TinyG can use JavaScript Object Notation (JSON) as an exchange format for commands and responses. Using JSON dramatically simplifies writing upper-level consoles in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. [Almost] All commands are also available in plaion old text mode as well. The ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable. <br> 
 
-== General  ==
+## General
 
-=== JSON Overview &amp; TinyG Subset&nbsp;  ===
+### JSON Overview & TinyG Subset
 
 The JSON language definition is [http://json.org/ here]. A handy validator can be found [http://jsonlint.com/ here]. <br> TinyG implements a subset of JSON with the following limitations: 
 
