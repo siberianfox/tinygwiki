@@ -12,8 +12,8 @@ The full JSON language definition is [here](http://json.org). A handy validator 
 
 TinyG implements a subset of JSON with the following limitations: 
 
-    *Only supports 7 bit ASCII characters 
-    *Does not support hexadecimal numbers or other non-decimals
+* Only supports 7 bit ASCII characters 
+* Does not support hexadecimal numbers or other non-decimals
   *Name strings are case-insensitive (for tokenization purposes) 
   *Names cannot be more than 24 characters (settable in code) 
   *String values cannot be more than 64 characters in length (settable in code) 
