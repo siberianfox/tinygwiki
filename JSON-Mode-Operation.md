@@ -6,11 +6,9 @@
 
 TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
-More importantly, using JSON allows the internals of the system to be exposed as [RESTful Resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques.
+More importantly, using JSON allows the internals of the system to be exposed as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP.
 
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
-
-
 
 ### JSON Overview & TinyG Subset
 
@@ -21,12 +19,12 @@ TinyG implements a subset of JSON with the following limitations:
 * Only supports 7 bit ASCII characters 
 * Does not support hexadecimal numbers or other non-decimals
 * Name strings are case-insensitive (for tokenization purposes) 
-* Names cannot be more than 24 characters (settable in code) 
+* Names cannot be more than 12 characters (settable in code) 
 * String values cannot be more than 64 characters in length (settable in code) 
 * Multi-valued objects (resources) cannot contain more than 20 name/value pairs (settable in code) 
 * Objects cannot exceed 255 characters in length total 
-* Minimal object nesting is supported (2 levels for JSON objects, + 2 more to accommodate the format of the response headers)<br> 
-* All JSON input and output is on a single text line. There is only one &lt;CR&gt;, it's at the end of the line (broken lines are not supported)
+* Only limited object nesting is supported (2 levels)
+* All JSON input and output is on a single text line. There is only one <CR>, it's at the end of the line (broken lines are not supported)
 
 === Text Mode and JSON Mode  ===
 
