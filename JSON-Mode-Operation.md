@@ -1,7 +1,5 @@
-
-[[Projects:TinyG|[Back to TinyG main page]]]<br> [[Projects:TinyG-Developer-Info|[Back to TinyG developer info page]]]<br> [[Projects:TinyG-Communications|[Back to TinyG communications page]]]<br> 
-
-'''''NOTE: THIS PAGE DESCRIBES JSON HANDLING IN RELEASE 0.95 AND LATER ('''''Updated 9/7/12) 
+(last updated 9/7/12 - ash) 
+** NOTE: THIS PAGE DESCRIBES JSON HANDLING IN RELEASE 0.95 AND LATER. CURRENTLY THIS CODE IS ONLY IN DEV AND EDGE BRANCHES> IF YOU WANT TO EXPERIMENT WE RECOMMEND USING THE EDGE BRANCH**
 
 ''For documentation on JSON in 0.93 and 0.94 see ''[[Projects:TinyG-Communications|''TinyG-JSON-deprecated'']] 
 
