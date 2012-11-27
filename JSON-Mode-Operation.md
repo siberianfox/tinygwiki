@@ -18,6 +18,7 @@ TinyG implements a subset of JSON with the following limitations:
 
 * Only supports 7 bit ASCII characters 
 * Does not support hexadecimal numbers or other non-decimals
+* Arrays are returned but at the current time are not accepted as input
 * Name strings are case-insensitive (for tokenization purposes) 
 * Names cannot be more than 12 characters (settable in code) 
 * String values cannot be more than 64 characters in length (settable in code) 
@@ -32,7 +33,7 @@ TinyG can operate in either text mode (command line mode) or JSON mode. In text 
 
 In JSON mode TinyG expects well structured JSON (see the [JSON validator](http://jsonlint.com) if you have any doubt). It returns well-structured JSON wrapped in a response header, which is described below. In JSON mode it usually makes sense to disable character echo by sending {"ee":"0"}.&nbsp;JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. The method (verb) for the command is implied by convention and is not present in the object itself. Most JSON objects only contain a single request but multiple request objects in a JSON line is supported - up the the limits mentioned above.<br> 
 
-=== Selecting Text Mode or JSON Mode&nbsp;  ===
+### Selecting Text Mode or JSON Mode
 
 TinyG starts up in either JSON or text mode depending on the setting of $ej parameter (enable_json). Set $ej=0 for text mode, $ej=1 for JSON. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set)<br>JSON operation will also be invoked by sending any line starting with an opening curly with no leading whitespace. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $,&nbsp;? or 'h' is received, which reverts it back to text mode. Note that Gcode commands entered without JSON wrapping will not return the system to text mode - responses will still come back wrapped in JSON format.&nbsp; <br> 
 
