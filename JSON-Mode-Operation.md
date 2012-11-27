@@ -64,9 +64,6 @@ JSON names are short mnemonic tokens that can be 1 to 4 characters in length. Ax
 
 JSON name strings and the $ parameters are identical. 
 
-
-{| width="600" border="1" cellpadding="1" cellspacing="1"
-|-
 | Token 
 | Name
 |-
