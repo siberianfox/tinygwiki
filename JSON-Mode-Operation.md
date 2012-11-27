@@ -6,7 +6,7 @@
 
 TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
-More importantly, using JSON allows the internals of the system to be exposed as (RESTful Resources)[http://en.wikipedia.org/wiki/Representational_state_transfer], which makes the embedded system much easier to manipulate using modern programming techniques.
+More importantly, using JSON allows the internals of the system to be exposed as [RESTful Resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques.
 
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
 
