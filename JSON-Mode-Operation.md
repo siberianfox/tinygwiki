@@ -6,7 +6,9 @@
 
 TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
-More importantly, using JSON allows the internals of the system to be exposed as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP.
+More importantly, using JSON allows the internals of the system to be exposed as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
+
+There are two main resource models: the static model which has all the settings and parameters, and the dynamic model which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
 
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
 
@@ -37,9 +39,7 @@ In JSON mode TinyG expects well structured JSON (see the [JSON validator](http:/
 
 TinyG starts up in either JSON or text mode depending on the setting of $ej parameter (enable_json). Set $ej=0 for text mode, $ej=1 for JSON. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set)<br>JSON operation will also be invoked by sending any line starting with an opening curly with no leading whitespace. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $,&nbsp;? or 'h' is received, which reverts it back to text mode. Note that Gcode commands entered without JSON wrapping will not return the system to text mode - responses will still come back wrapped in JSON format.&nbsp; <br> 
 
-=== Is this REST or not?  ===
 
-All this JSON stuff is an attempt at a RESTful interface, albeit not one based on HTTP. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. There are two main resource models: the static model which has all the settings and parameters, and the dynamic model which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
 
 === Names and Tokens  ===
 
