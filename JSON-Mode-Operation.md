@@ -6,13 +6,14 @@
 
 TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
-More importantly, using JSON allows the internals of the system to be exposed as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
-
-There are two main resource models: the static model which has all the settings and parameters, and the dynamic model which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
-
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
 
-### JSON Overview & TinyG Subset
+### Is this RESTful?
+Using JSON facilitates exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
+
+There are two main resource models: the **static model** which has all the settings and parameters, and the **dynamic model** which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
+
+## JSON Overview & TinyG Subset
 
 The full JSON language definition is [here](http://json.org). A handy validator can be found [here](http://jsonlint.com).
 
@@ -39,9 +40,7 @@ In JSON mode TinyG expects well structured JSON (see the [JSON validator](http:/
 
 TinyG starts up in either JSON or text mode depending on the setting of $ej parameter (enable_json). Set $ej=0 for text mode, $ej=1 for JSON. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set)<br>JSON operation will also be invoked by sending any line starting with an opening curly with no leading whitespace. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $,&nbsp;? or 'h' is received, which reverts it back to text mode. Note that Gcode commands entered without JSON wrapping will not return the system to text mode - responses will still come back wrapped in JSON format.&nbsp; <br> 
 
-
-
-=== Names and Tokens  ===
+### Names and Tokens 
 
 TinyG accepts either friendly names or short mnemonic tokens as input. Friendly names (names) are strings up to 24 characters. Tokens are shorthand for the name and can be up to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Both friendly names and tokens are case insensitive and cannot contain whitespace or the separator characters: quote("), comma (,), colon (:), equal (=), or pipe(|). Requests may contain either friendly names or tokens,&nbsp;but responses will always be in token form. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details TinyG Configuration] for a complete list of the tokens and friendly-names used for settings. Some examples are provided below: 
 
@@ -69,23 +68,23 @@ TinyG accepts either friendly names or short mnemonic tokens as input. Friendly 
 | status_report
 |}
 
-== JSON Request Formats  ==
+##JSON Request Formats
 
 JSON requests are used to perform the following actions: 
 
-*Return the value of a single setting or state variable 
-*Return the values of a group of settings or state variables (aka a Resource) 
-*Set a single setting or state variable (note that most state variables are read-only) 
-*Set a group of settings or state variables 
-*Submit a block (line) of Gcode to perform any supported Gcode command 
-*Request a status report 
-*Set status report format 
-*Run a self test 
-*Reset parameters to defaults
+* Return the value of a single setting or state variable 
+* Return the values of a group of settings or state variables (aka a Resource) 
+* Set a single setting or state variable (note that most state variables are read-only) 
+* Set a group of settings or state variables 
+* Submit a block (line) of Gcode to perform any supported Gcode command 
+* Request a status report 
+* Set status report format 
+* Run a self test 
+* Reset parameters to defaults
 
 Generally speaking, JSON requests are exactly like text mode requests except that they have a JSON wrapper. This is explained in the next sections. 
 
-=== Reading Configuration Parameters (GET)  ===
+###Reading Configuration Parameters (GET)
 
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are:<br> 
 
