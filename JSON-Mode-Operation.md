@@ -22,13 +22,14 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 	gcode values | Gcode values are the dynamic parameters that are used and affected by Gcode execution. The current position of the X axis is an example of a gcode value. Gcode values are part of the **dynamic model** that holds the values used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
 
 ## JSON Cheat Sheet
-This table illustrates general use of JSON cmmands. Don't worry if you don;t understand it all; details are provided in the remaining sections.
+This table illustrates general use of JSON cmmands. Don't worry if you don't understand it all; details are provided in the remaining sections.
 
 	Request | Response | Description
 	---------|--------------|-------------
 	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1234]}<nl>| Get X axis maximum velocity
 	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,11,1234]}<nl>| Set X axis maximum velocity to 15000
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,11,1234]}<nl>| Alternate form to set X axis maximum velocity to 15000
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,11,1234]}<nl>| Alternate form to get X axis maximum velocity
+	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,11,1234]}<nl>| Alternate form to set X axis maximum velocity to 15000
 
 #Details
 ## JSON Overview & TinyG Subset
