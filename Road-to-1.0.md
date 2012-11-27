@@ -7,9 +7,11 @@ This page records the items and progress needed to get TinyG to 1.0 status. It i
 
 * [3] Feed and rapid override.
 
+* [4] Soft limits (maybe). Reject commands that exceed machine dimensions - before they are run.
+
 ##Cleanup, Validation, and Bug Fixes
 
-* [1] Validate homing cycles
+* [1] Finalize homing cycles. This may involve taking homing out-of-cycle (i.e. connecting it from something other than G28.1), validating complete homing function and return-to-home commands (G28, G30). 
 
 * [2] Finalize and document JSON operations. This includes finalizing flow control, echo modes, and possibly some other functionality.
 
