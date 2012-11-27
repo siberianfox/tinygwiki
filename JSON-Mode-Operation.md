@@ -11,7 +11,20 @@ Most commands that are available in JSON are also available in text mode, but th
 ### Is this RESTful?
 Using JSON facilitates exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. The JSON interface is modeled as a RESTful interface, albeit not one running over serial USB not HTTP. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
 
+## Basic Concepts
+
+	Term | Description
+	------|--------------
+	name | A name is a JSON name (aka "token") describing a single data value or a group of data values. Examples of names include `xfr` for the X axis maximum feed rate, or `x` which is a name that refers to all values associated with the X axis (the X axis group)
+	value | A value is the number or string for a name. A name and a value is a name:value pair (NV pair)
+	group | A group is a collection of one or more name:value pairs. This can also be referred to as a **resource** in the REST way of speaking
+	configs | Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions. Configs should not be changed while in a machining cycle. Xfr is an example of a config.
+ 	gcode model | The gcode model is the set of dynamic parameters that are affected by Gcode. The current position of the X axis is an example of a gcode model value. Note that X position is Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions.
+
+, A group is a collection of one or more name:value pairs. This can also be refered to as a 
+
 There are two main resource models: the **static model** which has all the settings and parameters, and the **dynamic model** which is the Gcode state and the state of the machine. These models are composites made of various resources such as motor resources, axis resources, coordinate system resources, system settings, gcode state and a few others. The intention is to (1) model the system in a way that's familiar to web programmers, and (2) to close the gap to putting an actual HTTP/REST interface on the thing. 
+
 
 ## JSON Overview & TinyG Subset
 
