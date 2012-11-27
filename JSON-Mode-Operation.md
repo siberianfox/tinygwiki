@@ -62,7 +62,7 @@ JSON sets the level of verbosity in JSON responses. It is set by {"je":N} where 
 
 JSON names are short mnemonic tokens that can be 1 to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Tokens are case insensitive and can only contian alphanumeric characters. See [TinyG Configuration](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details) for a complete list of the tokens used for settings. Some examples are provided below: 
 
-JSON name strings and the $ parameters are identical. 
+JSON name strings and the $ parameters are identical. Generally speaking, JSON requests are exactly like text mode requests except that they have a JSON wrapper. 
 
 	Token | as Text | as JSON | Description
 	------|---------|---------|--------------
@@ -78,14 +78,15 @@ JSON requests are used to perform the following actions:
 * Return the value of a single setting or state variable 
 * Return the values of a group of settings or state variables (aka a Resource) 
 * Set a single setting or state variable (note that most state variables are read-only) 
-* Set a group of settings or state variables 
+* Set a group of settings or state variables
 * Submit a block (line) of Gcode to perform any supported Gcode command 
-* Request a status report 
-* Set status report format 
-* Run a self test 
-* Reset parameters to defaults
+* Special functions and actions;
+** Request a status report 
+** Set status report contents 
+** Run a self test 
+** Reset parameters to defaults
 
-Generally speaking, JSON requests are exactly like text mode requests except that they have a JSON wrapper. This is explained in the next sections. 
+This is explained in the next sections. 
 
 ###Reading Configuration Parameters (GET)
 
