@@ -24,7 +24,7 @@ TinyG implements a subset of JSON with the following limitations:
 * Multi-valued objects (resources) cannot contain more than 20 name/value pairs (settable in code) 
 * Objects cannot exceed 255 characters in length total 
 * Only limited object nesting is supported (2 levels)
-* All JSON input and output is on a single text line. There is only one <CR>, it's at the end of the line (broken lines are not supported)
+* All JSON input and output is on a single text line. There is only one `<CR>`, it's at the end of the line (broken lines are not supported)
 
 === Text Mode and JSON Mode  ===
 
