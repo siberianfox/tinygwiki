@@ -81,10 +81,10 @@ JSON requests are used to perform the following actions:
 * Set a group of settings or state variables
 * Submit a block (line) of Gcode to perform any supported Gcode command 
 * Special functions and actions;
-** Request a status report 
-** Set status report contents 
-** Run a self test 
-** Reset parameters to defaults
+	** Request a status report 
+	** Set status report contents 
+* * Run a self test 
+  ** Reset parameters to defaults
 
 This is explained in the next sections. 
 
