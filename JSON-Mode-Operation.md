@@ -26,11 +26,11 @@ TinyG implements a subset of JSON with the following limitations:
 * Only limited object nesting is supported (2 levels)
 * All JSON input and output is on a single text line. There is only one `<CR>`, it's at the end of the line (broken lines are not supported)
 
-=== Text Mode and JSON Mode  ===
+### Text Mode and JSON Mode
 
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts Gcode blocks per usual and $ config lines, and returns responses in human-friendly ASCII. Text mode responses start with "ok:" or "error:" to maintain compatibility with grbl. In text mode it's up the user whether character echo is enabled or not ($ee=0 or 1). 
+TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts Gcode blocks per usual and $ config lines, and returns responses in human-friendly ASCII. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl. In text mode it's up the user whether character echo is enabled or not ($ee=0 or 1). 
 
-In JSON mode TinyG expects well structured JSON (see the [http://jsonlint.com/ JSON validator] if you have any doubt). It returns well-structured JSON wrapped in a response header, which is described below. In JSON mode it usually makes sense to disable character echo by sending {"ee":"0"}.&nbsp;JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. The method (verb) for the command is implied by convention and is not present in the object itself. Most JSON objects only contain a single request but multiple request objects in a JSON line is supported - up the the limits mentioned above.<br> 
+In JSON mode TinyG expects well structured JSON (see the [JSON validator](http://jsonlint.com) if you have any doubt). It returns well-structured JSON wrapped in a response header, which is described below. In JSON mode it usually makes sense to disable character echo by sending {"ee":"0"}.&nbsp;JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. The method (verb) for the command is implied by convention and is not present in the object itself. Most JSON objects only contain a single request but multiple request objects in a JSON line is supported - up the the limits mentioned above.<br> 
 
 === Selecting Text Mode or JSON Mode&nbsp;  ===
 
