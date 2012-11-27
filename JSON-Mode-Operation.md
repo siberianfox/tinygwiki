@@ -14,7 +14,7 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 ## Basic Concepts
 
 	Term | Description
-	------|--------------
+	---------------------|--------------
 	name | A name is a JSON name (aka "token") describing a single data value or a group of data values. Examples of names include "xfr" for the X axis maximum feed rate, or "x" which is a name that refers to all values associated with the X axis (the X axis group). TinyG names are case insensitive.
 	value | A value is the number, string, or true/false setting for a name. Values can also be NULL, which has special meaning in TinyG. A name and a value is a name:value pair aka NV pair.
 	group | A group is a collection of one or more NV pairs. A group can also be called a **resource** in the REST way of speaking.
