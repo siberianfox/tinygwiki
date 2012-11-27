@@ -33,7 +33,8 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	{"x":""} | {"b":{"x":{"vm":15000}},"f":[1,0,11,1234]}<nl>| get entire X axis resource (group) 
 	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
 	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
-	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N code returned 
+	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
+	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N-code response 
 
 
 
