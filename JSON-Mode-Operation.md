@@ -36,9 +36,7 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
 	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N-code response 
 	g0x10 | {"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with footer-only echo 
-	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo (other JSON echo modes apply as well)
-
-
+	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
 
 #Details
 ## JSON Overview & TinyG Subset
