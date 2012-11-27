@@ -21,6 +21,14 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 	configs | Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions. Configs should not be changed while in a machining cycle. Xfr is an example of a config. So is 1po. Configs are part of the **static model** and should not be changed during Gcode execution.
 	gcode values | Gcode values are the dynamic parameters that are used and affected by Gcode execution. The current position of the X axis is an example of a gcode value. Gcode values are part of the **dynamic model** that holds the values used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
 
+## JSON Cheat Sheet
+This table illustrates general use of JSON cmmands. Don't worry if you don;t understand it all; details are provided in the remaining sections.
+
+	Request | Response | Description
+	---------|--------------|-------------
+	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1234]}<nl>| Get X axis maximum velocity
+
+#Details
 ## JSON Overview & TinyG Subset
 
 The full JSON language definition is [here](http://json.org). A handy validator can be found [here](http://jsonlint.com).
