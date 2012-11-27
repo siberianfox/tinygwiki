@@ -15,7 +15,7 @@ This page records the items and progress needed to get TinyG to 1.0 status. It i
 
 * [2] Finalize and document JSON operations. This includes finalizing flow control, echo modes, and possibly some other functionality.
 
-* [3] Cleanup in-cycle / out-of-cycle command handling
+* [3] Cleanup in-cycle / out-of-cycle command handling. This item puts some structure around handling commands that cannot be run while in a machining cycle - like changing the axis or motor setup parameters.  
 
 ##GUI Functions
 There may be more than one GUI program. These items refer to all GUIs unless otherwise noted
