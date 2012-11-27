@@ -48,9 +48,22 @@ Note that if the system is in JSON mode Gcode commands may be sent with or witho
 
 ### Response and Echos
 
+Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
+
+JSON sets the level of verbosity in JSON responses. It is set by {"je":N} where N is one of:
+
+0 = no response (not recommended)
+1 = response contains footer only
+2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
+3 = response contains body with full echo of Gcode line; response also contains footer
+4 = response as above, but with line number also broken out in an independent "n" name
+
 ### Names and Tokens 
 
-TinyG accepts either friendly names or short mnemonic tokens as input. Friendly names (names) are strings up to 24 characters. Tokens are shorthand for the name and can be up to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Both friendly names and tokens are case insensitive and cannot contain whitespace or the separator characters: quote("), comma (,), colon (:), equal (=), or pipe(|). Requests may contain either friendly names or tokens,&nbsp;but responses will always be in token form. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details TinyG Configuration] for a complete list of the tokens and friendly-names used for settings. Some examples are provided below: 
+JSON names are short mnemonic tokens that can be 1 - 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Both friendly names and tokens are case insensitive and cannot contain whitespace or the separator characters: quote("), comma (,), colon (:), equal (=), or pipe(|). Requests may contain either friendly names or tokens,&nbsp;but responses will always be in token form. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details TinyG Configuration] for a complete list of the tokens and friendly-names used for settings. Some examples are provided below: 
+
+JSON name strings and the $ parameters are identical. 
+
 
 {| width="600" border="1" cellpadding="1" cellspacing="1"
 |-
