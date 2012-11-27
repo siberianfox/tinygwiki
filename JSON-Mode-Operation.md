@@ -66,26 +66,10 @@ JSON name strings and the $ parameters are identical.
 
 	Token | as Text | as JSON | Description
 	------|---------|---------|--------------
-	xfr | $xfr | {"xfr":""} |X axis maximum feed rate
-
-| xfr 
-| x_feedrate
-|-
-| cjm 
-| c_jerk_maximum
-|-
-| ea 
-| enable_acceleration
-|-
-| ic 
-| ignore_cr
-|-
-| 1mi 
-| m1_microsteps
-|-
-| sr 
-| status_report
-|}
+	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
+	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
+	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
+	home | $home | {"home":""} | Homing state
 
 ##JSON Request Formats
 
