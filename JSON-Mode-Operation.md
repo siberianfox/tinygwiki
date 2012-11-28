@@ -78,11 +78,11 @@ Character echo ($ee) is always an option; it's just not a good one for JSON. In 
 
 JSON sets the level of verbosity in JSON responses. It is set by {"je":N} where N is one of:
 
-0 = no response (not recommended)
-1 = response contains footer only
-2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
-3 = response contains body with full echo of Gcode line; response also contains footer
-4 = response as above, but with line number also broken out in an independent "n" name
+* 0 = no response (not recommended)
+* 1 = response contains footer only
+* 2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
+* 3 = response contains body with full echo of Gcode line; response also contains footer
+* 4 = response as above, but with line number also broken out in an independent "n" name
 
 ### Names and Tokens 
 
