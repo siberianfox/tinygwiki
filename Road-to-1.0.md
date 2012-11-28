@@ -1,4 +1,4 @@
-This page records the items and progress needed to get TinyG to 1.0 status. It is divided into two sections: major items and cleanup / validation / bug fixes. There is also a section for things that need to happen on the GUI side. Some of these items may become github Issues, but I thought it would be easier to track it all in one place. This page will be periodically updated as progress is made or new items are identified.
+This page records the items and progress needed to get TinyG to 1.0 status. It is divided into two firmware sections: major items and cleanup / validation / bug fixes. There is also a section for things that need to happen on the GUI side. Some of these items may become github Issues, but I thought it would be easier to track it all in one place. This page will be periodically updated as progress is made or new items are identified.
 
 ##Major Items
 * [1] Merge Otherlab ESC spindle controller code and define final settings
