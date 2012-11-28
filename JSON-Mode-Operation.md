@@ -1,6 +1,6 @@
 (last updated 9/7/12 - ash) 
 
-**NOTE: THIS PAGE DESCRIBES JSON HANDLING IN RELEASE 0.95 AND LATER. CURRENTLY THIS CODE IS ONLY IN DEV AND EDGE BRANCHES> IF YOU WANT TO EXPERIMENT WE RECOMMEND USING THE EDGE BRANCH**
+**NOTE: This page describes JSON operations in experimental release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
 ## General
 
