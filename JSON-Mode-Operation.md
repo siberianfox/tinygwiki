@@ -45,15 +45,15 @@ The full JSON language definition is [here](http://json.org). A handy validator 
 
 TinyG implements a subset of JSON with the following limitations: 
 
-* Only supports 7 bit ASCII characters 
+* Supports 7 bit ASCII characters only 
 * Does not support hexadecimal numbers or other non-decimals
 * Arrays are returned but at the current time are not accepted as input
-* Name strings are case-insensitive (for tokenization purposes) 
-* Names cannot be more than 12 characters (settable in code) 
-* String values cannot be more than 64 characters in length (settable in code) 
+* Names are case-insensitive (for tokenization purposes) 
+* Names cannot be more than 4 characters
+* String values cannot be more than 64 characters in length 
 * Multi-valued objects (resources) cannot contain more than 20 name/value pairs (settable in code) 
 * Objects cannot exceed 255 characters in length total 
-* Only limited object nesting is supported (2 levels)
+* Only 2 levels of object nesting is supported
 * All JSON input and output is on a single text line. There is only one `<CR>`, it's at the end of the line (broken lines are not supported)
 
 ### Text Mode and JSON Mode
