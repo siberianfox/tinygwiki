@@ -23,3 +23,6 @@ There may be more than one GUI program. These items refer to all GUIs unless oth
 * [1] validated end-to-end test of GUI driver
 
 * [2] Jog functionality supported by GUI. This item may require specialized command support from the firmware - TBD.
+
+## Parking lot
+Good ideas that can wait until later
