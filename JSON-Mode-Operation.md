@@ -72,18 +72,6 @@ JSON operation will also be invoked by sending any line starting with an opening
 
 Note that if the system is in JSON mode Gcode commands may be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always come back wrapped in JSON format.
 
-### Response and Echos
-
-Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
-
-JSON sets the level of verbosity in JSON responses. It is set by {"je":N} where N is one of:
-
-* 0 = no response (not recommended)
-* 1 = response contains footer only
-* 2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
-* 3 = response contains body with full echo of Gcode line; response also contains footer
-* 4 = response as above, but with line number also broken out in an independent "n" name
-
 ### Names and Tokens 
 
 JSON names are short mnemonic tokens that can be 1 to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Tokens are case insensitive and can only contian alphanumeric characters. See [TinyG Configuration](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details) for a complete list of the tokens used for settings. Some examples are provided below: 
@@ -150,6 +138,17 @@ The footer contains a 4 element array of packet flow control information as per 
 	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
 	home | $home | {"home":""} | Homing state
 
+### Response and Echos
+
+Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
+
+JSON echo ($je) sets the level of verbosity in JSON responses. It is set by {"je":N} where N is one of:
+
+* 0 = no response (not recommended)
+* 1 = response contains footer only
+* 2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
+* 3 = response contains body with full echo of Gcode line; response also contains footer
+* 4 = response as above, but with line number also broken out in an independent "n" name
 
 ###Reading Configuration Parameters (GET)
 
