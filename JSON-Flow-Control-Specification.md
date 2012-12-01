@@ -22,7 +22,7 @@ state on corrupt input data
 #Design
 
 ##Command Types
-Most commands sent to TinyG fall into one of two broad types:
+Most commands sent to TinyG fall into a few broad types:
 
 	Type  | Examples    | Notes
 	-------|-------------|-------------------------
