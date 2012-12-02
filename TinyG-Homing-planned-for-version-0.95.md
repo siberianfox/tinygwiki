@@ -2,18 +2,30 @@ The following describes the function of homing cycles and related Gcode for vers
 
 There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [EMC2](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
 
-Some limitations / constraints in TinyG homing as currently implemented:
+Return to Home can be carried out by using the G28 and G28.1 commands: 
+* G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point
+* G28.1 - Reference Axes: Reset machine coordinates to the homing switches
 
+Some limitations / constraints in TinyG homing as currently implemented:
 * A limited number of switch configurations are supported. See Switch Wiring. 
 * Limit switches are currently programmed for normally open (NO) mechanical switches. Support for NC and opto switches is on the roadmap 
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.1 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
-Return to Home can be carried out by using the G28 and G28.1 commands: 
-* G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point
-* G28.1 - Reference Axes: Reset machine coordinates to the homing switches
+## Switch Wiring
+TinyG has 8 switch pin pairs located on the J13 jumper next to the reset button. In addition there is a 3.3v pair. These are labeled:
+* 3.3v
+* Xmin
+* Xmax
+* Ymin
+* Ymax
+* Zmin
+* Zmax
+* Amin
+* Amax
 
-## Switch Wiring 
+The 
+
 Limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
 At the curent time only normally open mechanical switches are supported. Support is planned for NC and opto switches, to be controlled by the $xSW parameter.<br> 
