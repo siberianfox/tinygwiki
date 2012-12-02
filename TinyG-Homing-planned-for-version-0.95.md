@@ -14,8 +14,7 @@ Some limitations / constraints in TinyG homing as currently implemented:
 
 ## Switches
 ### Switch Port
-TinyG has 8 switch pin pairs located on the J13 jumper next to the reset button. In addition there is a 3.3v pair. These are labeled:
-* 3.3v
+TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper next to the reset button. The switch pairs are labeled:
 * Xmin
 * Xmax
 * Ymin
@@ -25,21 +24,21 @@ TinyG has 8 switch pin pairs located on the J13 jumper next to the reset button.
 * Amin
 * Amax
 
-For the switch pin pairs the pin closest to the board edge is ground, the pin on the inside of the connector is the input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
+The pin closest to the board edge is ground, the pin on the inside of the connector is the switch input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
+
+The 3.3v output pair is made available for opto-coupled and other powered switch options, but are TinyG does not currently support this. It should work but you will need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma. 
 
 ### Switch Wiring
-To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches.
+To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches. Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. 
 
-The 3.3v outputs are made available for opto-coupled and other powered switch options, but are not currently supported. It should work but you need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma. 
+Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
+* Xmin - X homing limit - on the left of the machine
+* Ymin - Y homing limit - at the front of the machine
+* Zmax - Z homing limit - at the top of the Z axis travel
 
-Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
-* Xmin
-* Ymin
-* Zmax
+The unused inputs may be wired as hard limits (kill), or left unused. If you wire axis limits you should connect the switch for that axis to it's proper input, and not connect multiple switches to the input. This is necessary to proper startup if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill, and can have multiple switches connected to them. 
 
 ### Switch Configuration
-
-
 Limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
 At the curent time only normally open mechanical switches are supported. Support is planned for NC and opto switches, to be controlled by the $xSW parameter.<br> 
