@@ -7,12 +7,13 @@ Return to Home can be carried out by using the G28 and G28.1 commands:
 * G28.1 - Reference Axes: Reset machine coordinates to the homing switches
 
 Some limitations / constraints in TinyG homing as currently implemented:
-* A limited number of switch configurations are supported. See Switch Wiring. 
+* A limited number of switch configurations are supported. See Switches. 
 * Limit switches are currently programmed for normally open (NO) mechanical switches. Support for NC and opto switches is on the roadmap 
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.1 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
-## Switch Wiring
+## Switches
+### Switch Port
 TinyG has 8 switch pin pairs located on the J13 jumper next to the reset button. In addition there is a 3.3v pair. These are labeled:
 * 3.3v
 * Xmin
@@ -24,7 +25,20 @@ TinyG has 8 switch pin pairs located on the J13 jumper next to the reset button.
 * Amin
 * Amax
 
-The 
+For the switch pin pairs the pin closest to the board edge is ground, the pin on the inside of the connector is the input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
+
+### Switch Wiring
+To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches.
+
+The 3.3v outputs are made available for opto-coupled and other powered switch options, but are not currently supported. It should work but you need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma. 
+
+Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
+* Xmin
+* Ymin
+* Zmax
+
+### Switch Configuration
+
 
 Limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
