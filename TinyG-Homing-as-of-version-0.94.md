@@ -6,13 +6,13 @@ Return to Home can be carried out by using the G28 and G28.1 commands:
 
 Some limitations / constraints in TinyG homing as currently implemented: 
 
-*Limit switches and homing switches are shared. The axis minimum limit switches become homing switches during a homing cycle 
-*Limit switches are currently programmed for normally open (NO) mechanical switches. Support for NC and opto switches is on the roadmap 
-*The homing sequence is fixed, and always runs XYZABC (but skipping all axes that are not specified in the G28.1 command) 
-*Special consideration is provided for dual-gantry situations. These are detected by the motor mapping configuration &nbsp;(not supported yet)<br> 
-*Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
+* Limit switches and homing switches are shared. The axis minimum limit switches become homing switches during a homing cycle 
+* Limit switches are currently programmed for normally open (NO) mechanical switches. Support for NC and opto switches is on the roadmap 
+* The homing sequence is fixed, and always runs XYZABC (but skipping all axes that are not specified in the G28.1 command) 
+* Special consideration is provided for dual-gantry situations. These are detected by the motor mapping configuration &nbsp;(not supported yet)<br> 
+* Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
-== Homing Configuration Settings  ==
+## Homing Configuration Settings
 
 The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x', below. The use of the settings is described in G28.1, below. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings Configuring Homing Settings]&nbsp;for how to set these. 
 
