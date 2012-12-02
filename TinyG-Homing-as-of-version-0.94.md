@@ -16,7 +16,7 @@ Some limitations / constraints in TinyG homing as currently implemented:
 
 The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x', below. The use of the settings is described in G28.1, below. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings Configuring Homing Settings]&nbsp;for how to set these. 
 
-'''$xTM'''<span class="Apple-tab-span" style="white-space:pre">	</span>Travel Maximum - travel limit for search phase<br> 
+**$xTM**<span class="Apple-tab-span" style="white-space:pre">	</span>Travel Maximum - travel limit for search phase<br> 
 
 '''$xSV '''<span class="Apple-tab-span" style="white-space:pre">	</span>Homing Search Velocity - velocity for initially finding the homing switch. Set negative for travel in negative direction, positive for travel in positive direction
 
