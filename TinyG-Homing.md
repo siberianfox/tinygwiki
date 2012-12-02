@@ -1,9 +1,9 @@
-The following describes the function of homing cycles and related Gcode. There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [EMC2](http://www.linuxcnc.org/docview/html/config_ini_homing.html). TinyG supports a subset of EMC homing and does not cover all the cases EMC does ''(Note: if you are running a machine configuration that is not supported by TinyG's subset please let us know on the forum)''
+The following describes the function of homing cycles and related Gcode. There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [EMC2](http://www.linuxcnc.org/docview/html/config_ini_homing.html). TinyG supports a subset of EMC homing and does not cover all the cases EMC does _(Note: if you are running a machine configuration that is not supported by TinyG's subset please let us know on the forum)_
 
 Return to Home can be carried out by using the G28 and G28.1 commands: 
 
 *G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point 
-*G28.1 - Reference Axes: Reset machine coordinates to the homing switches<br>
+*G28.1 - Reference Axes: Reset machine coordinates to the homing switches
 
 Some limitations / constraints in TinyG homing as currently implemented: 
 
