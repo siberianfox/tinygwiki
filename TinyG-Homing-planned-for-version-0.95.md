@@ -36,9 +36,18 @@ Wire a single switch to each axis that will be part of homing. The following con
 * Ymin - Y homing limit - at the front of the machine
 * Zmax - Z homing limit - at the top of the Z axis travel
 
-The unused inputs may be wired as hard limits (kill), or left unused. If you wire axis limits you should connect the switch for that axis to it's proper input, and not connect multiple switches to the input. This is necessary to proper startup if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill, and can have multiple switches connected to them. 
+The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire axis limits you should connect the switch for that axis to it's proper input, and not connect multiple switches to the input. This is necessary to proper function if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill.
 
 ### Switch Configuration
+The following settings are used for switch configuration.
+
+* **$ST** Switch Type - sets the type of switch used by the entire machine - 0=NO, 1=NC.
+* **$XSN** Switch Mode Minimum - sets mode for X minimum switch 
+** 0=off - switch closures will have no effect
+** 1=homing only
+** 2=homing and limits
+** 3=limit only
+
 Limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
 At the curent time only normally open mechanical switches are supported. Support is planned for NC and opto switches, to be controlled by the $xSW parameter.<br> 
@@ -54,7 +63,6 @@ The following per-axis settings are used by homing. Substitute any of XYZABC for
 * **$xLV** Homing Latch Velocity - velocity for homing second pass (latching phase) (same positive and negative rules apply)
 * **$xLB** Homing Latch Backoff -amount to back off switch prior to latch operation
 * **$xZB** Homing Zero Backoff - machine coordinate system zero position defined as backoff (offset) from homing switch 
-* **$xSM** Switch Mode - sets mode for limit and homing switches (0=off, 1=homing only, 2=homing and limits - in any case they are always Normally Open)
 
 ## G28 - Return to Home
 G28 will move the machine to the home coordinates through an intermediate point, with the home position detemined by the latest G28.1 cycle. Movement will occur at the traverse rate (G0 rate). Format is: 
