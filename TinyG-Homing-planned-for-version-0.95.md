@@ -42,11 +42,17 @@ The unused inputs may be wired as axis limit switches (kill) or left unused. If 
 The following settings are used for switch configuration.
 
 * **$ST** Switch Type - sets the type of switch used by the entire machine - 0=NO, 1=NC.
-* **$XSN** Switch Mode Minimum - sets mode for X minimum switch 
-** 0=off - switch closures will have no effect
-** 1=homing only
-** 2=homing and limits
-** 3=limit only
+* **$XSN** X Switch Mode Minimum - sets mode for X minimum switch 
+ * 0=off - switch closures will have no effect
+ * 1=homing only - Switch is active during homing but has no effect otherwise
+ * 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation
+* **$XSX** X Switch Mode Maximum - sets mode for X maximum switch
+* **$YSM** Y Switch Mode Minimum
+* **$YSX** Y Switch Mode Maximum
+* **$ZSM** Z Switch Mode Minimum
+* **$ZSX** Z Switch Mode Maximum
+* **$ASM** A Switch Mode Minimum
+* **$ASX** A Switch Mode Maximum
 
 Limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
