@@ -54,21 +54,15 @@ The following settings are used for switch configuration.
 Modes:
 * 0=off - switch closures will have no effect
 * 1=homing only - Switch is active during homing but has no effect otherwise
-* 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation
-
-In mode 2 limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
-
-At the curent time only normally open mechanical switches are supported. Support is planned for NC and opto switches, to be controlled by the $xSW parameter.<br> 
-
-
+* 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation. In this mode limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
 
 ## Homing Configuration Settings
 
-The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x', below. The use of the settings is described in G28.1, below. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings Configuring Homing Settings]&nbsp;for how to set these. 
+The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x', below. The use of the settings is described in G28.1, below. See [Configuring Homing Settings](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings) for how to set these. 
 
 * **$xTM** Travel Maximum - travel limit for search phase
-* **$xSV** Homing Search Velocity - velocity for initially finding the homing switch. Set negative for travel in negative direction, positive for travel in positive direction
-* **$xLV** Homing Latch Velocity - velocity for homing second pass (latching phase) (same positive and negative rules apply)
+* **$xSV** Homing Search Velocity - velocity for initially finding the homing switch. Set negative for travel in negative direction (towards minimum switch), positive for travel in positive direction
+* **$xLV** Homing Latch Velocity - velocity for homing second pass (latching phase). The same positive and negative rules apply
 * **$xLB** Homing Latch Backoff -amount to back off switch prior to latch operation
 * **$xZB** Homing Zero Backoff - machine coordinate system zero position defined as backoff (offset) from homing switch 
 
@@ -77,13 +71,12 @@ G28 will move the machine to the home coordinates through an intermediate point,
 <pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
 G28 will move to coordinates for any specified axis: axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
 
-For example, G28 X10 Y0 will move to zero in the XY plane without affecting the Z or ABC axes. The movement will pass through point (10,0). Set all values to 0 for a homing move without an intermediate way point. A G28 command must have at least one axis word and is only valid if the system has been previously homed using a G30.''<br>'' 
+For example, G28 X10 Y0 will move to zero in the XY plane without affecting the Z or ABC axes. The movement will pass through point (10,0). Set all values to 0 for a homing move without an intermediate way point. A G28 command must have at least one axis word and is only valid if the system has been previously homed using a G30.
 
 ## G28.1 - Reference Axes (Homing Cycle)
 G28.1 is used to home to physical home switches. G28.1 will home to a switch then set the machine zero for that axis (absolute zero) at an offset from that switch location. Format is: 
-<pre>G28.1 X0 Y0 Z0 A0 B0 C0
-</pre> 
-If an axis is not present in the G28.1 command then that axis is ignored and it's zero value is not changed. &nbsp; 
+<pre>G28.1 X0 Y0 Z0 A0 B0 C0</pre> 
+If an axis is not present in the G28.1 command then that axis is ignored and it's zero value is not changed.
 
 For example. G28.1 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
 
