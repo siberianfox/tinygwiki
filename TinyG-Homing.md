@@ -3,6 +3,7 @@ The following describes the function of homing cycles and related Gcode. There s
 Return to Home can be carried out by using the G28 and G28.1 commands: 
 
 *G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point 
+
 *G28.1 - Reference Axes: Reset machine coordinates to the homing switches
 
 Some limitations / constraints in TinyG homing as currently implemented: 
