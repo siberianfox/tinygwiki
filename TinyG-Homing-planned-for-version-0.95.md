@@ -52,9 +52,12 @@ The following settings are used for switch configuration.
 * **$ASX** A Maximum Switch Mode
 
 Modes:
-* 0=off - switch closures will have no effect
+* 0=disabled - Switch closures will have no effect. Unused switch pins must be disabled.
 * 1=homing only - Switch is active during homing but has no effect otherwise
-* 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation. In this mode limit and homing switches are shared. For the duration of the homing cycle the limit switches act as homing switches. Once homing is complete they revert to being limit switches. (Note: If a limit switch is hit outside of a homing operation it will reset the machine). 
+* 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation. 
+* 3=limits only - Switch is not active in homing but will act as a kill switch during normal operation.
+
+It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused pins as Disabled. Otherwise NC configurations will not work.
 
 ## Homing Configuration Settings
 
