@@ -44,11 +44,11 @@ The following settings are used for switch configuration.
 * **$ST** Switch Type - sets the type of switch used by the entire machine - 0=NO, 1=NC.
 * **$XSN** X Minimum Switch Mode
 * **$XSX** X Maximum Switch Mode
-* **$YSM** Y Minimum Switch Mode
+* **$YSN** Y Minimum Switch Mode
 * **$YSX** Y Maximum Switch Mode
-* **$ZSM** Z Minimum Switch Mode
+* **$ZSN** Z Minimum Switch Mode
 * **$ZSX** Z Maximum Switch Mode
-* **$ASM** A Minimum Switch Mode
+* **$ASN** A Minimum Switch Mode
 * **$ASX** A Maximum Switch Mode
 
 Modes:
