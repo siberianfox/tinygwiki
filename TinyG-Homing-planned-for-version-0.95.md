@@ -30,15 +30,20 @@ Two 3.3v output pins are made available for opto-coupled and other powered switc
 To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches. Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. 
 
 Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
-* Pin - Function - Position on machine
-* Xmin - X homing switch - on the left of the machine
-* Ymin - Y homing switch - at the front of the machine
-* Zmax - Z homing switch - at the top of the Z axis travel
+
+	Pin  | Function    | Position on machine
+	-----|-------------|-------------------------
+	Xmin | X homing switch | on the left of the machine
+	Ymin | Y homing switch | at the front of the machine
+	Zmax | Z homing switch | at the top of the Z axis travel
 
 The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire limits you should connect the switch to its proper axis, and not connect multiple switches to an input. Adding limit switches would add these three switches to the example above:
-* Xmax - X limit switch - on the right of the machine
-* Ymax - Y limit switch - at the back of the machine
-* Zmin - Z limit switch - at the bottom of the Z axis travel
+
+	Pin  | Function    | Position on machine
+	-----|-------------|-------------------------
+	Xmax | X limit switch | on the right of the machine
+	Ymax | Y limit switch | at the back of the machine
+	Zmin | Z limit switch | at the bottom of the Z axis travel
 
 This is necessary to proper function if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill.
 
