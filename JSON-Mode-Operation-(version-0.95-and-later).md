@@ -58,24 +58,21 @@ TinyG implements a subset of JSON with the following limitations:
 
 ### Text Mode and JSON Mode
 
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts Gcode blocks per usual and $ config lines, and returns responses in human-friendly ASCII. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl. In text mode it's up the user whether character echo is enabled or not ($ee=0 or 1). 
+TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl.
 
-TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). (Note: The first string returned on bootup will be in JSON format, regardless of the mode set). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'.
+TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set). 
 
-TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curlie '{'. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $, ? or 'h' is received, which reverts it back to text mode. 
- 
-In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. 
+TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curlie '{'. While in JSON mode all commands are  expected in JSON format and responses are returned in JSON format. 
 
 Note that if the system is in JSON mode Gcode commands may be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always come back in JSON format.
 
-Note that groups with multiple *elements* are accepted. For example, this is OK: 
-{"x":{"vm":16000,"fr":10000}}
 
-TinyG responds to each request by returning a JSON object consisting of a body and a footer - both are described below.
+In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
+{"x":{"vm":16000,"fr":10000}}
 
 ### Names and Tokens 
 
-JSON names are short mnemonic tokens that can be 1 to 4 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 4 characters. Tokens are case insensitive and can only contian alphanumeric characters. See [TinyG Configuration](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details) for a complete list of the tokens used for settings. Some examples are provided below: 
+JSON names are short mnemonic tokens that can be 1 to 5 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 5 characters. Tokens are case insensitive and can only contian alphanumeric characters. See [TinyG Configuration](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Settings_Details) for a complete list of the tokens used for settings. Some examples are provided below: 
 
 JSON name strings and the $ parameters are identical. Generally speaking, JSON requests are exactly like text mode requests except that they have a JSON wrapper. 
 
