@@ -14,7 +14,7 @@ Some limitations / constraints in TinyG homing as currently implemented:
 ### Switch Port
 TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper next to the reset button.  The switch pairs are labeled:
 
-	Pin  | Notes
+	Pair  | Notes
 	-----|-------------
 	Xmin | Switch is typically positioned at left-most travel
 	Xmax | Switch is typically positioned is right-most travel
