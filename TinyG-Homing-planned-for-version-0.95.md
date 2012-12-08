@@ -17,12 +17,12 @@ TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper 
 	Pair  | Notes
 	-----|-------------
 	3.3v | This pair is located on the J13 connector closest to the corner of the board
-	Xmin | Switch is typically positioned at left-most travel
-	Xmax | Switch is typically positioned is right-most travel
-	Ymin | Switch is typically at front of machine 
-	Ymax | Switch is typically at rear of machine 
-	Zmin | Switch is typically at maximum height of Z travel
-	Zmax | Switch is typically at minimum height of Z travel or omitted
+	Xmin | Corresponding switch is typically positioned at left-most travel of the machine
+	Xmax | Switch typically at right-most travel
+	Ymin | Switch typically at front of machine 
+	Ymax | Switch typically at rear of machine 
+	Zmin | Switch typically at maximum height of Z travel
+	Zmax | Switch typically at minimum height of Z travel or omitted
 	Amin |
 	Amax |
 
