@@ -47,11 +47,11 @@ TinyG implements a subset of JSON with the following limitations:
 
 * Supports 7 bit ASCII characters only 
 * Does not support hexadecimal numbers or other non-decimals
-* Arrays are returned but at the current time are not accepted as input
-* Names are case-insensitive (for tokenization purposes) 
-* Names cannot be more than 4 characters
+* Arrays are returned but are not accepted as input (currently)
+* Names are case-insensitive
+* Names cannot be more than 5 characters
 * String values cannot be more than 64 characters in length 
-* Multi-valued objects (resources) cannot contain more than 20 name/value pairs (settable in code) 
+* Multi-valued objects (resources) cannot contain more than 24 name/value pairs (compile-time setting)
 * Objects cannot exceed 255 characters in length total 
 * Only 2 levels of object nesting is supported
 * All JSON input and output is on a single text line. There is only one `<CR>`, it's at the end of the line (broken lines are not supported)
@@ -60,7 +60,10 @@ TinyG implements a subset of JSON with the following limitations:
 
 TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts Gcode blocks per usual and $ config lines, and returns responses in human-friendly ASCII. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl. In text mode it's up the user whether character echo is enabled or not ($ee=0 or 1). 
 
-In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. The method (verb) for the command is implied by convention and is not present in the object itself. Most JSON objects only contain a single request but multiple request objects in a JSON line is supported - up the the limits mentioned above.
+In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. 
+
+Note that groups with multiple *elements* are accepted. For example, this is OK: 
+{"x":{"vm":16000,"fr":10000}}
 
 TinyG responds to each request by returning a JSON object consisting of a body and a footer - both are described below.
 
