@@ -59,7 +59,6 @@ The following settings are used for switch configuration.
 
 	Setting | Description | Notes
 	--------|-------------|--------------
-
 	**$ST** | Switch Type | sets the type of switch used by the entire machine - 0=NO, 1=NC.
 	**$XSN** | X Minimum Switch Mode | See Modes, below
 	**$XSX** | X Maximum Switch Mode
