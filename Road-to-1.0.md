@@ -1,7 +1,7 @@
 This page records the items and progress needed to get TinyG to 1.0 status. It is divided into two firmware sections: major items and cleanup / validation / bug fixes. There is also a section for things that need to happen on the GUI side. Some of these items may become github Issues, but I thought it would be easier to track it all in one place. This page will be periodically updated as progress is made or new items are identified.
 
 ##Major Items
-* [1] Merge Otherlab ESC spindle controller code and define final settings
+* [1] Merge Otherlab ESC spindle controller code and define final settings - Done. Needs testing. Probably need to tie this to the S codes.
 
 * [2] Add boot loader. This also may require host-side code to be written as AVRdude may be too flakey for 1.0 status.
 
@@ -17,7 +17,7 @@ This page records the items and progress needed to get TinyG to 1.0 status. It i
 
 * [3] Cleanup in-cycle / out-of-cycle command handling. This item puts some structure around handling commands that cannot be run while in a machining cycle - like changing the axis or motor setup parameters. 
 
-* [4] Incorporate Otherlab changes to steppers and homing into main branches 
+* [4] Incorporate Otherlab changes to steppers and homing into main branches
 
 ##GUI Functions
 There may be more than one GUI program. These items refer to all GUIs unless otherwise noted
