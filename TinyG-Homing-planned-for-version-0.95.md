@@ -77,15 +77,19 @@ Modes:
 
 It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused pins as Disabled. Otherwise NC configurations will not work.
 
+An axis should only have zero or one homing switch - it should not have two. The homing switch may be configured for homing or for homing-and-limit. The other switch setting may be disabled or configured for limit.
+
 ## Homing Configuration Settings
 
 The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x', below. The use of the settings is described in G28.1, below. See [Configuring Homing Settings](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings) for how to set these. 
 
-* **$xTM** Travel Maximum - travel limit for search phase
-* **$xSV** Homing Search Velocity - velocity for initially finding the homing switch. Set negative for travel in negative direction (towards minimum switch), positive for travel in positive direction
-* **$xLV** Homing Latch Velocity - velocity for homing second pass (latching phase). The same positive and negative rules apply
-* **$xLB** Homing Latch Backoff -amount to back off switch prior to latch operation
-* **$xZB** Homing Zero Backoff - machine coordinate system zero position defined as backoff (offset) from homing switch 
+	Setting | Description | Notes
+	--------|-------------|--------------
+	**$xTM** | Travel Maximum | travel limit for search phase
+	**$xSV** | Homing Search Velocity | velocity for initially finding the homing switch. Set negative for travel in negative direction (towards minimum switch), positive for travel in positive direction
+	**$xLV** | Homing Latch Velocity | velocity for homing second pass (latching phase). The same positive and negative rules apply
+	**$xLB** | Homing Latch Backoff | amount to back off switch prior to latch operation
+	**$xZB** | Homing Zero Backoff | machine coordinate system zero position defined as backoff (offset) from homing switch 
 
 ## G28 - Return to Home
 G28 will move the machine to the home coordinates through an intermediate point, with the home position detemined by the latest G28.1 cycle. Movement will occur at the traverse rate (G0 rate). Format is: 
