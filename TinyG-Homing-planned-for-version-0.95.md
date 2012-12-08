@@ -1,14 +1,12 @@
 The following describes the function of homing cycles and related Gcode for version 0.95. 
 
-There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [EMC2](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
+There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [LinuxCNC](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
 
 Return to Home can be carried out by using the G28 and G28.1 commands: 
 * G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point
 * G28.1 - Reference Axes: Reset machine coordinates to the homing switches
 
 Some limitations / constraints in TinyG homing as currently implemented:
-* A limited number of switch configurations are supported. See Switches. 
-* Limit switches are currently programmed for normally open (NO) mechanical switches. Support for NC and opto switches is on the roadmap 
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.1 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
@@ -24,19 +22,25 @@ TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper 
 * Amin
 * Amax
 
-The pin closest to the board edge is ground, the pin on the inside of the connector is the switch input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
+For each pair, the pin closest to the board edge is the ground, the pin next to it (labeled in silkscreen) is the switch input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
 
-The 3.3v output pair is made available for opto-coupled and other powered switch options, but are TinyG does not currently support this. It should work but you will need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma. 
+Two 3.3v output pins are made available for opto-coupled and other powered switch options, but TinyG does not currently support this. It should work but you will need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma.
 
 ### Switch Wiring
 To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches. Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. 
 
 Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
-* Xmin - X homing limit - on the left of the machine
-* Ymin - Y homing limit - at the front of the machine
-* Zmax - Z homing limit - at the top of the Z axis travel
+* Connect to:
+*     Xmin - X homing switch - on the left of the machine
+*     Ymin - Y homing switch - at the front of the machine
+*     Zmax - Z homing switch - at the top of the Z axis travel
 
-The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire axis limits you should connect the switch for that axis to it's proper input, and not connect multiple switches to the input. This is necessary to proper function if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill.
+The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire limits you should connect the switch to its proper axis, and not connect multiple switches to an input. Adding limit switches would add these three switches to the example above:
+* Xmax - X limit switch - on the right of the machine
+* Ymax - Y limit switch - at the back of the machine
+* Zmin - Z limit switch - at the bottom of the Z axis travel
+
+This is necessary to proper function if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill.
 
 ### Switch Configuration
 The following settings are used for switch configuration.
