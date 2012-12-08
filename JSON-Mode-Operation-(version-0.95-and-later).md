@@ -1,6 +1,6 @@
 (last updated 9/7/12 - ash) 
 
-**NOTE: This page describes JSON operations in experimental release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
+**NOTE: This page describes JSON operations in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
 ## General
 
@@ -14,7 +14,7 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 ## Basic Concepts
 
 	Term | Description
-	---------|--------------
+	-----|--------------
 	name | A name is a JSON name (aka "token") describing a single data value or a group of data values. Examples of names include "xfr" for the X axis maximum feed rate, or "x" which is a name that refers to all values associated with the X axis (the X axis group). Names are not case sensitive.
 	value | A value is the number, string, or true/false setting for a name. Values can also be NULL, which has special meaning in TinyG. A name and a value is a name:value pair aka NV pair.
 	group | A group is a collection of one or more NV pairs. A group can also be called a **resource** in the REST way of speaking.
@@ -26,11 +26,11 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 
 	Request | Response | Description
 	---------|--------------|-------------
-	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1234]}<nl>| Get X axis maximum velocity
-	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,11,1234]}<nl>| Set X axis maximum velocity to 15000
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,11,1234]}<nl>| Alternate form to get X axis maximum velocity
-	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,11,1234]}<nl>| Alternate form to set X axis maximum velocity to 15000
-	{"x":""} | {"b":{"x":{"vm":15000}},"f":[1,0,11,1234]}<nl>| get entire X axis resource (group) 
+	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| Get X axis maximum velocity
+	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| Set X axis maximum velocity to 15000
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| Alternate form to get X axis maximum velocity
+	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| Alternate form to set X axis maximum velocity to 15000
+	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":2,"sx":3,"sv":-3000.000,"lv":100.000,"lb":5.000,"zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis resource (group) 
 	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
 	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
 	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
