@@ -12,15 +12,18 @@ Some limitations / constraints in TinyG homing as currently implemented:
 
 ## Switches
 ### Switch Port
-TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper next to the reset button. The switch pairs are labeled:
-* Xmin
-* Xmax
-* Ymin
-* Ymax
-* Zmin
-* Zmax
-* Amin
-* Amax
+TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper next to the reset button.  The switch pairs are labeled:
+	Pin  | Notes
+	-----|-------------
+	Xmin | Switch is typically positioned at left-most travel
+	Xmax | Switch is typically positioned is right-most travel
+	Ymin | Switch is typically at front of machine 
+	Ymax | Switch is typically at rear of machine 
+	Zmin | Switch is typically at maximum height of Z travel
+	Zmax | Switch is typically at minimum height of Z travel or omitted
+	Amin |
+	Amax |
+
 
 For each pair, the pin closest to the board edge is the ground, the pin next to it (labeled in silkscreen) is the switch input. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
 
