@@ -45,9 +45,11 @@ The unused inputs may be wired as axis limit switches (kill) or left unused. If 
 	Ymax | Y limit switch | at the back of the machine
 	Zmin | Z limit switch | at the bottom of the Z axis travel
 
-This is necessary to proper function if one of the switches is closed during startup. The A inputs (if otherwise unused) can also be used as a machine kill.
+The A inputs (if otherwise unused) can also be used as a machine kill.
 
 ### Switch Configuration
+It is mandatory that the switch configuration settings match the physical switch configuration otherwise homing simply won't work. In the case of NC switches the entire machine may be rendered inoperative if these settings are not in alignment.
+
 The following settings are used for switch configuration.
 
 * **$ST** Switch Type - sets the type of switch used by the entire machine - 0=NO, 1=NC.
