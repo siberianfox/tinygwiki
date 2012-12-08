@@ -23,7 +23,7 @@ TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper 
 	Ymax | Switch typically at rear of machine 
 	Zmin | Switch typically at maximum height of Z travel
 	Zmax | Switch typically at minimum height of Z travel or omitted
-	Amin |
+	Amin | Most of the time A is infinite and not homed. This position can be used for a machine kill
 	Amax |
 
 
@@ -70,10 +70,10 @@ The following settings are used for switch configuration.
 	**$ASX** | A Maximum Switch Mode
 
 Modes:
-* 0=disabled - Switch closures will have no effect. Unused switch pins must be disabled.
-* 1=homing only - Switch is active during homing but has no effect otherwise
-* 2=homing and limits - Switch is active during homing and acts as kill switch during normal operation. 
-* 3=limits only - Switch is not active in homing but will act as a kill switch during normal operation.
+* 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
+* 1=Homing only - Switch is active during homing but has no effect otherwise
+* 2=Homing and limits - Switch is active during homing and acts as kill switch during normal operation. 
+* 3=Limits only - Switch is not active in homing but will act as a kill switch during normal operation.
 
 It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused pins as Disabled. Otherwise NC configurations will not work.
 
