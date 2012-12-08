@@ -60,20 +60,18 @@ TinyG implements a subset of JSON with the following limitations:
 
 TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts Gcode blocks per usual and $ config lines, and returns responses in human-friendly ASCII. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl. In text mode it's up the user whether character echo is enabled or not ($ee=0 or 1). 
 
+TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). (Note: The first string returned on bootup will be in JSON format, regardless of the mode set). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'.
+
+TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curlie '{'. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $, ? or 'h' is received, which reverts it back to text mode. 
+ 
 In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. 
+
+Note that if the system is in JSON mode Gcode commands may be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always come back in JSON format.
 
 Note that groups with multiple *elements* are accepted. For example, this is OK: 
 {"x":{"vm":16000,"fr":10000}}
 
 TinyG responds to each request by returning a JSON object consisting of a body and a footer - both are described below.
-
-### Selecting Text Mode or JSON Mode
-
-TinyG starts up in either JSON or text mode depending on the setting of $ej parameter (enable_json). Set $ej=0 for text mode, $ej=1 for JSON. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set)
-
-JSON operation will also be invoked by sending any line starting with an opening curly with no leading whitespace. All commands will then be expected in JSON format and responses will be returned in JSON format. The system will stay in JSON mode until a line with a leading $, ? or 'h' is received, which reverts it back to text mode. 
-
-Note that if the system is in JSON mode Gcode commands may be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always come back wrapped in JSON format.
 
 ### Names and Tokens 
 
