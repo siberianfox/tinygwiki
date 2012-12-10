@@ -72,8 +72,8 @@ The following settings are used for switch configuration.
 Modes:
 * 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
 * 1=Homing-only - Switch is active during homing but has no effect otherwise
-* 2=Homing-and-limits - Switch is active during homing and acts as kill switch during normal operation. 
-* 3=Limits-only - Switch is not active in homing but will act as a kill switch during normal operation.
+* 2=Limits-only - Switch is not active in homing but will act as a kill switch during normal operation.
+* 3=Homing-and-limits - Switch is active during homing and acts as kill switch during normal operation. 
 
 It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused switches as Disabled. Otherwise NC configurations will not work.
 
