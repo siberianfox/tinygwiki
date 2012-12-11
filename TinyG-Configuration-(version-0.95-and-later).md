@@ -48,20 +48,22 @@ TinyG configuration is organized into the following groups of related settings:
 	$xlv | Latch velocity | Homing speed during latch phase 
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
-**System group: The system group contains global machine and communication settings, including: 
- * Version control 
-***Firmware version (read-only) 
-***Firmware build (read-only) 
-**Gcode defaults - These are the initial values that machine will power up with or revert to for a Program End (M2 or M30), reset or abort. Setting these does NOT change the current machine mode, only the initial mode. 
-***Default units - mm or inches 
-***Default plane selection 
-***Default coordinate system
-***Default path control mode 
-***Default distance mode 
-**Machine and software global parameters 
-***Acceleration planning enabled / disabled 
-***Junction acceleration (global cornering value) 
-***Minimum line length 
+**System group** 
+The system group contains global machine and communication settings> These are not prefixed by and axis or motor prefix
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$fv | Firmware version | Read-only value, e.g. 0.95
+	$fb | Firmware build | Read-only value, e.g. 351.05 
+	| Gcode defaults | These are the initial values that machine will power up with or revert to for a Program End (M2 or M30), reset or abort. Setting these does NOT change the current machine mode, only the initial mode
+	$gun | Default units mode | 0=inches 1=mm 
+	$gpl | Default plane selection | 
+	$gco | Default coordinate system |
+	$gpa | Default path control mode |
+	$gdi | Default distance mode | 
+	| Global parameters | 
+	$ja | Junction acceleration | Global cornering acceleration value 
+	$ml | Minimum line length | 
 ***Arc segment length 
 ***Segment timing (interpolation interval)<br> 
 **Communications settings configure the serial port behaviors<br>
