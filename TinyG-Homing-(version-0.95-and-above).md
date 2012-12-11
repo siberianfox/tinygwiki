@@ -88,7 +88,7 @@ The following per-axis settings are used by homing. Substitute any of XYZABC for
 	**$xTM** | Travel Maximum | This axis parameter is used to limit travel during the search phase
 	**$xSV** | Homing Search Velocity | Velocity for initially finding the homing switch
 	**$xLV** | Homing Latch Velocity | Velocity for latching phase
-	**$xSB** | Homing Search Backoff | Distance to back off switch before starting search
+	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears
 	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero 
 
 ## G28 - Return to Home
