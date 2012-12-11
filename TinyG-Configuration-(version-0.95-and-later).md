@@ -48,7 +48,7 @@ TinyG configuration is organized into the following groups of related settings:
 	$xlv | Latch velocity | Homing speed during latch phase 
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
-* System group: The system group contains global machine and communication settings, including: 
+**System group: The system group contains global machine and communication settings, including: 
  * Version control 
 ***Firmware version (read-only) 
 ***Firmware build (read-only) 
