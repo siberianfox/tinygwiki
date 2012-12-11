@@ -9,14 +9,16 @@ Firmware configuration is done by sending configuration commands while in text m
 ## Background
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
 
-*Supports 6 gcode axes (XYZABC) 
-*Has 4 on-board motors and is designed so that multiple TinyG boards can be networked to drive more than 4 motors 
-*Implements controlled jerk motion (and therefore needs to be configurable for it) 
-*Treats each axis' contribution to the dynamics independently (i.e. dynamics are not set globaly for the machine) 
-*Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
-*Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
+* Supports 6 gcode axes (XYZABC) 
+* Has 4 on-board motors and is designed so that multiple TinyG boards can be networked to drive more than 4 motors 
+* Implements controlled jerk motion (and therefore needs to be configurable for it) 
+* Treats each axis' contribution to the dynamics independently (i.e. dynamics are not set globaly for the machine) 
+* Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
+* Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
 TinyG configuration is organized into the following groups of related settings: 
+
+## Summary
 
 * Motor groups: Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
  * Motor mapping (to axis) 
