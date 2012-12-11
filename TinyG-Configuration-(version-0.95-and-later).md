@@ -20,7 +20,7 @@ Configuration is as simple as we could make it given the following features, ass
 ## Summary
 TinyG configuration is organized into the following groups of related settings: 
 
-**Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
+**Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -31,18 +31,23 @@ TinyG configuration is organized into the following groups of related settings:
 	$1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
 	$1pm | Power management mode | 0=power shuts off when axis is not moving, 1=axis remains powered when idle
 
-* Axis groups: Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Settings include: 
- * Axis mode 
- * Velocity maximum (aka traverse rate or seek) 
- * Feed rate maximum 
- * Travel maximum
- * Jerk maximum 
- * Junction deviation (for cornering control) 
- * Radius setting (rotational axes only) 
- * Switch mode 
- * Search velocity (homing speed on initial approach) 
- * Latch velocity (homing speed on second approach) 
- * Zero offset (offset from switch for zero in absolute coordinate system)<br> 
+**Axis Groups** Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$xam | Axis mode | See details for setting. Normally this is =1 "normal" 
+	$xvm | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
+	$xfr | Feed rate maximum |
+	$xtm | Travel maximum |
+	$xjm | Jerk maximum |
+	$xjm | Junction deviation | for cornering control
+	$ara | Radius setting | Rotational axes only 
+	$xsn | Minimum switch mode | 
+	$xsx | Maximum switch mode | 
+	$xsv | Search velocity | Homing speed during search phase (drive to switch)
+	$xlv | Latch velocity | Homing speed during latch phase 
+	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
+
 * System group: The system group contains global machine and communication settings, including: 
  * Version control 
 ***Firmware version (read-only) 
