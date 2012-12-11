@@ -25,17 +25,12 @@ TinyG configuration is organized into the following groups of related settings:
 	Setting | Description | Notes
 	--------|-------------|-------
 	$1ma | Motor mapping | Maps motor to axis. Common settings are $1ma=0, $2ma=1, $3ms=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
+	$1sa | Step angle | Typical setting is $1s1=1.8 for 1.8 degrees per step (200 steps per revolution)
+	$1tr | Travel per revolution | How far does the mapped axis move per motor revolution?
+	$1mi | Microsteps | Supported settings are 8,4,2 and 1
+	$1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
+	$1pm | Power management mode | 0=power shuts off when axis is not moving, 1=axis remains powered when idle
 
-A name is a JSON name (aka "token") describing a single data value or a group of data values. Examples of names include "xfr" for the X axis maximum feed rate, or "x" which is a name that refers to all values associated with the X axis (the X axis group). Names are not case sensitive.
-
-
-* Motor groups: 
- * Motor mapping (to axis) 
- * Step angle 
- * Travel per motor revolution 
- * Microsteps 
- *Polarity 
- * Power management mode
 * Axis groups: Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Settings include: 
  * Axis mode 
  * Velocity maximum (aka traverse rate or seek) 
