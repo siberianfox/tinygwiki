@@ -16,11 +16,20 @@ Configuration is as simple as we could make it given the following features, ass
 * Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
 * Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
-TinyG configuration is organized into the following groups of related settings: 
 
 ## Summary
+TinyG configuration is organized into the following groups of related settings: 
 
-* Motor groups: Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
+**Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$1ma | Motor mapping | Maps motor to axis. Common settings are $1ma=0, $2ma=1, $3ms=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
+
+A name is a JSON name (aka "token") describing a single data value or a group of data values. Examples of names include "xfr" for the X axis maximum feed rate, or "x" which is a name that refers to all values associated with the X axis (the X axis group). Names are not case sensitive.
+
+
+* Motor groups: 
  * Motor mapping (to axis) 
  * Step angle 
  * Travel per motor revolution 
