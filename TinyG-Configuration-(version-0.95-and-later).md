@@ -1,15 +1,12 @@
-= Configuring TinyG  =
+REVISION NOTICE: The settings on this page are for version 0.95 and later.
 
-[[Projects:TinyG|[Back to TinyG main page]]]
+TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file.
 
-[[Projects:TinyG|TinyG]] comes with a set of defaults pre-programmed to a specific machine profile. Currently this is set for a relatively slow screw machine such as the Zen Toolworks 7x12 by default. Other default profles are settable at compile time by including the right .h file.
+But you will want to set up for your particular machine, as follows.
 
-But you will want to set up for your particular machine, as follows.<br> Firmware configuration is done using the configuration editor through the command terminal. So connect to the TG terminal and issue "$" &lt;enter&gt; to test. <br> TinyG also supports [[Projects:TinyG-JSON|JSON formatted commands]] for configuration and other operations. Please read that section for JSON operation. 
+Firmware configuration is done by sending configuration commands while in text mode (USB command line), or JSON equivalents if in JSON mode. Connect to the TG terminal and issue "$" to test. 
 
-REVISION NOTICE: The settings on this page are for version 0.93 and beyond. Some of the command definitions have been changed from 0.92 and earlier. These are labeled as '''[$xNN 0.92]''' where this occurs. 
-
-== Background  ==
-
+## Background
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
 
 *Supports 6 gcode axes (XYZABC) 
@@ -21,27 +18,27 @@ Configuration is as simple as we could make it given the following features, ass
 
 TinyG configuration is organized into the following groups of related settings: 
 
-*Motor groups: Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
-**Motor mapping (to axis) 
-**Step angle 
-**Travel per motor revolution 
-**Microsteps 
-**Polarity 
-**Power management mode<br> 
-*Axis groups: Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Settings include: 
-**Axis mode 
-**Velocity maximum (aka traverse rate or seek) 
-**Feed rate maximum 
-**Travel maximum
-**Jerk maximum 
-**Junction deviation (for cornering control) 
-**Radius setting (rotational axes only) 
-**Switch mode 
-**Search velocity (homing speed on initial approach) 
-**Latch velocity (homing speed on second approach) 
-**Zero offset (offset from switch for zero in absolute coordinate system)<br> 
-*System group: The system group contains global machine and communication settings, including: 
-**Version control 
+* Motor groups: Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. Settings include: 
+ * Motor mapping (to axis) 
+ * Step angle 
+ * Travel per motor revolution 
+ * Microsteps 
+ *Polarity 
+ * Power management mode
+* Axis groups: Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Settings include: 
+ * Axis mode 
+ * Velocity maximum (aka traverse rate or seek) 
+ * Feed rate maximum 
+ * Travel maximum
+ * Jerk maximum 
+ * Junction deviation (for cornering control) 
+ * Radius setting (rotational axes only) 
+ * Switch mode 
+ * Search velocity (homing speed on initial approach) 
+ * Latch velocity (homing speed on second approach) 
+ * Zero offset (offset from switch for zero in absolute coordinate system)<br> 
+* System group: The system group contains global machine and communication settings, including: 
+ * Version control 
 ***Firmware version (read-only) 
 ***Firmware build (read-only) 
 **Gcode defaults - These are the initial values that machine will power up with or revert to for a Program End (M2 or M30), reset or abort. Setting these does NOT change the current machine mode, only the initial mode. 
