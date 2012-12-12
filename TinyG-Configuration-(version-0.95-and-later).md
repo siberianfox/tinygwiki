@@ -136,7 +136,7 @@ tinyg[mm] error: Unrecognized command $ted
 </pre> 
 
 # Settings Details
-Note: Settings are case insensitive - they are shown in upper case for emphasis only.
+Settings are case insensitive - they are shown in upper case for emphasis only. The leading '1' can be any motor, 1-4, and the leading 'x' can be any axis (with some restrictions as noted).
 
 ## Motor Settings
 
@@ -249,43 +249,67 @@ $zvm=30.0 sets Z to 30 inches per minute - assuming G20 is active
 $avm=3600 sets A to 10 revolutions per minute (360 * 10)
 </pre>
  
-### $xFR -Maximum Feed Rate
-Sets the maximum velocity the axis can move during a feed (G1, G2, G3). Units work similarly to traverse rate (maximum velocity). Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. Note: The feed rate setting is NOT used to set the Gcode's F value; it is only a maximum. A reset machine will have a zero feed rate for safety reasons.<br> 
-<pre>$xfr=1000 sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
-</pre> 
-'''$xTM<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_travel_maximum]&nbsp;'''Travel Maximum. '''[$xTS 0.92]''' Defines the maximum extent of travel in that axis. This is currently only used during homing but will also be used for soft limits when that feature is implemented.<br> 
+### $xFR - Maximum Feed Rate
+Sets the maximum velocity the axis can move during a feed in a G1, G2, or G3 move. This works similarly to traverse rate (maximum velocity), but instead of setting the *rate* it only serves to reduce the rate provided by the Gcode F word to the set maximum. Put another way, the maximum feed rate setting is NOT used to set the Gcode's F value; it is only a maximum. ALso, a reset machine will have a zero feed rate for safety reasons.
 
-'''$xJM''' <span class="Apple-tab-span" style="white-space:pre">	</span>Jerk Maximum. Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, or Probotix with 5 pitch X and Y screws and 12 pitch Z screws. The planner calculates the resultant jerk for the move given the contributions of each axis to the move. Jerk is in units per minutes^3, so the numbers are quite large.&nbsp;Some common values are shown in *millimeters* in the examples below 
-<pre>$xjm=50000000 Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
+Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. 
+
+<pre>
+$xfr=1000 sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
+</pre> 
+
+### $xTM - Travel Maximum
+Defines the maximum extent of travel in that axis. This is used during homing.
+
+### $xJM - Jerk Maximum
+Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, or Probotix with 5 pitch X and Y screws and 12 pitch Z screws. 
+
+Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the examples below 
+
+<pre>
+$xjm=50000000 Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
 $zjm=25000000 A reasonable setting for a slower Z axis
 $xjm=5000000000 X jerk for Shapeoko. Yes, that's 5 billion
 </pre> 
+
 The jerk term in mm is measured in mm/min^3. In inches mode it's units are inches/min^3. So the conversion from mm to inches is 1/(25.4). The same values as above are shown in inches are: 
-<pre>50,000,000 mm/min^3 is 1,968,504 in/min^3 2,000,000 would suffice
+<pre>
+50,000,000 mm/min^3 is 1,968,504 in/min^3 2,000,000 would suffice
 25,000,000 mm/min^3 is 984,251 in/min^3 1,000,000 would suffice
 5,000,000,000 mm/min^3 is 196,850,400 in/min^3 200,000,000 would suffice
 </pre> 
-'''$xJD<span class="Apple-tab-span" style="white-space:pre">	</span>'''<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_junction_deviation]&nbsp;Junction Deviation. '''[$xCD 0.92]''' This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the&nbsp;junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on Sonny Jeon's blog:&nbsp;[http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/]. It's important to realize that the tool head does not actually follow the controlling circle - the circle is just used to set the speed of the tool through the defined path. In other words, the tool does go through the sharp corner, just not as fast. This is a Gcode G61 - Exact Path Mode operation, not a Gcode G64 - Continuous Path Mode (aka corner rounding, or splining) operation. 
 
-JA is set globally and applies to all axes. JD is set per axis and can vary depending on the characteristics of the axis. An axis that moves more slowly should have a JD that is less than an axis that can move more quickly, as the larger the JD the faster the machine will move through the junction (i.e.&nbsp;a bigger controlling circle). The following example has some representative values for a Probotix Fireball V90 machine. The V90 has 5 TPI X and Y screws, and 12 TPI Z. All values in MM. 
+### $xJD - Junction Deviation
+This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on [Sonny Jeon's blog: Improving grbl cornering algorithm] (http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). 
 
+It's important to realize that the tool head does not actually follow the controlling circle - the circle is just used to set the speed of the tool through the defined path. In other words, the tool does go through the sharp corner, just not as fast. This is a Gcode G61 - Exact Path Mode operation, not a Gcode G64 - Continuous Path Mode (aka corner rounding, or splining) operation. 
+
+JA is set globally and applies to all axes. JD is set per axis and can vary depending on the characteristics of the axis. An axis that moves more slowly should have a JD that is less than an axis that can move more quickly, as the larger the JD the faster the machine will move through the junction (i.e. a bigger controlling circle). The following example has some representative values for a Probotix Fireball V90 machine. The V90 has 5 TPI X and Y screws, and 12 TPI Z. All values in MM. 
+
+<pre>
  $xJD 0.05<span class="Apple-tab-span" style="white-space:pre">	</span>Units are mm
  $yJD 0.05
  $zJD 0.02<span class="Apple-tab-span" style="white-space:pre">	</span>Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
  $JA 200000<span class="Apple-tab-span" style="white-space:pre">	</span>Units are mm/min^2. As before, commas are ingored and are provided only for clarity
+</pre>
 
-<br> '''$aRA<span class="Apple-tab-span" style="white-space:pre">	</span>'''[$x_radius value]'''&nbsp;'''Radius value. The radius value is used by a rotational axis to convert linear units to degrees when in radius mode or in a slaved mode. For example; if the A radius is set to 10 mm it means that a value of 6.28318531&nbsp;mm will make the A axis travel one full revolution - as 62.383... is the circumference of the circle of radius R ( 2*PI*R, or 10 * 2 * 3.14159...) &nbsp;(Assuming $nTR = 360 -- see note below). Receiving the gcode block "G0 A62.83" will turn the A axis one full revolution (360 degrees) from a starting position of 0. All internal computations and settings are still in degrees - it's just that gcode units received for the axis are converted to degrees using the specified radius. 
+### $aRA - Radius value
+The radius value is used by rotational axes (A, B and C, only) to convert linear units to degrees when in radius mode or in a slaved mode. 
+
+For example; if the A radius is set to 10 mm it means that a value of 6.28318531 mm will make the A axis travel one full revolution - as 62.383... is the circumference of the circle of radius R ( 2*PI*R, or 10 * 2 * 3.14159...) (Assuming $nTR = 360 -- see note below). Receiving the gcode block "G0 A62.83" will turn the A axis one full revolution (360 degrees) from a starting position of 0. All internal computations and settings are still in degrees - it's just that gcode units received for the axis are converted to degrees using the specified radius. 
 
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
- $aRA=1.00<span class="Apple-tab-span" style="white-space:pre">	</span>Setting the radius to 1" means that the Gcode block G0 A6.283 (inches) will make the A axis perform one revolution (1" * 2 * pi).&nbsp;
-
-'''$xSM'''<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_switch_mode]&nbsp;Switch Mode '''[$xLI 0.92]''' Sets mode for limit and homing switches. Currently, the following modes are supported: 
+### $xSN - Minimum switch mode
+### $xSX - Maximum switch mode
+This pair of settings sets the mode for limit and homing switches. 
+ the following modes are supported: 
 
 *0 = switches are disabled. No actions will occur for either homing or limit operations 
 *1 = Normally Open (NO) switches enabled for homing only. No action will occur for limits 
 *2 = Normally Open (NO) switches enabled for homing and limits
 
+See [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.95-and-above)) for more details
 <br> 
 
 === Per Axis Homing Settings ===
