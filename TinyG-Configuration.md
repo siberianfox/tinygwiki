@@ -301,7 +301,7 @@ For example; if the A radius is set to 10 mm it means that a value of 6.28318531
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
 ### Homing Settings
-Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.95-and-later)) for the following homing settings
+Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) for the following homing settings
 
 * $xSN - Minimum switch mode
 * $xSX - Maximum switch mode
