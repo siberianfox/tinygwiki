@@ -91,31 +91,33 @@ To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>, f
 $xvm   Show X axis maximum velocity
 $3po   Show motor 3 polarity
 $ex    Show XON/XOFF setting
-$1     Show motor 1 settings (or whatever motor you want 1,2,3,4)
 </pre> 
-
 
 The following commands will display settings groups. 
 <pre>
-$sys  Show system settings
-$1    Show motor 1 settings (or whatever motor you want 1,2,3,4)
-$x    Show X axis settings (or whatever axis you want x,y,z,a,b,c)
+$sys  Show all system settings
+$1    Show all motor 1 settings (or whatever motor you want 1,2,3,4)
+$x    Show all X axis settings (or whatever axis you want x,y,z,a,b,c)
 --- the following are not available in JSON mode:
-$m    Show all motor settings
-$n    Show all axis settings
-$$    Show all settings
-$h    Show this help screen
+$m    Show all motor settings for motors 1,2,3 and 4
+$n    Show all axis settings for axes x,y,z,a,b,c
+$$    Show all settings (everything)
+$h    Show system help screen
 </pre> 
-The $ must be the first character of the line, and input is case insensitive. Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes. However, it is not good practive to intermingle configs with Gcode blocks, and this operation may be prevented in the future - i.e. gonfig commands that arrive during a gcode cycle will be rejected.
+The $ must be the first character of the line, and input is case insensitive. 
+
+Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes. However, it is not good practive to intermingle configs with Gcode blocks, and this operation may be prevented in the future - i.e. gonfig commands that arrive during a gcode cycle will be rejected.
 
 CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. 
 
 ## Updating Settings 
-To update a setting enter a token and a value. Most tokens are a 2 or 3 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 4 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
+To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
 
- tinyg[mm]ok&gt; $yfr=800 <span class="Apple-tab-span" style="white-space:pre">						</span>(Set feed rate for Y axix to 800 mm/min)
+<pre>
+tinyg[mm]ok> $yfr=800                          (Set feed rate for Y axix to 800 mm/min)
  Y axis - Feed rate            800 mm/min       $YFR800
- 
+</pre> 
+
  tinyg[mm]ok&gt; $ y fr = 1,600 					(Set feed rate for Y axix to 1600 mm/min)
  Y axis - Feed rate           1600 mm/min       $YFR1600
  
