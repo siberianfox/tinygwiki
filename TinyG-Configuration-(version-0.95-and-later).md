@@ -81,7 +81,7 @@ Communications Settings
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
-## Background
+# Background Info
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
 
 * Supports 6 gcode axes (XYZABC) 
@@ -91,15 +91,17 @@ Configuration is as simple as we could make it given the following features, ass
 * Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
 * Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
-== Displaying Settings  ==
+## Displaying Settings
+Configs are described for text mode operation. See JSON Operation for JSON equivalents. In general, these are identical expect for request and response formats. Differences, where they exist, are noted. 
 
 The following commands will display settings groups. 
-<pre>$s    Show system settings
+<pre>$sys  Show system settings
 $1    Show motor 1 settings (or whatever motor you want 1,2,3,4)
 $x    Show X axis settings (or whatever axis you want x,y,z,a,b,c)
+--- the following are not available in JSON mode
 $m    Show all motor settings
 $n    Show all axis settings
-$$    Show all settings
+$$    Show all settings (not available in JSON mode)
 $h    Show this help screen
 </pre> 
 The $ must be the first character of the line, and input is case insensitive. Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes <br><br> ''CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. We are working on a workaround to this issue.''
