@@ -456,6 +456,7 @@ $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
 ### $JE - Set JSON Echo verbosity
+If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
 <pre>
 $je=0      - Silent - no responses given to JSON commands
 $je=1      - Omit body - JSON Response contains no body - footer only
@@ -465,7 +466,7 @@ $je=4      - Full echo - Body returned for configs and Gcode - Gcode comments re
 </pre>
 
 ### $BAUD - Set USB Baud Rate
-The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the baud command, (2) wait for a response verifying the commAND, (3) change to the new baud rate.
+The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the $baud command, (2) wait for a response verifying the command, (3) change to the new baud rate.
 <pre>
 $baud=0     - Illegal baud rate setting. Returns an error
 $baud=1     - 9600
