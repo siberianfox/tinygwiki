@@ -46,7 +46,7 @@ The system group contains global machine and communication settings> These are n
 	--------|-------------|-------
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$fb | Firmware build | Read-only value, e.g. 351.05 
-	| Gcode defaults | These are the initial values that machine will power up with or revert to for a Program End (M2 or M30), reset or abort. Setting these does NOT change the current machine mode, only the initial mode
+	| Gcode defaults | Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
 	$gun | Default units mode | 0=inches 1=mm 
 	$gpl | Default plane selection | 
 	$gco | Default coordinate system |
