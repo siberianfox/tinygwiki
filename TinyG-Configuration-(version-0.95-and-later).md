@@ -42,8 +42,8 @@ Firmware configuration is done by sending configuration commands while in text m
 **System group** 
 The system group contains global machine and communication settings> These are not prefixed by and axis or motor prefix
 
-	Setting | Description | Notes
-	--------|-------------|-------
+	Setting | Description                 | Notes
+	--------|-----------------------------|-------
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$fb | Firmware build | Read-only value, e.g. 351.05 
 	| Gcode defaults | Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
