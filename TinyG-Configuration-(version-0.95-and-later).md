@@ -40,7 +40,7 @@ Firmware configuration is done by sending configuration commands while in text m
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
 **System group** 
-The system group contains the following global machine and communication settings. 
+The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
 Global Machine Settings
 
@@ -50,10 +50,12 @@ Global Machine Settings
 	$fb | Firmware build | Read-only value, e.g. 351.05 
 	$ja | Junction acceleration | Global cornering acceleration value 
 	$ml | Minimum line length | 
-***Arc segment length 
-***Segment timing (interpolation interval)<br> 
+	$ma | Arc segment length |
+	$mt | Segment timing | Planner interpolation interval
+	$st | Switch type | 0=NO, 1=NC
 
 Gcode Initialization Defaults 
+
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
 
 	Setting | Description | Notes
@@ -64,21 +66,20 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 	$gpa | Default path control mode |
 	$gdi | Default distance mode | 
 
-
-**Communications Settings**
+Communications Settings
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$gun | Default units mode | 0=inches 1=mm 
+	$ic | Ignore CR / LF on RX | 
+	$ee | Enable character echo |
+	$ex | Enable XON/XOFF flow control |
+	$eq | Enable planner queue reports |
+	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
+	$je | JSON echo mode | Verbosity control
+	$si | Status report interval | In ms, 0=off
+	$baud | Baud rate |
 
-***Ignore CR for RX chars 
-***Ignore LF for RX chars 
-***Append CR to TX chars
-***Enable / disable command line echo
-***Enable / disable XON/XOFF flow control protocol<br>
-**Status Report Settings 
-***Status report interval (disable = 0)
-***Status report parameters (Settable in JSON only - see JSON mode for details)
+Note: Status report parameters is settable in JSON only - see JSON mode for details
 
 ## Background
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
