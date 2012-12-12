@@ -300,31 +300,17 @@ For example; if the A radius is set to 10 mm it means that a value of 6.28318531
 
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
-### $xSN - Minimum switch mode
-### $xSX - Maximum switch mode
-This pair of settings sets the mode for limit and homing switches. 
- the following modes are supported: 
+### Homing Settings
+Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.95-and-later)) for the following homing settings
 
-*0 = switches are disabled. No actions will occur for either homing or limit operations 
-*1 = Normally Open (NO) switches enabled for homing only. No action will occur for limits 
-*2 = Normally Open (NO) switches enabled for homing and limits
+* $xSN - Minimum switch mode
+* $xSX - Maximum switch mode
+* $xSV - Homing Search Velocity
+* $xLV - Homing Latch Velocity
+* $xLB - Homing Latch Backoff
+* $xZB - Homing Zero Backoff
 
-See [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.95-and-above)) for more details
-<br> 
-
-=== Per Axis Homing Settings ===
-
-See also $xTM and $xSM<br> 
-
-'''$xSV '''<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_search_velocity]&nbsp;Homing Search Velocity - velocity for initially finding the homing switch. Set negative for travel in negative direction, positive for travel in positive direction. See [[Projects:TinyG-Homing|Return to Home]] for more details.<br> 
-
-'''$xLV '''<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_latch_velocity]&nbsp;Homing Latch Velocity - velocity for homing second pass (latching phase). Sign is ignored. latch will aways move in the same direction as search. 
-
-'''$xLB''' <span class="Apple-tab-span" style="white-space:pre">	</span>[$x_latch_backoff]&nbsp;Homing Latch Backoff -amount to back off switch prior to latch operation 
-
-'''$xZB''' <span class="Apple-tab-span" style="white-space:pre">	</span>[$x_zero_backoff]&nbsp;Homing Zero Backoff - machine coordinate system zero position defined as backoff (offset) from homing switch
-
-== Coordinate System and Origin Offsets  ==
+## Coordinate System and Origin Offsets 
 
 Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to coordinate systems 1-6, respectively. These can be set from Gcode using the G10 command (e.g. G10 P2 L2 X20.000 - the P word is the coordinate system, the L word is accoding to standard, but is ignored). 
 
