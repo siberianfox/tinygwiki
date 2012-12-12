@@ -184,51 +184,73 @@ Despite common wisdom, higher microstep values are not always better (It's like 
  $3mi=8	<span class="Apple-tab-span" style="white-space:pre">	</span>Set 1/8 microsteps for motor 3 
 </pre>
 
-Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TinyG to other drivers [like these crazy 1.8 Kw servos Saci's wired up](http://youtu.be/Nrsyejv-vwE) like those running 10x or 16x steps. If you are using the drivers on TInyG this will cause them to malfucntion, so please don't do this unless you are one of those hacker types that soldered up your TinyG.'' 
+Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TinyG to other drivers [like these crazy 1.3 Kw servos Saci's wired up](http://youtu.be/Nrsyejv-vwE) and like some of the common commercial stepper driver running 10x or 16x steps. If you are using the drivers on TinyG this will cause them to malfunction, so please don't do this unless you are one of those hacker types that soldered up your TinyG.
 
+### $1PO - POlarity
+Set to one of the following: 
 
+* 0 = Normal motor polarity
+* 1 = Invert motor polarity
 
-'''$1PO'''<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_polarity] POlarity. Set to one of the following: 0 = Normal motor polarity, 1 = Invert motor polarity.&nbsp;Polarity sets which direction the motor will turn when presented with positive and negative Gcode coordinates. It's affected by how you wired the motors and by mechanical factors. Set polarity so the indicated axis travels in the correct orientation for your machine. Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you.&nbsp;Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.<br> 
+Polarity sets which direction the motor will turn when presented with positive and negative Gcode coordinates. It's affected by how you wired the motors and by mechanical factors. Set polarity so the indicated axis travels in the correct orientation for your machine. 
 
+Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you. Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.
+
+<pre>
  $3po=0<span class="Apple-tab-span" style="white-space:pre">		</span>Set polarity to normal
+</pre>
 
-<br> 
+### $1PM - Power Management mode
+Set to one of the following: 
 
-'''$1PM<span class="Apple-tab-span" style="white-space:pre">	</span>'''[$m1_power_management] Power Management mode '''[$1PW 0.92]'''. Set to one of the following: 0 = Leave motor powered on when stopped, 1 = Turn motor power off when stopped.&nbsp;Stepper motors actually consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots)<br> 
+* 0 = Leave motor powered on when stopped
+* 1 = Turn motor power off when stopped
 
+Stepper motors actually consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots)
+
+<pre>
  $4pm=1         Set low-power idle for motor 4
+</pre>
 
-<br>
+## Axis Settings
 
-== Axis Settings  ==
+### $xAM - Axis Mode
+Sets the function of the axis. The following modes are supported for all axes.
 
-'''$xAM''' <span class="Apple-tab-span" style="white-space:pre">	</span>[$x_axis_mode]&nbsp;Axis Mode. '''[was $xMO in version 0.92]''' Sets the function of the axis. The following modes are supported for all axes.<br> 
+* 0 = Disable. All input to that axis will be ignored and the axis will not move. 
+* 1 = Standard. Linear axes move in length units. Rotary axes move in degrees. 
+* 2 = Inhibited. Axis values are taken into account when planning moves, but the axis will not move. Use this to perform a Z kill.
 
-*0 = Disable. All input to that axis will be ignored and the axis will not move. 
-*1 = Standard. Linear axes move in length units. Rotary axes move in degrees. 
-*2 = Inhibited. Axis values are taken into account when planning moves, but the axis will not move. Use this to perform a Z kill.
-
+<pre>
  $zmo=2 	will inhibit the Z axis; $zmo1 will restore standard operation
+</pre>
 
 Rotary axes can have these additional modes. 
 
-*3 = Radius mode. In radius mode gcode values are interpreted as linear units; either inches or mm depending on the prevailing G20/G21 setting. The conversion of linear units to degrees is accomplished using the radius setting for that axis. See $aRA for details. 
-*4 = Slave X mode - rotary axis slaved to movement in X dimension 
-*5 = Slave Y mode - rotary axis slaved to movement in Y dimension 
-*6 = Slave Z mode - rotary axis slaved to movement in Z dimension 
-*7 = Slave XY mode - rotary axis slaved to movement in XY plane 
-*8 = Slave XZ mode - rotary axis slaved to movement in XZ plane 
-*9 = Slave YZ mode - rotary axis slaved to movement in YZ plane 
-*10 = Slave XYZ mode - rotary axis slaved to movement in XYZ space
+* 3 = Radius mode. In radius mode gcode values are interpreted as linear units; either inches or mm depending on the prevailing G20/G21 setting. The conversion of linear units to degrees is accomplished using the radius setting for that axis. See $aRA for details. 
+* 4 = Slave X mode - rotary axis slaved to movement in X dimension 
+* 5 = Slave Y mode - rotary axis slaved to movement in Y dimension 
+* 6 = Slave Z mode - rotary axis slaved to movement in Z dimension 
+* 7 = Slave XY mode - rotary axis slaved to movement in XY plane 
+* 8 = Slave XZ mode - rotary axis slaved to movement in XZ plane 
+* 9 = Slave YZ mode - rotary axis slaved to movement in YZ plane 
+* 10 = Slave XYZ mode - rotary axis slaved to movement in XYZ space
 
-Slave modes use the distance traveled in one or more linear dimensions as the linear input to the rotational axis. The linear travel is converted to degrees using the radius value set by $aRA. Any value that is provided in the Gcode block for the axis is ignored.&nbsp; <br> 
+Slave modes use the distance traveled in one or more linear dimensions as the linear input to the rotational axis. The linear travel is converted to degrees using the radius value set by $aRA. Any value that is provided in the Gcode block for the axis is ignored.
 
-'''$xVM'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_velocity_maximum]&nbsp;Velocity Maximum (also known as traverse rate or seek rate) '''[$xSR 0.92]'''. Sets the maximum velocity the axis will move during a traverse (G0). This is set in length units per minute for linear axes, degrees per minute for rotary axes. The max velocity will be used for all G0's from the time of reset onward. Note that the max velocity is *per-axis*. Diagonal / multi-axis traverses will actually occur at the fastest speed the combined set of axes and the geometry will allow, and may be faster than the individual axis max velocities. For example, max velocity for X and Y are set to 1000 mm/min. For a 45 degree traverse in X and Y the toolhead would travel at 1414.21 mm/min. 
-<pre>$xvm=1200 sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
+### $xVM - Velocity Maximum
+(Also known as traverse rate or seek rate). Sets the maximum velocity the axis will move during a traverse (G0). This is set in length units per minute for linear axes, degrees per minute for rotary axes. The max velocity will be used for all G0's from the time of reset onward. Note that the max velocity is *per-axis*.
+
+Diagonal / multi-axis traverses will actually occur at the fastest speed the combined set of axes and the geometry will allow, and may be faster than the individual axis max velocities. For example, max velocity for X and Y are set to 1000 mm/min. For a 45 degree traverse in X and Y the toolhead would travel at 1414.21 mm/min. 
+
+<pre>
+$xvm=1200 sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 $zvm=30.0 sets Z to 30 inches per minute - assuming G20 is active
 $avm=3600 sets A to 10 revolutions per minute (360 * 10)
-</pre> 
-'''$xFR''' <span class="Apple-tab-span" style="white-space:pre">	</span>[$x_feedrate_maximum]&nbsp;Maximum Feed Rate. Sets the maximum velocity the axis can move during a feed (G1, G2, G3). Units work similarly to traverse rate (maximum velocity). Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. Note: The feed rate setting is NOT used to set the Gcode's F value; it is only a maximum. A reset machine will have a zero feed rate for safety reasons.<br> 
+</pre>
+ 
+### $xFR -Maximum Feed Rate
+Sets the maximum velocity the axis can move during a feed (G1, G2, G3). Units work similarly to traverse rate (maximum velocity). Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. Note: The feed rate setting is NOT used to set the Gcode's F value; it is only a maximum. A reset machine will have a zero feed rate for safety reasons.<br> 
 <pre>$xfr=1000 sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 </pre> 
 '''$xTM<span class="Apple-tab-span" style="white-space:pre">	</span>[$x_travel_maximum]&nbsp;'''Travel Maximum. '''[$xTS 0.92]''' Defines the maximum extent of travel in that axis. This is currently only used during homing but will also be used for soft limits when that feature is implemented.<br> 
