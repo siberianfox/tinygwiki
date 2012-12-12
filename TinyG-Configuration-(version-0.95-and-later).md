@@ -10,9 +10,7 @@ But you will want to set up for your particular machine, as follows.
 
 Firmware configuration is done by sending configuration commands while in text mode (USB command line), or JSON equivalents if in JSON mode. Connect to the TG terminal and issue "$" to test. 
 
-## Summary
-TinyG configuration is organized into the following groups of related settings: 
-
+## Summary / Cheat Sheet
 **Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
 	Setting | Description | Notes
