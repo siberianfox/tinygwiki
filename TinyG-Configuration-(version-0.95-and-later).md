@@ -40,24 +40,37 @@ Firmware configuration is done by sending configuration commands while in text m
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
 **System group** 
-The system group contains global machine and communication settings> These are not prefixed by and axis or motor prefix
+The system group contains the following global machine and communication settings. 
 
-	Setting | Description                 | Notes
-	--------|-----------------------------|-------
+Global Machine Settings
+
+	Setting | Description | Notes
+	--------|-------------|-------
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$fb | Firmware build | Read-only value, e.g. 351.05 
-	| Gcode defaults | Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
+	$ja | Junction acceleration | Global cornering acceleration value 
+	$ml | Minimum line length | 
+***Arc segment length 
+***Segment timing (interpolation interval)<br> 
+
+Gcode Initialization Defaults 
+Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
+
+	Setting | Description | Notes
+	--------|-------------|-------
 	$gun | Default units mode | 0=inches 1=mm 
 	$gpl | Default plane selection | 
 	$gco | Default coordinate system |
 	$gpa | Default path control mode |
 	$gdi | Default distance mode | 
-	| Global parameters | 
-	$ja | Junction acceleration | Global cornering acceleration value 
-	$ml | Minimum line length | 
-***Arc segment length 
-***Segment timing (interpolation interval)<br> 
-**Communications settings configure the serial port behaviors<br>
+
+
+**Communications Settings**
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$gun | Default units mode | 0=inches 1=mm 
+
 ***Ignore CR for RX chars 
 ***Ignore LF for RX chars 
 ***Append CR to TX chars
