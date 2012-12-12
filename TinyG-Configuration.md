@@ -249,8 +249,8 @@ $zvm=30.0 sets Z to 30 inches per minute - assuming G20 is active
 $avm=3600 sets A to 10 revolutions per minute (360 * 10)
 </pre>
  
-### $xFR - Maximum Feed Rate
-Sets the maximum velocity the axis can move during a feed in a G1, G2, or G3 move. This works similarly to traverse rate (maximum velocity), but instead of setting the *rate* it only serves to reduce the rate provided by the Gcode F word to the set maximum. Put another way, the maximum feed rate setting is NOT used to set the Gcode's F value; it is only a maximum. ALso, a reset machine will have a zero feed rate for safety reasons.
+### $xFR - Feed Rate maximum
+Sets the maximum velocity the axis will move during a feed in a G1, G2, or G3 move. This works similarly to maximum velocity, but instead of actually setting the speed, it only serves to establish a "do not exceed" for Gcode F words. Put another way, the maximum feed rate setting is NOT used to set the Gcode's F value; it is only a maximum.
 
 Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. 
 
@@ -345,7 +345,7 @@ They can be displayed individually
 Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. <br>
 
 ## System Group Settings
-General System Parameters 
+These are general system-wide parameters and are part of the "sys" group.
 
 ### $FV - Firmware Version
 Read-only value. Can be queried.
@@ -386,6 +386,8 @@ $ms=5000  - Do not change this value
 ##Gcode Default Parameters
 These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode model state. For example, entering $gun=0 will not change the system to inches, but it will cause it to come up in inches during reset.
 
+These are also part of the "sys" group.
+
 ### $GPL - Gcode Default Plane Selection
 <pre>
 $gpl=0      - G17 (XY plane)
@@ -423,27 +425,43 @@ $gdi=0      - G90 (absolute mode)
 $gdi=1      - G91 (incremental mode)
 </pre> 
 
+## Communications Parameters
+Set communications. These are also part of the "sys" group.
 
+### $IC Ignore CR or LF on RX 
+<pre>
+$ic=0      - Don't ignore CR or LF in received data
+$ic=1      - Ignore CR in received data
+$ic=2      - Ignore LF in received data
+</pre> 
 
-'''Communications Parameters''' 
+### $EE - Enable Character Echo 
+This should be disabled for JSON mode. In text mode it's optional either way.
+<pre>
+$ee=0      - Disable character echo
+$ee=1      - Enable character echo
+</pre> 
 
-'''$IC'''<span class="Apple-tab-span" style="white-space:pre">		</span>Ignore CR on RX. 
-<pre>$ic=0      - Disable
-$ic=1      - Enable
-</pre> 
-'''$IL'''<span class="Apple-tab-span" style="white-space:pre">		</span>Ignore LF on RX. 
-<pre>$il=0      - Disable
-$il=1      - Enable
-</pre> 
-'''$EC'''<span class="Apple-tab-span" style="white-space:pre">		</span>Enable CR expansion on TX. 
-<pre>$ec=0      - Disable
-$ec=1      - Enable
-</pre> 
-'''$EE'''<span class="Apple-tab-span" style="white-space:pre">		</span>Enable Echo. 
-<pre>$ee=0      - Disable
-$ee=1      - Enable
-</pre> 
-'''$EX'''<span class="Apple-tab-span" style="white-space:pre">		</span>Enable XON/XOFF protocol 
-<pre>$ex=0      - Disable
-$ex=1      - Enable
+### $EX - Enable XON/XOFF protocol 
+<pre>
+$ex=0      - Disable XON/XOFF protocol 
+$ex=1      - Enable XON/XOFF protocol 
 </pre>
+
+### $EJ - Enable JSON Mode on Power Up
+This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
+<pre>
+$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
+$ej=1      - Enable JSON mode on power-up and reset
+</pre>
+
+### $JE - Set JSON Echo verbosity
+<pre>
+$je=0      - Silent - no responses given to JSON commands
+$je=1      - Omit body - JSON Response contains no body - footer only
+$je=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
+$je=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
+$je=4      - Full echo - Body returned for configs and Gcode - Gcode comments removed
+</pre>
+
+### $BAUD - Set Baud Rate
