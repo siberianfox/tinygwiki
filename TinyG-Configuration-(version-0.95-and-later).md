@@ -10,17 +10,6 @@ But you will want to set up for your particular machine, as follows.
 
 Firmware configuration is done by sending configuration commands while in text mode (USB command line), or JSON equivalents if in JSON mode. Connect to the TG terminal and issue "$" to test. 
 
-## Background
-Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
-
-* Supports 6 gcode axes (XYZABC) 
-* Has 4 on-board motors and is designed so that multiple TinyG boards can be networked to drive more than 4 motors 
-* Implements controlled jerk motion (and therefore needs to be configurable for it) 
-* Treats each axis' contribution to the dynamics independently (i.e. dynamics are not set globaly for the machine) 
-* Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
-* Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
-
-
 ## Summary
 TinyG configuration is organized into the following groups of related settings: 
 
@@ -79,6 +68,16 @@ The system group contains global machine and communication settings> These are n
 **Status Report Settings 
 ***Status report interval (disable = 0)
 ***Status report parameters (Settable in JSON only - see JSON mode for details)
+
+## Background
+Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
+
+* Supports 6 gcode axes (XYZABC) 
+* Has 4 on-board motors and is designed so that multiple TinyG boards can be networked to drive more than 4 motors 
+* Implements controlled jerk motion (and therefore needs to be configurable for it) 
+* Treats each axis' contribution to the dynamics independently (i.e. dynamics are not set globaly for the machine) 
+* Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
+* Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
 == Displaying Settings  ==
 
