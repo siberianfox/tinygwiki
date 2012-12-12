@@ -1,4 +1,4 @@
-The following describes the function of homing cycles and related Gcode for version 0.95. 
+The following describes the function of homing cycles and related Gcode for version 0.95 and later versions. 
 
 There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [LinuxCNC](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
 
