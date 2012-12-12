@@ -1,14 +1,6 @@
 REVISION NOTICE: The settings on this page are for version 0.95 and later. For other firmware revisions see  [TinyG Configuration for 0.94 and 0.93](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)
 
-TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file.
-
-If you are having trouble with your settings and want to revert to the default settings enter:
-`$defa=1`
-This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
-
-But you will want to set up for your particular machine, as follows.
-
-Firmware configuration is done by sending configuration commands while in text mode (USB command line), or JSON equivalents if in JSON mode. Connect to the TG terminal and issue "$" to test. 
+TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
 
 ## Summary / Cheat Sheet
 **Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
@@ -92,7 +84,7 @@ Configuration is as simple as we could make it given the following features, ass
 * Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
 ## Displaying Settings
-Configs are described for text mode operation. See JSON Operation for JSON equivalents. In general, these are identical expect for request and response formats. Differences, where they exist, are noted. 
+Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. Configs are described for text mode operation. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation-(version-0.95-and-later)) for JSON equivalents. In general, config parameters are identical expect for request and response formats. Differences, where they exist, are noted. 
 
 The following commands will display settings groups. 
 <pre>$sys  Show system settings
