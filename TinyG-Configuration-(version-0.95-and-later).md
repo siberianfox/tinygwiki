@@ -86,8 +86,18 @@ Configuration is as simple as we could make it given the following features, ass
 ## Displaying Settings
 Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. Configs are described for text mode operation. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation-(version-0.95-and-later)) for JSON equivalents. In general, config parameters are identical expect for request and response formats. Differences, where they exist, are noted. 
 
+To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>, for example
+<pre>
+$xvm   Show X axis maximum velocity
+$3po   Show motor 3 polarity
+$ex    Show XON/XOFF setting
+$1     Show motor 1 settings (or whatever motor you want 1,2,3,4)
+</pre> 
+
+
 The following commands will display settings groups. 
-<pre>$sys  Show system settings
+<pre>
+$sys  Show system settings
 $1    Show motor 1 settings (or whatever motor you want 1,2,3,4)
 $x    Show X axis settings (or whatever axis you want x,y,z,a,b,c)
 --- the following are not available in JSON mode:
