@@ -143,7 +143,7 @@ Note: Settings are case insensitive - they are shown in upper case for emphasis 
 ### $1MA - MAp motor to axis
 Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3 or a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
 
-<pre> 
+<pre>
  $1ma=0	    Maps motor 1 to the X axis
  $2ma=1	    Maps motor 2 to the Y axis
  $3ma=2	    Maps motor 3 to the Z axis
@@ -153,29 +153,38 @@ Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you migh
 ### $1SA - Step Angle for the motor
 This is a decimal number which is often 1.8 degrees per step, but should reflect the motor in use. You might also find 0.9, 3.6, 7.5 or other values. You can usually read this off the motor label, or divide 360 by the steps per rotation.
 
-<pre> 
+<pre>
  $1sa=1.8	This is a typical value for most motors. 
 </pre> 
 
-<br> 
+### $1TR - Travel per Revolution
+This is the amount of travel of the mapped axis per motor revolution. It is in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
 
-'''$1TR<span class="Apple-tab-span" style="white-space:pre">		</span>'''[$m1_travel_per_revolution] Travel per Revolution. This is the amount of travel per motor revolution in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
+For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 35 mm per revolution. Don't take this as exact - you will need to calibrate your machine to get this setting.
 
-For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko of Reprap belt driven machine is on the order of 35 mm per revolution. Don't take this as exact - you will need to calibrate your machine to get this setting.
-
-For ABC the travel is&nbsp;entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with a&nbsp;4 degree table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
+For ABC the travel is entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with 4 degrees of table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
 
 Note that Travel per Revolution is a motor parameter, not an axis parameter as one might think. Consider the case of a dual Y gantry with lead screws of different pitch (how weird). The travel per revolution would be different for each motor. 
 
+<pre>
  $1tr=2.54<span class="Apple-tab-span" style="white-space:pre">	</span>Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
+</pre>
 
-<br> 
+### $1MI - MIcrosteps
+The following microstep values are supported: 
 
-'''$1MI'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_microsteps] MIcrosteps. The following values are supported: 1 = no microsteps (whole steps), 2 = half stepping, 4 = quarter stepping, 8 = eighth stepping.&nbsp;Despite common wisdom, higher microstep values are not always better (It's like watts in the 80's - the more the better, right?). In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
+* 1 = no microsteps (whole steps)
+* 2 = half stepping
+* 4 = quarter stepping
+* 8 = eighth stepping
 
+Despite common wisdom, higher microstep values are not always better (It's like watts in the 80's - the more the better, right?). In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
+
+<pre>
  $3mi=8	<span class="Apple-tab-span" style="white-space:pre">	</span>Set 1/8 microsteps for motor 3 
+</pre>
 
-''Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TInyG to other drivers (you know who you are) like those running 10x or 16x steps. If you are using the drivers on TInyG this will cause them to malfucntion, so please don't do this unless you are one of those hacker types that soldered up your TinyG.'' 
+Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TinyG to other drivers (you know who you are) like those running 10x or 16x steps. If you are using the drivers on TInyG this will cause them to malfucntion, so please don't do this unless you are one of those hacker types that soldered up your TinyG.'' 
 
 
 
