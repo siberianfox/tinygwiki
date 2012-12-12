@@ -83,6 +83,11 @@ Configuration is as simple as we could make it given the following features, ass
 * Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
 * Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
 
+## Units
+TinyG will operate configs in either inches or millimeters mode depending on the current Gcode UNITS setting: G20 for inches or G21 for mm. All config values will be input and displayed in the current units. Most of the examples below are in mm, but could just as easily be input in inches. 
+
+Note: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x
+
 ## Displaying Settings
 Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. Configs are described for text mode operation. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation-(version-0.95-and-later)) for JSON equivalents. In general, config parameters are identical expect for request and response formats. Differences, where they exist, are noted. 
 
@@ -130,25 +135,27 @@ tinyg[mm] error: Unrecognized command $ted
  {21} Bad number format: XFR1200.2.3      The value had 2 decimal points
 </pre> 
 
-## Units
-TinyG operates in either inches or millimeters mode depending on the current Gcode UNITS setting: G20 for inches or G21 for mm. All config values will be input and displayed in the current units. Most of the examples below are in mm, but could just as easily be input in inches.
-
 # Settings Details
 Note: Settings are case insensitive - they are shown in upper case for emphasis only.
 
 ## Motor Settings
 
 ### $1MA - MAp motor to axis
-Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. &nbsp;As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.&nbsp;The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
+Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3 or a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
 
- $1ma=0	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 1 to the X axis
- $2ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 2 to the Y axis
- $3ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 3 to the Y axis
- $4ma=2	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 4 to the Z axis
+<pre> 
+ $1ma=0	    Maps motor 1 to the X axis
+ $2ma=1	    Maps motor 2 to the Y axis
+ $3ma=2	    Maps motor 3 to the Z axis
+ $4ma=1	    Maps motor 4 to the Y axis
+</pre> 
 
-<br> '''$1SA'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_step_angle] Step Angle for the motor. This is often 1.8 degrees per step, but should reflect the motors in use.&nbsp;You might also find 0.9, 3.6, 7.5 or other values. 
+### $1SA - Step Angle for the motor
+This is a decimal number which is often 1.8 degrees per step, but should reflect the motor in use. You might also find 0.9, 3.6, 7.5 or other values. You can usually read this off the motor label, or divide 360 by the steps per rotation.
 
+<pre> 
  $1sa=1.8	This is a typical value for most motors. 
+</pre> 
 
 <br> 
 
