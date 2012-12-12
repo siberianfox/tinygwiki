@@ -311,48 +311,53 @@ Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
 * $xZB - Homing Zero Backoff
 
 ## Coordinate System and Origin Offsets 
-
-Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to coordinate systems 1-6, respectively. These can be set from Gcode using the G10 command (e.g. G10 P2 L2 X20.000 - the P word is the coordinate system, the L word is accoding to standard, but is ignored). 
+### $g54x - $g59c
+Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to coordinate systems 1-6, respectively. These can be set from Gcode using the G10 command (e.g. G10 P2 L2 X20.000 - the P word is the coordinate system, the L word is according to standard, but is ignored). 
 
 In addition to using G10, the G54-G59 offsets can be set from the config system using the following conventions:
-<pre>$g54x=20.000
+<pre>
+$g54x=20.000
 $g54y=20.000     etc, all the way through...
 ...
 $g59b=1800
 $g59c=1800
 </pre> 
-Or they can be set in a single command using using JSON mode. Only those axes specified are set. 
-<pre>{"g55"":{"x":20.000,"y":20.000,"z":"0.000","a":0.000}}
-</pre> 
-They can be displayed individually:&nbsp; 
 
-'''$g54x''' - returns a single value 
+Or they can be set in a single command using using JSON mode. Only those axes specified are set. 
+<pre>
+{"g55"":{"x":20.000,"y":20.000,"z":"0.000","a":0.000}}
+</pre> 
+
+They can be displayed individually
+
+`$g54x` - returns a single value 
 
 ...or as a group: 
 
-'''$g54''' - returns all 6 values in the G54 group 
+`$g54` - returns all 6 values in the G54 group 
 
-'''$g92''' - returns all 6 values of the origin offset group 
+`$g92` - returns all 6 values of the origin offset group 
 
 ...or all together: 
 
-'''$o'''&nbsp;or 
-
-'''$ofs''' - returns all 6 groups of 6 values, plus the G92 origin offsets 
+`$o`
 
 Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. <br>
 
-== System Settings<br> ==
+## System Group Settings
+System.... 
 
-'''$FV'''<span class="Apple-tab-span" style="white-space:pre">		</span>Firmware Version: Read-only value. Can be queried. 
+### $FV - Firmware Version
+Read-only value. Can be queried.
 
-'''$FB'''<span class="Apple-tab-span" style="white-space:pre">		</span>Firmware Build number: Read-only value. Can be queried. 
+### $FB - Firmware Build number
+Read-only value. Can be queried.
 
-'''$SI'''<span class="Apple-tab-span" style="white-space:pre">		</span>Status Interval in milliseconds. Set to 0 to disable automatic status reports. Minimum is about 100 ms.
+### $SI - Status Interval 
+Interval in milliseconds between status reports when in motion. Set to 0 to disable automatic status reports. Minimum is about 200 ms.
 
-'''$SR''' <span class="Apple-tab-span" style="white-space:pre">		</span>Status Report. Returns a starus report in line form (use ? to return one in multi-line report firm)
-
-
+### $SR - Status Report
+Returns a status report in line form (use ? to return one in multi-line report firm)
 
 '''Gcode Default Parameters'''
 
