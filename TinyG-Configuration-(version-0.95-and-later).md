@@ -98,16 +98,17 @@ The following commands will display settings groups.
 <pre>$sys  Show system settings
 $1    Show motor 1 settings (or whatever motor you want 1,2,3,4)
 $x    Show X axis settings (or whatever axis you want x,y,z,a,b,c)
---- the following are not available in JSON mode
+--- the following are not available in JSON mode:
 $m    Show all motor settings
 $n    Show all axis settings
-$$    Show all settings (not available in JSON mode)
+$$    Show all settings
 $h    Show this help screen
 </pre> 
-The $ must be the first character of the line, and input is case insensitive. Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes <br><br> ''CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. We are working on a workaround to this issue.''
+The $ must be the first character of the line, and input is case insensitive. Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes. However, it is not good practive to intermingle configs with Gcode blocks, and this operation may be prevented in the future - i.e. gonfig commands that arrive during a gcode cycle will be rejected.
 
-== Updating Settings  ==
+CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. 
 
+## Updating Settings 
 To update a setting enter a token and a value. Most tokens are a 2 or 3 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 4 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
 
  tinyg[mm]ok&gt; $yfr=800 <span class="Apple-tab-span" style="white-space:pre">						</span>(Set feed rate for Y axix to 800 mm/min)
