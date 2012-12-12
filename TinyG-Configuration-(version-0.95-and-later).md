@@ -111,10 +111,12 @@ Configuration is non-moded; that is, configuration lines and Gcode blocks can be
 CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. 
 
 ## Updating Settings 
-To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
+To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. 
 
 <pre>
-tinyg[mm]ok> $yfr=800                          (Set feed rate for Y axix to 800 mm/min)
+tinyg[mm] ok> $yfr=800                          _(Set feed rate maximum for Y axis to 800 mm/min)_
+tinyg[mm] ok> [yfr] y_feedrate_maximum        800.000 mm/min
+
  Y axis - Feed rate            800 mm/min       $YFR800
 </pre> 
 
@@ -394,4 +396,3 @@ $ee=1      - Enable
 <pre>$ex=0      - Disable
 $ex=1      - Enable
 </pre>
-
