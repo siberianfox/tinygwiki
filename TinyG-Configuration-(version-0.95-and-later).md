@@ -111,26 +111,21 @@ Configuration is non-moded; that is, configuration lines and Gcode blocks can be
 CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. 
 
 ## Updating Settings 
-To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. 
+To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces or commas are allowed.
 
 <pre>
-tinyg[mm] ok> $yfr=800                          _(Set feed rate maximum for Y axis to 800 mm/min)_
+tinyg[mm] ok> $yfr=800                                         (Set Y axis feed rate maximum to 800 mm/min)
 tinyg[mm] ok> [yfr] y_feedrate_maximum        800.000 mm/min
-
- Y axis - Feed rate            800 mm/min       $YFR800
+tinyg[mm] ok> $2po=1                                           (Set polarity for motor 2 to inverted)
+tinyg[mm] ok> [2po] m2_polarity                 1 [0,1]
 </pre> 
 
- tinyg[mm]ok&gt; $ y fr = 1,600 					(Set feed rate for Y axix to 1600 mm/min)
- Y axis - Feed rate           1600 mm/min       $YFR1600
- 
- tinyg[mm] ok&gt; $2po=1<span class="Apple-tab-span" style="white-space:pre">						</span>(Set polarity for motor 2 to inverted)
- Motor 2 - Motor polarity        1 [0,1]        $2PO1
- 
- tinyg[mm] ok&gt; $ja=100000<span class="Apple-tab-span" style="white-space:pre">					</span>(Set junction acceleration global value to 100,000)
- Junction corner accel      100000 mm/min^2     $JA100000
- 
-
 If there is an error there will be no echo or a line like one of these: 
+<pre>
+tinyg[mm] ok> $ted=1                                           (Ted does no live here)
+tinyg[mm] ok> error: Unrecognized command: $ted 
+THIS IS WRONG. FIX IT
+</pre> 
 
  #### Unknown config string: YGR800<span class="Apple-tab-span" style="white-space:pre">		</span>It didn't recognize the mnemonic
  {21} Bad number format: XFR1200.2.3<span class="Apple-tab-span" style="white-space:pre">		</span>The value had 2 decimal points
