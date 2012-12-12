@@ -122,35 +122,24 @@ tinyg[mm] ok> [2po] m2_polarity                 1 [0,1]
 
 If there is an error there will be no echo or a line like one of these: 
 <pre>
-tinyg[mm] ok> $ted=1                                           (Ted does no live here)
-tinyg[mm] ok> error: Unrecognized command: $ted 
-THIS IS WRONG. FIX IT
+tinyg[mm] ok> $ted=1                                           (Set "Ted" to 1)
+tinyg[mm] error: Unrecognized command $ted
+
+---> Try these 2 out:
+ #### Unknown config string: YGR800       It didn't recognize the mnemonic
+ {21} Bad number format: XFR1200.2.3      The value had 2 decimal points
 </pre> 
 
- #### Unknown config string: YGR800<span class="Apple-tab-span" style="white-space:pre">		</span>It didn't recognize the mnemonic
- {21} Bad number format: XFR1200.2.3<span class="Apple-tab-span" style="white-space:pre">		</span>The value had 2 decimal points
+## Units
+TinyG operates in either inches or millimeters mode depending on the current Gcode UNITS setting: G20 for inches or G21 for mm. All config values will be input and displayed in the current units. Most of the examples below are in mm, but could just as easily be input in inches.
 
-Input is somewhat forgiving of caps, extra characters and spaces. The following are all valid ways to set the step angle for motor 2 to 0.9 degrees per step 
+# Settings Details
+Note: Settings are case insensitive - they are shown in upper case for emphasis only.
 
- tinyg[mm]ok&gt;  $2sa 0.9
- tinyg[mm]ok&gt;  $2 sa 0.900
- tinyg[mm]ok&gt;  $2SA=0.9
- tinyg[mm]ok&gt;  $2sa=+0.9
- tinyg[mm]ok&gt;  $2SA=.9
+## Motor Settings
 
-<br>
-
-== Units  ==
-TinyG operates in either inches or millimeters mode depending on the prevailing setting of G20 (inches) or G21 (mm). All values will be input and displayed in the units system selected. Most of the examples below are in mm, but could just as easily be input in inches.<br><br>
-
-= Settings Details  =
-Note: the settings are case insensitive - they are shown in upper case for emphasis only.<br>
-The friendly name may be used in place if the mnemonic. It's listed as in braces, e.g. [$m1_map_to_axis]<br>
-Friendly names only need to be types to the point of uniqueness - e.g. $m1_pol is OK for $m1_polarity and $m1_pow is OK for $m1_power_management<br>
-
-== Motor Settings  ==
-
-'''$1MA'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_map_to_axis] MAp motor to axis. Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. &nbsp;As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.&nbsp;The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
+### $1MA - MAp motor to axis
+Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. &nbsp;As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.&nbsp;The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
 
  $1ma=0	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 1 to the X axis
  $2ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 2 to the Y axis
