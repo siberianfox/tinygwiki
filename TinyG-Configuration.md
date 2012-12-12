@@ -464,4 +464,14 @@ $je=3      - Gcode linenum only - Body returned for configs; Gcode returns line 
 $je=4      - Full echo - Body returned for configs and Gcode - Gcode comments removed
 </pre>
 
-### $BAUD - Set Baud Rate
+### $BAUD - Set USB Baud Rate
+The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the baud command, (2) wait for a response verifying the commAND, (3) change to the new baud rate.
+<pre>
+$baud=0     - Illegal baud rate setting. Returns an error
+$baud=1     - 9600
+$baud=2     - 19200
+$baud=3     - 38400
+$baud=4     - 57600
+$baud=5     - 115200
+$baud=6     - 230400
+</pre>
