@@ -340,12 +340,12 @@ They can be displayed individually
 
 ...or all together: 
 
-`$o`
+`$o` - returns all offsets in the system (not available in JSON)
 
 Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. <br>
 
 ## System Group Settings
-System.... 
+General System Parameters 
 
 ### $FV - Firmware Version
 Read-only value. Can be queried.
@@ -359,21 +359,49 @@ Interval in milliseconds between status reports when in motion. Set to 0 to disa
 ### $SR - Status Report
 Returns a status report in line form (use ? to return one in multi-line report firm)
 
-'''Gcode Default Parameters'''
+### $JA - Junction Acceleration 
+<pre>
+$ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
+$ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
+</pre> 
 
+### $ML- Minimum Line Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+<pre>
+$ml=0.08    - Do not change this value
+</pre> 
+
+### $MA - Minimum Arc Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+<pre>$ma=0.10    - Do not change this value
+</pre> 
+
+### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+<pre>
+$ms=5000  - Do not change this value
+</pre> 
+<br> 
+
+##Gcode Default Parameters
 These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode model state. For example, entering $gun=0 will not change the system to inches, but it will cause it to come up in inches during reset.
 
-<br> '''$GPL'''<span class="Apple-tab-span" style="white-space:pre">	</span>Gcode Default Plane Selection for reset and power-on. 
-<pre>$gpl=0      - G17 (XY plane)
+### $GPL - Gcode Default Plane Selection
+<pre>
+$gpl=0      - G17 (XY plane)
 $gpl=1      - G18 (XZ plane)
 $gpl=2      - G19 (YZ plane)
 </pre> 
-'''$GUN'''<span class="Apple-tab-span" style="white-space:pre">	</span>Gcode Default Units for reset and power-on. 
-<pre>$gun=0      - G20 (inches)
+
+###$GUN - Gcode Default Units
+<pre>
+$gun=0      - G20 (inches)
 $gun=1      - G21 (millimeters)
 </pre> 
-'''$GCO'''<span class="Apple-tab-span" style="white-space:pre">	</span>Gcode Default Coordinate System for reset and power-on. 
-<pre>$gco=0      - (absolute coordinate system)
+
+###$GCO - Gcode Default Coordinate System
+<pre>
+$gco=0      - (absolute coordinate system)
 $gco=1      - G54 (coordinate system 1)
 $gco=2      - G55 (coordinate system 2)
 $gco=3      - G56 (coordinate system 3)
@@ -381,35 +409,21 @@ $gco=4      - G57 (coordinate system 4)
 $gco=5      - G58 (coordinate system 5)
 $gco=6      - G59 (coordinate system 6)
 </pre> 
-'''$GPA'''<span class="Apple-tab-span" style="white-space:pre">	</span>Gcode Default Path Control for reset and power-on 
-<pre>$gpa=0      - G61 (exact stop mode)
+
+###$GPA - Gcode Default Path Control
+<pre>
+$gpa=0      - G61 (exact stop mode)
 $gpa=1      - G61.1 (exact path mode)
 $gpa=2      - G64 (continuous mode)
 </pre> 
-'''$GDI'''<span class="Apple-tab-span" style="white-space:pre">		</span>Gcode Distance Mode for reset and power-on 
-<pre>$gdi=0      - G90 (absolute mode)
+
+### $GDI - Gcode Distance Mode
+<pre>
+$gdi=0      - G90 (absolute mode)
 $gdi=1      - G91 (incremental mode)
 </pre> 
-<br> '''Motion Parameters''' 
 
-'''$EA'''<span class="Apple-tab-span" style="white-space:pre">		</span>Enable Acceleration (NOTE: as of 0.93 this setting is disabled. Acceleration is always enabled)
-<pre>$ea=0      - Disable acceleration
-$ea=1      - Enable acceleration
-</pre> 
-'''$JA'''<span class="Apple-tab-span" style="white-space:pre">		</span>Junction Acceleration 
-<pre>$ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
-$ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
-</pre> 
-'''$ML'''<span class="Apple-tab-span" style="white-space:pre">		</span>Minimum Line Segment 
-<pre>$ml=0.08    - Do not change this value
-</pre> 
-'''$MA'''<span class="Apple-tab-span" style="white-space:pre">		</span>Minimum Arc Segment 
-<pre>$ma=0.10    - Do not change this value
-</pre> 
-'''$MS'''<span class="Apple-tab-span" style="white-space:pre">		</span>Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-<pre>$ms=5000  - Do not change this value
-</pre> 
-<br> 
+
 
 '''Communications Parameters''' 
 
