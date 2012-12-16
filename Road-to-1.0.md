@@ -28,3 +28,17 @@ There may be more than one GUI program. These items refer to all GUIs unless oth
 
 ## Parking lot
 Good ideas that can wait until later
+
+# Changelog
+I should have started this earlier. I'll keep a record of the tings that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
+
+
+Changes in 353.xx builds
+* Changed JSON body name from "b" to "r" to avoid collision with "b" axis groups
+* Changed $je to $jv for JSON vebosity setting
+* Added $tv for text verbosity setting
+* Added some new self tests and made all tests work from and return to home position. Type $test for a list
+
+Changes in 352 builds
+* Removed $xsm switch mode setting
+* Added $xsn and $xsx switch mode settings
