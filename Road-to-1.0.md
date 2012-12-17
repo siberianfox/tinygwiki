@@ -37,6 +37,7 @@ Changes in 353.xx builds
 * Changed $je to $jv for JSON vebosity setting
 * Added $tv for text verbosity setting
 * Added some new self tests and made all tests work from and return to home position. Type $test for a list
+* Limit switches now put the system into an infinite loop so no more commands from the UI are accepted until reset is performed. Reset can be physical (button), or ctrl-x - they both have exactly the same effect. The board attempts to send an 'er' report (in JSON mode) or an EMERGENCY SHUTDOWN message if in text mode.
 
 Changes in 352 builds
 * Removed $xsm switch mode setting
