@@ -33,11 +33,13 @@ Good ideas that can wait until later
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
 Changes in 353.xx builds
+* Fixed G92 and G54-G59 status reporting so these should be more useful now.
 * Changed JSON body name from "b" to "r" to avoid collision with "b" axis groups
 * Changed $je to $jv for JSON vebosity setting
 * Added $tv for text verbosity setting
 * Added some new self tests and made all tests work from and return to home position. Type $test for a list
 * Limit switches now put the system into an infinite loop so no more commands from the UI are accepted until reset is performed. Reset can be physical (button), or ctrl-x - they both have exactly the same effect. The board attempts to send an 'er' report (in JSON mode) or an EMERGENCY SHUTDOWN message if in text mode.
+* Removed axis Slave modes. These "slots" will be used for application specific modes such as extruder, laser hardener, laser cutter, tangential knife, etc.
 
 Changes in 352 builds
 * Removed $xsm switch mode setting
