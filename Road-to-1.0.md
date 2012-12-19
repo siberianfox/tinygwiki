@@ -35,7 +35,7 @@ I should have started this earlier. I'll keep a record of the things that affect
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
 
-* Added an "unofficial gcode" command to allow arbitrarily setting an axes machine position. This is needed to support the Otherlab infinite Y axis. use: While in a a zero-offset coordinate system (presumably G54) and with the axis(or axes) where you want it, issue g92.4 y0 (for example). The Y axis will now be set to 0 (or whatever you said it was. Works for one or more axes. I plan to extend so this works while in any arbitrary coordinate system but for now this is not working. This function still needs testing.
+* Added an "unofficial gcode" command to allow arbitrarily setting an axes machine position. This is needed to support the Otherlab infinite Y axis. use: While in a zero-offset coordinate system (presumably G54) and with the axis(or axes) where you want it, issue g92.4 y0 (for example). The Y axis will now be set to 0 (or whatever you said it was). Works for one or more axes. I plan to extend so this works while in any arbitrary coordinate system but for now this is not working. This function still needs testing.
 
 Changes in 353.xx builds
 * Changed limit switch shutdown behavior. Limits now cause immediate machine shutdown. Can only leave this state by a hard reset or a software reset via ctrl-x. THis prevents runaways if the host is still streaming code. Blinks the spindle DIR LED when in shutdown state.
