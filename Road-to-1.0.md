@@ -35,9 +35,9 @@ I should have started this earlier. I'll keep a record of the things that affect
 Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
 <pre>
- * 0=QR off'
- * 1=QR filtered
- * 2=QR full
+0=QR off
+1=QR filtered
+2=QR full
 </pre>
 In filtered mode
 
