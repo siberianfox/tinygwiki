@@ -32,6 +32,9 @@ Good ideas that can wait until later
 # Changelog
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
+Changes in 354.xx builds
+* Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue
+
 Changes in 353.xx builds
 * Fixed G92 and G54-G59 status reporting so these should be more useful now.
 * Changed JSON body name from "b" to "r" to avoid collision with "b" axis groups
