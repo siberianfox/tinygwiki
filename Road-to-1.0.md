@@ -32,6 +32,13 @@ Good ideas that can wait until later
 # Changelog
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
+Changes in 355.xx builds
+* Added filtered mode for QRs. QR settings are 
+ * 0=QR off'
+ * 1=QR filtered
+ * 2=QR full
+In filtered mode
+
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
 
