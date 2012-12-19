@@ -37,6 +37,13 @@ Changes in 354.xx builds
 
 * Added an "unofficial gcode" command to allow arbitrarily setting an axes machine position. This is needed to support the Otherlab infinite Y axis. use: While in a zero-offset coordinate system (presumably G54) and with the axis(or axes) where you want it, issue g92.4 y0 (for example). The Y axis will now be set to 0 (or whatever you said it was). Works for one or more axes. I plan to extend so this works while in any arbitrary coordinate system but for now this is not working. This function still needs testing.
 
+* Found and fixed a problem in pin outputs for M7/M8/M9 (coolant). These worked fine on v6 boards but did not work on v7's. There is a routing change in v7s that requires the firmware to know what HW revision is running. Added $hv (hardware version) to the system group - by default set to 7. Set to 6 if running version 6 HW or earlier.
+
+* Hid some variables from the system group. These should not be changed by the user, and now do not show up in system listings. They are still accessible for display and change via $ml, $ma, $mt
+** $ml - minimum line length
+** $ma - minimum arc segment
+** $mt - nominal segment time
+
 Changes in 353.xx builds
 * Changed limit switch shutdown behavior. Limits cause immediate machine shutdown (as before), but now lock out all other activity until a hard reset or a software reset (ctrl-x) is performed. This prevents runaways if the host is still streaming code to the board. Blinks the spindle DIR LED when in shutdown state.
 The board sends an 'er' report (in JSON mode) or an EMERGENCY SHUTDOWN message if in text mode.
