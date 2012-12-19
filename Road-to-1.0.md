@@ -36,6 +36,8 @@ Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue
 
 Changes in 353.xx builds
+* Changed limit switch shutdown behavior. Limits now cause immediate machine shutdown. Can only leave this state by a hard reset or a software reset via ctrl-x. THis prevents runaways if the host is still streaming code. Blinks the spindle DIR LED when in shutdown state.
+
 * Fixed G92 and G54-G59 status reporting so these should be more useful now.
 * Changed JSON body name from "b" to "r" to avoid collision with "b" axis groups
 * Changed $je to $jv for JSON vebosity setting
