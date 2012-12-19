@@ -40,9 +40,9 @@ Changes in 354.xx builds
 * Found and fixed a problem in pin outputs for M7/M8/M9 (coolant). These worked fine on v6 boards but did not work on v7's. There is a routing change in v7s that requires the firmware to know what HW revision is running. Added $hv (hardware version) to the system group - by default set to 7. Set to 6 if running version 6 HW or earlier.
 
 * Hid some variables from the system group. These should not be changed by the user, and now do not show up in system listings. They are still accessible for display and change via $ml, $ma, $mt
-** $ml - minimum line length
-** $ma - minimum arc segment
-** $mt - nominal segment time
+ ** $ml - minimum line length
+ ** $ma - minimum arc segment
+ ** $mt - nominal segment time
 
 Changes in 353.xx builds
 * Changed limit switch shutdown behavior. Limits cause immediate machine shutdown (as before), but now lock out all other activity until a hard reset or a software reset (ctrl-x) is performed. This prevents runaways if the host is still streaming code to the board. Blinks the spindle DIR LED when in shutdown state.
