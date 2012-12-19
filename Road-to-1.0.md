@@ -36,10 +36,10 @@ Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
 <pre>
 0=QR off
-1=QR filtered
-2=QR full
+1=QR filtered    - QR report only sent when high or low water marks are crossed
+2=QR verbose     - QR report sent for every planner buffer transition
 </pre>
-In filtered mode
+In filtered mode QRs are returned only when the number of available buffers is less than a low threshold number (low water mark, set as $eql) or greater than a high threshold number ($eqh). Reasonable starting points are $eqh=20, meaning that 20 buffers are available out of 24, and that the planner will therefore starve in 4 more buffers if none are provided. A good $eql lo threshold is 2, meaning that only 2 more buffers can be put on the planner queue before the serial RX buffer starts to back up.
 
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
