@@ -101,14 +101,17 @@ JSON requests are used to perform the following actions {with examples}
 
 JSON responses to commands are in the following general form.
 
-{"xjm:""} returns:
+<pre>
+{"xjm":""} returns:
 {"r":{"xjm":5000000000.000},"f":[1,0,11,6649]}
 
-{"2""} returns:
+{"2":""} returns:
 {"r":{"2":{"ma":1,"sa":1.800,"tr":36.540,"mi":8,"po":1,"pm":1}},"f":[1,0,9,2423]}
+</pre>
 
 The 'r' is the response envelope. The body of the response is the result returned. In the case of a single name it returns the value. IN the case of a group it returns the entire group as a child object.
 
+{"sr":""} returns:
 {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"vel":0.000,"momo":1,"stat":3}}}
 
 
