@@ -132,10 +132,6 @@ If there is an error there will be no echo or a line like one of these:
 <pre>
 tinyg[mm] ok> $ted=1                                           (Set "Ted" to 1)
 tinyg[mm] error: Unrecognized command $ted
-
----> Try these 2 out:
- #### Unknown config string: YGR800       It didn't recognize the mnemonic
- {21} Bad number format: XFR1200.2.3      The value had 2 decimal points
 </pre> 
 
 # Settings Details
