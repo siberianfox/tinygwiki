@@ -76,8 +76,6 @@ Communications Settings
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
-**--- Needs review from here on down ---**
-
 # Background Info
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
 
@@ -233,15 +231,6 @@ Sets the function of the axis. The following modes are supported for all axes.
 Rotary axes can have these additional modes. 
 
 * 3 = Radius mode. In radius mode gcode values are interpreted as linear units; either inches or mm depending on the prevailing G20/G21 setting. The conversion of linear units to degrees is accomplished using the radius setting for that axis. See $aRA for details. 
-* 4 = Slave X mode - rotary axis slaved to movement in X dimension 
-* 5 = Slave Y mode - rotary axis slaved to movement in Y dimension 
-* 6 = Slave Z mode - rotary axis slaved to movement in Z dimension 
-* 7 = Slave XY mode - rotary axis slaved to movement in XY plane 
-* 8 = Slave XZ mode - rotary axis slaved to movement in XZ plane 
-* 9 = Slave YZ mode - rotary axis slaved to movement in YZ plane 
-* 10 = Slave XYZ mode - rotary axis slaved to movement in XYZ space
-
-Slave modes use the distance traveled in one or more linear dimensions as the linear input to the rotational axis. The linear travel is converted to degrees using the radius value set by $aRA. Any value that is provided in the Gcode block for the axis is ignored.
 
 ### $xVM - Velocity Maximum
 (Also known as traverse rate or seek rate). Sets the maximum velocity the axis will move during a traverse (G0). This is set in length units per minute for linear axes, degrees per minute for rotary axes. The max velocity will be used for all G0's from the time of reset onward. Note that the max velocity is *per-axis*.
@@ -352,11 +341,14 @@ Note: the G54-G59 settings are persistent settings that are preserved between re
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 
+### $FB - Firmware Build number
+Read-only value. Can be queried.
+
 ### $FV - Firmware Version
 Read-only value. Can be queried.
 
-### $FB - Firmware Build number
-Read-only value. Can be queried.
+### $HV - Hardware Version
+Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. 
 
 ### $SI - Status Interval 
 Interval in milliseconds between status reports when in motion. Set to 0 to disable automatic status reports. Minimum is about 200 ms.
@@ -460,14 +452,23 @@ $ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables te
 $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
-### $JE - Set JSON Echo verbosity
+### $TV - Set Test mode verbosity
+<pre>
+$tv=0      - Silent - no response is provided
+$tv=1      - Prompt - returns prompt only and exception messages
+$tv=2      - Messages - returns prompt and all messages
+$tv=3      - Verbose
+</pre>
+
+### $JV - Set JSON Echo verbosity
 If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
 <pre>
-$je=0      - Silent - no responses given to JSON commands
-$je=1      - Omit body - JSON Response contains no body - footer only
-$je=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
-$je=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
-$je=4      - Full echo - Body returned for configs and Gcode - Gcode comments removed
+$jv=0      - Silent - no responses given to JSON commands
+$jv=1      - Footer only - response contains no body - footer only
+$jv=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
+$jv=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
+$jv=4      - Messages - body returned for configs; Gcode returns line numbers and messages only
+$jv=5      - Full echo - Body returned for configs and Gcode - Gcode comments removed
 </pre>
 
 ### $BAUD - Set USB Baud Rate
