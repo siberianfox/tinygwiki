@@ -120,19 +120,18 @@ It's the same except there is no footer element. Reports are typically generated
 #JSON Details
 ##JSON Mode Protocol
 ### Commands
-Commands in JSON mode are sent as JSON packets which may unwrapped or wrapped.
-
-Unwrapped form presents the command as-is, with no body or footer. Examples:
+Commands in JSON mode are sent as JSON messages Examples:
 
     {"x":""}<lf>          get the X resource
     {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
     {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
 
-Wrapped form presents the command in a body and footer wrapper. This form is useful for noisy environments to ensure proper command transfer. The above examples become:
+Responses are wrapped in a response body and include a footer. This is useful for noisy environments to ensure proper command transfer. Responses to the above examples are:
 
-    {"b":{"x":""},"f":[1,0,255,1234]}<lf>
-    {"b":{"xvm":12000},"f":[1,0,255,1234]}<lf>
-    {"b":{"gc":"g0 x100"},"f":[1,0,255,1234]}<lf>
+    {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]}
+
+    {"r":{"xvm":12000.000},"f":[1,0,14,3009]}
+    {"r":{"gc":"g0x100"},"f":[1,0,17,9360]}
     
     where  "f":[1,0,255,1234]  
        is  "f":[<protocol_version>, <status_code>, <input_available>, <checksum>]
