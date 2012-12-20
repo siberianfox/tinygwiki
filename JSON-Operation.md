@@ -82,7 +82,7 @@ JSON names are short mnemonic tokens that can be 1 to 5 characters in length. Ax
 	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
 	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
 	home | $home | {"home":""} | Homing state
-	x | $x | {"x":""} | X axis group. I text mode a group can only be queried (get). In JSON mode a group can be queried and can also be use to set any or all values in the group
+	x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get). In JSON mode a group can be queried and can also be used to set any or all values in the group
 
 ##JSON Request and Response Formats
 
