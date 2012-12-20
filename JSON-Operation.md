@@ -88,16 +88,16 @@ JSON names are short mnemonic tokens that can be 1 to 5 characters in length. Ax
 
 JSON requests are used to perform the following actions: 
 
-* Return the value of a single setting or state variable 
-* Return the values of a group of settings or state variables (aka a Resource) 
-* Set a single setting or state variable (note that most state variables are read-only) 
-* Set a group of settings or state variables
-* Submit a block (line) of Gcode to perform any supported Gcode command 
+* Return the value of a single setting or state variable {"1mi":""}
+* Return the values of a group of settings or state variables (aka a Resource) {"1":""}
+* Set a single setting or state variable (note that most state variables are read-only) {"1mi":8}
+* Set a multiple settings or state variables in a group {"1":{"po":1,"mi":8}}
+* Submit a block (line) of Gcode to perform any supported Gcode command {"gc":"g1f350 x23.4 y43.2"}
 * Special functions and actions;
- * Request a status report 
- * Set status report contents 
- * Run a self test 
- * Reset parameters to defaults
+ * Request a status report {"sr":""} 
+ * Set status report contents {"sr":{"line":true,"posx":true,posy":true,   ...}}
+ * Run self tests {"test":1}
+ * Reset parameters to defaults {"defa":true}
 
 JSON responses are in the following general form.
 ##JSON Mode Protocol
