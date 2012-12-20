@@ -19,7 +19,7 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 	value | A value is the number, string, or true/false setting for a name. Values can also be NULL, which has special meaning in TinyG. A name and a value is a name:value pair aka NV pair. (Null values can be represented by the word null (case insensitive, no quotes), or quote quote --> "", which is more efficient)
 	group | A group is a collection of one or more NV pairs. A group can also be called a **resource** in the REST way of speaking.
 	configs | Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions. Xfr is an example of a config. So is 1po. Configs are part of the **static model** and should not be changed during Gcode execution.
-	gcode words | Gcode "words" are the dynamic parameters that are used and affected by Gcode execution; e.g. x10 or y34.221 representing position. The current position of the X axis is an example of a gcode value. Gcode values are part of the **dynamic model** that holds the values used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
+	gcode words | Gcode "words" are the dynamic parameters that are used and affected by Gcode execution; e.g. x10 or y34.221 representing position. Gcode words are part of the **dynamic model** that holds the values used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
 
 ## JSON Cheat Sheet
 This table illustrates general use of JSON cmmands. Don't worry if you don't understand it all; details are provided in the remaining sections.
