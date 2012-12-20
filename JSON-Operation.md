@@ -60,13 +60,13 @@ _Note 1: The 64 character string length applies to Gcode blocks delivered via JS
 
 ### Text Mode and JSON Mode
 
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl.
+TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl parsers.
 
-TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'. (Note: The first string returned on bootup will be in JSON format, regardless of the mode set). 
+TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'. (Note: The first status message returned on bootup will be in JSON format, regardless of the mode set). 
 
-TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curlie '{'. While in JSON mode all commands are  expected in JSON format and responses are returned in JSON format. 
+TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curlie '{'. While in JSON mode all commands are  expected in JSON format and responses are returned in JSON format....
 
-Note that if the system is in JSON mode Gcode commands may be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always come back in JSON format.
+...the exception being Gcode blocks. Gcode blocks streamed to TinyG while in JSON mode can be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always be returned in JSON format.
 
 
 In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
