@@ -76,6 +76,8 @@ Communications Settings
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
+**--- Needs review from here on down ---**
+
 # Background Info
 Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
 
