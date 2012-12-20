@@ -126,10 +126,9 @@ Commands in JSON mode are sent as JSON messages Examples:
     {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
     {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
 
-Responses are wrapped in a response body and include a footer. This is useful for noisy environments to ensure proper command transfer. Responses to the above examples are:
+Responses are wrapped in a response body and include a footer. Responses to the above examples are:
 
     {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]}
-
     {"r":{"xvm":12000.000},"f":[1,0,14,3009]}
     {"r":{"gc":"g0x100"},"f":[1,0,17,9360]}
     
@@ -140,31 +139,24 @@ The footer contains a 4 element array of packet flow control information as per 
 
 	Element  | Notes
 	-------|-------------------------
-	protocol_version | Initially set to 1. This number will be incremented as protocol changes are made that would affect UI clients
+	array_ID/version | Initially set to 1. This number identified the array and version for the parser. It will be incremented if protocol changes are made that would affect UI clients
 	status_code | 0 is OK. All others are exceptions. See tinyg.h for details
-	input_available | Indicates how many characters are available in the input buffer. Do not use this for stuffing the queue, however - See Command Synchronization. (Technically this element is superfluous in this incarnation, but may not be for more advanced transports) 
-	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to fix the length to 4 characters. The modulus result is left zero padded to ensure all results are 4 digits. See compute_checksum() in util.c for C code.
+	RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. THis allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer typically starts with 3254 bytes free. The <lf> counts as a byte. 
+	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to fix the length to 4 characters. See compute_checksum() in util.c for C code.
 
-
-
-	Token | as Text | as JSON | Description
-	------|---------|---------|--------------
-	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
-	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
-	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
-	home | $home | {"home":""} | Homing state
-
-### Response and Echos
-
+### Response Verbosity
 Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
 
-JSON echo ($je) sets the level of verbosity in JSON responses. It is set by {"je":N} where N is one of:
+JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by {"jv":N} where N is one of:
 
-* 0 = no response (not recommended)
-* 1 = response contains footer only
-* 2 = response contains body with Gcode line number (N code) only. If no line number is present body is omitted
-* 3 = response contains body with full echo of Gcode line; response also contains footer
-* 4 = response as above, but with line number also broken out in an independent "n" name
+* 0 = SILENT - no response
+* 1 = FOOTER_OMIT - no body data is returned, only footer data
+* 2 = OMIT_GCODE_BODY - body returned for configs; omitted for Gcode commands
+* 3 = GCODE_LINENUM_ONLY - body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
+* 4 = GCODE_MESSAGES - body returned for configs; Gcode returns line numbers and messages only
+* 5 = VERBOSE - body returned for configs and Gcode - Gcode comments removed
+
+Generally 3 or 4 is recommended
 
 ###Reading Configuration Parameters (GET)
 
