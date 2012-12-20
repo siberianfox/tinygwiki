@@ -156,18 +156,15 @@ JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by
 * 4 = GCODE_MESSAGES - body returned for configs; Gcode returns line numbers and messages only
 * 5 = VERBOSE - body returned for configs and Gcode - Gcode comments removed
 
-Generally levels 2, 3 or 4 are recommended. 4 will return Gcode commend messages of the form (msgSome text you want to show to the operator)
+Generally levels 2, 3 or 4 are recommended. Levels 4 and 5 will return Gcode comment messages of the form (msgSome text you want to show to the operator)
+
+----- OK Needs work from here on down ------
+
 
 ###Reading Configuration Parameters (GET)
 
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
-{| width="1200" border="1" cellpadding="1" cellspacing="1"
-|-
-| Request 
-| Response 
-| Comments
-|-
 	Request | Response | Description
 	------|---------|---------|--------------
 	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
