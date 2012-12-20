@@ -41,6 +41,8 @@ Changes in 355.xx builds
 </pre>
 In filtered mode QRs are returned only when the number of available buffers is less than a low threshold number (low water mark, set as $eql) or greater than a high threshold number ($eqh). Reasonable starting points are $eqh=20, meaning that 20 buffers are available out of 24, and that the planner will therefore starve in 4 more buffers if none are provided. A good $eql lo threshold is 2, meaning that only 2 more buffers can be put on the planner queue before the serial RX buffer starts to back up.
 
+* Removed persistence from G10 L2 command. G10's are the only Gcode commands that need to be persisted to EEPROM. As these occur in machining cycles this is problematic. The solution is simple. Don't do it. A G10 L2 can still be used to set coordinate system offsets and it will be effictive during that machining cycle, but it will not persist through resets or power downs. To persist coordinate system offsets use the $g54x - $g59a configs.
+
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
 
