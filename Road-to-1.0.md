@@ -64,6 +64,8 @@ The board sends an 'er' report (in JSON mode) or an EMERGENCY SHUTDOWN message i
 * Added some new self tests and made all tests work from and return to home position. Type $test for a list
 * Removed axis Slave modes. These "slots" will be used for application specific modes such as extruder, laser hardener, laser cutter, tangential knife, etc.
 
+* Removed auto-increment line numbers. Line numbers are only recorded if they are present in the Gcode file as an N parameter. The line number will remain in effect for multiple gcode blocks until a new line number is provided.
+
 Changes in 352 builds
 * Removed $xsm switch mode setting
 * Added $xsn and $xsx switch mode settings
