@@ -92,7 +92,7 @@ JSON requests are used to perform the following actions {with examples}
 * Return the values of a group of settings or state variables (aka a Resource) {"1":""}
 * Set a single setting or state variable (note that most state variables are read-only) {"1mi":8}
 * Set a multiple settings or state variables in a group {"1":{"po":1,"mi":8}}
-* Submit a block (line) of Gcode to perform any supported Gcode command {"gc":"g1f350 x23.4 y43.2"}
+* Submit a block (line) of Gcode to perform any supported Gcode command {"gc":"n20g1f350 x23.4 y43.2"}
 * Special functions and actions;
  * Request a status report {"sr":""} 
  * Set status report contents {"sr":{"line":true,"posx":true,posy":true,   ...}}
