@@ -86,7 +86,7 @@ JSON names are short mnemonic tokens that can be 1 to 5 characters in length. Ax
 
 ##JSON Request and Response Formats
 
-JSON requests are used to perform the following actions: 
+JSON requests are used to perform the following actions {with examples}
 
 * Return the value of a single setting or state variable {"1mi":""}
 * Return the values of a group of settings or state variables (aka a Resource) {"1":""}
