@@ -156,7 +156,7 @@ JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by
 * 4 = GCODE_MESSAGES - body returned for configs; Gcode returns line numbers and messages only
 * 5 = VERBOSE - body returned for configs and Gcode - Gcode comments removed
 
-Generally 3 or 4 is recommended
+Generally levels 2, 3 or 4 are recommended. 4 will return Gcode commend messages of the form (msgSome text you want to show to the operator)
 
 ###Reading Configuration Parameters (GET)
 
