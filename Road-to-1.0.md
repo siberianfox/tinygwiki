@@ -71,3 +71,4 @@ The board sends an 'er' report (in JSON mode) or an EMERGENCY SHUTDOWN message i
 Changes in 352 builds
 * Removed $xsm switch mode setting
 * Added $xsn and $xsx switch mode settings
+* Added commas to text-mode parser - values can be entered as example $xjm=5,000,000,000
