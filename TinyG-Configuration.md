@@ -68,7 +68,9 @@ Communications Settings
 	$ex | Enable XON/XOFF flow control |
 	$eq | Enable planner queue reports |
 	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
-	$je | JSON echo mode | Verbosity control
+	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
+	$jv | JSON verbosity | 0=silent, 1=footer only, 2=omit Gcode body, 3=Gcode line numbers only, 4=Gcode line numbers and messages, 5=verbose
+	$qr | Queue reports | 0=off, 1=filtered reports, 2=all reports
 	$si | Status report interval | In ms, 0=off
 	$baud | Baud rate |
 
