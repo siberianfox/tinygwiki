@@ -2,6 +2,24 @@
 
 **NOTE: This page describes JSON operations in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
+# JSON Cheat Sheet
+This table illustrates general use of JSON cmmands. Don't worry if you don't understand it all; details are provided in the remaining sections.
+
+	Request | Response | Description
+	---------|--------------|-------------
+	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| Get X axis maximum velocity
+	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| Set X axis maximum velocity to 15000
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| Alternate form to get X axis maximum velocity
+	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| Alternate form to set X axis maximum velocity to 15000
+	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,...."zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis resource (group) 
+	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
+	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
+	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
+	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N-code response 
+	g0x10 | {"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with footer-only echo 
+	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
+
+#JSON Summary
 ## General
 
 TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
@@ -21,24 +39,6 @@ Using JSON facilitates exposing system internals as [RESTful resources](http://e
 	configs | Configs are the collection of static configuration settings for the machine. In general, these are not changed via Gcode - but there are some exceptions. Xfr is an example of a config. So is 1po. Configs are part of the **static model** and should not be changed during Gcode execution.
 	gcode words | Gcode "words" are the dynamic parameters that are used and affected by Gcode execution; e.g. x10 or y34.221 representing position. Gcode words are part of the **dynamic model** that holds the values used by the Gcode file itself. There are a few cases where these cross over (G10's) but this is discussed later.
 
-## JSON Cheat Sheet
-This table illustrates general use of JSON cmmands. Don't worry if you don't understand it all; details are provided in the remaining sections.
-
-	Request | Response | Description
-	---------|--------------|-------------
-	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| Get X axis maximum velocity
-	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| Set X axis maximum velocity to 15000
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| Alternate form to get X axis maximum velocity
-	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| Alternate form to set X axis maximum velocity to 15000
-	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,...."zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis resource (group) 
-	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
-	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
-	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
-	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N-code response 
-	g0x10 | {"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with footer-only echo 
-	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
-
-#JSON Summary
 ## JSON Overview & TinyG Subset
 
 The full JSON language definition is [here](http://json.org). A handy validator can be found [here](http://jsonlint.com).
