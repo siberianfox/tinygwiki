@@ -38,12 +38,13 @@ Global Machine Settings
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$fv | Firmware version | Read-only value, e.g. 0.95
 	$fb | Firmware build | Read-only value, e.g. 351.05 
+	$fv | Firmware version | Read-only value, e.g. 0.95
+	$hv | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
 	$ja | Junction acceleration | Global cornering acceleration value 
-	$ml | Minimum line length | 
-	$ma | Arc segment length |
-	$mt | Segment timing | Planner interpolation interval
+	$ml | Minimum line length | NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
+	$ma | Arc segment length |NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
+	$mt | Segment timing | Planner interpolation interval - NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
 	$st | Switch type | 0=NO, 1=NC
 
 Gcode Initialization Defaults 
