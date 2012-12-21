@@ -16,8 +16,8 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	{"gc":"n20g0x20"} | {"r":{"n":20},"f":[1,0,9,5362]} | send Gcode with verbosity=4
 	{"gc":"n20g0x20"} | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send Gcode with verbosity=5
 	{"gc":"g0x10"} | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send Gcode with verbosity=5
-	g0x10 | {"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with footer-only echo 
-	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
+	n20g0x20 | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send unwrapped Gcode with verbosity=5
+	g0x10 | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send unwrapped Gcode with verbosity=5
 
 X axis group response:
 <pre>
