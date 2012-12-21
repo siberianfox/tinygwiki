@@ -31,7 +31,7 @@ TinyG can accept commands in JSON (JavaScript Object Notation) mode or text mode
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
 
 ### Is this RESTful?
-The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON facilitates exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
+The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON enables exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Methods are implied by convention as there is no request header in which to declare them. 
 
 ## Basic Concepts
 
