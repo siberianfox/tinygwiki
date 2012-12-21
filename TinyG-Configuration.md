@@ -1,3 +1,4 @@
+(last updated 12/21/12 - ash)
 REVISION NOTICE: The settings on this page are for version 0.95 and later. For other firmware revisions see  [TinyG Configuration for 0.94 and 0.93](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)
 
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
@@ -91,8 +92,11 @@ TinyG will operate configs in either inches or millimeters mode depending on the
 
 Note: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x
 
+## Text Mode versus JSON Mode Operation
+This page describes operation in text mode. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) for JSON functionality. The tokens and settings described here apply to either mode, but request and response formats are illustrated only for text mode. Those few commands that apply to only one mode or the other are noted.
+
 ## Displaying Settings
-Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. Configs are described for text mode operation. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation-(version-0.95-and-later)) for JSON equivalents. In general, config parameters are identical expect for request and response formats. Differences, where they exist, are noted. 
+Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. 
 
 To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>, for example
 <pre>
