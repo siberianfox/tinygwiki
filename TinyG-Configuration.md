@@ -97,9 +97,35 @@ To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. I
 	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
 
 
-The following commands will display settings groups. 
+The following commands will display settings groups.
 <pre>
-$sys  Show all system settings
+$x    --- Show all X axis settings ---
+[xam] x_axis_mode                 1 [standard]
+[xvm] x_velocity_maximum      12000.000 mm/min
+[xfr] x_feedrate_maximum      16000.000 mm/min
+[xtm] x_travel_maximum          220.000 mm
+[xjm] x_jerk_maximum     5000000000 mm/min^3
+[xjd] x_junction_deviation        0.0100 mm (larger is faster)
+[xsn] x_switch_min                3 [0-4]
+[xsx] x_switch_max                2 [0-4]
+[xsv] x_search_velocity        3000.000 mm/min
+[xlv] x_latch_velocity          100.000 mm/min
+[xlb] x_latch_backoff            20.000 mm
+[xzb] x_zero_backoff              3.000 mm
+</pre>
+
+<pre>
+$3    --- Show all motor 3 settings ---
+[3ma] m3_map_to_axis              2 [0=X, 1=Y...]
+[3sa] m3_step_angle               1.800 deg
+[3tr] m3_travel_per_revolution    1.250 mm
+[3mi] m3_microsteps               8 [1,2,4,8]
+[3po] m3_polarity                 0 [0,1]
+[3pm] m3_power_management         1 [0,1]
+</pre>
+
+<pre>
+$sys  --- Show all system settings ---
 [fb]  firmware_build            355.04
 [fv]  firmware_version            0.95
 [hv]  hardware_version            7.00
