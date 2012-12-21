@@ -115,6 +115,22 @@ $x    --- Show all X axis settings ---
 </pre>
 
 <pre>
+$x    --- Show all X axis settings in inches mode (issue g20 beforehand) ---
+[xam] x_axis_mode                 1 [standard]
+[xvm] x_velocity_maximum        472.441 in/min
+[xfr] x_feedrate_maximum        629.921 in/min
+[xtm] x_travel_maximum            8.661 in
+[xjm] x_jerk_maximum      196850400 in/min^3
+[xjd] x_junction_deviation        0.0004 in (larger is faster)
+[xsn] x_switch_min                3 [0-4]
+[xsx] x_switch_max                2 [0-4]
+[xsv] x_search_velocity         118.110 in/min
+[xlv] x_latch_velocity            3.937 in/min
+[xlb] x_latch_backoff             0.787 in
+[xzb] x_zero_backoff              0.118 in
+</pre>
+
+<pre>
 $3    --- Show all motor 3 settings ---
 [3ma] m3_map_to_axis              2 [0=X, 1=Y...]
 [3sa] m3_step_angle               1.800 deg
