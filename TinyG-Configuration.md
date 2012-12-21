@@ -101,7 +101,7 @@ The following commands will display settings groups.
 <pre>
 $x    --- Show all X axis settings ---
 [xam] x_axis_mode                 1 [standard]
-[xvm] x_velocity_maximum      12000.000 mm/min
+[xvm] x_velocity_maximum      16000.000 mm/min
 [xfr] x_feedrate_maximum      16000.000 mm/min
 [xtm] x_travel_maximum          220.000 mm
 [xjm] x_jerk_maximum     5000000000 mm/min^3
@@ -112,12 +112,13 @@ $x    --- Show all X axis settings ---
 [xlv] x_latch_velocity          100.000 mm/min
 [xlb] x_latch_backoff            20.000 mm
 [xzb] x_zero_backoff              3.000 mm
+tinyg [mm] ok> 
 </pre>
 
 <pre>
 $x    --- Show all X axis settings in inches mode (issue g20 beforehand) ---
 [xam] x_axis_mode                 1 [standard]
-[xvm] x_velocity_maximum        472.441 in/min
+[xvm] x_velocity_maximum        629.921 in/min
 [xfr] x_feedrate_maximum        629.921 in/min
 [xtm] x_travel_maximum            8.661 in
 [xjm] x_jerk_maximum      196850400 in/min^3
