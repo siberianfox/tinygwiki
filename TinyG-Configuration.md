@@ -87,17 +87,8 @@ _NOTE 1: In text mode the differences are obvious in the responses. In JSON ther
 
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
 
-## Displaying Settings and Group Settings
-To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respponse with a text line indicating the value taken. For example
-
-	Request | Response | Notes
-	--------|----------|-------
-	$xvm | [xvm] x_velocity_maximum      12000.000 mm/min | Show X axis maximum velocity
-	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
-	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
-
-
-The following settings groups are defined. All groups are persistent (stored in EEPROM) unless noted.
+## Units
+Groups simplify configuration management by collecting related values together. The following groups are defined. All groups are persistent (stored in EEPROM) unless noted.
 
 	Family | Group tokens | Notes
 	--------|----------|-------
@@ -108,10 +99,16 @@ The following settings groups are defined. All groups are persistent (stored in 
 	temp offset | g92 | Show g92 offset settings. These are not persistent
 	system | sys | Show system parameters
 
+## Displaying Settings and Groups
+To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respponse with a text line indicating the value taken. For example
 
+	Request | Response | Notes
+	--------|----------|-------
+	$xvm | [xvm] x_velocity_maximum      12000.000 mm/min | Show X axis maximum velocity
+	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
+	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
 
-
-The following commands will display settings groups.
+The following commands will display groups.
 <pre>
 $x    --- Show all X axis settings ---
 [xam] x_axis_mode                 1 [standard]
