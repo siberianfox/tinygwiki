@@ -77,23 +77,14 @@ Communications Settings
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
-# Background Info
-Configuration is as simple as we could make it given the following features, assumptions, and constraints: 
-
-* Supports 6 gcode axes (XYZABC) 
-* Has 4 on-board motors and is designed so that multiple TinyG boards can be networked to drive more than 4 motors 
-* Implements controlled jerk motion (and therefore needs to be configurable for it) 
-* Treats each axis' contribution to the dynamics independently (i.e. dynamics are not set globaly for the machine) 
-* Can be used for cartesian or non-cartesian kinematics - ie. you can't safely assume that motors and axes and axes are motors. 
-* Supports 6 coordinate systems + absolute (machine) coordinates, and support G92 offsets.
+# Terms, Concepts and Background
+## Text Mode versus JSON Mode Operation
+This page describes how configuration works in **text mode**. All configs on this page are also accesible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 ## Units
 TinyG will operate configs in either inches or millimeters mode depending on the current Gcode UNITS setting: G20 for inches or G21 for mm. All config values will be input and displayed in the current units. Most of the examples below are in mm, but could just as easily be input in inches. 
 
 Note: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x
-
-## Text Mode versus JSON Mode Operation
-This page describes operation in text mode. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) for JSON functionality. The tokens and settings described here apply to either mode, but request and response formats are illustrated only for text mode. Those few commands that apply to only one mode or the other are noted.
 
 ## Displaying Settings
 Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. 
