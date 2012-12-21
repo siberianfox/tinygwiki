@@ -95,7 +95,12 @@ To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. I
 	$xvm | [xvm] x_velocity_maximum      12000.000 mm/min | Show X axis maximum velocity
 	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
 	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
-	$sys | [fb]  firmware_build            355.04
+
+
+The following commands will display settings groups. 
+<pre>
+$sys  Show all system settings
+[fb]  firmware_build            355.04
 [fv]  firmware_version            0.95
 [hv]  hardware_version            7.00
 [gpl] gcode_select_plane          0 [0,1,2]
@@ -114,10 +119,9 @@ To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. I
 [tv]  text_verbosity              3 [0-3]
 [si]  status_interval           200 ms [0=off]
 [baud] USB baud rate              0 [0-6] | Show all system settings
+</pre>
 
-The following commands will display settings groups. 
-<pre>
-$sys  Show all system settings
+
 $1    Show all motor 1 settings (or whatever motor you want 1,2,3,4)
 $x    Show all X axis settings (or whatever axis you want x,y,z,a,b,c)
 --- the following are not available in JSON mode:
