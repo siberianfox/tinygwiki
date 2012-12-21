@@ -110,7 +110,7 @@ In text mode (not JSON mode) the following groups of groups are also available f
 
 	Uber-Group | Token | Notes
 	--------|----------|-------
-	axis | n | All axis settings for all axes
+	axis | q | All axis settings for all axes
 	motor | m | All settings for all motors
 	offsets | o | All offset settings including g92's
 	all | $ | All settings. Invoked as $$
@@ -474,31 +474,32 @@ Note: In JSON this command may also be used to set the contents of a status repo
 </pre>
 
 ### $JA - Junction Acceleration 
+In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
+
 <pre>
 $ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
 $ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
 </pre> 
 
 ### $ML- Minimum Line Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
 <pre>
 $ml=0.08    - Do not change this value
 </pre> 
 
 ### $MA - Minimum Arc Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
 <pre>$ma=0.10    - Do not change this value
 </pre> 
 
 ### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break.
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
 <pre>
 $ms=5000  - Do not change this value
 </pre> 
-<br> 
 
 ##Gcode Default Parameters
-These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode model state. For example, entering $gun=0 will not change the system to inches, but it will cause it to come up in inches during reset.
+These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
 
 These are also part of the "sys" group.
 
@@ -517,7 +518,6 @@ $gun=1      - G21 (millimeters)
 
 ###$GCO - Gcode Default Coordinate System
 <pre>
-$gco=0      - (absolute coordinate system)
 $gco=1      - G54 (coordinate system 1)
 $gco=2      - G55 (coordinate system 2)
 $gco=3      - G56 (coordinate system 3)
