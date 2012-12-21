@@ -11,7 +11,8 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
 	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
 	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| alternate form to set X axis maximum velocity to 15000
-	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,...."zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis resource (group) 
+	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,...."zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis group 
+	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]} | | get entire X axis group
 	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
 	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
 	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
