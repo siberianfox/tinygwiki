@@ -3,7 +3,7 @@
 **NOTE: This page describes JSON operations in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
 # JSON Cheat Sheet
-This table illustrates general use of JSON [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Don't worry if you don't understand it all; details are provided in the remaining sections.
+This table summarizes using JSON for [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Details are provided in the subsquent sections.
 
 	Request | Response | Description
 	---------|--------------|-------------
