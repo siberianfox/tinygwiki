@@ -212,7 +212,7 @@ Settings are case insensitive - they are shown in upper case for emphasis only. 
 ## Motor Settings
 
 ### $1MA - MAp motor to axis
-Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3 or a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
+Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor4. 
 
 <pre>
  $1ma=0	    Maps motor 1 to the X axis
@@ -222,37 +222,37 @@ Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you migh
 </pre> 
 
 ### $1SA - Step Angle for the motor
-This is a decimal number which is often 1.8 degrees per step, but should reflect the motor in use. You might also find 0.9, 3.6, 7.5 or other values. You can usually read this off the motor label, or divide 360 by the steps per rotation.
+This is a decimal number which is often 1.8 degrees per step, but should reflect the motor in use. You might also find 0.9, 3.6, 7.5 or other values. You can usually read this off the motor label. If a motor is indicated in steps per revolution just divide 360 by that number. A 200 step-per-rev motor is 1.8 degrees, a 400 step-per-rev motor has 0.9 degrees per step.
 
 <pre>
- $1sa=1.8	This is a typical value for most motors. 
+ $1sa=1.8	This is a typical value for many motors 
 </pre> 
 
 ### $1TR - Travel per Revolution
-This is the amount of travel of the mapped axis per motor revolution. It is in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
+This is the amount of travel of the mapped axis per motor revolution. It is in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. _(Note: this last is in error right now - rotaries are reported in linear terms)_
 
-For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 35 mm per revolution. Don't take this as exact - you will need to calibrate your machine to get this setting.
+For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 36.540 mm per revolution. Don't take this as exact - you will need to do your own calibration on your machine to get this setting exact.
 
 For ABC the travel is entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with 4 degrees of table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
 
 Note that Travel per Revolution is a motor parameter, not an axis parameter as one might think. Consider the case of a dual Y gantry with lead screws of different pitch (how weird). The travel per revolution would be different for each motor. 
 
 <pre>
- $1tr=2.54<span class="Apple-tab-span" style="white-space:pre">	</span>Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
+$1tr=2.54          Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
 </pre>
 
 ### $1MI - MIcrosteps
-The following microstep values are supported: 
+TinyG microsteps are set in firmware, not as hardware jumpers as on some other systems. The following microstep values are supported: 
 
 * 1 = no microsteps (whole steps)
 * 2 = half stepping
 * 4 = quarter stepping
 * 8 = eighth stepping
 
-Despite common wisdom, higher microstep values are not always better (It's like watts in the 80's - the more the better, right?). In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
+It is a misconception that higher microstep values are better - beyond a certain point they are a detriment to performance. In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
 
 <pre>
- $3mi=8	<span class="Apple-tab-span" style="white-space:pre">	</span>Set 1/8 microsteps for motor 3 
+$3mi=8	        Set 1/8 microsteps for motor 3 
 </pre>
 
 Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TinyG to other drivers [like these crazy 1.3 Kw servos Saci's wired up](http://youtu.be/Nrsyejv-vwE) and like some of the common commercial stepper driver running 10x or 16x steps. If you are using the drivers on TinyG this will cause them to malfunction, so please don't do this unless you are one of those hacker types that soldered up your TinyG.
@@ -268,7 +268,7 @@ Polarity sets which direction the motor will turn when presented with positive a
 Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you. Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.
 
 <pre>
- $3po=0<span class="Apple-tab-span" style="white-space:pre">		</span>Set polarity to normal
+$3po=0        Set polarity to normal
 </pre>
 
 ### $1PM - Power Management mode
@@ -280,7 +280,7 @@ Set to one of the following:
 Stepper motors actually consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots)
 
 <pre>
- $4pm=1         Set low-power idle for motor 4
+$4pm=1         Set low-power idle for motor 4
 </pre>
 
 ## Axis Settings
@@ -293,7 +293,7 @@ Sets the function of the axis. The following modes are supported for all axes.
 * 2 = Inhibited. Axis values are taken into account when planning moves, but the axis will not move. Use this to perform a Z kill.
 
 <pre>
- $zmo=2 	will inhibit the Z axis; $zmo1 will restore standard operation
+$zmo=2 	will inhibit the Z axis; $zmo1 will restore standard operation
 </pre>
 
 Rotary axes can have these additional modes. 
