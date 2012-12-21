@@ -87,7 +87,7 @@ _NOTE 1: In text mode the differences are obvious in the responses. In JSON ther
 
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
 
-## Units
+## Groups
 Groups simplify configuration management by collecting related values together. The following groups are defined. All groups are persistent (stored in EEPROM) unless noted.
 
 	Family | Group tokens | Notes
