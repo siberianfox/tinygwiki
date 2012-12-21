@@ -78,7 +78,6 @@ Communications Settings
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
 # Terms, Concepts and Background
-## Text Mode versus JSON Mode Operation
 This page describes how configuration works in **text mode**. All configs on this page are also accesible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 ## Units
