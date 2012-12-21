@@ -12,10 +12,10 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
 	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| alternate form to set X axis maximum velocity to 15000
 	{"x":""} | {"b":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group (see below for entire response)
-	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
-	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
-	{"gc":"n10g0x10"} | {"b":{"n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with N-code-only response
-	{"gc":"n10g0x10"} | {"b":{"gc":"g0x10","n":10}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo + N-code response 
+	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send Gcode with verbosity=1, 2 or 3
+	{"gc":"n20g0x20"} | {"r":{"n":20},"f":[1,0,9,5362]} | send Gcode with verbosity=4
+	{"gc":"n20g0x20"} | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send Gcode with verbosity=5
+	{"gc":"g0x10"} | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send Gcode with verbosity=5
 	g0x10 | {"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with footer-only echo 
 	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
 
