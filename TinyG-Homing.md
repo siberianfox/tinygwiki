@@ -57,17 +57,17 @@ It is mandatory that the switch configuration settings match the physical switch
 
 The following settings are used for switch configuration.
 
-	Setting | Description | Notes
+	Setting | Description | Notes / Setting Example
 	--------|-------------|--------------
 	**$ST** | Switch Type | sets the type of switch used by the entire machine - 0=NO, 1=NC.
-	**$XSN** | X Minimum Switch Mode | See Modes, below
-	**$XSX** | X Maximum Switch Mode
-	**$YSN** | Y Minimum Switch Mode
-	**$YSX** | Y Maximum Switch Mode
-	**$ZSN** | Z Minimum Switch Mode
-	**$ZSX** | Z Maximum Switch Mode
-	**$ASN** | A Minimum Switch Mode
-	**$ASX** | A Maximum Switch Mode
+	**$XSN** | X Minimum Switch Mode | 3=limit-and-homing
+	**$XSX** | X Maximum Switch Mode | 2=limit-only
+	**$YSN** | Y Minimum Switch Mode | 3=limit-and-homing
+	**$YSX** | Y Maximum Switch Mode | 2=limit-only
+	**$ZSN** | Z Minimum Switch Mode | 0=disabled
+	**$ZSX** | Z Maximum Switch Mode | 3=limit-and-homing
+	**$ASN** | A Minimum Switch Mode | 0=disabled
+	**$ASX** | A Maximum Switch Mode | 0=disabled
 
 Modes:
 * 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
