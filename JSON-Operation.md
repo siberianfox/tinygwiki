@@ -53,13 +53,13 @@ TinyG implements a subset of JSON with the following limitations:
 * Supports decimal number only (no hexadecimal numbers or other non-decimals)
 * Arrays are returned but are not accepted as input
 * Names are case-insensitive and cannot be more than 5 characters
-* String values cannot be more than 64 characters in length (Note 1)
+* String values cannot be more than 80 characters in length (Note 1)
 * Groups cannot contain more than 24 elements (name/value pairs)
 * JSON objects cannot exceed 254 characters in total length 
 * Limited object nesting is supported (you won't see more than 2 levels)
 * All JSON input and output is on a single text line. There is only one `<CR>`, it's at the end of the line (broken lines are not supported)
 
-_Note 1: The 64 character string length applies to Gcode blocks delivered via JSON or interpreted while the system is in JSON mode. If the Gcode line exceeds 64 characters it will be truncated if a comment makes it too long, or rejected if the 65th character is part of the legitimate Gcode block. If 64 characters is too severe this may be raised._
+_Note 1: The 80 character string length applies to Gcode blocks delivered via JSON or interpreted while the system is in JSON mode. If the Gcode line exceeds 80 characters it will be truncated if a comment makes it too long, or rejected if the 81th character is part of the legitimate Gcode block. If 64 characters is too severe this may be raised._
 
 ### Text Mode and JSON Mode
 
