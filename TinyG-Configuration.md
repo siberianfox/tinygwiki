@@ -196,11 +196,12 @@ $sys  --- Show all system settings ---
 ## Updating Settings 
 To update a setting enter $token=value
 
-Tokens are a mnemonic plus a motor number or axis prefix. System settings have no prefix. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces are allowed. Numeric values can contain embedded commas.
+Tokens are a mnemonic plus a group prefix (system settings have no prefix). The setting is taken and the value is echoed in a descriptive text line. No spaces are allowed. Numeric values can contain embedded commas. The following are examples of valid and invalid inputs. 
 
 	Request | Response | Notes
 	--------|----------|-------
 	$yfr=800 | [yfr] y_feedrate_maximum        800.000 mm/min | Set Y axis feed rate maximum to 800 mm/min
+	$yfr=16,000 | [yfr] y_feedrate_maximum      16000.000 mm/min |  Set Y axis feed rate maximum to 16000 mm/min
 	$2po=1 | [2po] m2_polarity                 1 [0,1] | Set motor 2 polarity
 	$ex=1 | [ex]  enable_xon_xoff             1 [0,1] | Enable XON/XOFF protocol
 	$ted=1 | error: Unrecognized command $ted | Example of an error
