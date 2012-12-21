@@ -20,8 +20,9 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 	g0x10 | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send unwrapped Gcode command with full echo
 
 X axis group response:
+<pre>
  {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]} 
-
+</pre>
 #JSON Summary
 ## General
 
