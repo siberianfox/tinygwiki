@@ -326,16 +326,16 @@ Sets the maximum jerk value for that axis. Jerk is settable independently for ea
 Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the examples below 
 
 <pre>
-$xjm=50,000,000       Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
-$zjm=25,000,000       A reasonable setting for a slower Z axis
-$xjm=5,000,000,000    X jerk for Shapeoko. Yes, that's 5 billion
+$xjm=50,000,000          Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
+$zjm=25,000,000          A reasonable setting for a slower Z axis
+$xjm=5,000,000,000       X jerk for Shapeoko. Yes, that's 5 billion
 </pre> 
 
 The jerk term in mm is measured in mm/min^3. In inches mode it's units are inches/min^3. So the conversion from mm to inches is 1/(25.4). The same values as above are shown in inches are: 
 <pre>
-50,000,000 mm/min^3 is 1,968,504 in/min^3 2,000,000 would suffice
-25,000,000 mm/min^3 is 984,251 in/min^3 1,000,000 would suffice
-5,000,000,000 mm/min^3 is 196,850,400 in/min^3 200,000,000 would suffice
+50,000,000 mm/min^3      is 1,968,504 in/min^3 2,000,000 would suffice
+25,000,000 mm/min^3      is 984,251 in/min^3 1,000,000 would suffice
+5,000,000,000 mm/min^3   is 196,850,400 in/min^3 200,000,000 would suffice
 </pre> 
 
 ### $xJD - Junction Deviation
@@ -343,17 +343,17 @@ This one is somewhat complicated. Junction deviation - in combination with Junct
 
 It's important to realize that the tool head does not actually follow the controlling circle - the circle is just used to set the speed of the tool through the defined path. In other words, the tool does go through the sharp corner, just not as fast. This is a Gcode G61 - Exact Path Mode operation, not a Gcode G64 - Continuous Path Mode (aka corner rounding, or splining) operation. 
 
-JA is set globally and applies to all axes. JD is set per axis and can vary depending on the characteristics of the axis. An axis that moves more slowly should have a JD that is less than an axis that can move more quickly, as the larger the JD the faster the machine will move through the junction (i.e. a bigger controlling circle). The following example has some representative values for a Probotix Fireball V90 machine. The V90 has 5 TPI X and Y screws, and 12 TPI Z. All values in MM. 
+While JA is set globally and applies to all axes, JD is set per axis and can vary depending on the characteristics of the axis. An axis that moves more slowly should have a JD that is less than an axis that can move more quickly, as the larger the JD the faster the machine will move through the junction (i.e. a bigger controlling circle). The following example has some representative values for a Probotix Fireball V90 machine. The V90 has 5 TPI X and Y screws, and 12 TPI Z. All values in MM. 
 
 <pre>
- $xJD 0.05<span class="Apple-tab-span" style="white-space:pre">	</span>Units are mm
+ $xJD 0.05     Units are mm
  $yJD 0.05
- $zJD 0.02<span class="Apple-tab-span" style="white-space:pre">	</span>Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
- $JA 200000<span class="Apple-tab-span" style="white-space:pre">	</span>Units are mm/min^2. As before, commas are ingored and are provided only for clarity
+ $zJD 0.02     Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
+ $JA 200,000   Units are mm/min^2. As before, commas are ingored and are provided only for clarity
 </pre>
 
 ### $aRA - Radius value
-The radius value is used by rotational axes (A, B and C, only) to convert linear units to degrees when in radius mode or in a slaved mode. 
+The radius value is used by rotational axes only (A, B and C) to convert linear units to degrees when in radius mode. 
 
 For example; if the A radius is set to 10 mm it means that a value of 6.28318531 mm will make the A axis travel one full revolution - as 62.383... is the circumference of the circle of radius R ( 2*PI*R, or 10 * 2 * 3.14159...) (Assuming $nTR = 360 -- see note below). Receiving the gcode block "G0 A62.83" will turn the A axis one full revolution (360 degrees) from a starting position of 0. All internal computations and settings are still in degrees - it's just that gcode units received for the axis are converted to degrees using the specified radius. 
 
@@ -371,6 +371,17 @@ Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
 
 By way of example, my Shapeoko is set up this way:
 
+	Setting | Description | Notes
+	--------|-------------|--------------
+	**$ST** | Switch Type | sets the type of switch used by the entire machine - 0=NO, 1=NC.
+	**$XSN** | X Minimum Switch Mode | See Modes, below
+	**$XSX** | X Maximum Switch Mode
+	**$YSN** | Y Minimum Switch Mode
+	**$YSX** | Y Maximum Switch Mode
+	**$ZSN** | Z Minimum Switch Mode
+	**$ZSX** | Z Maximum Switch Mode
+	**$ASN** | A Minimum Switch Mode
+	**$ASX** | A Maximum Switch Mode
 
 
 ## Coordinate System and Origin Offsets 
