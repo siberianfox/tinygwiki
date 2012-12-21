@@ -88,14 +88,32 @@ _NOTE 1: In text mode the differences are obvious in the responses. In JSON ther
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
 
 ## Displaying Settings
-Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. 
+To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respponse with a text line indicating the value taken. For example
 
-To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>, for example
-<pre>
-$xvm   Show X axis maximum velocity
-$3po   Show motor 3 polarity
-$ex    Show XON/XOFF setting
-</pre> 
+	Request | Response | Notes
+	--------|----------|-------
+	$xvm | [xvm] x_velocity_maximum      12000.000 mm/min | Show X axis maximum velocity
+	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
+	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
+	$sys | [fb]  firmware_build            355.04
+[fv]  firmware_version            0.95
+[hv]  hardware_version            7.00
+[gpl] gcode_select_plane          0 [0,1,2]
+[gun] gcode_units_mode            1 [0,1]
+[gco] gcode_coord_system          1 [1-6]
+[gpa] gcode_path_control          2 [0,1,2]
+[gdi] gcode_distance_mode         0 [0,1]
+[ja]  junction_acceleration  200000 mm
+[st]  switch_type                 1 [0,1]
+[ic]  ignore CR or LF on RX       0 [0,1=CR,2=LF]
+[ee]  enable_echo                 0 [0,1]
+[ex]  enable_xon_xoff             1 [0,1]
+[eq]  enable_queue_reports        1 [0,1]
+[ej]  enable_json_mode            0 [0,1]
+[jv]  json_verbosity              4 [0-5]
+[tv]  text_verbosity              3 [0-3]
+[si]  status_interval           200 ms [0=off]
+[baud] USB baud rate              0 [0-6] | Show all system settings
 
 The following commands will display settings groups. 
 <pre>
