@@ -371,16 +371,34 @@ Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
 
 By way of example, my Shapeoko is set up this way:
 
-	Setting | Description | Setting
+	Setting | Description | Example
 	--------|-------------|--------------
-	$ST | Switch Type | 1=NC.
+	$ST | Switch Type | 1=NC
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
+	$XTM | X Travel Maximum | 
+	$XSV | X Homing Search Velocity |
+	$XLV | X Homing Latch Velocity |
+	$XLB | X Homing Latch Backoff |
+	$XZB | X Homing Zero Backoff |
+	||
 	$YSN | Y Minimum Switch Mode | 3=limit-and-homing
 	$YSX | Y Maximum Switch Mode | 2=limit-only
-	$ZSN | Z Minimum Switch Mode | 0=disabled
+	$YTM | Y Travel Maximum | 
+	$YSV | Y Homing Search Velocity |
+	$YLV | Y Homing Latch Velocity |
+	$YLB | Y Homing Latch Backoff |
+	$YZB | Y Homing Zero Backoff |
+	||
+	$ZSN | Z Minimum Switch Mode | 0=disabled (with NC switches it's important all unused switches are disabled)
 	$ZSX | Z Maximum Switch Mode | 3=limit-and-homing
-	$ASN | A Minimum Switch Mode | 0=disabled
+	$ZTM | Z Travel Maximum | 
+	$ZSV | Z Homing Search Velocity |
+	$ZLV | Z Homing Latch Velocity |
+	$ZLB | Z Homing Latch Backoff |
+	$ZZB | Z Homing Zero Backoff |
+	||
+	$ASN | A Minimum Switch Mode | 0=disabled 
 	$ASX | A Maximum Switch Mode | 0=disabled
 
 
