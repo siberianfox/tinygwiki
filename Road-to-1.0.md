@@ -43,6 +43,8 @@ In filtered mode QRs are returned only when the number of available buffers is l
 
 * Removed persistence from G10 L2 command. G10's are the only Gcode commands that need to be persisted to EEPROM. As these occur in machining cycles this is problematic. The solution is simple. Don't do it. A G10 L2 can still be used to set coordinate system offsets and it will be effictive during that machining cycle, but it will not persist through resets or power downs. To persist coordinate system offsets use the $g54x - $g59a configs.
 
+* Raised JSON string value limit from 64 chars to 80 chars. I'm concerned that some verbose Gcode blocks would exceed the 64 character limit. Comments that cross the limit are OK, as they are truncated, but legitimate Gcode that overruns the limit will be trapped and cause the block to be rejected.
+
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
 
