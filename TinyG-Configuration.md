@@ -376,51 +376,63 @@ By way of example, my Shapeoko is set up this way:
 	$ST | Switch Type | 1=NC
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
-	$XTM | X Travel Maximum | 180
-	$XSV | X Homing Search Velocity | 3000
-	$XLV | X Homing Latch Velocity | 100
-	$XLB | X Homing Latch Backoff | 20
-	$XZB | X Homing Zero Backoff | 3
+	$XTM | X Travel Maximum | 180 mm
+	$XSV | X Homing Search Velocity | 3000 mm/min
+	$XLV | X Homing Latch Velocity | 100 mm/min
+	$XLB | X Homing Latch Backoff | 20 mm
+	$XZB | X Homing Zero Backoff | 3 mm
 	||
 	$YSN | Y Minimum Switch Mode | 3=limit-and-homing
 	$YSX | Y Maximum Switch Mode | 2=limit-only
-	$YTM | Y Travel Maximum |  180
-	$YSV | Y Homing Search Velocity | 3000
-	$YLV | Y Homing Latch Velocity | 100
-	$YLB | Y Homing Latch Backoff | 20
-	$YZB | Y Homing Zero Backoff | 3
+	$YTM | Y Travel Maximum |  180 mm
+	$YSV | Y Homing Search Velocity | 3000 mm/min
+	$YLV | Y Homing Latch Velocity | 100 mm/min
+	$YLB | Y Homing Latch Backoff | 20 mm
+	$YZB | Y Homing Zero Backoff | 3 mm
 	||
 	$ZSN | Z Minimum Switch Mode | 0=disabled (with NC switches it's important all unused switches are disabled)
 	$ZSX | Z Maximum Switch Mode | 3=limit-and-homing
-	$ZTM | Z Travel Maximum | 100
-	$ZSV | Z Homing Search Velocity | 1000
- 	$ZLV | Z Homing Latch Velocity | 100
-	$ZLB | Z Homing Latch Backoff | 10
-	$ZZB | Z Homing Zero Backoff | 5
+	$ZTM | Z Travel Maximum | 100 mm
+	$ZSV | Z Homing Search Velocity | 1000 mm/min
+ 	$ZLV | Z Homing Latch Velocity | 100 mm/min
+	$ZLB | Z Homing Latch Backoff | 10 mm
+	$ZZB | Z Homing Zero Backoff | 5 mm
 	||
 	$ASN | A Minimum Switch Mode | 0=disabled 
 	$ASX | A Maximum Switch Mode | 0=disabled
 
-
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
-Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to coordinate systems 1-6, respectively. These can be set from Gcode using the G10 command (e.g. G10 P2 L2 X20.000 - the P word is the coordinate system, the L word is according to standard, but is ignored). 
+Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 commands to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to the Gcode coordinate systems 1-6, respectively. 
 
-In addition to using G10, the G54-G59 offsets can be set from the config system using the following conventions:
+By convention G54 is set to no offsets (all zeroes) so it is the same as the machine's absolute coordinate system. This is true because the G53 command "move in absolute coordinates" is only in effect for the current Gcode block. After that the dynamic model reverts to the coordinate system previously in effect. So if you want to say in absolute coordinates you need a persistent machine coordinate system, by convention G54.
+
+Another convention is to set G55 to your common coordinate system, we set this to be 0,0 in the middle of the table. So once you have zeroed issuing g55 g28 will set to this system and position the head in the middle of the table. (Note: this can be done on one line of gcode - it does not need to be 2 separate commands).
+
+G54-G59 offsets can be set per the following example:
 <pre>
-$g54x=20.000
-$g54y=20.000     etc, all the way through...
-...
-$g59b=1800
-$g59c=1800
+$g54x=0         Set G54 to be the same as the machine coordinate system
+$g54y=0
+$g54z=0
+$g54a=0
+$g54b=0
+$g54c=0
+
+$g55x=90.0      Set G55 to be in the middle of the table
+$g55y=90.0
+$g55z=0
+$g55a=0
+$g55b=0
+$g55c=0
 </pre> 
 
-Or they can be set in a single command using using JSON mode. Only those axes specified are set. 
+In JSON mode you can set a coordiante system in a single command. Only those axes specified are changed. 
 <pre>
-{"g55"":{"x":20.000,"y":20.000,"z":"0.000","a":0.000}}
+{"g55"":{"x":90,"y":90,"z":"0"}}
 </pre> 
 
-They can be displayed individually
+#### Displaying offsets
+Offsets can be displayed individually
 
 `$g54x` - returns a single value 
 
@@ -435,6 +447,11 @@ They can be displayed individually
 `$o` - returns all offsets in the system (not available in JSON)
 
 Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. <br>
+
+#### G10 Operation
+Gcode provides the G10 L2 command to perform this same function. Coordinate offsets can be set from Gcode using the G10 command, e.g. G10 P2 L2 X20.000 - the P word is the coordinate system numbered 1-6, the L word =2 is according to standard, but is ignored by TinyG (for now)
+
+TinyG does not persist G10 settings, however. This is not in accordance with the Gcode spec. Any G10 settings that are provided will be used until reset, power cycle, or they are overwritten by a $g5xx command or another G10 command. 
 
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
