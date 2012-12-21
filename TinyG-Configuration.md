@@ -431,45 +431,47 @@ In JSON mode you can set a coordiante system in a single command. Only those axe
 {"g55"":{"x":90,"y":90,"z":"0"}}
 </pre> 
 
-#### Displaying offsets
+#### Displaying Offsets
 Offsets can be displayed individually
 
 `$g54x` - returns a single value 
 
 ...or as a group: 
-
 `$g54` - returns all 6 values in the G54 group 
-
 `$g92` - returns all 6 values of the origin offset group 
 
 ...or all together: 
-
 `$o` - returns all offsets in the system (not available in JSON)
 
-Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. <br>
+Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. 
 
 #### G10 Operation
 Gcode provides the G10 L2 command to perform this same function. Coordinate offsets can be set from Gcode using the G10 command, e.g. G10 P2 L2 X20.000 - the P word is the coordinate system numbered 1-6, the L word =2 is according to standard, but is ignored by TinyG (for now)
 
-TinyG does not persist G10 settings, however. This is not in accordance with the Gcode spec. Any G10 settings that are provided will be used until reset, power cycle, or they are overwritten by a $g5xx command or another G10 command. 
+TinyG does not persist G10 settings, however. This is not in accordance with the [Gcode spec](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CEkQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.141.2441%26rep%3Drep1%26type%3Dpdf&ei=rm7UULm2F6ex0AH1sICQDA&usg=AFQjCNH72m_sRg2TycD-8cf8d40FZ6Co_g&sig2=MrjWabHA5YwPsWtrj2TtOA&bvm=bv.1355534169,d.dmQ). Any G10 settings that are provided will be used until reset, power cycle, or they are overwritten by a $g5xx command or another G10 command. 
 
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 
 ### $FB - Firmware Build number
-Read-only value. Can be queried.
+Read-only value. Can be queried. Currently this is something above 355.01.
 
 ### $FV - Firmware Version
-Read-only value. Can be queried.
+Read-only value. Can be queried. This page applies to 0.95 and above
 
 ### $HV - Hardware Version
-Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. 
+Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. This is set to v7 by default.
 
 ### $SI - Status Interval 
-Interval in milliseconds between status reports when in motion. Set to 0 to disable automatic status reports. Minimum is about 200 ms.
+Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
 
 ### $SR - Status Report
-Returns a status report in line form (use ? to return one in multi-line report firm)
+Returns a status report. Identical to ? command. 
+
+Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
+<pre>
+{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
+</pre>
 
 ### $JA - Junction Acceleration 
 <pre>
