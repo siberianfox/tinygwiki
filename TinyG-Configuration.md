@@ -26,8 +26,8 @@ TinyG comes with a set of defaults pre-programmed to a specific machine profile.
 	$xjm | Jerk maximum |
 	$xjm | Junction deviation | for cornering control
 	$ara | Radius setting | Rotational axes only 
-	$xsn | Minimum switch mode | 
-	$xsx | Maximum switch mode | 
+	$xsn | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit
+	$xsx | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit 
 	$xsv | Search velocity | Homing speed during search phase (drive to switch)
 	$xlv | Latch velocity | Homing speed during latch phase 
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
@@ -368,6 +368,10 @@ Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
 * $xLV - Homing Latch Velocity
 * $xLB - Homing Latch Backoff
 * $xZB - Homing Zero Backoff
+
+By way of example, my Shapeoko is set up this way:
+
+
 
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
