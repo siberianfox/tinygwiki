@@ -194,7 +194,7 @@ $sys  --- Show all system settings ---
 </pre>
 
 ## Updating Settings 
-To update a setting enter $token = value. Tokens are a mnemonic plus a motor number or axis prefix. System settings have no prefix. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces are allowed. Numeric values can contain embedded commas.
+To update a setting enter $token=value   Tokens are a mnemonic plus a motor number or axis prefix. System settings have no prefix. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces are allowed. Numeric values can contain embedded commas.
 
 	Request | Response | Notes
 	--------|----------|-------
