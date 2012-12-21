@@ -81,9 +81,11 @@ Note: Status report parameters is settable in JSON only - see JSON mode for deta
 This page describes how configuration works in **text mode**. All configs on this page are also accesible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 ## Units
-TinyG will operate configs in either inches or millimeters mode depending on the current Gcode UNITS setting: G20 for inches or G21 for mm. All config values will be input and displayed in the current units. Most of the examples below are in mm, but could just as easily be input in inches. 
+Configuration can be performed in either inches or millimeters mode. All values entered and responses provided will be in the current Gcode UNITS setting: G20 for inches or G21 for mm. Most of the examples below are in mm, but could just as easily be input in inches. 
 
-Note: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x
+_NOTE 1: In text mode the differences are obvious in the responses. In JSON there is no indication - so best to issue {"gc":"g20"} or {"gc":"g21"} at the start of every config session._
+
+_NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
 
 ## Displaying Settings
 Setting display and configuration is done by sending config commands to the USB port in text mode or the JSON equivalents if in JSON mode. 
