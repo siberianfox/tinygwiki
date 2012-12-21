@@ -376,27 +376,27 @@ By way of example, my Shapeoko is set up this way:
 	$ST | Switch Type | 1=NC
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
-	$XTM | X Travel Maximum | 
-	$XSV | X Homing Search Velocity |
-	$XLV | X Homing Latch Velocity |
-	$XLB | X Homing Latch Backoff |
-	$XZB | X Homing Zero Backoff |
+	$XTM | X Travel Maximum | 180
+	$XSV | X Homing Search Velocity | 3000
+	$XLV | X Homing Latch Velocity | 100
+	$XLB | X Homing Latch Backoff | 20
+	$XZB | X Homing Zero Backoff | 3
 	||
 	$YSN | Y Minimum Switch Mode | 3=limit-and-homing
 	$YSX | Y Maximum Switch Mode | 2=limit-only
-	$YTM | Y Travel Maximum | 
-	$YSV | Y Homing Search Velocity |
-	$YLV | Y Homing Latch Velocity |
-	$YLB | Y Homing Latch Backoff |
-	$YZB | Y Homing Zero Backoff |
+	$YTM | Y Travel Maximum |  180
+	$YSV | Y Homing Search Velocity | 3000
+	$YLV | Y Homing Latch Velocity | 100
+	$YLB | Y Homing Latch Backoff | 20
+	$YZB | Y Homing Zero Backoff | 3
 	||
 	$ZSN | Z Minimum Switch Mode | 0=disabled (with NC switches it's important all unused switches are disabled)
 	$ZSX | Z Maximum Switch Mode | 3=limit-and-homing
-	$ZTM | Z Travel Maximum | 
-	$ZSV | Z Homing Search Velocity |
-	$ZLV | Z Homing Latch Velocity |
-	$ZLB | Z Homing Latch Backoff |
-	$ZZB | Z Homing Zero Backoff |
+	$ZTM | Z Travel Maximum | 100
+	$ZSV | Z Homing Search Velocity | 1000
+ 	$ZLV | Z Homing Latch Velocity | 100
+	$ZLB | Z Homing Latch Backoff | 10
+	$ZZB | Z Homing Zero Backoff | 5
 	||
 	$ASN | A Minimum Switch Mode | 0=disabled 
 	$ASX | A Maximum Switch Mode | 0=disabled
