@@ -7,10 +7,10 @@ This table illustrates general use of JSON cmmands. Don't worry if you don't und
 
 	Request | Response | Description
 	---------|--------------|-------------
-	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| Get X axis maximum velocity
-	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| Set X axis maximum velocity to 15000
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| Alternate form to get X axis maximum velocity
-	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| Alternate form to set X axis maximum velocity to 15000
+	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+	{"x":{"vm":15000}} | {"b":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| alternate form to set X axis maximum velocity to 15000
 	{"x":""} | {"b":{"x":{"am":1,"vm":15000.000,...."zb":3.000}},"f":[1,0,9,5828]}<nl>| get entire X axis resource (group) 
 	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send a Gcode command with footer-only echo 
 	{"gc":"g0x10"} | {"b":{"gc":"g0x10"}},"f":[1,0,11,1234]}<nl>| send a Gcode command with full echo 
