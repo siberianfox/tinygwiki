@@ -78,7 +78,13 @@ Communications Settings
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
 # Terms, Concepts and Background
-This page describes how configuration works in **text mode**. All configs on this page are also accesible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
+This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
+
+When typing in configs a '$' must be the first character of the line. Input is case insensitive.
+
+Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes. However, it is not good practive to intermingle configs with Gcode blocks, and this operation may be prevented in the future - i.e. gonfig commands that arrive during a gcode cycle will be rejected.
+
+_CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. _
 
 ## Units
 Configuration can be performed in either inches or millimeters mode. All values entered and responses provided will be in the current Gcode UNITS setting: G20 for inches or G21 for mm. Most of the examples below are in mm, but could just as easily be input in inches. 
@@ -90,21 +96,33 @@ _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of
 ## Groups
 Groups simplify configuration management by collecting related values together. The following groups are defined. All groups are persistent (stored in EEPROM) unless noted.
 
-	Family | Group tokens | Notes
+	Group | Tokens | Notes
 	--------|----------|-------
-	axis | x y x a b c | Show all settings for that axis
-	motor | 1 2 3 4 | Show all settings for that motor
-	pwm | p1 | Show all settings for pulse width modulation channel
-	offsets | g54 g55 g56 g57 g58 g59 | Show offset settings xyzabc in named coordinate system. 
-	temp offset | g92 | Show g92 offset settings. These are not persistent
-	system | sys | Show system parameters
+	axis | x y x a b c | Contain all settings for that axis
+	motor | 1 2 3 4 | Contain all settings for that motor
+	pwm | p1 | Contain all settings for pulse width modulation channel
+	offsets | g54 g55 g56 g57 g58 g59 | Contain offset settings xyzabc in named coordinate system. 
+	temp offset | g92 | Contain g92 offset settings. These are not persistent
+	system | sys | Contain system parameters
+
+### Uber-Groups
+In text mode (not JSON mode) the following groups of groups are also available for display:
+
+	Uber-Group | Token | Notes
+	--------|----------|-------
+	axis | n | All axis settings for all axes
+	motor | m | All settings for all motors
+	offsets | o | All offset settings including g92's
+	all | $ | All settings. Invoked as $$
+
+This list can be seen by asking for the system help screen using $h.
 
 ## Displaying Settings and Groups
-To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respponse with a text line indicating the value taken. For example
+To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respond with the value taken. For example:
 
 	Request | Response | Notes
 	--------|----------|-------
-	$xvm | [xvm] x_velocity_maximum      12000.000 mm/min | Show X axis maximum velocity
+	$xvm | [xvm] x_velocity_maximum      16000.000 mm/min | Show X axis maximum velocity
 	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
 	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
 
@@ -175,36 +193,15 @@ $sys  --- Show all system settings ---
 [baud] USB baud rate              0 [0-6] | Show all system settings
 </pre>
 
-
-$1    Show all motor 1 settings (or whatever motor you want 1,2,3,4)
-$x    Show all X axis settings (or whatever axis you want x,y,z,a,b,c)
---- the following are not available in JSON mode:
-$m    Show all motor settings for motors 1,2,3 and 4
-$n    Show all axis settings for axes x,y,z,a,b,c
-$$    Show all settings (everything)
-$h    Show system help screen
-</pre> 
-The $ must be the first character of the line, and input is case insensitive. 
-
-Configuration is non-moded; that is, configuration lines and Gcode blocks can be freely intermixed without changing modes. However, it is not good practive to intermingle configs with Gcode blocks, and this operation may be prevented in the future - i.e. gonfig commands that arrive during a gcode cycle will be rejected.
-
-CAVEAT: At the current time because of various limitations of the Xmega errata we recommend pausing transmission for at least 30 milliseconds after each line containing a $ command. This gives the system enough time to persist the data to EEPROM, during which time the system cannot receive new serial input. 
-
 ## Updating Settings 
-To update a setting enter $token = value. Most tokens are a 2 to 4 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 5 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces or commas are allowed.
+To update a setting enter $token = value. Tokens are a mnemonic plus a motor number or axis prefix. System settings have no prefix. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line. No spaces are allowed. Numeric values can contain embedded commas.
 
-<pre>
-tinyg[mm] ok> $yfr=800                                         (Set Y axis feed rate maximum to 800 mm/min)
-tinyg[mm] ok> [yfr] y_feedrate_maximum        800.000 mm/min
-tinyg[mm] ok> $2po=1                                           (Set polarity for motor 2 to inverted)
-tinyg[mm] ok> [2po] m2_polarity                 1 [0,1]
-</pre> 
-
-If there is an error there will be no echo or a line like one of these: 
-<pre>
-tinyg[mm] ok> $ted=1                                           (Set "Ted" to 1)
-tinyg[mm] error: Unrecognized command $ted
-</pre> 
+	Request | Response | Notes
+	--------|----------|-------
+	$yfr=800 | [yfr] y_feedrate_maximum        800.000 mm/min | Set Y axis feed rate maximum to 800 mm/min
+	$2po=1 | [2po] m2_polarity                 1 [0,1] | Set motor 2 polarity
+	$ex=1 | [ex]  enable_xon_xoff             1 [0,1] | Enable XON/XOFF protocol
+	$ted=1 | error: Unrecognized command $ted | Example of an error
 
 # Settings Details
 Settings are case insensitive - they are shown in upper case for emphasis only. The leading '1' can be any motor, 1-4, and the leading 'x' can be any axis (with some restrictions as noted).
