@@ -21,5 +21,15 @@ This table summarizes Gcode supported
 	G28 | Go to predefined position as set via G28.1 | Option axes will specify an intermediate point
 	G28.1 | Set to predefined position for G28 |
 	G28.2 | Initiate machine homing cycle |
-	G28.3 | Set machine origin | Useful for zeroing and setting one or more origins in case axis cannot be homed
+	G28.3 | Set machine origin | Useful for zeroing and setting origins in an case axis cannot be homed
+	G30 | Go to predefined position as set via G30.1 | Option axes will specify an intermediate point
+	G30.1 | Set to predefined position for G30 |
+	G53 | Select absolute coordinate system | Non-model - only applies to current block
+	G54 | Select coordinate system 1 |
+	G55 | Select coordinate system 2 |
+	G56 | Select coordinate system 3 |
+	G57 | Select coordinate system 4 |
+	G58 | Select coordinate system 5 |
+	G59 | Select coordinate system 6 |
  
+
