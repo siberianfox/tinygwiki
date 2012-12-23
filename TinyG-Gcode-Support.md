@@ -13,3 +13,13 @@ This table summarizes Gcode supported
 	G3 | Counter clockwise arc feed | 
 	G4 | Dwell | 
 	G10 L2 | Set offset parameters | 
+	G17 | Select XY plane |
+	G18 | Select XZ plane |
+	G19 | Select YZ plane |
+	G20 | Select inches units mode |
+	G21 | Select mm units mode |
+	G28 | Go to predefined position as set via G28.1 | Option axes will specify an intermediate point
+	G28.1 | Set to predefined position for G28 |
+	G28.2 | Initiate machine homing cycle |
+	G28.3 | Set machine origin | Useful for zeroing and setting one or more origins in case axis cannot be homed
+ 
