@@ -5,8 +5,11 @@
 # Gcode Cheat Sheet
 This table summarizes Gcode supported
 
-	Gcode | Example | Description
+	Gcode | Command | Description
 	---------|--------------|-------------
-	G0 | g0 x10 y20 | Traverse at maximum velocity to 10,20 
-	{"xvm":15000} | {"b":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+	G0 | Straight traverse | Traverse at maximum velocity to 10,20 
+	G1 | Straight feed | 
+	G2 | Clockwise arc feed | 
+	G3 | Counter clockwise arc feed | 
+	G4 | Dwell | 
+	G10 L2 | Set offset parameters | 
