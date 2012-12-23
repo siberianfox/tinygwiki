@@ -32,6 +32,13 @@ Good ideas that can wait until later
 # Changelog
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
+Changes in 356.xx builds
+* New behaviors for homing. Made homing and G28/G30 more compatible with LinuxCNC and grbl behaviors. Changes are:
+ * G28 [axes] returns to a preset position in absolute coordinates. Goes through optional intermediate specified in the G28 command
+ * G28.1 [axes] sets the preset position - e.g. G28.1 x50 y40
+ * G28.2 [axes] perform a homing cycle for any axis specified. The axis value is ignored
+ * G28.3 [axes] set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed.
+
 Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
 <pre>
