@@ -9,8 +9,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|------------|---------|-------------
 	G0 | _axes_ | Straight traverse | Traverse at maximum velocity. At least one axis must be present
 	G1 | _axes_, F | Straight feed | Feed at feed rate F. At least one axis must be present
-	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
-	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
+	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. At least one axis must be present
+	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. At least one axis must be present
 	G4 | P | Dwell | Pause for P seconds
 	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
@@ -20,8 +20,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G21 | | Select mm units mode |
 	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
 	G28.1 | _axes_ | Set position for G28 |
-	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. Axis value is ignored.
-	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in an case axis cannot be homed
+	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
+	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in an case axis cannot be homed. At least one axis must be present
 	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
 	G30.1 _axes_ | | Set position for G30 |
 	G53 | | Select absolute coordinate system | Applies only to current block
