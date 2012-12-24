@@ -5,10 +5,10 @@
 # Gcode Cheat Sheet
 This table summarizes Gcode supported
 
-	Gcode | Command | Description
+	Gcode | Parameters | Command | Description
 	---------|--------------|-------------
-	G0 | Straight traverse | Traverse at maximum velocity to 10,20 
-	G1 | Straight feed | 
+	G0 | X,Y,Z,A,B,C | Straight traverse | Traverse at maximum velocity to 10,20 
+	G1 | X,Y,Z,A,B,C F | Straight feed | 
 	G2 | Clockwise arc feed | 
 	G3 | Counter clockwise arc feed | 
 	G4 | Dwell | 
