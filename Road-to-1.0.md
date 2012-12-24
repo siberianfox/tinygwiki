@@ -44,6 +44,8 @@ Changes in 356.xx builds
 * Added homing status per axis. query {"homx":""} or {"hom":""} for whole group, e.g.
 {"r":{"hom":{"x":1,"y":1,"z":1,"a":1,"b":0,"c":0}},"f":[1,0,11,7294]}. Value is set to one via homing cycle or G28.3 setting
 
+* Eliminated duplicate QR reports in filtered mode.
+
 Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
 <pre>
