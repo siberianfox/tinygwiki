@@ -10,8 +10,8 @@ This table summarizes Gcode supported
 	------|------------|---------|-------------
 	G0 | X,Y,Z,A,B,C | Straight traverse | Traverse at maximum velocity to 10,20 
 	G1 | X,Y,Z,A,B,C F | Straight feed | 
-	G2 | | Clockwise arc feed |
-	G3 | | Counter clockwise arc feed |
+	G2 | X,Y,Z,A,B,C I,J,K or R,P | Clockwise arc feed |
+	G3 | X,Y,Z,A,B,C I,J,K or R,P | Counter clockwise arc feed |
 	G4 | | Dwell |
 	G10 L2 | | Set offset parameters | 
 	G17 | | Select XY plane |
