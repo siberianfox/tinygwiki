@@ -5,6 +5,7 @@
 # Gcode Cheat Sheet
 This table summarizes Gcode supported
 
+
 	Gcode | Parameters | Command | Description
 	---------|--------------|-------------
 	G0 | X,Y,Z,A,B,C | Straight traverse | Traverse at maximum velocity to 10,20 
