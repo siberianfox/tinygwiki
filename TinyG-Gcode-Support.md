@@ -3,12 +3,11 @@
 **NOTE: This page describes Gcode supported in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
 # Gcode Cheat Sheet
-This table summarizes Gcode supported
-
+This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. At least one axis must be present or it's an error
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
-	G0 | X,Y,Z,A,B,C | Straight traverse | Traverse at maximum velocity to 10,20 
+	G0 | _axes_ | Straight traverse | Traverse at maximum velocity to 10,20 
 	G1 | X,Y,Z,A,B,C F | Straight feed | 
 	G2 | X,Y,Z,A,B,C I,J,K or R,P | Clockwise arc feed |
 	G3 | X,Y,Z,A,B,C I,J,K or R,P | Counter clockwise arc feed |
