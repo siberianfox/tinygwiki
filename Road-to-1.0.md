@@ -33,11 +33,13 @@ Good ideas that can wait until later
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
 Changes in 356.xx builds
-* New behaviors for homing. Made homing and G28/G30 more compatible with LinuxCNC and grbl behaviors. Changes are:
- * G28 [axes] returns to a preset position in absolute coordinates. Goes through optional intermediate specified in the G28 command
- * G28.1 [axes] sets the preset position - e.g. G28.1 x50 y40
- * G28.2 [axes] perform a homing cycle for any axis specified. The axis value is ignored
- * G28.3 [axes] set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed.
+* New behaviors for G28, G30 and homing. Made these more compatible with LinuxCNC and grbl behaviors. Changes are:
+ * G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 x10  to clear Z obstacles
+ * G28.1 <axes> - sets the g28 preset position - e.g. G28.1 x50 y40
+ * G28.2 <axes> - perform a homing cycle for any axis specified. The values in the axis words are ignored
+ * G28.3 <axes> - set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed, such as an infinite Y axis for the Othercutter
+ * G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 x10  to clear Z obstacles
+ * G30.1 <axes> - sets the g30 preset position - e.g. G30.1 x50 y40
 
 Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
@@ -48,14 +50,12 @@ Changes in 355.xx builds
 </pre>
 In filtered mode QRs are returned only when the number of available buffers is less than a low threshold number (low water mark, set as $eql) or greater than a high threshold number ($eqh). Reasonable starting points are $eqh=20, meaning that 20 buffers are available out of 24, and that the planner will therefore starve in 4 more buffers if none are provided. A good $eql lo threshold is 2, meaning that only 2 more buffers can be put on the planner queue before the serial RX buffer starts to back up.
 
-* Removed persistence from G10 L2 command. G10's are the only Gcode commands that need to be persisted to EEPROM. As these occur in machining cycles this is problematic. The solution is simple. Don't do it. A G10 L2 can still be used to set coordinate system offsets and it will be effictive during that machining cycle, but it will not persist through resets or power downs. To persist coordinate system offsets use the $g54x - $g59a configs.
-
 * Raised JSON string value limit from 64 chars to 80 chars. I'm concerned that some verbose Gcode blocks would exceed the 64 character limit. Comments that cross the limit are OK, as they are truncated, but legitimate Gcode that overruns the limit will be trapped and cause the block to be rejected.
 
 Changes in 354.xx builds
 * Simplified qr's to read {"qr":1} where '1' is the number of buffers available in the planner queue. Plans are to add a hi/lo water mark filtering capability to further cut down on transmission, but this is not enabled yet.
 
-* Added an "unofficial gcode" command to allow arbitrarily setting an axes machine position. This is needed to support the Otherlab infinite Y axis. use: While in a zero-offset coordinate system (presumably G54) and with the axis(or axes) where you want it, issue g92.4 y0 (for example). The Y axis will now be set to 0 (or whatever you said it was). Works for one or more axes. I plan to extend so this works while in any arbitrary coordinate system but for now this is not working. This function still needs testing.
+* (NOTE: This function moved to G28.3 in 356 builds) Added an "unofficial gcode" command to allow arbitrarily setting an axes machine position. This is needed to support the Otherlab infinite Y axis. use: While in a zero-offset coordinate system (presumably G54) and with the axis(or axes) where you want it, issue g92.4 y0 (for example). The Y axis will now be set to 0 (or whatever you said it was). Works for one or more axes. I plan to extend so this works while in any arbitrary coordinate system but for now this is not working. This function still needs testing.
 
 * Found and fixed a problem in pin outputs for M7/M8/M9 (coolant). These worked fine on v6 boards but did not work on v7's. There is a routing change in v7s that requires the firmware to know what HW revision is running. Added $hv (hardware version) to the system group - by default set to 7. Set to 6 if running version 6 HW or earlier.
 
