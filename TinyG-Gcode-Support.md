@@ -8,11 +8,11 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
 	G0 | _axes_ | Straight traverse | Traverse at maximum velocity to 10,20 
-	G1 | _axes_ F | Straight feed | 
-	G2 | _axes_ I,J,K or R,P | Clockwise arc feed |
-	G3 | _axes_ I,J,K or R,P | Counter clockwise arc feed |
+	G1 | _axes_, F | Straight feed | 
+	G2 | _axes_, I,J,K or R,P | Clockwise arc feed |
+	G3 | _axes_, I,J,K or R,P | Counter clockwise arc feed |
 	G4 | P | Dwell | P is time in seconds
-	G10 L2 | P, _axes_| Set offset parameters | P selects coordinate system 1-6
+	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
