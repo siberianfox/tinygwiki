@@ -9,22 +9,22 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|------------|---------|-------------
 	G0 | _axes_ | Straight traverse | Traverse at maximum velocity. At least one axis must be present
 	G1 | _axes_, F | Straight feed | Feed at feed rate F. At least one axis must be present
-	G2 | _axes_, F, I,J,K or R,P | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
-	G3 | _axes_, F, I,J,K or R,P | Counter clockwise arc feed |
-	G4 | P | Dwell | P is time in seconds
+	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
+	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
+	G4 | P | Dwell | Pause for P seconds
 	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
-	G28 | _axes_ | Go to predefined position as set via G28.1 | Optional axes will specify an intermediate point
-	G28.1 | _axes_ | Set to predefined position for G28 |
-	G28.2 | _axes_ | Initiate machine homing cycle | Home all axes present in command
-	G28.3 | _axes_ | Set machine origin | Set any axes specified. Useful for zeroing and setting origins in an case axis cannot be homed
-	G30 | _axes_ | Go to predefined position as set via G30.1 | Optional axes will specify an intermediate point
-	G30.1 _axes_ | | Set to predefined position for G30 |
-	G53 | | Select absolute coordinate system | Non-model - only applies to current block
+	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
+	G28.1 | _axes_ | Set position for G28 |
+	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. Axis value is ignored.
+	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in an case axis cannot be homed
+	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
+	G30.1 _axes_ | | Set position for G30 |
+	G53 | | Select absolute coordinate system | Applies only to current block
 	G54 | | Select coordinate system 1 |
 	G55 | | Select coordinate system 2 |
 	G56 | | Select coordinate system 3 |
@@ -44,20 +44,20 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G93 | | Set inverse feedrate mode |
 	G94 | | Cancel inverse feedrate mode |
 
- 	Mcode | Command | Description
-	---------|--------------|-------------
-	M0 | Program stop |
-	M1 | Program stop |
-	M2 | Program end |
-	M30 | Program end |
+ 	Mcode | Parameter |Command | Description
+	------|-----------|--------|-------------
+	M0 | | Program stop |
+	M1 | | Program stop |
+	M2 | | Program end |
+	M30 | | Program end |
 	M60 | Program end |
-	M3 | Spindle on - CW |
-	M4 | Spindle on - CCW |
-	M5 | Spindle off |
-	M6 | Change tool | No operation at this time
-	M7 | Mist coolant on |
-	M8 | Flood coolant on |
-	M9 | All coolant off |
+	M3 | S | Spindle on - CW | S is speed in RPM
+	M4 | S | Spindle on - CCW | S is speed in RPM
+	M5 | | Spindle off |
+	M6 | | Change tool | No operation at this time
+	M7 | | Mist coolant on |
+	M8 | | Flood coolant on |
+	M9 | | All coolant off |
 
 
 
