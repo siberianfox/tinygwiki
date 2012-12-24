@@ -8,22 +8,22 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
 	G0 | _axes_ | Straight traverse | Traverse at maximum velocity to 10,20 
-	G1 | X,Y,Z,A,B,C F | Straight feed | 
-	G2 | X,Y,Z,A,B,C I,J,K or R,P | Clockwise arc feed |
-	G3 | X,Y,Z,A,B,C I,J,K or R,P | Counter clockwise arc feed |
-	G4 | | Dwell |
-	G10 L2 | | Set offset parameters | 
+	G1 | _axes_ F | Straight feed | 
+	G2 | _axes_ I,J,K or R,P | Clockwise arc feed |
+	G3 | _axes_ I,J,K or R,P | Counter clockwise arc feed |
+	G4 | P | Dwell | P is time in seconds
+	G10 L2 | P, _axes_| Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
-	G28 | | Go to predefined position as set via G28.1 | Option axes will specify an intermediate point
-	G28.1 | | Set to predefined position for G28 |
-	G28.2 | | Initiate machine homing cycle |
-	G28.3 | | Set machine origin | Useful for zeroing and setting origins in an case axis cannot be homed
-	G30 | | Go to predefined position as set via G30.1 | Option axes will specify an intermediate point
-	G30.1 | | Set to predefined position for G30 |
+	G28 | _axes_ | Go to predefined position as set via G28.1 | Optional axes will specify an intermediate point
+	G28.1 | _axes_ | Set to predefined position for G28 |
+	G28.2 | _axes_ | Initiate machine homing cycle | Home all axes present in command
+	G28.3 | _axes_ | Set machine origin | Set any axes specified. Useful for zeroing and setting origins in an case axis cannot be homed
+	G30 | _axes_ | Go to predefined position as set via G30.1 | Optional axes will specify an intermediate point
+	G30.1 _axes_ | | Set to predefined position for G30 |
 	G53 | | Select absolute coordinate system | Non-model - only applies to current block
 	G54 | | Select coordinate system 1 |
 	G55 | | Select coordinate system 2 |
@@ -37,12 +37,12 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
-	G92 | | Set origin offsets |
+	G92 | _axes_ | Set origin offsets |
 	G92.1 | | Reset origin offsets |
 	G92.2 | | Suspend origin offsets |
 	G92.3 | | Resume origin offsets |
-	G93 |  | Set inverse feedrate mode |
-	G94 |  | Cancel inverse feedrate mode |
+	G93 | | Set inverse feedrate mode |
+	G94 | | Cancel inverse feedrate mode |
 
  	Mcode | Command | Description
 	---------|--------------|-------------
