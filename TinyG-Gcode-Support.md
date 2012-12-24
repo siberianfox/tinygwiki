@@ -3,14 +3,14 @@
 **NOTE: This page describes Gcode supported in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
 # Gcode Cheat Sheet
-This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. At least one axis must be present or it's an error
+This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
-	G0 | _axes_ | Straight traverse | Traverse at maximum velocity to 10,20 
-	G1 | _axes_, F | Straight feed | 
-	G2 | _axes_, I,J,K or R,P | Clockwise arc feed |
-	G3 | _axes_, I,J,K or R,P | Counter clockwise arc feed |
+	G0 | _axes_ | Straight traverse | Traverse at maximum velocity. At least one axis must be present
+	G1 | _axes_, F | Straight feed | Feed at feed rate F. At least one axis must be present
+	G2 | _axes_, F, I,J,K or R,P | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. 
+	G3 | _axes_, F, I,J,K or R,P | Counter clockwise arc feed |
 	G4 | P | Dwell | P is time in seconds
 	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
