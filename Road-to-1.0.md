@@ -41,6 +41,9 @@ Changes in 356.xx builds
  * G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 x10  to clear Z obstacles
  * G30.1 <axes> - sets the g30 preset position - e.g. G30.1 x50 y40
 
+* Added homing status per axis. query {"homx":""} fo {"hom":""} for whole group, e.g.
+{"r":{"hom":{"x":1,"y":1,"z":1,"a":1,"b":0,"c":0}},"f":[1,0,11,7294]}
+
 Changes in 355.xx builds
 * Added filtered mode for QRs. QR settings are 
 <pre>
