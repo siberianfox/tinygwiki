@@ -23,7 +23,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
 	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in an case axis cannot be homed. At least one axis must be present
 	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
-	G30.1 _axes_ | | Set position for G30 |
+	G30.1 | _axes_ | Set position for G30 |
 	G53 | | Select absolute coordinate system | Applies only to current block
 	G54 | | Select coordinate system 1 |
 	G55 | | Select coordinate system 2 |
