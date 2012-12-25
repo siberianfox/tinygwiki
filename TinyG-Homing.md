@@ -34,7 +34,7 @@ TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper 
 	Zmin | Switch typically at maximum height of Z travel
 	Zmax | Switch typically at minimum height of Z travel or omitted
 	Amin | Most of the time A is infinite and not homed. This position can be used for a machine kill
-	Amax |
+	Amax | Ditto
 
 
 For each switch pair the pin closest to the board edge is the ground, the pin next to it is the switch input as labeled on the silkscreen. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
@@ -124,25 +124,12 @@ For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided fo
 * G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
-* Homing begins by checking the pre-conditions for homing: 
+* Homing begins by checking the pre-conditions for homing
  * $xSV homing-search-velocity must be non-zero for the axis to be processed
- * Homing begins by testing homing and limit switches for the currently homing axis. If a switch is tripped the axis will back off a distance from the switch as defines in the Latch Backoff value ($xLB). Backoff will always be in the opposite direction of the search.
-* Once the switch is clear a homing move of length travel max ($xTM) is executed in the negative direction of the search velocity ($xSV). The move executes until the homing switch is hit. For example: A homing move in X with X-axis velocity of -1200mm/min and 400mm travel limit would move G1 F1200 X-400 in relative coordinates. To move to the opposite end of the machine a positive velocity would be configured (and presumably the limit-max switch would be hit). 
-* Once the switch is hit a backoff is performed as described above. 
-* Once backoff occurs the latch cycle is initiated if the homing-latch-velocity is non-zero. The latch-velocity must have the same sign as the homing-search-velocity. The axis moves onto the switch at the homing-latch-rate and a backoff to $xHZ is performed at the latch rate. The homing cycle advances to the next axis to be processed. 
-* Once all axes are processed the affected axes are moved to the absolute home location (machine zero).&nbsp;
-* At this point the homing state will indicate that the machine has been homed.&nbsp;<br>
-
-## Dual Gantry Homing (Not Yet)
-Dual gantry operation differs somewhat from single gantry homing as specified above. Dual gantry operation assumes each of the two motors in the gantry has its own limit switch that can be read independently. It also assumes that the axis is not racked so much that it cannot move. If this is the case the machine must be manually squared so that the axis can move before starting the homing operation. &nbsp;&nbsp; 
-
-* The homing sequence progresses normally through each axis but executes the following if a dual gantry axis is detected. Detection is performed by looking at the motor mapping configs: $1MA - $4MA&nbsp; 
-* The standard pre-conditions apply<br> 
-* Dual gantry homing begins by testing the homing switches for the dual axis. if either switch is tripped the other motor is advanced at the latch rate until that switch is also hit. "Advance" is actually the negative of the homing-travel for that axis (i.e. movement will be in the opposite direction specified by the latch rate sign). Once the second switch is hit a backoff is executed to the machine zero offset value. 
-* A search move is initated for both motors. The search ends when one of the switches is hit. 
-* The second switch is closed as per above, and a backoff is executed.<br> 
-* A latch operation similar to the single gantry case is performed. 
-* The dual axis is now homed. Control is returned to the standard homing operation, above<br>
-
-## G27 - Verify Home
-[NOT IMPLEMENTED - INCLUDED FOR FUTURE REFERENCE ONLY] <br>G27 is used to verify table position and perform a Reset if table position tolerances are beyond specification. G27 will Home to a switch, record the switch location, and calculate the difference from this measured Home Location to the set Home Position. G27 should only be used after the machine has been Homed using G30. No Home Offset is performed during the G27 call.<br>Syntax of G27 is... G27 X0.001 Y0.002 Z0.003 F10<br>Where the axis values define the acceptable tolerance for table position error. The example above will Home all 3 axes simultaneously to the Home Switches. G27 is only available when doing a Hard Home to physical switches. If an axis is not called out in the G27 command, then that axis is ignored during execution. For example, G27 X0.001 Z0.005 will only home/verify the XZ axes. The axis value defines the acceptable tolerance. In the example, the X axis tolerance is set to 0.001. If the table position is off be more than 0.001 then the G27 command will put the machine in Reset.<br>
+ * Switches must be configured correctly - one and only one homing switch per axis
+* The following is performed for each specified axis:
+ * Homing begins by testing homing and limit switches for the currently homing axis. If a switch is tripped the axis will back off the switch by the Latch Backoff ($xLB) distance.
+ * Once the switches are cleared a search move is executed. The search will travel at the Search Velocity ($xSV) for Travel Maximum ($xTM) distance towards the homing switch. The search runs until the homing switch is hit or the total travel is performed.
+ * Once the switch is hit a Latch Backoff move is performed. This backs off the switch until the switch opens again. 
+ * Once the switch is cleared the axis moves further off the sthe switch by the the Zero Backoff amount and sets zero for that axis.
+* Once all axes are processed the affected axes are moved to the absolute home location (machine zero). At this point the homing state will indicate that the machine has been homed. Homing state can also be read using the homing group: $hom. This returns 0 or 1 for each axis to indicate homing state.
