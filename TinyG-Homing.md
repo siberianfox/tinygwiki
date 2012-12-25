@@ -6,7 +6,7 @@ G28 and G30 homing functions are similar to LinuxCNC and grbl:
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
-	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
+	G28 | _axes_ | Go to position set in G28.1 | If optional axes are present the move will return through an intermediate point as specified in _axes_
 	G28.1 | _axes_ | Set position for G28 |
 	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
 	G30.1 | _axes_ | Set position for G30 |
