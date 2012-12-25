@@ -15,24 +15,11 @@ These additional homing functions are also provided:
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
-	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. The axis value must be present but is ignored.
+	G28.2 | _axes_ | Initiate homing sequence | Homes all axes present in command. At least one axis must be present. The axis value must be present but is ignored.
 	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in cases where the axis cannot otherwise be homed (e.g. no switches, infinite axis, etc.) 
 
-* G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 x10 to clear Z obstacles
-G28.1 - sets the g28 preset position - e.g. G28.1 x50 y40
-G28.2 - perform a homing cycle for any axis specified. The values in the axis words are ignored
-G28.3 - set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed, such as an infinite Y axis for the Othercutter
-G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 x10 to clear Z obstacles
-G30.1 - sets the g30 preset position - e.g. G30.1 x50 y40
-Added homing status per axis. query {"homx":""} or {"hom":""} for whole group, e.g. {"r":{"hom":{"x":1,"y":1,"z":1,"a":1,"b":0,"c":0}},"f":[1,0,11,7294]}. Value is set to one via homing cycle or G28.3 setting
-
-Eliminated duplicate QR reports in filtered mode.
-Return to Home can be carried out by using the G28 and G28.1 commands: 
-* G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point
-* G28.1 - Reference Axes: Reset machine coordinates to the homing switches
-
 Some limitations / constraints in TinyG homing as currently implemented:
-* The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.1 command)
+* The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.2 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
 ## Switches
