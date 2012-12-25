@@ -14,7 +14,7 @@ These additional "non standard" homing functions are also provided:
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
 	G28.2 | _axes_ | Initiate homing sequence | Homes all axes present in command. At least one axis must be present. The axis value must be present but is ignored.
-	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in cases where the axis cannot otherwise be homed (e.g. no switches, infinite axis, etc.) 
+	G28.3 | _axes_ | Set machine origin | Set machine position for axes specified. Useful for zeroing in cases where axes cannot otherwise be homed (e.g. no switches, infinite axis, etc.) 
 
 Some limitations / constraints in TinyG homing as currently implemented:
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.2 command)
