@@ -24,7 +24,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G28.3 | _axes_ | Set Zero | Set axis to zero or other origin value. Useful for zeroing axes that cannot otherwise be homed
 	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
 	G30.1 | | Set position for G30 | Axis words are not provided for this command
-	G53 | | Select absolute coordinate system | Applies only to current block
+	G53 | | Select absolute coordinates | Applies only to current block
 	G54 | | Select coordinate system 1 |
 	G55 | | Select coordinate system 2 |
 	G56 | | Select coordinate system 3 |
