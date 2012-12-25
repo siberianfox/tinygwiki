@@ -11,12 +11,12 @@ G28 and G30 homing functions are similar to LinuxCNC and grbl:
 	G30 | _axes_ | Go to G30.1 position | Goes through intermediate point if _axes_ are present
 	G30.1 | _axes_ | Set position for G30 |
 
-These additional functions are also provided: 
+These additional homing functions are also provided: 
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
-	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
-	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in 
+	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. The axis value must be present but is ignored.
+	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in cases where the axis cannot otherwise be homed (e.g. no switches, infinite axis, etc.) 
 
 * G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 x10 to clear Z obstacles
 G28.1 - sets the g28 preset position - e.g. G28.1 x50 y40
