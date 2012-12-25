@@ -104,22 +104,25 @@ The following per-axis settings are used by homing. Substitute any of XYZABC for
 	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero 
 
 ## G28 - Return to Home
-G28 will move the machine to the home coordinates through an intermediate point, with the home position detemined by the latest G28.1 cycle. Movement will occur at the traverse rate (G0 rate). Format is: 
+G28 will move the machine to the absolute coordinates set in G28.1, optionally through an intermediate point.  Movement will occur at the traverse rate (G0 rate). Format is: 
 <pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
 G28 will move to coordinates for any specified axis: axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
 
-For example, G28 X10 Y0 will move to zero in the XY plane without affecting the Z or ABC axes. The movement will pass through point (10,0). Set all values to 0 for a homing move without an intermediate way point. A G28 command must have at least one axis word and is only valid if the system has been previously homed using a G30.
+For example, G91 G28 Z10 will move to a pre-set point in the XY plane. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
-## G28.1 - Reference Axes (Homing Cycle)
-G28.1 is used to home to physical home switches. G28.1 will home to a switch then set the machine zero for that axis (absolute zero) at an offset from that switch location. Format is: 
-<pre>G28.1 X0 Y0 Z0 A0 B0 C0</pre> 
-If an axis is not present in the G28.1 command then that axis is ignored and it's zero value is not changed.
+## G28.1 - Set G28 position. On reset this position will be zeroed, so G28's will return tom machine home. By setting G28.1 the G28 return point can be moved.
 
-For example. G28.1 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
+## G28.2 - Initiate homing sequence (Homing Cycle)
+G28.2 is used to home to physical home switches. G28.2 will home to a switch then set the machine zero for that axis (absolute zero) at an offset from that switch location. Format is: 
+<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre> 
+If an axis is not present in the G28.2 command then that axis is ignored and it's zero value is not changed.
+
+For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
 
 ### Homing Operation
-* The homing sequence progresses through each axis provided in the G28.1 block in turn - i.e. it does not home on multiple axes simultaneously. 
-** Axes are always executed in order of ZXYABC. The order they occur in the G28.1 block has no effect.<br> 
+* G28.2 will home all axes present in the G28.2 command 
+ * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
+ * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
 * Homing begins by checking the pre-conditions for homing: 
 ** $xSV homing-search-velocity must be non-zero for the axis to be processed. Set negative to travel to the minimum switch, positive to find the maximum switch.<br> 
 * Homing begins by testing the homing switch for that axis. If a switch is tripped the axis will back off a distance from the switch as defines in the Latch Backoff value ($xLB). Backoff will always be in the opposite direction of the search.
