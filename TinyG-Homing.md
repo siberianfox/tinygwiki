@@ -8,11 +8,11 @@ Homing functions are similar to standard G28 and G30 functions as implemented in
 	------|------------|---------|-------------
 	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
 	G28.1 | _axes_ | Set position for G28 |
-an case axis cannot be homed. At least one axis must be present
 	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
 	G30.1 | _axes_ | Set position for G30 |
 
 These additional functions are also provided: 
+
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
 	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
