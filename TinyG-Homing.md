@@ -7,9 +7,9 @@ G28 and G30 homing functions are similar to LinuxCNC and grbl:
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
 	G28 | _axes_ | Go to G28.1 position | Goes through intermediate point if _axes_ are present
-	G28.1 | _axes_ | Set position for G28 |
+	G28.1 | | Set position for G28 | Axes are not used and are ignored if present
 	G30 | _axes_ | Go to G30.1 position | Goes through intermediate point if _axes_ are present
-	G30.1 | _axes_ | Set position for G30 |
+	G30.1 | _axes_ | Set position for G30 | Axes are not used and are ignored if present
 
 These additional homing functions are also provided: 
 
@@ -103,30 +103,32 @@ The following per-axis settings are used by homing. Substitute any of XYZABC for
 	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears
 	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero 
 
-## G28 - Return to Home
+## G28 / G28.1 - Return to Home
 G28 will move the machine to the absolute coordinates set in G28.1, optionally through an intermediate point.  Movement will occur at the traverse rate (G0 rate). Format is: 
 <pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
 G28 will move to coordinates for any specified axis: axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
 
 For example, G91 G28 Z10 will move to a pre-set point in the XY plane. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
-## G28.1 - Set G28 position. 
-On reset this position will be zeroed, so G28's will return to machine home. By setting G28.1 the G28 return point can be moved.
+G28.1 sets the G28 position to the current absolute coordinates. On reset this position is zeroed, so G28's will return to machine home.
+
+## G30 / G30.1 - Return to Home
+Works identically to G28 / G28.1
 
 ## G28.2 - Initiate homing sequence (Homing Cycle)
-G28.2 is used to home to physical home switches. G28.2 will home to a switch then set the machine zero for that axis (absolute zero) at an offset from that switch location. Format is: 
-<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre> 
-If an axis is not present in the G28.2 command then that axis is ignored and it's zero value is not changed.
+G28.2 is used to home to physical home switches. G28.2 will find the home switch for an axis then set machine zero for that axis at an offset from the switch location. Format is: 
+<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre>
+Axes not present are ignored and zero values are not changed.
 
 For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
 
 ### Homing Operation
-* G28.2 will home all axes present in the G28.2 command 
+* G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
 * Homing begins by checking the pre-conditions for homing: 
-** $xSV homing-search-velocity must be non-zero for the axis to be processed. Set negative to travel to the minimum switch, positive to find the maximum switch.<br> 
-* Homing begins by testing the homing switch for that axis. If a switch is tripped the axis will back off a distance from the switch as defines in the Latch Backoff value ($xLB). Backoff will always be in the opposite direction of the search.
+ * $xSV homing-search-velocity must be non-zero for the axis to be processed
+ * Homing begins by testing homing and limit switches for the currently homing axis. If a switch is tripped the axis will back off a distance from the switch as defines in the Latch Backoff value ($xLB). Backoff will always be in the opposite direction of the search.
 * Once the switch is clear a homing move of length travel max ($xTM) is executed in the negative direction of the search velocity ($xSV). The move executes until the homing switch is hit. For example: A homing move in X with X-axis velocity of -1200mm/min and 400mm travel limit would move G1 F1200 X-400 in relative coordinates. To move to the opposite end of the machine a positive velocity would be configured (and presumably the limit-max switch would be hit). 
 * Once the switch is hit a backoff is performed as described above. 
 * Once backoff occurs the latch cycle is initiated if the homing-latch-velocity is non-zero. The latch-velocity must have the same sign as the homing-search-velocity. The axis moves onto the switch at the homing-latch-rate and a backoff to $xHZ is performed at the latch rate. The homing cycle advances to the next axis to be processed. 
