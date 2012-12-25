@@ -2,7 +2,7 @@ The following describes the function of homing cycles and related Gcode for vers
 
 There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [LinuxCNC](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
 
-Homing functions are similar to standard G28 and G30 functions as implemented in LinuxCNC and grbl, with additional functions added for homing cycles and zero setting. Standed G28 and G30 functions are:
+G28 and G30 homing functions are similar to LinuxCNC and grbl:
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
