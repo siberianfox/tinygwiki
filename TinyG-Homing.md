@@ -2,6 +2,31 @@ The following describes the function of homing cycles and related Gcode for vers
 
 There seems to be no standard way to do homing, and machine variations complicate matters. TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [LinuxCNC](http://www.linuxcnc.org/docview/html/config_ini_homing.html).
 
+Homing functions are similar to standard G28 and G30 functions as implemented in LinuxCNC and grbl, with additional functions added for homing cycles and zero setting. Standed G28 and G30 functions are:
+
+	Gcode | Parameters | Command | Description
+	------|------------|---------|-------------
+	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
+	G28.1 | _axes_ | Set position for G28 |
+an case axis cannot be homed. At least one axis must be present
+	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
+	G30.1 | _axes_ | Set position for G30 |
+
+These additional functions are also provided: 
+	Gcode | Parameters | Command | Description
+	------|------------|---------|-------------
+	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
+	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in 
+
+* G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 x10 to clear Z obstacles
+G28.1 - sets the g28 preset position - e.g. G28.1 x50 y40
+G28.2 - perform a homing cycle for any axis specified. The values in the axis words are ignored
+G28.3 - set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed, such as an infinite Y axis for the Othercutter
+G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 x10 to clear Z obstacles
+G30.1 - sets the g30 preset position - e.g. G30.1 x50 y40
+Added homing status per axis. query {"homx":""} or {"hom":""} for whole group, e.g. {"r":{"hom":{"x":1,"y":1,"z":1,"a":1,"b":0,"c":0}},"f":[1,0,11,7294]}. Value is set to one via homing cycle or G28.3 setting
+
+Eliminated duplicate QR reports in filtered mode.
 Return to Home can be carried out by using the G28 and G28.1 commands: 
 * G28 - Return to Zero: Return to machine zero at the traverse rate through an intermediate point
 * G28.1 - Reference Axes: Reset machine coordinates to the homing switches
