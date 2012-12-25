@@ -19,11 +19,11 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
 	G28 | _axes_ | Go to position set in G28.1 | Optional axes specify an intermediate point
-	G28.1 | _axes_ | Set position for G28 |
+	G28.1 | | Set position for G28 | Axis words are not provided for this command
 	G28.2 | _axes_ | Initiate machine homing cycle | Homes all axes present in command. At least one axis must be present. Axis value is ignored.
 	G28.3 | _axes_ | Set machine origin | Set axes specified. Useful for zeroing and setting origins in an case axis cannot be homed. At least one axis must be present
 	G30 | _axes_ | Go to position set in G30.1 | Optional axes specify an intermediate point
-	G30.1 | _axes_ | Set position for G30 |
+	G30.1 | | Set position for G30 | Axis words are not provided for this command
 	G53 | | Select absolute coordinate system | Applies only to current block
 	G54 | | Select coordinate system 1 |
 	G55 | | Select coordinate system 2 |
@@ -58,6 +58,5 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	M7 | | Mist coolant on |
 	M8 | | Flood coolant on |
 	M9 | | All coolant off |
-
 
 
