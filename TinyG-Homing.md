@@ -110,7 +110,8 @@ G28 will move to coordinates for any specified axis: axes that are not specified
 
 For example, G91 G28 Z10 will move to a pre-set point in the XY plane. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
-## G28.1 - Set G28 position. On reset this position will be zeroed, so G28's will return tom machine home. By setting G28.1 the G28 return point can be moved.
+## G28.1 - Set G28 position. 
+On reset this position will be zeroed, so G28's will return to machine home. By setting G28.1 the G28 return point can be moved.
 
 ## G28.2 - Initiate homing sequence (Homing Cycle)
 G28.2 is used to home to physical home switches. G28.2 will home to a switch then set the machine zero for that axis (absolute zero) at an offset from that switch location. Format is: 
