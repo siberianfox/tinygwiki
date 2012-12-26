@@ -32,6 +32,9 @@ Good ideas that can wait until later
 # Changelog
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
+Changes in 357.xx builds
+* Added a deglitching phase to switch closures
+
 Changes in 356.xx builds
 * New behaviors for G28, G30 and homing. Made these more compatible with LinuxCNC and grbl behaviors. Changes are:
  * G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 x10  to clear Z obstacles
