@@ -36,6 +36,8 @@ Changes in 357.xx builds
 * Added a deglitching phase to switch closures
 
 Changes in 356.xx builds
+* Added chordal tolerance variable to arc generation ($ct). This permits the arcs to draw with fewer lines as the arc radius increases, resulting in faster arc drawing particularly on larger arcs.
+
 * New behaviors for G28, G30 and homing. Made these more compatible with LinuxCNC and grbl behaviors. Changes are:
  * G28 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G28 z10  to clear Z obstacles
  * G28.1 - sets the g28 preset position to the current location
