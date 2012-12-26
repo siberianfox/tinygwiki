@@ -8,8 +8,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|------------|---------|-------------
 	G0 | _axes_ | Straight traverse | Traverse at maximum velocity. At least one axis must be present
 	G1 | _axes_, F | Straight feed | Feed at feed rate F. At least one axis must be present
-	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. At least one axis must be present
-	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R. At least one axis must be present
+	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
+	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G4 | P | Dwell | Pause for P seconds
 	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane |
