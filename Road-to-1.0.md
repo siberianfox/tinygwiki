@@ -41,7 +41,7 @@ Changes in 356.xx builds
  * G28.1 - sets the g28 preset position to the current location
  * G28.2 <axes> - perform a homing cycle for any axis specified. The values in the axis words are ignored
  * G28.3 <axes> - set absolute machine coordinates as "zero". Useful for infinite axes or axes that cannot otherwise be homed, such as an infinite Y axis for the Othercutter. Axes words are typically zero, but any coordinate can be entered to set the axis to that position.
- * G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 x10  to clear Z obstacles
+ * G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 z10 to clear Z obstacles
  * G30.1 - sets the g30 preset position to the current location 
 
 **Note: G28.3 supersedes G92.4 which has been removed**
