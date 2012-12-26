@@ -2,7 +2,6 @@
 
 **NOTE: This page describes Gcode supported in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
 
-# Gcode Cheat Sheet
 This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 
 	Gcode | Parameters | Command | Description
