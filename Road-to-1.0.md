@@ -44,7 +44,7 @@ Changes in 356.xx builds
  * G30 [axes] - returns to a preset position in absolute coordinates. Goes through intermediate position specified in the optional axes words. Can be used in incremental mode, e.g. G91 G30 z10 to clear Z obstacles
  * G30.1 - sets the g30 preset position to the current location 
 
-**Note: G28.3 supersedes G92.4 which has been removed**
+	**Note: G28.3 supersedes G92.4 which has been removed**
 
 * Added homing status per axis. query {"homx":""} or {"hom":""} for whole group, e.g.
 {"r":{"hom":{"x":1,"y":1,"z":1,"a":1,"b":0,"c":0}},"f":[1,0,11,7294]}. Value is set to one via homing cycle or G28.3 setting
