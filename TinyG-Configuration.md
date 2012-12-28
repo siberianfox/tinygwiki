@@ -73,7 +73,6 @@ Set communications speeds and modes.
 	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
 	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
 	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
-	$qr | Queue reports | 0=off, 1=filtered reports, 2=all reports
 	$si | Status report interval | In ms, 0=off
 	$baud | Baud rate |
 
