@@ -64,8 +64,8 @@ Set communications speeds and modes. These settings are part of the system group
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$ic | Ignore CR / LF on RX | 0=accept<CR> or <LF> as line terminator, 1=ignore <CR>s, 2=ignore <LF>s
-	$ec | Enable CR expansion on TX | 0=<LF> termination on TX, 1=<LF><CR>
+	$ic | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	$ec | Enable CR expansion on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	$ee | Enable character echo | 0=off, 1=enabled
 	$ex | Enable XON/XOFF flow control | 0=off, 1=enabled
 	$eq | Enable planner queue reports | 0=off, $1=filtered, $2=verbose
