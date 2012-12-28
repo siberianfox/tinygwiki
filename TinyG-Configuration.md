@@ -48,9 +48,8 @@ Global Machine Settings
 	$mt | Segment timing | Planner interpolation interval - NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
 	$st | Switch type | 0=NO, 1=NC
 
-Gcode Initialization Defaults 
-
-Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings
+**Gcode Initialization Defaults **
+Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. These settings are part of the system group.
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -60,15 +59,16 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 	$gpa | Default path control mode |
 	$gdi | Default distance mode | 
 
-Communications Settings
+**Communications Settings**
+Set communications speeds and modes. These settings are part of the system group.
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$ic | Ignore CR / LF on RX | 
-	$ec | Enable CR expansion on TX | Set to 0 for <LF> termination on  TX, 1 for <LF><CR>
-	$ee | Enable character echo |
-	$ex | Enable XON/XOFF flow control |
-	$eq | Enable planner queue reports |
+	$ic | Ignore CR / LF on RX | 0=accept<CR> or <LF> as line terminator, 1=ignore <CR>s, 2=ignore <LF>s
+	$ec | Enable CR expansion on TX | 0=<LF> termination on TX, 1=<LF><CR>
+	$ee | Enable character echo | 0=off, 1=enabled
+	$ex | Enable XON/XOFF flow control | 0=off, 1=enabled
+	$eq | Enable planner queue reports | 0=off, $1=filtered, $2=verbose
 	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
 	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
 	$jv | JSON verbosity | 0=silent, 1=footer only, 2=omit Gcode body, 3=Gcode line numbers only, 4=Gcode line numbers and messages, 5=verbose
@@ -76,7 +76,7 @@ Communications Settings
 	$si | Status report interval | In ms, 0=off
 	$baud | Baud rate |
 
-Commands and Reports
+**Commands and Reports**
 These $configs invoke reports and functions
 
 	Command | Description | Notes
