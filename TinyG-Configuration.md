@@ -69,7 +69,7 @@ Set communications speeds and modes.
 	$ec | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	$ee | Enable character echo | 0=off, 1=enabled
 	$ex | Enable XON/XOFF | 0=off, 1=enabled
-	$eq | Enable queue reports | 0=off, $1=filtered, $2=verbose
+	$eq | Enable queue reports | 0=off, 1=filtered, 2=verbose
 	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
 	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
 	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
