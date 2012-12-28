@@ -50,7 +50,7 @@ The system group contains the following global machine and communication setting
 	$st | Switch type | 0=NO, 1=NC
 
 **Gcode Initialization Defaults**
-Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. These settings are part of the system group.
+Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -61,7 +61,7 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 	$gdi | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
 **Communications Settings**
-Set communications speeds and modes. These settings are part of the system group.
+Set communications speeds and modes. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
