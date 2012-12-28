@@ -47,16 +47,6 @@ Global System Settings
 	$ja | Junction acceleration | Global cornering acceleration value 
 	$st | Switch type | 0=NO, 1=NC
 
-Hidden System Settings
-
-The following settings are accessible but do not appear in the system group listings. This is because they really should not be messed with.
-
-	Setting | Description | Notes
-	--------|-------------|-------
-	$ml | Minimum line length | 
-	$ma | Arc segment length |
-	$mt | Segment timing | 
-
 **Gcode Initialization Defaults**
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. These settings are part of the system group.
 
@@ -99,6 +89,16 @@ These $configs invoke reports and functions
 	$help | Show help screen | Show system help screen; $h also works
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
+
+Hidden System Settings
+
+The following settings are accessible but do not appear in the system group listings. This is because they really should not be messed with.
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$ml | Minimum line length | 
+	$ma | Arc segment length |
+	$mt | Segment timing | 
 
 # Terms, Concepts and Background
 This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
