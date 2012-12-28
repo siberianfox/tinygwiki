@@ -36,7 +36,7 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	$xlv | Latch velocity | Homing speed during latch phase (drive off switch)
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
-###System group
+###System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
 **Global System Settings**
