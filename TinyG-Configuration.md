@@ -23,9 +23,9 @@ Most commands are self explanatory. See following sections for those that requir
 	--------|-------------|-------
 	$xam | Axis mode | See details for setting. Normally this is =1 "normal" 
 	$xvm | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	$xfr | Feed rate maximum |
-	$xtm | Travel maximum |
-	$xjm | Jerk maximum |
+	$xfr | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
+	$xtm | Travel maximum | Used by homing to know when to give up
+	$xjm | Jerk maximum | main parameter for acceleration management (Note: takes the place an a max acceleration value)
 	$xjm | Junction deviation | for cornering control
 	$ara | Radius setting | Rotational axes only 
 	$xsn | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit
