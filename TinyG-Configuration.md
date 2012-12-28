@@ -37,7 +37,7 @@ Most commands are self explanatory. See following sections for those that requir
 **System group** 
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
-Global System Settings
+**Global System Settings**
 
 	Setting | Description | Notes
 	--------|-------------|-------
