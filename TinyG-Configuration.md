@@ -48,7 +48,8 @@ Global System Settings
 	$st | Switch type | 0=NO, 1=NC
 
 Hidden System Settings
-The following settings rae accessible but do not appear in the system group listings. This is because they really should not be messed with.
+
+The following settings are accessible but do not appear in the system group listings. This is because they really should not be messed with.
 
 	Setting | Description | Notes
 	--------|-------------|-------
