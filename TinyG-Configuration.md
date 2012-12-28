@@ -6,7 +6,8 @@ TinyG comes with a set of defaults pre-programmed to a specific machine profile.
 ## Summary / Cheat Sheet
 Most commands are self explanatory. See following sections for those that require further explanation.
  
-**Motor Groups** Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
+###Motor Groups
+Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -17,7 +18,8 @@ Most commands are self explanatory. See following sections for those that requir
 	$1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
 	$1pm | Power management mode | 0=power shuts off when axis is not moving, 1=axis remains powered when idle
 
-**Axis Groups** Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
+###Axis Groups
+Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -34,7 +36,7 @@ Most commands are self explanatory. See following sections for those that requir
 	$xlv | Latch velocity | Homing speed during latch phase (drive off switch)
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
-**System group** 
+###System group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
 **Global System Settings**
@@ -75,7 +77,7 @@ Set communications speeds and modes. These settings are part of the system group
 	$si | Status report interval | In ms, 0=off
 	$baud | Baud rate |
 
-**Commands and Reports**
+###Commands and Reports
 These $configs invoke reports and functions
 
 	Command | Description | Notes
