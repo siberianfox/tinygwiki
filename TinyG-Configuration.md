@@ -35,7 +35,7 @@ TinyG comes with a set of defaults pre-programmed to a specific machine profile.
 **System group** 
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
-Global Machine Settings
+Global System Settings
 
 	Setting | Description | Notes
 	--------|-------------|-------
@@ -43,10 +43,16 @@ Global Machine Settings
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$hv | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
 	$ja | Junction acceleration | Global cornering acceleration value 
-	$ml | Minimum line length | NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
-	$ma | Arc segment length |NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
-	$mt | Segment timing | Planner interpolation interval - NOTE: This value is accessible only as a single value - it does not appears in SYS group listings
 	$st | Switch type | 0=NO, 1=NC
+
+Hidden System Settings
+The following settings rae accessible but do not appear in the system group listings. This is because they really should not be messed with.
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$ml | Minimum line length | 
+	$ma | Arc segment length |
+	$mt | Segment timing | 
 
 **Gcode Initialization Defaults **
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. These settings are part of the system group.
