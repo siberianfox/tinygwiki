@@ -25,13 +25,13 @@ Most commands are self explanatory. See following sections for those that requir
 	$xvm | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
 	$xfr | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
 	$xtm | Travel maximum | Used by homing to know when to give up
-	$xjm | Jerk maximum | main parameter for acceleration management (Note: takes the place an a max acceleration value)
-	$xjm | Junction deviation | for cornering control
+	$xjm | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
+	$xjm | Junction deviation | For cornering control
 	$ara | Radius setting | Rotational axes only 
 	$xsn | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit
 	$xsx | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit 
 	$xsv | Search velocity | Homing speed during search phase (drive to switch)
-	$xlv | Latch velocity | Homing speed during latch phase 
+	$xlv | Latch velocity | Homing speed during latch phase (drive off switch)
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
 
 **System group** 
