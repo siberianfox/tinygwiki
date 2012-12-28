@@ -54,11 +54,11 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$gun | Default units mode | 0=inches 1=mm 
-	$gpl | Default plane selection | 
-	$gco | Default coordinate system |
-	$gpa | Default path control mode |
-	$gdi | Default distance mode | 
+	$gun | Default units mode | 0=inches mode, 1=mm mode 
+	$gpl | Default plane selection | 0=XY plane (G17), 1=XZ plane (G18), 2=YZ plane (G19)
+	$gco | Default coordinate system | 1=G54, 2=G55, 3=G56, 4=G57, 5=G58, 6=G59
+	$gpa | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
+	$gdi | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
 **Communications Settings**
 Set communications speeds and modes. These settings are part of the system group.
