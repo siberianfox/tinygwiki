@@ -54,7 +54,7 @@ The following settings rae accessible but do not appear in the system group list
 	$ma | Arc segment length |
 	$mt | Segment timing | 
 
-**Gcode Initialization Defaults **
+**Gcode Initialization Defaults**
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. These settings are part of the system group.
 
 	Setting | Description | Notes
