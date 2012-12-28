@@ -65,6 +65,7 @@ Communications Settings
 	Setting | Description | Notes
 	--------|-------------|-------
 	$ic | Ignore CR / LF on RX | 
+	$ec | Enable CR expansion on TX | Set to 0 for <LF> termination on  TX, 1 for <LF><CR>
 	$ee | Enable character echo |
 	$ex | Enable XON/XOFF flow control |
 	$eq | Enable planner queue reports |
@@ -74,6 +75,19 @@ Communications Settings
 	$qr | Queue reports | 0=off, 1=filtered reports, 2=all reports
 	$si | Status report interval | In ms, 0=off
 	$baud | Baud rate |
+
+Commands and Reports
+These $configs invoke reports and functions
+
+	Command | Description | Notes
+	--------|-------------|-------
+	$sr | Request status report | SR also sets status report format in JSON mode
+	$qr | Request queue report | 
+	$rx | Query space in serial RX buffer |
+	$test | Invoke self tests | $test=n for test number; $test returns help screen in text mode
+	$defa | Reset to factory defaults | $test=1 to reset; $defa returns help screen in text mode
+	$boot | Enter boot loader | $boot=1 enters boot loader; $defa returns help screen in text mode
+	$help | Show help screen | Show system help screen; $h also works
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
