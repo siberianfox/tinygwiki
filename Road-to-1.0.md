@@ -33,9 +33,9 @@ Good ideas that can wait until later
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
 Changes in 358.xx builds
-* Added $id string for a unique ID per board
+* Added $id string for a unique ID per board. E.g. {"id":""} returns {"r":{"id":"9H3906-SYP"},"f":[1,0,10,5756]}. ID is also returned as part of the system group.
 
-* Made 'pos' and 'mpo' groups for work position and machine position query. try {"pos":""} and {"mpo":""}
+* Made 'pos' and 'mpo' groups for work position and machine position query. try {"pos":""} and {"mpo":""}. Example: {"r":{"pos":{"x":0.000,"y":0.000,"z":0.000,"a":0.000,"b":0.000,"c":0.000}},"f":[1,0,11,3252]}
 
 * Added machine homing status to the homing status group. 'hom' group now returns machine homed status as 'e', plus each homed axis. E.g. {"hom":""} returns {"r":{"hom":{"e":0,"x":0,"y":0,"z":0,"a":0,"b":0,"c":0}},"f":[1,0,11,2155]}  or $hom for text mode equivalent
 
