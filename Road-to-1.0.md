@@ -40,7 +40,7 @@ Changes in 358.xx builds
 * Added machine homing status to the homing status group. 'hom' group now returns machine homed status as 'e', plus each homed axis. E.g. {"hom":""} returns {"r":{"hom":{"e":0,"x":0,"y":0,"z":0,"a":0,"b":0,"c":0}},"f":[1,0,11,2155]}  or $hom for text mode equivalent
 
 Changes in 357.xx builds
-* Added a deglitching phase to switch closures
+* Added a deglitching phase to switch closures. This helps a little but you still need to make sure your switch leads are well isolated and shielded.
 
 Changes in 356.xx builds
 * Added chordal tolerance variable to arc generation ($ct). This permits the arcs to draw with fewer lines as the arc radius increases, resulting in faster arc drawing particularly on larger arcs.
