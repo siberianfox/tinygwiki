@@ -32,6 +32,13 @@ Good ideas that can wait until later
 # Changelog
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
+Changes in 358.xx builds
+* Added $id string for a unique ID per board
+
+* Made 'pos' and 'mpo' groups for work position and machine position query. try {"pos":""} and {"mpo":""}
+
+* Added machine homing status to the homing status group. 'hom' group now returns machine homed status as 'e', plus each homed axis. E.g. {"hom":""} returns {"r":{"hom":{"e":0,"x":0,"y":0,"z":0,"a":0,"b":0,"c":0}},"f":[1,0,11,2155]}  or $hom for text mode equivalent
+
 Changes in 357.xx builds
 * Added a deglitching phase to switch closures
 
