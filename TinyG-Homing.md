@@ -52,6 +52,7 @@ Wire a single switch to each axis that will be part of homing. The following con
 	Ymin | Y homing switch | at the front of the machine
 	Zmax | Z homing switch | at the top of the Z axis travel
 
+####Limit Switches
 The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire limits you should connect the switch to its proper axis, and not connect multiple switches to an input. Adding limit switches would add these three switches to the example above:
 
 	Pin  | Function    | Position on machine
@@ -60,7 +61,9 @@ The unused inputs may be wired as axis limit switches (kill) or left unused. If 
 	Ymax | Y limit switch | at the back of the machine
 	Zmin | Z limit switch | at the bottom of the Z axis travel
 
-The A inputs (if otherwise unused) can also be used as a machine kill.
+The A inputs (if otherwise unused) can also be used as a limit.
+
+When a limit switch is tripped the board is reset and will not exit until either a manual reset is pushed or a soft reset is sent via the serial interface. A soft reset is the <ctrl>x character.
 
 ### Switch Configuration
 It is mandatory that the switch configuration settings match the physical switch configuration otherwise homing simply won't work. In the case of NC switches the entire machine may be rendered inoperative if these settings are not in alignment.
