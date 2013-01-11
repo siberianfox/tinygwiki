@@ -1,6 +1,8 @@
 Welcome to the TinyG wiki!
 
-THis wiki is used to keep documentation from version 0.95 onward. For previous versions see here: [Synthetos TinyG Wiki](http://www.synthetos.com/wiki/index.php?title=Projects:TinyG)
+This wiki is used to keep documentation from version 0.95 onward. For previous versions see here: [Synthetos TinyG Wiki](http://www.synthetos.com/wiki/index.php?title=Projects:TinyG)
+
+![TinyG v7](http://farm9.staticflickr.com/8043/8106490677_06e1e4f1e9_z.jpg)
 
 This wiki is the TinyG user and programmer manual. We (Synthetos) maintain it, but it's an open wiki. If you want to post wiki-type stuff, feel free to do it here. Please let us know via a github Issue if it's anything major. Issues are good for requested changes, discussions and bona-fide software bugs.
 
