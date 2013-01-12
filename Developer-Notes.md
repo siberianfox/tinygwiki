@@ -20,4 +20,8 @@ To get this do the following:
 
 3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use mega328p
 
-4. Now move all the .c and .h files into the project directory (tinyg)
+4. Now move all the .c and .h files into the project directory (tinyg). If there's a collision with the main.c or <project>.c file then overwrite the existing file with the one you are moving in.
+
+5. Go to the 
+
+It gets worse. If you mess up and do things wrong studio6 will remember your paths in "recents" and fail the next time you try to set something up because things aren't where it thinks they should be. You have to go to the File/Recent Projects and Solutions, try to open the old paths, then remove them when they can't be found (you must have deleted the directories beforehand)
