@@ -24,7 +24,7 @@ To get this do the following:
 
 3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use mega328p
 
-4. Now move all the .c and .h files into the project directory (e.g. tinyg). If there's a collision with the main.c or <project>.c file then replace the project-generated file with the one you are moving in. If there's a collision with the .cproj file do not replace it, instead use the one that's already in the directory (the newer one).
+4. Now move all the .c and .h files into the project directory (e.g. tinyg). If there's a collision with the main.c or PROJECT.c file then replace the project-generated file with the one you are moving in. If there's a collision with the .cproj file do not replace it, instead use the one that's already in the directory (the newer one).
 
 5. Go to the Solution Explorer that should be in a right-hand nav box. Right click the orange project directory icon and select add / existing item. Select all the .c, .h and any other files that are necessary for the compiler / linker. Don't bother to add .txt, .doc, .md, the .cproj file, any AVRstudio4 files, or anything else that you may have under git management but are not technically part of the compile/link process. You may have to go back multiple times to select as the file browser doesn;t work the way you think it should - at least not under VMware on OSX. 
 
