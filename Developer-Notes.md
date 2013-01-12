@@ -8,6 +8,10 @@ The directory structure we use is:
 
 .../TinyG/firmware/tinyg
 
+
+The simplest way to set up the project is to clone the repository and use the solution and project files found in the /support directory. If for some reason these are not available or don't work (we don't always remember to update them with project changes) or for some reason you just want to generate them yourselves the following instructions should help. 
+
+
 To get this do the following:
 
 1. Create a git repository in the main directory (TinyG).
