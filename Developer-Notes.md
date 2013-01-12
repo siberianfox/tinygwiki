@@ -1,8 +1,8 @@
 These are random notes that may be useful for developers
-## AtmelStudio6 and AVRStudio4 Setup
-I still prefer Studio 4 for development and simulation, but also compile in 6 to maintain compatibility and take advantage of the newer C compiler and libraries for release. The .hex file for 6 is in the Debug dir, the .hex from 4 is in the default dir.
+## AtmelStudio6 Setup
+These instructions are for setting up an Atmel Studio6 solution/project in a way that's compatible with how the project is organized on github. I trip over project setup in 6 every single time. I still prefer Studio 4 for development and simulation, but also compile in 6 to maintain compatibility and take advantage of the newer C compiler and libraries for release. The .hex file for 6 is in the Debug dir, the .hex from 4 is in the default dir.
 
-I trip over project setup in 6 every single time. The directory structure we use is:
+The directory structure we use is:
 
 .../GitRepository/solution/project  for example:
 
