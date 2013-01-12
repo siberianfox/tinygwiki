@@ -17,3 +17,7 @@ To get this do the following:
  - The Name is "tinyg"
  - The Location is the path for the git repository
  - The Solution name is "firmware". Allow it to create a new solution and to create a directory for the solution
+
+3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use mega328p
+
+4. Now move all the .c and .h files into the project directory (tinyg)
