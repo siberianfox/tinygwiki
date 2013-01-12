@@ -7,8 +7,8 @@ I trip over project setup in 6 every single time. The directory structure we use
 .../TinyG/firmware/tinyg
 
 To get this do the following:
-1. Create a git repository in the main directory (TinyG).
-2. Open studio6 and create a new project. Parameters are:
+ 1. Create a git repository in the main directory (TinyG).
+ 2. Open studio6 and create a new project. Parameters are:
  - TinyG is a "GCC C Executable Project" 
  - The Name is "tinyg"
  - The Location is the path for the git repository
