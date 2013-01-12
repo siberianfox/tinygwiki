@@ -24,6 +24,8 @@ To get this do the following:
 
 5. Go to the Solution Explorer that should be in a right-hand nav box. Right click the orange project directory icon and select add / existing item. Select all the .c, .h and any other files that are necessary for the compiler / linker. Don't bother to add .txt, .doc, .md, the .cproj file, any AVRstudio4 files, or anything else that you may have under git management but are not technically part of the compile/link process. You may have to go back multiple times to select as the file browser doesn;t work the way you think it should - at least not under VMware on OSX. 
 
+6. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer.
 
+Notes:
 
 It gets worse. If you mess up and do things wrong studio6 will remember your paths in "recents" and fail the next time you try to set something up because things aren't where it thinks they should be. You have to go to the File/Recent Projects and Solutions, try to open the old paths, then remove them when they can't be found (you must have deleted the directories beforehand)
