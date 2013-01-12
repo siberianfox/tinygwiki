@@ -5,6 +5,7 @@ I still prefer Studio 4 for development and simulation, but also compile in 6 to
 I trip over project setup in 6 every single time. The directory structure we use is:
 
 .../GitRepository/solution/project  for example:
+
 .../TinyG/firmware/tinyg
 
 To get this do the following:
