@@ -8,9 +8,9 @@ These instructions are for importing an existing project such as tinyg into Atme
 
 The directory structure we use is:
 
-`.../GitRepository/solution/project           for example:
-.../TinyG/firmware/tinyg
-`
+`.../GitRepository/solution/project           for example:`
+`.../TinyG/firmware/tinyg`
+
 To get this do the following:
 
 1. Create a git repository in the main directory (TinyG).
