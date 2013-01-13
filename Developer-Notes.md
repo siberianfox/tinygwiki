@@ -28,15 +28,13 @@ To get this do the following:
 
 5. Go to the Solution Explorer that should be in a right-hand nav box. Right click the orange project directory icon and select add / existing item. Select all the .c, .h and any other files **in the main directory** that are necessary for the compiler / linker. Don't bother to add .txt, .doc, .md, the .cproj file, any AVRstudio4 files, or anything else that you may have under git management but are not technically part of the compile/link process. You may have to go back multiple times to select as the file browser doesn;t work the way you think it should - at least not under VMware on OSX. 
 
-Now read this to **add the files in project sub-directories**. (Aside): If you have an exiting project with sub-directories (like tinyg) there is no straightforward way to add the files to the project and leave the directory structure intact. You can't just click on the directory to add the entire directory. If you try to add a new directory it won't let you because that name is already used. If you add the items as "existing items" then navigate and click them it moves the files into the parent directory. 
-
-Here's what you must do. 
+6. Now read this to **add the files in project sub-directories**. (Aside): If you have an exiting project with sub-directories (like tinyg) there is no straightforward way to add the files to the project and leave the directory structure intact. You can't just click on the directory to add the entire directory. If you try to add a new directory it won't let you because that name is already used. If you add the items as "existing items" then navigate and click them it moves the files into the parent directory. Here's what you must do. 
  - Either move the sub-directory out of the path or rename it (e.g. xio_ORIG) to get it out of the way. 
  - Create a new directory off the parent directory with the name you want (e.g. xio). 
  - Move the files from the original directory into the new directory 
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
 
-6. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer.
+7. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer.
 
 Notes:
 
