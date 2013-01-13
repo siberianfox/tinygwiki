@@ -4,7 +4,7 @@ Forward: I still prefer Studio 4 for development and simulation, but also compil
 
 The simplest way to import TinyG or some other existing project into Studio6 is to clone the github repository and use the solution and project files found in the /support directory. If for some reason these are not available or don't work (we don't always remember to update them with project changes) or for some reason you just want to generate them yourselves the following instructions should help. 
 
-These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in 6 every single time. 
+These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in 6 every single time. There is a menu item called "add existing project" but I think this is only useful for brining in a "project" into a "solution" and we are setting up a new "solution" in this case.
 
 The directory structure we use is:
 
