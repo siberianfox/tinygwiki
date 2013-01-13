@@ -1,8 +1,10 @@
 These are random notes that may be useful for developers
 ## AtmelStudio6 Setup (Importing TinyG or another project into Studio6)
+Forward: I still prefer Studio 4 for development and simulation, but also compile in 6 to maintain compatibility and take advantage of the newer C compiler and libraries for major releases. The .hex file for 6 is in the Debug dir, the .hex from 4 is in the default dir.
+
 The simplest way to import TinyG or some other existing project into Studio6 is to clone the github repository and use the solution and project files found in the /support directory. If for some reason these are not available or don't work (we don't always remember to update them with project changes) or for some reason you just want to generate them yourselves the following instructions should help. 
 
-These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in 6 every single time. I still prefer Studio 4 for development and simulation, but also compile in 6 to maintain compatibility and take advantage of the newer C compiler and libraries for release. The .hex file for 6 is in the Debug dir, the .hex from 4 is in the default dir.
+These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in 6 every single time. 
 
 The directory structure we use is:
 
