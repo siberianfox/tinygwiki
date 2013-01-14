@@ -45,7 +45,7 @@ The JSON interface is modeled as a RESTful interface, albeit running over USB se
 
 ## JSON Overview & TinyG Subset
 
-The full JSON language definition is [here](http://json.org). A handy validator can be found [here](http://jsonlint.com).
+The concise JSON language definition is [here](http://json.org). A handy validator can be found [here](http://jsonlint.com).
 
 TinyG implements a subset of JSON with the following limitations: 
 
