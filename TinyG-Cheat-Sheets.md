@@ -99,7 +99,7 @@ Hex | char | name | used by
 	0x1E | RS | ctrl-^
 	0x1F | US | ctrl-_
 	0x20 | <space> | Gcode blocks
-	0x21 | ! | excl point TinyG feedhold
+	0x21 | ! | excl point | TinyG feedhold
 	0x22 | " | quote | JSON notation
 	0x23 | # | number | Gcode parameter prefix
 	0x24 | $ | dollar | TinyG / grbl out-of-cycle settings prefix
@@ -129,7 +129,7 @@ Hex | char | name | used by
 	0x5F | _ | underscore
 	0x60 | ` | grave accent	
 	0x7B | { | open curly JSON notation
-	0x7C | \| | pipe | universal symbol for logical OR (not used here)
+	0x7C | "|" | pipe | universal symbol for logical OR (not used here)
 	0x7D | } | close curly JSON notation
 	0x7E | ~ | tilde | TinyG cycle start
 	0x7F | DEL
