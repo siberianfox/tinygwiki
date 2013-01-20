@@ -98,7 +98,7 @@ Hex | char | name | used by
 	0x1D | GS | ctrl-]
 	0x1E | RS | ctrl-^
 	0x1F | US | ctrl-_
-	0x20 | <space> | Gcode blocks
+	0x20 | space | | Gcode blocks, other uses
 	0x21 | ! | excl point | TinyG feedhold
 	0x22 | " | quote | JSON notation
 	0x23 | # | number | Gcode parameter prefix
