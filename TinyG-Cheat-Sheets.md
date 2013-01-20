@@ -129,7 +129,7 @@ Hex | char | name | used by
 	0x5F | _ | underscore
 	0x60 | ` | grave accent	
 	0x7B | { | open curly JSON notation
-	0x7C | "|" | pipe | universal symbol for logical OR (not used here)
+	0x7C | pipe | pipe | universal symbol for logical OR (not used here)
 	0x7D | } | close curly JSON notation
 	0x7E | ~ | tilde | TinyG cycle start
 	0x7F | DEL
