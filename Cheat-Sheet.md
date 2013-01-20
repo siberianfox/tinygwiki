@@ -20,7 +20,7 @@
 	14 | TG_BUFFER_FULL_FATAL 
 	15 | TG_INITIALIZING | initializing - not ready for use
 	16-19 | TG_ERROR_16 - TG_ERROR_19 | reserved
-	 | Internal errors (like HTTP 500's)
+	 | **Internal errors** | typically unrecoverable
 	20 | TG_INTERNAL_ERROR | unrecoverable internal error
 	21 | TG_INTERNAL_RANGE_ERROR | number range error other than by user input
 	22 | TG_FLOATING_POINT_ERROR | number conversion error
@@ -28,7 +28,7 @@
 	24 | TG_INVALID_ADDRESS
 	25 | TG_READ_ONLY_ADDRESS
 	26-39 | TG_ERROR_26 - TG_ERROR_39 | reserved
-	 | Input errors (like HTTP 400's)
+	 | **Input errors** | typically data problems on inputs
 	40 | TG_UNRECOGNIZED_COMMAND | parser didn't recognize the command
 	41 | TG_EXPECTED_COMMAND_LETTER | malformed line to parser
 	42 | TG_BAD_NUMBER_FORMAT | number format error
@@ -41,7 +41,7 @@
 	49 | TG_JSON_TOO_MANY_PAIRS | JSON string or has too many name:value pairs
 	50 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
 	51 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
-	 | Gcode and machining errors | Application specific
+	 | **Gcode and machining errors** | application specific errors for Gcode problems
 	60 | TG_ZERO_LENGTH_MOVE | move is zero length
 	61 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
 	62 | TG_GCODE_INPUT_ERROR | general error for gcode input 
