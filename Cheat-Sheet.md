@@ -24,16 +24,16 @@
 	18 | TG_ERROR_18 | reserved
 	19 | TG_ERROR_19 | reserved
 	 | Internal errors (like HTTP 500's)
-	20 | TG_INTERNAL_ERROR 20			// unrecoverable internal error
-	20 | TG_INTERNAL_RANGE_ERROR 21		// number range other than by user input
-	20 | TG_FLOATING_POINT_ERROR 22		// number conversion error
-	20 | TG_DIVIDE_BY_ZERO 23
-	20 | TG_INVALID_ADDRESS 24
-	20 | TG_READ_ONLY_ADDRESS 25
-	20 | TG_ERROR_26 26
-	20 | TG_ERROR_27 27
-	20 | TG_ERROR_28 28
-	20 | TG_ERROR_29 29
+	20 | TG_INTERNAL_ERROR | unrecoverable internal error
+	21 | TG_INTERNAL_RANGE_ERROR | number range error other than by user input
+	22 | TG_FLOATING_POINT_ERROR | number conversion error
+	23 | TG_DIVIDE_BY_ZERO
+	24 | TG_INVALID_ADDRESS
+	25 | TG_READ_ONLY_ADDRESS
+	26-39 | TG_ERROR_26 - TG_ERROR_26 | reserved
+	27 | TG_ERROR_27 27
+	28 | TG_ERROR_28 28
+	29 | TG_ERROR_29 29
 	20 | TG_ERROR_30 30
 	20 | TG_ERROR_31 31
 	20 | TG_ERROR_32 32
