@@ -3,7 +3,7 @@
 	errno | name | Description
 	---------|--------------|-------------
 	0 | TG_OK 0 | function completed OK
-	 |  **Low level status and communications**
+	 |  **Low level codes** | typically system and communications status
 	1 | TG_ERROR | generic error return (EPERM)
 	2 | TG_EAGAIN | function would block here (call again)
 	3 | TG_NOOP | function had no-operation
