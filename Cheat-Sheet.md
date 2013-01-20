@@ -1,6 +1,6 @@
 # Response Codes
 
-	# | name | Description
+	errno | name | Description
 	---------|--------------|-------------
 	0 | TG_OK 0 | function completed OK
 	 |  **Low level status and communications**
