@@ -1,4 +1,8 @@
-# Response Codes
+[Gcode Commands](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+[Configuration Commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+[JSON Formatting](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
+
+## Response Codes
 
 	errno | name | Description
 	---------|--------------|-------------
@@ -56,8 +60,3 @@
 	80-99 | Expansion | Expansion ranges
 	100-119 | Expansion  | 
 	etc. | Expansion | 
-
-
-# Gcode
-
-# Commands
