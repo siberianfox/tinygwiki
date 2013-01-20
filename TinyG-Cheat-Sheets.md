@@ -121,7 +121,7 @@ Hex | char | name | used by
 	0x3E | > | greater than | Gcode expressions
 	0x3F | ? | question mk | TinyG / grbl query
 	0x40 | @ | at symbol
-	0x41 – 0x5A | chars | regular old alphanumeric characters 
+	0x41 – 0x5A | | chars | regular old alphanumeric characters 
 	0x5B | [ | open bracket | Gcode expressions
 	0x5C | \ | backslash | JSON notation (escape)
 	0x5D | ] | close bracket | Gcode expressions
