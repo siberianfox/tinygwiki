@@ -2,7 +2,7 @@
 
 	errno | name | Description
 	---------|--------------|-------------
-	0 | TG_OK 0 | function completed OK
+	0 | TG_OK | universal OK code (function completed successfully)
 	 |  **Low level codes** | typically system and communications status
 	1 | TG_ERROR | generic error return (EPERM)
 	2 | TG_EAGAIN | function would block here (call again)
