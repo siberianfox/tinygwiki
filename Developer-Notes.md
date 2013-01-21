@@ -44,7 +44,7 @@ Notes:
 ### Can't view ASCII strings debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
-Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c
+Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  <br>Then add the quickwatch to the watch
 
 From the Studio6 Help Pages:
 
