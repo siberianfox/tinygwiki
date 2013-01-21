@@ -42,5 +42,12 @@ Notes:
 
 ## More AtmelStudio6 Topics
 ### Can't view ASCII strings debugger
-There is a way around this:
-http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
+There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
+
+From the Studio6 Help Pages:
+
+While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch
+
+To add a QuickWatch expression to the Watch window
+In the QuickWatch dialog box, click Add Watch.
+
