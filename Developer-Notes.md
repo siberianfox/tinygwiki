@@ -44,10 +44,12 @@ Notes:
 ### Can't view ASCII strings debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
+Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c
+
 From the Studio6 Help Pages:
 
-While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch
+_While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch_
 
-To add a QuickWatch expression to the Watch window
-In the QuickWatch dialog box, click Add Watch.
+_To add a QuickWatch expression to the Watch window_
+_In the QuickWatch dialog box, click Add Watch._
 
