@@ -7,14 +7,14 @@
 #JSON Details
 ##JSON Mode Protocol
 ### Commands and Responses
-Commands in JSON mode are sent as JSON messages. Some examples:
+Commands in JSON mode are sent as JSON objects. Some examples:
 
-    {"x":""}<lf>          get the X resource
-    {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
-    {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
+    {"x":""}          get the X resource
+    {"xvm":12000}     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
+    {"gc":"g0 x100"}  execute the Gcode block "G0 X100"
 
-Responses are wrapped in a response body and include a footer. Responses can be up to 256 characters long but generally are much shorter. <br>
-The entire JSON response object is terminated by CR, LF or CR/LF depending on the board configuration settings ($ec, $el)<br>
+Responses are wrapped in a response body and include a footer. Requests and responses are a single line of text terminated by CR, LF or CR/LF depending on the board configuration settings ($ec, $el). Requests and responses can be up to 256 characters long but are generally much shorter. <br>
+
 Responses to the above examples are:
 
     {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]}
