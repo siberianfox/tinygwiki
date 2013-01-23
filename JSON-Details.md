@@ -75,23 +75,21 @@ There are 2 cases where messages are returned in responses
 ### Gcode line numbers 
 Gcode line numbers are returned as `n` objects if they are provided in a Gcode file - i.e. the line starts with Nxxxx where xxxxx is a number. An example is:
 
-    N20 G1 F240 X2.01 Y2.99       returns:
-    "n":20 in the response
+	Request | Response | Description
+	---------|--------------|-------------
+	N20 G1 F240 X2.01 Y2.99 | "n":20 | is returned as part of the response in the response
 
 ## Gcode in JSON Mode
 In JSON mode Gcode blocks may be provided either as native gcode text or wrapped in JSON as a "gc" object. In either case responses will be returned in JSON format. A JSON wrapper may only contain a single gcode block.<br> 
-<pre>Gcode requests
-     {"gc":"g0 x100"}                                               wrapped input
-     g0 x100                                                        unwrapped input
-     {"gc":"g0 x100 (Initial move)"}                                wrapped input with a Gcode comment (see note)
-     {"gc":"m0 (MSGChange tool and hit Cycle Start when done)"}     stop with a message
 
-Gcode responses
-     {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
-     {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]}
-     {"r":{"gc":"M0","msg":"Change tool and hit Cycle Start when done"},"f":[1,0,19,2131]}
+	Gcode Request | Response
+	---------|--------------
+	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
+	g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
+	{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]}
+	{"gc":"m0 (MSGChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]}
 
-The first response is pretty normal. The second has a comment in it. The third is what would happen if a MSG were communicated in the Gcode comment. 
+The first responses are pretty normal. The third has a comment in it. The fourth is what would happen if a MSG were communicated in the Gcode comment. 
 
 ## Status Reports in JSON
 Status reports are parent/child objects with a "sr" parent and one or more child NV pairs, as in the example below.<br> 
