@@ -29,7 +29,7 @@ The footer contains a 4 element array:
 	Element  | Notes
 	-------|-------------------------
 	array_ID/version | Initially set to 1. This number identifies the array and version for the parser. It will be incremented if protocol changes are made that would affect hosts/clients
-	status_code | 0 is OK. All others are exceptions. See [tinyg.h](https://github.com/synthetos/TinyG/blob/edge/firmware/tinyg/tinyg.h) for details
+	status_code | 0 is OK. All others are exceptions. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 	RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. This allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer typically starts with 254 bytes free. The terminating `<LF>` counts as a byte. 
 	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to limit the length to no more than 4 characters. See compute_checksum() in util.c for C code.
 
