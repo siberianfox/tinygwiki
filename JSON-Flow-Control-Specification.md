@@ -5,6 +5,8 @@
     Revised by: Alden - 11/26/12 - 8:36 AM EST - added section for RX buffer Ack protocol
 #Requirements
 
+** THIS PAGE IS DEPRECATED. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) **
+
 Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._ (Edit: because that's awesome. --mikest)
 
 1. Provide flow control to eliminate the buffer overflows: w/packet acknowledgement
