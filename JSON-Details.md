@@ -59,8 +59,8 @@ To set a parameter pass an object with the value to be set. The value applied is
 	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]} | set X axis maximum velocity to 15000
 	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}} | alternate form to set X axis maximum velocity to 15000
 	{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]} | Set status minimum interval to 250 ms. 
-	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Attempt to set status interval to 10 ms, but minimum was 50, so that's what stuck
-	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
+	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Try to set status interval to 10 ms, but minimum was 50
+	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | The version stays at 0.95 despite your wishes :(
 
 ### Status messages
 Status messages are end-user text associated with each status code, similar to those on the [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) page. JSON does not return these whereas text mode does. JSON parsers must therefore work to the status codes, and provide their own end-user messages.
