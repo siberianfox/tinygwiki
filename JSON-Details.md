@@ -7,7 +7,7 @@
 #JSON Details
 ##JSON Mode Protocol
 ### Commands
-Commands in JSON mode are sent as JSON messages Examples:
+Commands in JSON mode are sent as JSON messages. Some examples:
 
     {"x":""}<lf>          get the X resource
     {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
@@ -55,83 +55,23 @@ To get a parameter pass an object with a null value. The value is returned in th
 	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
 	home | $home | {"home":""} | Homing state group - returns system state and each axis
 
------ OK Needs work from here on down ------
-**Insert some actual responses here***
-| {"xfr":""} 
-| {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| return x max feed rate
-|-
-| {"x_feedrate":""} 
-| {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Same as above using friendly-name
-|-
-| {"xfr":null} 
-| {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Same as above
-|-
-| {"xfr":null, "yfr":null, "zfr":null} 
-| {"r":{"bd":{"xfr":1200.000,"yfr":1200.000,"zfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Multiple gets may be presented in a single object
-|}
+	Request | Response | Description
+	---------|--------------|-------------
+	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+	{"x":""} | {"b":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
-=== Setting Configuration Parameters (PUT)  ===
+###Setting Configuration Parameters (PUT)
+To set a parameter pass an object with the value to be set. The value taken is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
 
-To set a parameter pass an object with the value to be set. The value taken is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set&nbsp;a status interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
+	Request | Response | Description
+	---------|--------------|-------------
+	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
+	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}}<nl>| alternate form to set X axis maximum velocity to 15000
+	{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]}<nl>| Set status minimum interval to 250 ms. 
+	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]}<nl>| Attempt to set status interval to 10 ms, but minimum was 50, so that's what stuck
+	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]}<nl> | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
 
-{| width="1200" border="1" cellpadding="1" cellspacing="1"
-|-
-| Request 
-| Response 
-| Comments
-|-
-| {"xfr":1200} 
-| {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Set x max feed rate to 1200 mm/min (assumes mm units set)
-|-
-| {"x_feedrate":1200} 
-| {"r":{"bd":{"xfr":1200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Same as above using friendly-name
-|-
-| {"si":250} 
-| {"r":{"bd":{"si":250.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Set status interval to 250 milliseconds
-|-
-| {"si":10} 
-| {"r":{"bd":{"si":200.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Attempt to set status interval to 10 ms, but minimum was 200, so that's what stuck
-|-
-| {"fv":2.0} 
-| {"r":{"bd":{"fv":0.930},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.93 &nbsp;:(
-|-
-| {"xvm":2000, "yvm":2000, "zvm":2000, "avm":36000} 
-| {"r":{"bd":{"xvm":2000.000,"yvm":2000.000,"zvm":2000.000,"avm":36000.000},"sc":0,"sm":"OK","cks":"2593896578"}} 
-| Setting max velocity for 4 axes
-|}
-
-== JSON Response Header Format  ==
-
-All responses to JSON request are returned in a response header. The response format provides an outer wrapper (header) for response details and an inner "body" which is the object being returned. The response wrapper plays a similar role to an HTTP response header. This simplifies parsing and makes the whole thing one step closer to an actual RESTful HTTP implementation.&nbsp; 
-
-The response wrapper has the following format: 
-<pre>{                                        Comments:
-    "r": {                               response object
-&nbsp; &nbsp; &nbsp; &nbsp; "bd": { &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;body of response
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;returned object&gt; &nbsp;  &nbsp; &nbsp;returned object, e.g. {"xvm":600.00"}
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },
-&nbsp; &nbsp; &nbsp; &nbsp; "sc": 0, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; status code
-&nbsp; &nbsp; &nbsp; &nbsp; "sm": "OK", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;status message (for end-user display)
-        "buf": 255,                      bytes available in input buffer
-        "ln": 0,                         gcode line number N just received, or auto-increment if no N word provided
-&nbsp; &nbsp; &nbsp; &nbsp; "cks": 123456789 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; checksum
-&nbsp; &nbsp; &nbsp; &nbsp; }
-}
-</pre> 
-Note: The actual output is on one line with a trailing &lt;CR&gt;. The format above is just for clarity 
-
-Note: The letter 'q' is rereserved for reQuest, should we decide to wrap that, too.<br> 
-
-'''"r" &nbsp;Response Header''' 
 
 Responses can be up to 256 characters long but we try to keep them shorter in the interest of communications overhead.<br> 
 
