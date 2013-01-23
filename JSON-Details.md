@@ -13,7 +13,7 @@ Commands in JSON mode are sent as JSON objects. Some examples:
 	--------|----------| ---------------
 	{"xfr":""} | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | get the X axis max feed rate
 	{"xfr":12000} | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | set the X maximum feed rate to 12000 mm/min (assuming the system is in G21 mode)
-	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":12000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]}
+	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":12000.000,....
  | get all configuration settings for the X axis
 	{"gc":"g0 x100"} | {"r":{"gc":"g0x100"},"f":[1,0,17,9360]} | execute the Gcode block "G0 X100"
 
