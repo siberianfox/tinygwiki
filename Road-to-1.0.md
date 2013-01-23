@@ -33,9 +33,14 @@ Good ideas that can wait until later
 I should have started this earlier. I'll keep a record of the things that affect UIs and usage. I'm not trying to keep a complete record of changes in the internals.
 
 Changes in builds to 363.08 (pushed to edge)
-* Status report changes
- * Added filtered status reports in JSON mode. See $sv setting
+* Status reports
+ * Added filtered status reports in JSON mode. See $sv setting for verbosity levels. Filtered reports 
  * Status reports report as {"sr":...} object - no "r" wrapper or footer, unless directly requested
+ * Time filtering works a bit differently.
+
+* Queue reports
+ * Added filtered queue reports in JSON mode. Use $eq to set verbosity levels. $eqh and $eql set high and low water mark for reporting (note: this may change to $qv, $qvh and $qvl for naming consistency)
+
 
 Changes in 358.xx builds
 * Added $id string for a unique ID per board. E.g. {"id":""} returns {"r":{"id":"9H3906-SYP"},"f":[1,0,10,5756]}. ID is also returned as part of the system group.
