@@ -52,7 +52,7 @@ To get a parameter pass an object with a null value. The value is returned in th
 	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
 ###Setting Configuration Parameters (PUT)
-To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
+To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands. (Nevermind the multi-line responses, these are just an artifact of the table. All requests and responses are on a single line of text)
 
 	Request | Response | Description
 	---------|--------------|-------------
