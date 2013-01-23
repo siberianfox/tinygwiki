@@ -70,6 +70,8 @@ Set communications speeds and modes.
 	$ee | Enable character echo | 0=off, 1=enabled
 	$ex | Enable XON/XOFF | 0=off, 1=enabled
 	$eq | Enable queue reports | 0=off, 1=filtered, 2=verbose
+	$eqh | Hi water mark for queue reports | set between 0 and 24; recommend 20
+	$eql | Low water mark for queue reports | set between 0 and 24; recommend 6
 	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
 	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
 	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
