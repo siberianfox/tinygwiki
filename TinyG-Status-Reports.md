@@ -23,8 +23,8 @@ The following variables can be reported in a status report
 	posa | a work position
 	posb | b work position
 	posc | c work position
-	mpox | x absolute position - X machine position in absolute coordinate system (mm or inch). Also Y,Z,A,B,C 
-	g92x | g92x - G92 origin offset for X axis (also Y,Z,A,B,C)
+	mpox | x absolute position | X machine position in absolute coordinate system (mm or inch). Also Y,Z,A,B,C 
+	g92x | g92x | G92 origin offset for X axis (also Y,Z,A,B,C)
 
 Additionally, any valid token may be listed in a status report. For example, "g54x" will return the X offset in the G54 coordiante system (coordinate system #1). "fv" would return the firmware version. 
 
