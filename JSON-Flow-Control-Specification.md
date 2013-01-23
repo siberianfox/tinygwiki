@@ -3,9 +3,10 @@
     Revised by: Alden - 10/27/12 - 9:00 PM EST - started a section on command types
     Revised by: Alden - 10/29/12 - 6:36 PM EST - took a crack at revised Ack and Qr packet formats before the power went out
     Revised by: Alden - 11/26/12 - 8:36 AM EST - added section for RX buffer Ack protocol
-#Requirements
 
-** THIS PAGE IS DEPRECATED. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) **
+**THIS PAGE IS DEPRECATED. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
+
+#Requirements
 
 Paraphrasing Mike: _We want a high speed, reliable, fail safe transport and control protocol for tinyG so that it can control large machines._ (Edit: because that's awesome. --mikest)
 
