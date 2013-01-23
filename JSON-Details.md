@@ -6,7 +6,7 @@
 
 #JSON Details
 ##JSON Mode Protocol
-### Commands
+### Commands and Responses
 Commands in JSON mode are sent as JSON messages. Some examples:
 
     {"x":""}<lf>          get the X resource
