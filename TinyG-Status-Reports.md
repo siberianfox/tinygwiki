@@ -5,36 +5,26 @@ The following variables can be reported in a status report
 
 	Request | Response | Description
 	---------|--------------|-------------
-	[vel]  velocity           - actual velocity - may be different than programmed feed rate 
-	[line] line_number        - either the Gcode line number (N word), or the auto-generated line count if N's are no present 
-	[feed] feed_rate          - gcode programmed feed rate (F word) 
-	[stat] machine_state      - 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
-	[unit] units_mode         - 0=inch, 1=mm
-	[coor] coordinate_system  - 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
-	[momo] motion_mode        - 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
-	[plan] plane_select       - 0=XY plane, 1=XZ plane, 2=YZ plane
-	[path] path_control_mode  - 0=exact stop, 1=exact path, 2=continuous
-	[dist] distance_mode      - 0=absolute distance, 1=incremental distance
-	[frmo] feed_rate_mode     - 0=units-per-minute-mode, 1=inverse-time-mode
-	[gc]   gcode_block        - gcode block currently being run
-	[mpox] mpox (x absolute position) - X machine position in absolute coordinate system in prevailing units (mm or inch) 
-	[mpoy] mpoy (y absolute position)
-	[mpoz] mpoz (z_absolute position)
-	[mpoa] mpoa (a absolute position)
-	[mpob] mpob (b absolute position)
-	[mpoc] mpoc (c absolute position)
-	[posx] posx (x position)          - X work position in prevailing units (mm or inch) 
-	[posy] posy (y position)
-	[posz] posz (z position)
-	[posa] posa (a position)
-	[posb] posb (b position)
-	[posc] posc (c position)
-	[g92x] g92x - G92 origin offset for X axis
-	[g92y] g92y
-	[g92z] g92z
-	[g29a] g92a
-	[g92b] g92b
-	[g92c] g92c
+	vel | velocity           - actual velocity - may be different than programmed feed rate 
+	[line | line_number        - either the Gcode line number (N word), or the auto-generated line count if N's are no present 
+	[feed | feed_rate          - gcode programmed feed rate (F word) 
+	[stat | machine_state      - 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
+	[unit | units_mode         - 0=inch, 1=mm
+	[coor | coordinate_system  - 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
+	[momo | motion_mode        - 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
+	[plan | plane_select       - 0=XY plane, 1=XZ plane, 2=YZ plane
+	[path | path_control_mode  - 0=exact stop, 1=exact path, 2=continuous
+	[dist | distance_mode      - 0=absolute distance, 1=incremental distance
+	[frmo | feed_rate_mode     - 0=units-per-minute-mode, 1=inverse-time-mode
+	[gc | gcode_block        - gcode block currently being run
+	posx | x work position | X work position in prevailing units (mm or inch) 
+	posy | y work position
+	posz | z work position
+	posa | a work position
+	posb | b work position
+	posc | c work position
+	mpox | x absolute position - X machine position in absolute coordinate system (mm or inch). Also Y,Z,A,B,C 
+	g92x | g92x - G92 origin offset for X axis (also Y,Z,A,B,C)
 
 Additionally, any valid token may be listed in a status report. For example, "g54x" will return the X offset in the G54 coordiante system (coordinate system #1). "fv" would return the firmware version. 
 
