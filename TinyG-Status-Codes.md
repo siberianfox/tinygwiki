@@ -3,7 +3,7 @@ See also:
 * [**Configuration Commands**](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
-## Response Codes
+## Status Codes
 
 	errno | name | Description
 	---------|--------------|-------------
