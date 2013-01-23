@@ -53,90 +53,58 @@ Generally levels 2, 3 or 4 are recommended. Levels 4 and 5 will return Gcode com
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
 	Request | Response | Description
-	------|---------|---------|--------------
-	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
-	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
-	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
-	home | $home | {"home":""} | Homing state group - returns system state and each axis
-
-	Request | Response | Description
 	---------|--------------|-------------
 	{"xvm":""} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
 	{"x":{"vm":""}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
 	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
 ###Setting Configuration Parameters (PUT)
-To set a parameter pass an object with the value to be set. The value taken is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
+To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
 
 	Request | Response | Description
 	---------|--------------|-------------
-	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
-	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}}<nl>| alternate form to set X axis maximum velocity to 15000
-	{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]}<nl>| Set status minimum interval to 250 ms. 
-	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]}<nl>| Attempt to set status interval to 10 ms, but minimum was 50, so that's what stuck
-	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]}<nl> | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
+	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]} | set X axis maximum velocity to 15000
+	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}} | alternate form to set X axis maximum velocity to 15000
+	{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]} | Set status minimum interval to 250 ms. 
+	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Attempt to set status interval to 10 ms, but minimum was 50, so that's what stuck
+	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
 
 ### Status messages
-Status messages are end-user text associated with each error code (see controller.c). JSON does not return these whereas text mode does. JSON parsers must therefore work to the status codes, and provide thwir own end-user messages
+Status messages are end-user text associated with each status code, similar to those on the [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) page. JSON does not return these whereas text mode does. JSON parsers must therefore work to the status codes, and provide their own end-user messages.
 
 **HOWEVER**<br>
 There are 2 cases where messages are returned in responses
 
-* System generated advisory messages may be returned as "msg" tags for some advisory cases 
+* System generated advisory messages may be returned as "msg" tags for some advisory cases. For example, TinyG will accept a microstep value that the chips don't support so that people who wire up TinyG to run external steppers can still set non-standard microstep values.
 
-NOT the messages, as messages may change or be omitted.&nbsp; 
+* Gcode provided messages. A Gcode block can have a comment that starts with the string "msg". For example, (msgChange tool and hit cycle start) will return "Change tool and hit cycle start" as data for a "msg" tag. Presumably the UI would want to display this message.
 
-Note: these are distinct from application messages that may be returned from Gcode MSG fields, or from system startup operations.<br> 
-'''"buf"'''&nbsp;RX buffer bytes available
+### Gcode line numbers 
+Gcode line numbers are returned as `n` objects if they are provided in a Gcode file - i.e. the line starts with Nxxxx where xxxxx is a number. An example is:
 
-This value is how many bytes are available in the serial input buffer (RX buffer). An empty buffer has 254 bytes. As the RX buffer fill up this number goes down until a command is read out of the buffer. Then it goes back up by the length of the line read. This value is used for synchronization with host drivers.
+    N20 G1 F240 X2.01 Y2.99       returns:
+    "n":20 in the response
 
-'''"ln"''' Last line number processed
-
-This is the line number of the line that was most recently pulled out of the buffer, or the "gcode model" line number. This number will be populate with the N word sent in the Gcode block - e.g. N300. If no N word is populated the line number will advance by 1 for each new line sent in. Since Gcode does not require every line to have a number (or any!), this can lead to some odd behaviors. Say you set N300, then followed with 20 lines without N words. Then sent N310. The line number will advance to 320, then reset to 310. You are your own master. Note that the line number reported in "ln" (the *model* line number) is different than the *runtime* line number reported as "line" in a status report. "Line" is the line currently being executed by the steppers. The model line number may lag the runtime line number by as many as 24 moves, depending on how deep the move planner is.<br><br>
-Be aware that BX buffer space is being under-reported in most cases. The controller module is continuously pulling characters off the RX buffer into a separate input buffer (string). When the input string has a full command ready for processing it's another 100 microseconds or so before the model line number is updated and available for return (e.g. on a status report or some other asynchronous response). Then typically it will be another 3000 microseconds (+ or -) before the command is actually processed and the response to the command is returned with the new model line number. This under-reporting should not cause problems for command synchronization with the host, but it's good to know it's happening. 
-
-'''"cks"''' &nbsp;Checksum 
-
-The checksum is always the last item on the line. The checksum is the decimal Java hashCode of the string starting with the opening curly (in front the "r") to the "cks" name. For example: 
-
-for this string ---------&gt; {"r.:{"bd":{"gc":"g0x100"},"sc":0,"sm":"OK","cks":"3756753382"}} 
-
-take checksum of --&gt;&nbsp;{"r.:{"bd":{"gc":"g0x100"},"sc":0,"sm":"OK","cks" 
-
-Do not include a CR or line terminator in the checksum. 
-
-See [http://en.wikipedia.org/wiki/Java_hashCode() en.wikipedia.org/wiki/Java_hashCode()]&nbsp;or the algorithm<br>
-
-== Get and Set Configuration Parameters  ==
-
-== Gcode in JSON  ==
-
-In JSON mode Gcode blocks may be provided either as native gcode text or wrapped in JSON as a "gc" object. In either case responses will be returned in JSON format.&nbsp;A JSON wrapper may only contain a single gcode block.<br> 
+## Gcode in JSON Mode
+In JSON mode Gcode blocks may be provided either as native gcode text or wrapped in JSON as a "gc" object. In either case responses will be returned in JSON format. A JSON wrapper may only contain a single gcode block.<br> 
 <pre>Gcode requests
-{"gc":"g0 x100"}                                               wrapped input
-g0 x100                                                        unwrapped input
-{"gc":"g0 x100 (Initial move)"}                                wrapped input with a Gcode comment (see note)
-{"gc":"m0 (MSGChange tool and hit Cycle Start when done)"}     stop with a message
+     {"gc":"g0 x100"}                                               wrapped input
+     g0 x100                                                        unwrapped input
+     {"gc":"g0 x100 (Initial move)"}                                wrapped input with a Gcode comment (see note)
+     {"gc":"m0 (MSGChange tool and hit Cycle Start when done)"}     stop with a message
 
 Gcode responses
-{"r":{bd:{"gc":"G0X100"},"st":0,"sm":"OK","cks":123456789}}
-{"r":{bd:{"gc":"G0X100 (Initial move)"},"st":0,"sm":"OK","cks":123456789}}
-{"r":{bd:{"gc":"M0","msg":"Change tool and hit Cycle Start when done"},"st":0,"sm":"OK","cks":123456789}}
-</pre> 
+     {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
+     {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]}
+     {"r":{"gc":"M0","msg":"Change tool and hit Cycle Start when done"},"f":[1,0,19,2131]}
+
 The first response is pretty normal. The second has a comment in it. The third is what would happen if a MSG were communicated in the Gcode comment. 
 
-Note: We are still undecided on how to handle comments in the Gcode. These could be returned in the gcode response as illustrataed, but currently they are stripped. 
-
-Note: We are still debating if line numbers should be returned as a separate JSON element, e.g. "gc":"G0X100","line":2245. See issue #23 on the TinyG github 
-
-<br>
-
-== Status Reports in JSON  ==
-
+## Status Reports in JSON
 Status reports are parent/child objects with a "sr" parent and one or more child NV pairs, as in the example below.<br> 
-<pre>{"sr": {"line":1245, "xpos":23.4352, "ypos":-9.4386, "zpos":0.125, "vel":600, "unit":"mm", "stat":"run"}}
-</pre> 
+
+    {"sr": {"line":1245, "xpos":23.4352, "ypos":-9.4386, "zpos":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
+
 The following use-cases are supported: 
 
 *SET status report fields.&nbsp;The elements to be included in a status reports may be specified by setting values to 'true'. The elements will be returned on subsequent SR requests in the order they were provided in the SET command. (I know, dictionaries are supposed to be unordered, but the firmware will record and return back the attributes in the order listed). There is no incremental setting of elements - all attributes are reset and must be specified in a single SET command. For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for true, not a string that says "true". Examples:
