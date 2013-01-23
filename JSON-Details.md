@@ -13,7 +13,9 @@ Commands in JSON mode are sent as JSON messages. Some examples:
     {"xvm":12000}<lf>     set the X maximum velocity to 12000 mm/min (assuming the system is in G21 mode)
     {"gc":"g0 x100"}<lf>  execute the Gcode block "G0 X100"
 
-Responses are wrapped in a response body and include a footer. Responses to the above examples are:
+Responses are wrapped in a response body and include a footer. Responses can be up to 256 characters long but generally are much shorter. <br>
+The entire JSON response object is terminated by CR, LF or CR/LF depending on the board configuration settings ($ec, $el)<br>
+Responses to the above examples are:
 
     {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]}
     {"r":{"xvm":12000.000},"f":[1,0,14,3009]}
@@ -57,9 +59,9 @@ To get a parameter pass an object with a null value. The value is returned in th
 
 	Request | Response | Description
 	---------|--------------|-------------
-	{"xvm":""} | {"b":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
-	{"x":{"vm":""}} | {"b":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
-	{"x":""} | {"b":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
+	{"xvm":""} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+	{"x":{"vm":""}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
 ###Setting Configuration Parameters (PUT)
 To set a parameter pass an object with the value to be set. The value taken is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands.<br> 
@@ -73,9 +75,6 @@ To set a parameter pass an object with the value to be set. The value taken is r
 	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]}<nl> | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
 
 
-Responses can be up to 256 characters long but we try to keep them shorter in the interest of communications overhead.<br> 
-
-The entire JSON object is terminated by CR, LF or CR/LF depending on the board configuration settings ($ec, $el)<br> 
 
 'bd'&nbsp;'''{returned body object}''' This is a JSON object that is one of: 
 
