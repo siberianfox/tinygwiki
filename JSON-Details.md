@@ -82,12 +82,12 @@ Gcode line numbers are returned as `n` objects if they are provided in a Gcode f
 ## Gcode in JSON Mode
 In JSON mode Gcode blocks may be provided either as native gcode text or wrapped in JSON as a "gc" object. In either case responses will be returned in JSON format. A JSON wrapper may only contain a single gcode block.<br> 
 
-	Gcode Request | Response
-	---------|--------------
-	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
-	g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]}
-	{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]}
-	{"gc":"m0 (MSGChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]}
+	Gcode Request | Response | Notes
+	---------|--------------|---------
+	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode
+	g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | unwrapped gcode
+	{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]} |Gcode with comment
+	{"gc":"m0 (msgChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]} | Gcode with message in comment
 
 The first responses are pretty normal. The third has a comment in it. The fourth is what would happen if a MSG were communicated in the Gcode comment. 
 
