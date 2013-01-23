@@ -9,10 +9,10 @@
 ### Commands and Responses
 Commands in JSON mode are sent as JSON objects. Some examples:
 
-  {"xfr":""}       | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | get the X axis max feed rate
-  {"xfr":12000}    | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | set the X maximum feed rate to 12000 mm/min (assuming the system is in G21 mode)
-  {"x":""}         | {"r":{"x":{"am":1,"vm":16000.000,.... | get all configuration settings for the X axis
-  {"gc":"g0 x100"} | {"r":{"gc":"g0x100"},"f":[1,0,17,9360]} | execute the Gcode block "G0 X100"
+    {"xfr":""}       | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | get the X axis max feed rate
+    {"xfr":12000}    | {"r":{"xfr":12000.000},"f":[1,0,14,3009]} | set the X maximum feed rate to 12000 mm/min (assuming the system is in G21 mode)
+    {"x":""}         | {"r":{"x":{"am":1,"vm":16000.000,.... | get all configuration settings for the X axis
+    {"gc":"g0 x100"} | {"r":{"gc":"g0x100"},"f":[1,0,17,9360]} | execute the Gcode block "G0 X100"
 
     where  "f":[1,0,255,1234]  
        is  "f":[<protocol_version>, <status_code>, <input_available>, <checksum>]
