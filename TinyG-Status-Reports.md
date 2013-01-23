@@ -5,18 +5,18 @@ The following variables can be reported in a status report
 
 	Request | Response | Description
 	---------|--------------|-------------
-	vel | velocity           - actual velocity - may be different than programmed feed rate 
-	[line | line_number        - either the Gcode line number (N word), or the auto-generated line count if N's are no present 
-	[feed | feed_rate          - gcode programmed feed rate (F word) 
-	[stat | machine_state      - 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
-	[unit | units_mode         - 0=inch, 1=mm
-	[coor | coordinate_system  - 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
-	[momo | motion_mode        - 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
-	[plan | plane_select       - 0=XY plane, 1=XZ plane, 2=YZ plane
-	[path | path_control_mode  - 0=exact stop, 1=exact path, 2=continuous
-	[dist | distance_mode      - 0=absolute distance, 1=incremental distance
-	[frmo | feed_rate_mode     - 0=units-per-minute-mode, 1=inverse-time-mode
-	[gc | gcode_block        - gcode block currently being run
+	vel | velocity           | actual velocity - may be different than programmed feed rate 
+	line | line_number        | either the Gcode line number (N word), or the auto-generated line count if N's are no present 
+	feed | feed_rate          | gcode programmed feed rate (F word) 
+	stat | machine_state      | 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
+	unit | units_mode         | 0=inch, 1=mm
+	coor | coordinate_system  | 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
+	momo | motion_mode        | 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
+	plan | plane_select       | 0=XY plane, 1=XZ plane, 2=YZ plane
+	path | path_control_mode  | 0=exact stop, 1=exact path, 2=continuous
+	dist | distance_mode      | 0=absolute distance, 1=incremental distance
+	frmo | feed_rate_mode     | 0=units-per-minute-mode, 1=inverse-time-mode
+	gc | gcode_block        | gcode block currently being run
 	posx | x work position | X work position in prevailing units (mm or inch) 
 	posy | y work position
 	posz | z work position
