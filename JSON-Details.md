@@ -29,9 +29,9 @@ The footer contains a 4 element array:
 	Element  | Notes
 	-------|-------------------------
 	array_ID/version | Initially set to 1. This number identifies the array and version for the parser. It will be incremented if protocol changes are made that would affect hosts/clients
-	status_code | 0 is OK. All others are exceptions. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
-	RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. This allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer typically starts with 254 bytes free. The terminating `<LF>` counts as a byte. 
-	checksum | A 4 digit checksum for the line. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to limit the length to no more than 4 characters. See compute_checksum() in util.c for C code.
+	status_code | 0 means the command executed `OK`. All others are exceptions. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for details.
+	RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. This allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer starts with 254 bytes free. The terminating `<LF>` or `<CR>` counts as a byte.
+	checksum | A hashcode checksum for the line; typically 4 digits but may be anything from 1 to 4 digits. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to limit the length to no more than 4 characters. See compute_checksum() in util.c for C code.
 
 ### Response Verbosity
 Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
@@ -74,72 +74,15 @@ To set a parameter pass an object with the value to be set. The value taken is r
 	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]}<nl>| Attempt to set status interval to 10 ms, but minimum was 50, so that's what stuck
 	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]}<nl> | Whilst you may want a version 2.0 to magically appear the firmware remains at version 0.95 :(
 
+### Status messages
+Status messages are end-user text associated with each error code (see controller.c). JSON does not return these whereas text mode does. JSON parsers must therefore work to the status codes, and provide thwir own end-user messages
 
+**HOWEVER**<br>
+There are 2 cases where messages are returned in responses
 
-'bd'&nbsp;'''{returned body object}''' This is a JSON object that is one of: 
+* System generated advisory messages may be returned as "msg" tags for some advisory cases 
 
-*a configuration parameter response, e.g.&nbsp;{"xvm":600.000} 
-*a group response, e.g.&nbsp;{"x":{"am":1,"vm":600.000,"fr":600.000,"tm":475.000,"jm":20000000.000,"jd":0.050,"sm":1,"sv":-500.000,"lv":100.000,"lb":2.000,"zb":1.000}} 
-*a Gcode response, e.g.{"gc":"G0X90"} &nbsp; (Note: this is a change from 0.93/0.94 as the gcode object is now just the command line, no status or message) 
-*a status report, e.g.&nbsp;{"sr":{"line":3,"posx":90.000,"posy":0.000,"posz":50.000,"posa":0.000,"feed":0.000,"vel":0.000,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":2}}<br> 
-*a message, e.g. {"msg":"Some text that should be displayed to the user"} &nbsp;(note, a mesage field may also follow any of the above in the response body)
-
-'''"sc" &nbsp;Status Code''' 
-
-A status code of '0' is OK. All others are errors. Check tinyg.h for the most up-to-date list, and see controller.c for corresponding end-user status messages.<br> 
-<pre>// OS, communications and low-level status (must align with XIO_xxxx codes in xio.h)
-#define	TG_OK 0				// function completed OK
-#define	TG_ERROR 1			// generic error return (EPERM)
-#define	TG_EAGAIN 2			// function would block here (call again)
-#define	TG_NOOP 3			// function had no-operation
-#define	TG_COMPLETE 4			// operation is complete
-#define TG_TERMINATE 5			// operation terminated (gracefully)
-#define TG_ABORT 6			// operaation aborted
-#define	TG_EOL 7			// function returned end-of-line
-#define	TG_EOF 8			// function returned end-of-file 
-#define	TG_FILE_NOT_OPEN 9
-#define	TG_FILE_SIZE_EXCEEDED 10
-#define	TG_NO_SUCH_DEVICE 11
-#define	TG_BUFFER_EMPTY 12
-#define	TG_BUFFER_FULL_FATAL 13 
-#define	TG_BUFFER_FULL_NON_FATAL 14	// NOTE: XIO codes align to here
-
-// Internal errors and startup messages
-#define	TG_INTERNAL_ERROR 20		// unrecoverable internal error
-#define	TG_INTERNAL_RANGE_ERROR 21	// number range other than by user input
-#define	TG_FLOATING_POINT_ERROR 22	// number conversion error
-#define	TG_DIVIDE_BY_ZERO 23
-
-// Input errors (400's, if you will)
-#define	TG_UNRECOGNIZED_COMMAND 40	// parser didn't recognize the command
-#define	TG_EXPECTED_COMMAND_LETTER 41	// malformed line to parser
-#define	TG_BAD_NUMBER_FORMAT 42		// number format error
-#define	TG_INPUT_EXCEEDS_MAX_LENGTH 43	// input string is too long 
-#define	TG_INPUT_VALUE_TOO_SMALL 44	// input error: value is under minimum
-#define	TG_INPUT_VALUE_TOO_LARGE 45	// input error: value is over maximum
-#define	TG_INPUT_VALUE_RANGE_ERROR 46	// input error: value is out-of-range
-#define	TG_INPUT_VALUE_UNSUPPORTED 47	// input error: value is not supported
-#define	TG_JSON_SYNTAX_ERROR 48		// JSON string is not well formed
-#define	TG_JSON_TOO_MANY_PAIRS 49	// JSON string or has too many JSON pairs
-
-// Gcode and machining errors
-#define	TG_ZERO_LENGTH_MOVE 60		// move is zero length
-#define	TG_GCODE_BLOCK_SKIPPED 61	// block is too short - was skipped
-#define	TG_GCODE_INPUT_ERROR 62		// general error for gcode input 
-#define	TG_GCODE_FEEDRATE_ERROR 63	// move has no feedrate
-#define	TG_GCODE_AXIS_WORD_MISSING 64	// command requires at least one axis present
-#define	TG_MODAL_GROUP_VIOLATION 65	// gcode modal group error
-#define	TG_HOMING_CYCLE_FAILED 66	// homing cycle did not complete
-#define	TG_MAX_TRAVEL_EXCEEDED 67
-#define	TG_MAX_SPINDLE_SPEED_EXCEEDED 68
-#define	TG_ARC_SPECIFICATION_ERROR 69	// arc specification error
-
-</pre> 
-At some point we may want to distinguish between fatal and non fatal errors.<br> 
-
-'''"sm"&nbsp; Status Message''' 
-
-Status messages are end-user text associated with each error code (see controller.c). Not all commands are required to return messages (for example, status reports may not). Parsers should work to the status codes, NOT the messages, as messages may change or be omitted.&nbsp; 
+NOT the messages, as messages may change or be omitted.&nbsp; 
 
 Note: these are distinct from application messages that may be returned from Gcode MSG fields, or from system startup operations.<br> 
 '''"buf"'''&nbsp;RX buffer bytes available
