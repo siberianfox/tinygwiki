@@ -39,6 +39,7 @@ It's worth noting that any gettable variable can be put in a status report - the
 It's also worth noting that any variable can be independently queried as an individual variable, and axis variables (e.g. pos, G55) can be queried as a group, e.g. {"pos":""}, or {"g55":""}
 
 ## Status Reports in Text Mode
+Enter a '?' to get a status report in text mode. 
 
 ## Status Reports in JSON Mode
 
