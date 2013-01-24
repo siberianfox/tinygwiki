@@ -5,8 +5,8 @@ The following variables can be reported in a status report
 
 	Request | Response | Description
 	---------|--------------|-------------
-	vel | velocity           | actual velocity - may be different than programmed feed rate 
-	line | line_number        | either the Gcode line number (N word), or the auto-generated line count if N's are no present 
+	n | line_number | Gcode line number (N word)
+	vel | velocity | actual velocity - may be different than programmed feed rate 
 	feed | feed_rate          | gcode programmed feed rate (F word) 
 	stat | machine_state      | 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
 	unit | units_mode         | 0=inch, 1=mm
