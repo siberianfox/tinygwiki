@@ -149,7 +149,13 @@ G28.3 also supports setting to non-zero values, if that's useful. G28.3 affects 
 ## Configuration
 Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
 * Is your $st switch type variable set to the switch wiring you are using? Check is $st in the system group ($sys) is 0 for NO switches, 1 for NC. All switches must be of the same type.
-* Are the switches set correctly up for all axes that have switches? I'd recommend disabling limits until you have homing working, then going and back and enabling limits if you want to. To configure an axis for homing set the min or max switch to 1, and the other switch to 0. E.g. $xsn=1, $xsx=0
+* Are the switches set correctly up for all axes that have switches? I'd recommend disabling limits until you have homing working, then going and back and enabling limits if you want to. To configure an axis for homing set the min or max switch to 1, and the other switch to 0. Here's a typical config by way of example:
+ * $xsn=1
+ * $xsx=0
+ * $ysn=1
+ * $ysx=0
+ * $xsn=0
+ * $zsx=1
 * Is your motor polarity set correctly - i.e. does the motor move in the correct direction? X typically moves right for positive motion, Y moves away from you (away from the front of the table), and Z moves up for positive motion. Homing will get confused if your motion direction does not agree with the notion of "min" and "max" for the $_sn and $_sx settings.
 * Is the $_tm maximum travel set for the size of the table? If it's too short the search move may never reach the switch. 
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
