@@ -154,5 +154,7 @@ Most homing problems are configuration problems. Especially if you are running n
 * Is the $_tm maximum travel set for the size of the table? If it's too short the search move may never reach the switch. 
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
-### Symptom: Axis starts and stops a few times before performing its search. 
+
+## Symptoms
+### Axis starts and stops a few times before performing its search. 
 You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1)
