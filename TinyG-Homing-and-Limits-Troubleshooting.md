@@ -1,4 +1,5 @@
-The fact that you are here implies you are having problems. Please first read and understand how homing/limits work: [Tinyg Homing]()
+The fact that you are here implies you are having problems. Please first read and understand how homing/limits work: [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
+
 # Common Problems and Troubleshooting
 ## Configuration
 Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
