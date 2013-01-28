@@ -1,6 +1,6 @@
-The fact that you are here implies you are having problems. Please first read and understand how homing/limits work: [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
+The fact that you are here implies you are having problems eitehr getting homing to work, or with limit switches, or both. Please first read the [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
 
-# Common Problems and Troubleshooting
+# Homing Problems
 ## Configuration
 Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
 * Is your $st switch type variable set to the switch wiring you are using? Check is $st in the system group ($sys) is 0 for NO switches, 1 for NC. All switches must be of the same type.
@@ -16,11 +16,11 @@ Most homing problems are configuration problems. Especially if you are running n
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
 
-## Symptoms
-### Axis starts and stops a few times before performing its search
+## Axis starts and stops a few times before performing its search
 You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1)
 
-### Limit switches fire in the middle of a cutting job
+# Limit Switch Problems
+## Limit switches fire in the middle of a cutting job
 This is a common problem in many CNC setups (not just TinyG)
 http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
 
