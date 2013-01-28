@@ -145,3 +145,9 @@ g28.3 y0
 
 G28.3 also supports setting to non-zero values, if that's useful. G28.3 affects the $hom group - any axis set by g28.3 is considered set for $hom
 
+# Common Problems and Troubleshooting
+## Configuration
+Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
+* Is your global Switch Type variable set to the switch wiring you are using. Check $st is 0 for NO switches, 1 for NC. All switches must be of the same type
+* Are the switches set correctly up for all axes that have switches? I'd recommend disabling limits until you have homing working, then going and back and enabling limits if you want to. To configure an axis for homing set the min or max switch to 1, and the other switch to 0. E.g. $xsm=1, $xsx=0
+* Is your motor polarity set correctly - i.e. does the motor move in the correct direction? X typically moves right for positive motion, Y moves away from you (away from the front of the table), and Z moves up for positive motion. Homing will get confused if your motion direction does not agree with the notion of "min" and "max" for the $_sm and $_sx settings
