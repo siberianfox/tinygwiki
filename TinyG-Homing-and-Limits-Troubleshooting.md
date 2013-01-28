@@ -21,8 +21,8 @@ You probably have NC switches that are incorrectly configured as NO switches ($s
 
 # Limit Switch Problems
 ## Limit switches fire in the middle of a cutting job
-This is a common problem in many CNC setups (not just TinyG)
-http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
+This is a common problem in many CNC setups (not just TinyG). Here are a few handt references:
+* http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
 
 What's usually happening is that electrical noise from the spindle or some other source is being picked up by the switch lines and is firing the limit switches spuriously. Here are some tips on diagnosing and fixing this problem.
 
