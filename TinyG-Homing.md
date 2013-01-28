@@ -1,4 +1,4 @@
-This page describes the function of homing cycles and related Gcode for version 0.95 and later versions. If you already know this and are troubleshooting, go to [TinyG Homing and Limits Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting))
+This page describes the function of homing cycles and related Gcode for version 0.95 and later versions. If you already know this material and are troubleshooting, go to [TinyG Homing and Limits Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) and [LinuxCNC](http://www.linuxcnc.org/docview/html/config_ini_homing.html). 
 
