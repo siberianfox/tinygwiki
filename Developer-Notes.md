@@ -75,9 +75,12 @@ This will make it so when you push updates, your name will be "blue" for trackin
 ### Normal Operations
 
 Before getting started coding always make sure you are in sync with the github central repository. 
-<pre>cd &lt;your working directory&gt;
+<pre>
+cd your-working-directory
 git status
-git pull</pre> 
+git pull
+</pre>
+
 Status tells you what branch you have open and what files are not committed. The pull gets you up-to-date with the centrol repo and ensures you are not going to clobber something later 
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made.
