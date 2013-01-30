@@ -72,8 +72,7 @@ Also at the command line it looks like you need to configure your git globals
 git config --global user.email "alden@asdfsd.com"</pre> 
 This will make it so when you push updates, your name will be "blue" for tracking purposes on github. (blue meaning it will link to your profile on github)<br>
 
-== NORMAL OPERATIONS  ==
-
+### Normal Operations
 Before getting started coding always make sure you are in sync with the github central repository. 
 <pre>cd &lt;your working directory&gt;
 git status
@@ -82,7 +81,7 @@ Status tells you what branch you have open and what files are not committed. The
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made. 
 
-'''Changing branches''' 
+#### Changing branches 
 <pre>git checkout dev</pre> 
 This now switches your files for you. If you encounter difficulties and cannot switch to dev it's usually because some files in the dev branch have changed and will be clobbered if you switch. In general you need to move these files out of the way (e.g. to the desktop), do the checkout, then replace the checked out files with the ones you moved aside. Or not, if you don't want the changes. We are still working out the .gitignore as some of these files are irrelevant to the source. 
 
@@ -106,14 +105,13 @@ git add .
 git commit -m "337.07 dev - informative blah blah blah"
 git tag -a 337.07 -m"build 337.07 in dev - informative blah blah blah"
 git push origin dev --tags </pre> 
-***NOTICE THE ORIGIN KEYWORD IN THE PUSH***
+**NOTICE THE ORIGIN KEYWORD IN THE PUSH**
 
 This will push your changes up stream. 
 
 The pull should have been done before you made any changes, but at least this will tell you if you are going to have a problem in your push.<br>
 
-== MERGING  ==
-
+## MERGING
 As far as merging goes. This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
 
 The command is: 
@@ -150,7 +148,7 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 
 <br>
 
-== PROMOTING branches ==
+## PROMOTING branches
 Steps to promote dev to edge and edge to master are noted here.
 Example of promoting dev to edge
 * Start by closing out edge and syncing it to github. See first steps in MERGING, above
@@ -159,9 +157,8 @@ Example of promoting dev to edge
 * git status to see if it's clean
 * We maintain separate readme files outside of git - look in github support. Edit the readme_edge.md file and make a copy into the main directory. Delete the current readme.md and rename the readme_edge.md to readme.md
 
-== TAGS  ==
-
-We try to follow a practice of providing an annotated tag for each push so we can easily get back to earlier builds
+## TAGS
+Tags support getting back to earlier builds:
 
 See here: https://github.com/synthetos/TinyG/tags
 
@@ -181,7 +178,7 @@ And delete your local tag with:
 </pre> 
 from http://stackoverflow.com/questions/6151970/how-do-you-remove-a-tag-from-a-remote-repository
 
-== .gitignore  ==
+## .gitignore
 Note that when you change .gitignore you must explicitly remove it from the cache by issuing:
 <pre>
 git rm --cached .gitignore
