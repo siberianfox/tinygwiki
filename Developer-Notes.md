@@ -68,9 +68,12 @@ You will have all 3 branches:
 * dev - current build. No guarantees.
 
 Also at the command line it looks like you need to configure your git globals 
-<pre>git config --global user.name "alden.hart"
-git config --global user.email "alden@asdfsd.com"</pre> 
+<pre>
+git config --global user.name "alden.hart"
+git config --global user.email "alden@asdfsd.com"
+</pre> 
 This will make it so when you push updates, your name will be "blue" for tracking purposes on github. (blue meaning it will link to your profile on github)
+
 
 ### Normal Operations
 
