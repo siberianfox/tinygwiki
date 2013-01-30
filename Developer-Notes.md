@@ -81,7 +81,7 @@ Status tells you what branch you have open and what files are not committed. The
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made. 
 
-#### Changing branches 
+### Changing branches 
 <pre>git checkout dev</pre> 
 This now switches your files for you. If you encounter difficulties and cannot switch to dev it's usually because some files in the dev branch have changed and will be clobbered if you switch. In general you need to move these files out of the way (e.g. to the desktop), do the checkout, then replace the checked out files with the ones you moved aside. Or not, if you don't want the changes. We are still working out the .gitignore as some of these files are irrelevant to the source. 
 
@@ -111,8 +111,8 @@ This will push your changes up stream.
 
 The pull should have been done before you made any changes, but at least this will tell you if you are going to have a problem in your push.<br>
 
-## MERGING
-As far as merging goes. This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
+### Merging
+This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
 
 The command is: 
 <pre>git checkout master</pre> 
@@ -138,17 +138,8 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 *Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
 *Do the merge again (e.g. git merge edge)
 ***Finish the merge by running git&nbsp;
-***(OLD INSTRUCTIONS) 
-*go into the readme.md and edit it back down to what you want. Usually this is the head. 
-*git remove (rm) the tinyg.aws file. It's not needed. I thought .gitignore was supposed to handle this. It doesn't. 
-*do a git status and edit any remaining files in an unmerged state. 
-*git add readme.md and any other files you edited 
-*git commit -m"NNN.NN merge" (or some other meaningful message) 
-*git push origin &lt;the current branch&gt;
 
-<br>
-
-## PROMOTING branches
+### Promoting Branches
 Steps to promote dev to edge and edge to master are noted here.
 Example of promoting dev to edge
 * Start by closing out edge and syncing it to github. See first steps in MERGING, above
@@ -157,7 +148,7 @@ Example of promoting dev to edge
 * git status to see if it's clean
 * We maintain separate readme files outside of git - look in github support. Edit the readme_edge.md file and make a copy into the main directory. Delete the current readme.md and rename the readme_edge.md to readme.md
 
-## TAGS
+### Tags
 Tags support getting back to earlier builds:
 
 See here: https://github.com/synthetos/TinyG/tags
@@ -178,7 +169,7 @@ And delete your local tag with:
 </pre> 
 from http://stackoverflow.com/questions/6151970/how-do-you-remove-a-tag-from-a-remote-repository
 
-## .gitignore
+### .gitignore
 Note that when you change .gitignore you must explicitly remove it from the cache by issuing:
 <pre>
 git rm --cached .gitignore
