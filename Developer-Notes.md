@@ -53,23 +53,19 @@ _While debugging you might want to track a value of a variable or an expression.
 _To add a QuickWatch expression to the Watch window_
 _In the QuickWatch dialog box, click Add Watch._
 
-# Github Advice
-= TinyG Github Notes  =
-[[Projects:TinyG-Developer-Info|[Back to TinyG developer's page]]]<br> 
-[[Projects:TinyG|[Back to TinyG main page]]]<br> 
-
+# TinyG Github Notes
 If you are unfamiliar with git it's useful to start here:
 * http://learn.github.com/p/intro.html
- 
-Here are some other useful links:
 * http://gitref.org
 * http://learn.github.com/p/tagging.html
 
-== SETUP ==
-
+## SETUP
 Do a complete pull 
 <pre>git clone git@github.com:synthetos/TinyG.git</pre>
-You will have all 3 branches.
+You will have all 3 branches:
+* master - stable production branch
+* edge - relative stable development branch
+* dev - current build. No guarantees.
 
 Also at the command line it looks like you need to configure your git globals 
 <pre>git config --global user.name "alden.hart"
