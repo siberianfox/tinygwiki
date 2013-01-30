@@ -53,13 +53,13 @@ _While debugging you might want to track a value of a variable or an expression.
 _To add a QuickWatch expression to the Watch window_
 _In the QuickWatch dialog box, click Add Watch._
 
-# TinyG Github Notes
+## TinyG Github Notes
 If you are unfamiliar with git it's useful to start here:
 * http://learn.github.com/p/intro.html
 * http://gitref.org
 * http://learn.github.com/p/tagging.html
 
-## SETUP
+### Setting up in Github
 Do a complete pull 
 <pre>git clone git@github.com:synthetos/TinyG.git</pre>
 You will have all 3 branches:
