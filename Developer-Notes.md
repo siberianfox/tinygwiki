@@ -88,6 +88,7 @@ Status tells you what branch you have open and what files are not committed. The
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made.
 
+
 ### Changing Branches
 
 <pre>git checkout dev</pre> 
@@ -120,6 +121,7 @@ This will push your changes up stream.
 
 The pull should have been done before you made any changes, but at least this will tell you if you are going to have a problem in your push.
 
+
 ### Merging
 
 This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
@@ -147,7 +149,8 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 *Add any new files to git - e.g git add .
 *Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
 *Do the merge again (e.g. git merge edge)
-***Finish the merge by running git&nbsp;
+**Finish the merge by running git**
+
 
 ### Promoting Branches
 
@@ -159,17 +162,20 @@ Example of promoting dev to edge
 * git status to see if it's clean
 * We maintain separate readme files outside of git - look in github support. Edit the readme_edge.md file and make a copy into the main directory. Delete the current readme.md and rename the readme_edge.md to readme.md
 
+
 ### Tags
 
-Tags support getting back to earlier builds:
-
-See here: https://github.com/synthetos/TinyG/tags
+Tags support getting back to earlier builds. See here: https://github.com/synthetos/TinyG/tags
 
 To list local tags type 
-<pre>git tag
+<pre>
+git tag
 </pre> 
+
 Once you are ready to commit (or push your changes) create a tag using this format:
-<pre>git tag -a 337.06 -m "build 326.06 - &lt;some note as to what this build is about&gt;"</pre> 
+<pre>
+git tag -a 337.06 -m "build 326.06 - &lt;some note as to what this build is about&gt;"
+</pre> 
 Then push the&nbsp;tag to the public repo. By default, the ‘git push’ command will not transfer tags to remote servers. To do so, you have to explicitly add a –tags to the ‘git push’ command:
 <pre>git push origin dev --tags
 </pre> 
@@ -180,6 +186,7 @@ And delete your local tag with:
 <pre>git tag -d 326.06
 </pre> 
 from http://stackoverflow.com/questions/6151970/how-do-you-remove-a-tag-from-a-remote-repository
+
 
 ### .gitignore
 
