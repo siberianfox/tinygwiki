@@ -78,7 +78,7 @@ Before getting started coding always make sure you are in sync with the github c
 <pre>
 cd your-working-directory
 git status
-git pull
+git pull origin your-current-branch
 </pre>
 
 Status tells you what branch you have open and what files are not committed. The pull gets you up-to-date with the centrol repo and ensures you are not going to clobber something later 
