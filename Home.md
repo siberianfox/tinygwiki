@@ -14,6 +14,7 @@ There is also a google group about TinyG development over here: [TinyG Developme
 Please come visit / join any or all of the above.
 
 ## TinyG Pages
+* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - Gcode commands supported and how they work
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Homing Setup and Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
