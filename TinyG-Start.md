@@ -16,7 +16,7 @@ To highlight a few things in the above diagram:
 Here is what you are going to need in order to use TinyG: 
 
 * [A TinyG](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
-* Power supply - typically 24 volts DC at between 4 and 15 amps. Can be anything between 12VDC and 30VDC. Here's one we like: (Meanwell NES-350-24)[http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&pa=2149600&productId=2149600&keyCode=WSF&CID=GOOG&gclid=CKGp2eipk7UCFWGnPAod9jMAKA] (you can usually hunt around and find this for < $50. They als make lower amperage supplies that are cheaper)
+* Power supply - typically 24 volts DC at between 4 and 15 amps. Can be anything between 12VDC and 30VDC. Here's one we like: [Meanwell NES-350-24](http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&pa=2149600&productId=2149600&keyCode=WSF&CID=GOOG&gclid=CKGp2eipk7UCFWGnPAod9jMAKA) (you can usually hunt around and find this for < $50. They als make lower amperage supplies that are cheaper)
 * 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * Case (Optional) 
