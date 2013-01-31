@@ -6,19 +6,23 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 1. Turn on the power supply. If the blue light turns on this is a good sign. If not, blow away the smoke and send us an email.
 
 ## Establish USB connection
-Next establish USB connection with your host computer. TinyG runs the following settings:
+Next establish USB connection with your host computer. 
+
+1. If you do not have the FTDI VCP USB drivers for your system you will need to install these. It's quite possible they are already on your system as many applications use these, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like this `TTY....` shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get then from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer.
+
+2. Download and connect to Reger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `TTY....`. Configure the following settings:
 * 115,200 baud
 * 8 data bits
-* 1 stop bit
 * no parity
+* 1 stop bit
 
-1. If you do not have the FTDI VCP USB drivers for your system you will need to install these. It's quite possible they are already on your system as many applications use these, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like this 'TTY....' shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get then from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer.
+It's also useful to set the following - but not strictly necessary
+* Options/Terminal - Line Mode
+* Options/Enter Key Emulation - CR
 
-2. Download and connect to Reger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need 
+Hit OK to leave the Options menu 
 
-Power output for the PC fan is an important to make sure you have right! Failure to set your fan jumper may result in blowing up your PC fan by providing 24v to a 12v fan. See more about this below.
-All input voltages are limited to 3.3v MAX!
-DO NOT over torque the current trim pots!
+3. Hit the "Connect" button. Enter a few carriage returns; you may get some prompting action. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces. If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
 
 == Wire Your Motors ==
