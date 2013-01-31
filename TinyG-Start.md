@@ -17,4 +17,6 @@ See [What Is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG) for m
 
 ## Getting started with TinyG v7
 ![TinyG v7 Diagram](https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png)
+
+![TinyG v7 Diagram](https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png)
 https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png
