@@ -71,9 +71,10 @@ Basic similarities between grbl+grblshield and tinyg:
 
 * Both basically support the same set of [Gcode](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - with some minor differences
 
-* Both adhere as closely as possible to the NIST Gcode spec. and use the LinuxCNC Gcode spec for additional guidance. Refs: 
-http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.ps http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf 
-http://www.linuxcnc.org/docs/2.4/html/gcode_main.html
+* Both adhere as closely as possible to the NIST Gcode spec. and use the LinuxCNC Gcode spec for additional guidance. Refs:<br>
+http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.ps<br>
+http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf<br>
+http://www.linuxcnc.org/docs/2.4/html/gcode_main.html<br>
 
 * Both implement enhanced CNC features such as homing cycles, feedhold (!) and restart (~ , aka cycle start) and software reset (control-x) 
 * Both use Texas Instruments DRV8811 stepper controller chips 
