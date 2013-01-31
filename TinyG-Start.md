@@ -12,3 +12,5 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 * Very smooth step pulse generation using phase-optimized fractional-step DDA running at 50 Khz with very low jitter
 * Networkable via SPI to support off-board devices and for networking multiple boards into multi-axis systems
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
+
+See [What Is TinyG]() ror more info.
