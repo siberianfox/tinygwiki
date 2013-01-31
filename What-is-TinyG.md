@@ -17,23 +17,25 @@ TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following f
 * G1 Linear motion at feed rate
 * G2, G3 Clockwise / counterclockwise arc at feed rate
 * G4 Dwell
-* G17, G18, G19 Select plane: XY plane {G17}, XZ plane {G18}, YZ plane {G19}
-* G20, G21 Length units: inches {G20}, millimeters {G21}<br> 
-* G28 Return to home
-* G28.1 Homing cycle (reference axes to limit switches)
-* G53 Move in absolute coordinates<br> 
-* G54-G59 Work coordinate systems 1-6
-* G61, G61.1, G64 Set path control mode (group 13)<br> 
-* G80 Cancel motion mode<br> 
-* G90, G91 Set distance mode; absolute {G90}, incremental {G91}<br> 
-* G92, G92.1, G92.2, G92.3 Coordinate System Offsets - full support<br> 
-* G93, G94 Set feed rate mode: inverse time mode {93}, units per minute mode {G94}<br> 
-* M0, M1, M60, Program stop, optional program stop<br> 
-* M2, M30 Program end<br> 
-* M3, M4 Turn spindle clockwise / counterclockwise<br> 
-* M5 Stop spindle turning<br> 
-* M7, M8 Turn on coolant bit
-* M9 Turn off coolant bit
+* G10 L2 Set coordinate system offsets 
+* G17, G18, G19 Select plane: G17=XY plane, G18=XZ plane, G19=YZ plane
+* G20, G21 Length units: G20=inches, G21=millimeters
+* G28, G28.1 Return to home, set home point
+* G28.2 Initiate machine homing cycle (reference axes to limit switches)
+* G30, G30.1 Return to home, set home point
+* G53 Move in absolute (machine) coordinates
+* G54-G59 Select work coordinate systems 1-6, respectively
+* G61, G61.1, G64 Set path control mode
+* G80 Cancel motion mode
+* G90, G91 Set distance mode; G90=absolute mode, G91=incremental mode 
+* G92, G92.1, G92.2, G92.3 Coordinate System Offsets - full support
+* G93, G94 Set feed rate mode: G93=inverse time mode, G94=units per minute mode 
+* M0, M1, M60, Program stop, optional program stop
+* M2, M30 Program end
+* M3, M4 Turn spindle clockwise / counterclockwise
+* M5 Stop spindle turning
+* M7, M8 Turn on coolant
+* M9 Turn off coolant
 
 ## Additional CNC features
 * Feedhold and cycle start with full planning (pause and resume motion) 
@@ -45,31 +47,33 @@ TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following f
 * Non-cartesian inverse kinematics are supported at the C code level
 
 ## Programming support
-TinyG codebase is written in well commented C, open source (GPL), and was originally forked from grbl. A special thank you to Simen Svale Skogsrud, Sonny Jeon and Jens Geisler for making grbl available and continuing the good work.<br> 
+TinyG codebase is written in commented C, open source (GPL), and was orginally forked from grbl. A special thank you to Simen Svale Skogsrud and Sonny Jeon for making grbl available and continuing the good work 
 
-* Code is written in well commented C. Complies under avrGCC 
-* Entire code base is open source, available at&nbsp;[https://github.com/synthetos github.com/synthetos] 
-* Forum is available at&nbsp;[http://www.synthetos.com/forums/ www.synthetos.com/forums/]
+* Code is written in well commented C. Complies under avrGCC in AVR Studio4, AtmelStudio6 and other AVRGCC environments
+* Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos github.com/synthetos)
+* See [TinyG Support Forum](http://www.synthetos.com/forums/ www.synthetos.com/forums/) for help with your situation. 
 
 ## Hardware and other technical details
+* Atmel ATxmega192A3 running at 32 Mhz 
+* USB via FTDI - runs 115,200 baud by default 
+* Direct TTL serial inout for drive from Arduino or similar 
 * GPIO ports provide 8 inputs for limit / homing switches, plus 4 general purpose input/output ports for spindle control and other uses 
 * PDI programming connector (3x2) 
-* JTAG connector (2x5 variety) 
-* USB via FTDI - runs 115,200 baud by default 
-* Atmel ATxmega192A3 running at 32 Mhz 
-* Direct TTL serial inout for drive from Arduino or similar 
-* See [[Projects:TinyG-Hardware-Info:|TinyG Hardware Info]]&nbsp;for more details
 
-TinyG is up to v6 PRODUCTION boards, which are reflected in the TinyG hardware specs.<br> We also have grblshield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield.<br> [http://www.synthetos.com/wiki/index.php?title=Projects:TinyG Back to TinyG Home] 
+TinyG is up to v7 PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have grblshield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield.
 
 ## TinyG and grbl are related but not the same
-TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG are the same as grbl and many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases. 
+People ask what's the difference. Here's an attempt to explain that.
+
+TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG work the same as grbl but many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases.
 
 Basic similarities between grbl+grblshield and tinyg: 
 
-* Both basically support the same set of Gcodes - with some minor differences. refs:https://github.com/grbl/grbl/wiki, [[Projects:TinyG-Gcode-Support|TinyG Gcode Support]] <br> 
+* Both basically support the same set of [Gcode](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - with some minor differences
 
-* Both adhere as closely as possible to the NIST Gcode spec. refs: http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.ps http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf 
+* Both adhere as closely as possible to the NIST Gcode spec. and use the LinuxCNC Gcode spec for additional guidance. Refs: 
+http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.ps http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf 
+http://www.linuxcnc.org/docs/2.4/html/gcode_main.html
 
 * Both implement enhanced CNC features such as homing cycles, feedhold (!) and restart (~ , aka cycle start) and software reset (control-x) 
 * Both use Texas Instruments DRV8811 stepper controller chips 
