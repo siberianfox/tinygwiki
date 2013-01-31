@@ -10,5 +10,5 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 * 6-axis control (XYZ + ABC rotary axes) maps to any 4 motors
 * Constant jerk acceleration planning (3rd order S curves) for smooth and fast motion transitions
 * Very smooth step pulse generation using phase-optimized fractional-step DDA running at 50 Khz with very low jitter
-* Networkable via SPI to support motion peripherals and for networking mutliple boards for multi-axis systems and for really interesting projects
+* Networkable via SPI to support off-board devices and for networking multiple boards into multi-axis systems
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
