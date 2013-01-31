@@ -51,7 +51,7 @@ These are optional, however they come with TinyG so why not use them:)<br> 4x he
 [[Image:TinyGv7-Heatsinks.png]] 
 
 #### Cooling Fan
-The TinyGv7's come equipped with connector that can be used to provide 12 volts to a standard 12vdc PC fan, or a 24vdc fan. The fan voltage needs to be configured via a 3 pin header on the TinyG board. Please read the silkscreen designators as below - sorry it's not more straightforward:
+The TinyGv7's come equipped with connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below - sorry it's not more straightforward:
 
 * The "24v" jumper position connects the fan header to the LM7812 12 volt regulator. This should be used if you are running a 12 volt fan and your board power (Vmot) is > 14 volts. This is the default location and your v7 should have been shipped with the jumper in this position. 
 * The "12v" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
