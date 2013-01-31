@@ -14,7 +14,7 @@ Next establish USB connection with your host computer.
  * 115,200 baud
  * 8 data bits
  * no parity
- * 1 stop bit
+ * 1 stop bit<br>
 It's also useful to set the following - but not strictly necessary
  * Options/Terminal - Line Mode
  * Options/Enter Key Emulation - CR
