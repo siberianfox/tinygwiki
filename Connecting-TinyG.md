@@ -68,7 +68,7 @@ Each of the 4 motors has a four pin terminal block wired as:
 
 Attach one pair to A1/A2 and the other pair to B1/B2. If the motor spin needs to be inverted you can do this in hardware by reversing one of the pairs (e.g. swap A1 with A2 and vice versa), or in software by using the polarity setting, e.g. $1po=1 to invert.
 
-### Setting Motor Current
+## Setting Motor Current
 **WARNING: Do not over-torque the current trimpots. they will break. They have 270 degrees of travel only.**
 
 Motor current for each axis is adjusted with the 3mm trimpot nearest that axis.<br>Clockwise increases current, counter-clockwise decreases current. 
