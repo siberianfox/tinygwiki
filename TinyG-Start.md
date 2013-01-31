@@ -19,8 +19,8 @@ Here is what you are going to need in order to use TinyG:
 * Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
 * 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
-* Case (Optional) 
 * Programmer (Optional.. If you want firmware updates..)
+* Case (Optional) 
 
 Please note: Stepper Motor Connectors are required for v6 and earlier, but are no longer needed with v7s!
 
