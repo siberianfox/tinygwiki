@@ -65,9 +65,9 @@ TinyG is up to v7 PRODUCTION boards, which are reflected in the TinyG hardware s
 ## TinyG and grbl are related but not the same
 People ask what's the difference. Here's an attempt to explain that.
 
-TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG work the same as grbl but many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases.
+TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG work the same as grbl but many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases. When we talk about grbl hardware features, below, we are referring to grbl+grblShield.
 
-Basic similarities between grbl+grblshield and tinyg: 
+Basic similarities between grbl and tinyg: 
 
 * Both basically support the same set of [Gcode](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - with some minor differences
 
@@ -77,16 +77,16 @@ http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf<br>
 http://www.linuxcnc.org/docs/2.4/html/gcode_main.html<br>
 
 * Both implement enhanced CNC features such as homing cycles, feedhold (!) and restart (~ , aka cycle start) and software reset (control-x) 
-* Both use Texas Instruments DRV8811 stepper controller chips 
-* Both are written in C, GNU GPL open source licensed 
-* Both projects are currently in beta
+* Both use Texas Instruments DRV8818 stepper controller chips (as of grblShield v4 and TinyG v7)
+* Both are written in C, GNU GPL open source licensed
+* Both projects are currently widely deployed but are technically still in beta - with production for both expected "any day now" - realistically sometime in 2Q2013, if we both keep on schedule.
 
 Some fundamental differences are: 
-* grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the NIST spec (above) as to how rotary axes work, or refer to the discussion on the TinyG wiki on rotational axes: http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Rotational_Axis_Settings_and_Modes 
+* grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the [NIST spec](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf) as to how rotary axes work, or refer to the [discussion on the TinyG wiki on rotational axes](INSERT REFERENCE HERE)
 
 * TinyG has 4 motors, grblshield has 3. It is possible (and common) for grbl to run dual gantry configs - like a dual Y by using 2 stepper drivers attached to the Y step and dir lines. This can present some challenges in homing, but in general this works pretty well. Grblshield only supports 3 axes, and the motors are tied to the X, Y and Z axes. In TinyG the motors are configurable (mappable) to an axis. If you want 4 X axes, map motors 1-4 to X and have a great day. Generally people map the 4th motor to Y the or A axis.
 
-* TinyG runs 3rd order, constant jerk acceleration profiles, grbl runs 2nd order constant acceleration profiles. What does this mean? In grbl the velocity profile during acceleration and deceleration looks like a pure trapezoid in time. For example the move starts at zero velocity, then velocity ramps in a straight line to the target velocity, then decelerates in a straight line back to zero. In TinyG the velocity profile is an S curve that ramps to the target velocity during acceleration and in reverse during the deceleration phase. The means that you can run to motors harder in transition and hence operate at faster accelerations and decelerations. It also means there are fewer machine resonances excited (that cause chatter and other problems) as the jerk term is controlled. Jerk is a measure of the impact a machine is hit with during a velocity change. See: http://www.youtube.com/watch?v=pCC1GXnYfFI 
+* TinyG runs 3rd order, constant jerk acceleration profiles, grbl runs 2nd order constant acceleration profiles. What does this mean? In grbl the velocity profile during acceleration and deceleration looks like a pure trapezoid in time. For example the move starts at zero velocity, then velocity ramps in a straight line to the target velocity, then decelerates in a straight line back to zero. In TinyG the velocity profile is an S curve that ramps to the target velocity during acceleration and in reverse during the deceleration phase. The means that you can run to motors harder in transition and hence operate at faster accelerations and decelerations. It also means there are fewer machine resonances excited (that cause chatter and other problems) as the jerk term is controlled. Jerk is a measure of the impact a machine is hit with during a velocity change. See: [TinyG driving an Ultimaker](http://www.youtube.com/watch?v=Om0wTqFA-Dw) and [driving a Shapeoko](http://www.youtube.com/watch?v=pCC1GXnYfFI). The machines are not fastened to the table and don't jump around because of the jerk control.
 
 * All settings on TinyG are configurable on a per axis or per motor basis. In grbl one parameter applies to all axes (XYZ) - with the exception of steps per mm and polarity - which must be settable on a per axis/per motor basis. A subtlety is that TinyG treats axes and motors as different objects that are configured independently and them mapped together. grbl treats them as the same object - which is fine given its XYZ mission. TinyG does not have that luxury as it needs to support ABC axes which need very different configurations that X Y and Z (to start with, they are in degrees, not linear units...). Independent control also becomes an issue if the dynamics of the Z axis are significantly different than X and Y, like on Shapeoko where Z is a screw axis and X and Y are belts. ref: [[TinyG:Configuring|Configuring TinyG]] <br>
 
