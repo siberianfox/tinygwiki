@@ -15,12 +15,11 @@ Next establish USB connection with your host computer.
  * 8 data bits
  * no parity
  * 1 stop bit
-
 It's also useful to set the following - but not strictly necessary
  * Options/Terminal - Line Mode
  * Options/Enter Key Emulation - CR
 
-Hit OK to leave the Options menu 
+3. Hit OK to leave the Options menu 
 
 3. Hit the "Connect" button. Enter a few carriage returns; you may get some prompting action. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces. If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
