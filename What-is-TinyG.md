@@ -11,9 +11,9 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
 
 ## Gcode Support
-TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions: 
+TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. See [TinyG Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) for more details 
 
-* G0 Rapid linear motion (traverse)<br> 
+* G0 Rapid linear motion (traverse)
 * G1 Linear motion at feed rate<br> 
 * G2, G3 Clockwise / counterclockwise arc at feed rate<br> 
 * G4 Dwell<br> 
