@@ -71,29 +71,24 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If the motor spin needs to
 ## Setting Motor Current
 **WARNING: Do not over-torque the current trimpots. they will break. They have 270 degrees of travel only.**
 
-Motor current for each axis is adjusted with the 3mm trimpot nearest that axis.<br>Clockwise increases current, counter-clockwise decreases current. 
+Motor current for each axis is adjusted with the trimpot nearest that axis. Clockwise increases current, counter-clockwise decreases current.
 
-You want the motor current set slightly above the range you need for your application, but not much higher.<br>Overdriving the motors draws more current and risks overheating or thermal shutdown. 
+You want the motor current set slightly above the range you need for your application, but not much higher. Overdriving the motors draws more current and risks overheating or thermal shutdown. 
 
-Start by setting current to zero by gently turning the trimpot all the way counter-clockwise.<br>Then issue a very long Gcode command for that axis, something like g0x1000<br>Turn the trimpot clockwise until the motor starts moving reliably.<br>You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting.<br>Note this lower bound pot setting. 
+Start by setting current to zero by gently turning the trimpot all the way counter-clockwise. Then issue a very long Gcode command for that axis, something like g0x1000.  Turn the trimpot clockwise until the motor starts moving reliably. You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting. Note this lower bound pot setting. 
 
-Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occuring.<br>Now back off until the cycling stops.<br>Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering.<br>Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)!<br>Mark the spot just below thermal shutdown as the upper limit.<br>Now read about cooling to increase the upper limit.<br> 
+Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occurring. Now back off until the cycling stops. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)! Mark the spot just below thermal shutdown as the upper limit. Now read about cooling to increase the upper limit. 
 
-Now is also a good time to make a mental note to enable Low Power Idle mode if you have a leadscrew-type machine or some other configuration that will hold position while idle without power being applied to the motors. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Motor_Settings Configuring TinyG Motor Settings]
+Now is also a good time to make a mental note to enable Low Power Idle mode if you have a leadscrew-type machine or some other configuration that will hold position while idle without power being applied to the motors. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
-== Cooling  ==
-
+## Cooling
 You can get more headroom before thermal shutdown by cooling the board. As much of the board as possible is 2 oz. heatsink copper.<br>Both top and bottom copper provide cooling. But you can only do so much given the limits of the TinyG footprint. 
 
-Heatsinking the drivers will help. We offer some small heatsinks on the site, or a normal DIP or T0-220 heatsink will fit (if somewhat off-center, due to the caps). 
+Heatsinking the drivers will help. We offer some small heatsinks on the site, or a normal DIP or T0-220 heatsink will fit.
 
 Better still is a fan blowing over the board's stepper drivers and (v7 only) voltage regulator. 
 
 Or both. 
 
-[http://www.synthetos.com/wiki/index.php?title=Projects:TinyG Back to TinyG Home]
-
-== Configuring Limit and Homing Switches ==
-TinyG has 8 limit and homing switches on the GPIO2 port
-
-https://www.synthetos.com/wiki/index.php?title=Projects:TinyG-Hardware-Info:#Homing_and_Limit_Switch_Port_.28GPIO2.29
+## Configuring Limit and Homing Switches
+TinyG has 8 limit and homing switches on the GPIO2 port. This requires its own page: [TinyG Homing and Limits](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
