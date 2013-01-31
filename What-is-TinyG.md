@@ -14,10 +14,10 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. See [TinyG Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) for more details 
 
 * G0 Rapid linear motion (traverse)
-* G1 Linear motion at feed rate<br> 
-* G2, G3 Clockwise / counterclockwise arc at feed rate<br> 
-* G4 Dwell<br> 
-* G17, G18, G19 Select plane: XY plane {G17}, XZ plane {G18}, YZ plane {G19}<br> 
+* G1 Linear motion at feed rate
+* G2, G3 Clockwise / counterclockwise arc at feed rate
+* G4 Dwell
+* G17, G18, G19 Select plane: XY plane {G17}, XZ plane {G18}, YZ plane {G19}
 * G20, G21 Length units: inches {G20}, millimeters {G21}<br> 
 * G28 Return to home
 * G28.1 Homing cycle (reference axes to limit switches)
