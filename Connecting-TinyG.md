@@ -37,7 +37,7 @@ The first thing you need to do is make sure you know which wires are connected t
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. <br>
 Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and cannot be driven by most drivers (including TinyG).
 
-The following color code is typical for most motors
+The following color code is typical for many motors
 
 	Color | Bipolar | Unipolar | Notes
 	---------|--------------|---------|----
@@ -48,40 +48,28 @@ The following color code is typical for most motors
 	white |  (none) | Center tap 2 |
 	blue |  Winding 2B | Winding 2B |
 
-Here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
+Do bring out that voltmeter you got at Radar Shed and verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar you can just leave the center taps disconnected.
+
+If this doesn's work here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
 
 Spin your stepper motor with your fingers. Depending on the size / holding torque this could be easy or pretty hard. All you really want from this is to get a feel how the motor spins without any of the wires connected to each other. Now that you know how it "feels" (how hard it is to spin with your fingers) connect 2 wires together. Just pick 2. Try to spin the motor again. If it feels the same then more than likely these are NOT connected to the same coil. Disconnect these wires. Connect one of the other wires to one of the first wire pairs you tried. Try to spin the motors again. This should be much harder. If this is so, you have found your wire pairs. Tape these 2 together (not wired but just taped to group them). Tape the remaining 2 wires together as well. 
 
 Unipolars are a bit more complicated, but not much. To do a series wiring find the outer taps of each coil. These are often color coded by convention (see below). Using a DVM find the resistance across the outer pair. The resistance between the center tap an an outer tap will be 1/2 the resistance between the outer taps. 
 
-Common wire pairings are:
-* Green goes with Black. Add Yellow for the third wire in a unipolar
-* Red goes with Blue. Add White for the third wire in a unipolar
+Some useful information on wiring steppers can be found here: http://reprap.org/wiki/Stepper_motor
 
-Some useful information on wiring steppers can be found here: http://reprap.org/wiki/Stepper_motor;
+### Connector Pinouts
+Each of the 4 motors has a four pin terminal block wired as: 
 
-=== Connector Pinouts ===
-Each of the 4 motors has an 0.156 four pin header wired as: 
-{| width="100" border="1" cellpadding="1" cellspacing="1"
-|-
-| Pin 1 
-| A1
-|-
-| Pin 2 
-| A2
-|-
-| Pin 3 
-| B1
-|-
-| Pin 4 
-| B2
-|}
+* A1
+* A2
+* B1
+* B2
 
 Attach one pair to A1/A2 and the other pair to B1/B2. If the motor spin needs to be inverted you can do this in hardware by reversing one of the pairs (e.g. swap A1 with A2 and vice versa), or in software by using the polarity setting, e.g. $1po=1 to invert.
 
-== Setting Motor Current  ==
-
-'''WARNING: Do not over-torque the current trimpots. they will break. They have 270 degrees of travel only.'''&nbsp;
+### Setting Motor Current
+**WARNING: Do not over-torque the current trimpots. they will break. They have 270 degrees of travel only.**
 
 Motor current for each axis is adjusted with the 3mm trimpot nearest that axis.<br>Clockwise increases current, counter-clockwise decreases current. 
 
