@@ -14,3 +14,6 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
 
 See [What Is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG) for more info.
+
+## Getting started with TinyG v7
+![TinyG v7 Diaagram](https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png)
