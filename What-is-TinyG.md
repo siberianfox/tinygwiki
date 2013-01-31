@@ -35,7 +35,7 @@ TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following f
 * M7, M8 Turn on coolant bit
 * M9 Turn off coolant bit
 
-### Additional CNC features
+## Additional CNC features
 * Feedhold and cycle start with full planning (pause and resume motion) 
 * Homing cycle 
 * Low-power idle mode 
@@ -44,14 +44,14 @@ TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following f
 * Axis/motor mapping to support dual gantry and other configurations (e.g. XYYZ, XYZA, XYZC...) 
 * Non-cartesian inverse kinematics are supported at the C code level
 
-### Programming support
+## Programming support
 TinyG codebase is written in well commented C, open source (GPL), and was originally forked from grbl. A special thank you to Simen Svale Skogsrud, Sonny Jeon and Jens Geisler for making grbl available and continuing the good work.<br> 
 
 * Code is written in well commented C. Complies under avrGCC 
 * Entire code base is open source, available at&nbsp;[https://github.com/synthetos github.com/synthetos] 
 * Forum is available at&nbsp;[http://www.synthetos.com/forums/ www.synthetos.com/forums/]
 
-### Hardware and other technical details
+## Hardware and other technical details
 * GPIO ports provide 8 inputs for limit / homing switches, plus 4 general purpose input/output ports for spindle control and other uses 
 * PDI programming connector (3x2) 
 * JTAG connector (2x5 variety) 
@@ -62,8 +62,7 @@ TinyG codebase is written in well commented C, open source (GPL), and was origin
 
 TinyG is up to v6 PRODUCTION boards, which are reflected in the TinyG hardware specs.<br> We also have grblshield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield.<br> [http://www.synthetos.com/wiki/index.php?title=Projects:TinyG Back to TinyG Home] 
 
-### TinyG and grbl are related but not the same
-
+## TinyG and grbl are related but not the same
 TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG are the same as grbl and many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases. 
 
 Basic similarities between grbl+grblshield and tinyg: 
