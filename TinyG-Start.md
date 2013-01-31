@@ -1,6 +1,6 @@
 If you have just received a TinyG this is the place to start. Here's some background if you want to know [what TinyG is](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 
-## Getting started with TinyG v7
+## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires and downloading software the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
 ![TinyG v7 Diagram](https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png)
@@ -28,8 +28,6 @@ Please note: Stepper Motor Connectors are required for v6 and earlier, but are n
 You can get the TinyG controller board fully assembled from the [Synthetos Store](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
 
 TinyG v7's are "blue" boards labeled as TinyGv7 - 23. These use the DRV8818 driver chips as opposed to the DRV8811 driver chips. The 8818 drivers have a lower ON resistance in the FET output stages and therefore don't get as warm as the 8811's are are capable of driving a bit more current. The '23' designation refers to NEMA23 motors, as the blue boards will easily drive most NEMA23 motors. 
-
-We may continue to sell green boards with the DRV8811 driver chips as well, and will begin labeling these as '- 17s". These boards are recommended for NEMA17 motors, although that are quite capable of driving NEMA23's - as they have been doing for the past 2 years in production setups. The green boards will be made available at a lower price than the blue boards.
 
 #### Power Supply
 TinyG v7 (either green or blue) supports up to 2.5A per winding per motor and needs a 12v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically). We recommand fan cooling the board if you use a voltage over 12 volts. 
