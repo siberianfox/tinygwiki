@@ -1,3 +1,15 @@
+## Connect Power
+The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
+
+1. Check you have the correct power supply. You should have a DC power supply between 12 and 30 volts - 24 volts is ideal. It should be capable of providing 4 to 15 (or more) amps. Before connecting it to TinyG, turn it on and make sure you have correct voltage, and its DC, not AC. Hopefully you have a volt meter or can get your hands on one. If you don't you might consider a trip to the Radar Shed for something like [this](http://www.radioshack.com/product/index.jsp?productId=4214667)
+1. 
+
+By convention, the Negative wire should always be BLACK. Wire this to the Wire the negative or ground to the connector on the right Double check your polarity BEFORE plugging in your TinyG board.
+Power output for the PC fan is an important to make sure you have right! Failure to set your fan jumper may result in blowing up your PC fan by providing 24v to a 12v fan. See more about this below.
+All input voltages are limited to 3.3v MAX!
+DO NOT over torque the current trim pots!
+
+
 == Wire Your Motors ==
 === Synthetos Connector Kit  ===
 '''For all v7 and above TinyG's no longer need ANY stepper motor connector packs.'''  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html Synthetos Stepper Motor Connector Pack]. <br>
