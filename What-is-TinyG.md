@@ -1,4 +1,3 @@
-
 TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions: 
 
 *G0 Rapid linear motion (traverse)<br> 
