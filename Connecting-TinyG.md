@@ -23,16 +23,30 @@ It's also useful to set the following - but not strictly necessary
 
 3. Hit the "Connect" button. Enter a few carriage returns; you may get some prompting action. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces. If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
+For help from the command line enter 'h', and "$h"
 
-== Wire Your Motors ==
-=== Synthetos Connector Kit  ===
-'''For all v7 and above TinyG's no longer need ANY stepper motor connector packs.'''  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html Synthetos Stepper Motor Connector Pack]. <br>
+## Wire Your Motors
+First, turn the power back off. Never connect or disconnect anything (except possibly USB) with the power on.
 
-=== Find the Coil Pairs  ===
+### Synthetos Connector Kit
+For all v7 and above TinyG's no longer need ANY stepper motor connector packs.  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [Synthetos Stepper Motor Connector Pack](https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html)
+
+### Find the Coil Pairs
 The first thing you need to do is make sure you know which wires are connected to the same coil. 
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. <br>
 Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and cannot be driven by most drivers (including TinyG).
+
+The following color code is typical for most motors
+
+	Color | Bipolar | Unipolar | Notes
+	---------|--------------|---------|----
+	green |  Winding 1A | Winding 1A |
+	yellow |  (none) | Center tap 1  |
+	black |  Winding 1B | Winding 1A |
+	red |  Winding 2A | Winding 2A |
+	white |  (none) | Center tap 2 |
+	blue |  Winding 2B | Winding 2B |
 
 Here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
 
