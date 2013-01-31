@@ -15,35 +15,35 @@ To highlight a few things in the above diagram:
 ### Parts You Will Need
 Here is what you are going to need in order to use TinyG: 
 
-* [A TinyG](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
-* Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. Here's one we like: [Meanwell NES-350-24](http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&pa=2149600&productId=2149600&keyCode=WSF&CID=GOOG&gclid=CKGp2eipk7UCFWGnPAod9jMAKA)<br>You can usually hunt around and find this for < $50. They also make lower amperage supplies that are cheaper.
+* [A TinyG board](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
+* Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
 * 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * Case (Optional) 
 * Programmer (Optional.. If you want firmware updates..)
 
-Please note: Stepper Motor Connectors are required for v6 and earlier, but are not longer needed with v7s!
+Please note: Stepper Motor Connectors are required for v6 and earlier, but are no longer needed with v7s!
 
-### TinyG Board
-You can get the TinyG controller board fully assembled from the Synstore.<br> [https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html The TinyG Board] 
+#### TinyG Board
+You can get the TinyG controller board fully assembled from the [Synthetos Store](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
 
-TinyG v7's purchased after 11/5/12 are "blue" boards labeled as TinyGv7 - 23. These use the DRV8818 driver chips as opposed to the DRV8811 driver chips. The 8818 drivers have a lower ON resistance in the FET output stages and therefore don't get as warm as the 8811's are are capable of driving a bit more current. The '23' designation refers to NEMA23 motors, as the blue boards will easily drive most NEMA23 motors. 
+TinyG v7's are "blue" boards labeled as TinyGv7 - 23. These use the DRV8818 driver chips as opposed to the DRV8811 driver chips. The 8818 drivers have a lower ON resistance in the FET output stages and therefore don't get as warm as the 8811's are are capable of driving a bit more current. The '23' designation refers to NEMA23 motors, as the blue boards will easily drive most NEMA23 motors. 
 
-We plan to continue to sell green boards with the DRV8811 driver chips as well, and will begin labeling these as '- 17s". These boards are recommended for NEMA17 motors, although that are quite capable of driving NEMA23's - as they have been doing for the past 2 years in production setups. The green boards will be made available at a lower price than the blue boards. 
+We may continue to sell green boards with the DRV8811 driver chips as well, and will begin labeling these as '- 17s". These boards are recommended for NEMA17 motors, although that are quite capable of driving NEMA23's - as they have been doing for the past 2 years in production setups. The green boards will be made available at a lower price than the blue boards.
 
-=== Power Supply  ===
-
+#### Power Supply
 TinyG v7 (either green or blue) supports up to 2.5A per winding per motor and needs a 12v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically). We recommand fan cooling the board if you use a voltage over 12 volts. 
 
-=== Motors  ===
+Here's one we like: [Meanwell NES-350-24](http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&pa=2149600&productId=2149600&keyCode=WSF&CID=GOOG&gclid=CKGp2eipk7UCFWGnPAod9jMAKA)<br>You can usually hunt around and find this for < $50. They also make lower amperage supplies that are cheaper.
 
-TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per winding. This covers most NEMA23 and smaller motors. Slome of out favorite sources for motors are: 
+#### Stepper Motors
+TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per winding. It will not work with motors wired as 5 wire "star configurations", so avoid these. This covers most NEMA23 and smaller motors. Some of out favorite sources for stepper motors are: 
 
-*[http://www.alltronics.com/cgi-bin/category/55 www.alltronics.com/cgi-bin/category/55]
-
-*[http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/]
-
-*[http://www.allelectronics.com/make-a-store/category/400/Motors/1.html www.allelectronics.com/make-a-store/category/400/Motors/1.html]<br>
+* [Alltronics](http://www.alltronics.com/cgi-bin/category/55 www.alltronics.com/cgi-bin/category/55)
+* [MPJA](http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/)
+* [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html www.allelectronics.com/make-a-store/category/400/Motors/1.html)
+* [Sparkfun](https://www.sparkfun.com/categories/178)
+* [Phidgets](http://www.phidgets.com/products.php?category=23)
 
 === Heat Sinks  ===
 
