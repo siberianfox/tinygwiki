@@ -1,5 +1,3 @@
-= Wiring TinyG =
-[[Projects:TinyG|<--Back to TinyG main page]]
 == Wire Your Motors ==
 === Synthetos Connector Kit  ===
 '''For all v7 and above TinyG's no longer need ANY stepper motor connector packs.'''  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html Synthetos Stepper Motor Connector Pack]. <br>
