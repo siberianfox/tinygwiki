@@ -1,0 +1,73 @@
+= Wiring TinyG =
+[[Projects:TinyG|<--Back to TinyG main page]]
+== Wire Your Motors ==
+=== Synthetos Connector Kit  ===
+'''For all v7 and above TinyG's no longer need ANY stepper motor connector packs.'''  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html Synthetos Stepper Motor Connector Pack]. <br>
+
+=== Find the Coil Pairs  ===
+The first thing you need to do is make sure you know which wires are connected to the same coil. 
+
+Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. <br>
+Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and cannot be driven by most drivers (including TinyG).
+
+Here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
+
+Spin your stepper motor with your fingers. Depending on the size / holding torque this could be easy or pretty hard. All you really want from this is to get a feel how the motor spins without any of the wires connected to each other. Now that you know how it "feels" (how hard it is to spin with your fingers) connect 2 wires together. Just pick 2. Try to spin the motor again. If it feels the same then more than likely these are NOT connected to the same coil. Disconnect these wires. Connect one of the other wires to one of the first wire pairs you tried. Try to spin the motors again. This should be much harder. If this is so, you have found your wire pairs. Tape these 2 together (not wired but just taped to group them). Tape the remaining 2 wires together as well. 
+
+Unipolars are a bit more complicated, but not much. To do a series wiring find the outer taps of each coil. These are often color coded by convention (see below). Using a DVM find the resistance across the outer pair. The resistance between the center tap an an outer tap will be 1/2 the resistance between the outer taps. 
+
+Common wire pairings are:
+* Green goes with Black. Add Yellow for the third wire in a unipolar
+* Red goes with Blue. Add White for the third wire in a unipolar
+
+Some useful information on wiring steppers can be found here: http://reprap.org/wiki/Stepper_motor;
+
+=== Connector Pinouts ===
+Each of the 4 motors has an 0.156 four pin header wired as: 
+{| width="100" border="1" cellpadding="1" cellspacing="1"
+|-
+| Pin 1 
+| A1
+|-
+| Pin 2 
+| A2
+|-
+| Pin 3 
+| B1
+|-
+| Pin 4 
+| B2
+|}
+
+Attach one pair to A1/A2 and the other pair to B1/B2. If the motor spin needs to be inverted you can do this in hardware by reversing one of the pairs (e.g. swap A1 with A2 and vice versa), or in software by using the polarity setting, e.g. $1po=1 to invert.
+
+== Setting Motor Current  ==
+
+'''WARNING: Do not over-torque the current trimpots. they will break. They have 270 degrees of travel only.'''&nbsp;
+
+Motor current for each axis is adjusted with the 3mm trimpot nearest that axis.<br>Clockwise increases current, counter-clockwise decreases current. 
+
+You want the motor current set slightly above the range you need for your application, but not much higher.<br>Overdriving the motors draws more current and risks overheating or thermal shutdown. 
+
+Start by setting current to zero by gently turning the trimpot all the way counter-clockwise.<br>Then issue a very long Gcode command for that axis, something like g0x1000<br>Turn the trimpot clockwise until the motor starts moving reliably.<br>You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting.<br>Note this lower bound pot setting. 
+
+Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occuring.<br>Now back off until the cycling stops.<br>Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering.<br>Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)!<br>Mark the spot just below thermal shutdown as the upper limit.<br>Now read about cooling to increase the upper limit.<br> 
+
+Now is also a good time to make a mental note to enable Low Power Idle mode if you have a leadscrew-type machine or some other configuration that will hold position while idle without power being applied to the motors. See [http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Motor_Settings Configuring TinyG Motor Settings]
+
+== Cooling  ==
+
+You can get more headroom before thermal shutdown by cooling the board. As much of the board as possible is 2 oz. heatsink copper.<br>Both top and bottom copper provide cooling. But you can only do so much given the limits of the TinyG footprint. 
+
+Heatsinking the drivers will help. We offer some small heatsinks on the site, or a normal DIP or T0-220 heatsink will fit (if somewhat off-center, due to the caps). 
+
+Better still is a fan blowing over the board's stepper drivers and (v7 only) voltage regulator. 
+
+Or both. 
+
+[http://www.synthetos.com/wiki/index.php?title=Projects:TinyG Back to TinyG Home]
+
+== Configuring Limit and Homing Switches ==
+TinyG has 8 limit and homing switches on the GPIO2 port
+
+https://www.synthetos.com/wiki/index.php?title=Projects:TinyG-Hardware-Info:#Homing_and_Limit_Switch_Port_.28GPIO2.29
