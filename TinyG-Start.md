@@ -13,4 +13,4 @@ The TinyG project is a multi-axis motion control system. It is designed for smal
 * Networkable via SPI to support off-board devices and for networking multiple boards into multi-axis systems
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
 
-See [What Is TinyG]() ror more info.
+See [What Is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG) ror more info.
