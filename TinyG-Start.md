@@ -16,21 +16,15 @@ To highlight a few things in the above diagram:
 Here is what you are going to need in order to use TinyG: 
 
 * [A TinyG](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
-* Power supply 
-* 1 - 4 Motors
-* Fan - If you are running your board above 12v then a fan is '''HIGHLY RECOMMENDED!''' 
+* Power supply - typically 24 volts DC at between 4 and 15 amps. Can be anything between 12VDC and 30VDC. Here's one we like: (Meanwell NES-350-24)[http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&pa=2149600&productId=2149600&keyCode=WSF&CID=GOOG&gclid=CKGp2eipk7UCFWGnPAod9jMAKA] (you can usually hunt around and find this for < $50. They als make lower amperage supplies that are cheaper)
+* 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding
+* Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * Case (Optional) 
-* Programmer (Optional.. If you want firmware updates.. '''Highly Recommended!''')
+* Programmer (Optional.. If you want firmware updates..)
 
-{| class="wikitable" style="text-align: center; color:red; font-size:120%; background:black; border-width: 2px; border-style: outset; border-style: dashed;"
-|-
-| Stepper Motor Connectors are not longer needed with v7s!
-|}
+Please note: Stepper Motor Connectors are required for v6 and earlier, but are not longer needed with v7s!
 
-<br> 
-
-=== TinyG Board  ===
-
+### TinyG Board
 You can get the TinyG controller board fully assembled from the Synstore.<br> [https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html The TinyG Board] 
 
 TinyG v7's purchased after 11/5/12 are "blue" boards labeled as TinyGv7 - 23. These use the DRV8818 driver chips as opposed to the DRV8811 driver chips. The 8818 drivers have a lower ON resistance in the FET output stages and therefore don't get as warm as the 8811's are are capable of driving a bit more current. The '23' designation refers to NEMA23 motors, as the blue boards will easily drive most NEMA23 motors. 
