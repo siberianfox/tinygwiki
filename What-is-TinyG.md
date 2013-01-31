@@ -90,11 +90,11 @@ Some fundamental differences are:
 
 * TinyG has a lot more configuration parameters than grbl. This is both good and bad. There are more axes on TinyG and all settings on TinyG are configurable on a per axis or per motor basis. _(In grbl one parameter used to apply to all axes (XYZ), but as of 0.9 grbl has independent axis acceleration parameters)_. 
 
-TinyG also separates the motor configs from the axis configs to enable non-cartesian machines. But this means more parameters as they are configured independently and them mapped together. grbl treats them as the same object - which is fine given its XYZ mission. TinyG does not have that luxury as it needs to support ABC axes which need very different configurations that X Y and Z (to start with, they are in degrees, not linear units...). Independent control also becomes an issue if the dynamics of the Z axis are significantly different than X and Y, like on Shapeoko where Z is a screw axis and X and Y are belts. 
+* TinyG also separates the motor configs from the axis configs to enable non-cartesian machines. But this means more parameters as they are configured independently and them mapped together. grbl treats them as the same object - which is fine given its XYZ mission. TinyG does not have that luxury as it needs to support ABC axes which need very different configurations that X Y and Z (to start with, they are in degrees, not linear units...). Independent control also becomes an issue if the dynamics of the Z axis are significantly different than X and Y, like on Shapeoko where Z is a screw axis and X and Y are belts. 
 
 * TinyG and grbl are both designed to be run "from the command line". Since there are more configuration settings to worry about, TinyG offers a set of mnemonics for configuration, machine state and configuration status inquiries. 
 
-* TinyG offers real-time status reports (DRO-type output). grbl also has real-time status reports in edge right now. 
+* TinyG offers real-time status reports (DRO-type output).
 
 * TinyG has a set of help screens available from the command prompt. grbl offers some of these features but in general is more "silent". There are plans to add new features to grbl in future releases.
 
@@ -103,9 +103,9 @@ TinyG also separates the motor configs from the axis configs to enable non-carte
 * TinyG implements a set of embedded self tests to verify proper system operation and assist in setup
 
 * Different embedded processors:
- * The processor chip for grbl is an Atmel ATmega328p that runs on the Arduino *hardware*. Note that once you program grbl onto it it is no longer an "Arduino" as you have taken over the chip and it it will not run Processing anymore (until you re-flash it - then it's no longer grbl) The 328p runs at 16 Mhz, has 32K FLASH memory (program memory) and 2K of RAM ref: http://www.atmel.com/Images/doc8161.pdf). 
+ * The processor chip for grbl is an Atmel ATmega328p that runs on the Arduino *hardware*. Note that once you program grbl onto it it is no longer an "Arduino" as you have taken over the chip and it it will not run Processing anymore (until you re-flash it - then it's no longer grbl) The 328p runs at 16 Mhz, has 32K FLASH memory (program memory) and 2K of RAM. ref: http://www.atmel.com/Images/doc8161.pdf). 
  * The processor chip on tinyg is an Atmel Xmega192A3 that runs at 32 Mhz, has 192K FLASH and 16K RAM. ref: http://www.atmel.com/Images/doc8068.pdf) 
- * The difference in processors means that tinyg can do more computation and have larger firmware and RAM usage. It also means that grbl is programmable using a garden variety Atmel ISP programmer, and TinyG requires a programmer that implements the newer PDI programming protocol - such as the Atmel ISP MKII programmer (at $35 from Mouser electronics. This programmer also works fine on the older protocols). We implemented a boot loader on tinyg at one point (xboot project) but found AVRdude to be so unreliable that we did not release it. We also offer a firmware upgrade service for the cost of postage back and forth, but really if you are interested in keeping up with the project you should get a capable programmer. 
+ * The difference in processors means that tinyg can do more computation and have larger firmware and RAM usage. It also means that grbl is programmable using a garden variety Atmel ISP programmer, and TinyG requires a programmer that implements the newer PDI programming protocol - such as the Atmel ISP MKII programmer _(We are working on a boot loader)_. We also offer a firmware upgrade service for the cost of postage back and forth, but really if you are interested in keeping up with the project you should get a capable programmer. 
  * The processor difference also means that grbl generates step pulses at a rate of 30Khz, TinyG at 50Khz. 
 
 There are a number of other differences such as communications and various system settings, but this really gets lost in the weeds.
