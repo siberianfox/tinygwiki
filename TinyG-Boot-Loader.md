@@ -13,6 +13,7 @@ The following instructions explain how to flash the boot loader using Atmel Stud
 
 1. Set the fuses. Go to Fuses and set the following
  * set BOOTRST to BOOTLDR
+
 Other values should be left alone. These are:
  * JTAGUSERID = 0xFF
  * WDWP = 8clk
