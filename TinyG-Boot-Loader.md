@@ -12,6 +12,7 @@ The following instructions explain how to flash the boot loader using Atmel Stud
  * In the programming panel verify Tool is AVRISP mkii, the device is ATxmega192A3 and the interface is PDI. Hit Apply. You should see the Device signature and voltage field populate. Voltage should be 3.2v or thereabouts.
 
 
+
 1. Set the fuses. Go to Fuses and set the following
  * set BOOTRST to BOOTLDR
 Other values should be left alone. These are:
