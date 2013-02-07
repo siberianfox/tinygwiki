@@ -11,12 +11,22 @@ The following instructions explain how to flash the boot loader using Atmel Stud
 1. Bring up Studio6 and the device programming panel. Look under Tools/Device Programming
  * In the programming panel verify Tool is AVRISP mkii, the device is ATxmega192A3 and the interface is PDI. Hit Apply. You should see the Device signature and voltage field populate. Voltage should be 3.2v or thereabouts.
 
-
-
 1. Set the fuses. Go to Fuses and set the following
  * set BOOTRST to BOOTLDR
 Other values should be left alone. These are:
  * JTAGUSERID = 0xFF
+ * WDWP = 8clk
+ * WDP = 8clk
+ * DVSDON = (unchecked)
+ * BODPD = disabled
+ * RSTDISBL = (unchecked)  Don't check this - you will brick the board
+ * SUT = 0ms
+ * WDLOCK = (unchecked)
+ * JTAGEN = (CHECKED) Don't uncheck this, you will brick the board
+ * BODACT = disabled
+ * EESAVE = (unchecked)
+ * BODLVL = 1v6
+ * Leave the fuse bytes alone for now
 
 1. Use xboot-boot.hex for programming. Do not use xboot.hex as it's org'ed in the wrong place (0 instead of 0x30000)
 
