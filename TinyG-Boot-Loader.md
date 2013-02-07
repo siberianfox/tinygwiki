@@ -9,7 +9,7 @@ The following instructions explain how to flash the boot loader using Atmel Stud
 1. Get the right programmer. The xmega requires PDI programming. Use the Atmel [AVRISP mkii](http://www.mouser.com/ProductDetail/Atmel/ATAVRISP2/?qs=%2fha2pyFaduiLEF45YHzXlzYdfQlCIaNgRBHMmCoiTxs%3d) or some other programmer that supports PDI programming. Plug the programmer into TinyG and apply power to TinyG.
 
 1. Bring up Studio6 and the device programming panel. Look under Tools/Device Programming
- * In the programming panel verify Tool is AVRISP mkii, the device is ATxmega192A3 and the interface is PDI. Hit Apply. You should see the Device signature and voltage field populate. Voltage should be 3.2v or thereabouts.
+ * In the programming panel verify Tool is AVRISP mkii, the device is ATxmega192A3 and the interface is PDI. Hit Apply. You should see the Device signature and voltage field populate. Voltage should be 3.2v or thereabouts.<br>
 
 1. Set the fuses. Go to Fuses and set the following
  * set BOOTRST to BOOTLDR
