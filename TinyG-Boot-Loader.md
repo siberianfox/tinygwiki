@@ -1,13 +1,13 @@
 **Huge thanks to Kevin Osborn who got this working**
 
-## Programming TinyG with the Boot Loader
+## Updating TinyG Firmware using the Boot Loader
 You will find the boot 
 
-## Flashing the Boot Loader
+## Flashing the Boot Loader onto the Chip
 The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line.
 
-1. Get the right programmer. The xmega requires PDI programming Do the following steps to flash the boot loader:
-Bring
+1. Get the right programmer. The xmega requires PDI programming. Use the Atmel AVRISP2 (mkii) or some other programmer that supports PDI programming.
+1. Use xboot-boot.hex for programming. Do not use xboot.hex as it's org'ed in the wrong place (0 instead of 0x30000)
 
 
 ## Developer Notes
