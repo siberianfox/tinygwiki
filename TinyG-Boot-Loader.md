@@ -61,3 +61,12 @@ THe boot loader is Alex Forencich's xboot which can be found in the xboot direct
 The xboot project has been set up under both AVRStudio4 and Atmel Studio6 (Windows only). Project files are the xboot.* files in the github TinyG/support dir. Move these to your project directory then click on xboot.aps to invoke 4, xboot.atsln for 6. Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
 
 The makefile can also be compiled from the command line but Kevin got an infinite loop in Linux. It worked under Windows.
+
+Entry parameters used are:<br>
+<pre>
+USE_ENTER_DELAY = yes
+USE_ENTER_PIN = no
+USE_ENTER_UART = yes
+USE_ENTER_I2C = no
+USE_ENTER_FIFO = no
+</pre>
