@@ -27,7 +27,7 @@ Other values should be left alone. These are:
  * BODACT = disabled
  * EESAVE = (unchecked)
  * BODLVL = 1v6
- * Leave the fuse bytes alone for now
+ * Leave the lock bits alone for now
 
 **Step 4**. Use xboot-boot.hex for programming. Do not use xboot.hex as it's org'ed in the wrong place (0 instead of 0x30000)
 
@@ -35,4 +35,6 @@ Other values should be left alone. These are:
 ## Developer Notes
 THe boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
 
-The xboot project has been set up under both AVRStudio4 and Atmel Studio6, or it can be run from the command line. To invoke 4 or 6 (Windows only) you need to move the project files into your working directory. Project files are in the /support dir and are all the xboot files. CLick on xboot.aps to invoke 4, xboot.atsln for 6. You can also just use the command line as xboot has its own Makefile and Makefile generation has been disabled in those project files.
+The xboot project has been set up under both AVRStudio4 and Atmel Studio6 (Windows only). Project files are the xboot.* files in the github TinyG/support dir. Move these to your project directory then click on xboot.aps to invoke 4, xboot.atsln for 6. Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
+
+The makefile can also be compiled from the command line but Kevin got an infinite loop in Linux. It worked under Windows.
