@@ -42,8 +42,8 @@ Notes:
 
 (1) It gets worse. If you mess up and do things wrong studio6 will remember your paths in "recents" and fail the next time you try to set something up because things aren't where it thinks they should be. You have to go to the File/Recent Projects and Solutions, try to open the old paths, then remove them when they can't be found (you must have deleted the directories beforehand)
 
-## More AtmelStudio6 Topics
-### Can't view ASCII strings in the debugger
+### More AtmelStudio6 Topics
+#### Can't view ASCII strings in the debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
 Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  <br>Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track
