@@ -2,10 +2,11 @@
 
 ## Updating TinyG Firmware using the Boot Loader
 
-**Step1**: Use the Avrdude distributed with the Arduino - it's pretty up to date. An example command line from Windows is:
+**Step1**: To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. Here's an example command line from Window:
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
-You will need to enter the USB port you are actually using 
+You will need to enter the USB port you are actually using.<br>
+Use the Avrdude distributed with the Arduino - it's pretty up to date. 
 
 ## Flashing the Boot Loader onto the Xmega Chip
 The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot-boot.hex file already in the project. If you want to compile go to the next section.
