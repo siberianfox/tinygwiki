@@ -42,10 +42,10 @@ But beware - it only works in windows. Use cmd and navigate to the (lower) xboot
 
 It enters an infinite loop in Linux and generates this error iin OSX
 
-'macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
+`macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
 .dep/fifo.o.d:1: *** multiple target patterns.  Stop.
 macintosh-3:xboot your-user-dir$
-'
+`
 We have not diagnosed or fixed this yet.
 
 ## Developer Notes
