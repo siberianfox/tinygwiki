@@ -34,7 +34,6 @@ Status tells you what branch you have open and what files are not committed. The
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made.
 
-
 ### Changing Branches
 Before changing branches make sure you have all the work on the current branch committed. Otherwise git won't let you change. If you don't want the work in the current branch just reset  `git reset --hard`. You will lose the work.
 
@@ -56,17 +55,22 @@ git rm -r dirname
 </pre> 
 **Note: git's gotten better about this. I routinely remove files from the OS now and git manages it OK**
 
-To push to github the normal operation is illustrated. The pull is just to make sure you won't encounter collision difficulties. Use whatever your build number is instead of 337.07 in the example; 
+### Pushing code to Github
+Our conventions for pushing to github are described here. Use whatever your build number is instead of 337.07 in the example; 
 <pre>cd &lt;current dir&gt;
-git pull
-git add .
-git commit -m "337.07 dev - informative blah blah blah"
-git tag -a 337.07 -m"build 337.07 in dev - informative blah blah blah"
-git push origin dev --tags </pre>
+git status 
+(add any new files you might want. See the bottom of the status display)
+git commit -a -m"367.04 A message that is informative to someone looking for a branch blah blah blah"
+git push origin dev
+</pre>
+
+If you want to tag the push add the following lines. We've found tags to be redundant if you provide good enough messages. Tags are useful for release candidates and other things like that, however.
+<pre>
+git tag -a 337.07 -m"build 367.04 Release candidate for version 0.95"
+git push origin dev --tags 
+</pre>
 
 **NOTICE THE ORIGIN KEYWORD IN THE PUSH**
-
-This will push your changes up stream. 
 
 The pull should have been done before you made any changes, but at least this will tell you if you are going to have a problem in your push.
 
@@ -161,4 +165,3 @@ tinyg.eep
 .DS_Store
 </pre>
 See here for details: http://help.github.com/ignore-files/
-
