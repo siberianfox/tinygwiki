@@ -93,7 +93,7 @@ Hex | char | name | used by
 	0x18 | CAN | ctrl-X | TinyG / grbl software reset
 	0x19 | EM | ctrl-Y
 	0x1A | SUB | ctrl-Z
-	0x1B | ESC | ctrl-[
+	0x1B | ESC | ctrl-[ | Used to enter the boot loader - ESC is an AVRdude convention
 	0x1C | FS | ctrl-\
 	0x1D | GS | ctrl-]
 	0x1E | RS | ctrl-^
