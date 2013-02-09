@@ -80,35 +80,50 @@ The pull should have been done before you made any changes, but at least this wi
 This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
 
 The command is: 
-<pre>git checkout master</pre> 
-(This sets your master branch active... This is where you are going to PULL another branch into merge with) git merge &lt;branch to merge with&gt; 
+<pre>
+git checkout master
+(This sets your master branch active... This is where you are going to PULL another branch into merge with) git merge branch-to-merge-with 
+</pre>
+
 
 First make sure everything is up to date - synchronize the lowest branch to github: 
 
-*If the IDE is open close it and save whatever you need to 
-*Add and Commit anything that's been changed 
-*run git status to confirm there's nothing hanging out there 
-*git push origin &lt;branch&gt;
+* If the IDE is open close it and save whatever you need to 
+* Add and Commit anything that's been changed 
+* run git status to confirm there's nothing hanging out there 
+* git push origin &lt;branch&gt;
 
 Example of merging master with edge: 
 <pre>git checkout master
 git merge edge</pre> 
 That should do it.<br> But it usually doesn't. Usually you find merge conflicts on readme.md, tinyg.aws or other files. Do this:<br> 
 
-*Make a temp directory on the desktop or somewhere else outside the git directory 
-*Put copies of all the files in conflict into this directory
-*git rm all the conflicted files. Remember to do *git rm*, not just *rm*!
-*See if the files that were pulled in from the pull branch (e.g. from edge merging into master) are the ones you want. If so keep them,. If not, overwrite them from the temp directory
-*Add any new files to git - e.g git add .
-*Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
-*Do the merge again (e.g. git merge edge)
+* Make a temp directory on the desktop or somewhere else outside the git directory 
+* Put copies of all the files in conflict into this directory
+* git rm all the conflicted files. Remember to do *git rm*, not just *rm*!
+* See if the files that were pulled in from the pull branch (e.g. from edge merging into master) are the ones you want. If so keep them,. If not, overwrite them from the temp directory
+* Add any new files to git - e.g git add .
+* Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
+* Do the merge again (e.g. git merge edge)
 **Finish the merge by running git**
 
 
 ### Promoting Branches
+Steps to promote dev to edge and edge to master are listed here. There's probably an easier way to do this for someone that really knows how to use github, but this is what I do. Comments and suggestions for improvement are welcome. Derision and sneers are amusing.
 
-Steps to promote dev to edge and edge to master are noted here.
-Example of promoting dev to edge
+#### Checklist for promoting dev to edge
+* Make sure all dirs are where you want them
+ * firmware - all code changes are in place and pushed to github as dev
+ * hardware - look for changes to any schematics or other HW artifacts
+ * gcode_samples - add any new files or rearrangements of existing files
+* Get the support directory up to date. This includes
+ * edit the readme files. If you mad any changes to the dev file copy it into the main dir and rename it to readme.md to replace the one that's in there.
+ * bring in the current studio 4 and studio 6 project files for tinyg and xboot. Overwrite any old ones that are there.
+ * are there any drivers or other artifacts to add?
+* Update xboot if needed
+* Now make sure dev is fully pushed to github
+* Now stash copies of all the 
+
 * Start by closing out edge and syncing it to github. See first steps in MERGING, above
 * git checkout edge to change to edge branch
 * git pull if the checkout says you are behind the origin
