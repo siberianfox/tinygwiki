@@ -55,7 +55,7 @@ git rm -r dirname
 </pre> 
 **Note: git's gotten better about this. I routinely remove files from the OS now and git manages it OK**
 
-### Pushing code to Github
+### Pushing Code to Github
 Our conventions for pushing to github are described here. Use whatever your build number is instead of 337.07 in the example; 
 <pre>cd &lt;current dir&gt;
 git status 
@@ -115,6 +115,7 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 Steps to promote dev to edge and edge to master are listed here. There's probably an easier way to do this for someone that really knows how to use github, but this is what I do. Comments and suggestions for improvement are welcome. Derision and sneers are amusing.
 
 #### Checklist for promoting dev to edge
+Start in the dev branch
 * Make sure all dirs are where you want them
  * firmware - all code changes are in place and pushed to github as dev
  * hardware - look for changes to any schematics or other HW artifacts
@@ -135,7 +136,7 @@ Now do the edge branch
 * Replace the readme.md file in the main directory with the readme_edge.md (renamed to readme.md)
 * When you are satisfied that tings look right - git push origin edge
 
-
+Promoting edge to master is similar
 
 ### Tags
 
