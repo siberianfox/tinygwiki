@@ -133,4 +133,4 @@ Hex | char | name | used by
 	0x7D | } | close curly JSON notation
 	0x7E | ~ | tilde | TinyG cycle start
 	0x7F | DEL
-	0xFF | DEL | may be returned to Kinen SPI when no device is plugged in 
+	0xFF | DEL | | may be returned to Kinen SPI when no device is plugged in 
