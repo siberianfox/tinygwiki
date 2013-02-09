@@ -94,8 +94,10 @@ First make sure everything is up to date - synchronize the lowest branch to gith
 * git push origin &lt;branch&gt;
 
 Example of merging master with edge: 
-<pre>git checkout master
-git merge edge</pre> 
+<pre>
+git checkout master
+git merge edge
+</pre> 
 That should do it.<br> But it usually doesn't. Usually you find merge conflicts on readme.md, tinyg.aws or other files. Do this:<br> 
 
 * Make a temp directory on the desktop or somewhere else outside the git directory 
@@ -106,6 +108,7 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 * Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
 * Do the merge again (e.g. git merge edge)
 **Finish the merge by running git**
+
 
 
 ### Promoting Branches
