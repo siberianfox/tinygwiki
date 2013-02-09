@@ -66,10 +66,10 @@ See also:
 
 Hex | char | name | used by
 	---- | ---- | ---------- | --------------------
-	0x00 | NUL | null | everything
+	0x00 | NUL | null | everything; may be returned to Kinen SPI when no device is plugged in
 	0x01 | SOH | ctrl-A
-	0x02 | STX | ctrl-B | Kinen SPI protocol
-	0x03 | ETX | ctrl-C | Kinen SPI protocol
+	0x02 | STX | ctrl-B | Kinen SPI protocol - Request character
+	0x03 | ETX | ctrl-C | Kinen SPI protocol - Return no character
 	0x04 | EOT | ctrl-D
 	0x05 | ENQ | ctrl-E
 	0x06 | ACK | ctrl-F
@@ -87,7 +87,7 @@ Hex | char | name | used by
 	0x12 | DC2 | ctrl-R		
 	0x13 | DC3 | ctrl-S | XON
 	0x14 | DC4 | ctrl-T		
-	0x15 | NAK | ctrl-U
+	0x15 | NAK | ctrl-U | Kinen SPI protocol - Slave buffer overrun detected
 	0x16 | SYN | ctrl-V
 	0x17 | ETB | ctrl-W | 
 	0x18 | CAN | ctrl-X | TinyG / grbl software reset
@@ -133,3 +133,4 @@ Hex | char | name | used by
 	0x7D | } | close curly JSON notation
 	0x7E | ~ | tilde | TinyG cycle start
 	0x7F | DEL
+	0xFF | DEL | may be returned to Kinen SPI when no device is plugged in 
