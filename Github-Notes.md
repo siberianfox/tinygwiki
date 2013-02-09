@@ -116,8 +116,8 @@ Steps to promote dev to edge and edge to master are listed here. There's probabl
 
 Start in the dev branch
 * Make sure all dirs are where you want them
- * firmware - all code changes are in place and pushed to github as dev
-  * make sure the project is set to -Os optimization and all debug defines are disabled
+ * firmware - all code changes are in place and pushed to github as dev. Make sure the project is set to -Os optimization and all debug defines are disabled. Compile under both 4 and 6 and verify
+ * Move the fresh project files into the support directory
  * hardware - look for changes to any schematics or other HW artifacts
  * gcode_samples - add any new files or rearrangements of existing files
 * Get the support directory up to date. This includes
