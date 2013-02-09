@@ -125,13 +125,16 @@ Steps to promote dev to edge and edge to master are listed here. There's probabl
  * are there any drivers or other artifacts to add?
 * Update xboot if needed
 * Now make sure dev is fully pushed to github
-* Now stash copies of all the 
+* Now stash copies of all the directories in a stash directory.
 
-* Start by closing out edge and syncing it to github. See first steps in MERGING, above
-* git checkout edge to change to edge branch
-* git pull if the checkout says you are behind the origin
-* git status to see if it's clean
-* We maintain separate readme files outside of git - look in github support. Edit the readme_edge.md file and make a copy into the main directory. Delete the current readme.md and rename the readme_edge.md to readme.md
+
+Now do the edge branch
+* Change branches to edge
+* Replace the edge directories with the ones you stashed from dev
+* Run git status to see what you've got. Look for any untracked files and add them if needed
+* Replace the readme.md file in the main directory with the readme_edge.md (renamed to readme.md)
+* When you are satisfied that tings look right - git push origin edge
+
 
 
 ### Tags
