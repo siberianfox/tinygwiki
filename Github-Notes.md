@@ -36,7 +36,7 @@ From here it depends on what you want to work on. I assume you want to go to dev
 
 
 ### Changing Branches
-Before changing branches make sure you have all the work on the current branch committed. Otherwise git won;t let you change. If you don't want the work in the current branch just reset  `git reset --hard`. You will lose the work.
+Before changing branches make sure you have all the work on the current branch committed. Otherwise git won't let you change. If you don't want the work in the current branch just reset  `git reset --hard`. You will lose the work.
 
 <pre>git checkout dev</pre> 
 This now switches your files for you. If you encounter difficulties and cannot switch to dev it's usually because some files in the dev branch have changed and will be clobbered if you switch. In general you need to move these files out of the way (e.g. to the desktop), do the checkout, then replace the checked out files with the ones you moved aside. Or not, if you don't want the changes. We are still working out the .gitignore as some of these files are irrelevant to the source. 
