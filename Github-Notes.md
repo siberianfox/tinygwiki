@@ -111,10 +111,9 @@ That should do it.<br> But it usually doesn't. Usually you find merge conflicts 
 
 
 
-### Promoting Branches
+### Checklist for Promoting Branches
 Steps to promote dev to edge and edge to master are listed here. There's probably an easier way to do this for someone that really knows how to use github, but this is what I do. Comments and suggestions for improvement are welcome. Derision and sneers are amusing.
 
-#### Checklist for promoting dev to edge
 Start in the dev branch
 * Make sure all dirs are where you want them
  * firmware - all code changes are in place and pushed to github as dev
@@ -125,8 +124,8 @@ Start in the dev branch
  * bring in the current studio 4 and studio 6 project files for tinyg and xboot. Overwrite any old ones that are there.
  * are there any drivers or other artifacts to add?
 * Update xboot if needed
-* Now make sure dev is fully pushed to github
-* Now stash copies of all the directories in a stash directory.
+* Make sure dev is fully pushed to github
+* Stash copies of all the directories in a stash directory
 
 
 Now do the edge branch
