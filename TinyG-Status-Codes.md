@@ -32,7 +32,10 @@ See also:
 	23 | TG_DIVIDE_BY_ZERO
 	24 | TG_INVALID_ADDRESS
 	25 | TG_READ_ONLY_ADDRESS
-	26-39 | TG_ERROR_26 - TG_ERROR_39 | reserved
+	26 | TG_INIT_FAIL | Initialization failure
+	27 | TG_SHUTDOWN | System shutdown occurred
+	28 | TG_MEMORY_CORRUPTION | Memory corruption detected
+	29-39 | TG_ERROR_26 - TG_ERROR_39 | reserved
 	 | **Input errors** | typically data problems on inputs
 	40 | TG_UNRECOGNIZED_COMMAND | parser didn't recognize the command
 	41 | TG_EXPECTED_COMMAND_LETTER | malformed line to parser
@@ -44,8 +47,9 @@ See also:
 	47 | TG_INPUT_VALUE_UNSUPPORTED | input error: value is not supported for this parameter
 	48 | TG_JSON_SYNTAX_ERROR | JSON string is not well formed
 	49 | TG_JSON_TOO_MANY_PAIRS | JSON string or has too many name:value pairs
-	50 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
-	51 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
+	50 | TG_JSON_TOO_LONG | JSON output string too long for output buffer
+	51 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
+	52 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
 	 | **Gcode and machining errors** | application specific errors for Gcode problems
 	60 | TG_ZERO_LENGTH_MOVE | move is zero length
 	61 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
