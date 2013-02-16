@@ -91,16 +91,20 @@ In JSON mode Gcode blocks may be provided either as native gcode text or wrapped
 
 The first responses are pretty normal. The third has a comment in it. The fourth is what would happen if a MSG were communicated in the Gcode comment. 
 
-
 ## Group Resources
 "Groups" are related parameters or settings. In REST-speak they are "resources". The following groups are defined: 
 
 * Axis groups [x,y,z,a,b,c] - contains all per-axis configuration settings such as maximum velocity and axis travel 
 * Motor groups [1,2,3,4] - contains all per-motor configuration settings such as steps per revolution or microsteps 
+* PWM controls group
 * Coordinate system offset groups [g54,g55,g56,g57,g58,g59] - contains offsets for xyzabc axes. 
-* System group - special group with system and global parameters&nbsp;
+* System group - special group with system and global parameters
+* Work position group - XYZABC work position - reported in prevailing units
+* Machine position group - XYZABC work position - absolute coordinates reported in millimeter units
+* Offset position group - XYZABC offsets in millimeter units
+* Homing status group - XYZABC axis homing status
 
-Groups are treated specially in JSON. The group prefix is "pulled out" and used as the parent object ID for the child NV pairs. For example, here is a standard (non-group) JSON line with all motor parameters for motor #2: 
+Groups are treated specially in JSON. The group prefix is "pulled out" and used as the parent object ID for the child NV pairs. For example, here is a standard (non-grouped) JSON line with all motor parameters for motor #2: 
 <pre>
 {"2ma":1,"2sa":1.8,"2tr":1.275,"2mi":2,"2po":0,"2pm":1}
 
@@ -124,7 +128,7 @@ A group resource can also be retrieved by its parent name alone:
 {"2":{"ma":1,"sa":1.8,"tr":1.275,"mi":2,"po":0,"pm":1}}
 </pre> 
 
-Another advantage of the group form is that all motors will serialize / deserialize in host code to well-defined objects, making for convenient host coding. Essentially a resource can be instantiated in the host program, serialized to JSON, then sent to the the firmware to set all values in the resource. The same is true in reverse. You can think of r attributes as being in an implicit dotted notation: e.g. x.fr, 1.sa, or g55.x<br> 
+Another advantage of the group form is that all motors will serialize / deserialize in host code to well-defined objects, making for convenient host coding. Essentially a resource can be instantiated in the host program, serialized to JSON, then sent to the the firmware to set all values in the resource. The same is true in reverse. You can think of attributes as being in an implicit dotted notation: e.g. x.fr, 1.sa, or g55.x<br> 
 
 '''''Here is an short Python Script that illustrates how easy it is to get data back from TinyG in a programatic way.''''' 
 <pre>#!/usr/bin/python
@@ -143,8 +147,8 @@ Some other examples of group resoruces:
 {"g54":{"x":0.000,""y":0.000,"z":0.000,"a",0.000,"b":0.000,"c":0.000}}
 {"g55":{"x":50.000,""y":50.000,"z":-10.000,"a",0.000,"b":0.000,"c":0.000}}
 </pre> 
-=== System Group  ===
 
+### System Group
 The System Group is a special case that handles system and global values that don't have have a common prefix. The system group is identified by "sys". Here are the members of the system group listed as a plain list and as a group resource. 
 <pre>{"fv":"","fb":"","si":"","gpl":"","gun":"","gco":"","gpa":"","gdi":"",ea":"","ja":"","ml":"","ma":"","mt":"","ic":"","il":"","ec":"","ee":"","ex":""}          - as a plain list
 {"sys":{"fv":"","fb":"","si":"","gpl":"","gun":"","gco":"","gpa":"","gdi":"",ea":"","ja":"","ml":"","ma":"","mt":"","ic":"","il":"","ec":"","ee":"","ex":""}}  - as a system group
