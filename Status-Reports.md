@@ -29,12 +29,17 @@ Z axis homed:        0
 A axis homed:        0
 </pre>
 
+Here are some examples of automatically generated status reports in JSON mode and text mode: 
 <pre>
 {"sr": {"line":1245,"vel":600.000,"posx":23.4352,"posy":-9.4386,"posz":0.125,"unit":"1","stat":"5"}}
 {"sr":{"line":0,"vel":3779.763,"mpox":0.000,"mpoy":0.000,"mpoz":0.000,"mpoa":1.650,"ofsx":0.000,"ofsy":0.000,"ofsz":0.000,"ofsa":0.000,"unit":1,"momo":0,"coor":1,"stat":5,"homx":0,"homy":0,"homz":0,"homa":0}}
 
-
-
+line:0,vel:631.875,posx:19.886,posy:300.510,posz:2.886,posa:0.000,mpox:605.094,mpoy:7732.955,mpoz:73.307,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+line:0,vel:629.264,posx:19.922,posy:300.980,posz:2.891,posa:0.000,mpox:606.027,mpoy:7744.886,mpoz:73.420,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+line:0,vel:537.877,posx:19.960,posy:301.459,posz:2.895,posa:0.000,mpox:606.979,mpoy:7758.124,mpoz:73.545,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+line:0,vel:315.937,posx:19.987,posy:301.805,posz:2.899,posa:0.000,mpox:607.714,mpoy:7766.438,mpoz:73.624,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+line:0,vel:93.998,posx:19.999,posy:301.960,posz:2.900,posa:0.000,mpox:607.976,mpoy:7769.783,mpoz:73.656,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+line:0,vel:0.653,posx:20.001,posy:301.980,posz:2.900,posa:0.000,mpox:608.016,mpoy:7770.301,mpoz:73.661,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
 </pre>
 
 ## Enabling Status Reports
