@@ -17,7 +17,7 @@ Z machine posn:      0.000 mm
 A machine posn:      0.000 deg
 X work offset:     100.000 mm
 Y work offset:     100.000 mm
-Z work offset:       0.000 in
+Z work offset:       0.000 mm
 A work offset:       0.000 deg
 Units:               G20 - inches mode
 Motion mode:         G80 - cancel motion mode (none active)
