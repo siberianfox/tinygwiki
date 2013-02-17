@@ -154,9 +154,10 @@ The System Group is a special case that handles system and global values that do
 {"sys":{"fv":"","fb":"","si":"","gpl":"","gun":"","gco":"","gpa":"","gdi":"",ea":"","ja":"","ml":"","ma":"","mt":"","ic":"","il":"","ec":"","ee":"","ex":""}}  - as a system group
 {"sys":""}  - returns all values in the system group
 
-[fv]  firmware_version
 [fb]  firmware_build
-[si]  status_interval
+[fv]  firmware_version
+[hv]  hardware_version
+[id]  unique ID
 
 [gpl] gcode_select_plane   - power-on and reset default, not equivalent to G17, G18, G19
 [gun] gcode_units_mode     - power-on and reset default, not equivalent to G20, G21
@@ -164,16 +165,24 @@ The System Group is a special case that handles system and global values that do
 [gpa] gcode_path_control   - power-on and reset default, not equivalent to G61, G61.1, G64
 [gdi] gcode_distance_mode  - power-on and reset default, not equivalent to G90, G91
 
-[ea]  enable_acceleration
 [ja]  junction_acceleration
-[ml]  min_line_segment
-[ma]  min_arc_segment
-[mt]  min_segment_time
+[ct]  chordal tolerance
+[st]  switch type
 
 [ic]  ignore_CR/LF (on RX)
 [ec]  enable_CR (on TX)
 [ee]  enable_echo
 [ex]  enable_xon_xoff
-[ej]  enable_json_mode on startup
+[eq]  enable queue reports
+[ej]  enable_json_mode
+[jv]  JSON verbosiroty
+
+[ml]  min_line_segment
+[ma]  min_arc_segment
+[mt]  min_segment_time
+[si]  status_interval
+
+
+
 </pre> 
 <br>
