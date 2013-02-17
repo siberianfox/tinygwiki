@@ -1,5 +1,7 @@
-## Status Reports
-Status reports are parent/child objects with a "sr" parent and one or more child NV pairs. In the examples below the status report has been requested from the command line:
+## Overview
+Status reports return the internal state of the machine (the Gcode model). They can be either requested directly bu $sr pr {"sr":""}, or set up to be run automatically.
+
+JSON status reports are parent/child objects with a "sr" parent and one or more child NV pairs. In the examples below the status report has been requested from the command line:
 <pre>
 Sending: {"sr":""}  returns:  
 {"r":{"sr":{"line":0,"vel":0.000,"posx":-3.937,"posy":-3.937,"posz":0.000,"posa":0.000,"mpox":0.000,"mpoy":0.000,"mpoz":0.000,"mpoa":0.000,"ofsx":100.000,"ofsy":100.000,"ofsz":0.000,"ofsa":0.000,"unit":0,"momo":4,"coor":2,"stat":1,"homx":0,"homy":0,"homz":0,"homa":0},"f":[1,0,10,1755]}}
