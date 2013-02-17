@@ -52,9 +52,20 @@ line:0,vel:0.653,posx:20.001,posy:301.980,posz:2.900,posa:0.000,mpox:608.016,mpo
 ## Enabling Status Reports
 Status reports are enabled using the $sv and $si variables:
 <pre>
-{"sv":0} - 
+{"sv":0}   disable automatic status reports
+{"sv":1}   enable filtered status reports
+{"sv":2}   enable verbose status reports
 
-Interval is set using $si
+{"si":50}  set minimum status report interval to 50 milliseconds
+{"si":250} set minimum status report interval to 250 milliseconds (or whatever you want)
+
+In text mode these are:
+$sv=0
+$sv=1
+$sv=2
+$si=50
+$si=250
+</pre>
 
 ## Status Report Operations
 The following operations can be performed: 
