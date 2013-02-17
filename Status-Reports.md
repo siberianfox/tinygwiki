@@ -31,8 +31,15 @@ A axis homed:        0
 
 Here are some examples of automatically generated status reports in JSON mode and text mode: 
 <pre>
-{"sr": {"line":1245,"vel":600.000,"posx":23.4352,"posy":-9.4386,"posz":0.125,"unit":"1","stat":"5"}}
-{"sr":{"line":0,"vel":3779.763,"mpox":0.000,"mpoy":0.000,"mpoz":0.000,"mpoa":1.650,"ofsx":0.000,"ofsy":0.000,"ofsz":0.000,"ofsa":0.000,"unit":1,"momo":0,"coor":1,"stat":5,"homx":0,"homy":0,"homz":0,"homa":0}}
+{"sr":{"posx":0.182,"posy":2.750,"posz":0.026,"mpox":104.620,"mpoy":169.839,"mpoz":0.663}}
+{"sr":{"posx":0.147,"posy":2.225,"posz":0.021,"mpox":103.737,"mpoy":156.507,"mpoz":0.535}}
+{"sr":{"posx":0.112,"posy":1.700,"posz":0.016,"mpox":102.854,"mpoy":143.176,"mpoz":0.407}}
+{"sr":{"posx":0.078,"posy":1.175,"posz":0.011,"mpox":101.971,"mpoy":129.845,"mpoz":0.279}}
+{"sr":{"vel":589.589,"posx":0.048,"posy":0.676,"posz":0.006,"mpox":101.132,"mpoy":117.173,"mpoz":0.158}}
+{"sr":{"vel":395.886,"posx":0.018,"posy":0.279,"posz":0.002,"mpox":100.464,"mpoy":107.088,"mpoz":0.061}}
+{"sr":{"vel":146.745,"posx":0.005,"posy":0.074,"posz":0.000,"mpox":100.119,"mpoy":101.874,"mpoz":0.011}}
+{"sr":{"vel":16.305,"posx":0.001,"posy":0.022,"posz":-0.000,"mpox":100.031,"mpoy":100.549,"mpoz":-0.002}}
+{"sr":{"vel":0.000,"posx":0.000,"posy":0.000,"posz":0.000,"mpox":100.000,"mpoy":100.000,"mpoz":0.000,"stat":3}}
 
 line:0,vel:631.875,posx:19.886,posy:300.510,posz:2.886,posa:0.000,mpox:605.094,mpoy:7732.955,mpoz:73.307,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
 line:0,vel:629.264,posx:19.922,posy:300.980,posz:2.891,posa:0.000,mpox:606.027,mpoy:7744.886,mpoz:73.420,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
