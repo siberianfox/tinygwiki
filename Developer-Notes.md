@@ -1,7 +1,7 @@
 These are random notes that may be useful for developers
-## Compiling TinyG Under AVRStudio4 using the Pre-Existing AVRStudio4 Project Files
+## Compiling TinyG w/AVRStudio4 using the Pre-Existing Project Files
 
-## Compiling TinyG Under AtmelStudio6 using the Pre-Existing AtmelStudio6 Project Files
+## Compiling TinyG w/AtmelStudio6 using the Pre-Existing Project Files
 
 ## AtmelStudio6 Setup (Importing TinyG or another project into Studio6)
 Forward: I still prefer Studio 4 for development and simulation, but TinyG also compiles in Atmel Studio 6 to maintain compatibility and take advantage of the newer C compiler and libraries for major releases. The .hex file for 6 is in the Debug dir, the .hex from 4 is in the default dir. 
