@@ -75,5 +75,5 @@ USE_ENTER_I2C = no
 USE_ENTER_FIFO = no
 </pre>
 
-Random notes
+Random notes<br>
 cp conf/x192a3.conf.mk config.mk
