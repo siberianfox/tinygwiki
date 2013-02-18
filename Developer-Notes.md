@@ -2,7 +2,9 @@ These are random notes that may be useful for developers
 ## Set Up a TinyG Compile environment 
 ### Clone the working directory
 Run git clone to set up TinyG working directory
-`git clone git@github.com:synthetos/TinyG.git`
+<pre>
+git clone git@github.com:synthetos/TinyG.git
+</pre>
 
 
 ### Set up AVRStudio4 project files
