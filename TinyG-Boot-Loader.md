@@ -93,5 +93,4 @@ in Miscellaneous
 
 Still to do:
 * Find a way to pre-process the config.h file
-* Need to post-process xboot-hex to xboot-boot.hex to move to boot region
 * De we need to assemble sp_driver.S?
