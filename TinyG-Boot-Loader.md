@@ -63,10 +63,9 @@ Bring up a cmd window and navigate to the working directory. Run the command:
 <pre>
 make conf/x192a3.conf.mk
 </pre>
+You should now be ready to flash xboot-boot.hex onto the xmega192. Refer to the Flashing... section, above.
 
 ### Getting Xboot to work in Atmel Studio6
-**THESE NOTES ARE IN PROCESS AND ARE NOT YET COMPLETE**
-
 The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
 
 This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native Makefile in the working directory. This is so the debugger can support symbolic debugging. Some things had to happen for this to work.
