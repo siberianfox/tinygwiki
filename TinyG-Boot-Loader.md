@@ -74,3 +74,6 @@ USE_ENTER_UART = yes
 USE_ENTER_I2C = no
 USE_ENTER_FIFO = no
 </pre>
+
+Random notes
+cp conf/x192a3.conf.mk config.mk
