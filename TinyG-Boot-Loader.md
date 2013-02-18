@@ -75,6 +75,7 @@ This project uses the Studio6 auto-generated makefile in the Debug directory ins
 <pre>
 in Build Events / post-build event:
 avr-objcopy -O ihex --change-addresses -0x30000 xboot.hex xboot-boot.hex
+avr-nm -n xboot.elf > xboot.sym
 </pre>
 <pre>
 in Symbols:
