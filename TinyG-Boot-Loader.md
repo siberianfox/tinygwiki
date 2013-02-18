@@ -61,34 +61,19 @@ The boot loader is Alex Forencich's xboot which can be found in the xboot direct
 ### Getting Xboot to work in Native Windows
 Bring up a cmd window and navigate to the working directory. Run the command:
 <pre>
-Make conf/x192a3.conf.mk
+make conf/x192a3.conf.mk
 </pre>
-Y
+
 ### Getting Xboot to work in Atmel Studio6
 **THESE NOTES ARE IN PROCESS AND ARE NOT YET COMPLETE**
 
 The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
 
+This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native Makefile in the working directory. This is so the debugger can support symbolic debugging. Some things had to happen for this to work.
 
-Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
-
-
-Don't use the AVRStudios. They don't work yet. Ignore this text:
+1. You must generate config.h by running `make conf/x192a3.conf.mk`. If the conf file changes you must run this again to refresh config.h
+2. Setup the xboot project properties:
 <pre>
-The xboot project has been set up under both AVRStudio4 and Atmel Studio6 (Windows only). Project files are the xboot.* files in the github TinyG/support dir. Move these to your project directory then click on xboot.aps to invoke 4, xboot.atsln for 6. Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
+add 'F_CPU=32000000' to symbols
+change optimization to -Os if it's not already there
 </pre>
-
-Instead, open a Windows cmd window. Navigate to the xboot working directory and issue:
-
-
-Entry parameters used are:<br>
-<pre>
-USE_ENTER_DELAY = yes
-USE_ENTER_PIN = no
-USE_ENTER_UART = yes
-USE_ENTER_I2C = no
-USE_ENTER_FIFO = no
-</pre>
-
-Random notes<br>
-cp conf/x192a3.conf.mk config.mk
