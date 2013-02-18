@@ -89,6 +89,7 @@ Optimization
 <pre>
 in Miscellaneous
 -mmcu=atxmega192a3 -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+-mmcu=atxmega192a3 -I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 </pre>
 
 Still to do:
