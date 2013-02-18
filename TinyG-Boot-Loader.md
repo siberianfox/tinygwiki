@@ -73,8 +73,13 @@ This project uses the Studio6 auto-generated makefile in the Debug directory ins
 1. You must generate config.h by running `make conf/x192a3.conf.mk`. If the conf file changes you must run this again to refresh config.h
 2. Setup the xboot project properties:
 <pre>
+in Build Events / post-build event:
+avr-objcopy -O ihex --change-addresses -0x30000 xboot.hex xboot-boot.hex
+</pre>
+<pre>
 in Symbols:
 F_CPU=32000000
+USE_CONFIG_H
 </pre>
 <pre>
 Optimization
@@ -82,7 +87,7 @@ Optimization
 </pre>
 <pre>
 in Miscellaneous
--c -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+-mmcu=atxmega192a3 -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 </pre>
 
 Still to do:
