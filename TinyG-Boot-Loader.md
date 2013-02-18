@@ -82,7 +82,7 @@ Optimization
 </pre>
 <pre>
 in Miscellaneous
--std=gnu99 -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+-c -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 </pre>
 
 Still to do:
