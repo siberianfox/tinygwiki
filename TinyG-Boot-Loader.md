@@ -73,6 +73,20 @@ This project uses the Studio6 auto-generated makefile in the Debug directory ins
 1. You must generate config.h by running `make conf/x192a3.conf.mk`. If the conf file changes you must run this again to refresh config.h
 2. Setup the xboot project properties:
 <pre>
-add 'F_CPU=32000000' to symbols
-change optimization to -Os if it's not already there
+in Symbols:
+F_CPU=32000000
+</pre>
+<pre>
+Optimization
+-Os
+</pre>
+<pre>
+in Miscellaneous
+-fno-jump-tables
+</pre>
+
+Still to do:
+<pre>
+Find a way to pre-process the config.h file
+Need to post-process xboot-hex to xboot-boot.hex to move to boot region
 </pre>
