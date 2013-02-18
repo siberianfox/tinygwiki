@@ -82,11 +82,10 @@ Optimization
 </pre>
 <pre>
 in Miscellaneous
--fno-jump-tables
+-std=gnu99 -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 </pre>
 
 Still to do:
-<pre>
-Find a way to pre-process the config.h file
-Need to post-process xboot-hex to xboot-boot.hex to move to boot region
-</pre>
+* Find a way to pre-process the config.h file
+* Need to post-process xboot-hex to xboot-boot.hex to move to boot region
+* De we need to assemble sp_driver.S?
