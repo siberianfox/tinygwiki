@@ -56,7 +56,22 @@ macintosh-3:xboot your-user-dir$
 We have not diagnosed or fixed this yet.
 
 ## Developer Notes
-THe boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
+The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
+
+### Getting Xboot to work in Native Windows
+Bring up a cmd window and navigate to the working directory. Run the command:
+<pre>
+Make conf/x192a3.conf.mk
+</pre>
+Y
+### Getting Xboot to work in Atmel Studio6
+**THESE NOTES ARE IN PROCESS AND ARE NOT YET COMPLETE**
+
+The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
+
+
+Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
+
 
 Don't use the AVRStudios. They don't work yet. Ignore this text:
 <pre>
@@ -64,7 +79,7 @@ The xboot project has been set up under both AVRStudio4 and Atmel Studio6 (Windo
 </pre>
 
 Instead, open a Windows cmd window. Navigate to the xboot working directory and issue:
-Make conf/x192a3.conf.mk
+
 
 Entry parameters used are:<br>
 <pre>
