@@ -58,9 +58,13 @@ We have not diagnosed or fixed this yet.
 ## Developer Notes
 THe boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
 
+Don't use the AVRStudios. They don't work yet. Ignore this text:
+<pre>
 The xboot project has been set up under both AVRStudio4 and Atmel Studio6 (Windows only). Project files are the xboot.* files in the github TinyG/support dir. Move these to your project directory then click on xboot.aps to invoke 4, xboot.atsln for 6. Note that both of these projects use an external Makefile and therefore have makefile generation disabled. You do not want to turn in internal makefile or you will clobber the real Makefile.
+</pre>
 
-The makefile can also be compiled from the command line but Kevin got an infinite loop in Linux. It worked under Windows.
+Instead, open a Windows cmd window. Navigate to the xboot working directory and issue:
+Make conf/x192a3.conf.mk
 
 Entry parameters used are:<br>
 <pre>
