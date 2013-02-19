@@ -83,13 +83,17 @@ F_CPU=32000000
 USE_CONFIG_H
 </pre>
 <pre>
-Optimization
+in Optimization:
 -Os
 </pre>
 <pre>
 in Miscellaneous
 -mmcu=atxmega192a3 -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 -mmcu=atxmega192a3 -I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+</pre>
+<pre>
+in Linker/Memory Settings:
+.text=0x18000
 </pre>
 
 Still to do:
