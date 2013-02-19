@@ -68,7 +68,7 @@ You should now be ready to flash xboot-boot.hex onto the xmega192. Refer to the 
 ### Getting Xboot to work in Atmel Studio6
 The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
 
-This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native Makefile in the working directory. This is so the debugger can support symbolic debugging. Some things had to happen for this to work.
+This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native xboot Makefile in the working directory. This is so the debugger can support symbolic debugging. The following need to be done for this to work.
 
 1. You must generate config.h by running `make conf/x192a3.conf.mk`. If the conf file changes you must run this again to refresh config.h
 2. Setup the xboot project properties:
@@ -93,9 +93,8 @@ in Miscellaneous
 </pre>
 <pre>
 in Linker/Memory Settings:
-.text=0x18000
+.text=0x18000    (yes, it's 0x30000 divided by 2)
 </pre>
 
 Still to do:
 * Find a way to pre-process the config.h file
-* De we need to assemble sp_driver.S?
