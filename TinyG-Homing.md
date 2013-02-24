@@ -99,6 +99,7 @@ The following per-axis settings are used by homing. Substitute any of XYZABC for
 	Setting | Description | Notes
 	--------|-------------|--------------
 	**$xTM** | Travel Maximum | This axis parameter is used to limit travel during the search phase
+	**$xJH** | Homing Jerk | Set this to stop quickly on switches. May need to be larger than the $xJM
 	**$xSV** | Homing Search Velocity | Velocity for initially finding the homing switch
 	**$xLV** | Homing Latch Velocity | Velocity for latching phase
 	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears
