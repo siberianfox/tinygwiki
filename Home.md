@@ -19,7 +19,7 @@ Please come visit / join any or all of the above.
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Homing Setup and Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) - How to use JSON mode
+* [JSON Mode Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 ### TinyG References
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - Gcode commands supported and how they work
