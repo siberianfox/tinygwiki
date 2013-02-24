@@ -3,7 +3,7 @@ Status reports are a way to query the internal state of the machine (technically
 
 Status reports can be requested directly:
 
-
+	command line | description
 	------|------------
 	? | text mode status report
 	$sr | equivalent to ?
