@@ -37,7 +37,7 @@ The JSON interface is modeled as a RESTful interface, albeit running over USB se
 How things are encoded in JSON:
 
 	Term | Description
-	-----|--------------
+	---------------|--------------
 	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
 	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by a pair of quotes `""`, the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value.
 	**NV pair** | A name and a value is a name:value pair or NV pair
@@ -46,9 +46,9 @@ How things are encoded in JSON:
 What is encoded in JSON:
 
 	Term | Description
-	-----|--------------
+	---------------|--------------
 	**configs** | Configs are the collection of static configuration settings for the machine. These static parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
-	**gcode block** | Gcode blocks are lines of Gcode consisting of one or more Gcode words, optional comments and possibly comment messages messages
+	**gcode block** | Gcode blocks are lines of Gcode consisting of one or more Gcode words, optional comments and possibly gcode messages
 	**gcode word** | Gcode blocks can contain one or more Gcode **words**, optional comments and messages, and some other Gcode characters. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
 	**gcode comment** | A Gcode **comment** is denoted by parentheses - (this is a Gcode comment). 
 	**gcode message** | A Gcode **message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
