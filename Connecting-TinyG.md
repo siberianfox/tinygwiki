@@ -14,7 +14,7 @@ Next establish USB connection with your host computer.
 
 1. If you do not have the FTDI VCP USB drivers for your system you will need to install these. It's quite possible they are already on your system as many applications use these, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get then from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer.
 
-2. Download and connect to Reger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `TTY....`. Configure the following settings:
+2. Download and connect to Reger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
  * 115,200 baud
  * 8 data bits
  * no parity
