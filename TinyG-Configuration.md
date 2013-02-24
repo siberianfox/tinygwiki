@@ -318,6 +318,8 @@ By way of example, my Shapeoko is set up this way:
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 
+**Identification Settings**
+
 ### $FB - Firmware Build number
 Read-only value. Can be queried. Currently this is something above 370.02.
 
@@ -330,6 +332,8 @@ Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 
 ### $ID - Unique Board Identifier
 Read-only value. Can be queried.
 
+**Global System Settings**
+
 ### $JA - Junction Acceleration 
 In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
 
@@ -338,10 +342,12 @@ $ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance mach
 $ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
 </pre> 
 
-### $CT - Chordal Accuracy
-Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal accuracy sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be in the middle of the line / arc. 
+### $CT - Chordal Tolerance
+Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal tolerance sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be in the middle of the line / arc. 
 
-Setting chordal tolerance high will make curves "rougher", but they can execute faster.
+Setting chordal tolerance high will make curves "rougher", but they can execute faster. Setting them smaller will make for smoother arcs that may take longer to execute. The lower-limit of $ct is set by the minimum arc segment length, which really should not be changed (See hidden parameters).
+
+Sonny Jeon of the grbl project pointed this one out.
 
 ### $ST - Switch Type
 Sets the type of switch used for homing and/or limits. All switches must be of the same type (mixes are not supported).
@@ -350,8 +356,36 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
-## Communications Parameters
-Set communications. These are also part of the "sys" group.
+**Communications Settings**
+
+### $EJ - Enable JSON Mode on Power Up
+This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
+
+Please note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board.
+
+<pre>
+$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
+$ej=1      - Enable JSON mode on power-up and reset
+</pre>
+
+### $JV - Set JSON verbosity
+If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
+<pre>
+$jv=0      - Silent - no responses given to JSON commands
+$jv=1      - Footer only - response contains no body - footer only
+$jv=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
+$jv=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
+$jv=4      - Messages - body returned for configs; Gcode returns line numbers and messages only
+$jv=5      - Full echo - Body returned for configs and Gcode - Gcode comments removed
+</pre>
+
+### $TV - Set Text mode verbosity
+<pre>
+$tv=0      - Silent - no response is provided
+$tv=3      - Verbose - returns OK and error responses
+</pre>
+
+
 
 ### $IC Ignore CR or LF on RX 
 <pre>
@@ -371,32 +405,6 @@ $ee=1      - Enable character echo
 <pre>
 $ex=0      - Disable XON/XOFF protocol 
 $ex=1      - Enable XON/XOFF protocol 
-</pre>
-
-### $EJ - Enable JSON Mode on Power Up
-This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
-<pre>
-$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
-$ej=1      - Enable JSON mode on power-up and reset
-</pre>
-
-### $TV - Set Test mode verbosity
-<pre>
-$tv=0      - Silent - no response is provided
-$tv=1      - Prompt - returns prompt only and exception messages
-$tv=2      - Messages - returns prompt and all messages
-$tv=3      - Verbose
-</pre>
-
-### $JV - Set JSON Echo verbosity
-If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
-<pre>
-$jv=0      - Silent - no responses given to JSON commands
-$jv=1      - Footer only - response contains no body - footer only
-$jv=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
-$jv=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
-$jv=4      - Messages - body returned for configs; Gcode returns line numbers and messages only
-$jv=5      - Full echo - Body returned for configs and Gcode - Gcode comments removed
 </pre>
 
 ### $BAUD - Set USB Baud Rate
