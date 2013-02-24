@@ -173,5 +173,5 @@ A status report may contain one or more of the following attributes. The [token]
 Additionally, any valid token may be listed in a status report. For example, "g54x" will return the X offset in the G54 coordinate system (coordinate system #1). "fv" would return the firmware version. 
 
 ## Random Notes
-* The reason the machine position (mpo) is in internal coordinates is to return a clean view of the internal position model. This allows the status report output to be used directly to chart tool path on a graphics window. This way the drawing model ignores things like units changes, coordinate systems and g92 offsets.
+* The reason the machine position (mpo) is in internal coordinates is to return a clean representation of the internal position model. This allows the status report output to be used directly to chart tool path on a graphics window. This way the drawing model ignores things like units changes, coordinate systems and g92 offsets.
 * You can get the actual work position for display in a DRO by subtracting the offset from the machine position. So a convenient way to set up a status report is to use filtered reports to return mpox, mpoy, mpoz, ofsx, ofsy, ofsz.
