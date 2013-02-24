@@ -133,11 +133,6 @@ _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of
 ## Groups
 Groups simplify configuration management and reporting by collecting related values together. The following groups are defined. All parameters within the groups are persistent (stored in EEPROM) unless noted.
 
-To list a group type in the group prefix; for example:
-* type $x to list the X group
-* type $sys to list the system group (or simply $, which is shorthand)
-* tyep $g55 to list the xyzabc offsets in the G55 coordinate system
-
 	Group | Tokens | Notes
 	--------|----------|-------
 	axis | x y x a b c | Contain all settings for that axis
@@ -152,6 +147,11 @@ To list a group type in the group prefix; for example:
 	hom | x y x a b c e | axis homing stateus. 'e' reports homing status for Entire machine
 	system | sys | Contain system parameters
 
+To list a group type in the group prefix; for example:
+* type $x to list the X group
+* type $sys to list the system group (or simply $, which is shorthand)
+* type $g55 to list the xyzabc offsets in the G55 coordinate system
+
 ### Uber-Groups
 In text mode (not JSON mode) the following groups of groups are also available for display:
 
@@ -162,7 +162,8 @@ In text mode (not JSON mode) the following groups of groups are also available f
 	offsets | o | All offset settings including g92's
 	all | $ | All settings. Invoked as $$
 
-This list can be seen by asking for the system help screen using $h.
+For example type $q to list all axis groups. 
+The list of uber-groups can be seen by asking for the system help screen using $h.
 
 ## Displaying Settings and Groups
 To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respond with the value taken. For example:
