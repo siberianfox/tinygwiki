@@ -1,5 +1,4 @@
-(last updated 12/21/12 - ash)
-REVISION NOTICE: The settings on this page are for version 0.95 and later. For other firmware revisions see  [TinyG Configuration for 0.94 and 0.93](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)
+**The settings on this page are for version 0.95 and later. For other firmware revisions see  [TinyG Configuration for 0.94 and 0.93](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)**
 
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
 
