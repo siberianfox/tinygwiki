@@ -2,6 +2,7 @@
 Status reports are a way to query the internal state of the machine (technically, the "dynamic Gcode model"). Status reports are for keeping a running tally of position and velocity for DRO displays or progress drawing, for knowing when the machine is running or complete, the current units mode or coordinate system, and other things like that.
 
 Status reports can be requested directly:
+
 	------|------------
 	? | text mode status report
 	$sr | equivalent to ?
