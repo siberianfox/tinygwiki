@@ -30,8 +30,8 @@ Character echo ($ee) is always an option; it's just not a good one for JSON. In 
 
 JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by {"jv":N} where N is one of:
 
-	# | label | description
-	--|-------|-------------
+	Num | label | description
+	----|-------|-------------
 	0 | JV_SILENT | No response is provided for any command
 	1 | JV_FOOTER | Returns footer only - no command echo, gcode blocks or messages
 	2 | JV_MESSAGES | Returns footer, messages (exception messages and gcode comment messages)
