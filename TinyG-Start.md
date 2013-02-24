@@ -3,7 +3,7 @@ If you have just received a TinyG this is the place to start. Here's some backgr
 ## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires and downloading software the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
-![TinyG v7 Diagram](https://www.dropbox.com/s/92r2bt5p6fqlw08/TinyGv7-2.png)
+![TinyG v7 Diagram](chttp://farm9.staticflickr.com/8514/8504374338_e901d2828e_b.jpg)
 
 To highlight a few things in the above diagram:
 
