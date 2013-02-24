@@ -1,6 +1,6 @@
-(last updated 12/23/12 - ash) 
+_updated 2/24/13 - ash_
 
-**NOTE: This page describes Gcode supported in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
+**NOTE: This page describes Gcode supported in release 0.95 and later**
 
 This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 
@@ -58,4 +58,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	M8 | | Flood coolant on |
 	M9 | | All coolant off |
 
-
+ 	Other | Parameter |Command | Description
+	------|-----------|--------|-------------
+	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
+	() | comment | gcode comment | Gcode comments are allowed. They are stripped and ignored, except for messages (below)
+	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
