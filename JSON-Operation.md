@@ -50,10 +50,10 @@ In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON valid
 
 	Term | Description
 	---------------|--------------
-	**configs** | Configs are the collection of static configuration settings for the machine. These static parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
-	**gcode block** | Gcode blocks are lines of Gcode consisting of one or more Gcode words, optional comments and possibly gcode messages
+	**configs** | Configs are the static configuration settings for the machine. These parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
+	**gcode block** | Gcode blocks are lines of gcode consisting of one or more gcode words, optional comments and possibly gcode messages
 	**gcode word** | Gcode words encode gcode commands. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
-	**gcode comment** | A Gcode **comment** is denoted by parentheses - (this is a Gcode comment). 
+	**gcode comment** | A Gcode **comment** is denoted by parentheses - (this is a gcode comment). 
 	**gcode message** | A Gcode **message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
 
 ## JSON Overview & TinyG Subset
