@@ -65,6 +65,24 @@ Here's the same sequence in JSON mode:
 {"sr":{"line":0,"posx":20.000,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":0.000,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":3}}
 </pre>
 
+#### Filtered Status Reports
+Filtered status reports are a very powerful way of keeping track of the internal machine state (gcode dynamic model) without requiring the UI to parse and interpret the Gcode file. Filtered status reports return only those values that have changed. Here are text and JSON mode examples of the g0x20 move.
+
+<pre>
+posx:0.006,vel:62.008,stat:5
+posx:3.907,vel:6061.269
+posx:16.093,vel:6386.810
+posx:20.000,vel:15.502
+vel:0.000,stat:3
+</pre>
+
+<pre>
+{"sr":{"posx":0.006,"vel":62.008,"stat":5}}
+{"sr":{"posx":4.410,"vel":6386.810}}
+{"sr":{"posx":16.093}}
+{"sr":{"posx":20.000,"vel":15.502}}
+{"sr":{"vel":0.000,"stat":3}}
+</pre>
 
 ## Enabling Status Reports
 Status reports are enabled using the $sv and $si variables:
