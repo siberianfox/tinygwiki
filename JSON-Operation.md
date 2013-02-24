@@ -105,3 +105,10 @@ It's similar to a response except there is no header or footer element. Since it
 
 #JSON Details
 See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
+
+
+#Random Notes
+_NOTE 1: In text mode the differences in units are obvious in the responses. In JSON there is no inherent units indication - so best to issue {"gc":"g20"} or {"gc":"g21"} at the start of every config session._
+
+_NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
+
