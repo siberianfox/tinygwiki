@@ -213,7 +213,7 @@ Diagonal / multi-axis traverses will actually occur at the fastest speed the com
 <pre>
 $xvm=1200        sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 $zvm=30.0        sets Z to 30 inches per minute - assuming G20 is active
-$avm=3600        sets A to 10 revolutions per minute (360 * 10)
+$avm=36000       sets A to 100 revolutions per minute (360 * 100)
 </pre>
  
 ### $xFR - Feed Rate maximum
@@ -245,6 +245,9 @@ The jerk term in mm is measured in mm/min^3. In inches mode it's units are inche
 25,000,000 mm/min^3      is 984,251 in/min^3 1,000,000 would suffice
 5,000,000,000 mm/min^3   is 196,850,400 in/min^3 200,000,000 would suffice
 </pre> 
+
+### $xJH - Jerk Homing
+Sets the jerk value used for homing to stop movement when switches are hit or released. In most cases the same value as $xJM is OK. However, if your $xJM is very low you may need a higher value for homing in order to prevent damage to the switches.
 
 ### $xJD - Junction Deviation
 This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on [Sonny Jeon's blog: Improving grbl cornering algorithm] (http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). 
@@ -282,6 +285,7 @@ By way of example, my Shapeoko is set up this way:
 	Setting | Description | Example
 	--------|-------------|--------------
 	$ST | Switch Type | 1=NC
+	$XJH | X Homing Jerk | 10000000000 (10 billion)
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
 	$XTM | X Travel Maximum | 180 mm
@@ -290,6 +294,7 @@ By way of example, my Shapeoko is set up this way:
 	$XLB | X Homing Latch Backoff | 20 mm
 	$XZB | X Homing Zero Backoff | 3 mm
 	||
+	$YJH | Y Homing Jerk | 10000000000 (10 billion)
 	$YSN | Y Minimum Switch Mode | 3=limit-and-homing
 	$YSX | Y Maximum Switch Mode | 2=limit-only
 	$YTM | Y Travel Maximum |  180 mm
@@ -298,6 +303,7 @@ By way of example, my Shapeoko is set up this way:
 	$YLB | Y Homing Latch Backoff | 20 mm
 	$YZB | Y Homing Zero Backoff | 3 mm
 	||
+	$ZJH | X Homing Jerk | 100000000 (100 million)
 	$ZSN | Z Minimum Switch Mode | 0=disabled (with NC switches it's important all unused switches are disabled)
 	$ZSX | Z Maximum Switch Mode | 3=limit-and-homing
 	$ZTM | Z Travel Maximum | 100 mm
@@ -308,6 +314,195 @@ By way of example, my Shapeoko is set up this way:
 	||
 	$ASN | A Minimum Switch Mode | 0=disabled 
 	$ASX | A Maximum Switch Mode | 0=disabled
+
+## System Group Settings
+These are general system-wide parameters and are part of the "sys" group.
+
+<br>
+####Identification Settings
+
+### $FB - Firmware Build number
+Read-only value. Can be queried. Currently this is something above 370.02.
+
+### $FV - Firmware Version
+Read-only value. Can be queried.
+
+### $HV - Hardware Version
+Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. This is set to v7 by default.
+
+### $ID - Unique Board Identifier
+Read-only value. Can be queried.
+
+<br>
+####Global System Settings
+
+### $JA - Junction Acceleration 
+In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
+
+<pre>
+$ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
+$ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
+</pre> 
+
+### $CT - Chordal Tolerance
+Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal tolerance sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be in the middle of the line / arc. 
+
+Setting chordal tolerance high will make curves "rougher", but they can execute faster. Setting them smaller will make for smoother arcs that may take longer to execute. The lower-limit of $ct is set by the minimum arc segment length, which really should not be changed (See hidden parameters).
+
+Sonny Jeon of the grbl project pointed this one out.
+
+### $ST - Switch Type
+Sets the type of switch used for homing and/or limits. All switches must be of the same type (mixes are not supported).
+<pre>
+$st=0   - Normally Open switches (NO)
+$st=1   - Normally Closed switches (NC)
+</pre> 
+
+<br>
+####Communications Settings
+
+### $EJ - Enable JSON Mode on Power Up
+This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
+
+Please note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board.
+
+<pre>
+$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
+$ej=1      - Enable JSON mode on power-up and reset
+</pre>
+
+### $JV - Set JSON verbosity
+If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2, 3 or 4. You may also want to change the baud rate to 230400. 
+<pre>
+$jv=0      - Silent   - No response is provided for any command
+$jv=1      - Footer   - Returns footer only - no command echo, gcode blocks or messages
+$jv=2      - Messages - Returns footer, messages (exception messages and gcode comment messages)
+$jv=3      - Configs  - Returns footer, messages, config commands
+$jv=4      - Linenum  - Returns footer, messages, config commands, gcode line numbers if present omitted
+$jv=5      - Verbose  - Returns footer, messages, config commands, gcode blocks
+</pre>
+
+### $TV - Set Text mode verbosity
+We recommend using Verbose, except for very special cases.
+<pre>
+$tv=0      - Silent - no response is provided
+$tv=1      - Verbose - returns OK and error responses
+</pre>
+
+### $QV - Queue Report Verbosity
+Queue reports return the number of available buffers in the planner queue. The planner queue has 24 buffers and therefore can have as many as 24 Gcode blocks queued for execution. An empty queue will report 24 available buffers. A full one will report 0. 
+
+Using the planner queue depth as a way to manage flow control when sending a Gcode file is actually a much better way than managing the serial input buffer. If you keep the planner full to about 2 blocks available it will run really smoothly. You also want to make sure the queue doesn't starve, say - more than 20 blocks available.
+
+Verbosity settings are:
+<pre>
+$qv=0      - Silent   - queue reports are off
+$qv=1      - Filtered - returns reports when depth changes and is above hi water mark or below low water mark
+$qv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
+</pre>
+
+### $QVH - Queue Report High Water Mark
+Set high-water mark for reporting. Set to 20 by default. This is a hidden setting and will not show up in $sys listings.
+
+### $QVL - Queue Report Low Water Mark
+Set low-water mark for reporting. Set to 2 by default. This is a hidden setting and will not show up in $sys listings.
+
+### #SV - Status Report Verbosity
+### $SI - Status Interval 
+[Please see here for a discussion of status report settings](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+
+### $IC Ignore CR or LF on RX 
+<pre>
+$ic=0      - Don't ignore CR or LF in received data
+$ic=1      - Ignore CR in received data
+$ic=2      - Ignore LF in received data
+</pre> 
+
+### $EE - Enable Character Echo 
+This should be disabled for JSON mode. In text mode it's optional either way.
+<pre>
+$ee=0      - Disable character echo
+$ee=1      - Enable character echo
+</pre> 
+
+### $EX - Enable XON/XOFF protocol 
+<pre>
+$ex=0      - Disable XON/XOFF protocol 
+$ex=1      - Enable XON/XOFF protocol 
+</pre>
+
+### $BAUD - Set USB Baud Rate
+The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the $baud command, (2) wait for a response verifying the command, (3) change to the new baud rate.
+<pre>
+$baud=0     - Illegal baud rate setting. Returns an error
+$baud=1     - 9600
+$baud=2     - 19200
+$baud=3     - 38400
+$baud=4     - 57600
+$baud=5     - 115200
+$baud=6     - 230400
+</pre>
+
+####Gcode Default Parameters
+These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
+
+These are also part of the "sys" group.
+
+### $GPL - Gcode Default Plane Selection
+<pre>
+$gpl=0      - G17 (XY plane)
+$gpl=1      - G18 (XZ plane)
+$gpl=2      - G19 (YZ plane)
+</pre> 
+
+###$GUN - Gcode Default Units
+<pre>
+$gun=0      - G20 (inches)
+$gun=1      - G21 (millimeters)
+</pre> 
+
+###$GCO - Gcode Default Coordinate System
+<pre>
+$gco=1      - G54 (coordinate system 1)
+$gco=2      - G55 (coordinate system 2)
+$gco=3      - G56 (coordinate system 3)
+$gco=4      - G57 (coordinate system 4)
+$gco=5      - G58 (coordinate system 5)
+$gco=6      - G59 (coordinate system 6)
+</pre> 
+
+###$GPA - Gcode Default Path Control
+<pre>
+$gpa=0      - G61 (exact stop mode)
+$gpa=1      - G61.1 (exact path mode)
+$gpa=2      - G64 (continuous mode)
+</pre> 
+
+### $GDI - Gcode Distance Mode
+<pre>
+$gdi=0      - G90 (absolute mode)
+$gdi=1      - G91 (incremental mode)
+</pre> 
+
+## Hidden Parameters
+These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
+
+### $ML- Minimum Line Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ml=0.08    - Do not change this value
+</pre> 
+
+### $MA - Minimum Arc Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>$ma=0.10    - Do not change this value
+</pre> 
+
+### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ms=5000  - Do not change this value
+</pre> 
 
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
@@ -358,20 +553,8 @@ Gcode provides the G10 L2 command to perform this same function. Coordinate offs
 
 TinyG does not persist G10 settings, however. This is not in accordance with the [Gcode spec](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CEkQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.141.2441%26rep%3Drep1%26type%3Dpdf&ei=rm7UULm2F6ex0AH1sICQDA&usg=AFQjCNH72m_sRg2TycD-8cf8d40FZ6Co_g&sig2=MrjWabHA5YwPsWtrj2TtOA&bvm=bv.1355534169,d.dmQ). Any G10 settings that are provided will be used until reset, power cycle, or they are overwritten by a $g5xx command or another G10 command. 
 
-## System Group Settings
-These are general system-wide parameters and are part of the "sys" group.
-
-### $FB - Firmware Build number
-Read-only value. Can be queried. Currently this is something above 355.01.
-
-### $FV - Firmware Version
-Read-only value. Can be queried. This page applies to 0.95 and above
-
-### $HV - Hardware Version
-Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. This is set to v7 by default.
-
-### $SI - Status Interval 
-Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
+## Commands
+These commands cause various actions, and are not technically "settings".
 
 ### $SR - Status Report
 Returns a status report. Identical to ? command. 
@@ -379,133 +562,6 @@ Returns a status report. Identical to ? command.
 Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
 <pre>
 {"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
-</pre>
-
-### $JA - Junction Acceleration 
-In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
-
-<pre>
-$ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
-$ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
-</pre> 
-
-### $ML- Minimum Line Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ml=0.08    - Do not change this value
-</pre> 
-
-### $MA - Minimum Arc Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>$ma=0.10    - Do not change this value
-</pre> 
-
-### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ms=5000  - Do not change this value
-</pre> 
-
-##Gcode Default Parameters
-These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
-
-These are also part of the "sys" group.
-
-### $GPL - Gcode Default Plane Selection
-<pre>
-$gpl=0      - G17 (XY plane)
-$gpl=1      - G18 (XZ plane)
-$gpl=2      - G19 (YZ plane)
-</pre> 
-
-###$GUN - Gcode Default Units
-<pre>
-$gun=0      - G20 (inches)
-$gun=1      - G21 (millimeters)
-</pre> 
-
-###$GCO - Gcode Default Coordinate System
-<pre>
-$gco=1      - G54 (coordinate system 1)
-$gco=2      - G55 (coordinate system 2)
-$gco=3      - G56 (coordinate system 3)
-$gco=4      - G57 (coordinate system 4)
-$gco=5      - G58 (coordinate system 5)
-$gco=6      - G59 (coordinate system 6)
-</pre> 
-
-###$GPA - Gcode Default Path Control
-<pre>
-$gpa=0      - G61 (exact stop mode)
-$gpa=1      - G61.1 (exact path mode)
-$gpa=2      - G64 (continuous mode)
-</pre> 
-
-### $GDI - Gcode Distance Mode
-<pre>
-$gdi=0      - G90 (absolute mode)
-$gdi=1      - G91 (incremental mode)
-</pre> 
-
-## Communications Parameters
-Set communications. These are also part of the "sys" group.
-
-### $IC Ignore CR or LF on RX 
-<pre>
-$ic=0      - Don't ignore CR or LF in received data
-$ic=1      - Ignore CR in received data
-$ic=2      - Ignore LF in received data
-</pre> 
-
-### $EE - Enable Character Echo 
-This should be disabled for JSON mode. In text mode it's optional either way.
-<pre>
-$ee=0      - Disable character echo
-$ee=1      - Enable character echo
-</pre> 
-
-### $EX - Enable XON/XOFF protocol 
-<pre>
-$ex=0      - Disable XON/XOFF protocol 
-$ex=1      - Enable XON/XOFF protocol 
-</pre>
-
-### $EJ - Enable JSON Mode on Power Up
-This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
-<pre>
-$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
-$ej=1      - Enable JSON mode on power-up and reset
-</pre>
-
-### $TV - Set Test mode verbosity
-<pre>
-$tv=0      - Silent - no response is provided
-$tv=1      - Prompt - returns prompt only and exception messages
-$tv=2      - Messages - returns prompt and all messages
-$tv=3      - Verbose
-</pre>
-
-### $JV - Set JSON Echo verbosity
-If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
-<pre>
-$jv=0      - Silent - no responses given to JSON commands
-$jv=1      - Footer only - response contains no body - footer only
-$jv=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
-$jv=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
-$jv=4      - Messages - body returned for configs; Gcode returns line numbers and messages only
-$jv=5      - Full echo - Body returned for configs and Gcode - Gcode comments removed
-</pre>
-
-### $BAUD - Set USB Baud Rate
-The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the $baud command, (2) wait for a response verifying the command, (3) change to the new baud rate.
-<pre>
-$baud=0     - Illegal baud rate setting. Returns an error
-$baud=1     - 9600
-$baud=2     - 19200
-$baud=3     - 38400
-$baud=4     - 57600
-$baud=5     - 115200
-$baud=6     - 230400
 </pre>
 
 ### $DEFA=1 - Reset default profile settings
