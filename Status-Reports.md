@@ -66,7 +66,7 @@ Here's the same sequence in JSON mode:
 </pre>
 
 #### Filtered Status Reports
-Filtered status reports are a very powerful way of keeping track of the internal machine state (gcode dynamic model) without requiring the UI to parse and interpret the Gcode file. Filtered status reports return only those values that have changed. Here are text and JSON mode examples of the g0x20 move.
+Filtered status reports are a very powerful way of keeping track of the internal machine state (gcode dynamic model) without requiring the UI to parse and interpret the Gcode file. Filtered status reports return only those values that have changed since the last status report. Here are text and JSON mode examples of the g0x20 move.
 
 <pre>
 posx:0.006,vel:62.008,stat:5
