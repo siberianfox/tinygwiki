@@ -131,7 +131,12 @@ _NOTE 1: In text mode the differences are obvious in the responses. In JSON ther
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
 
 ## Groups
-Groups simplify configuration management by collecting related values together. The following groups are defined. All groups are persistent (stored in EEPROM) unless noted.
+Groups simplify configuration management and reporting by collecting related values together. The following groups are defined. All parameters within the groups are persistent (stored in EEPROM) unless noted.
+
+To list a group type in the group prefix; for example:
+* type $x to list the X group
+* type $sys to list the system group (or simply $, which is shorthand)
+* tyep $g55 to list the xyzabc offsets in the G55 coordinate system
 
 	Group | Tokens | Notes
 	--------|----------|-------
