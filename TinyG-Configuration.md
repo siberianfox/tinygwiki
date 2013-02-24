@@ -484,26 +484,6 @@ $gdi=0      - G90 (absolute mode)
 $gdi=1      - G91 (incremental mode)
 </pre> 
 
-## Hidden Parameters
-These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
-
-### $ML- Minimum Line Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ml=0.08    - Do not change this value
-</pre> 
-
-### $MA - Minimum Arc Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>$ma=0.10    - Do not change this value
-</pre> 
-
-### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ms=5000  - Do not change this value
-</pre> 
-
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
 Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 commands to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to the Gcode coordinate systems 1-6, respectively. 
@@ -566,3 +546,23 @@ Note: In JSON this command may also be used to set the contents of a status repo
 
 ### $DEFA=1 - Reset default profile settings
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
+
+## Hidden Parameters
+These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
+
+### $ML- Minimum Line Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ml=0.08    - Do not change this value
+</pre> 
+
+### $MA - Minimum Arc Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>$ma=0.10    - Do not change this value
+</pre> 
+
+### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ms=5000  - Do not change this value
+</pre> 
