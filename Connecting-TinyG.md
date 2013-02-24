@@ -25,7 +25,13 @@ It's also useful to set the following - but not strictly necessary
 
 3. Hit OK to leave the Options menu 
 
-3. Hit the "Connect" button. Enter a few carriage returns; you may get some prompting action. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces. If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
+3. Hit the "Connect" button. Enter a few carriage returns; you may get some prompting action. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces like this"
+<pre>
+{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
+{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"SYSTEM READY","f":[1,0,0,8820]}}
+tinyg [mm] ok> 
+</pre>
+If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
 For help from the command line enter 'h', and "$h"
 
