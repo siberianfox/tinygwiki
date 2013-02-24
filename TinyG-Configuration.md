@@ -318,7 +318,7 @@ By way of example, my Shapeoko is set up this way:
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 
-<br><br>
+<br>
 ####Identification Settings
 
 ### $FB - Firmware Build number
@@ -333,7 +333,7 @@ Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 
 ### $ID - Unique Board Identifier
 Read-only value. Can be queried.
 
-<br><br>
+<br>
 ####Global System Settings
 
 ### $JA - Junction Acceleration 
@@ -358,7 +358,7 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
-
+<br>
 ####Communications Settings
 
 ### $EJ - Enable JSON Mode on Power Up
