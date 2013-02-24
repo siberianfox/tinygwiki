@@ -1,7 +1,8 @@
 ## Overview
 Status reports are a way to query the internal state of the machine (technically, the "dynamic Gcode model"). Status reports are for keeping a running tally of position and velocity for DRO displays or progress drawing, for knowing when the machine is running or complete, the current units mode or coordinate system, and other things like that.
 
-Status reports can be requested directly:
+### On-Demand Status Reports
+Status reports can be requested from the command line:
 
 	command line | description
 	------|------------
@@ -10,9 +11,6 @@ Status reports can be requested directly:
 	{"sr":""} | JSON status report
 	{"sr":null} | a different way to request a JSON report
 	{"sr":n} | shorthand for above
-
-They can also be set up to be run automatically on a set time interval.
-
 
 In text mode, '?' returns a multi-line report like this one:
 <pre>
@@ -32,31 +30,38 @@ Machine state:       End
 tinyg [mm] ok> 
 </pre>
 
-JSON status reports are parent/child objects with a "sr" parent and one or more child NV pairs. In the examples below the status report has been requested from the command line:
+JSON status reports are parent/child objects with a "sr" parent and one or more child name:value pairs. Here is the JSON form of the above report:
 <pre>
-Sending: {"sr":""}  returns:  
-{"r":{"sr":{"line":0,"vel":0.000,"posx":-3.937,"posy":-3.937,"posz":0.000,"posa":0.000,"mpox":0.000,"mpoy":0.000,"mpoz":0.000,"mpoa":0.000,"ofsx":100.000,"ofsy":100.000,"ofsz":0.000,"ofsa":0.000,"unit":0,"momo":4,"coor":2,"stat":1,"homx":0,"homy":0,"homz":0,"homa":0},"f":[1,0,10,1755]}}
-
-
-Here are some examples of automatically generated status reports in JSON mode and text mode: 
-<pre>
-{"sr":{"posx":0.182,"posy":2.750,"posz":0.026,"mpox":104.620,"mpoy":169.839,"mpoz":0.663}}
-{"sr":{"posx":0.147,"posy":2.225,"posz":0.021,"mpox":103.737,"mpoy":156.507,"mpoz":0.535}}
-{"sr":{"posx":0.112,"posy":1.700,"posz":0.016,"mpox":102.854,"mpoy":143.176,"mpoz":0.407}}
-{"sr":{"posx":0.078,"posy":1.175,"posz":0.011,"mpox":101.971,"mpoy":129.845,"mpoz":0.279}}
-{"sr":{"vel":589.589,"posx":0.048,"posy":0.676,"posz":0.006,"mpox":101.132,"mpoy":117.173,"mpoz":0.158}}
-{"sr":{"vel":395.886,"posx":0.018,"posy":0.279,"posz":0.002,"mpox":100.464,"mpoy":107.088,"mpoz":0.061}}
-{"sr":{"vel":146.745,"posx":0.005,"posy":0.074,"posz":0.000,"mpox":100.119,"mpoy":101.874,"mpoz":0.011}}
-{"sr":{"vel":16.305,"posx":0.001,"posy":0.022,"posz":-0.000,"mpox":100.031,"mpoy":100.549,"mpoz":-0.002}}
-{"sr":{"vel":0.000,"posx":0.000,"posy":0.000,"posz":0.000,"mpox":100.000,"mpoy":100.000,"mpoz":0.000,"stat":3}}
-
-line:0,vel:631.875,posx:19.886,posy:300.510,posz:2.886,posa:0.000,mpox:605.094,mpoy:7732.955,mpoz:73.307,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
-line:0,vel:629.264,posx:19.922,posy:300.980,posz:2.891,posa:0.000,mpox:606.027,mpoy:7744.886,mpoz:73.420,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
-line:0,vel:537.877,posx:19.960,posy:301.459,posz:2.895,posa:0.000,mpox:606.979,mpoy:7758.124,mpoz:73.545,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
-line:0,vel:315.937,posx:19.987,posy:301.805,posz:2.899,posa:0.000,mpox:607.714,mpoy:7766.438,mpoz:73.624,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
-line:0,vel:93.998,posx:19.999,posy:301.960,posz:2.900,posa:0.000,mpox:607.976,mpoy:7769.783,mpoz:73.656,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
-line:0,vel:0.653,posx:20.001,posy:301.980,posz:2.900,posa:0.000,mpox:608.016,mpoy:7770.301,mpoz:73.661,mpoa:0.000,ofsx:100.000,ofsy:100.000,ofsz:0.000,ofsa:0.000,unit:0,momo:0,coor:2,stat:5,homx:0,homy:0,homz:0,homa:0
+{"r":{"sr":{"line":0,"posx":0.010,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":0.000,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":1,"stat":3},"f":[1,0,9,588]}}
 </pre>
+
+### Automatic Status Reports
+Status reports can also be set up to be run automatically on a set time interval using these settings:
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
+	$si | Status report interval | in milliseconds (50 ms minimum interval)
+
+For now let's just talk about verbose status reports $sv=2, and a minimum interval of 100 milliseconds $si=100
+
+Here are some examples of automatically generated status reports in text mode from a g0x20 move: 
+<pre>
+line:0,posx:0.016,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:61.987,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
+line:0,posx:3.916,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:6059.247,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
+line:0,posx:16.094,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:6384.680,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
+line:0,posx:19.999,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:61.988,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
+line:0,posx:20.000,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:0.000,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:3
+</pre>
+
+Here's the same sequence in JSON mode:
+<pre>
+{"sr":{"line":0,"posx":0.006,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":62.008,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":5}}
+{"sr":{"line":0,"posx":4.937,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":6681.347,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":5}}
+{"sr":{"line":0,"posx":16.570,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":6061.269,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":5}}
+{"sr":{"line":0,"posx":20.000,"posy":0.000,"posz":-7.000,"posa":3.000,"feed":0.000,"vel":0.000,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":3}}
+</pre>
+
 
 ## Enabling Status Reports
 Status reports are enabled using the $sv and $si variables:
