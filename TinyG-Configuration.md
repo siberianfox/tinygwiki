@@ -547,12 +547,13 @@ TinyG does not persist G10 settings, however. This is not in accordance with the
 These commands cause various actions, and are not technically "settings".
 
 ### $SR - Status Report
-Returns a status report. Identical to ? command. 
+Returns a status report or set the contents of a status report (JSON only). Identical to ? command. See [Status Reports]() for details.
 
-Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
-<pre>
-{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
-</pre>
+### $QR - Queue Report
+Sends a queue reports. $QV $QV for details.
+
+### $QF - Queue Report
+Removes all Gcode blocks remaining inb the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
 ### $DEFA=1 - Reset default profile settings
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
