@@ -369,23 +369,22 @@ $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
 ### $JV - Set JSON verbosity
-If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2 or 3. You may also want to change the baud rate to 230400.
+If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2, 3 or 4. You may also want to change the baud rate to 230400. 
 <pre>
-$jv=0      - Silent - no responses given to JSON commands
-$jv=1      - Footer only - response contains no body - footer only
-$jv=2      - Omit Gcode body - Body returned for configs; omitted for Gcode commands
-$jv=3      - Gcode linenum only - Body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
-$jv=4      - Messages - body returned for configs; Gcode returns line numbers and messages only
-$jv=5      - Full echo - Body returned for configs and Gcode - Gcode comments removed
+$jv=0      - Silent   - No response is provided for any command
+$jv=1      - Footer   - Returns footer only - no command echo, gcode blocks or messages
+$jv=2      - Messages - Returns footer, messages (exception messages and gcode comment messages)
+$jv=3      - Configs  - Returns footer, messages, config commands
+$jv=4      - Linenum  - Returns footer, messages, config commands, gcode line numbers if present omitted
+$jv=5      - Verbose  - Returns footer, messages, config commands, gcode blocks
 </pre>
 
 ### $TV - Set Text mode verbosity
+We recommend using Verbose, except for very special cases.
 <pre>
 $tv=0      - Silent - no response is provided
-$tv=3      - Verbose - returns OK and error responses
+$tv=1      - Verbose - returns OK and error responses
 </pre>
-
-
 
 ### $IC Ignore CR or LF on RX 
 <pre>
