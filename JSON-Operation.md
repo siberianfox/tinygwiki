@@ -37,7 +37,7 @@ The JSON interface is modeled as a RESTful interface, albeit running over USB se
 In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
 {"x":{"vm":16000,"fr":10000}}
 
-How things are encoded in JSON:
+### How things are encoded in JSON
 
 	Term | Description
 	---------------|--------------
@@ -46,7 +46,7 @@ How things are encoded in JSON:
 	**NV pair** | A name and a value is a name:value pair or NV pair
 	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 
-What is encoded in JSON:
+### What is encoded in JSON
 
 	Term | Description
 	---------------|--------------
