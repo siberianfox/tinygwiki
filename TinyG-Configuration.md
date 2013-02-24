@@ -39,14 +39,20 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 ###System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
-**Global System Settings**
+**Identification Settings**
+These are reported on the startup strings and should be included in any support discussions.
 
 	Setting | Description | Notes
 	--------|-------------|-------
 	$fb | Firmware build | Read-only value, e.g. 351.05 
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$hv | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
-	$id | Unique ID | Each board has a read-only unique ID. Please use this value in any communications to Synthetos
+	$id | Unique ID | Each board has a read-only unique ID
+
+**Global System Settings**
+
+	Setting | Description | Notes
+	--------|-------------|-------
 	$ja | Junction acceleration | Global cornering acceleration value
 	$ct | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
 	$st | Switch type | 0=NO, 1=NC
