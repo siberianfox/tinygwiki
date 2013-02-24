@@ -140,6 +140,11 @@ Groups simplify configuration management by collecting related values together. 
 	pwm | p1 | Contain all settings for pulse width modulation channel
 	offsets | g54 g55 g56 g57 g58 g59 | Contain offset settings xyzabc in named coordinate system. 
 	temp offset | g92 | Contain g92 offset settings. These are not persistent
+	return to home values | g28, g30 | Contain return values in machine coordinates. These are not persistent
+	pos | x y x a b c | current work position, with offsets
+	mpo | x y x a b c | current machine position, no offsets, and always reports in millimeters
+	ofs | x y x a b c | current offsets,  always reports in millimeters
+	hom | x y x a b c e | axis homing stateus. 'e' reports homing status for Entire machine
 	system | sys | Contain system parameters
 
 ### Uber-Groups
