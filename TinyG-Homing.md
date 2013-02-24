@@ -94,7 +94,7 @@ An axis should only be configured for one homing switch - it should not have two
 
 ## Homing Configuration Settings
 
-The following per-axis settings are used by homing. Substitute any of XYZABC for the 'x' in the table. The use of the settings is described in G28.1, below. See [Configuring Homing Settings](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring#Homing_Settings) for how to set these. 
+The following per-axis settings are used by homing. Substitute any of XYZA for the 'x' in the table. The use of the settings is described in G28.1, below.
 
 	Setting | Description | Notes
 	--------|-------------|--------------
