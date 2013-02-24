@@ -104,6 +104,8 @@ The following settings are accessible but do not appear in the system group list
 	$ml | Minimum line length | 
 	$ma | Arc segment length |
 	$mt | Segment timing | 
+	$qvh | Queue report hi water mark | set between 0 and 24; default is 20
+	$qvl | Queue report low water mark | set between 0 and 24; default is 2
 
 # Terms, Concepts and Background
 This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
