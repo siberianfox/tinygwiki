@@ -390,7 +390,9 @@ $tv=1      - Verbose - returns OK and error responses
 </pre>
 
 ### $QV - Queue Report Verbosity
-Queue reports report the depth of the planner queue. Using the planner queue depth as a way to manage flow control when sending a Gcode file is actually a much better way than managing the serial input buffer. The planner queue has 24 buffers and therefore can have as many as 24 Gcode blocks queued for execution. If you keep the planner full to about 22 blocks things run really smoothly. You also want to make sure it doesn't starve, say below 2 blocks.
+Queue reports return the number of available buffers in the planner queue. The planner queue has 24 buffers and therefore can have as many as 24 Gcode blocks queued for execution. An empty queue will report 24 available buffers. A full one will report 0. 
+
+Using the planner queue depth as a way to manage flow control when sending a Gcode file is actually a much better way than managing the serial input buffer. If you keep the planner full to about 2 blocks available it will run really smoothly. You also want to make sure the queue doesn't starve, say - more than 20 blocks available.
 
 Verbosity settings are:
 <pre>
@@ -400,13 +402,14 @@ $qv=2      - Verbose  - returns queue reports for every block queued to the plan
 </pre>
 
 ### $QVH - Queue Report High Water Mark
+Set high-water mark for reporting. Set to 20 by default. This is a hidden setting and will not show up in $sys listings.
 
 ### $QVL - Queue Report Low Water Mark
+Set low-water mark for reporting. Set to 2 by default. This is a hidden setting and will not show up in $sys listings.
 
-### #SV
-
+### #SV - Status Report Verbosity
 ### $SI - Status Interval 
-Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
+[Please see here for a discussion of status report settings](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 
 ### $IC Ignore CR or LF on RX 
 <pre>
