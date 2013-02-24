@@ -27,13 +27,14 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	$xfr | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
 	$xtm | Travel maximum | Used by homing to know when to give up
 	$xjm | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
+	$xjh | Jerk homing | jerk used during homing operations. On axes XYZA only
 	$xjm | Junction deviation | For cornering control
-	$ara | Radius setting | Rotational axes only 
-	$xsn | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit
-	$xsx | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit 
-	$xsv | Search velocity | Homing speed during search phase (drive to switch)
-	$xlv | Latch velocity | Homing speed during latch phase (drive off switch)
-	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system
+	$ara | Radius setting | Rotational axes only (ABC only)
+	$xsn | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
+	$xsx | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
+	$xsv | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
+	$xlv | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
+	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
 
 ###System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
@@ -45,8 +46,27 @@ The system group contains the following global machine and communication setting
 	$fb | Firmware build | Read-only value, e.g. 351.05 
 	$fv | Firmware version | Read-only value, e.g. 0.95
 	$hv | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
-	$ja | Junction acceleration | Global cornering acceleration value 
+	$id | Unique ID | Each board has a read-only unique ID. Please use this value in any communications to Synthetos
+	$ja | Junction acceleration | Global cornering acceleration value
+	$ct | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
 	$st | Switch type | 0=NO, 1=NC
+
+**Communications Settings**
+Set communications speeds and modes. 
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
+	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
+	$tv | Text mode verbosity | 0=silent, 1=verbose
+	$qv | Queue report verbosity | 0=off, 1=filtered, 2=verbose
+	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
+	$si | Status report interval | In ms (use $sv=0 to disable automatic status reports)
+	$ic | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	$ec | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
+	$ee | Enable character echo | 0=off, 1=enabled
+	$ex | Enable XON/XOFF | 0=off, 1=enabled
+	$baud | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
 
 **Gcode Initialization Defaults**
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. 
@@ -59,24 +79,6 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 	$gpa | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
 	$gdi | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
-**Communications Settings**
-Set communications speeds and modes. 
-
-	Setting | Description | Notes
-	--------|-------------|-------
-	$ic | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
-	$ec | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
-	$ee | Enable character echo | 0=off, 1=enabled
-	$ex | Enable XON/XOFF | 0=off, 1=enabled
-	$eq | Enable queue reports | 0=off, 1=filtered, 2=verbose
-	$eqh | Hi water mark for queue reports | set between 0 and 24; recommend 20
-	$eql | Low water mark for queue reports | set between 0 and 24; recommend 6
-	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
-	$tv | Text mode verbosity | 0=silent, 1=prompt only, 2=messages, 3=verbose
-	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
-	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
-	$si | Status report interval | In ms (use $sv=0 to disable automatic status reports)
-	$baud | Baud rate |
 
 ###Commands and Reports
 These $configs invoke reports and functions
