@@ -1,4 +1,8 @@
-This page describes what you can do from the command line in TinyG.
+This page describes what you can do from the command line in TinyG. Basically, it's entering configuration values and commands, and sending lines of Gcode.
+
+
+# Terms, Concepts and Background
+This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 ## Text Mode and JSON Mode
 TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok>" or "err" to maintain compatibility with grbl parsers.
@@ -26,9 +30,6 @@ Names are short mnemonic tokens that can be 1 to 5 characters in length. Axis an
 ### Groups 
 A group is a collection of related tokens. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite. The list of groups is:
 
-
-# Terms, Concepts and Background
-This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 When typing in configs a '$' must be the first character of the line. Input is case insensitive.
 
