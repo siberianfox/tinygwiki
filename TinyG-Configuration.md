@@ -408,10 +408,20 @@ Set high-water mark for reporting. Set to 20 by default. This is a hidden settin
 Set low-water mark for reporting. Set to 2 by default. This is a hidden setting and will not show up in $sys listings.
 
 ### #SV - Status Report Verbosity
-### $SI - Status Interval 
-[Please see here for a discussion of status report settings](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+See [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports) for a discussion of status report settings.
+<pre>
+$sv=0      - Silent   - queue reports are off
+$sv=1      - Filtered - returns reports when depth changes and is above hi water mark or below low water mark
+$sv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
+</pre>
 
-### $IC Ignore CR or LF on RX 
+### $SI - Status Interval 
+<pre>
+$si=100    - Set status interval to 100 milliseconds
+</pre>
+
+### $IC Ignore CR or LF on RX
+Use this to strip either a CR or LF from an input command line. This is useful for terminal programs or UIs that terminate lines with both CR and LF.
 <pre>
 $ic=0      - Don't ignore CR or LF in received data
 $ic=1      - Ignore CR in received data
@@ -425,14 +435,14 @@ $ee=0      - Disable character echo
 $ee=1      - Enable character echo
 </pre> 
 
-### $EX - Enable XON/XOFF protocol 
+### $EX - Enable XON/XOFF protocol
 <pre>
 $ex=0      - Disable XON/XOFF protocol 
 $ex=1      - Enable XON/XOFF protocol 
 </pre>
 
 ### $BAUD - Set USB Baud Rate
-The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the $baud command, (2) wait for a response verifying the command, (3) change to the new baud rate.
+The default baud rate for the USB port is 115,200 baud. The following additional baud rates may be set. The sequence for changing the baud rate is: (1) Issue the $baud=N command, (2) wait for a response verifying the command, (3) change the terminal or UI to the new baud rate.
 <pre>
 $baud=0     - Illegal baud rate setting. Returns an error
 $baud=1     - 9600
@@ -443,10 +453,9 @@ $baud=5     - 115200
 $baud=6     - 230400
 </pre>
 
+<br>
 ####Gcode Default Parameters
 These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
-
-These are also part of the "sys" group.
 
 ### $GPL - Gcode Default Plane Selection
 <pre>
@@ -485,7 +494,7 @@ $gdi=1      - G91 (incremental mode)
 </pre> 
 
 ## Hidden Parameters
-These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
+These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly.
 
 ### $ML- Minimum Line Segment 
 Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
@@ -557,12 +566,16 @@ TinyG does not persist G10 settings, however. This is not in accordance with the
 These commands cause various actions, and are not technically "settings".
 
 ### $SR - Status Report
-Returns a status report. Identical to ? command. 
+Returns a status report or set contents of a status report (JSON only). Identical to ? command. See [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports) for details.
 
-Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
-<pre>
-{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
-</pre>
+### $QR - Queue Report
+Sends a queue report. See $QV for discussion
 
-### $DEFA=1 - Reset default profile settings
+### $QF - Flush Planner Queue
+Removes all Gcode blocks remaining in the planner queue. This is useful following a feedhold to create homing, jogging, probes and other cycles.
+
+### $TEST - Run self test
+Execute $test to get a listing of available self tests. Run test as $test=N, where N is the test number.
+
+### $DEFA - Reset default profile settings
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
