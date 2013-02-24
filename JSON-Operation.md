@@ -49,7 +49,7 @@ What is encoded in JSON:
 	---------------|--------------
 	**configs** | Configs are the collection of static configuration settings for the machine. These static parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
 	**gcode block** | Gcode blocks are lines of Gcode consisting of one or more Gcode words, optional comments and possibly gcode messages
-	**gcode word** | Gcode blocks can contain one or more Gcode **words**, optional comments and messages, and some other Gcode characters. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
+	**gcode word** | Gcode words encode gcode commands. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
 	**gcode comment** | A Gcode **comment** is denoted by parentheses - (this is a Gcode comment). 
 	**gcode message** | A Gcode **message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
 	**gcode model** | The gcode file builds and runs the **dynamic model** that controls the machine in operation. It is useful to make the distinction between the static model set by the configs, and the dynamic model used and updated by the Gcode/machine. This makes things easier to understand.
