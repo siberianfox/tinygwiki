@@ -30,16 +30,18 @@ Character echo ($ee) is always an option; it's just not a good one for JSON. In 
 
 JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by {"jv":N} where N is one of:
 
-* 0 = SILENT - no response
-* 1 = FOOTER_ONLY - no body data is returned, only footer data
-* 2 = OMIT_GCODE_BODY - body returned for configs; omitted for Gcode commands
-* 3 = GCODE_LINENUM_ONLY - body returned for configs; Gcode returns line number as 'n', otherwise body is omitted
-* 4 = GCODE_MESSAGES - body returned for configs; Gcode returns line numbers and messages only
-* 5 = VERBOSE - body returned for configs and Gcode - Gcode comments removed
+	# | label | description
+	--|-------|-------------
+	0 | JV_SILENT | No response is provided for any command
+	1 | JV_FOOTER | Returns footer only - no command echo, gcode blocks or messages
+	2 | JV_MESSAGES | Returns footer, messages (exception messages and gcode comment messages)
+	3 | JV_CONFIGS | Returns footer, messages, config commands
+	4 | JV_LINENUM | Returns footer, messages, config commands, gcode line numbers if present
+	5 | JV_VERBOSE | Returns footer, messages, config commands, gcode blocks
 
-Generally levels 2, 3 or 4 are recommended. Levels 4 and 5 will return Gcode comment messages of the form (msgSome text you want to show to the operator)
+Generally levels 2, 3 or 4 are recommended.
 
-###Reading Configuration Parameters (GET)
+### Reading Configuration Parameters (GET)
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
 	Request | Response | Description
