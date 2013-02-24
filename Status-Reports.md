@@ -1,11 +1,14 @@
 ## Overview
 Status reports are a way to query the internal state of the machine (technically, the "dynamic Gcode model"). Status reports are for keeping a running tally of position and velocity for DRO displays or progress drawing, for knowing when the machine is running or complete, the current units mode or coordinate system, and other things like that.
 
-Status reports can be either requested directly:
-* $sr
-* {"sr":""}
+Status reports can be requested directly:
+* ?             - text mode status report
+* $sr           - equivalent to ?
+* {"sr":""}     - JSON status report
+* {"sr":null}   - a different way to request it
+* {"sr":n}      - shorthand for above
 
-...or set up to be run automatically on a set time interval.
+They can also be set up to be run automatically on a set time interval.
 
 JSON status reports are parent/child objects with a "sr" parent and one or more child NV pairs. In the examples below the status report has been requested from the command line:
 <pre>
