@@ -213,7 +213,7 @@ Diagonal / multi-axis traverses will actually occur at the fastest speed the com
 <pre>
 $xvm=1200        sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 $zvm=30.0        sets Z to 30 inches per minute - assuming G20 is active
-$avm=3600        sets A to 10 revolutions per minute (360 * 10)
+$avm=36000       sets A to 100 revolutions per minute (360 * 100)
 </pre>
  
 ### $xFR - Feed Rate maximum
@@ -245,6 +245,9 @@ The jerk term in mm is measured in mm/min^3. In inches mode it's units are inche
 25,000,000 mm/min^3      is 984,251 in/min^3 1,000,000 would suffice
 5,000,000,000 mm/min^3   is 196,850,400 in/min^3 200,000,000 would suffice
 </pre> 
+
+### $xJH - Jerk Homing
+Sets the jerk value used for homing to stop movement when switches are hit or released. In most cases the same value as $xJM is OK. However, if your $xJM is very low you may need a higher value for homing in order to prevent damage to the switches.
 
 ### $xJD - Junction Deviation
 This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on [Sonny Jeon's blog: Improving grbl cornering algorithm] (http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). 
@@ -282,6 +285,7 @@ By way of example, my Shapeoko is set up this way:
 	Setting | Description | Example
 	--------|-------------|--------------
 	$ST | Switch Type | 1=NC
+	$XJH | X Homing Jerk | 10000000000 (10 billion)
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
 	$XTM | X Travel Maximum | 180 mm
@@ -290,6 +294,7 @@ By way of example, my Shapeoko is set up this way:
 	$XLB | X Homing Latch Backoff | 20 mm
 	$XZB | X Homing Zero Backoff | 3 mm
 	||
+	$YJH | Y Homing Jerk | 10000000000 (10 billion)
 	$YSN | Y Minimum Switch Mode | 3=limit-and-homing
 	$YSX | Y Maximum Switch Mode | 2=limit-only
 	$YTM | Y Travel Maximum |  180 mm
@@ -298,6 +303,7 @@ By way of example, my Shapeoko is set up this way:
 	$YLB | Y Homing Latch Backoff | 20 mm
 	$YZB | Y Homing Zero Backoff | 3 mm
 	||
+	$ZJH | X Homing Jerk | 100000000 (100 million)
 	$ZSN | Z Minimum Switch Mode | 0=disabled (with NC switches it's important all unused switches are disabled)
 	$ZSX | Z Maximum Switch Mode | 3=limit-and-homing
 	$ZTM | Z Travel Maximum | 100 mm
