@@ -102,7 +102,7 @@ These $configs invoke reports and functions
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
 
-Hidden System Settings
+**Hidden System Settings**
 
 The following settings are accessible but do not appear in the system group listings. This is because they really should not be messed with.
 
