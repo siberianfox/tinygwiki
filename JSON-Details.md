@@ -1,8 +1,8 @@
-(last updated 1/23/13 - ash) 
+_updated 1/23/13 - ash_
 
 **This page is really a continuation of [this page](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
 
-**NOTE: This page describes JSON operations in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
+**NOTE: This page describes JSON operations in release 0.95 and later.**
 
 #JSON Details
 ##JSON Mode Protocol
