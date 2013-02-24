@@ -1,8 +1,6 @@
 _(updated 2/24/13 - ash) _
 
-This page provides a JSON cheat sheet and describes JSON and text modes in overview. See [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
-
-**NOTE: This page describes JSON operations in release 0.95 and later. Currently this code is only in the edge and dev branches. If you want to try it we recommend using the edge branch as it's more stable than dev.**
+This page describes JSON operation in version 0.95, which is the current master build. It provides a JSON cheat sheet and describes JSON and text modes in overview. See [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
 
 # JSON Cheat Sheet
 This table summarizes using JSON for [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Details are provided in the subsquent sections.
