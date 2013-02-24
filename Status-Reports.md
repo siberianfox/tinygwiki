@@ -44,7 +44,7 @@ Status reports can also be set up to be run automatically on a minimum time inte
 	$si | Status report interval | in milliseconds (50 ms minimum interval)
 
 NOTE: $si won't accept any values less than its minimum interval, which is 50 ms.<br>
-NOTE: The $sv setting does not apply to on-demand requested status reports. $sr (or {"sr:""} ) will always return an unfiltered (complete) status report.
+NOTE: The $sv setting does not apply to on-demand requested status reports. $sr (or {"sr:""} ) will always return a full status report.
 
 Here are some examples:
 <pre>
