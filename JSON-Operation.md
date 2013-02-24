@@ -52,7 +52,6 @@ What is encoded in JSON:
 	**gcode word** | Gcode words encode gcode commands. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
 	**gcode comment** | A Gcode **comment** is denoted by parentheses - (this is a Gcode comment). 
 	**gcode message** | A Gcode **message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
-	**gcode model** | The gcode file builds and runs the **dynamic model** that controls the machine in operation. It is useful to make the distinction between the static model set by the configs, and the dynamic model used and updated by the Gcode/machine. This makes things easier to understand.
 
 ## JSON Overview & TinyG Subset
 
@@ -64,17 +63,14 @@ TinyG implements a subset of JSON with the following limitations:
 * Supports decimal numbers only (no hexadecimal numbers or other non-decimals)
 * Arrays are returned but are not (yet) accepted as input
 * Names (tokens) are case-insensitive and cannot be more than 5 characters
-* String values cannot be more than 80 characters in length (Note 1)
 * Groups cannot contain more than 24 elements (name/value pairs)
-* JSON objects cannot exceed 254 characters in total length 
-* Limited object nesting is supported (you won't see more than 2 levels)
+* JSON input objects cannot exceed 254 characters in total length. Outputs can be up to 512 chars.
+* Limited object nesting is supported (you won't see more than 3 levels)
 * All JSON input and output is on a single text line. There is only one `<LF>`, it's at the end of the line (broken lines are not supported)
-
-_Note 1: The 80 character string length applies to Gcode blocks delivered via JSON or interpreted while the system is in JSON mode. If the Gcode line exceeds 80 characters it will be truncated if a comment makes it too long, or rejected if the 81st character is part of the legitimate Gcode block. If 80 characters is too severe this may be raised._
 
 ### Text Mode and JSON Mode
 
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok:" or "error:" to maintain compatibility with grbl parsers.
+TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok>" or "err" to maintain compatibility with grbl parsers.
 
 TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'. (Note: The first status message returned on bootup will be in JSON format, regardless of the mode set). 
 
