@@ -5,7 +5,7 @@ This page describes how configuration works in **text mode**. All configs on thi
 # Summary / Cheat Sheet
 Most commands are self explanatory. See following sections for those that require further explanation.
  
-###Motor Groups
+##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
 	Setting | Description | Notes
@@ -17,7 +17,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	$1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
 	$1pm | Power management mode | 0=power shuts off when axis is not moving, 1=axis remains powered when idle
 
-###Axis Groups
+## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
 
 	Setting | Description | Notes
@@ -36,7 +36,7 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	$xlv | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
 	$xzb | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
 
-###System Group
+## System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
 **Identification Settings**
@@ -85,8 +85,7 @@ Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Chan
 	$gpa | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
 	$gdi | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
-
-###Commands and Reports
+##Commands and Reports
 These $configs invoke reports and functions
 
 	Command | Description | Notes
