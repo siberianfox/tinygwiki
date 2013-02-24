@@ -37,8 +37,8 @@ The JSON interface is modeled as a RESTful interface, albeit running over USB se
 
 	Term | Description
 	-----|--------------
-	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group). Names are not case sensitive.
-	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f`<br>NULL values can be represented by a pair of quotes `""`, the word `null` (case insensitive, no quotes), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value.
+	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
+	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by a pair of quotes `""`, the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value.
 	**NV pair** | A name and a value is a name:value pair or NV pair
 	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 	**configs** | Configs are the collection of static configuration settings for the machine. These static parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
