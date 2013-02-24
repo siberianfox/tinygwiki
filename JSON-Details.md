@@ -2,8 +2,6 @@ _updated 1/23/13 - ash_
 
 **NOTE: This page describes JSON operations in release 0.95 and later. This page is really a continuation of [this page](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
 
-#JSON Details
-
 ##JSON Mode Protocol
 ### Commands and Responses
 Commands in JSON mode are sent as JSON objects. Some request and response examples:
