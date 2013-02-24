@@ -36,14 +36,17 @@ JSON status reports are parent/child objects with a "sr" parent and one or more 
 </pre>
 
 ### Automatic Status Reports
-Status reports can also be set up to be run automatically on a set time interval using these settings:
+Status reports can also be set up to be run automatically on a minimum time interval using these settings:
 
 	Setting | Description | Notes
 	--------|-------------|-------
 	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	$si | Status report interval | in milliseconds (50 ms minimum interval)
 
-For now let's just talk about verbose status reports $sv=2, and a minimum interval of 100 milliseconds $si=100
+For now let's talk about verbose status reports $sv=2, and $si=100 (interval = 100 milliseconds). Automatic status reports will be generated on the following conditions, but will not be delivered any more frequently than once every 100 ms.
+* When a Gcode command is received (e.g. motion start)
+* During motion - but no more frequently that the status interval
+* When motion stops
 
 Here are some examples of automatically generated status reports in text mode from a g0x20 move: 
 <pre>
