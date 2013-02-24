@@ -102,38 +102,7 @@ vel:0.000,stat:3
 ## Status Report Operations
 The following operations can be performed: 
 
-* GET a status report. Returns a single status report. The following forms are equivalent:
-<pre>
-{"sr":""}
-{"sr":null}    the 'null' value is used instead of "" in this case. Either are accepted.
-
-These return a JSON status report in a response object:
-{"r":{"sr":{"line":0,"vel":0.000,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"mpox":100.000,"mpoy":100.000,"mpoz":0.000,"mpoa":0.000,"ofsx":100.000,"ofsy":100.000,"ofsz":0.000,"ofsa":0.000,"unit":1,"momo":0,"coor":2,"stat":3,"homx":0,"homy":0,"homz":0,"homa":0},"f":[1,0,10,5928]}}
-
-In text mode entering '?' returns a status report in multi-line format:
-Line number:         0
-Velocity:            0.000 mm/min
-X position:          0.000 mm
-Y position:          0.000 mm
-Z position:          0.000 mm
-A position:          0.000 deg
-X machine posn:    100.000 mm
-Y machine posn:    100.000 mm
-Z machine posn:      0.000 mm
-A machine posn:      0.000 deg
-X work offset:     100.000 mm
-Y work offset:     100.000 mm
-Z work offset:       0.000 mm
-A work offset:       0.000 deg
-Units:               G21 - millimeter mode
-Motion mode:         G0  - linear traverse (seek)
-Coordinate system:   G55 - coordinate system 2
-Machine state:       End
-X axis homed:        0
-Y axis homed:        0
-Z axis homed:        0
-A axis homed:        0
-</pre> 
+* GET a status report. Returns a single status report. See discussion above for description.
 
 * SET status report fields.  The elements to be included in a status reports may be specified by setting values to 'true' or 't'. The elements will be returned on subsequent SR requests in the order they were provided in the SET command. (I know, dictionaries are supposed to be unordered, but the firmware will record and return back the attributes in the order listed). There is no incremental setting of elements - all attributes are reset and must be specified in a single SET command. For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for true, not a string that says "true". Examples:
 <pre>
