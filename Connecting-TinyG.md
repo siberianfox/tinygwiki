@@ -1,6 +1,8 @@
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
 
+![Image of TinyG Connected to Power](http://farm9.staticflickr.com/8225/8503620821_795a1fa867_z.jpg)
+
 1. Check you have the correct power supply. You should have a DC power supply between 12 and 30 volts - 24 volts is ideal. It should be capable of providing 4 to 15 (or more) amps. Before connecting it to TinyG, turn it on and make sure you have correct voltage, and its DC, not AC. Hopefully you have a volt meter or can get your hands on one. If you don't you might consider a trip to the Radar Shed for something like [this](http://www.radioshack.com/product/index.jsp?productId=4214667)
 1. Wire the negative to the GND terminal of the power input block, and the positive to the +Vmot side. Negative is BLACK by convention and positive is RED, or YELLOW, or some other bright color by convention. le check you have the correct voltage before connecting the power supply to TinyG.
 1. Turn on the power supply. If the blue light turns on this is a good sign. If not, blow away the smoke and send us an email.
