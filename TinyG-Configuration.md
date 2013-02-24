@@ -555,7 +555,10 @@ Sends a queue reports. $QV $QV for details.
 ### $QF - Queue Report
 Removes all Gcode blocks remaining inb the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
-### $DEFA=1 - Reset default profile settings
+### $TEST - Run Self Test
+Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
+
+### $DEFA - Reset default profile settings
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
 
 ## Hidden Parameters
