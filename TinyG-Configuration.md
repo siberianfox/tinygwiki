@@ -319,24 +319,16 @@ By way of example, my Shapeoko is set up this way:
 These are general system-wide parameters and are part of the "sys" group.
 
 ### $FB - Firmware Build number
-Read-only value. Can be queried. Currently this is something above 355.01.
+Read-only value. Can be queried. Currently this is something above 370.02.
 
 ### $FV - Firmware Version
-Read-only value. Can be queried. This page applies to 0.95 and above
+Read-only value. Can be queried.
 
 ### $HV - Hardware Version
 Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. This is set to v7 by default.
 
-### $SI - Status Interval 
-Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
-
-### $SR - Status Report
-Returns a status report. Identical to ? command. 
-
-Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
-<pre>
-{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
-</pre>
+### $ID - Unique Board Identifier
+Read-only value. Can be queried.
 
 ### $JA - Junction Acceleration 
 In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
@@ -346,62 +338,16 @@ $ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance mach
 $ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
 </pre> 
 
-### $ML- Minimum Line Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+### $CT - Chordal Accuracy
+Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal accuracy sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be in the middle of the line / arc. 
+
+Setting chordal tolerance high will make curves "rougher", but they can execute faster.
+
+### $ST - Switch Type
+Sets the type of switch used for homing and/or limits. All switches must be of the same type (mixes are not supported).
 <pre>
-$ml=0.08    - Do not change this value
-</pre> 
-
-### $MA - Minimum Arc Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>$ma=0.10    - Do not change this value
-</pre> 
-
-### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ms=5000  - Do not change this value
-</pre> 
-
-##Gcode Default Parameters
-These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
-
-These are also part of the "sys" group.
-
-### $GPL - Gcode Default Plane Selection
-<pre>
-$gpl=0      - G17 (XY plane)
-$gpl=1      - G18 (XZ plane)
-$gpl=2      - G19 (YZ plane)
-</pre> 
-
-###$GUN - Gcode Default Units
-<pre>
-$gun=0      - G20 (inches)
-$gun=1      - G21 (millimeters)
-</pre> 
-
-###$GCO - Gcode Default Coordinate System
-<pre>
-$gco=1      - G54 (coordinate system 1)
-$gco=2      - G55 (coordinate system 2)
-$gco=3      - G56 (coordinate system 3)
-$gco=4      - G57 (coordinate system 4)
-$gco=5      - G58 (coordinate system 5)
-$gco=6      - G59 (coordinate system 6)
-</pre> 
-
-###$GPA - Gcode Default Path Control
-<pre>
-$gpa=0      - G61 (exact stop mode)
-$gpa=1      - G61.1 (exact path mode)
-$gpa=2      - G64 (continuous mode)
-</pre> 
-
-### $GDI - Gcode Distance Mode
-<pre>
-$gdi=0      - G90 (absolute mode)
-$gdi=1      - G91 (incremental mode)
+$st=0   - Normally Open switches (NO)
+$st=1   - Normally Closed switches (NC)
 </pre> 
 
 ## Communications Parameters
@@ -464,6 +410,76 @@ $baud=4     - 57600
 $baud=5     - 115200
 $baud=6     - 230400
 </pre>
+
+### $SI - Status Interval 
+Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
+
+### $SR - Status Report
+Returns a status report. Identical to ? command. 
+
+Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
+<pre>
+{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
+</pre>
+
+### $ML- Minimum Line Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ml=0.08    - Do not change this value
+</pre> 
+
+### $MA - Minimum Arc Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>$ma=0.10    - Do not change this value
+</pre> 
+
+### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ms=5000  - Do not change this value
+</pre> 
+
+##Gcode Default Parameters
+These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
+
+These are also part of the "sys" group.
+
+### $GPL - Gcode Default Plane Selection
+<pre>
+$gpl=0      - G17 (XY plane)
+$gpl=1      - G18 (XZ plane)
+$gpl=2      - G19 (YZ plane)
+</pre> 
+
+###$GUN - Gcode Default Units
+<pre>
+$gun=0      - G20 (inches)
+$gun=1      - G21 (millimeters)
+</pre> 
+
+###$GCO - Gcode Default Coordinate System
+<pre>
+$gco=1      - G54 (coordinate system 1)
+$gco=2      - G55 (coordinate system 2)
+$gco=3      - G56 (coordinate system 3)
+$gco=4      - G57 (coordinate system 4)
+$gco=5      - G58 (coordinate system 5)
+$gco=6      - G59 (coordinate system 6)
+</pre> 
+
+###$GPA - Gcode Default Path Control
+<pre>
+$gpa=0      - G61 (exact stop mode)
+$gpa=1      - G61.1 (exact path mode)
+$gpa=2      - G64 (continuous mode)
+</pre> 
+
+### $GDI - Gcode Distance Mode
+<pre>
+$gdi=0      - G90 (absolute mode)
+$gdi=1      - G91 (incremental mode)
+</pre> 
+
 
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
