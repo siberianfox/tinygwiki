@@ -49,22 +49,20 @@ Here are some examples:
 {"sv":1}      enable filtered status reports
 {"sv":2}      enable verbose status reports
 {"si":100}    set minimum status report interval to 100 milliseconds
-{"si":60000}  set minimum status report interval to 60 seconds
-              -- effectively disabling them during movement
 
 In text mode these are:
 $sv=0
 $sv=1
 $sv=2
 $si=10
-$si=60000
 </pre>
-For now let's talk about verbose status reports $sv=2, and $si=100 (interval = 100 milliseconds). Automatic status reports will be generated on the following conditions, but will not be delivered any more frequently than once every 100 ms.
+
+Automatic status reports will be generated on the following conditions, but will not be delivered any more frequently than the minimum interval.
 * When a Gcode command is received (e.g. motion start)
 * During motion - but no more frequently that the status interval
 * When motion stops
 
-Here are some examples of automatically generated status reports in text mode from a g0x20 move: 
+Here are some examples of automatically generated status reports in text mode from a g0x20 move with sv=verbose and si=100ms. 
 <pre>
 line:0,posx:0.016,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:61.987,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
 line:0,posx:3.916,posy:0.000,posz:-7.000,posa:3.000,feed:0.000,vel:6059.247,unit:1,coor:1,dist:0,frmo:0,momo:0,stat:5
