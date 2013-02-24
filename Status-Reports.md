@@ -5,7 +5,7 @@ Status reports can be requested directly:
 
 	command line | description
 	------|------------
-	? | text mode status report
+	? | request text mode status report
 	$sr | equivalent to ?
 	{"sr":""} | JSON status report
 	{"sr":null} | a different way to request it
