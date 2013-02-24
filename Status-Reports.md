@@ -43,6 +43,22 @@ Status reports can also be set up to be run automatically on a minimum time inte
 	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	$si | Status report interval | in milliseconds (50 ms minimum interval)
 
+Here are some examples:
+<pre>
+{"sv":0}      disable automatic status reports
+{"sv":1}      enable filtered status reports
+{"sv":2}      enable verbose status reports
+{"si":100}    set minimum status report interval to 100 milliseconds
+{"si":60000}  set minimum status report interval to 60 seconds
+              -- effectively disabling them during movement
+
+In text mode these are:
+$sv=0
+$sv=1
+$sv=2
+$si=10
+$si=60000
+</pre>
 For now let's talk about verbose status reports $sv=2, and $si=100 (interval = 100 milliseconds). Automatic status reports will be generated on the following conditions, but will not be delivered any more frequently than once every 100 ms.
 * When a Gcode command is received (e.g. motion start)
 * During motion - but no more frequently that the status interval
@@ -84,23 +100,6 @@ vel:0.000,stat:3
 {"sr":{"vel":0.000,"stat":3}}
 </pre>
 
-## Enabling Status Reports
-Status reports are enabled using the $sv and $si variables:
-<pre>
-{"sv":0}   disable automatic status reports
-{"sv":1}   enable filtered status reports
-{"sv":2}   enable verbose status reports
-
-{"si":50}  set minimum status report interval to 50 milliseconds
-{"si":250} set minimum status report interval to 250 milliseconds (or whatever you want)
-
-In text mode these are:
-$sv=0
-$sv=1
-$sv=2
-$si=50
-$si=250
-</pre>
 
 ## Status Report Operations
 The following operations can be performed: 
