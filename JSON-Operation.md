@@ -34,6 +34,7 @@ Most commands that are available in JSON are also available in text mode, but th
 The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON enables exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Unlike RESTful HTTP, methods are implied by convention as there is no request header in which to declare them. 
 
 ## Basic Concepts
+How things are encoded in JSON:
 
 	Term | Description
 	-----|--------------
@@ -42,6 +43,7 @@ The JSON interface is modeled as a RESTful interface, albeit running over USB se
 	**NV pair** | A name and a value is a name:value pair or NV pair
 	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 
+What is encoded in JSON:
 	Term | Description
 	-----|--------------
 	**configs** | Configs are the collection of static configuration settings for the machine. These static parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
