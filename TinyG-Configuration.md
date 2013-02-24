@@ -318,7 +318,8 @@ By way of example, my Shapeoko is set up this way:
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 
-**Identification Settings**
+
+####Identification Settings
 
 ### $FB - Firmware Build number
 Read-only value. Can be queried. Currently this is something above 370.02.
@@ -332,7 +333,8 @@ Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 
 ### $ID - Unique Board Identifier
 Read-only value. Can be queried.
 
-**Global System Settings**
+
+####Global System Settings
 
 ### $JA - Junction Acceleration 
 In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
@@ -356,7 +358,8 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
-**Communications Settings**
+
+####Communications Settings
 
 ### $EJ - Enable JSON Mode on Power Up
 This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
@@ -385,6 +388,25 @@ We recommend using Verbose, except for very special cases.
 $tv=0      - Silent - no response is provided
 $tv=1      - Verbose - returns OK and error responses
 </pre>
+
+### $QV - Queue Report Verbosity
+Queue reports report the depth of the planner queue. Using the planner queue depth as a way to manage flow control when sending a Gcode file is actually a much better way than managing the serial input buffer. The planner queue has 24 buffers and therefore can have as many as 24 Gcode blocks queued for execution. If you keep the planner full to about 22 blocks things run really smoothly. You also want to make sure it doesn't starve, say below 2 blocks.
+
+Verbosity settings are:
+<pre>
+$qv=0      - Silent   - queue reports are off
+$qv=1      - Filtered - returns reports when depth changes and is above hi water mark or below low water mark
+$qv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
+</pre>
+
+### $QVH - Queue Report High Water Mark
+
+### $QVL - Queue Report Low Water Mark
+
+### #SV
+
+### $SI - Status Interval 
+Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
 
 ### $IC Ignore CR or LF on RX 
 <pre>
@@ -418,35 +440,7 @@ $baud=5     - 115200
 $baud=6     - 230400
 </pre>
 
-### $SI - Status Interval 
-Interval between automatic status reports in milliseconds. Set to 0 to disable automatic status reports. Minimum is 200 ms.
-
-### $SR - Status Report
-Returns a status report. Identical to ? command. 
-
-Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
-<pre>
-{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
-</pre>
-
-### $ML- Minimum Line Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ml=0.08    - Do not change this value
-</pre> 
-
-### $MA - Minimum Arc Segment 
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>$ma=0.10    - Do not change this value
-</pre> 
-
-### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
-Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
-<pre>
-$ms=5000  - Do not change this value
-</pre> 
-
-##Gcode Default Parameters
+####Gcode Default Parameters
 These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
 
 These are also part of the "sys" group.
@@ -487,6 +481,25 @@ $gdi=0      - G90 (absolute mode)
 $gdi=1      - G91 (incremental mode)
 </pre> 
 
+## Hidden Parameters
+These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
+
+### $ML- Minimum Line Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ml=0.08    - Do not change this value
+</pre> 
+
+### $MA - Minimum Arc Segment 
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>$ma=0.10    - Do not change this value
+</pre> 
+
+### $MS - Minimum Segment time in microseconds - Refers to S-curve interpolation segments
+Don't change this unless you are seriously tweaking TinyG for your application. It can cause many things to break. This value does not appear in system group listings ($sys)
+<pre>
+$ms=5000  - Do not change this value
+</pre> 
 
 ## Coordinate System and Origin Offsets 
 ### $g54x - $g59c
@@ -539,6 +552,14 @@ TinyG does not persist G10 settings, however. This is not in accordance with the
 
 ## Commands
 These commands cause various actions, and are not technically "settings".
+
+### $SR - Status Report
+Returns a status report. Identical to ? command. 
+
+Note: In JSON this command may also be used to set the contents of a status report. The SR group must contain and set true every value desired in the report. All other values are wiped (i,e, it is not cumulative). The form for the default status report is:
+<pre>
+{"sr":{"line":true,"posx":true,"posy":true,"posz":true,"posa":true,"vel":true,"momo":true,"stat":true}}
+</pre>
 
 ### $DEFA=1 - Reset default profile settings
 TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
