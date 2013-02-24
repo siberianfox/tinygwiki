@@ -98,7 +98,7 @@ Some fundamental differences are:
 
 * TinyG has a set of help screens available from the command prompt. grbl offers some of these features but in general is more "silent". There are plans to add new features to grbl in future releases.
 
-* In addition to command line operation, TinyG implements a [JSON interface](https://github.com/synthetos/TinyG/wiki/JSON-Operation). This gets pretty arcane, but is useful if you are writing a controller for TinyG. The JSON interface is really a REST interface that implements the objects and verbs in the system. Its different from what people normally think of as REST in that the transport is USB serial, not HTTP.
+* In addition to command line operation, TinyG implements a [JSON interface](https://github.com/synthetos/TinyG/wiki/JSON-Operation). This gets pretty arcane, but is useful if you are writing a controller for TinyG. The JSON interface is really a REST interface that treats the TinyG system as a collection of resources (in the REST sense of that word). It's different from what people normally think of as REST in that the transport is USB serial, not HTTP.
 
 * TinyG implements a set of embedded self tests to verify proper system operation and assist in setup
 
