@@ -1,9 +1,5 @@
 This page describes what you can do from the command line in TinyG. Basically, it's entering configuration values and commands, and sending lines of Gcode.
 
-
-# Terms, Concepts and Background
-This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
-
 ## Text Mode and JSON Mode
 TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok>" or "err" to maintain compatibility with grbl parsers.
 
@@ -27,22 +23,16 @@ Names are short mnemonic tokens that can be 1 to 5 characters in length. Axis an
 	home | $home | {"home":""} | Homing state
 	x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get). In JSON mode a group can be queried and can also be used to set any or all values in the group
 
-### Groups 
-A group is a collection of related tokens. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite. The list of groups is:
-
-
-When typing in configs a '$' must be the first character of the line. Input is case insensitive.
-
-Configuration is non-moded; that is, configuration lines and Gcode blocks can be used without changing modes. However, it is not recommended to intermingle configs with Gcode blocks, as the EEPROM writes can interfere with step generation and serial transmission (interrupts). Please note: in some future release config commands that arrive during a gcode cycle may be rejected.
-
-_CAVEAT: At the current time because of various limitations of the Xmega we recommend waiting for each config command to send a response before sending the next command. This gives allows the system to persist the data to EEPROM, because during that interval the board cannot reliably receive serial input._
-
 ## Units
 Configuration can be performed in either inches or millimeters mode. All values entered and responses provided will be in the current Gcode UNITS setting: G20 for inches or G21 for mm. Most of the examples below are in mm, but could just as easily be input in inches. 
 
 _NOTE 1: In text mode the differences are obvious in the responses. In JSON there is no indication - so best to issue {"gc":"g20"} or {"gc":"g21"} at the start of every config session._
 
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
+
+### Groups 
+A group is a collection of related tokens. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite. The list of groups is:
+
 
 ## Groups
 Groups simplify configuration management and reporting by collecting related values together. The following groups are defined. All parameters within the groups are persistent (stored in EEPROM) unless noted.
@@ -80,6 +70,13 @@ For example type $q to list all axis groups.
 The list of uber-groups can be seen by asking for the system help screen using $h.
 
 ## Displaying Settings and Groups
+
+When typing in configs a '$' must be the first character of the line. Input is case insensitive.
+
+Configuration is non-moded; that is, configuration lines and Gcode blocks can be used without changing modes. However, it is not recommended to intermingle configs with Gcode blocks, as the EEPROM writes can interfere with step generation and serial transmission (interrupts). Please note: in some future release config commands that arrive during a gcode cycle may be rejected.
+
+_CAVEAT: At the current time because of various limitations of the Xmega we recommend waiting for each config command to send a response before sending the next command. This gives allows the system to persist the data to EEPROM, because during that interval the board cannot reliably receive serial input._
+
 To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respond with the value taken. For example:
 
 	Request | Response | Notes
