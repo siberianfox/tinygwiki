@@ -5,43 +5,38 @@ Status reports can be requested directly:
 
 	command line | description
 	------|------------
-	? | request text mode status report
+	? | request a text mode status report
 	$sr | equivalent to ?
 	{"sr":""} | JSON status report
-	{"sr":null} | a different way to request it
+	{"sr":null} | a different way to request a JSON report
 	{"sr":n} | shorthand for above
 
 They can also be set up to be run automatically on a set time interval.
+
+
+In text mode, '?' returns a multi-line report like this one:
+<pre>
+Line number:         0
+X position:          0.010 mm
+Y position:          0.000 mm
+Z position:         -7.000 mm
+A position:          3.000 deg
+Feed rate:           0.000 mm/min
+Velocity:            0.000 mm/min
+Units:               G21 - millimeter mode
+Coordinate system:   G54 - coordinate system 1
+Distance mode:       G90 - absolute distance mode
+Feed rate mode:      G94 - units-per-minute mode (i.e. feedrate mode)
+Motion mode:         G1  - linear feed
+Machine state:       End
+tinyg [mm] ok> 
+</pre>
 
 JSON status reports are parent/child objects with a "sr" parent and one or more child NV pairs. In the examples below the status report has been requested from the command line:
 <pre>
 Sending: {"sr":""}  returns:  
 {"r":{"sr":{"line":0,"vel":0.000,"posx":-3.937,"posy":-3.937,"posz":0.000,"posa":0.000,"mpox":0.000,"mpoy":0.000,"mpoz":0.000,"mpoa":0.000,"ofsx":100.000,"ofsy":100.000,"ofsz":0.000,"ofsa":0.000,"unit":0,"momo":4,"coor":2,"stat":1,"homx":0,"homy":0,"homz":0,"homa":0},"f":[1,0,10,1755]}}
 
-In text mode, '?' returns:
-Line number:         0
-Velocity:            0.000 in/min
-X position:         -3.937 in
-Y position:         -3.937 in
-Z position:          0.000 in
-A position:          0.000 deg
-X machine posn:      0.000 mm
-Y machine posn:      0.000 mm
-Z machine posn:      0.000 mm
-A machine posn:      0.000 deg
-X work offset:     100.000 mm
-Y work offset:     100.000 mm
-Z work offset:       0.000 mm
-A work offset:       0.000 deg
-Units:               G20 - inches mode
-Motion mode:         G80 - cancel motion mode (none active)
-Coordinate system:   G55 - coordinate system 2
-Machine state:       Reset
-X axis homed:        0
-Y axis homed:        0
-Z axis homed:        0
-A axis homed:        0
-</pre>
 
 Here are some examples of automatically generated status reports in JSON mode and text mode: 
 <pre>
