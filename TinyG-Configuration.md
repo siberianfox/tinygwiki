@@ -316,7 +316,6 @@ By way of example, my Shapeoko is set up this way:
 
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
-
 <br>
 ####Identification Settings
 
@@ -371,14 +370,14 @@ $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
 ### $JV - Set JSON verbosity
-If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 2, 3 or 4. You may also want to change the baud rate to 230400. 
+If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 3 or 4. You may also want to change the baud rate to 230400. 
 <pre>
 $jv=0      - Silent   - No response is provided for any command
 $jv=1      - Footer   - Returns footer only - no command echo, gcode blocks or messages
-$jv=2      - Messages - Returns footer, messages (exception messages and gcode comment messages)
-$jv=3      - Configs  - Returns footer, messages, config commands
-$jv=4      - Linenum  - Returns footer, messages, config commands, gcode line numbers if present omitted
-$jv=5      - Verbose  - Returns footer, messages, config commands, gcode blocks
+$jv=2      - Messages - Returns footers, exception messages and gcode comment messages
+$jv=3      - Configs  - Returns footer, messages, config command body
+$jv=4      - Linenum  - Returns footer, messages, config command body, and gcode line numbers if present
+$jv=5      - Verbose  - Returns footer, messages, config command body, and gcode blocks
 </pre>
 
 ### $TV - Set Text mode verbosity
