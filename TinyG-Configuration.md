@@ -407,9 +407,19 @@ Set high-water mark for reporting. Set to 20 by default. This is a hidden settin
 ### $QVL - Queue Report Low Water Mark
 Set low-water mark for reporting. Set to 2 by default. This is a hidden setting and will not show up in $sys listings.
 
-### #SV - Status Report Verbosity
+### $SV - Status Report Verbosity
+Please see [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports) for a discussion of $sv and $si status report settings.
+<pre>
+$sv=0      - Silent   - status reports are off
+$sv=1      - Filtered - returns only changed values in status reports
+$sv=2      - Verbose  - returns all values in status reports
+</pre>
+
 ### $SI - Status Interval 
-[Please see here for a discussion of status report settings](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+The minimum is 50 ms. Trying to set a value below the minimum will set the minimum value. 
+<pre>
+$si=100    - Status interval in milliseconds
+</pre>
 
 ### $IC Ignore CR or LF on RX 
 <pre>
