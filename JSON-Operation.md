@@ -34,6 +34,9 @@ Most commands that are available in JSON are also available in text mode, but th
 The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON enables exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Unlike RESTful HTTP, methods are implied by convention as there is no request header in which to declare them. 
 
 ## Basic Concepts
+In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
+{"x":{"vm":16000,"fr":10000}}
+
 How things are encoded in JSON:
 
 	Term | Description
@@ -68,31 +71,6 @@ TinyG implements a subset of JSON with the following limitations:
 * Limited object nesting is supported (you won't see more than 3 levels)
 * All JSON input and output is on a single text line. There is only one `<LF>`, it's at the end of the line (broken lines are not supported)
 
-### Text Mode and JSON Mode
-
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Text mode responses return "ok>" or "err" to maintain compatibility with grbl parsers.
-
-TinyG starts up in text mode if the $ej setting is set to text mode ($ej=0). TinyG will also enter text mode automatically if it receives a line with a leading $, ? or 'h'. (Note: The first status message returned on bootup will be in JSON format, regardless of the mode set). 
-
-TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). TinyG will also enter JSON mode automatically if it receives a line starting with an open curly '{'. While in JSON mode all commands are  expected in JSON format and responses are returned in JSON format....
-
-...the exception being Gcode blocks. Gcode blocks streamed to TinyG while in JSON mode can be sent with or without JSON wrappers - i.e. unwrapped Gcode will not return the system to text mode. Responses will always be returned in JSON format.
-
-
-In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
-{"x":{"vm":16000,"fr":10000}}
-
-### Names and Tokens 
-
-JSON names are short mnemonic tokens that can be 1 to 5 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 5 characters. Tokens are case insensitive and can only contain alphanumeric characters. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration) for a complete list of the tokens used for settings. Some examples are provided below: 
-
-	Token | as Text | as JSON | Description
-	------|---------|---------|--------------
-	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
-	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
-	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
-	home | $home | {"home":""} | Homing state
-	x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get). In JSON mode a group can be queried and can also be used to set any or all values in the group
 
 ##JSON Request and Response Formats
 
