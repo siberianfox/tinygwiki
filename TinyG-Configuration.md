@@ -121,7 +121,7 @@ When typing in configs a '$' must be the first character of the line. Input is c
 
 Configuration is non-moded; that is, configuration lines and Gcode blocks can be used without changing modes. However, it is not recommended to intermingle configs with Gcode blocks, as the EEPROM writes can interfere with step generation and serial transmission (interrupts). Please note: in some future release config commands that arrive during a gcode cycle may be rejected.
 
-_CAVEAT: At the current time because of various limitations of the Xmega we recommend waiting for each config command to send a response before sending the next command. This gives allows the system to persist the data to EEPROM, because during that interval the board cannot reliably receive serial input. _
+_CAVEAT: At the current time because of various limitations of the Xmega we recommend waiting for each config command to send a response before sending the next command. This gives allows the system to persist the data to EEPROM, because during that interval the board cannot reliably receive serial input._
 
 ## Units
 Configuration can be performed in either inches or millimeters mode. All values entered and responses provided will be in the current Gcode UNITS setting: G20 for inches or G21 for mm. Most of the examples below are in mm, but could just as easily be input in inches. 
