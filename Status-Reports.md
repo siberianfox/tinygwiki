@@ -43,6 +43,8 @@ Status reports can also be set up to be run automatically on a minimum time inte
 	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	$si | Status report interval | in milliseconds (50 ms minimum interval)
 
+NOTE: $si won't accept any values less than its minimum interval, which is 50 ms.
+
 Here are some examples:
 <pre>
 {"sv":0}      disable automatic status reports
