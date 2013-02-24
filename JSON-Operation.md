@@ -43,7 +43,7 @@ In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON valid
 	---------------|--------------
 	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
 	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by a pair of quotes `""`, the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value.
-	**NV pair** | A name and a value is a name:value pair or NV pair
+	**NVpair** | A name and a value is a name:value pair or NV pair
 	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 
 ### What is encoded in JSON
@@ -71,9 +71,7 @@ TinyG implements a subset of JSON with the following limitations:
 * Limited object nesting is supported (you won't see more than 3 levels)
 * All JSON input and output is on a single text line. There is only one `<LF>`, it's at the end of the line (broken lines are not supported)
 
-
 ##JSON Request and Response Formats
-
 JSON requests are used to perform the following actions {with examples}
 
 * Return the value of a single setting or state variable {"1mi":""}
@@ -103,7 +101,7 @@ The 'r' is the response envelope. The body of the response is the result returne
 {"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"vel":0.000,"momo":1,"stat":3}}
 </pre>
 
-It's similar to a response except there is no header or footer element. Since it's asynchronous the status code is irrelevant, as is the number of bytes pulled form the queue (0). Since they are informational a checksum is not provided. The exception is a report that is requested, which will return a footer. E.g. the the command {"sr":""} can be used to request the status report in the above example. 
+It's similar to a response except there is no header or footer element. Since it's asynchronous the status code is irrelevant, as is the number of bytes pulled form the queue (0). Since they are informational a checksum is not provided. The exception is a report that is requested, which will return a footer. E.g. the the command {"sr":""} can be used to request the status report in the above example. Look here for details of the [status reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 
 #JSON Details
 See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
