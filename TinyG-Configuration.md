@@ -93,6 +93,7 @@ These $configs invoke reports and functions
 	--------|-------------|-------
 	$sr | Request status report | SR also sets status report format in JSON mode
 	$qr | Request queue report | 
+	$qf | Flush planner queue | Used in combination with feedhold for jogging, probes and other UI driven sequences. Usage: {"qf":1}
 	$rx | Query space in serial RX buffer |
 	$test | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	$defa | Reset to factory defaults | $test=1 to reset; $defa returns help screen in text mode
