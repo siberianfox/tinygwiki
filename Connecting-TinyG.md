@@ -33,7 +33,7 @@ tinyg [mm] ok>
 </pre>
 If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
-For help from the command line enter 'h', and "$h"
+For help from the command line enter 'h' for TinyG help, or '$h' for configuration help 
 
 ## Wire Your Motors
 First, turn the power back off. Never connect or disconnect anything (except possibly USB) with the power on.
