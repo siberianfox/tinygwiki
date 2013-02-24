@@ -127,18 +127,6 @@ A group resource can also be retrieved by its parent name alone:
 {"2":{"ma":1,"sa":1.8,"tr":1.275,"mi":2,"po":0,"pm":1}}
 </pre> 
 
-Another advantage of the group form is that all motors will serialize / deserialize in host code to well-defined objects, making for convenient host coding. Essentially a resource can be instantiated in the host program, serialized to JSON, then sent to the the firmware to set all values in the resource. The same is true in reverse. You can think of attributes as being in an implicit dotted notation: e.g. x.fr, 1.sa, or g55.x<br> 
-
-'''''Here is an short Python Script that illustrates how easy it is to get data back from TinyG in a programatic way.''''' 
-<pre>#!/usr/bin/python
-import json
-motor_settings = '{"2":{"ma":1,"sa":1.8,"tr":1.275,"mi":2,"po":0,"pm":1}}'
-#motor_settings is an example response you would get from TG if you issued a {"2":""}\n command
-motors=json.loads(motor_settings)  #load the response into a python dict.
-
-#Break out individual values into vars.
-microSteps, travelRevs, stepAngle, polarity, powerManagement = (motors["2"]["ma"], p["2"]["tr"], p["2"]["sa"], p["2"]["po"], p["2"]["pm"])
-</pre> 
 Some other examples of group resoruces: 
 <pre>{"x":{"am":1,"fr":1000,"vm":1000,"tm":100,"jm":100000000,"jd":0.05,"sm":1,"sv":1000,"lv":100,"zo":4,"abs":"","pos":""}}
 {"y":{"am":1,"fr":1000,"vm":1000,"tm":100,"jm":100000000,"jd":0.05,"sm":1,"sv":1000,"lv":100,"zo":4,"abs":"","pos":""}}
@@ -158,28 +146,31 @@ The System Group is a special case that handles system and global values that do
 [hv]  hardware_version
 [id]  unique ID
 
-[gpl] gcode_select_plane   - power-on and reset default, not equivalent to G17, G18, G19
-[gun] gcode_units_mode     - power-on and reset default, not equivalent to G20, G21
-[gco] gcode_coord_system   - power-on and reset default, not equivalent to G54 - G59
-[gpa] gcode_path_control   - power-on and reset default, not equivalent to G61, G61.1, G64
-[gdi] gcode_distance_mode  - power-on and reset default, not equivalent to G90, G91
-
 [ja]  junction_acceleration
 [ct]  chordal tolerance
 [st]  switch type
 
+[ej]  enable_json_mode
+[jv]  JSON verbosity
+[tv]  text verbosity
+[qv]  queue report verbosity
+[sv]  status report verbosity
+[si]  status interval
 [ic]  ignore_CR/LF (on RX)
 [ec]  enable_CR (on TX)
 [ee]  enable_echo
 [ex]  enable_xon_xoff
 [eq]  enable queue reports
-[ej]  enable_json_mode
-[jv]  JSON verbosiroty
 
 [ml]  min_line_segment
 [ma]  min_arc_segment
 [mt]  min_segment_time
-[si]  status_interval
+
+[gpl] gcode_select_plane   - power-on and reset default, not equivalent to G17, G18, G19
+[gun] gcode_units_mode     - power-on and reset default, not equivalent to G20, G21
+[gco] gcode_coord_system   - power-on and reset default, not equivalent to G54 - G59
+[gpa] gcode_path_control   - power-on and reset default, not equivalent to G61, G61.1, G64
+[gdi] gcode_distance_mode  - power-on and reset default, not equivalent to G90, G91
 
 
 
