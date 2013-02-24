@@ -148,17 +148,25 @@ A status report may contain one or more of the following attributes. The [token]
 [mpob] b machine position
 [mpoc] c machine position
 
-[ofsx] x machine offset - X machine offset to work position in absolute coordinates in mm units ONLY
+[ofsx] x machine offset   - X machine offset to work position in absolute coordinates in mm units ONLY
 [ofsy] y machine offset       Reports offsets in mm and absolute machine coordinates 
 [ofsz] z machine offset
 [ofsa] a machine offset
 [ofsb] b machine offset
 [ofsc] c machine offset
 
-[g92x] g92x - G92 origin offset for X axis
-[g92y] g92y
-[g92z] g92z
-[g29a] g92a
+[g54x] g54x               - G54 coordinate system offset for X axis
+[g54y] g54y                   Coordinate system offsets may be reported
+[g54z] g54z
+...
+[g59a] g59a
+[g59b] g59b
+[g59c] g59c
+
+[g92x] g92x               - G92 origin offset for X axis
+[g92y] g92y                   The number returned can be a bit brain bending as you have to back out 
+[g92z] g92z                   the position from which the G92 was set, but this is the actual offset 
+[g29a] g92a                   value; and may be different from the value entered in the G92 command.
 [g92b] g92b
 [g92c] g92c
 </pre> 
