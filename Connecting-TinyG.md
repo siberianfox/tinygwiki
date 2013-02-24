@@ -102,3 +102,6 @@ Or both.
 
 ## Configuring Limit and Homing Switches
 TinyG has 8 limit and homing switches on the GPIO2 port. This requires its own page: [TinyG Homing and Limits](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) 
+
+# Configuring TinyG
+Now that you are connected move on the [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
