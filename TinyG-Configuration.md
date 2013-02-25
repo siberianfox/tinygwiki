@@ -313,7 +313,8 @@ By way of example, my Shapeoko is set up this way:
 	||
 	$ASN | A Minimum Switch Mode | 0=disabled 
 	$ASX | A Maximum Switch Mode | 0=disabled
-
+<br>
+<br>
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 <br>
