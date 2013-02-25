@@ -49,9 +49,9 @@ TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following f
 ## Programming support
 TinyG codebase is written in commented C, open source (GPL), and was orginally forked from grbl. A special thank you to Simen Svale Skogsrud and Sonny Jeon for making grbl available and continuing the good work 
 
-* Code is written in well commented C. Complies under avrGCC in AVR Studio4, AtmelStudio6 and other AVRGCC environments
-* Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos github.com/synthetos)
-* See [TinyG Support Forum](http://www.synthetos.com/forums/ www.synthetos.com/forums/) for help with your situation. 
+* Code is written in well commented C. Complies under avrGCC in AVR Studio4, AtmelStudio6 and native AVRGCC environments
+* Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos/tinyg)
+* See [TinyG Support Forum](https://www.synthetos.com/forum/tinyg/) if you need help 
 
 ## Hardware and other technical details
 TinyG is up to v7 PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have grblshield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield. TinyG hardware has:
