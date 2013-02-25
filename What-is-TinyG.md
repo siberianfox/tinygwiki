@@ -72,7 +72,7 @@ Basic similarities between grbl and tinyg:
 * Both basically support the same set of [Gcode](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) - with some minor differences
 
 * Both adhere as closely as possible to the NIST Gcode spec. and use the LinuxCNC Gcode spec for additional guidance. Refs:<br>
-[Kramer's NIST RS274NGCv3 Gcode Specification](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDUQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.141.2441&ei=E3grUfiUBuSE2gWqtoDQCw&usg=AFQjCNFGT4qifWNgbHkObEmsOoaMDeSJrQ&sig2=MmwGW0UIN6wLtjk9O4c8Pg&bvm=bv.42768644,d.b2I)
+[Kramer's NIST RS274NGCv3 Gcode Specification](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDUQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.141.2441&ei=E3grUfiUBuSE2gWqtoDQCw&usg=AFQjCNFGT4qifWNgbHkObEmsOoaMDeSJrQ&sig2=MmwGW0UIN6wLtjk9O4c8Pg&bvm=bv.42768644,d.b2I)<br>
 [LinuxCNC Gcode Speecification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)
 <br>
 
