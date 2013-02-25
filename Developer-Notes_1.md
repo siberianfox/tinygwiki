@@ -172,3 +172,33 @@ Rules for writing a continuation task:
 **TG_OK; The continuation task has completed - i.e. it has just transitioned to OFF. TG_OK should only be returned only once. The next state will be OFF, which will return NOOP. 
 **TG_COMPLETE: This additional state is used for nesting state machines such as the homing cycle. The lower-level routines called by a parent will return TG_EAGAIN until they are done, then they return TG_OK. The return codes from the continuation should be trapped by a wrapper routine that manages the parent and child returns. When the parent REALLY wants to return it sends the wrapper TG_COMPLETE, which is translated to an OK for the parent routine.<br>
 
+== canonical_machine.c/.h  ==
+
+This provides an interface layer to machining and related functions. It implements the NIST RS274NGC canonical machining functions (more or less). Some functions have been added, some not implemented, and some of the calling conventions are different. The canonical machine normalizes all coordinates and parameters to internal representation, keeps the Gcode model state, and makes calls to the planning and cycle layers for actual movement.&nbsp; 
+
+The canonical machine is extensible to handle canned cycles like homing cycles, tool changes, probe cycles, and other complex cycles using motion primitives. (I'm not sure if this is exactly how Kramer planned it - particularly when it comes to state management, but it's how it's implemented). 
+
+The canonical machine is the sole master of the gm struct, and all accesses to it must go through accessors (setters and getters). This is because in some cases the conversions into and out of gm's internal canonical form are complex and it's best not to have any other parts of the program messing with the internals.
+
+== stepper.c/.h  ==
+
+The stepper module performs the following functions: 
+
+*Stepper system init 
+*Stepper DDA load&nbsp; 
+*Stepper pulse generation / DDA execution (ISR) 
+*Dwell downcounter (ISR) 
+*Software interrupt (timer) to load stepper segment (ISR) 
+*Software interrupt (timer) to request move execution (ISR) 
+*Various prep routines and other supporting functions, including a null prep for M code and other non-timer functions.
+
+=== Digital Differential Analyser aka Bresenham Algorithm aka DDA  ===
+
+Coordinated motion (line drawing) is performed using a classic Bresenham DDA as per reprap and grbl.&nbsp;A number of additional steps are taken to optimize interpolation and pulse train accuracy such as the addition of&nbsp;fractional step handing within the DDA, optimal clock timing generation, and phase correction between pulse sequences ("segments"). 
+
+*The DDA accepts and processes fractional motor steps. Steps are passed to the move queue as doubles, and may have fractional values for the steps (e.g. 234.934 steps is OK). The DDA implements fractional steps and interpolation by extending the counter range downward using a variable-precision fixed-point binary scheme. It uses the DDA_SUBSTEPS setting to control default fixed-point precision. 
+*The DDA is not used as a 'ramp' for acceleration management. Accel is computed as 3rd order (maximum jerk) equations that generate piecewise linear accel/decel segments to the DDA. The DDA runs at a constant rate for each segment up to a maximum of 50 Khz step rate. The segment update rate (time length of segments) is set by the MIN_SEGMENT_USEC setting in planner.h - which is typically 10 ms segment times. 
+*The DDA rate for a segment is set to an integer multiple of the step freqency of the fastest motor (major axis). This amount of overclocking is controlled by the DDA_OVERCLOCK value, typically 16x. A minimum DDA rate is enforced that prevents overflowing the 16 bit DDA timer PERIOD value. The DDA timer always runs at 32 Mhz. The prescaler is not used. Various methods are used to keep the numbers in range for long lines. See _mq_set_f_dda() for details. (This is similar to the oversampling done by CD players to reduce aliasing noise). 
+*Pulse phasing is preserved between segments if possible. This makes for smoother motion, particularly at very low speeds and short segment lengths (avoids pulse jitter). Phase continuity is achieved by simply not resetting the DDA counters across segments. In some cases the differences between timer values across segments are too large for this to work, and you risk motor stalls due to pulse starvation. These cases are detected and the counters are reset to prevent stalling. 
+*Pulse phasing is also helped by minimizing the time spent loading the next move segment. To this end as much as possible about that move is pre-computed during the queuing phase. Also, all moves are loaded from the interrupt level, avoiding the need for mutual exclusion locking or volatiles (which slow things down).
+
