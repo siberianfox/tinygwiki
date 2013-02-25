@@ -81,7 +81,7 @@ Basic similarities between grbl and tinyg:
 * Both projects are currently widely deployed but are technically still in beta - with production for both expected "any day now" - realistically sometime in 2Q2013, if we both keep on schedule.
 
 Some fundamental differences are: 
-* grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the [NIST spec](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf) as to how rotary axes work, or refer to the [discussion on the TinyG wiki on rotational axes](INSERT REFERENCE HERE)
+* grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the [NIST spec](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf) as to how rotary axes work.
 
 * TinyG has 4 motors, grblshield has 3. It is possible (and common) for grbl to run dual gantry configs - like a dual Y by using 2 stepper drivers attached to the Y step and dir lines. This can present some challenges in homing, but in general this works pretty well. Grblshield only supports 3 axes, and the motors are tied to the X, Y and Z axes. In TinyG the motors are configurable (mappable) to an axis. If you want 4 X axes, map motors 1-4 to X and have a great day. Generally people map the 4th motor to Y the or A axis.
 
