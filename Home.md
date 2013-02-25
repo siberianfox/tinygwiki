@@ -9,7 +9,7 @@ This wiki is the TinyG user and programmer manual. We (Synthetos) maintain it, b
 For general support use the [Synthetos Forums](https://www.synthetos.com/forum/)
 The forum is for general questions about how to setup and use tinyg (and grblshield). Sometimes the questions end up in the github issues list, but generally they do not. Feel free to post github issues as you see fit, but more people read the forum than the issues, so if you are looking for help the forum is probably a better choice. Someone once called our forum "moribund". We take this as a compliment because with as many boards as we've shipped the fact that so few issues show up on the forum is a good thing, not a bad thing.
 
-There is also a google group about TinyG development over here: [TinyG Development Google Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/devTinyG). This is a conversation about new development, options, related products like controllers and android tablets, etc.
+There is also a [TinyG Development Google Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/devTinyG). This is a conversation about new development, options, related products like controllers and android tablets, etc.
 
 Please come visit / join any or all of the above.
 
