@@ -112,7 +112,8 @@ The following settings are accessible but do not appear in the system group list
 	$mt | Segment timing | 
 	$qvh | Queue report hi water mark | set between 0 and 24; default is 20
 	$qvl | Queue report low water mark | set between 0 and 24; default is 2
-
+<br>
+<br>
 # Settings Details
 Settings are case insensitive - they are shown in upper case for emphasis only. The leading '1' can be any motor, 1-4, and the leading 'x' can be any axis (with some restrictions as noted).
 
