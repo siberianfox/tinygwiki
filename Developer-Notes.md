@@ -2,7 +2,7 @@ These are random notes that may be useful for developers.
 
 The best way to understand the code is to read it. It's pretty well commented. Here are some [additional notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional) that explain a few things that are too wordy for the code comments.
 
-Here are somt things we [learned about using github](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Github), mostly the hard way.
+Here are some things we [learned about using github](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Github), mostly the hard way.
 
 ## Set Up a Windows Compile Environment for TinyG 
 This is the easiest way to get set up for compilation. It uses the pre-existing project files for AVRStudio4 or AtmelStudio6 to mamnage the git clone working directory.
