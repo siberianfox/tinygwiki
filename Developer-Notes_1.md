@@ -1,9 +1,12 @@
-The TinyG firmware codebase is available on [Github](https://github.com/synthetos/TinyG github.com/synthetos/TinyG)
-<br> This project is based on the [NIST RS274NGC_3 Gcode specification](http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.pdf)
+These notes are an adjunct to reading the code, which is pretty well documented - so don't expect this page to say things twice. This page fills in some background and other information that really doesn't belong in the comments as it would make the files too verbose.
 
-Additional guidance is provided by "CNC Programming Handbook, 3rd Edition" by Peter Smid (sorry, no link. buy the book)<br> 
-TinyG was originally forked from [grbl](https://github.com/grbl/grbl) in March 2010 and has diverged wildly since then, although we are active in grbl development and support grbl with a hardware solution [grblShield](http://www.synthetos.com/wiki/index.php?title=Projects:grblShield grblshield) <br> 
-The TinyG project is Open Source under GPLv3 for software and Creative Commons BY-SA for HW. <br> 
+Basics:
+* The TinyG firmware codebase is available on [Github](https://github.com/synthetos/TinyG github.com/synthetos/TinyG)
+<br> 
+* This project is based on the [NIST RS274NGC_3 Gcode specification](http://www.isd.mel.nist.gov/documents/kramer/RS274NGC_3.pdf)
+* Additional guidance is provided by "CNC Programming Handbook, 3rd Edition" by Peter Smid (sorry, no link. buy the book)<br> 
+* TinyG was originally forked from [grbl](https://github.com/grbl/grbl) in March 2010 and has diverged wildly since then, although we are active in grbl development and support grbl with a hardware solution [grblShield](http://www.synthetos.com/wiki/index.php?title=Projects:grblShield grblshield) <br> 
+* The TinyG project is Open Source under GPLv3 for software and Creative Commons BY-SA for HW. <br> 
 
 ## Code Overview
 The firmware controller, interpreter and stepper layers are organized as so: 
