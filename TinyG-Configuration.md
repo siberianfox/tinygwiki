@@ -3,8 +3,9 @@
 This page describes how configuration works in **text mode**. All configs on this page are also accessible in [**JSON mode**](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 # Summary / Cheat Sheet
+To see a value enter `$cmd`. To set a value enter `$cmd=value`. 
 Most commands are self explanatory. See following sections for those that require further explanation.
- 
+
 ##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
