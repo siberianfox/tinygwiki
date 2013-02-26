@@ -25,4 +25,5 @@ Please come visit / join any or all of the above.
 
 ### TinyG References
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [TinyG Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
