@@ -20,7 +20,7 @@ Please come visit / join any or all of the above.
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [JSON Mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
+* [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 ### TinyG References
 * [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
