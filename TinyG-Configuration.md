@@ -5,7 +5,7 @@ This page describes how configuration works in text mode from the [Command Line]
 # Summary / Cheat Sheet
 Connect to the TinyG USB at 115,200 baud.
 To see a value enter `$cmd`. To set a value enter `$cmd=value`. 
-Most commands are self explanatory. See [following sections](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#Settings-Details) for those that require further explanation.
+Most commands are self explanatory. See the sections following the cheat sheet for those that require further explanation.
 
 ##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
