@@ -22,6 +22,7 @@ Please come visit / join any or all of the above.
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
+* [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 ### TinyG References
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
