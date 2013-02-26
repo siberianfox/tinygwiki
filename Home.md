@@ -18,11 +18,12 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
-* [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+
+* [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
+* [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
 
 ### TinyG References
-* [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
