@@ -7,6 +7,7 @@
 
 You will need to enter the USB port you are actually using.<br>
 Use the Avrdude distributed with the Arduino - it's pretty up to date. 
+Before issuing the command, enter the bootloader by hitting the reset button, or enter the new boot command in g-code or JSON (e.g. $Boot=1, {"boot":1}). You need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times. 
 
 ## Flashing the Boot Loader onto the Xmega Chip
 The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section.
