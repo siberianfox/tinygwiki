@@ -9,7 +9,7 @@ You will need to enter the USB port you are actually using.<br>
 Use the Avrdude distributed with the Arduino - it's pretty up to date. 
 
 ## Flashing the Boot Loader onto the Xmega Chip
-The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot-boot.hex file already in the project. If you want to compile go to the next section.
+The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section.
 
 **Step 1**. Get the right programmer. The xmega requires PDI programming. Use the Atmel [AVRISP mkii](http://www.mouser.com/ProductDetail/Atmel/ATAVRISP2/?qs=%2fha2pyFaduiLEF45YHzXlzYdfQlCIaNgRBHMmCoiTxs%3d) or some other programmer that supports PDI programming. Plug the programmer into TinyG and apply power to TinyG.
 
@@ -34,7 +34,8 @@ Other values should be left alone. These are:
  * BODLVL = 1v6
  * Leave the lock bits alone for now
 
-**Step 4**. Use xboot-boot.hex for programming. Do not use xboot.hex as it's org'ed in the wrong place (0 instead of 0x30000)
+**Step 4**. Use xboot.hex for programming. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). You'll also need to specify "Erase Flash Before programming" or it won't verify.
+[screen capture of device programming here"
 
 ## Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot-boot.hex file. If all you want to do is flash it onto TinyG see the previous section.
