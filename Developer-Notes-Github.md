@@ -1,7 +1,7 @@
 This gets pretty deep in the weeds. This page is a collection of tings that tripped us up on Github and some documentation for common procedures like branch promotion, etc.
 
 ## Github Cheat Sheet
-A few rules to live by. Most git problems I have start from working in some "place" I don't think I'm in. These practices help reduce that possibility
+A few rules to live by. Most git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 * When you sit down to work always do this:
  * `git status` to see where you are
  * `git pull origin CURRENT_BRANCH` to make sure you are synced with the main repo for that branch
@@ -10,6 +10,10 @@ A few rules to live by. Most git problems I have start from working in some "pla
  * `git add` any new files you might have created
  * `git commit -a -m"XXX.YY Build number and notes`
  * `git push origin CURRENT_BRANCH'
+* If you want to change branches do this:
+ * Commit and push everything in the current branch as above
+ * `git checkout NEW_BRANCH`
+ * `git pull NEW_BRANCH`
 
 ## TinyG Github Notes
 If you are unfamiliar with git it's useful to start here:
