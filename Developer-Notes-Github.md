@@ -14,7 +14,7 @@ A few rules to live by. Most git problems I have start from working in some "pla
 * If you want to change branches do this:
  * Commit and push everything in the current branch as above
  * `git checkout NEW_BRANCH`
- * `git pull NEW_BRANCH`
+ * `git pull origin NEW_BRANCH`
 
 ## TinyG Github Notes
 If you are unfamiliar with git it's useful to start here:
