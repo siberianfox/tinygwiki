@@ -9,7 +9,7 @@ A few rules to live by. Most git problems I have start from working in some "pla
 * When you are ready to stop always commit everything - unless you are sure you don't want to
  * `git status` to see what you've got
  * `git add` any new files you might have created
- * `git commit -a -m"XXX.YY Build number and notes`
+ * `git commit -a -m"XXX.YY Build number and notes that are understandable by someone other than you"`
  * `git push origin CURRENT_BRANCH'
 * If you want to change branches do this:
  * Commit and push everything in the current branch as above
