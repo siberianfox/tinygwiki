@@ -10,7 +10,7 @@ A few rules to live by. Most git problems I have start from working in some "pla
  * `git status` to see what you've got
  * `git add` any new files you might have created
  * `git commit -a -m"XXX.YY Build number and notes that are understandable by someone other than you"`
- * `git push origin CURRENT_BRANCH'
+ * `git push origin CURRENT_BRANCH`
 * If you want to change branches do this:
  * Commit and push everything in the current branch as above
  * `git checkout NEW_BRANCH`
