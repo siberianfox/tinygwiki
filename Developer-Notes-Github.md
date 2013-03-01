@@ -3,7 +3,8 @@ This gets pretty deep in the weeds. This page is a collection of tings that trip
 ## Github Cheat Sheet
 A few rules to live by. Most git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 * When you sit down to work always do this:
- * `git status` to see where you are and if you have any uncommitted files in your local respository
+ * `git status` to see where you are and if you have any uncommitted files in your local repository
+  * If you do have uncommitted files then stash them somewhere before doing the pull
  * `git pull origin CURRENT_BRANCH` to make sure you are synced with the main repo for that branch
 * When you are ready to stop always commit everything - unless you are sure you don't want to
  * `git status` to see what you've got
