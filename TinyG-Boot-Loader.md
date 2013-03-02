@@ -5,6 +5,11 @@
 **Step1**: To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
+Here's an example command line from Mac:<br>
+`avrdude -p x192a3 -c avr109 -b 115200 -P tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
+
+To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
+
 You will need to enter the USB port you are actually using.<br>
 Use the Avrdude distributed with the Arduino - it's pretty up to date. 
 Before issuing the command, enter the bootloader by hitting the reset button, or enter the new boot command in g-code or JSON (e.g. $Boot=1, {"boot":1}). You need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times. 
