@@ -35,6 +35,8 @@ Other values should be left alone. These are:
  * BODLVL = 1v6
  * Leave the lock bits alone for now
 
+Hit `Program` to program the fuses
+
 **Step 4**. Use xboot.hex for programming. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). You'll also need to specify "Erase Flash Before programming" or it won't verify.
 [screen capture of device programming here"
 
