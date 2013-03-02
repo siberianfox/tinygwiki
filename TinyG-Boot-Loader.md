@@ -10,7 +10,7 @@ Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
 Here's an example command line from Mac:<br>
-`avrdude -p x192a3 -c avr109 -b 115200 -P tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
+`avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
 
 To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
