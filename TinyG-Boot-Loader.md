@@ -2,7 +2,8 @@
 
 ## Updating TinyG Firmware using the Boot Loader
 
-**Step1**: To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. Here's an example command line from Windows:<br>
+**Step1**: To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
+Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
 Here's an example command line from Mac:<br>
