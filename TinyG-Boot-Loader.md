@@ -59,7 +59,7 @@ Hit `Program` to program the fuses
 If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
 
 ## Compiling the Boot Loader for TinyG
-Use these instructions if you want to change the xboot-boot.hex file. If all you want to do is flash it onto TinyG see the previous section.
+Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
 Step 1. The command line you need is:<br>
 `make conf\x192a3.conf.mk`
@@ -67,7 +67,7 @@ Step 1. The command line you need is:<br>
 But beware - it only works in windows. Use cmd and navigate to the (lower) xboot directory something like:
 `Z:\Username\Projects\...\TinyG\xboot\xboot\make conf\x192a3.conf.mk`
 
-It enters an infinite loop in Linux and generates this error iin OSX
+It enters an infinite loop in Linux and generates this error in OSX
 
 <pre>
 macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
@@ -75,7 +75,7 @@ macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
 macintosh-3:xboot your-user-dir$
 </pre>
 
-We have not diagnosed or fixed this yet.
+We have not diagnosed or fixed this yet, but are working on getting it to compile under Atmel Studio6 (see later item).
 
 ## Developer Notes
 The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
@@ -85,9 +85,11 @@ Bring up a cmd window and navigate to the working directory. Run the command:
 <pre>
 make conf/x192a3.conf.mk
 </pre>
-You should now be ready to flash xboot-boot.hex onto the xmega192. Refer to the Flashing... section, above.
+You should now be ready to flash xboot.hex onto the xmega192. Refer to the Flashing... section, above.
 
 ### Getting Xboot to work in Atmel Studio6
+_Note: this isn't working just yet. Check back later_
+
 The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
 
 This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native xboot Makefile in the working directory. This is so the debugger can support symbolic debugging. The following need to be done for this to work.
