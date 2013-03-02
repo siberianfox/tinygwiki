@@ -41,6 +41,9 @@ Hit `Program` to program the fuses
 
 **Step 5**. Do this step if you aslo want to program TinyG onto the chip. Select tinyg.hex in the `Flash` section. Uncheck the `Erase Flash Before programming` box. Hit `Program`.
 
+
+If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
+
 ## Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot-boot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
