@@ -36,7 +36,7 @@ Other values should be left alone. These are:
 
 Hit `Program` to program the fuses
 
-**Step 4**. Use xboot.hex for programming. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). You'll also need to specify `Erase Flash Before programming` or it won't verify.
+**Step 4**. Go to `Memories`. Select `Erase Chip`. Now select xboot.hex in the `Flash` section. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). You will need to check the `Erase Flash Before programming` box or it won't verify. Hit `Program`.
 [put screen capture of device programming here]
 
 ## Compiling the Boot Loader for TinyG
