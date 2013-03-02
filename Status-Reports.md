@@ -126,7 +126,7 @@ A status report may contain one or more of the following attributes. The [token]
 [vel]  velocity           - actual velocity - may be different than programmed feed rate 
 [line] line_number        - either the Gcode line number (N word), or the auto-generated line count if N's are no present 
 [feed] feed_rate          - gcode programmed feed rate (F word) 
-[stat] machine_state      - 0=reset, 2=stop, 3=end, 4=run, 5=hold, 6=homing 
+[stat] machine_state      - 0=initializing, 1=ready, 2=shutdown, 3=stop, 4=end, 5=run, 6=hold, 9=homing 
 [unit] units_mode         - 0=inch, 1=mm
 [coor] coordinate_system  - 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
 [momo] motion_mode        - 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
