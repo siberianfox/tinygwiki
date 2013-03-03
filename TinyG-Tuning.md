@@ -7,16 +7,15 @@ Bear in mind that with traverses (G0) the actual speed of movement may well be a
 
 The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
 
-### Procedure
-The following procedure can be used to set the max velocity ($xvm) to the maximum speed of reliable travel, or the "top speed" of the machine.
+### Tuning Procedure
+The following procedure can be used to set the max velocities ($xvm, $yvm...) and feed rates. Some notes:
 
-* Values in this example are in inches. MM values are also provided in square backets for comparison [mm]. MM values may be approximate but accurate enough for these purposes. 
+* Values shown are in inches. Millimeter values are also provided in square brackets for comparison [mm]. MM values may be approximate but accurate enough for these purposes. 
 * Setting the machine is inches mode is done by issuing a G20 command either at the command line or in a file. Issues a G21 for mm mode. 
 * Settings strings in this example, such as $xvm show the x axis. Other axes are similar, such as $yvm, $zvm,&nbsp;$avm, $bvm, $cvm. 
 * The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
 
-Steps 
-
+**Steps**
 1. Make sure motor setting such as step angle ($1sa), microsteps ($1mi), and polarity ($1po) are correct for the motor and the setup. Make sure the travel per revolution ($1tr) is set correctly for your machine. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted), and $1tr = 0.100 as the reciprocal of lead screw pitch, e.g. 1/(10 TPI). [or 2.54 in mm]. 
 1. Set a maximum jerk value ($xjm) where you can audibly hear the motor come up to speed. A value of 20,000,000 [50,000,000] is good. Note: commas are not accepted by config. 
 1. Test traverse rate with a G0, such as G0 X5 [G0 X100]. The motor should accelerate, cruise at speed, then decelerate to a stop. The motor should not stall or fail to start. Lower the velocity if this is the case. 
