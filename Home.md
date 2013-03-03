@@ -17,7 +17,8 @@ Please come visit / join any or all of the above.
 * [What is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
-* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)<br>
+* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Tuning TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 * [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
@@ -29,3 +30,4 @@ Please come visit / join any or all of the above.
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 * [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
+* [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
