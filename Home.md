@@ -1,6 +1,6 @@
 Welcome to the TinyG wiki!
 
-This wiki is used to keep documentation from version 0.95 onward. For previous versions see here: [Synthetos TinyG Wiki](http://www.synthetos.com/wiki/index.php?title=Projects:TinyG)
+This wiki is used to keep documentation from version 0.95 onward. For previous versions see [the old TinyG wiki](http://www.synthetos.com/wiki/index.php?title=Projects:TinyG)
 
 ![TinyG v7 Board](http://farm9.staticflickr.com/8378/8504469302_d645fcd97c_z.jpg)
 
