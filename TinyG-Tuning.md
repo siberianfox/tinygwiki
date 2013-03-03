@@ -16,7 +16,7 @@ The following procedure can be used to set the max velocities ($xvm, $yvm...) an
 * The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
 
 **Steps**<br>
-Do these steps for each axis.
+Do these steps for each axis in turn.
 
 1. Ensure the step angle ($1sa), microsteps ($1mi), and polarity ($1po) settings are correct for the motor and the setup. In general, positive X moves to the right, positive Y moves away from you (towards the rear of the machine), and positive Z moves upwards. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted).
 1. Make sure the travel per revolution ($1tr) is set correctly for each axis. Example: $1tr = 0.100 is a value for a 10 thread-per-inch lead screw [or 2.54 in mm]. Some machines have different travel per revolution for different axes. 
