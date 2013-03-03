@@ -1,4 +1,4 @@
-## Rotational Axis Settings and Modes  ==
+## Rotational Axis Settings and Modes
 
 * The rotational axes (ABC) run natively in degrees mode. All gcode values for the ABC axes are in degrees. The configuration settings of the rotational axes are also all in degrees (with the exception of the Radius setting). 
 * Velocity max and feed rate are in degrees per minute and behave as per RS274NGCv3 feed rate definitions. 
