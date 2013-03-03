@@ -15,7 +15,7 @@ The following procedure can be used to set the max velocities ($xvm, $yvm...) an
 * Settings strings in this example, such as $xvm show the x axis. Other axes are similar, such as $yvm, $zvm,&nbsp;$avm, $bvm, $cvm. 
 * The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
 
-**Steps**
+**Steps**<br>
 Do these steps for each axis.
 
 1. Ensure the step angle ($1sa), microsteps ($1mi), and polarity ($1po) settings are correct for the motor and the setup. In general, positive X moves to the right, positive Y moves away from you (towards the rear of the machine), and positive Z moves upwards. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted).
