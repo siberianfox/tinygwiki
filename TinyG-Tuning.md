@@ -17,8 +17,9 @@ The following procedure can be used to set the max velocities ($xvm, $yvm...) an
 
 **Steps**
 
-1. Make sure motor setting such as step angle ($1sa), microsteps ($1mi), and polarity ($1po) are correct for the motor and the setup. Make sure the travel per revolution ($1tr) is set correctly for your machine. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted), and $1tr = 0.100 as the reciprocal of lead screw pitch, e.g. 1/(10 TPI). [or 2.54 in mm]. 
-1. Set a maximum jerk value ($xjm) where you can audibly hear the motor come up to speed. A value of 20,000,000 [50,000,000] is good. Note: commas are not accepted by config. 
+1. Ensure the step angle ($1sa), microsteps ($1mi), and polarity ($1po) settings are correct for the motor and the setup. In general, positive X moves to the right, positive Y moves away from you (towards the rear of the machine), and positive Z moves upwards. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted).
+1. Make sure the travel per revolution ($1tr) is set correctly for each axis. Example: $1tr = 0.100 is a value for a 10 thread-per-inch lead screw [or 2.54 in mm]. Some machines have different travel per revolution for different axes. 
+1. Set a maximum jerk value ($xjm) where you can audibly hear the motor come up to speed. A value of 20,000,000 [50,000,000] is good. _Note: commas are accepted by the configuration routines in text mode, but not in JSON mode._
 1. Test traverse rate with a G0, such as G0 X5 [G0 X100]. The motor should accelerate, cruise at speed, then decelerate to a stop. The motor should not stall or fail to start. Lower the velocity if this is the case. 
 1. If the motor hums but doesn't start it's probably not getting enough current. Alternately, if the motor stops and starts; or stutters; and the driver chips are excessively hot the motor is getting too much current.&nbsp; 
 1. If the the motor more or less works but seems to be dropping steps it could be any of the mechanical system (too much friction), the current setting, or the velocity max being too high. Probably some combination of all three. Experimentation is required. It's best to try to fix them in that order. 
