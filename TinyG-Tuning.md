@@ -6,11 +6,10 @@ This page covers things you may want to do once the wiring and physical setup is
 The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load.<br><br>Traverses are executed as G0 commands and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
 Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
 
-The **feed rate** is the maximum cutting speed the axis can sustain. This can vary depending on the material and job.<br>
+The **feed rate** is the maximum cutting speed the axis can sustain. This can vary depending on the material and job. The max feed rates should be set lower than traverse rates and generally set after the traverse rates have been set. <br><br>
 
-Feed rates should be set lower than traverse rates. Set traverse rates before feed rates. The following example discusses setting the max velocity ($xvm) to the maximum speed of reliable travel, or the "top speed" of the machine.&nbsp;
-
-Notes: 
+### Example
+The following example discusses setting the max velocity ($xvm) to the maximum speed of reliable travel, or the "top speed" of the machine.
 
 * Values in this example are in inches. MM values are also provided in square backets for comparison [mm]. MM values may be approximate but accurate enough for these purposes. 
 * Setting the machine is inches mode is done by issuing a G20 command either at the command line or in a file. Issues a G21 for mm mode. 
