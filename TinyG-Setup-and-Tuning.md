@@ -1,6 +1,6 @@
 This page covers things you may want to do once the wiring and physical setup is complete.
 
-## Setting 
+## Setting Motor Current
 
 ## Setting Feed Rate and Maximum Velocity (Traverse Rate)
 
