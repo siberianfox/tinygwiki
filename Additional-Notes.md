@@ -4,7 +4,8 @@
 * Travel per revolution means the number of degrees the machine moves per motor revolution - it expresses gearing. For example a rotary table has a 90:1 gear ratio. The travel per revolution should be set to 4. (360 / 90). 
 * Travel hard and soft limits are in degrees. Most of the time rotational axes are "wrapped" axes that have no limits. In this case the limits should be set to -1. 
 * All homing cycle values (rates and distances) are also in degrees, although the meanings may vary depending on homing modes.
-<br> 
+<br>
+
 ### Slaved Extruder Example
 Take the case of a stepper controlled extruder for 3d printing. The stepper motor is driven from the C axis. 
 
