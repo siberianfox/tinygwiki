@@ -16,6 +16,7 @@ The following procedure can be used to set the max velocities ($xvm, $yvm...) an
 * The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
 
 **Steps**
+
 1. Make sure motor setting such as step angle ($1sa), microsteps ($1mi), and polarity ($1po) are correct for the motor and the setup. Make sure the travel per revolution ($1tr) is set correctly for your machine. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted), and $1tr = 0.100 as the reciprocal of lead screw pitch, e.g. 1/(10 TPI). [or 2.54 in mm]. 
 1. Set a maximum jerk value ($xjm) where you can audibly hear the motor come up to speed. A value of 20,000,000 [50,000,000] is good. Note: commas are not accepted by config. 
 1. Test traverse rate with a G0, such as G0 X5 [G0 X100]. The motor should accelerate, cruise at speed, then decelerate to a stop. The motor should not stall or fail to start. Lower the velocity if this is the case. 
