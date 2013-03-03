@@ -1,5 +1,7 @@
 This page covers things you may want to do once the wiring and physical setup is complete.
 
+## Setting 
+
 ## Setting Feed Rate and Maximum Velocity (Traverse Rate)
 
 The velocity maximum - aka traverse rate - is the upper limit of the machine axis under no cutting load. Traverses are executed as G0 commands and generally don't change from job to job. The feed rate is the maximum cutting speed the axis can sustain. This can vary depending on the material and job. Feed rates should be less than traverse rates. Set traverse rates before feed rates. The following example discusses setting the max velocity ($xvm) to the maximum speed of reliable travel, or the "top speed" of the machine.&nbsp;A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall. 
