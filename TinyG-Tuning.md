@@ -11,8 +11,8 @@ The **feed rate** is the maximum cutting speed the axis can sustain for a given 
 The following procedure can be used to set the max velocities ($xvm, $yvm...) and feed rates. Some notes:
 
 * Values shown are in inches. Millimeter values are also provided in square brackets for comparison [mm]. MM values may be approximate but accurate enough for these purposes. 
-* Setting the machine is inches mode is done by issuing a G20 command either at the command line or in a file. Issues a G21 for mm mode. 
-* Settings strings in this example, such as $xvm show the x axis. Other axes are similar, such as $yvm, $zvm,&nbsp;$avm, $bvm, $cvm. 
+* Setting the machine is inches mode is done by issuing a G20 command at the command line (or in a file). Issue a G21 for mm mode.
+* Settings strings in this example, such as $xvm show the x axis. Other axes are similar, such as $yvm, $zvm, $avm, $bvm, $cvm. 
 * The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
 
 **Steps**<br>
