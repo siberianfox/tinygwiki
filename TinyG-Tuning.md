@@ -29,6 +29,6 @@ Do these steps for each axis in turn.
 
 It's worth noting that the mechanics of the axes may not be identical, and the achieveable traverse rates may differ for each axis. You can set them optimally for each axis and moves in more than one dimension will takes the individual settings into account.&nbsp; 
 
-It's also worth noting that on some machines mechanical resistance is greater in some parts of the travel than others (e.g. more resistance at the ends of travel due to shaft coupler runout or other mechanical factors). Be sure to test the entire travel for each axis before finalizing the seek rate.
+It's also worth noting that on some machines mechanical resistance is greater in some parts of the travel than others (e.g. more resistance at the ends of travel due to shaft coupler runout or other mechanical factors). Be sure to test the entire travel for each axis before finalizing the settings.
 
 Set feed rates ($xfr) similarly. These often require adjustment for a given job or material as the cutting loads may vary. The traverse rates should not require job-by-job adjustment.
