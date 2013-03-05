@@ -1,6 +1,6 @@
 **Huge thanks to Kevin Osborn who got this working**
 
-## Updating TinyG Firmware using the Boot Loader
+# Updating TinyG Firmware using the Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
 **Step1**. Navigate to the directory that has the tinyg.hex file you want.
@@ -23,7 +23,7 @@ To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty
  
 Before issuing the command, enter the bootloader by hitting the reset button, or enter the new boot command in g-code or JSON (e.g. $Boot=1, {"boot":1}). You need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times. 
 
-## Flashing the Boot Loader onto the Xmega Chip
+# Flashing the Boot Loader onto the Xmega Chip
 The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section.
 
 **Step 1**. Get the right programmer. The xmega requires PDI programming. Use the Atmel [AVRISP mkii](http://www.mouser.com/ProductDetail/Atmel/ATAVRISP2/?qs=%2fha2pyFaduiLEF45YHzXlzYdfQlCIaNgRBHMmCoiTxs%3d) or some other programmer that supports PDI programming. Plug the programmer into TinyG and apply power to TinyG.
@@ -58,8 +58,16 @@ Hit `Program` to program the fuses
 
 If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
 
-## Compiling the Boot Loader for TinyG
+# Project Setup and Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
+
+The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
+
+## Getting Xboot to work from the native Makefile
+Bring up a cmd window and navigate to the working directory. Run the command:
+<pre>
+make conf/x192a3.conf.mk
+</pre>
 
 Step 1. The command line you need is:<br>
 `make conf\x192a3.conf.mk`
@@ -75,19 +83,11 @@ macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
 macintosh-3:xboot your-user-dir$
 </pre>
 
-We have not diagnosed or fixed this yet, but are working on getting it to compile under Atmel Studio6 (see later item).
+We have not diagnosed or fixed this yet, but are working on getting it to compile under Atmel Studio6 (below).
 
-## Developer Notes
-The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
-
-### Getting Xboot to work in Native Windows
-Bring up a cmd window and navigate to the working directory. Run the command:
-<pre>
-make conf/x192a3.conf.mk
-</pre>
 You should now be ready to flash xboot.hex onto the xmega192. Refer to the Flashing... section, above.
 
-### Getting Xboot to work in Atmel Studio6
+## Getting Xboot to work in Atmel Studio6
 _Note: this isn't working just yet. Check back later_
 
 The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
