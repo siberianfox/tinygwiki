@@ -4,7 +4,14 @@ Here's an attempt to collect and writup some common problems with answers. I'm s
 
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
-## Erratic Gcode operation, arc specification errors popping up, etc.
+## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
+PROBLEM: The Gcode file you are sending behaves erratically and may have these symptoms:
+* Rapid moves to random locations
+* Z axis plunging unexpectedly
+* Gcode errors returned in message line
+
+SOLUTION: This is usually a failure in the program sending Gcode to the board. One of two things is probably happening (1) the serial buffer is being overwritten because the host is not performing adequate flow control, or (2) $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
+
 Are you using Coolterm to send files? Are you using Xon/Xoff mode? It is enabled in both Coolterm and on TinyG ($ex)?
 
 ## Crash/reset on move
