@@ -103,7 +103,7 @@ avr-nm -n xboot.elf > xboot.sym
 </pre>
 <pre>
 in Symbols:
-F_CPU=32000000
+F_CPU=32000000L
 USE_CONFIG_H
 </pre>
 <pre>
@@ -112,8 +112,9 @@ in Optimization:
 </pre>
 <pre>
 in Miscellaneous
--mmcu=atxmega192a3 -I. -gstabs -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
--mmcu=atxmega192a3 -I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+-I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
+-- alternately --
+-I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
 </pre>
 <pre>
 in Linker/Memory Settings:
