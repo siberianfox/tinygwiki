@@ -109,30 +109,21 @@ in the General section:
 uncheck `Use External Makefile`
 frequency = 32000000   (32 Mhz)
 optimization = -Os
-in 
-avr-objcopy -O ihex --change-addresses -0x30000 xboot.hex xboot-boot.hex
-avr-nm -n xboot.elf > xboot.sym
 </pre>
 <pre>
-in Symbols:
-F_CPU=32000000L
-USE_CONFIG_H
+add the following to Custom Options, [All files]:
+-DUSE_CONFIG_H
+-ffunction-sections
+-fdata-sections
 </pre>
 <pre>
-in Optimization:
--Os
-</pre>
-<pre>
-in Miscellaneous
--I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
--- alternately --
--I. -gdwarf-2 -std=gnu99 -ffunction-sections -fdata-sections -fno-jump-tables -Wa,-adhlns=flash.lst -Wstrict-prototypes
-</pre>
-<pre>
-in Linker/Memory Settings:
-.text=0x18000    (yes, it's 0x30000 divided by 2)
+add the following to Custom Options, [Linker Options]:
+-Wl,--section-start=.text=0x030000
+-Wl,-Map=xboot.map,--cref
+-Wl,--gc-sections
 </pre>
 
+You will want to use the xboot.hex file found in the `default` directory
 
 ## Setting up Xboot as an AtmelStudio6 Project
 _Note: this isn't working just yet. Check back later_
