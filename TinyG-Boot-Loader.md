@@ -128,7 +128,11 @@ You will want to use the xboot.hex file found in the `default` directory
 ## Setting up Xboot as an AtmelStudio6 Project
 _Note: this isn't working just yet. Check back later_
 
-The xboot project has been set up under Atmel Studio6 (Windows only). The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
+Xboot seems to only compile under the AVRGCC (WinAVR 20100110) 4.3.3. Studio 6 runs the AVR_8_bit_GNU_Toolchain_3.4.0_663 (4.6.2). For some reason the newer version doesn't work - it fails during EEPROM write. 
+
+But if you want to try this do the following:
+
+The project files are the xboot.atsln and xboot.cproj files in the github TinyG/support dir. Move these to your project directory then click on xboot.atsln to start the project up. 
 
 This project uses the Studio6 auto-generated makefile in the Debug directory instead of the native xboot Makefile in the working directory. This is so the debugger can support symbolic debugging. The following need to be done for this to work.
 
