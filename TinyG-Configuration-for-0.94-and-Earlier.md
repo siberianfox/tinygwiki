@@ -87,18 +87,21 @@ To update a setting enter a token and a value. Most tokens are a 2 or 3 letter m
 <pre>
 tinyg[mm]ok> $yfr=800                                           Set feed rate for Y axis to 800 mm/min
   Y axis - Feed rate           800 mm/min       $YFR800
- 
+</pre>
+<pre> 
 tinyg[mm]ok> $yfr = 1,600                                       Set feed rate for Y axix to 1600 mm/min
  Y axis - Feed rate           1600 mm/min       $YFR1600
- 
+</pre>
+<pre>  
 tinyg[mm]ok> $2po=1                                             Set polarity for motor 2 to inverted
  Motor 2 - Motor polarity        1 [0,1]        $2PO1
- 
+</pre>
+<pre> 
 tinyg[mm]ok> $ja=100000                                         Set junction acceleration global value to 100,000
  Junction corner accel      100000 mm/min^2     $JA100000
-
+</pre>
+<pre> 
 If there is an error there will be no echo or a line like one of these: 
-
  #### Unknown config string: YGR800                             It didn't recognize the mnemonic
  {21} Bad number format: XFR1200.2.3                            The value had 2 decimal points
 </pre>
@@ -124,27 +127,32 @@ Note: the settings are case insensitive - they are shown in upper case for empha
  $1sa=1.8	This is a typical value for most motors. 
 </pre>
 
-'''$1TR<span class="Apple-tab-span" style="white-space:pre">		</span>'''[$m1_travel_per_revolution] Travel per Revolution. This is the amount of travel per motor revolution in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
+**$1TR** This is the amount of travel per motor revolution in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
 
 For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko of Reprap belt driven machine is on the order of 35 mm per revolution. Don't take this as exact - you will need to calibrate your machine to get this setting.
 
-For ABC the travel is&nbsp;entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with a&nbsp;4 degree table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
+For ABC the travel is entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with a 4 degree table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
 
 Note that Travel per Revolution is a motor parameter, not an axis parameter as one might think. Consider the case of a dual Y gantry with lead screws of different pitch (how weird). The travel per revolution would be different for each motor. 
 
- $1tr=2.54<span class="Apple-tab-span" style="white-space:pre">	</span>Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
+<pre> 
+ $1tr=2.54      Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
+</pre>
 
-<br> 
+**$1MI** MIcrosteps. The following values are supported: 
+* 1 = no microsteps (whole steps)
+* 2 = half stepping
+* 4 = quarter stepping
+* 8 = eighth stepping
 
-'''$1MI'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_microsteps] MIcrosteps. The following values are supported: 1 = no microsteps (whole steps), 2 = half stepping, 4 = quarter stepping, 8 = eighth stepping.&nbsp;Despite common wisdom, higher microstep values are not always better (It's like watts in the 80's - the more the better, right?). In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
-
+Despite common wisdom, higher microstep values are not always better (It's like watts in the 80's - the more the better, right?). In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
+<pre>
  $3mi=8	<span class="Apple-tab-span" style="white-space:pre">	</span>Set 1/8 microsteps for motor 3 
+</pre>
 
-''Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TInyG to other drivers (you know who you are) like those running 10x or 16x steps. If you are using the drivers on TInyG this will cause them to malfucntion, so please don't do this unless you are one of those hacker types that soldered up your TinyG.'' 
+_Note: Values other than 1,2,4 and 8 are accepted. This is to support some people that have crazily wired TInyG to other drivers (you know who you are) like those running 10x or 16x steps. If you are using the drivers on TInyG this will cause them to malfucntion, so please don't do this unless you are one of those hacker types that soldered up your TinyG._ 
 
-
-
-'''$1PO'''<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_polarity] POlarity. Set to one of the following: 0 = Normal motor polarity, 1 = Invert motor polarity.&nbsp;Polarity sets which direction the motor will turn when presented with positive and negative Gcode coordinates. It's affected by how you wired the motors and by mechanical factors. Set polarity so the indicated axis travels in the correct orientation for your machine. Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you.&nbsp;Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.<br> 
+**$1PO** Set to one of the following: 0 = Normal motor polarity, 1 = Invert motor polarity. Polarity sets which direction the motor will turn when presented with positive and negative Gcode coordinates. It's affected by how you wired the motors and by mechanical factors. Set polarity so the indicated axis travels in the correct orientation for your machine. Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you.&nbsp;Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.<br> 
 
  $3po=0<span class="Apple-tab-span" style="white-space:pre">		</span>Set polarity to normal
 
