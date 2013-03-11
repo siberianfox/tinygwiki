@@ -81,45 +81,36 @@ The $ must be the first character of the line, and input is case insensitive. Co
 ## Updating Settings
 To update a setting enter a token and a value. Most tokens are a 2 or 3 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 4 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
 
- tinyg[mm]ok&gt; $yfr=800 <span class="Apple-tab-span" style="white-space:pre">						</span>(Set feed rate for Y axix to 800 mm/min)
- Y axis - Feed rate            800 mm/min       $YFR800
+	Issue | Diagnosis / Solution
+	--------|--------------------
+
+<pre>
+tinyg[mm]ok> $yfr=800                                           Set feed rate for Y axis to 800 mm/min
+  Y axis - Feed rate           800 mm/min       $YFR800
  
- tinyg[mm]ok&gt; $ y fr = 1,600 					(Set feed rate for Y axix to 1600 mm/min)
+tinyg[mm]ok> $yfr = 1,600 					Set feed rate for Y axix to 1600 mm/min
  Y axis - Feed rate           1600 mm/min       $YFR1600
  
- tinyg[mm] ok&gt; $2po=1<span class="Apple-tab-span" style="white-space:pre">						</span>(Set polarity for motor 2 to inverted)
+tinyg[mm]ok> $2po=1                                             Set polarity for motor 2 to inverted
  Motor 2 - Motor polarity        1 [0,1]        $2PO1
  
- tinyg[mm] ok&gt; $ja=100000<span class="Apple-tab-span" style="white-space:pre">					</span>(Set junction acceleration global value to 100,000)
+tinyg[mm]ok> $ja=100000                                         Set junction acceleration global value to 100,000
  Junction corner accel      100000 mm/min^2     $JA100000
- 
 
 If there is an error there will be no echo or a line like one of these: 
 
- #### Unknown config string: YGR800<span class="Apple-tab-span" style="white-space:pre">		</span>It didn't recognize the mnemonic
- {21} Bad number format: XFR1200.2.3<span class="Apple-tab-span" style="white-space:pre">		</span>The value had 2 decimal points
+ #### Unknown config string: YGR800                             It didn't recognize the mnemonic
+ {21} Bad number format: XFR1200.2.3                            The value had 2 decimal points
+</pre>
 
-Input is somewhat forgiving of caps, extra characters and spaces. The following are all valid ways to set the step angle for motor 2 to 0.9 degrees per step 
+## Units
+TinyG operates in either inches or millimeters mode depending on the prevailing setting of G20 (inches) or G21 (mm). All values will be input and displayed in the units system selected. Most of the examples below are in mm, but could just as easily be input in inches.
 
- tinyg[mm]ok&gt;  $2sa 0.9
- tinyg[mm]ok&gt;  $2 sa 0.900
- tinyg[mm]ok&gt;  $2SA=0.9
- tinyg[mm]ok&gt;  $2sa=+0.9
- tinyg[mm]ok&gt;  $2SA=.9
+# Settings Details
+Note: the settings are case insensitive - they are shown in upper case for emphasis only.
 
-<br>
-
-== Units  ==
-TinyG operates in either inches or millimeters mode depending on the prevailing setting of G20 (inches) or G21 (mm). All values will be input and displayed in the units system selected. Most of the examples below are in mm, but could just as easily be input in inches.<br><br>
-
-= Settings Details  =
-Note: the settings are case insensitive - they are shown in upper case for emphasis only.<br>
-The friendly name may be used in place if the mnemonic. It's listed as in braces, e.g. [$m1_map_to_axis]<br>
-Friendly names only need to be types to the point of uniqueness - e.g. $m1_pol is OK for $m1_polarity and $m1_pow is OK for $m1_power_management<br>
-
-== Motor Settings  ==
-
-'''$1MA'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_map_to_axis] MAp motor to axis. Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. &nbsp;As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.&nbsp;The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
+## Motor Settings
+**$1MA** MAp motor to axis. Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
 
  $1ma=0	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 1 to the X axis
  $2ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 2 to the Y axis
