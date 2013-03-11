@@ -27,6 +27,7 @@ Please come visit / join any or all of the above.
 ### TinyG References
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [TinyG Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [TinyG Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 * [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
