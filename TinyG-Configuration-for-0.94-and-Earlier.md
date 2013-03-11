@@ -81,23 +81,20 @@ The $ must be the first character of the line, and input is case insensitive. Co
 ## Updating Settings
 To update a setting enter a token and a value. Most tokens are a 2 or 3 letter mnemonic plus a motor number or axis prefix. System settings have no prefix and may be 2 to 4 letters. The following are examples of valid inputs. The setting is taken and the value is echoed on the next line 
 
-	Issue | Diagnosis / Solution
-	--------|--------------------
-
 <pre>
-tinyg[mm]ok> $yfr=800                                           Set feed rate for Y axis to 800 mm/min
-  Y axis - Feed rate           800 mm/min       $YFR800
+tinyg[mm]ok> $yfr=800       Set feed rate for Y axis to 800 mm/min
+ Y axis - Feed rate           800 mm/min       $YFR800
 </pre>
 <pre> 
-tinyg[mm]ok> $yfr = 1,600                                       Set feed rate for Y axix to 1600 mm/min
+tinyg[mm]ok> $yfr = 1,600    Set feed rate for Y axix to 1600 mm/min
  Y axis - Feed rate           1600 mm/min       $YFR1600
 </pre>
 <pre>  
-tinyg[mm]ok> $2po=1                                             Set polarity for motor 2 to inverted
+tinyg[mm]ok> $2po=1          Set polarity for motor 2 to inverted
  Motor 2 - Motor polarity        1 [0,1]        $2PO1
 </pre>
 <pre> 
-tinyg[mm]ok> $ja=100000                                         Set junction acceleration global value to 100,000
+tinyg[mm]ok> $ja=100000      Set junction acceleration global value to 100,000
  Junction corner accel      100000 mm/min^2     $JA100000
 </pre>
 <pre> 
