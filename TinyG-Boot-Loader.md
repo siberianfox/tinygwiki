@@ -1,8 +1,10 @@
 **Huge thanks to Kevin Osborn who got this working**
 
-TOC:
+**Topics:**
 * [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
-
+* [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
+* [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
+* [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 
 <a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
@@ -10,6 +12,7 @@ TinyG's shipped from March 10, 2013 have a boot loader that supports flashing th
 
 If the LED doesn't flash you don't have the bootloader. You can find instructions on this page to load the bootloader onto the chip. You can also return your board to us and we'll do it. COntact us if you want to do this. 
 
+<a id="updating"></a>
 # Updating TinyG Firmware using the Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
@@ -33,6 +36,7 @@ To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty
  
 Before issuing the command, enter the bootloader by hitting the reset button, or enter the new boot command in g-code or JSON (e.g. $Boot=1, {"boot":1}). You need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times. 
 
+<a id="flashing"></a>
 # Flashing the Boot Loader onto the Xmega Chip
 The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section.
 
@@ -68,6 +72,7 @@ Hit `Program` to program the fuses
 
 If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
 
+<a id="projectsetup"></a>
 # Project Setup and Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
