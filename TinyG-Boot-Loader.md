@@ -1,4 +1,4 @@
-**Huge thanks to Kevin Osborn who got this working**
+_Huge thanks to Kevin Osborn who got this working_
 
 **Topics:**
 * [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
