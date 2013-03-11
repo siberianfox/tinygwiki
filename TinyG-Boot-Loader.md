@@ -10,7 +10,7 @@
 # How Do I Know if I Have the Bootloader?
 TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes 10 times when you hit reset. 
 
-If the LED doesn't flash you don't have the bootloader. You can find instructions on this page to load the bootloader onto the chip. You can also return your board to us and we'll do it. COntact us if you want to do this. 
+If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing) if you want do do this yourself. You can also return your board to us and we'll do it. COntact us if you want to do this. 
 
 <a id="updating"></a>
 # Updating TinyG Firmware using the Boot Loader
