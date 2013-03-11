@@ -32,3 +32,4 @@ Please come visit / join any or all of the above.
 * [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 * [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
+* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
