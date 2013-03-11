@@ -18,27 +18,31 @@ To update the TinyG firmware run avrdude from a directory that has the tinyg.hex
 
 **Step1**. Navigate to the directory that has the tinyg.hex file you want.
 
-**Step2**. Find your serial port. You will need to enter the USB port you are actually using.<br>
+**Step2**. Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
+
+**Step3**. Enter the boot loader and flash the chip using Avrdude.  Use the Avrdude distributed with the Arduino - it's pretty up to date. You can enter the bootloader any of the following ways:
+* Hit reset on the board
+* Send a `^x` (control X) to the board (software reset)
+* Send an `ESC` to the board
+* Send the command `$boot=1`
+* Send the JSON command `{"boot":1}
+ 
+Next you need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times, or about 3 seconds.
+
 Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
 Here's an example command line from Mac:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
 
-To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
-
-**Step3**. Enter the boot loader and flash the chip using Avrdude.  Use the Avrdude distributed with the Arduino - it's pretty up to date. You can ebter the bootloader any of the following ways:
-* Hit reset on the board
-* Alternately, send a `^x` (control X) to the board (software reset)
-* Send an `ESC` to the board
-* Send the command `$boot=1`
-* Send the JSON command `{"boot":1}
- 
-Before issuing the command, enter the bootloader by hitting the reset button, or enter the new boot command in g-code or JSON (e.g. $Boot=1, {"boot":1}). You need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times. 
+You should see the following dialog if the loader works correctly
+<pre>
+(Need to capture a screen output for this panel)
+</pre>
 
 <a id="flashing"></a>
 # Flashing the Boot Loader onto the Xmega Chip
-The following instructions explain how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section.
+The following instructions are how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project. If you want to compile go to the next section: [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 
 **Step 1**. Get the right programmer. The xmega requires PDI programming. Use the Atmel [AVRISP mkii](http://www.mouser.com/ProductDetail/Atmel/ATAVRISP2/?qs=%2fha2pyFaduiLEF45YHzXlzYdfQlCIaNgRBHMmCoiTxs%3d) or some other programmer that supports PDI programming. Plug the programmer into TinyG and apply power to TinyG.
 
