@@ -55,13 +55,3 @@ Limit and homing switches are shared. For the duration of the homing cycle the l
 
 At the curent time only normally open mechanical switches are supported. Support is planned for NC and opto switches, to be controlled by the $xSW parameter.<br> 
 
-## Dual Gantry Homing (Not Yet)
-Dual gantry operation differs somewhat from single gantry homing as specified above. Dual gantry operation assumes each of the two motors in the gantry has its own limit switch that can be read independently. It also assumes that the axis is not racked so much that it cannot move. If this is the case the machine must be manually squared so that the axis can move before starting the homing operation. &nbsp;&nbsp; 
-
-* The homing sequence progresses normally through each axis but executes the following if a dual gantry axis is detected. Detection is performed by looking at the motor mapping configs: $1MA - $4MA&nbsp; 
-* The standard pre-conditions apply<br> 
-* Dual gantry homing begins by testing the homing switches for the dual axis. if either switch is tripped the other motor is advanced at the latch rate until that switch is also hit. "Advance" is actually the negative of the homing-travel for that axis (i.e. movement will be in the opposite direction specified by the latch rate sign). Once the second switch is hit a backoff is executed to the machine zero offset value. 
-* A search move is initated for both motors. The search ends when one of the switches is hit. 
-* The second switch is closed as per above, and a backoff is executed.<br> 
-* A latch operation similar to the single gantry case is performed. 
-* The dual axis is now homed. Control is returned to the standard homing operation, above<br>
