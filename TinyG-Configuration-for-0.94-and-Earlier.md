@@ -88,7 +88,7 @@ To update a setting enter a token and a value. Most tokens are a 2 or 3 letter m
 tinyg[mm]ok> $yfr=800                                           Set feed rate for Y axis to 800 mm/min
   Y axis - Feed rate           800 mm/min       $YFR800
  
-tinyg[mm]ok> $yfr = 1,600 					Set feed rate for Y axix to 1600 mm/min
+tinyg[mm]ok> $yfr = 1,600                                       Set feed rate for Y axix to 1600 mm/min
  Y axis - Feed rate           1600 mm/min       $YFR1600
  
 tinyg[mm]ok> $2po=1                                             Set polarity for motor 2 to inverted
@@ -112,16 +112,17 @@ Note: the settings are case insensitive - they are shown in upper case for empha
 ## Motor Settings
 **$1MA** MAp motor to axis. Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1.The example below is a way to run a dual-Y gantry such as the LumenLabs micRo v3. Movement in Y will drive both motor2 and motor3. The mapping illustrated causes movement in X and Z to drive motors 1 and 4, respectively. 
 
+<pre>
  $1ma=0	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 1 to the X axis
  $2ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 2 to the Y axis
  $3ma=1	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 3 to the Y axis
  $4ma=2	<span class="Apple-tab-span" style="white-space:pre">	</span>Maps motor 4 to the Z axis
+</pre>
 
-<br> '''$1SA'''&nbsp;<span class="Apple-tab-span" style="white-space:pre">	</span>[$m1_step_angle] Step Angle for the motor. This is often 1.8 degrees per step, but should reflect the motors in use.&nbsp;You might also find 0.9, 3.6, 7.5 or other values. 
-
+**$1SA** Step Angle for the motor. This is often 1.8 degrees per step, but should reflect the motors in use.&nbsp;You might also find 0.9, 3.6, 7.5 or other values. 
+<pre>
  $1sa=1.8	This is a typical value for most motors. 
-
-<br> 
+</pre>
 
 '''$1TR<span class="Apple-tab-span" style="white-space:pre">		</span>'''[$m1_travel_per_revolution] Travel per Revolution. This is the amount of travel per motor revolution in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. 
 
