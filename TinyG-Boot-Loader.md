@@ -1,5 +1,10 @@
 **Huge thanks to Kevin Osborn who got this working**
 
+TOC:
+* [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
+
+
+<a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
 TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes 10 times when you hit reset. 
 
