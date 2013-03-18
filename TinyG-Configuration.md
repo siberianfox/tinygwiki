@@ -1,6 +1,6 @@
 **The settings on this page are for version 0.95 and later. For other firmware revisions see  [TinyG Configuration for 0.94 and 0.93](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)**
 
-This page describes how configuration works in text mode from the [Command Line][https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line]. All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
+This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 # Summary / Cheat Sheet
 Connect to the TinyG USB at 115,200 baud.
