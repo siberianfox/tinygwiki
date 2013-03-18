@@ -1,4 +1,4 @@
-**The settings on this page are for firmware version 0.94 and later. See [TinyG Configuration for 0.95 and later](https://www.synthetos.com/wiki/index.php?title=TinyG:Configuring) if your firmware is 0.95 (or later) You can check your firmware version by looking for the "fv":0.950 or similar string in the startup message after a reset**
+**The settings on this page are for firmware version 0.94 and later. See [TinyG Configuration for 0.95 and later](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration) if your firmware is 0.95 (or later) You can check your firmware version by looking for the "fv":0.950 or similar string in the startup message after a reset**
 
 This page describes how configuration works in text mode from the [Command Line]. The settings on this page are for versions 0.94 and 0.93. Some of the command definitions have been changed from 0.92 and earlier. These are labeled as **[$xNN 0.92]** where this occurs. 
 
@@ -393,5 +393,4 @@ $ee=1      - Enable
 $ex=0      - Disable
 $ex=1      - Enable
 </pre>
-
 
