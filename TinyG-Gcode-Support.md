@@ -20,7 +20,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G28 | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
 	G28.1 | | Set position for G28 | Axis words are not provided for this command
 	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
-	G28.3 | _axes_ | Set Zero | Set axis to zero or other origin value. Useful for zeroing axes that cannot otherwise be homed
+	G28.3 | _axes_ | Set Zero | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
 	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
 	G30.1 | | Set position for G30 | Axis words are not provided for this command
 	G53 | | Select absolute coordinates | Applies only to current block
@@ -54,9 +54,9 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	M4 | S | Spindle on - CCW | S is speed in RPM
 	M5 | | Spindle off |
 	M6 | | Change tool | No operation at this time
-	M7 | | Mist coolant on | Note that mist and flood share the same Collant ON/OFF pin
-	M8 | | Flood coolant on | Note that mist and flood share the same Collant ON/OFF pin
-	M9 | | All coolant off | Note that mist and flood share the same Collant ON/OFF pin
+	M7 | | Mist coolant on | Note that mist and flood share the same Coolant ON/OFF pin
+	M8 | | Flood coolant on | Note that mist and flood share the same Coolant ON/OFF pin
+	M9 | | All coolant off | Note that mist and flood share the same Coolant ON/OFF pin
 
  	Other | Parameter |Command | Description
 	------|-----------|--------|-------------
