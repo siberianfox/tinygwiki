@@ -39,7 +39,7 @@ For help from the command line enter 'h' for TinyG help, or '$h' for configurati
 First, turn the power back off. Never connect or disconnect anything (except possibly USB) with the power on.
 
 ### Synthetos Connector Kit
-For all v7 and above TinyG's no longer need ANY stepper motor connector packs.  If you have a TinyG v6 or below the connector pack below is the easiest way to connect your stepper motors to TinyG is to use the [Synthetos Stepper Motor Connector Pack](https://www.synthetos.com/webstore/index.php/stepper-motor-connector-pack.html)
+For all v7 and above TinyG's no longer need ANY stepper motor connector packs.  
 
 ### Find the Coil Pairs
 The first thing you need to do is make sure you know which wires are connected to the same coil. 
