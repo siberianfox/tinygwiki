@@ -54,9 +54,9 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	M4 | S | Spindle on - CCW | S is speed in RPM
 	M5 | | Spindle off |
 	M6 | | Change tool | No operation at this time
-	M7 | | Mist coolant on |
-	M8 | | Flood coolant on |
-	M9 | | All coolant off |
+	M7 | | Mist coolant on | Note that mist and flood share the same Collant ON/OFF pin
+	M8 | | Flood coolant on | Note that mist and flood share the same Collant ON/OFF pin
+	M9 | | All coolant off | Note that mist and flood share the same Collant ON/OFF pin
 
  	Other | Parameter |Command | Description
 	------|-----------|--------|-------------
