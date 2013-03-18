@@ -13,7 +13,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	Setting | Description | Notes
 	--------|-------------|-------
 	[$1ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1ma---map-motor-to-axis) | Motor mapping to axis| Typically: $1ma=0, $2ma=1, $3ma=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
-	$1sa | Step angle | Typical setting is $1s1=1.8 for 1.8 degrees per step (200 steps per revolution)
+	[$1sa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1sa---step-angle-for-the-motor) | Step angle | Typical setting is $1s1=1.8 for 1.8 degrees per step (200 steps per revolution)
 	$1tr | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
 	$1mi | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
 	$1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
