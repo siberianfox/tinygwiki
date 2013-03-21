@@ -70,7 +70,7 @@ Set communications speeds and modes.
 	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
-	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ic-ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	[$ic]() | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
 	[$ec]() | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
 	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-xonxoff-protocol) | Enable XON/XOFF | 0=off, 1=enabled
@@ -422,14 +422,14 @@ The minimum is 50 ms. Trying to set a value below the minimum will set the minim
 $si=100    - Status interval in milliseconds
 </pre>
 
-### $IC Ignore CR or LF on RX 
+### $IC - Ignore CR or LF on RX 
 <pre>
 $ic=0      - Don't ignore CR or LF in received data
 $ic=1      - Ignore CR in received data
 $ic=2      - Ignore LF in received data
 </pre> 
 
-### $EC Expand LF to CRLF on TX data
+### $EC - Expand LF to CRLF on TX data
 <pre>
 $ec=0      - off
 $ec=1      - on
