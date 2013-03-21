@@ -46,58 +46,57 @@ These are reported on the startup strings and should be included in any support 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$fb | Firmware build | Read-only value, e.g. 351.05 
-	$fv | Firmware version | Read-only value, e.g. 0.95
-	$hv | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
-	$id | Unique ID | Each board has a read-only unique ID
+	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 351.05 
+	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.95
+	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
+	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
 
 **Global System Settings**
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$ja | Junction acceleration | Global cornering acceleration value
-	$ct | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
-	$st | Switch type | 0=NO, 1=NC
+	[$ja](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
+	[$ct](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
+	[$st](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---switch-type) | Switch type | 0=NO, 1=NC
 
 **Communications Settings**
 Set communications speeds and modes. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$ej | Enable JSON mode | 0=text mode, 1=JSON mode
-	$jv | JSON verbosity | 0=silent ... 5=verbose (see details)
-	$tv | Text mode verbosity | 0=silent, 1=verbose
-	$qv | Queue report verbosity | 0=off, 1=filtered, 2=verbose
-	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
-	$si | Status report interval | in milliseconds (50 ms minimum interval)
-	$ic | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
-	$ec | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
-	$ee | Enable character echo | 0=off, 1=enabled
-	$ex | Enable XON/XOFF | 0=off, 1=enabled
-	$baud | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
+	[$ej](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ej---enable-json-mode-on-power-up) | Enable JSON mode | 0=text mode, 1=JSON mode
+	[$jv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#jv---set-json-verbosity) | JSON verbosity | 0=silent ... 5=verbose (see details)
+	[$tv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
+	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
+	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
+	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
+	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ic-ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	[$ec]() | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
+	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
+	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-xonxoff-protocol) | Enable XON/XOFF | 0=off, 1=enabled
+	[$baud](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#baud---set-usb-baud-rate) | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
 
 **Gcode Initialization Defaults**
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$gun | Default units mode | 0=inches mode (G20), 1=mm mode (G21) 
-	$gpl | Default plane selection | 0=XY plane (G17), 1=XZ plane (G18), 2=YZ plane (G19)
-	$gco | Default coordinate system | 1=G54, 2=G55, 3=G56, 4=G57, 5=G58, 6=G59
-	$gpa | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
-	$gdi | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
+	[$gpl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gpl---gcode-default-plane-selection) | Default plane selection | 0=XY plane (G17), 1=XZ plane (G18), 2=YZ plane (G19)
+	[$gun](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gun---gcode-default-units) | Default units mode | 0=inches mode (G20), 1=mm mode (G21) 
+	[$gco](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gco---gcode-default-coordinate-system) | Default coordinate system | 1=G54, 2=G55, 3=G56, 4=G57, 5=G58, 6=G59
+	[$gpa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gpa---gcode-default-path-control) | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
+	[$gdi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gdi---gcode-distance-mode) | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
 ##Commands and Reports
 These $configs invoke reports and functions
 
 	Command | Description | Notes
 	--------|-------------|-------
-	$sr | Request status report | SR also sets status report format in JSON mode
-	$qr | Request queue report | 
-	$qf | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
-	$rx | Query space in serial RX buffer |
-	$test | Invoke self tests | $test=n for test number; $test returns help screen in text mode
-	$defa | Reset to factory defaults | $defa=1 to reset
+	[$sr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sr---status-report) | Request status report | SR also sets status report format in JSON mode
+	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report) | Request queue report | 
+	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
+	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
+	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
 	$help | Show help screen | Show system help screen; $h also works
 
@@ -109,11 +108,11 @@ The following settings are accessible but do not appear in the system group list
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$ml | Minimum line length | 
-	$ma | Arc segment length |
-	$mt | Segment timing | 
-	$qvh | Queue report hi water mark | set between 0 and 24; default is 20
-	$qvl | Queue report low water mark | set between 0 and 24; default is 2
+	[$ml](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ml--minimum-line-segment) | Minimum line length | 
+	[$ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ma---minimum-arc-segment) | Arc segment length |
+	[$m2](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
+	[$qvh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
+	[$qvl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
 <br>
 <br>
 # Settings Details
