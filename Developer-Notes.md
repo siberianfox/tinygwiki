@@ -16,9 +16,12 @@ git clone git@github.com:synthetos/TinyG.git
 </pre>
 You should have a directory with all the source files but none of the Atmel project files. The project files are managed separately in TinyG/Support so they don't cause havoc with git. They are ignored by the .gitignore for this reason.
 
-If you are using Studio 6.0 copy tinyg_6_0.cproj into the tinyg working directory (/firmware/tinyg) and rename it to tinyg.cproj. If you are using Studio 6.1 do the same but for tinyg_6_1.cproj  
+To use the AVR tools you will need the AVRStudio4 project files or the AtmelStudio6 project files, or both. You can use both - they don't collide with each other. Studio4 uses the "default" sub-directory to manage its files; Studio 6 uses "Debug".
 
-To use the AVR tools you will need the AVRStudio4 project files or the AtmelStudio6 project files, or both. You can use both - they don;t collide with each other. Studio4 uses the "default" sub-directory to manage its files; Studio 6 uses "Debug".
+If you are using Studio 4 copy the tinyg.aws file from support into the tinyg working directory  (/firmware/tinyg).
+
+If you are using Studio 6.0 copy tinyg_6_0.cproj into the tinyg working directory and rename it to tinyg.cproj. If you are using Studio 6.1 do the same but for tinyg_6_1.cproj  
+
 ### Get AVRStudio4 project files
 Copy these files from TinyG/support to the working directory
 <pre>
