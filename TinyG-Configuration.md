@@ -48,7 +48,7 @@ These are reported on the startup strings and should be included in any support 
 	--------|-------------|-------
 	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 351.05 
 	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.95
-	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
+	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware version | Read-write value, set to 6 for v6 and earlier boards, v7 for version 7 and later boards
 	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
 
 **Global System Settings**
@@ -427,6 +427,12 @@ $si=100    - Status interval in milliseconds
 $ic=0      - Don't ignore CR or LF in received data
 $ic=1      - Ignore CR in received data
 $ic=2      - Ignore LF in received data
+</pre> 
+
+### $EC Expand LF to CRLF on TX data
+<pre>
+$ec=0      - off
+$ec=1      - on
 </pre> 
 
 ### $EE - Enable Character Echo 
