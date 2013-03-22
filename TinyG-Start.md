@@ -75,7 +75,9 @@ The main changes from Version 6 (and earlier) and Version 7 are listed below. Al
 * v6 requires 0.156" quick release terminals for the motors. Housings and crimp pins are here:
  * [Molex 09-50-3041](http://www.mouser.com/ProductDetail/Molex/09-50-3041/?qs=%2fha2pyFaduiq3dSmG9JEt1yANyoojHtFJi0SKaVS0vw%3d) - 4 conductor 0.156" housing
  * [Molex 08-50-0134](http://www.mouser.com/Search/Refine.aspx?Keyword=08-50-0134) - Crimp terminals for above - 4 required for each motor/housing
+![TinyG V6 Power terminals](http://farm7.staticflickr.com/6178/6205245951_058c7509fd.jpg)
 
 Motor pinouts are otherwise the same as v7. See [Wire Your Motors](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG#wire-your-motors)
+
 
  
