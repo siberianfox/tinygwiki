@@ -62,3 +62,7 @@ If you want to reporgram (flash) TinyG you need a PDI capable programmer to talk
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
+
+## TinyG Version 6 and Earlier
+The main changes from Version 6 (and earlier) and Version 7 are:
+* Version 6 requires motor voltage and +5volts DC to be provided on the power terminal
