@@ -63,6 +63,7 @@ The TinyG code is available at the [Synthetos Github](https://github.com/synthet
 If you want to reporgram (flash) TinyG you need a PDI capable programmer to talk to the Atmel xmega chip. We use the [Atmel AVRISP MKII](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) which is available from Mouser Electronics for roughly $35.00. This is needed to apply firmware updates on TinyG. We are also testing a boot loader that will program over the USB port, but it's not out yet.<br> 
 
 ### Connecting TinyG
+![TinyG v6](http://farm7.staticflickr.com/6161/6138113691_d2a77b606c_b.jpg)
 At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 
 ## TinyG Version 6 and Earlier
