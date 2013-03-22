@@ -25,11 +25,12 @@ Please come visit / join any or all of the above.
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
 
 ### TinyG References
-* [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
-* [TinyG Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
-* [TinyG Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
-* [Developers Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
+* [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
+* [Physical Dimensions](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
+* [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
