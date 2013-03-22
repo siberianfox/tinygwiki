@@ -19,22 +19,27 @@ The following variables can be reported in a status report
 	dist | distance_mode      | 0=absolute distance, 1=incremental distance
 	frmo | feed_rate_mode     | 0=units-per-minute-mode, 1=inverse-time-mode
 	gc | gcode_block        | gcode block currently being run
+
+The following are available for all axes, XYZABC. Only `pos` is expanded for illustration
+
+	Request | Response | Description
+	---------|--------------|-------------
 	posx | x work position | X work position in prevailing units (mm or inch) 
 	posy | y work position
 	posz | z work position
 	posa | a work position
 	posb | b work position
 	posc | c work position
-	mpox | x absolute position | X machine position in absolute coordinate system (mm or inch). Also Y,Z,A,B,C 
-	g92x | offset | G92 origin offset for X axis (also Y,Z,A,B,C)
-	g54x | coord system 1 offset | X axis G54 coordinate system offset (also Y,Z,A,B,C)
-	g55x | coord system 2 offset | X axis G55 coordinate system offset (also Y,Z,A,B,C)
-	g56x | coord system 3 offset | X axis G56 coordinate system offset (also Y,Z,A,B,C)
-	g57x | coord system 4 offset | X axis G57 coordinate system offset (also Y,Z,A,B,C)
-	g58x | coord system 5 offset | X axis G58 coordinate system offset (also Y,Z,A,B,C)
-	g59x | coord system 6 offset | X axis G59 coordinate system offset (also Y,Z,A,B,C)
-	g28x | G28 home position | X axis G28 home position (also Y,Z,A,B,C)
-	g30x | G30 home position | X axis G30 home position (also Y,Z,A,B,C)
+	mpox | x absolute position | X machine position in absolute coordinate system (mm or inch).
+	g92x | offset | G92 origin offset for X axis
+	g54x | coord system 1 offset | X axis G54 coordinate system offset
+	g55x | coord system 2 offset | X axis G55 coordinate system offset
+	g56x | coord system 3 offset | X axis G56 coordinate system offset
+	g57x | coord system 4 offset | X axis G57 coordinate system offset
+	g58x | coord system 5 offset | X axis G58 coordinate system offset
+	g59x | coord system 6 offset | X axis G59 coordinate system offset
+	g28x | G28 home position | X axis G28 home position
+	g30x | G30 home position | X axis G30 home position
 
 It's worth noting that any gettable variable can be put in a status report - the above variables are listed as they represent the Gcode model state. For example `fv` would return the firmware version.
 
