@@ -67,8 +67,14 @@ At this point you can move on to [Connecting TinyG](https://github.com/synthetos
 
 ## TinyG Version 6 and Earlier
 The main changes from Version 6 (and earlier) and Version 7 are listed below. All references to v6 refer to version 6 and earlier, unless otherwise noted.
+* If you are using v6 hardware with 0.95 (or later) firmware you must set the hardware version as so `$hv=6`  You should only need to do this once.
+
 * v6 requires motor voltage and +5volts DC to be provided on the power terminal wired as so:
 ![TinyG V6 Power Connections](http://farm7.staticflickr.com/6178/6253402559_b6a5a946d9_b.jpg)
 
-* If you are using v6 hardware with 0.95 (or later) firmware you must set the hardware version as so `$hv=6`  You should only need to do this once.
+* v6 requires 0.156" quick release terminals for the motors. Housings and crimp pins are here:
+ * [Molex 09-50-3041 --- 4 conductor 0.156" housing](http://www.mouser.com/ProductDetail/Molex/09-50-3041/?qs=%2fha2pyFaduiq3dSmG9JEt1yANyoojHtFJi0SKaVS0vw%3d)
+ * [Molex 08-50-0134 --- Crimp terminals for above - 4 required for each motor/housing](http://www.mouser.com/Search/Refine.aspx?Keyword=08-50-0134) 
+
+
  
