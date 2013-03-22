@@ -17,8 +17,7 @@ The following variables can be reported in a status report
 	plan | plane_select       | 0=XY plane, 1=XZ plane, 2=YZ plane
 	path | path_control_mode  | 0=exact stop, 1=exact path, 2=continuous
 	dist | distance_mode      | 0=absolute distance, 1=incremental distance
-	frmo | feed
- _rate_mode     | 0=units-per-minute-mode, 1=inverse-time-mode
+	frmo | feed_rate_mode     | 0=units-per-minute-mode, 1=inverse-time-mode
 	gc | gcode_block        | gcode block currently being run
 	posx | x work position | X work position in prevailing units (mm or inch) 
 	posy | y work position
