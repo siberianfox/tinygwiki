@@ -52,7 +52,7 @@ Enter a '?' to get a status report in text mode.
 ### Automatic Text Mode Status Reports
 Automatically generated status reports may enabled with `$sv=1` or `$sv=2`. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
-Filtered status reports (`$sv=1`) return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
+Filtered status reports `$sv=1` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
 <pre>
 $sv=0      turn off automatic status reports
 $sv=1      turn on filtered automatic status reports
@@ -64,16 +64,6 @@ $si=200    request status reports every 200 ms during movement
 JSON mode status reports are parent/child objects with a "sr" parent and one or more child NV pairs, as in the example below.<br> 
 
     {"sr": {"line":1245, "posx":23.4352, "posx":-9.4386, "posx":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
-
-### Set Status Report Fields
-This sets the variables reported in a status report. This command is only supported in JSON mode, but the fields set in JSON apply to both JSON and text mode reports.
-
-Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. There is no incremental setting of variables - all variables are reset and must be specified in a single SET command. 
-
-For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for `true`, not a string that says "true". Example:
-<pre>
-{"sr":{"line":true,"posx":true, "posy":true,"posz":true, "vel":true, "unit":true, "stat":true}}
-</pre> 
 
 ### JSON On-Demand Status Report
 This will return a single status report. The two forms below are equivalent.
@@ -91,4 +81,14 @@ Filtered status reports `{"sv":1}` return only variables that have changed since
 {"sv":1}      turn on filtered automatic status reports
 {"sv":2}      turn on unfiltered automatic status reports
 {"si":200}    request status reports every 200 ms during movement
+</pre> 
+
+### Set Status Report Fields
+In addition to on-demand and automatic status reports, JSON mode also supports setting the fields to be displayed in status reports. Although this command is only supported in JSON mode, the fields set in JSON apply to both JSON and text mode reports.
+
+Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. There is no incremental setting of variables - all variables are reset and must be specified in a single SET command. 
+
+For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for `true`, not a string that says "true". Example:
+<pre>
+{"sr":{"line":true,"posx":true, "posy":true,"posz":true, "vel":true, "unit":true, "stat":true}}
 </pre> 
