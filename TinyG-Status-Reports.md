@@ -45,9 +45,9 @@ It's also worth noting that any variable can be independently queried as an indi
 Enter a '?' to get a status report in text mode.
 
 ### Automatic Text Mode Status Reports
-Automatically generated status reports may enabled with $sv. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
+Automatically generated status reports may enabled with `$sv=1` or '`$sv=2`. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
-Filtered status reports only return those variable that have changed since the previous report. This saves serial bandwidth and host processing time.
+Filtered status reports `$sv=1` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
 <pre>
 $sv=0      turn off automatic status reports
 $sv=1      turn on filtered automatic status reports
@@ -60,25 +60,27 @@ JSON mode status reports are parent/child objects with a "sr" parent and one or 
 
     {"sr": {"line":1245, "posx":23.4352, "posx":-9.4386, "posx":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
 
-The following use-cases are supported: 
+### Set Status Report Fields
+This sets the variables reported in a status report. This command is only supported in JSON mode, but the fields set in JSON apply to both JSON and text mode reports.
 
-### Set Status Report Fields 
-The elements to be included in a status reports may be specified by setting values to 'true'. The elements will be returned on subsequent SR requests in the order they were provided in the SET command. (I know, dictionaries are supposed to be unordered, but the firmware will record and return back the attributes in the order listed). There is no incremental setting of elements - all attributes are reset and must be specified in a single SET command. For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for true, not a string that says "true". Examples:
+Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. There is no incremental setting of variables - all variables are reset and must be specified in a single SET command. 
+
+For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for `true`, not a string that says "true". Example:
 <pre>
-{"sr":{"line":true,"xpos":true, "ypos":true,"zpos":true, "vel":true, "unit":true, "stat":true}}
+{"sr":{"line":true,"posx":true, "posy":true,"posz":true, "vel":true, "unit":true, "stat":true}}
 </pre> 
 
 ### JSON On-Demand Status Report
 This will return a single status report. The two forms below are equivalent.
 <pre>
 {"sr":""}
-{"sr":null}         the 'null' value is used instead of "" in this case. Either are accepted.
+{"sr":null}         the `null` value is used instead of "" in this case. Either are accepted.
 </pre> 
 
 ### JSON Automatic Status Reports
-Automatically generated status reports may enabled with $sv. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
+Automatically generated status reports may enabled with {"sv":1} or {"sv":2}. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
-Filtered status reports only return those variable that have changed since the previous report. This saves serial bandwidth and host processing time.
+Filtered status reports `{"sv":1}` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
 <pre>
 {"sv":0}      turn off automatic status reports
 {"sv":1}      turn on filtered automatic status reports
