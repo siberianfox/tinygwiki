@@ -50,9 +50,9 @@ It's also worth noting that any variable can be independently queried as an indi
 Enter a '?' to get a status report in text mode.
 
 ### Automatic Text Mode Status Reports
-Automatically generated status reports may enabled with `$sv=1` or '`$sv=2`. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
+Automatically generated status reports may enabled with `$sv=1` or `$sv=2`. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
-Filtered status reports `$sv=1` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
+Filtered status reports (`$sv=1`) return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
 <pre>
 $sv=0      turn off automatic status reports
 $sv=1      turn on filtered automatic status reports
