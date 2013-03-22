@@ -1,4 +1,7 @@
-The main changes from earlier hardware versions and version 7 are listed here. All references to v6 refer to hardware version 6 and earlier, unless otherwise noted. The hardware version is printed on the board silkscreen.
+This page describes starting up with a TinyG hardware version 6 or earlier board. The hardware version is printed on the board silkscreen. Here the links for other versions:
+* [TinyG version 7](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
+
+The main changes from earlier hardware versions and version 7 are listed and explained below. All references to v6 refer to hardware version 6 and earlier, unless otherwise noted. 
 ![TinyG v6](http://farm7.staticflickr.com/6161/6138113691_d2a77b606c_b.jpg)
 
 * If you are using v6 hardware with 0.95 (or later) firmware you must set the hardware version as so `$hv=6`  You should only need to do this once.
