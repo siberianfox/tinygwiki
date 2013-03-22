@@ -81,7 +81,7 @@ The main changes from earlier hardware versions and version 7 are listed below. 
  * [Molex 08-50-0134](http://www.mouser.com/Search/Refine.aspx?Keyword=08-50-0134) - Crimp terminals for above - 4 required for each motor/housing
 ![TinyG V6 Power terminals](http://farm7.staticflickr.com/6178/6205245951_058c7509fd.jpg)
 
+* The v6 stepper motor current setting potentiometers are 3mm surface mount potentiometers. These have a 270 degree rotation and should not be forced beyond this. Be careful, they are sensitive. If they are forced beyond their limit the axis will likely stop working. If your board has this problem please contact us and we can send some pots you can solder, or arrange to rework your board if you are not comfortable doing this yourself.
 
-
-
- 
+* Spindle/coolant outputs and switch inputs are illustrated here. Be advised that the outputs are 3.3 volts, and inputs CANNOT EXCEED 3.3v (or you will damage the board).
+![TinyG GPIO](http://farm9.staticflickr.com/8239/8580377050_0148eea297_c.jpg)
