@@ -67,7 +67,8 @@ At this point you can move on to [Connecting TinyG](https://github.com/synthetos
 
 ## TinyG Version 6 and Earlier
 The main changes from Version 6 (and earlier) and Version 7 are listed below. All references to v6 refer to version 6 and earlier, unless otherwise noted.
-* v6 requires motor voltage and +5volts DC to be provided on the power terminal (see pitcure)
+* v6 requires motor voltage and +5volts DC to be provided on the power terminal wired as so:
+![TinyG V6 Power Connections](http://farm7.staticflickr.com/6178/6253402559_b6a5a946d9_b.jpg)
+
 * If you are using v6 hardware with 0.95 (or later) firmware you must set the hardware version as so `$hv=6`  You should only need to do this once.
  
-![TinyG V6 Power Connections](http://farm7.staticflickr.com/6178/6253402559_b6a5a946d9_b.jpg)
