@@ -45,18 +45,18 @@ For all v7 and above TinyG's no longer need ANY stepper motor connector packs.
 The first thing you need to do is make sure you know which wires are connected to the same coil. 
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. <br>
-Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and cannot be driven by most drivers (including TinyG).
+Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
 The following color code is typical for many motors
 
 	Color | Bipolar | Unipolar | Notes
 	---------|--------------|---------|----
-	green |  Winding 1A | Winding 1A |
-	yellow |  (none) | Center tap 1  |
-	black |  Winding 1B | Winding 1A |
-	red |  Winding 2A | Winding 2A |
-	white |  (none) | Center tap 2 |
-	blue |  Winding 2B | Winding 2B |
+	green |  Winding A1 | Winding A1 |
+	yellow |  (none) | Center tap A  |
+	black |  Winding A2 | Winding A2 |
+	red |  Winding B1 | Winding B1 |
+	white |  (none) | Center tap B |
+	blue |  Winding B2 | Winding B2 |
 
 Do bring out that voltmeter you got at Radar Shed and verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar you can just leave the center taps disconnected.
 
