@@ -48,9 +48,7 @@ TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per wind
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
 
 #### Heat Sinks
-These are optional, however they come with TinyG so why not use them:)<br> 4x heat sinks are included with TinyG. Simply peel the back sticker off and place the heat sink over each DRV8818 stepper driver chip.  
-
-[[Image:TinyGv7-Heatsinks.png]] 
+The main heatsinking provided for TinyG is the expanse of 2 oz. copper on the bottom and top of the board. You can see this by inspection. TinyG comes with 4 additional heat sinks. Using them is optional. If you are driving NEMA17 or light-duty NEMA23 motors you will probably not need them and should leave them off the board. If you experience thermal shutdown - stuttering, on/off cycling - we recommend fan cooling, and possibly also using the heatsinks. Fan cooling is far more effective and should be used first. To apply the heatsinks simply peel the back sticker off and place the heat sink over each DRV8818 stepper driver chip. Be careful not to contact any of the chip leads, resistors, or any other electrical parts.
 
 #### Cooling Fan
 The TinyGv7's come equipped with connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below - sorry it's not more straightforward:
