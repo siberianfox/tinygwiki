@@ -68,7 +68,7 @@ At this point you can move on to [Connecting TinyG](https://github.com/synthetos
 
 
 ## TinyG Version 6 and Earlier
-The main changes from earlier hardware versions and version 7 are listed below. All references to v6 refer to hardware version 6 and earlier, unless otherwise noted.
+The main changes from earlier hardware versions and version 7 are listed below. All references to v6 refer to hardware version 6 and earlier, unless otherwise noted. The hardware version is printed on the board silkscreen.
 ![TinyG v6](http://farm7.staticflickr.com/6161/6138113691_d2a77b606c_b.jpg)
 
 * If you are using v6 hardware with 0.95 (or later) firmware you must set the hardware version as so `$hv=6`  You should only need to do this once.
