@@ -36,9 +36,9 @@ The following variables can be reported in a status report
 	g28x | G28 home position | X axis G28 home position (also Y,Z,A,B,C)
 	g30x | G30 home position | X axis G30 home position (also Y,Z,A,B,C)
 
-It's worth noting that any gettable variable can be put in a status report - the above variables are listed as they represent the Gcode model state. For example {"fv":""} would return the firmware version.
+It's worth noting that any gettable variable can be put in a status report - the above variables are listed as they represent the Gcode model state. For example `fv` would return the firmware version.
 
-It's also worth noting that any variable can be independently queried as an individual variable, and axis variables (e.g. pos, G55) can be queried as a group, e.g. {"pos":""}, or {"g55":""}
+It's also worth noting that any variable can be independently queried as an individual variable, and axis variables (e.g. pos, G55) can be queried as a group, e.g. `pos`, or `g55`
 
 ## Text Mode Status Reports
 ### On-Demand Text Mode Status Report
