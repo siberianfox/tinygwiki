@@ -45,8 +45,8 @@ It's worth noting that any gettable variable can be put in a status report - the
 
 It's also worth noting that any variable can be independently queried as an individual variable, and axis variables (e.g. pos, G55) can be queried as a group, e.g. `pos`, or `g55`
 
-## Text Mode On-Demand Status Reports
-### On-Demand Text Mode Status Report
+## Text Mode Status Reports
+### Text Mode On-Demand Status Reports
 Enter a '?' to get a status report in text mode.
 
 ### Text Mode Automatic Status Reports
@@ -65,7 +65,7 @@ JSON mode status reports are parent/child objects with a "sr" parent and one or 
 
     {"sr": {"line":1245, "posx":23.4352, "posx":-9.4386, "posx":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
 
-### JSON Mode On-Demand Status Report
+### JSON Mode On-Demand Status Reports
 This will return a single status report. The two forms below are equivalent.
 <pre>
 {"sr":""}
