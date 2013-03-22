@@ -15,8 +15,9 @@ The main changes from earlier hardware versions and version 7 are listed here. A
 
 * Spindle/coolant outputs and switch inputs are illustrated here. Be advised that the outputs are 3.3 volts, and inputs CANNOT EXCEED 3.3v (or you will damage the board).
 ![TinyG GPIO](http://farm9.staticflickr.com/8239/8580377050_0148eea297_c.jpg)
+
 Output pin mapping are
- * Out1 - Spindle ON/OFF
- * Out2 - Spindle direction
- * Out3 - Spindle PWM
- * Out4 - Coolant ON/OFF
+ * Out0 - Spindle ON/OFF
+ * Out1 - Spindle direction
+ * Out2 - Spindle PWM
+ * Out3 - Coolant ON/OFF
