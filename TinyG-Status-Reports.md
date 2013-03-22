@@ -45,11 +45,11 @@ It's worth noting that any gettable variable can be put in a status report - the
 
 It's also worth noting that any variable can be independently queried as an individual variable, and axis variables (e.g. pos, G55) can be queried as a group, e.g. `pos`, or `g55`
 
-## Text Mode Status Reports
+## Text Mode On-Demand Status Reports
 ### On-Demand Text Mode Status Report
 Enter a '?' to get a status report in text mode.
 
-### Automatic Text Mode Status Reports
+### Text Mode Automatic Status Reports
 Automatically generated status reports may enabled with `$sv=1` or `$sv=2`. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
 Filtered status reports `$sv=1` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
@@ -65,14 +65,14 @@ JSON mode status reports are parent/child objects with a "sr" parent and one or 
 
     {"sr": {"line":1245, "posx":23.4352, "posx":-9.4386, "posx":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
 
-### JSON On-Demand Status Report
+### JSON Mode On-Demand Status Report
 This will return a single status report. The two forms below are equivalent.
 <pre>
 {"sr":""}
 {"sr":null}         the `null` value is used instead of "" in this case. Either are accepted.
 </pre> 
 
-### JSON Automatic Status Reports
+### JSON Mode Automatic Status Reports
 Automatically generated status reports may enabled with {"sv":1} or {"sv":2}. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
 Filtered status reports `{"sv":1}` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
