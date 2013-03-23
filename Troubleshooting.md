@@ -17,6 +17,11 @@ $zvm=400        set max velocity to 400 mm/min. Shapeoko Z should be able to do 
 $zjm=10000000   10 million. Ramp up to about 50 million once you clear the lower numbers
 </pre>
 
+Some other things you might check:
+* Where is the Z current pot? It should be about 1/2 way, the 12:00 position. Adjust up or down later
+* Does the Z chip (motor3, presumably) get hot or much hotter than the X and Y chips?
+* Are the 2 large thermal vias under the driver chips soldered on the bottom of the board for all chips?
+* Is your motor wiring solid? See [Crash/Reset on Move]()
 
 ## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
 PROBLEM: The Gcode file you are sending behaves erratically and may have these symptoms:
@@ -28,7 +33,7 @@ DIAGNOSIS: This is usually a failure in the program sending Gcode to the board. 
 
 Are you using Coolterm to send files? Are you using Xon/Xoff mode? It is enabled in both Coolterm and on TinyG ($ex)?
 
-## Crash/reset on move
+## Crash/Reset on Move
 PROBLEM: Two users have reported problems where the board crashed (program execution stopped and boot message was sent over serial) upon a move command on a particular axis. (See [forum thread](https://www.synthetos.com/topic/reset-on-move/).) The specific cause is unknown, but one user reported the problem vanishing after some physical manipulation of the stepper motor wires; there is a hypothesis that a problem with an unreliable motor connection may cause back-EMF discharge into the board, disrupting the CPU. (edited - tdierks)
 ...and other user the problem stopped when they located and fixed a short in the limit switch wiring. 
 
