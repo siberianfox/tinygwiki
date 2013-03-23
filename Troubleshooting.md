@@ -21,7 +21,7 @@ Some other things you might check:
 * Where is the Z current pot? It should be about 1/2 way, the 12:00 position. Adjust up or down later
 * Does the Z chip (motor3, presumably) get hot or much hotter than the X and Y chips?
 * Are the 2 large thermal vias under the driver chips soldered on the bottom of the board for all chips?
-* Is your motor wiring solid? See [Crash/Reset on Move]()
+* Is your motor wiring solid? See [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
 
 ## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
 PROBLEM: The Gcode file you are sending behaves erratically and may have these symptoms:
