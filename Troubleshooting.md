@@ -9,9 +9,13 @@ PROBLEM: The Z axis stalls when running a gcode file. We have seen this happen o
 
 DIAGNOSIS: Z axes often have different dynamics than the X and Y axes, and are not capable of the maximum velocities or jerk that the X and Y can sustain. This is especially true for machines that use belts for X and Y and screws for Z (such as the Shapeoko), or have fast, multi-start screws for X and Y and finer pitched screws for Z. The Probotix Fireball has 5 TPI screws for X and Y and 12 TPI for Z.
 
-Try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z you might try:
-* $zvm=400
-* $zjm=
+Try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
+<pre>
+Run G21 first so all settings are in mm mode
+$3mi=2          set motor3 to 2 microsteps (assuming motor 3 is mapped to the Z axis
+$zvm=400        set max velocity to 400 mm/min. Shapeoko Z should be able to do 1000, but don't start there  
+$zjm=10000000   10 million. Ramp up to about 50 million once you clear the lower numbers
+</pre>
 
 
 ## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
