@@ -19,6 +19,7 @@ DIAGNOSIS: This is most often the result of a noisy limit switch line. Check the
 * One or more limit switches are wired and enabled, e.g. $xsx=3, $ysn=2, etc. See [Limit and Homing Switches](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#switch-configuration) 
 * Occurs during movement but not when still. May be indicative of motor noise getting into the switch lines.
 * A spindle is on. Spindles can generate a lot of electrical noise which can get into the switch lines.
+* If the "val" is something other than 1 this may indicate an internal memory or other error. TinyG shuts down for safety reasons if memory corruption is detected. Please contact the Synthetos gmail address if you see this.
 
 SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, except of course turning off the switches. Try the following steps.
 * It's best to address noise at the source. Cheap brush spindles tend to be the noisiest. Higher quality spindles generate less noise both electrically and mechanically, and often are brushless. Some steps to quiet an electrically noisy spindle:
