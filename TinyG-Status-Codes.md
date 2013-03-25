@@ -33,7 +33,7 @@ See also:
 	24 | TG_INVALID_ADDRESS
 	25 | TG_READ_ONLY_ADDRESS
 	26 | TG_INIT_FAIL | Initialization failure
-	27 | TG_SHUTDOWN | System shutdown occurred
+	[27](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes#status-code-27---system-shutdown) | TG_SHUTDOWN | System shutdown occurred
 	28 | TG_MEMORY_CORRUPTION | Memory corruption detected
 	29-39 | TG_ERROR_26 - TG_ERROR_39 | reserved
 	 | **Input errors** | typically data problems on inputs
