@@ -4,6 +4,34 @@ Here's an attempt to collect and writup some common problems with answers. I'm s
 
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
+
+## System shuts down and generates an ER message
+PROBLEM: The system shuts down sporadically during cutting, or randomly at startup or during other operations. It generates a message like this: 
+<pre>
+{“er”:{“fb”:370.08,”st”:27,”msg”:”System shutdown”,”val”:1}}
+</pre>
+
+DIAGNOSIS: This is most often the result of a noisy limit switch line. Check these conditions:
+* One or more limit switches are enabled, e.g. $xsx=3, $ysn=2, etc. See [Limit and Homing Switches](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#switch-configuration) 
+Shutdowns may occur when:
+* A spindle is on. Spindles can generate a lot of electrical noise which can get into the switch lines.
+
+SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, except of course turning off the switches. Try the following steps.
+* It's best to address noise at the source. Cheap brush spindles tend to be the worst. Higher quality spindles tend to generate less noise both electrically and mechanically, and often are brushless. Some steps to quiet an electrically noisy spindle:
+ * Replace or clean the spindle brushes if it is a brush type
+ * Wind the cord through a ferrite torroid
+ * Isolate the spindle electrically, even going so far as to plug it into a different AC circuit. A spindle relay can still be used to control it.
+ * Replace the spindle with a higher-quality unit
+* Run spindle electrical lines physically apart from limit switch lines, and only cross at 90 degree angles.
+* Use Normally Closed (NC) switches or the NC positions on your switches. ALl switches in the machine must be the same type. Be sure to set the $st variable for NC switches. 
+* Try conditioning the limit switch lines:
+ * Use grounded, shielded wire for limit lines. Ground the lines at the TinyG board end.
+ * Use grounded, shielded wire for stepper lines. Ground the lines at the TinyG board end.
+ * Physically isolate the limit lines from the stepper lines
+ * Provide a strong pullup on the switch lines. Tie the switch side of the line to 3.3v through a 1K resistor. Do this independently for each switch. Use the 3.3v available on the limit switch header. DO NOT USE 5v OR HIGHER VOLTAGES! 
+ * In addition to the pullup resistor, provide a small capacitor to ground such as 0.1 uF capacitor
+* If all else fails disable the limit switches using the switch settings
+
 ## Z Axis Stalls During Gcode File
 PROBLEM: The Z axis stalls when running a gcode file. We have seen this happen on some Shapeokos and otehr machines.
 
