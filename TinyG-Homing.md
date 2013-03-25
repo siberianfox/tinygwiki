@@ -70,10 +70,10 @@ It is mandatory that the switch configuration settings match the physical switch
 
 The following settings are used for switch configuration.
 
-	Setting | Description | Notes / Setting Example
-	--------|-------------|--------------
+	Setting | Description | Setting Example
+	--------|-------------|------------------
 	**$ST** | Switch Type | sets the type of switch used by the entire machine - 0=NO, 1=NC.
-	**$XSN** | X Minimum Switch Mode | 3=limit-and-homing
+	**$XSN** | X Minimum Switch Mode | 3=limit-and-homing (See Modes, below)
 	**$XSX** | X Maximum Switch Mode | 2=limit-only
 	**$YSN** | Y Minimum Switch Mode | 3=limit-and-homing
 	**$YSX** | Y Maximum Switch Mode | 2=limit-only
