@@ -22,6 +22,7 @@ Some other things you might check:
 * Does the Z chip (motor3, presumably) get hot or much hotter than the X and Y chips?
 * Are the 2 large thermal vias under the driver chips soldered on the bottom of the board for all chips?
 * Is your motor wiring solid? See [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
+* It's also possible that the Z axis driver is bad. Try swapping the Z to the A axis and remapping Motor4 to the Z axis 
 
 ## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
 PROBLEM: The Gcode file you are sending behaves erratically and may have these symptoms:
