@@ -3,7 +3,7 @@
 Here's an attempt to collect and writup some common problems with answers. I'm sure it's not complete. We'll add to it as things come up. Let us know if you want something added or have other comments.
 
 Topics:
-* [System shuts down and generates an ER message](https://github.com/synthetos/TinyG/wiki/Troubleshooting#system-shuts-down-and-generates-an-er-message)
+* [System Shuts Down and Generates an ER Message](https://github.com/synthetos/TinyG/wiki/Troubleshooting#system-shuts-down-and-generates-an-er-message)
 * [Z Axis Stalls During Gcode File](https://github.com/synthetos/TinyG/wiki/Troubleshooting#z-axis-stalls-during-gcode-file)
 * [Erratic Gcode operation, Z axis plunges, arc specification errors, etc.](https://github.com/synthetos/TinyG/wiki/Troubleshooting#erratic-gcode-operation-z-axis-plunges-arc-specification-errors-etc)
 * [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
@@ -11,7 +11,7 @@ Topics:
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 
-## System shuts down and generates an ER message
+## System Shuts Down and Generates an ER Message
 PROBLEM: The system shuts down sporadically during cutting, or randomly at startup or during other operations. It generates a message like this: 
 <pre>
 {“er”:{“fb”:370.08,”st”:27,”msg”:”System shutdown”,”val”:1}}
@@ -37,6 +37,8 @@ SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, 
  * Provide a strong pullup on the switch lines. Tie the switch side of the line to 3.3v through a 1K resistor. Do this independently for each switch. Use the 3.3v available on the limit switch header. DO NOT USE 5v OR HIGHER VOLTAGES! 
  * In addition to the pullup resistor, provide a small capacitor to ground such as 0.1 uF capacitor
 * If all else fails disable the limit switches using the switch settings
+
+See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
 
 ## Z Axis Stalls During Gcode File
 PROBLEM: The Z axis stalls when running a gcode file. We have seen this happen on some Shapeokos and otehr machines.
