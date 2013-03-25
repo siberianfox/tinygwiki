@@ -16,23 +16,23 @@ PROBLEM: The system shuts down sporadically during cutting, or randomly at start
 </pre>
 
 DIAGNOSIS: This is most often the result of a noisy limit switch line. Check these conditions:
-* One or more limit switches are enabled, e.g. $xsx=3, $ysn=2, etc. See [Limit and Homing Switches](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#switch-configuration) 
-Shutdowns may occur when:
+* One or more limit switches are wired and enabled, e.g. $xsx=3, $ysn=2, etc. See [Limit and Homing Switches](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#switch-configuration) 
+* Occurs during movement but not when still. May be indicative of motor noise getting into the switch lines.
 * A spindle is on. Spindles can generate a lot of electrical noise which can get into the switch lines.
 
 SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, except of course turning off the switches. Try the following steps.
-* It's best to address noise at the source. Cheap brush spindles tend to be the worst. Higher quality spindles tend to generate less noise both electrically and mechanically, and often are brushless. Some steps to quiet an electrically noisy spindle:
+* It's best to address noise at the source. Cheap brush spindles tend to be the noisiest. Higher quality spindles generate less noise both electrically and mechanically, and often are brushless. Some steps to quiet an electrically noisy spindle:
  * Replace or clean the spindle brushes if it is a brush type
- * Wind the cord through a ferrite torroid
+ * Wind the AC cord through a ferrite torroid
+ * Physically separate the spindle AC cord from limit switch lines, and only cross at 90 degree angles.
  * Isolate the spindle electrically, even going so far as to plug it into a different AC circuit. A spindle relay can still be used to control it.
  * Replace the spindle with a higher-quality unit
-* Run spindle electrical lines physically apart from limit switch lines, and only cross at 90 degree angles.
-* Use Normally Closed (NC) switches or the NC positions on your switches. ALl switches in the machine must be the same type. Be sure to set the $st variable for NC switches. 
+* Use Normally Closed (NC) switches or the NC positions on your switches. NC switche configurations are more noise resistent than NO configurations. _Note: All switches in the machine must be the same type. Be sure to set the $st variable for NC switches._
 * Try conditioning the limit switch lines:
  * Use grounded, shielded wire for limit lines. Ground the lines at the TinyG board end.
  * Use grounded, shielded wire for stepper lines. Ground the lines at the TinyG board end.
- * Physically isolate the limit lines from the stepper lines
- * Provide a strong pullup on the switch lines. Tie the switch side of the line to 3.3v through a 1K resistor. Do this independently for each switch. Use the 3.3v available on the limit switch header. DO NOT USE 5v OR HIGHER VOLTAGES! 
+ * Physically isolate the limit lines from the stepper lines and cross only at 90 degree angles.
+ * Provide a pullup resistor on each switch line. Tie the switch side of the line to 3.3v through a 1K resistor. Use the 3.3v available on the limit switch header. DO NOT USE 5v OR HIGHER VOLTAGES! _Note: v7 and later boards have pullup resistors on-board, so this step is not usually necessary._
  * In addition to the pullup resistor, provide a small capacitor to ground such as 0.1 uF capacitor
 * If all else fails disable the limit switches using the switch settings
 
