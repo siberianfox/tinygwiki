@@ -68,6 +68,12 @@ When a limit switch is tripped the board is reset and will not exit until either
 ### Switch Configuration
 It is mandatory that the switch configuration settings match the physical switch configuration otherwise homing simply won't work. In the case of NC switches the entire machine may be rendered inoperative if these settings are not in alignment.
 
+The following switch settings are supported:
+* 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
+* 1=Homing-only - Switch is active during homing but has no effect otherwise
+* 2=Limits-only - Switch is not active in homing but will act as a kill switch during normal operation.
+* 3=Homing-and-limits - Switch is active during homing and acts as kill switch during normal operation. 
+
 The following settings are used for switch configuration.
 
 	Setting | Description | Setting Example
@@ -82,15 +88,10 @@ The following settings are used for switch configuration.
 	**$ASN** | A Minimum Switch Mode | 0=disabled
 	**$ASX** | A Maximum Switch Mode | 0=disabled
 
-Modes:
-* 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
-* 1=Homing-only - Switch is active during homing but has no effect otherwise
-* 2=Limits-only - Switch is not active in homing but will act as a kill switch during normal operation.
-* 3=Homing-and-limits - Switch is active during homing and acts as kill switch during normal operation. 
+**IMPORTANT**
+* It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused switches as Disabled. Otherwise NC configurations will not work.
 
-It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused switches as Disabled. Otherwise NC configurations will not work.
-
-An axis should only be configured for one homing switch - it should not have two. The homing switch position (min or max) may be configured as homing-only or homing-and-limit. If there is a second switch on the opposite end it should be either disabled or configured as limit-only.
+* An axis should only be configured for one homing switch - it should not have two. The homing switch position (min or max) may be configured as homing-only or homing-and-limit. If there is a second switch on the opposite end it should be either disabled or configured as limit-only.
 
 ## Homing Configuration Settings
 
