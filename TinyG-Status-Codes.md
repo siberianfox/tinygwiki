@@ -138,3 +138,14 @@ Hex | char | name | used by
 	0x7E | ~ | tilde | TinyG cycle start
 	0x7F | DEL
 	0xFF | DEL | | may be returned to Kinen SPI when no device is plugged in 
+
+## Notes
+### Status Code 27 - System Shutdown
+System shutdowns occur when the system must halt operation for some reason. You will see a message like this:
+<pre>
+{“er”:{“fb”:370.08,”st”:27,”msg”:”System shutdown”,”val”:1}}
+</pre>
+
+Shutdowns may occur when:
+* A limit switch has been hit. This is normal if you have limit switches enabled. THis can also happen sporadically if there is noise on the limit switch line. 
+* Memory corruption has been detected. This indicates a program error please report this to Synthetos. 
