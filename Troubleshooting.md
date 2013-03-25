@@ -1,4 +1,4 @@
-Here's an attempt to collect and writup some common problems with answers. I'm sure it's not complete. We'll add to it as things come up. Let us know if you want something added or have other comments.
+Here's an attempt to collect and writup some common problems with answers. I'm sure it's not complete. We'll add to it as things come up. Let us know if you want something added or have other comments. Please feel free to add to this page.
 
 **Topics**
 * [System Shuts Down and Generates an ER Message](https://github.com/synthetos/TinyG/wiki/Troubleshooting#system-shuts-down-and-generates-an-er-message)
