@@ -2,6 +2,12 @@
 
 Here's an attempt to collect and writup some common problems with answers. I'm sure it's not complete. We'll add to it as things come up. Let us know if you want something added or have other comments.
 
+Topics:
+* [System shuts down and generates an ER message](https://github.com/synthetos/TinyG/wiki/Troubleshooting#system-shuts-down-and-generates-an-er-message)
+* [Z Axis Stalls During Gcode File](https://github.com/synthetos/TinyG/wiki/Troubleshooting#z-axis-stalls-during-gcode-file)
+* [Erratic Gcode operation, Z axis plunges, arc specification errors, etc.](https://github.com/synthetos/TinyG/wiki/Troubleshooting#erratic-gcode-operation-z-axis-plunges-arc-specification-errors-etc)
+* [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
+
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 
