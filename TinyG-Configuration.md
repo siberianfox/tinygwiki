@@ -17,7 +17,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
 	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1mi---microsteps) | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
 	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
-	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power management mode | 0=power shuts off when axis is not moving, 1=axis remains powered when idle
+	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power management mode | 0=axis remains powered when idle, 1=power shuts off when axis is not moving
 
 ## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
