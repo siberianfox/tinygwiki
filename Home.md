@@ -1,3 +1,5 @@
+**Affordable Industrial Grade Motion Control**
+
 Welcome to the TinyG wiki!
 
 This wiki is used to keep documentation from version 0.95 onward. Documentation for previous versions - 0.94 and earlier - can also be found on this site. See the intro sections on various pages for the links.
