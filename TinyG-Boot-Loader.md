@@ -36,7 +36,52 @@ Here's an example command line from Mac:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
 
 You should see the following dialog if the loader works correctly
+<pre>
+macintosh-3:default alden$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex
 
+Connecting to programmer: .
+Found programmer: Id = "XBoot++"; type = S
+    Software Version = 1.7; No Hardware Version given.
+Programmer supports auto addr increment.
+Programmer supports buffered memory access with buffersize=512 bytes.
+
+Programmer supports the following devices:
+    Device code: 0x7b
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9744
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "tinyg.hex"
+avrdude: input file tinyg.hex auto detected as Intel Hex
+avrdude: writing flash (96706 bytes):
+
+Writing | ################################################## | 100% 12.09s
+
+
+
+avrdude: 96706 bytes of flash written
+avrdude: verifying flash memory against tinyg.hex:
+avrdude: load data flash data from input file tinyg.hex:
+avrdude: input file tinyg.hex auto detected as Intel Hex
+avrdude: input file tinyg.hex contains 96706 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 11.51s
+
+
+
+avrdude: verifying ...
+avrdude: 96706 bytes of flash verified
+
+avrdude done.  Thank you.
+
+macintosh-3:default alden$ 
+</pre>
 ![flashing tinyg via avrdude](http://farm9.staticflickr.com/8104/8550680052_f9a5d703d6_c.jpg)
 
 
