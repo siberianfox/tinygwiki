@@ -37,7 +37,7 @@ Here's an example command line from Mac:<br>
 
 You should see the following dialog if the loader works correctly
 <pre>
-macintosh-3:default alden$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex
+macintosh-3:default laughwhileyoucanmonkeyboy$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex
 
 Connecting to programmer: .
 Found programmer: Id = "XBoot++"; type = S
@@ -80,10 +80,9 @@ avrdude: 96706 bytes of flash verified
 
 avrdude done.  Thank you.
 
-macintosh-3:default alden$ 
+macintosh-3:default laughwhileyoucanmonkeyboy$ 
 </pre>
 ![flashing tinyg via avrdude](http://farm9.staticflickr.com/8104/8550680052_f9a5d703d6_c.jpg)
-
 
 <a id="flashing"></a>
 # Flashing the Boot Loader onto the Xmega Chip
