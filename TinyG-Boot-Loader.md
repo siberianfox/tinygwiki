@@ -82,7 +82,6 @@ avrdude done.  Thank you.
 
 macintosh-3:default username$ 
 </pre>
-![flashing tinyg via avrdude](http://farm9.staticflickr.com/8104/8550680052_f9a5d703d6_c.jpg)
 
 <a id="flashing"></a>
 # Flashing the Boot Loader onto the Xmega Chip
