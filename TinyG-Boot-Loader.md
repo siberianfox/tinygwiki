@@ -188,7 +188,7 @@ add the following to Custom Options, [Linker Options]:
 You will want to use the xboot.hex file found in the `default` directory
 
 ## Setting up Xboot as an AtmelStudio6 Project
-_Note: this isn't working yet. Xboot seems to only compile under the AVRGCC (WinAVR 20100110) 4.3.3. Studio 6 runs the AVR_8_bit_GNU_Toolchain_3.4.0_663 (4.6.2). For some reason the newer version doesn't work - it fails during EEPROM write. Check back later for updates_
+_Note: this isn't working and we have abandoned it. Xboot seems to only compile under the AVRGCC (WinAVR 20100110) 4.3.3. Studio 6 runs the AVR_8_bit_GNU_Toolchain_3.4.0_663 (4.6.2). For some reason the newer version doesn't work - it fails during EEPROM write. Check back later for updates_
 
 But if you want to try this do the following:
 
