@@ -145,14 +145,14 @@ macintosh-3:xboot your-user-dir$ make conf\x192a3.conf.mk
 macintosh-3:xboot your-user-dir$
 </pre>
 
-We have not diagnosed or fixed this yet, but are working on getting it to compile under Atmel Studio6 (below).
-
 You should now be ready to flash xboot.hex onto the xmega192. Refer to the Flashing... section, above.
 
 ## Setting up Xboot as an AVRStudio4 Project
 Xboot has been set up as an AVRStudio4 project (Windows only). use the xboot.aps project file. 
 
 You can either use the native makefile or have AS4 auto generate a makefile. The auto-generated option allows you to use the AVR simulator to debug - otherwise there is no functional difference.
+
+Be aware that in order to generate the config.h file you must change x192a3.conf.mk and make it with the native makefile. The AVRStudio4 project does not run the config.h target.
 
 ### Native Makefile
 To use the native makefile check `Use External Makefile` in `Project / Configuration Options`.
