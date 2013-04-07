@@ -82,8 +82,10 @@ Notes:
 (1) It gets worse. If you mess up and do things wrong studio6 will remember your paths in "recents" and fail the next time you try to set something up because things aren't where it thinks they should be. You have to go to the File/Recent Projects and Solutions, try to open the old paths, then remove them when they can't be found (you must have deleted the directories beforehand)
 
 ### More AtmelStudio6 Topics
-#### AtmelStudio6 doesn't program the chip correctly or fails verification
-We've seen this with earlier versions. Make sure you are up to (at least) Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you rae on the latest firmware for the AVRISP mkii.
+#### AtmelStudio6 fails verification when programming the xmega
+We've seen this with earlier versions and Studio6.0 build 1996. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you rae on the latest firmware for the AVRISP mkii.
+
+We've found that even though the verification failed the programming is good. You ca wither turn off verification or chose to ignore the warning. By the way - we've never seen this failure on Studio4.
 
 #### Can't view ASCII strings in the debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
