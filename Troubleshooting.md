@@ -10,8 +10,11 @@ See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG
 
 ## Motor(s) hums but doesn't move 
 PROBLEM: One or more motors hums but the motors don't move. It doesn;t matter how you set the current pots - it still happens.
+
 OTHER SYMPTOMS: Buffer corruption; machine wanders off aimlessly in the middle of a file. 
+
 VARIANT: ...but it worked yesterday.
+
 DIAGNOSIS: The power supply might be inadequate and be collapsing under load. If you have a VOM or scope test the voltage to make sure you are getting what you think you are getting. A setup with 3 NEMA17 motors usually requires a power supply of at least 4 amps. 3 NEMA23's requires at least 6 amps. 
 
 Also the board prefers 24 volts to 12volts. The motors are snappier and don;t heat up as much as they do with lower voltages (this is not a typo - it's true - higher voltage makes the motors run cooler). 
