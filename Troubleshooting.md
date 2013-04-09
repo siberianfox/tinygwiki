@@ -10,9 +10,7 @@ Here's an attempt to collect and writup some common problems with answers. I'm s
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 ## Motor(s) hums but doesn't move 
-PROBLEM: One or more motors hum but the motors don't move. It doesn't matter how you set the current pots - it still happens.
-
-VARIANT: ...but it worked yesterday.
+PROBLEM: One or more motors hums but the motors don't move. It doesn't matter how you set the current pots - it still happens. VARIANT: ...but it worked yesterday.
 
 OTHER SYMPTOMS: Buffer corruption; machine wanders off aimlessly in the middle of a file; erratic operation in general 
 
