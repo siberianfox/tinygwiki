@@ -14,9 +14,11 @@ PROBLEM: One or more motors hums but the motors don't move. It doesn't matter ho
 
 OTHER SYMPTOMS: Buffer corruption; machine wanders off aimlessly in the middle of a file; erratic operation in general 
 
-DIAGNOSIS: The power supply might be inadequate and be collapsing under load, or it might be excessively noisy. If you have a VOM you can test the voltage - or better yet use an oscilloscope to test the voltage and look at how clean the waveform is. A setup with 3 NEMA17 motors usually requires a power supply of at least 4 amps. 3 NEMA23's requires at least 6 amps. We have seen supply/noise problems on power supplies that are under-rated for the load, and on cheap supplies that do not regulate well.
+DIAGNOSIS #1: The power supply might be inadequate and be collapsing under load, or it might be excessively noisy. If you have a VOM you can test the voltage - or better yet use an oscilloscope to test the voltage and look at how clean the waveform is. A setup with 3 NEMA17 motors usually requires a power supply of at least 4 amps. 3 NEMA23's requires at least 6 amps. We have seen supply/noise problems on power supplies that are under-rated for the load, and on cheap supplies that do not regulate well.
 
 Also the board runs better at 24 - 30 volts than 12 volts. The motors are snappier and don't heat up as much as they do with lower voltages (this is not a typo - it's true - higher voltage makes the motors and driver chips run cooler as they spend less time in switching). 
+
+DIAGNOSIS #2: The current setting pot is broken. If the pot has failed CLOSED then the current reference voltage will prevent the driver from delivering any current. This is more likely to occur on the v6 and earlier boards that use the [Murata PVG3G502C01R00](http://www.mouser.com/ProductDetail/Murata/PVG3G502C01R00/?qs=%2fha2pyFadujnuS%2ft7JadhCuZJcqCPg4UcIYXtdCnkEtP24rXvClytw%3d%3d) 3mm silver pots than the v7 that uses the Bourns 5mm tan pots.
 
 ## System Shuts Down and Generates an ER Message
 PROBLEM: The system shuts down sporadically during cutting, or randomly at startup or during other operations. It generates a message like this: 
