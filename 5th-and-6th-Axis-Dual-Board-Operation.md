@@ -25,3 +25,11 @@ Setup the motors for the board. See example.
 The axis settings must be identical in both profiles, with the exception of the axis mode. In the example the master (linear) has XYZ enabled and ABC inhibited. The slave is the opposite. The axis mode settings must be identical for the Gcode model in both boards to track each other and maintain coordination.
 
 You will notice that in the master settings the NETWORK_MODE = NETWORK_MASTER, in the slave it's NETWORK_SLAVE
+
+## Gothcas (Unresolved Cautions and Issues)
+
+* (Repeat of above) Settings configuration must be done via the default profiles at the current time there is no way to configure the slave settings independently. We need to find a way to override the network connection so that the slave settings can be set via the USB port. For now these must be set in the default profiles and compiled in.
+
+* When one board is reset, both boards should be rest. This ensures that the Gcode models remain in sync. Perhaps a set of the master should send a ^x to the slave.
+ 
+
