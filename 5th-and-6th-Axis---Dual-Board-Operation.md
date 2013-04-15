@@ -2,6 +2,9 @@
 ** The instructions on this page are experimental so please be warned ** 
 
 ## Theory of Operation
+TinyG can operate in a Master/Slave configuration to control up to 8 motors. The motors can control any of the XYZABC axes, and axes can be doubled (or more) for dual gantry and other configurations. Use the $AM config to map motors to axes.
+
+This works as so. The master board accepts commands over USB as normal. It sends the exact bytes it receives to the slave board over an RS-485 link with minimal delay (small # of microseconds). Both the slave and the master execute the entire (identical) command stream. 
 
 ## Connecting the Boards
 
