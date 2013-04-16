@@ -559,8 +559,8 @@ Returns a status report or set the contents of a status report (JSON only). Iden
 ### $QR - Queue Report
 Sends a queue reports. $QV $QV for details.
 
-### $QF - Queue Report
-Removes all Gcode blocks remaining inb the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
+### $QF - Queue Flush
+Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
