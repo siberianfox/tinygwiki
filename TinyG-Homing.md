@@ -9,6 +9,13 @@ TinyG's homing behaviors are adapted from [Peter Smid's CNC Programming Handbook
 	G30 | _axes_ | Go to G30.1 position | Goes through intermediate point if _axes_ are present
 	G30.1 | | Set position for G30 | Axes are not used and are ignored if present
 
+Example of use: 
+* Go to an arbitrary position, e.g. G0 x100 y100 
+* Send G28.1  - This will "remember" the absolute position. This position remains constant regardless of what coordinate system is in effect. 
+* Then go to a gifferent place, e.g. G0 x50 y50
+* Send G28  - The machine will return to x100 y100
+
+
 These additional "non standard" homing functions are also provided: 
 
 	Gcode | Parameters | Command | Description
