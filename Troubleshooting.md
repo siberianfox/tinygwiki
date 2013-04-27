@@ -86,3 +86,7 @@ PROBLEM: Two users have reported problems where the board crashed (program execu
 ...and other user the problem stopped when they located and fixed a short in the limit switch wiring. 
 
 DIAGNOSIS: We don't think this is a TinyG problem. Solution - check your switch and motor wiring for reliability and shorts.
+
+## Firmware Update Verification Failure
+PROBLEM:  While attempting to update TinyG's firmware via avrdude, the verification process fails with the error: avrdude: <P>`verification error; content mismatch`
+DIAGNOSIS:  The simple answer is the XMEGA processor's LOCKBITS are "locked".  Click here to read how to fix this.
