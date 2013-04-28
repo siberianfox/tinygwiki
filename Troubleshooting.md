@@ -11,29 +11,29 @@ Here's an attempt to collect and writup some common problems with answers. I'm s
 See also: [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
 ## Motor(s) hums but doesn't move 
-PROBLEM: One or more motors hums but the motors don't move. It doesn't matter how you set the current pots - it still happens. VARIANT: ...but it worked yesterday.
+**PROBLEM**: One or more motors hums but the motors don't move. It doesn't matter how you set the current pots - it still happens. VARIANT: ...but it worked yesterday.
 
 OTHER SYMPTOMS: Buffer corruption; machine wanders off aimlessly in the middle of a file; erratic operation in general 
 
-DIAGNOSIS #1: The power supply might be inadequate and be collapsing under load, or it might be excessively noisy. If you have a VOM you can test the voltage - or better yet use an oscilloscope to test the voltage and look at how clean the waveform is. A setup with 3 NEMA17 motors usually requires a power supply of at least 4 amps. 3 NEMA23's requires at least 6 amps. We have seen supply/noise problems on power supplies that are under-rated for the load, and on cheap supplies that do not regulate well.
+**DIAGNOSIS #1**: The power supply might be inadequate and be collapsing under load, or it might be excessively noisy. If you have a VOM you can test the voltage - or better yet use an oscilloscope to test the voltage and look at how clean the waveform is. A setup with 3 NEMA17 motors usually requires a power supply of at least 4 amps. 3 NEMA23's requires at least 6 amps. We have seen supply/noise problems on power supplies that are under-rated for the load, and on cheap supplies that do not regulate well.
 
 Also the board runs better at 24 - 30 volts than 12 volts. The motors are snappier and don't heat up as much as they do with lower voltages (this is not a typo - it's true - higher voltage makes the motors and driver chips run cooler as they spend less time in switching). 
 
-DIAGNOSIS #2: The current setting pot is broken. If the pot has failed CLOSED then the current reference voltage will prevent the driver from delivering any current. This is more likely to occur on the v6 and earlier boards that use the [Murata PVG3G502C01R00](http://www.mouser.com/ProductDetail/Murata/PVG3G502C01R00/?qs=%2fha2pyFadujnuS%2ft7JadhCuZJcqCPg4UcIYXtdCnkEtP24rXvClytw%3d%3d) 3mm silver pots than the v7 that uses the Bourns 5mm tan pots.
+**DIAGNOSIS #2**: The current setting pot is broken. If the pot has failed CLOSED then the current reference voltage will prevent the driver from delivering any current. This is more likely to occur on the v6 and earlier boards that use the [Murata PVG3G502C01R00](http://www.mouser.com/ProductDetail/Murata/PVG3G502C01R00/?qs=%2fha2pyFadujnuS%2ft7JadhCuZJcqCPg4UcIYXtdCnkEtP24rXvClytw%3d%3d) 3mm silver pots than the v7 that uses the Bourns 5mm tan pots.
 
 ## System Shuts Down and Generates an ER Message
-PROBLEM: The system shuts down sporadically during cutting, or randomly at startup or during other operations. It generates a message like this: 
+**PROBLEM**: The system shuts down sporadically during cutting, or randomly at startup or during other operations. It generates a message like this: 
 <pre>
 {“er”:{“fb”:370.08,”st”:27,”msg”:”System shutdown”,”val”:1}}
 </pre>
 
-DIAGNOSIS: This is most often the result of a noisy limit switch line. Check these conditions:
+**DIAGNOSIS**: This is most often the result of a noisy limit switch line. Check these conditions:
 * One or more limit switches are wired and enabled, e.g. $xsx=3, $ysn=2, etc. See [Limit and Homing Switches](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#switch-configuration) 
 * Occurs during movement but not when still. May be indicative of motor noise getting into the switch lines.
 * A spindle is on. Spindles can generate a lot of electrical noise which can get into the switch lines.
 * If the "val" is something other than 1 this may indicate an internal memory or other error. TinyG shuts down for safety reasons if memory corruption is detected. Please contact the Synthetos gmail address if you see this.
 
-SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, except of course turning off the switches. Try the following steps.
+**SOLUTIONS**: There is no silver bullet to stopping erratic limit switch closures, except of course turning off the switches. Try the following steps.
 * It's best to address noise at the source. Cheap brush spindles tend to be the noisiest. Higher quality spindles generate less noise both electrically and mechanically, and often are brushless. Some steps to quiet an electrically noisy spindle:
  * Replace or clean the spindle brushes if it is a brush type
  * Wind the AC cord through a ferrite torroid
@@ -52,9 +52,9 @@ SOLUTIONS: There is no silver bullet to stopping erratic limit switch closures, 
 See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
 
 ## Z Axis Stalls During Gcode File
-PROBLEM: The Z axis stalls when running a gcode file. We have seen this happen on some Shapeokos and otehr machines.
+**PROBLEM**: The Z axis stalls when running a gcode file. We have seen this happen on some Shapeokos and otehr machines.
 
-DIAGNOSIS: Z axes often have different dynamics than the X and Y axes, and are not capable of the maximum velocities or jerk that the X and Y can sustain. This is especially true for machines that use belts for X and Y and screws for Z (such as the Shapeoko), or have fast, multi-start screws for X and Y and finer pitched screws for Z. The Probotix Fireball has 5 TPI screws for X and Y and 12 TPI for Z.
+**DIAGNOSIS**: Z axes often have different dynamics than the X and Y axes, and are not capable of the maximum velocities or jerk that the X and Y can sustain. This is especially true for machines that use belts for X and Y and screws for Z (such as the Shapeoko), or have fast, multi-start screws for X and Y and finer pitched screws for Z. The Probotix Fireball has 5 TPI screws for X and Y and 12 TPI for Z.
 
 Try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
 <pre>
@@ -72,21 +72,22 @@ Some other things you might check:
 * It's also possible that the Z axis driver is bad. Try swapping the Z to the A axis and remapping Motor4 to the Z axis 
 
 ## Erratic Gcode operation, Z axis plunges, arc specification errors, etc.
-PROBLEM: The Gcode file you are sending behaves erratically and may have these symptoms:
+**PROBLEM**: The Gcode file you are sending behaves erratically and may have these symptoms:
 * Rapid moves to random locations
 * Z axis plunging unexpectedly
 * Gcode errors returned in message line
 
-DIAGNOSIS: This is usually a failure in the program sending Gcode to the board. One of two things is probably happening (1) the serial buffer is being overwritten because the host is not performing adequate flow control, or (2) $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
+**DIAGNOSIS**: This is usually a failure in the program sending Gcode to the board. One of two things is probably happening (1) the serial buffer is being overwritten because the host is not performing adequate flow control, or (2) $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
 
 Are you using Coolterm to send files? Are you using Xon/Xoff mode? It is enabled in both Coolterm and on TinyG ($ex)?
 
 ## Crash/Reset on Move
-PROBLEM: Two users have reported problems where the board crashed (program execution stopped and boot message was sent over serial) upon a move command on a particular axis. (See [forum thread](https://www.synthetos.com/topic/reset-on-move/).) The specific cause is unknown, but one user reported the problem vanishing after some physical manipulation of the stepper motor wires; there is a hypothesis that a problem with an unreliable motor connection may cause back-EMF discharge into the board, disrupting the CPU. (edited - tdierks)
+**PROBLEM**: Two users have reported problems where the board crashed (program execution stopped and boot message was sent over serial) upon a move command on a particular axis. (See [forum thread](https://www.synthetos.com/topic/reset-on-move/).) The specific cause is unknown, but one user reported the problem vanishing after some physical manipulation of the stepper motor wires; there is a hypothesis that a problem with an unreliable motor connection may cause back-EMF discharge into the board, disrupting the CPU. (edited - tdierks)
 ...and other user the problem stopped when they located and fixed a short in the limit switch wiring. 
 
-DIAGNOSIS: We don't think this is a TinyG problem. Solution - check your switch and motor wiring for reliability and shorts.
+**DIAGNOSIS**: We don't think this is a TinyG problem. Solution - check your switch and motor wiring for reliability and shorts.
 
 ## Firmware Update Verification Failure
-PROBLEM:  While attempting to update TinyG's firmware via avrdude, the verification process fails with the error: avrdude: <P>`verification error; content mismatch`
-DIAGNOSIS:  The simple answer is the XMEGA processor's LOCKBITS are "locked".  Click [here](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) to read how to fix this.
+**PROBLEM**:  While attempting to update TinyG's firmware via avrdude, the verification process fails with the error: avrdude:`verification error; content mismatch`
+
+**DIAGNOSIS**:  The simple answer is the XMEGA processor's LOCKBITS are "locked".  Click [here](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) to read how to fix this.
