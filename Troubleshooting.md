@@ -89,4 +89,4 @@ DIAGNOSIS: We don't think this is a TinyG problem. Solution - check your switch 
 
 ## Firmware Update Verification Failure
 PROBLEM:  While attempting to update TinyG's firmware via avrdude, the verification process fails with the error: avrdude: <P>`verification error; content mismatch`
-DIAGNOSIS:  The simple answer is the XMEGA processor's LOCKBITS are "locked".  Click here to read how to fix this.
+DIAGNOSIS:  The simple answer is the XMEGA processor's LOCKBITS are "locked".  Click [here](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) to read how to fix this.
