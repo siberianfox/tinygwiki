@@ -203,7 +203,7 @@ Sets the function of the axis.
 * 3 = Radius mode. (Rotary axes only) In radius mode gcode values are interpreted as linear units; either inches or mm depending on the prevailing G20/G21 setting. The conversion of linear units to degrees is accomplished using the radius setting for that axis. See $aRA for details. 
 
 <pre>
-$zmo=2 	     Inhibit the Z axis; $zmo1 will restore standard operation
+$zam=2 	     Inhibit the Z axis; $zam1 will restore standard operation
 </pre>
 
 ### $xVM - Velocity Maximum
