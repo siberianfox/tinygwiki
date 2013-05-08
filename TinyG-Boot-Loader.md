@@ -137,6 +137,112 @@ Step 1. The command line you need is:<br>
 But beware - it only works in windows. Use cmd and navigate to the (lower) xboot directory something like:
 `Z:\Username\Projects\...\TinyG\xboot\xboot\make conf\x192a3.conf.mk`
 
+
+<pre>
+Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+C:\Documents and Settings\Administrator>z:
+
+Z:\>cd Alden
+
+Z:\Alden>cd Projects
+
+Z:\Alden\Projects>cd proj38_TinyG
+
+Z:\Alden\Projects\proj38_TinyG>cd TinyG
+
+Z:\Alden\Projects\proj38_TinyG\TinyG>cd xboot
+
+Z:\Alden\Projects\proj38_TinyG\TinyG\xboot>cd xboot
+
+Z:\Alden\Projects\proj38_TinyG\TinyG\xboot\xboot>make conf/x192a3.conf.mk
+cp conf/x192a3.conf.mk config.mk
+make
+make[1]: Entering directory `Z:/Alden/Projects/proj38_TinyG/TinyG/xboot/xboot'
+
+-------- begin --------
+avr-gcc (AVR_8_bit_GNU_Toolchain_3.3.0_364) 4.5.1
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Size before:
+xboot.elf  :
+section       size       addr
+.text       0x1066    0x30000
+.bss         0x206   0x802000
+.stab       0x5b68        0x0
+.stabstr   0x17403        0x0
+Total      0x1e1d7
+
+
+
+Generating config.h for atxmega192a3
+
+Compiling: xboot.c
+avr-gcc -c -mmcu=atxmega192a3 -I. -gstabs   -Os -funsigned-char -funsigned-bitfi
+elds -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -fno-jump-t
+ables -Wall -Wa,-adhlns=xboot.lst  -Wstrict-prototypes -std=gnu99 -MD -MP -MF .d
+ep/xboot.o.d -DF_CPU=32000000L -DUSE_CONFIG_H xboot.c -o xboot.o
+
+Compiling: uart.c
+avr-gcc -c -mmcu=atxmega192a3 -I. -gstabs   -Os -funsigned-char -funsigned-bitfi
+elds -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -fno-jump-t
+ables -Wall -Wa,-adhlns=uart.lst  -Wstrict-prototypes -std=gnu99 -MD -MP -MF .de
+p/uart.o.d -DF_CPU=32000000L -DUSE_CONFIG_H uart.c -o uart.o
+
+Compiling: api.c
+avr-gcc -c -mmcu=atxmega192a3 -I. -gstabs   -Os -funsigned-char -funsigned-bitfi
+elds -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -fno-jump-t
+ables -Wall -Wa,-adhlns=api.lst  -Wstrict-prototypes -std=gnu99 -MD -MP -MF .dep
+/api.o.d -DF_CPU=32000000L -DUSE_CONFIG_H api.c -o api.o
+
+Linking: xboot.elf
+avr-gcc -mmcu=atxmega192a3 -I. -gstabs   -Os -funsigned-char -funsigned-bitfield
+s -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -fno-jump-tabl
+es -Wall -Wa,-adhlns=config.lst  -Wstrict-prototypes -std=gnu99 -MD -MP -MF .dep
+/xboot.elf.d -DF_CPU=32000000L -DUSE_CONFIG_H xboot.o flash.o eeprom_driver.o ua
+rt.o i2c.o fifo.o watchdog.o api.o sp_driver.o --output xboot.elf -Wl,-Map=xboot
+.map,--cref -Wl,--gc-sections    -lm -Wl,--section-start=.text=0x030000
+
+Creating load file for Flash: xboot.hex
+avr-objcopy -O ihex -R .eeprom xboot.elf xboot.hex
+
+Creating load file for boot section: xboot-boot.hex
+avr-objcopy -O ihex --change-addresses -0x030000 xboot.hex xboot-boot.hex
+
+Creating load file for EEPROM: xboot.eep
+avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+        --change-section-lma .eeprom=0 -O ihex xboot.elf xboot.eep
+c:\Program Files\Atmel\AVR Tools\AVR Toolchain\bin\avr-objcopy.exe: --change-sec
+tion-lma .eeprom=0x00000000 never used
+
+Creating Extended Listing: xboot.lss
+avr-objdump -h -S xboot.elf > xboot.lss
+
+Creating Symbol Table: xboot.sym
+avr-nm -n xboot.elf > xboot.sym
+
+Size after:
+xboot.elf  :
+section       size       addr
+.text       0x1066    0x30000
+.bss         0x206   0x802000
+.stab       0x5b68        0x0
+.stabstr   0x17403        0x0
+Total      0x1e1d7
+
+
+
+Errors: none
+-------- end --------
+
+make[1]: Leaving directory `Z:/Alden/Projects/proj38_TinyG/TinyG/xboot/xboot'
+
+Z:\Alden\Projects\proj38_TinyG\TinyG\xboot\xboot>
+</pre>
 It enters an infinite loop in Linux and generates this error in OSX
 
 <pre>
