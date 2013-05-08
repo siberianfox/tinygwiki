@@ -134,28 +134,8 @@ make conf/x192a3.conf.mk
 Step 1. The command line you need is:<br>
 `make conf\x192a3.conf.mk`
 
-But beware - it only works in windows. Use cmd and navigate to the (lower) xboot directory something like:
-`Z:\Username\Projects\...\TinyG\xboot\xboot\make conf\x192a3.conf.mk`
-
-
+You should see something like this:
 <pre>
-Microsoft Windows XP [Version 5.1.2600]
-(C) Copyright 1985-2001 Microsoft Corp.
-
-C:\Documents and Settings\Administrator>z:
-
-Z:\>cd Alden
-
-Z:\Alden>cd Projects
-
-Z:\Alden\Projects>cd proj38_TinyG
-
-Z:\Alden\Projects\proj38_TinyG>cd TinyG
-
-Z:\Alden\Projects\proj38_TinyG\TinyG>cd xboot
-
-Z:\Alden\Projects\proj38_TinyG\TinyG\xboot>cd xboot
-
 Z:\Alden\Projects\proj38_TinyG\TinyG\xboot\xboot>make conf/x192a3.conf.mk
 cp conf/x192a3.conf.mk config.mk
 make
@@ -234,8 +214,6 @@ section       size       addr
 .stabstr   0x17403        0x0
 Total      0x1e1d7
 
-
-
 Errors: none
 -------- end --------
 
@@ -243,6 +221,10 @@ make[1]: Leaving directory `Z:/Alden/Projects/proj38_TinyG/TinyG/xboot/xboot'
 
 Z:\Alden\Projects\proj38_TinyG\TinyG\xboot\xboot>
 </pre>
+
+But beware - it only works in windows. Use cmd and navigate to the (lower) xboot directory something like:
+`Z:\Username\Projects\...\TinyG\xboot\xboot\make conf\x192a3.conf.mk`
+
 It enters an infinite loop in Linux and generates this error in OSX
 
 <pre>
