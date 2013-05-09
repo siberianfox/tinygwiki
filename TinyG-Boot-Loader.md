@@ -14,7 +14,7 @@ If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot L
 
 Update: Boot loader behaviors as of build 375.01 are:
 * On hardware reset (reset button) or software reset (Control-X) the spindle direction bit will flash 4x/sec for about 3 seconds indicating the board is in boot loader mode. After that it will start the application. If no application is present it will revert to the boot loader, so the light will just keep flashing.
-* Issuing a boot command: $boot=1 or {"boot":1} will enter the boot loader and cause it to remain in the boot loader for 60 seconds before reverting the the application.
+* Issuing a boot command: $boot=1 or {"boot":1} will enter the boot loader and cause it to remain in the boot loader for 60 seconds before reverting to the application.
 
 <a id="updating"></a>
 # Updating TinyG Firmware using the Boot Loader
