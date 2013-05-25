@@ -12,27 +12,27 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G4 | P | Dwell | Pause for P seconds
 	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
-	G17 | | Select XY plane |
+	G17 | | Select XY plane | G17, G18 and G19 set the plan in which the G2/G3 arcs are drawn
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
 	G28 | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
-	G28.1 | | Set position for G28 | Axis words are not provided for this command
+	G28.1 | | Set position for G28 | The current machine position is recorded. Axis words are not provided for this command
 	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
 	G28.3 | _axes_ | Set Zero | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
 	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
-	G30.1 | | Set position for G30 | Axis words are not provided for this command
-	G53 | | Select absolute coordinates | Applies only to current block
-	G54 | | Select coordinate system 1 |
+	G30.1 | | Set position for G30 | The current machine position is recorded. Axis words are not provided for this command
+	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
+	G54 | | Select coordinate system 1 | G54 is typically used as the "normal" coord system and reflects the machine position
 	G55 | | Select coordinate system 2 |
 	G56 | | Select coordinate system 3 |
 	G57 | | Select coordinate system 4 |
 	G58 | | Select coordinate system 5 |
 	G59 | | Select coordinate system 6 |
-	G61 | | Exact path mode |
-	G61.1 | | Exact stop mode |
-	G64 | | Continuous path mode |
+	G61 | | Exact stop mode | Motion will stop between each Gcode block
+	G61.1 | | Exact path mode | Motion will be blended between Gcode blocks - exact path will be traced
+	G64 | | Continuous path mode | Motion will be blended between Gcode blocks - may deviate from exact path
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
