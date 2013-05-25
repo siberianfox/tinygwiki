@@ -18,11 +18,11 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
 	G28 | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
-	G28.1 | | Set position for G28 | The current machine position is recorded. Axis words are not provided for this command
+	G28.1 | | Set position for G28 | The current machine position is recorded (No parameters are provided)
 	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
 	G28.3 | _axes_ | Set Zero | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
 	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
-	G30.1 | | Set position for G30 | The current machine position is recorded. Axis words are not provided for this command
+	G30.1 | | Set position for G30 | The current machine position is recorded (No parameters are provided)
 	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
 	G54 | | Select coordinate system 1 | G54 is typically used as the "normal" coord system and reflects the machine position
 	G55 | | Select coordinate system 2 |
