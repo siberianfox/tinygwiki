@@ -24,12 +24,12 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
 	G30.1 | | Set position for G30 | The current machine position is recorded (No parameters are provided)
 	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
-	G54 | | Select coordinate system 1 | G54 is typically used as the "normal" coord system and reflects the machine position
-	G55 | | Select coordinate system 2 |
-	G56 | | Select coordinate system 3 |
-	G57 | | Select coordinate system 4 |
-	G58 | | Select coordinate system 5 |
-	G59 | | Select coordinate system 6 |
+	G54 | | Select coord system 1 | G54 is typically used as the "normal" coordinate system and reflects the machine position
+	G55 | | Select coord system 2 |
+	G56 | | Select coord system 3 |
+	G57 | | Select coord system 4 |
+	G58 | | Select coord system 5 |
+	G59 | | Select coord system 6 |
 	G61 | | Exact stop mode | Motion will stop between each Gcode block
 	G61.1 | | Exact path mode | Motion will be blended between Gcode blocks - exact path will be traced
 	G64 | | Continuous path mode | Motion will be blended between Gcode blocks - may deviate from exact path
