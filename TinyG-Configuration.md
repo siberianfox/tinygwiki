@@ -557,7 +557,7 @@ These commands cause various actions, and are not technically "settings".
 Returns a status report or set the contents of a status report (JSON only). Identical to ? command. See [Status Reports]() for details.
 
 ### $QR - Queue Report
-Sends a queue reports. $QV $QV for details.
+Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qv---queue-report-verbosity) for details.
 
 ### $QF - Queue Flush
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
