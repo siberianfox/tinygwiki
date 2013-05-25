@@ -402,6 +402,8 @@ $qv=1      - Filtered - returns reports when depth changes and is above hi water
 $qv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
 </pre>
 
+You can also get a manual queue report by sending [$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report)
+
 ### $QVH - Queue Report High Water Mark
 Set high-water mark for reporting. Set to 20 by default. This is a hidden setting and will not show up in $sys listings.
 
