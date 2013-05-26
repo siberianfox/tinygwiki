@@ -89,7 +89,7 @@ macintosh-3:default username$
 
 <a id="flashing"></a>
 # Flashing the Boot Loader onto the Xmega Chip
-_Update 5/22/13: We have had reports that programming (flashing) the boot loader using Studio6.0 or Studio6.1 can report a verification error. THe boot loader is actually loaded correctly and does work, in spite of this error (so far no counter examples have been reported). Flashing using AStudio4 does not report these errors._
+_Update 5/22/13: We have had reports that programming (flashing) the boot loader using AtmelStudio6.0 or Studio6.1 can report a verification error. The boot loader is actually loaded correctly and does work, in spite of this error (so far no counter examples have been reported). Flashing using AVRStudio4 does not report these errors._
 
 The following instructions are how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project.  You can get the xboot.hex file here.  [xboot.hex](https://raw.github.com/synthetos/TinyG/dev/xboot/xboot/xboot.hex)  **NOTE: You need to right click and save as on the xboot.hex link to download the hex file correctly.** If you want to compile go to the next section: [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 
