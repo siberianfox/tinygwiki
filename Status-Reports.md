@@ -177,7 +177,7 @@ Additionally, any valid token may be listed in a status report. For example, "g5
 Values commonly reported in status reports. See also canonical_machine.h, config.h
 
 	Token | Value | Description
-	------|------------
+	------|-------|-------------
 	stat | 0 | machine is initializing
 	| 1 | machine is ready for use
 	| 2 | machine is in alarm state (shut down)
