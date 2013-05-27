@@ -183,7 +183,7 @@ Values commonly reported in status reports. See also canonical_machine.h for the
 	| 1 | machine is ready for use
 	| 2 | machine is in alarm state (shut down)
 	| 3 | program stop or no more blocks
-	| 4 | program end via M2, M60
+	| 4 | program end via M2, M30, M60
 	| 5 | motion is running
 	| 6 | motion is holding
 	| 7 | probe cycle active
