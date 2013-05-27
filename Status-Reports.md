@@ -173,6 +173,22 @@ A status report may contain one or more of the following attributes. The [token]
 </pre> 
 Additionally, any valid token may be listed in a status report. For example, "g54x" will return the X offset in the G54 coordinate system (coordinate system #1). "fv" would return the firmware version. 
 
+###Status Report Values
+Values commonly reported in status reports. See also canonical_machine.h, config.h
+
+	Token | Value | Description
+	------|------------
+	stat | 0 | machine is initializing
+	| 1 | machine is ready for use
+	| 2 | machine is in alarm state (shut down)
+	| 3 | program stop or no more blocks
+	| 4 | program end via M2, M60
+	| 5 | motion is running
+	| 6 | motion is holding
+	| 7 | probe cycle active
+	| 8 | machine is running (cycling)
+	| 9 | machine is homing 
+
 ## Random Notes
 * The reason the machine position (mpo) is in internal coordinates is to return a clean representation of the internal position model. This allows the status report output to be used directly to chart tool path on a graphics window. This way the drawing model ignores things like units changes, coordinate systems and g92 offsets.
 * You can get the actual work position for display in a DRO by subtracting the offset from the machine position. So a convenient way to set up a status report is to use filtered reports to return mpox, mpoy, mpoz, ofsx, ofsy, ofsz. You will get back the xyz positions that are actually moving. The offsets will be reported once at the start of the status reports, and then only if they are changed by a gcode command. The offsets can be queried at any time by issuing a {"sr":""}, which will always return a complete SR regardless of the $sv setting
