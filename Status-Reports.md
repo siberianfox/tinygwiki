@@ -174,11 +174,12 @@ A status report may contain one or more of the following attributes. The [token]
 Additionally, any valid token may be listed in a status report. For example, "g54x" will return the X offset in the G54 coordinate system (coordinate system #1). "fv" would return the firmware version. 
 
 ###Status Report Values
-Values commonly reported in status reports. See also canonical_machine.h, config.h
+Values commonly reported in status reports. See also canonical_machine.h for the actual code.
 
 	Token | Value | Description
 	------|-------|-------------
-	stat | 0 | machine is initializing
+	stat || Machine State
+	| 0 | machine is initializing
 	| 1 | machine is ready for use
 	| 2 | machine is in alarm state (shut down)
 	| 3 | program stop or no more blocks
@@ -188,6 +189,11 @@ Values commonly reported in status reports. See also canonical_machine.h, config
 	| 7 | probe cycle active
 	| 8 | machine is running (cycling)
 	| 9 | machine is homing 
+	momo | | Motion Mode - from Gcode
+	| 0 | G0 - straight traverse
+	| 1 | G1 - straight feed
+	| 2 | G3/G4 - arc traverse
+	| 3 | G80 - cancel motion mode (no motion mode active)
 
 ## Random Notes
 * The reason the machine position (mpo) is in internal coordinates is to return a clean representation of the internal position model. This allows the status report output to be used directly to chart tool path on a graphics window. This way the drawing model ignores things like units changes, coordinate systems and g92 offsets.
