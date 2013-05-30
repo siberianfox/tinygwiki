@@ -46,10 +46,10 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
  	Mcode | Parameter |Command | Description
 	------|-----------|--------|-------------
 	M0 | | Program stop |
-	M1 | | Program stop |
+	M1 | | Program stop | Optional program stop switch is not implemented so M1 is equiv to M0
 	M2 | | Program end |
 	M30 | | Program end |
-	M60 | Program end |
+	M60 | Program stop |
 	M3 | S | Spindle on - CW | S is speed in RPM
 	M4 | S | Spindle on - CCW | S is speed in RPM
 	M5 | | Spindle off |
