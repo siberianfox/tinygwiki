@@ -67,7 +67,7 @@ See also:
 	100-119 | Expansion  | 
 	etc. | Expansion | 
 
-## Enumerations
+## Status Report Enumerations
 Values commonly reported in status reports are listed below. See canonical_machine.h for the actual code.
 
 	Token | Value | Description
