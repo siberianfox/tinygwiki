@@ -66,6 +66,31 @@ See also:
 	100-119 | Expansion  | 
 	etc. | Expansion | 
 
+## Enumerations
+Values commonly reported in status reports are listed below. See canonical_machine.h for the actual code.
+
+	Token | Value | Description
+	------|-------|-------------
+	"stat" || Machine State
+	| 0 | machine is initializing
+	| 1 | machine is ready for use
+	| 2 | machine is in alarm state (shut down)
+	| 3 | program stop or no more blocks
+	| 4 | program end via M2, M30, M60
+	| 5 | motion is running
+	| 6 | motion is holding
+	| 7 | probe cycle active
+	| 8 | machine is running (cycling)
+	| 9 | machine is homing 
+	"momo" | | Gcode Motion Mode
+	| 0 | G0 - straight traverse
+	| 1 | G1 - straight feed
+	| 2 | G3/G4 - arc traverse
+	| 3 | G80 - cancel motion mode (no motion mode active)
+	"unit" | | Gcode Units
+	| 0 | G20 - inches mode
+	| 1 | G21 - millimeter mode
+
 ## ASCII Character Usage
 
 Hex | char | name | used by
