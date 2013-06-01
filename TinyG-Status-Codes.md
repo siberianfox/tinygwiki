@@ -76,8 +76,8 @@ Values commonly reported in status reports are listed below. See canonical_machi
 	| 0 | machine is initializing
 	| 1 | machine is ready for use
 	| 2 | machine is in alarm state (shut down)
-	| 3 | program stop or no more blocks
-	| 4 | program end via M2, M30, M60
+	| 3 | program stop or no more blocks (M0, M1, M60)
+	| 4 | program end via M2, M30
 	| 5 | motion is running
 	| 6 | motion is holding
 	| 7 | probe cycle active
@@ -91,6 +91,46 @@ Values commonly reported in status reports are listed below. See canonical_machi
 	"unit" | | Gcode Units
 	| 0 | G20 - inches mode
 	| 1 | G21 - millimeter mode
+	"macs" || Raw Machine State
+	| 0 | machine is initializing
+	| 1 | machine is ready for use
+	| 2 | machine is in alarm state (shut down)
+	| 3 | program stop or no more blocks (M0, M1, M60)
+	| 4 | program end via M2, M30
+	| 5 | machine is in cycle
+	"cycs" || Cycle State
+	| 0 | cycle off (not in cycle)
+	| 1 | normal machine cycle
+	| 2 | probe cycle
+	| 3 | homing cycle
+	| 4 | jog cycle
+	"mots" || Motion State
+	| 0 | motion off
+	| 1 | motion run
+	| 2 | motion hold
+	"hold" || Feedhold State
+	| 0 | feedhold off (not in feedhold)
+	| 1 | feedhold sync phase
+	| 2 | feedhold planning phase
+	| 3 | feedhold deceleration phase
+	| 4 | feedhold holding
+	| 5 | feedhold end hold
+	"coor" || Gcode Coordinate System
+	| 0 | G53 - machine coordinate system
+	| 1 | G54 - coordinate system 1
+	| 2 | G55 - coordinate system 2
+	| 3 | G56 - coordinate system 3
+	| 4 | G57 - coordinate system 4
+	| 5 | G58 - coordinate system 5
+	| 6 | G59 - coordinate system 6
+	"plan" || Gcode Arc Plane Selected
+	| 0 | G17 - XY plane
+	| 1 | G18 - XZ plane
+	| 2 | G19 - YZ plane
+	"path" || Gcode Path Control Mode
+	| 0 | G61 - Exact stop mode
+	| 1 | G61.1 - Exact path mode
+	| 2 | G64 - Continuous mode
 
 ## ASCII Character Usage
 
@@ -129,12 +169,12 @@ Hex | char | name | used by
 	0x1E | RS | ctrl-^
 	0x1F | US | ctrl-_
 	0x20 | space | | Gcode blocks, other uses
-	0x21 | ! | excl point | TinyG feedhold
+	0x21 | ! | excl point | TinyG feedhold command character
 	0x22 | " | quote | JSON notation
-	0x23 | # | number | Gcode parameter prefix
+	0x23 | # | number | Gcode parameter prefix; JSON topic prefix
 	0x24 | $ | dollar | TinyG / grbl out-of-cycle settings prefix
 	0x25 | & | ampersand | universal symbol for logical AND (not used here)
-	0x26 | % | percent		
+	0x26 | % | percent | TinyG Queue Flush command character
 	0x27 | ' | single quote	
 	0x28 | ( | open paren | Gcode comments
 	0x29 | ) | close paren | Gcode comments
@@ -150,7 +190,7 @@ Hex | char | name | used by
 	0x3D | = | equals | Gcode expressions
 	0x3E | > | greater than | Gcode expressions
 	0x3F | ? | question mk | TinyG / grbl query
-	0x40 | @ | at symbol
+	0x40 | @ | at symbol | JSON address prefix
 	0x41 – 0x5A | | chars | regular old alphanumeric characters 
 	0x5B | [ | open bracket | Gcode expressions
 	0x5C | \ | backslash | JSON notation (escape)
@@ -161,7 +201,7 @@ Hex | char | name | used by
 	0x7B | { | open brace | JSON notation (start object)
 	0x7C | pipe | pipe | universal symbol for logical OR (not used here)
 	0x7D | } | close brace | JSON notation (end object)
-	0x7E | ~ | tilde | TinyG cycle start
+	0x7E | ~ | tilde | TinyG cycle start command character
 	0x7F | DEL
 	0xFF | DEL | | may be returned to Kinen SPI when no device is plugged in 
 
