@@ -131,6 +131,12 @@ Values commonly reported in status reports are listed below. See canonical_machi
 	| 0 | G61 - Exact stop mode
 	| 1 | G61.1 - Exact path mode
 	| 2 | G64 - Continuous mode
+	"dist" || Gcode Distance Mode
+	| 0 | G90 - Absolute distance mode
+	| 1 | G91 - Incremental distance mode
+	"frmo" || Gcode Feed Rate Mode
+	| 0 | G94 - Normal time mode (cancel inverse time mode)
+	| 1 | G93 - Inverse time mode
 
 ## ASCII Character Usage
 
