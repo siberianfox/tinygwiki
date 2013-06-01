@@ -25,7 +25,8 @@ See also:
 	13 | TG_BUFFER_FULL 
 	14 | TG_BUFFER_FULL_FATAL 
 	15 | TG_INITIALIZING | initializing - not ready for use
-	16-19 | TG_ERROR_16 - TG_ERROR_19 | reserved
+	16 | TG_ENTERING_BOOT_LOADER | entering boot loader from application
+	17-19 | TG_ERROR_16 - TG_ERROR_19 | reserved
 	 | **Internal errors** | typically unrecoverable
 	20 | TG_INTERNAL_ERROR | unrecoverable internal error
 	21 | TG_INTERNAL_RANGE_ERROR | number range error other than by user input
@@ -34,9 +35,9 @@ See also:
 	24 | TG_INVALID_ADDRESS
 	25 | TG_READ_ONLY_ADDRESS
 	26 | TG_INIT_FAIL | Initialization failure
-	[27](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes#status-code-27---system-shutdown) | TG_SHUTDOWN | System shutdown occurred
-	28 | TG_MEMORY_CORRUPTION | Memory corruption detected
-	29-39 | TG_ERROR_26 - TG_ERROR_39 | reserved
+	[27](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes#status-code-27---system-shutdown) | TG_SHUTDOWN | System alarmed and went into shutdown
+	28 | TG_MEMORY_FAULT | Memory fault or corruption detected
+	29-39 | TG_ERROR_29 - TG_ERROR_39 | reserved
 	 | **Input errors** | typically data problems on inputs
 	40 | TG_UNRECOGNIZED_COMMAND | parser didn't recognize the command
 	41 | TG_EXPECTED_COMMAND_LETTER | malformed line to parser
@@ -52,17 +53,18 @@ See also:
 	51 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
 	52 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
 	 | **Gcode and machining errors** | application specific errors for Gcode problems
-	60 | TG_ZERO_LENGTH_MOVE | move is zero length
-	61 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
-	62 | TG_GCODE_INPUT_ERROR | general error for gcode input 
-	63 | TG_GCODE_FEEDRATE_ERROR | no feedrate specified
-	64 | TG_GCODE_AXIS_WORD_MISSING | command requires at least one axis present
-	65 | TG_MODAL_GROUP_VIOLATION | gcode modal group error
-	66 | TG_HOMING_CYCLE_FAILED | homing cycle did not complete
-	67 | TG_MAX_TRAVEL_EXCEEDED 
-	68 | TG_MAX_SPINDLE_SPEED_EXCEEDED 
-	69 | TG_ARC_SPECIFICATION_ERROR | arc specification error
-	70-79 | TG_ERROR_70 - TG_ERROR_79 | reserved
+	60 | TG_MINIMUM_LENGTH_MOVE_ERROR | move is below minimum length or zero
+	60 | TG_MINIMUM_TIME_MOVE_ERROR | move is below minimum time or zero
+	62 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
+	63 | TG_GCODE_INPUT_ERROR | general error for gcode input 
+	64 | TG_GCODE_FEEDRATE_ERROR | no feedrate specified
+	65 | TG_GCODE_AXIS_WORD_MISSING | command requires at least one axis present
+	66 | TG_MODAL_GROUP_VIOLATION | gcode modal group error
+	67 | TG_HOMING_CYCLE_FAILED | homing cycle did not complete
+	68 | TG_MAX_TRAVEL_EXCEEDED 
+	69 | TG_MAX_SPINDLE_SPEED_EXCEEDED 
+	70 | TG_ARC_SPECIFICATION_ERROR
+	71-79 | TG_ERROR_71 - TG_ERROR_79 | reserved
 	80-99 | Expansion | Expansion ranges
 	100-119 | Expansion  | 
 	etc. | Expansion | 
