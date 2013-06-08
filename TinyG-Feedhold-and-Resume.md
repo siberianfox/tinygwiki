@@ -1,6 +1,6 @@
 _updated 6/8/13 - ash_
 
-**NOTE: This page describes feedholds supported in release 0.95 / build 377.04 and later**
+**NOTE: This page describes feedholds supported in release 0.95 / build 377.08 and later which is currently in the edge branch**
 
 	Character | Command | AKA | Description
 	----------|---------|-----|-------------
