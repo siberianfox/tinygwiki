@@ -2,6 +2,9 @@ _updated 2/24/13 - ash_
 
 **NOTE: This page describes Gcode supported in release 0.95 and later**
 
+See also:
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+
 This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
 
 	Gcode | Parameters | Command | Description
