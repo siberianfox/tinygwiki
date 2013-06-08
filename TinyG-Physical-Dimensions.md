@@ -12,7 +12,7 @@
  * Motor2  3.468", 2.453"
  * Motor3  3.468", 1.604"
  * Motor4  3.468", 0.734"
-* USB connector X offset 0.781"
+* USB connector center 0.781", 4"
 * J11 spindle/coolant connector center 0.25", 1.08"
 * J12 reset takeoff connector center 0.25", 0.687"
 * J13 limit switch connector center 0.99", 0.14"
