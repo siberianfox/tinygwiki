@@ -30,6 +30,7 @@ Please come visit / join any or all of the above.
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Physical Dimensions](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
