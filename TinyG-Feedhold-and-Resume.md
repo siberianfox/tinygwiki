@@ -11,3 +11,11 @@ _updated 6/8/13 - ash_
 To pause motion send a feedhold character ('!') character during motion. Movement will decelerate to a stop while maintaining positional accuracy. To resume motion send a cycle start tilde character ('~').
 
 If you wish to dump the remainder of the move after the feedhold send a Queue Flush character after the feedhold character. Motion will start with the next Gcode command entered. A cycle start is not necessary after a Queue Flush.
+
+##Jogging Using Feedhold and Queue Flush
+To jog using feedhold and queue flush do the following:
+* Start the jog by issuing a move in the jogging direction at the velocity you want for the jog
+* Send a ! when the user wants the jog to stop
+* Send a % to flush the remainder of the move. These can be sent together in a single transmission: "!%"
+
+Nudge moves to fine-tune the jog can be performed by issuing short Gcode moves such as G1 F100 X0.001 
