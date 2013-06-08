@@ -19,4 +19,5 @@ To jog using feedhold and queue flush do the following:
 * Send a % to flush the remainder of the move. These can be sent together in a single transmission: "!%"
 
 Nudge moves to fine-tune the jog can be performed by issuing short Gcode moves such as G91 G1 F100 X0.001
+
 Remember to set the system back to absolute mode by issuing a G90.
