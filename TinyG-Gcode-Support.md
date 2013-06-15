@@ -66,3 +66,16 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
 	() | comment | gcode comment | Gcode comments are allowed. They are stripped and ignored, except for messages (below)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
+
+###Program End
+program END (M2, M30) performs the following actions:
+
+* Axis offsets are set to G92.1 CANCEL offsets
+* Set default coordinate system (uses $gco)
+* Selected plane is set to default plane ($gpl)
+* Distance mode is set to MODE_ABSOLUTE (like G90)
+* Feed rate mode is set to UNITS_PER_MINUTE (like G94)
+* The spindle is stopped (like M5)
+* Motion mode is canceled like G80 (not set to G1)
+* Coolant is turned off (like M9)
+* Default INCHES or MM units mode is restored ($gun)
