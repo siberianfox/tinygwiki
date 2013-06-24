@@ -61,11 +61,10 @@ See if you can home X by running G28.2X0. Remember that if the zero backoff does
 
 **[5]** Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration. If the limits fire when you are running it's probably because of electrical noise from the spindle or some other source, or perhaps faulty wiring. Look here: [Limit switches fire in the middle of a job](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#limit-switches-fire-in-the-middle-of-a-cutting-job)
 
-#Troubleshooting
+##Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
 * [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
 * [Homing and Limits Setup](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#homing-and-limits-setup)
-
 
 Common Problems:
 * [I think the configuration is wrong](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#configuration-problems)
@@ -88,7 +87,7 @@ Most homing problems are configuration problems. Especially if you are running n
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
 
-## Limit switches fire in the middle of a cutting job
+### Limit switches fire in the middle of a cutting job
 This is a common problem in many CNC setups (not just TinyG). Here's a handy reference:
 * http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
 
@@ -100,6 +99,8 @@ First, try to stop the noise at its source
  * Some noise can be damped by putting a ceramic capacitor of sufficient voltage (typically 300v or more) across the spindle power lines. Experiment with different values, such as 1 uF or 0.1 uF. If the spindle is AC the capacitor cannot be polarized (most ceramics are not polarized).
  * You can also damp some noise by running the spindle wiring trough a ferrite bead or toroid.
 
-## Axis starts and stops and moves in the opposite direction before searching
+### Axis starts and stops and moves in the opposite direction before searching
 You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1). The fact that this works at all with the incorrect switch type is because the switches only fire on a change in state. Otherwise the machine would immediately halt.
 
+###Limit switches fire on first move after homing
+Check if the zero backoff is adequate to clear the switch and prevent it from spurious firings once motion starts.
