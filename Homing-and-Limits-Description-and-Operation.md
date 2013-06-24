@@ -115,6 +115,13 @@ The following per-axis settings are used by homing. Substitute any of XYZA for t
 
 
 ### Homing Operation
+## G28.2 - Homing Sequence (Homing Cycle)
+G28.2 is used to home to physical home switches. G28.2 will find the home switch for an axis then set machine zero for that axis at an offset from the switch location. Format is: 
+<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre>
+Axes not present are ignored and zero values are not changed.
+
+For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
+
 * G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
