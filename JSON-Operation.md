@@ -103,9 +103,9 @@ The 'r' is the response envelope. The body of the response is the result returne
 
 It's similar to a response except there is no header or footer element. Since it's asynchronous the status code is irrelevant, as is the number of bytes pulled form the queue (0). Since they are informational a checksum is not provided. The exception is a report that is requested, which will return a footer. E.g. the the command {"sr":""} can be used to request the status report in the above example. Look here for details of the [status reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 
-#JSON Details
-See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
 
+###More
+See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
 
 #Random Notes
 _NOTE 1: In text mode the differences in units are obvious in the responses. In JSON there is no inherent units indication - so best to issue {"gc":"g20"} or {"gc":"g21"} at the start of every config session._
