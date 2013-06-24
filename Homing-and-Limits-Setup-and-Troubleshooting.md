@@ -99,8 +99,7 @@ A common source of homing problems are configuration problems. If you are having
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
 
 ### Limit switches fire in the middle of a cutting job
-This is a common problem in many CNC setups (not just TinyG). Here's a handy reference:
-* http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
+This is a common problem in many CNC setups (not just TinyG). He
 
 **Electrical Noise** What's usually happening is that electrical noise from the spindle or some other source is being picked up by the switch lines and is firing the limit switches spuriously. Here are some tips on diagnosing and fixing this problem. 
 
@@ -111,6 +110,7 @@ First, try to reduce the noise at its source
  * Brushless spindles are quieter both electrically and mechanically than spindles that have commutator brushes in them. 
  * Damp the noise by putting a ceramic capacitor of sufficient voltage (typ. 300v or more) across the spindle power lines. Experiment with different values, such as 1 uF or 0.1 uF. If the spindle is AC the capacitor cannot be polarized (most ceramics are not polarized).
  * Damp the noise by running the spindle wiring trough a ferrite bead or toroid.
+ * Often grounding is a problem. re's a handy reference: http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
 
 Next, try to reduce the noise in the lines
 * Use normally closed (NC) switches instead of NO switches.  
