@@ -15,7 +15,9 @@ TinyG starts up in JSON mode if the $ej setting is set to JSON mode ($ej=1). Tin
 **The rest of this page covers things that are common to both text and JSON operation.**
 
 ## Names and Tokens 
-Names are short mnemonic tokens that can be 1 to 5 characters in length. Axis and motor tokens are typically 3 characters in length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 5 characters. Tokens are case insensitive and can only contain alphanumeric characters. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration) for a complete list of the tokens used for settings. Some examples are provided below: 
+Names are short mnemonic tokens that can be 1 to 5 characters in length. Axis and motor tokens are typically 3 length including their axis or motor prefix; Non-axis and non-motor (general) tokens are 2 to 5 characters. 
+
+Tokens are case insensitive and can only contain alphanumeric characters. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration) for a complete list of the tokens used for settings. Some examples are provided below: 
 
 	Token | as Text | as JSON | Description
 	------|---------|---------|--------------
