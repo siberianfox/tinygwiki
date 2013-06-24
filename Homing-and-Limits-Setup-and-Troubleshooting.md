@@ -1,5 +1,4 @@
-
-#Homing and Limits Setup
+##Homing and Limits Setup
 asdasdasd
 
 #Homing and Limits Troubleshooting
