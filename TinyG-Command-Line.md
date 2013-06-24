@@ -1,7 +1,12 @@
 This page describes what you can do from the command line in TinyG. Basically, it's entering configuration values and commands, and sending lines of Gcode.
 
 ## Text Mode and JSON Mode
-TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. 
+TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Example:
+ 
+	Command | Description
+	--------|--------------
+	$xvm | View X axis maximum velocity
+	$xvm=16000 | Set X axis maximum velocity
 
 TinyG can also operate using JSON commands. This is the preferred way to drive TinyG from a UI or controller. Using JSON dramatically simplifies the UI as the board can be treated as a RESTful resource, and no parsers or special handlers need to be written. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details).
 
