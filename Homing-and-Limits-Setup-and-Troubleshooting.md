@@ -1,6 +1,6 @@
 ##Homing and Limits Setup
 ### Background
-Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at the its highest point - making all plunges into the work negative values. This translates to the following settings:
+Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at its highest point - making all plunges into the work negative values. This translates to the following settings:
 <pre>
 $xsn=1
 $xsx=0
