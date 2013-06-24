@@ -1,6 +1,6 @@
 This page describes the function of homing cycles and related Gcode for version 0.95 and later versions. If you are new to this it's best to read these in the order listed:
 
-* [Description of Homing Commands and Operation]
+* [Description of Homing Commands and Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Homing#description-of-homing-commands-and-operation)
 * Setting up Homing
 * [Troubleshooting Homing and Limits Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 
