@@ -2,7 +2,7 @@
 Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
 
 Steps:
-1. Disable the min and max switches on all axes:
+ 1. Disable the min and max switches on all axes:
 <pre>
 $xsn=0
 $xsx=0
@@ -14,7 +14,13 @@ $asn=0
 $asx=0
 </pre>
 
-1. and make sure $st is set NC or NO for your switch config.
+ 2. Make sure $st is set NC or NO for your switch configuration
+<pre>
+$st=0    (if you have normally open switches)
+--or--
+$st=1    (if you have normally closed switches)
+</pre>
+
 
 Then enable Xmin (or max, if you are set up that way) for homing only. Not homing + limit. See if you can home X. (g28.2 x0). Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
 
