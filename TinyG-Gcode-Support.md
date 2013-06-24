@@ -1,9 +1,10 @@
-_updated 2/24/13 - ash_
+_updated 6/24/13 - ash_
 
 **NOTE: This page describes Gcode supported in release 0.95 and later**
 
 See also:
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+* [Homing and Limits](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 
 TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications
 * [Kramer's NIST RS274NGCv3 Gcode Specification](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf)<
