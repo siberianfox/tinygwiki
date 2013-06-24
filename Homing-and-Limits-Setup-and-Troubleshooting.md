@@ -57,8 +57,8 @@ Most homing problems are configuration problems. Especially if you are running n
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
 
-## Axis starts and stops a few times and moves in the opposite direction before performing the search
-You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1)
+## Axis starts and stops and moves in the opposite direction before searching
+You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1). The fact that this works at all with the incorrect switch type is because the switches only fire on a change in state. Otherwise the machine would immediately halt.
 
 # Limit Switch Problems
 ## Limit switches fire in the middle of a cutting job
