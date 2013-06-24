@@ -77,6 +77,22 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 #Gcode Reference
 Some of the more complicated commands are described here. Much of this is shamelessly cribbed from the [LinuxCNC Gcode pages](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
+##G28, G28.1, G30, G30.1 Go To Predefined Position
+G28.1 and G30.1 allow you to store a the current position; G28 and G30 will return to that position
+
+	Gcode | Parameters | Command | Description
+	------|------------|---------|-------------
+	G28 | _axes_ | Go to G28.1 position | Goes through intermediate point if _axes_ are present
+	G28.1 | | Set position for G28 | Axes are not used and are ignored if present
+	G30 | _axes_ | Go to G30.1 position | Goes through intermediate point if _axes_ are present
+	G30.1 | | Set position for G30 | Axes are not used and are ignored if present
+
+Example of use: 
+* Go to an arbitrary position, e.g. G0 x100 y100 
+* Send G28.1  - This will "remember" the absolute position. This position remains constant regardless of what coordinate system is in effect. 
+* Then go to a gifferent place, e.g. G0 x50 y50
+* Send G28  - The machine will return to x100 y100
+
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
 
