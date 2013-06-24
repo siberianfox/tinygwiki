@@ -23,6 +23,7 @@ $st=1    (NC: if you have normally closed switches)
 
 All switches must be of the same type. If you are unsure what you have set it to NO. Homing will still work even if you have NC switches - it will just [do a little dance](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#axis-starts-and-stops-a-few-times-and-moves-in-the-opposite-direction-before-performing-the-search) first.
 
+
  3. Enable the X axis. Xmin (or max, if you are set up that way) for homing only. Not homing + limit. See if you can home X. (g28.2 x0). Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
 
 Do the same for Y, and then Z. See if you can home them individually, and in combination.
