@@ -9,15 +9,9 @@ This page describes the function of homing cycles and related Gcode for version 
 The term "homing" in this context means setting the absolute machine coordinates to a known zero location, or or _zeroing the machine_. The absolute machine coordinate system (aka "absolute coordinate system", "machine coordinate system", or "G53 coordinate system") is the reference coordinate system for the machine. Work coordinate systems G54, G55, G56, G57, G58, G59 can be defined on top of G53 as offsets to the machine coordinates, and G92 can be used to put offsets on the offsets. Yes. It gets confusing. 
 
 ###Homing Cycles
-Homing is typically performed by running a "homing cycle" that locates the Z maximum, X minimum, and Y minimum limits - in that order. Z is done first so that X and Y moves will clear any obstacles that might be on the work surface. 
+Homing is typically performed by running a "homing cycle" that locates the Z maximum, X minimum, and Y minimum limits - in that order. Z is done first so that X and Y moves will clear any obstacles that might be on the work surface. Other machine configurations may be set up for different min and max, may or may not include all axes, or may set an axis to an arbitrary coordinate location (see G28.3).
 
-In TinyG this is performed by running a G28.2 X0 Y0 Z0 command (The 0's are not used, but the X Y and Z words must have some arbitrary value). 
-
-Other machine configurations may be set up to run differently, including not homing all axes, or setting an axis to an arbitrary coordinate location (see G28.3).  
-
-In high-end CNC machines there is often no user-accessible homing cycle as machine zero is set at the factory and does not need to be set by the end user. See [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) for details. 
-
-TinyG's homing cycle is modeled after [LinuxCNC](http://www.linuxcnc.org/docs/html/config/ini_homing.html). There are differences, so please rely on the TinyG documentation for setup.
+In TinyG homing is performed by running a G28.2 X0 Y0 Z0 command (The 0's are not used, but the X Y and Z words must have some arbitrary value). 
 
 TinyG homing uses these "non standard" Gcode functions: 
 
@@ -30,6 +24,7 @@ Some limitations / constraints in TinyG homing as currently implemented:
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYA (but skipping all axes that are not specified in the G28.2 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
+Note: In high-end CNC machines there is often no user-accessible homing cycle as machine zero is set at the factory and does not need to be set by the end user. See [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) for details. 
 
 
 ## Switches
