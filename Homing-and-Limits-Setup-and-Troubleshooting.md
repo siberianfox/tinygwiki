@@ -17,7 +17,7 @@ Switches can be normally open (NO) or normally closed (NC), but all switches mus
 ### Setup
 Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
 
-**BEFORE YOU DO ANYTHING** Realize that the switch inputs are limited to 3.3 volts. Do not apply higher voltages as this may damage the processor.
+**BEFORE YOU DO ANYTHING** Realize that the switch inputs are limited to 3.3 volts. Do not apply higher voltages as this may damage the processor. In normal wiring this is not an issue as the switches are just tied to ground; but for active switches or other configurations this must be dealt with.
 
 **[1]** Disable the min and max switches on all axes:
 <pre>
