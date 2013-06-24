@@ -3,7 +3,6 @@ _updated 6/24/13 - ash_
 **NOTE: This page describes Gcode supported in release 0.95 and later**
 
 See also:
-* [TinyG Gcode Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Reference)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Homing and Limits](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 
@@ -74,7 +73,11 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	() | comment | gcode comment | Gcode comments are allowed. They are stripped and ignored, except for messages (below)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
 
-###Program End
+
+#Gcode Reference
+Some of the more complicated commands are described here. Much of this is shamelessly cribbed from the [LinuxCNC Gcode pages](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
+
+##M2, M30 Program End
 program END (M2, M30) performs the following actions:
 
 * Axis offsets are set to G92.1 CANCEL offsets
