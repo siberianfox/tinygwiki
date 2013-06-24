@@ -69,7 +69,7 @@ Limit switches (aka end stops) may be configured to kill a job if the travel exc
 
 In CNC-land hitting a limit switch is considered to be an unrecoverable error which kills the job and shuts down the machine. So it's really bad. When a limit is hit the machine enters an alarm state and signals this by shutting down all movement and flashing the Spindle Direction LED rapidly. Do not expect position to be preserved. If you are unsure that the Gcode file will fit in your work envelope it's a good idea to do a dry run before actually tooling any material. 
 
-Another reason limit switches can get hit is if the machine has lost steps somewhere and is not where it thinks is it. In this case the error usually indicates that the max velocity or feedrates are set too high for the job, or the cornering or acceleration is too extreme and should be tuned for the job/material.
+Another reason limit switches can get hit is if the machine has lost steps somewhere and is not where it thinks it is. In this case the error usually indicates that the max velocity or feedrates are set too high for the job, or the cornering or acceleration is too extreme and should be tuned for the job/material.
 
 #Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
