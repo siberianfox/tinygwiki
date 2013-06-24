@@ -5,10 +5,9 @@ _updated 2/24/13 - ash_
 See also:
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 
-TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications Refs:<br>
-[Kramer's NIST RS274NGCv3 Gcode Specification](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf)<br>
-[LinuxCNC Gcode Specification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
-See [TinyG Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) for more details 
+TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications
+* [Kramer's NIST RS274NGCv3 Gcode Specification](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf)<
+* [LinuxCNC Gcode Specification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
 ##Cheat Sheet
 This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C. 
