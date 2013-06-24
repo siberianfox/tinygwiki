@@ -16,6 +16,17 @@ In high-end CNC machines there is often no user-accessible homing cycle as machi
 
 TinyG's homing cycle is modeled after [LinuxCNC](http://www.linuxcnc.org/docs/html/config/ini_homing.html). There are differences, so please rely on the TinyG documentation for setup.
 
+TinyG homing uses these "non standard" Gcode functions: 
+
+	Gcode | Parameters | Command | Description
+	------|------------|---------|-------------
+	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis letter must be present. The value (number) must be provided but is ignored.
+	G28.3 | _axes_ | Set Position | Set machine origins for axes specified. In this case the values are meaningful. This command is useful for zeroing in cases where axes cannot otherwise be homed (e.g. no switches, infinite axis, etc.) (See also G92 Offsets)
+
+Some limitations / constraints in TinyG homing as currently implemented:
+* The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.2 command)
+* Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
+
 ###Return To Home Position
 In addition to 
 
@@ -33,16 +44,6 @@ Example of use:
 * Send G28  - The machine will return to x100 y100
 
 
-These additional "non standard" homing functions are also provided: 
-
-	Gcode | Parameters | Command | Description
-	------|------------|---------|-------------
-	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be present. The axis value must be present but is ignored.
-	G28.3 | _axes_ | Set Zero | Set machine origin for axes specified. Useful for zeroing in cases where axes cannot otherwise be homed (e.g. no switches, infinite axis, etc.) 
-
-Some limitations / constraints in TinyG homing as currently implemented:
-* The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYABC (but skipping all axes that are not specified in the G28.2 command)
-* Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
 ## Switches
 ### Switch Port
