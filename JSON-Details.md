@@ -41,7 +41,7 @@ JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by
 
 Generally levels 2, 3 or 4 are recommended.
 
-### Reading Configuration Parameters (GET)
+### Reading Configuration Parameters (like a GET)
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
 	Request | Response | Description
@@ -50,7 +50,7 @@ To get a parameter pass an object with a null value. The value is returned in th
 	{"x":{"vm":""}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
 	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
-###Setting Configuration Parameters (PUT)
+###Setting Configuration Parameters (like a POST)
 To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands. (Nevermind the multi-line responses, these are just an artifact of the table. All requests and responses are on a single line of text)
 
 	Request | Response | Description
