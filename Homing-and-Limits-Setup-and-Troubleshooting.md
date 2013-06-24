@@ -17,8 +17,7 @@ Switches can be normally open (NO) or normally closed (NC), but all switches mus
 ### Setup
 Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
 
-Steps:
- [1] Disable the min and max switches on all axes:
+**[1]** Disable the min and max switches on all axes:
 <pre>
 $xsn=0
 $xsx=0
@@ -30,21 +29,41 @@ $asn=0
 $asx=0
 </pre>
 
- [2] Make sure switch type $st is set to normally-open (NO) or normally-closed (NC) for your switch configuration.
+**[2]** Set the switch type $st to your configuration. Set to normally-open (NO) or normally-closed (NC) for your switch configuration.
 <pre>
 $st=0    (NO: if you have normally open switches)
 --or--
 $st=1    (NC: if you have normally closed switches)
 </pre>
 
-All switches must be of the same type. If you are unsure what you have set it to NO. Homing will still work even if you have NC switches - it will just [do a little dance](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#axis-starts-and-stops-a-few-times-and-moves-in-the-opposite-direction-before-performing-the-search) first.
+NOTE: All switches must be of the same type. If you are unsure what you have set it to NO. Homing will still work even if you have NC switches - it will just [do a little dance](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#axis-starts-and-stops-a-few-times-and-moves-in-the-opposite-direction-before-performing-the-search) first.
 
+**[3]** Enable the X axis only and for homing only (not homing+limits); typically this is $xsn=1 if X is at the minimum end. Set some reasonable values for the homing parameters. Here are some examples for a fast, belt driven machine:
+<pre>
+[xjh] x jerk homing     10000000000 mm/min^3
+[xsn] x switch min                1 [0=off,1=homing,2=limit,3=limit+homing]
+[xsx] x switch max                0 [0=off,1=homing,2=limit,3=limit+homing]
+[xsv] x search velocity        3000.000 mm/min
+[xlv] x latch velocity          100.000 mm/min
+[xlb] x latch backoff            20.000 mm
+[xzb] x zero backoff              3.000 mm
+</pre>
 
- [3] Enable the X axis. Xmin (or max, if you are set up that way) for homing only. Not homing + limit. See if you can home X. (g28.2 x0). Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
+The homing jerk can be greater than the normal max jerk as you want the machine to stop very quickly once it hits the switch. You may need to experiment with this value.
 
-Do the same for Y, and then Z. See if you can home them individually, and in combination.
+The search velocity sets how fast the tool moves towards the limit initially. It should be a good deal less than your maximum velocity (xvm), but not excruciatingly slow. This obviously interacts with the jerk setting, so these can be experimentally set together.
 
-Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration.
+The latch velocity sets how fast the tool backs off the switch after it's been hit by the search. This should be quite slow, as this is the part that determines the zero.
+
+The latch backoff should be a distance that will always clear the switch once it's been hit. It doesn't matter if this number os larger than what's needed, so be generous. THis value is also used to clear off homing and limnit switches at the start of the search, so it should be adequate for switches at both ends of travel. 
+
+The zero backoff is how far you want to move off the switch before actually setting zero. This value MUST clear the switch completely, or you will run into problems.
+
+See if you can home X by running G28.2X0. Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
+
+**[4]** Now do the same for Y, and then Z. See if you can home them individually, and in combination. Do some Gcode runs to make sure nothing misfires during the run. Try it with and without the spindle running. The spindle motor is often the most extreme source of electrical noise.  
+
+**[5]** Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration.
 
 #Homing and Limits Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
