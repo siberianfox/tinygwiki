@@ -12,7 +12,7 @@ In TinyG this is performed by running a G28.2 X0 Y0 Z0 command (The 0's are not 
 
 Other machine configurations may be set up to run differently, including not homing all axes, or setting an axis to an arbitrary coordinate location (see G28.3).  
 
-In high-end machines there is no homing cycle as machine zero is set at the factory and does not need to be set by the end user. See [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) for details. 
+In high-end CNC machines there is often no user-accessible homing cycle as machine zero is set at the factory and does not need to be set by the end user. See [Peter Smid's CNC Programming Handbook, version 2](http://books.google.com/books?id=JNnQ8r5merMC&lpg=PA444&ots=PYOFKP-WtL&dq=Smid%20version3&pg=PA447#v=onepage&q=Smid%20version3&f=false) for details. 
 
 TinyG's homing cycle is modeled after [LinuxCNC](http://www.linuxcnc.org/docs/html/config/ini_homing.html). There are differences, so please rely on the TinyG documentation for setup.
 
