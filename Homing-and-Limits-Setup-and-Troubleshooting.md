@@ -1,5 +1,26 @@
 ##Homing and Limits Setup
-asdasdasd
+Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
+
+Steps:
+1. Disable the min and max switches on all axes:
+<pre>
+$xsn=0
+$xsx=0
+$ysn=0
+$ysx=0
+$zsn=0
+$zsx=0
+$asn=0
+$asx=0
+</pre>
+
+1. and make sure $st is set NC or NO for your switch config.
+
+Then enable Xmin (or max, if you are set up that way) for homing only. Not homing + limit. See if you can home X. (g28.2 x0). Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
+
+Do the same for Y, and then Z. See if you can home them individually, and in combination.
+
+Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration.
 
 #Homing and Limits Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
