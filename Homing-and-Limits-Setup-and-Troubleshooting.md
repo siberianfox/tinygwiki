@@ -50,6 +50,7 @@ NOTE: All switches must be of the same type. If you are unsure what you have set
 </pre>
 
 * The homing jerk can be greater than the normal max jerk as you want the machine to stop very quickly once it hits the switch. You may need to experiment with this value.
+* Either the min or max switch can be enabled for homing, but not both. This will cause an error.
 * The search velocity sets how fast the tool moves towards the limit initially. It should be a good deal less than your maximum velocity (xvm), but not excruciatingly slow. This obviously interacts with the jerk setting, so these can be set in tandem.
 * The latch velocity sets how fast the tool backs off the switch after it's been hit by the search. This should be quite slow, as this is the part that determines the accuracy of the zero.
 * The latch backoff should be a distance that will always clear the switch once it's been hit. It doesn't matter if this number is larger than what's needed, so be generous. This value is also used to clear off any closed homing and limit switches at the start of the search, so it should be adequate for switches at both ends of travel. 
@@ -73,8 +74,8 @@ Common Problems:
 * [Limit switches fire on first move after homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#limit-switches-fire-on-first-move-after-homing)
 
 ### Configuration Problems
-Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
-* Is your $st switch type variable set to the switch wiring you are using? Check is $st in the system group ($sys) is 0 for NO switches, 1 for NC. All switches must be of the same type.
+A common source of homing problems are configuration problems. If you are having issues with homing check your configuration before you do anything else:
+* Is your $st switch type set to the switch wiring you are using? Check $st in the system group ($sys) is 0 for NO switches, 1 for NC. All switches must be of the same type.
 * Are the switches set correctly up for all axes that have switches? I'd recommend disabling limits until you have homing working, then going and back and enabling limits if you want to. To configure an axis for homing set the min or max switch to 1, and the other switch to 0. Here's a typical config by way of example:
  * $xsn=1
  * $xsx=0
@@ -82,6 +83,7 @@ Most homing problems are configuration problems. Especially if you are running n
  * $ysx=0
  * $xsn=0
  * $zsx=1
+* Make sure that only one switch per axis is enabled for homing. You can't have 2 homing switches on an axis. 
 * Is your motor polarity set correctly - i.e. does the motor move in the correct direction? X typically moves right for positive motion, Y moves away from you (away from the front of the table), and Z moves up for positive motion. Homing will get confused if your motion direction does not agree with the notion of "min" and "max" for the $_sn and $_sx settings.
 * Is the $_tm maximum travel set for the size of the table? If it's too short the search move may never reach the switch. 
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
