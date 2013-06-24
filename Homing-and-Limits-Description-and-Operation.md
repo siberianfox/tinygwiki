@@ -27,8 +27,8 @@ Some limitations / constraints in TinyG homing as currently implemented:
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYA (but skipping all axes that are not specified in the G28.2 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
-###Return To Home Position
-In addition to 
+###Return To Home Position (aka [_Go to Predefined Position_](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html#sub:G28,-G30:-Return))
+G28.1 and G30.1 allow you to store a the current position; G28 and G30 will return to that position
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
