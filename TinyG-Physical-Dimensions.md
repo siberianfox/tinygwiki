@@ -1,4 +1,4 @@
-## Board Dimensions
+## Board Dimensions for TinyG Version 7 and earlier
 
 * Board dimensions (X,Y)  3.75",  4.15"
 * Holes are 4-40 - 0.120" bore, 0.250" clearance
