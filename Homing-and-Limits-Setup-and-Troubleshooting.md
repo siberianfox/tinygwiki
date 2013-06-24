@@ -14,13 +14,14 @@ $asn=0
 $asx=0
 </pre>
 
- 2. Make sure $st is set NC or NO for your switch configuration
+ 2. Make sure switch type $st is set to normally-open (NO) or normally-closed (NC) for your switch configuration.
 <pre>
-$st=0    (if you have normally open switches)
+$st=0    (NO: if you have normally open switches)
 --or--
-$st=1    (if you have normally closed switches)
+$st=1    (NC: if you have normally closed switches)
 </pre>
 
+All switches must be of the same type. If you are unsure what you have set it to NO. Homing will still work even if you have NC switches - it will just [do a little dance] first.
 
 Then enable Xmin (or max, if you are set up that way) for homing only. Not homing + limit. See if you can home X. (g28.2 x0). Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
 
