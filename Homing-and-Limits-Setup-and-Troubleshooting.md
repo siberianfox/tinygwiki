@@ -55,7 +55,7 @@ NOTE: All switches must be of the same type. If you are unsure what you have set
 * The latch backoff should be a distance that will always clear the switch once it's been hit. It doesn't matter if this number is larger than what's needed, so be generous. This value is also used to clear off any closed homing and limit switches at the start of the search, so it should be adequate for switches at both ends of travel. 
 * The zero backoff is how far you want to move off the switch before actually setting zero. This value MUST clear the switch completely, or you will run into problems.
 
-See if you can home X by running G28.2X0. Remember that if homing does not back all the way off the switch with the zero offset you will have problems.
+See if you can home X by running G28.2X0. Remember that if the zero backoff does not back all the way off the switch you will have problems.
 
 **[4]** Now do the same for Y, and then Z. See if you can home them individually, and in combination. Do some Gcode runs to make sure nothing misfires during the run. Try it with and without the spindle running. The spindle motor is often the most extreme source of electrical noise.  
 
