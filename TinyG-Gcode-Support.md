@@ -100,37 +100,6 @@ Example:
 * Go back to X0Y0
 * Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
-
-### Homing Operation
-## G28.2 - Homing Sequence (Homing Cycle)
-G28.2 is used to home to physical homing switches. G28.2 will find the home switch for an axis then set machine zero for that axis at an offset from the switch location. Format is: 
-<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre>
-Axes not present are ignored. The zero values are not meaningful but each axis present must have a number value.
-
-For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
-
-* G28.2 homes all axes present in the command 
- * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
- * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
-* Homing begins by checking the pre-conditions for homing
- * $xSV homing-search-velocity must be non-zero for the axis to be processed
- * Switches must be configured correctly - one and only one homing switch per axis
-* The following is performed for each specified axis:
- * Homing begins by testing homing and limit switches for the currently homing axis. If a switch is tripped the axis will back off the switch by the Latch Backoff ($xLB) distance.
- * Once the switches are cleared a search move is executed. The search will travel at the Search Velocity ($xSV) for Travel Maximum ($xTM) distance towards the homing switch. The search runs until the homing switch is hit or the total travel is performed.
- * Once the switch is hit a Latch Backoff move is performed. This backs off the switch until the switch opens again. 
- * Once the switch is cleared the axis moves further off the sthe switch by the the Zero Backoff amount and sets zero for that axis.
-* Once all axes are processed the affected axes are moved to the absolute home location (machine zero). At this point the homing state will indicate that the machine has been homed. Homing state can also be read using the homing group: $hom. This returns 0 or 1 for each axis to indicate homing state for each axis
-
-## G28.3 - Set Zero 
-G28.3 allows you to set a zero (or other value) for any axes. Some axes cannot be homed. They either don't have switches, are infinite axes like rollers on the Othercutter, or some other reason. Do the following to set a zero - for example:
-<pre>
-g28.3 y0
-</pre> 
-
-G28.3 also supports setting to non-zero values, if that's useful. G28.3 affects the $hom group - any axis set by g28.3 is considered set for $hom
-
-
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
 
