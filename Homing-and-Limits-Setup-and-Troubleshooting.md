@@ -50,7 +50,7 @@ NOTE: All switches must be of the same type. If you are unsure what you have set
 </pre>
 
 * The homing jerk can be greater than the normal max jerk as you want the machine to stop very quickly once it hits the switch. You may need to experiment with this value.
-* The search velocity sets how fast the tool moves towards the limit initially. It should be a good deal less than your maximum velocity (xvm), but not excruciatingly slow. This obviously interacts with the jerk setting, so these can be experimentally set together.
+* The search velocity sets how fast the tool moves towards the limit initially. It should be a good deal less than your maximum velocity (xvm), but not excruciatingly slow. This obviously interacts with the jerk setting, so these can be set in tandem.
 * The latch velocity sets how fast the tool backs off the switch after it's been hit by the search. This should be quite slow, as this is the part that determines the zero.
 * The latch backoff should be a distance that will always clear the switch once it's been hit. It doesn't matter if this number os larger than what's needed, so be generous. THis value is also used to clear off homing and limnit switches at the start of the search, so it should be adequate for switches at both ends of travel. 
 * The zero backoff is how far you want to move off the switch before actually setting zero. This value MUST clear the switch completely, or you will run into problems.
