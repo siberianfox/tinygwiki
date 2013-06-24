@@ -59,9 +59,12 @@ See if you can home X by running G28.2X0. Remember that if the zero backoff does
 
 **[4]** Now do the same for Y, and then Z. See if you can home them individually, and in combination. Do some Gcode runs to make sure nothing misfires during the run. Try it with and without the spindle running. The spindle motor is often the most extreme source of electrical noise.  
 
-**[5]** Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration.
+**[5]** Only once all homing works go back and enable limits. Or not. See if things still work. Then record your configuration. 
 
-#Homing and Limits Troubleshooting
+If the limits fire when you are running it's probably because of electrical noise form the spindle or some other source, or perhaps faulty wiring. Look Here:
+* [Limit switches fire in the middle of a job](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#limit-switches-fire-in-the-middle-of-a-cutting-job
+
+#Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
 * [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
 * [Homing and Limits Setup](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#homing-and-limits-setup)
