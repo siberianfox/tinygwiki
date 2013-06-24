@@ -26,12 +26,12 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G19 | | Select YZ plane |
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
-	G28 | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
-	G28.1 | | Set position for G28 | The current machine position is recorded (No parameters are provided)
+	[G28](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
+	[G28.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
 	G28.2 | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
 	G28.3 | _axes_ | Set Zero | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
-	G30 | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
-	G30.1 | | Set position for G30 | The current machine position is recorded (No parameters are provided)
+	[G30](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
+	[G30.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G30 | The current machine position is recorded (No parameters are provided)
 	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
 	G54 | | Select coord system 1 | G54 is typically used as the "normal" coordinate system and reflects the machine position
 	G55 | | Select coord system 2 |
