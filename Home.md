@@ -24,7 +24,7 @@ Please come visit / join any or all of the above.
 * [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Homing)
+* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 
 ### TinyG References
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
