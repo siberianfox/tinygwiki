@@ -1,1 +1,0 @@
-This page provides details of some (but not all) of the Gcode commands supported by TinyG. Much of it is shamelessly cribbed from the [LinuxCNC Gcode pages]()
