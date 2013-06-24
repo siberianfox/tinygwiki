@@ -69,8 +69,8 @@ The fact that you are here implies you are having problems either getting homing
 
 Common Problems:
 * [I think the configuration is wrong](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#configuration-problems)
-* [Axis starts and stops and moves in opposite direction](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#axis-starts-and-stops-and-moves-in-the-opposite-direction-before-searching)
 * [Limit switches fire in the middle of a job](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#limit-switches-fire-in-the-middle-of-a-cutting-job)
+* [Axis starts and stops and moves in opposite direction](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#axis-starts-and-stops-and-moves-in-the-opposite-direction-before-searching)
 * [Limit switches fire on first move after homing]()
 
 ### Configuration Problems
@@ -88,12 +88,8 @@ Most homing problems are configuration problems. Especially if you are running n
 * Is the _lb latch backoff long enough to actually clear the switch? If not you will not have an accurate zero.
 * Have you allowed a sufficient $_zb zero backoff? If ZB is too small you run the risk of misfiring a limit switch when you return to zero.  
 
-## Axis starts and stops and moves in the opposite direction before searching
-You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1). The fact that this works at all with the incorrect switch type is because the switches only fire on a change in state. Otherwise the machine would immediately halt.
-
-# Limit Switch Problems
 ## Limit switches fire in the middle of a cutting job
-This is a common problem in many CNC setups (not just TinyG). Here are a few handt references:
+This is a common problem in many CNC setups (not just TinyG). Here's a handy reference:
 * http://www.cnczone.com/forums/phase_converters_vfd/133188-limit_switches_tripping_when_using_vfd_spindle.html
 
 What's usually happening is that electrical noise from the spindle or some other source is being picked up by the switch lines and is firing the limit switches spuriously. Here are some tips on diagnosing and fixing this problem.
@@ -103,3 +99,7 @@ First, try to stop the noise at its source
  * Brushless spindles are quieter both electrically and mechanically than spindles that have commutator brushes in them. 
  * Some noise can be damped by putting a ceramic capacitor of sufficient voltage (typically 300v or more) across the spindle power lines. Experiment with different values, such as 1 uF or 0.1 uF. If the spindle is AC the capacitor cannot be polarized (most ceramics are not polarized).
  * You can also damp some noise by running the spindle wiring trough a ferrite bead or toroid.
+
+## Axis starts and stops and moves in the opposite direction before searching
+You probably have NC switches that are incorrectly configured as NO switches ($st=0 instead of $st=1). The fact that this works at all with the incorrect switch type is because the switches only fire on a change in state. Otherwise the machine would immediately halt.
+
