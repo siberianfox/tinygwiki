@@ -116,7 +116,7 @@ $x    --- Show all X axis settings in inches mode (issue g20 beforehand) ---
 $3    --- Show all motor 3 settings ---
 [3ma] m3 map to axis              2 [0=X,1=Y,2=Z...]
 [3sa] m3 step angle               1.800 deg
-[3tr] m3 travel per revolution    0.049 in
+[3tr] m3 travel per revolution    1.250 mm
 [3mi] m3 microsteps               4 [1,2,4,8]
 [3po] m3 polarity                 1 [0=normal,1=reverse]
 [3pm] m3 power management         1 [0=off,1=on]
@@ -128,8 +128,8 @@ $sys  --- Show all system settings ---
 [fv]  firmware version            0.95
 [hv]  hardware version            7.00
 [id]  TinyG ID                    2X2660-FHZ
-[ja]  junction acceleration   78740 in
-[ct]  chordal tolerance           0.000 in
+[ja]  junction acceleration 2000000 mm
+[ct]  chordal tolerance           0.001 mm
 [st]  switch type                 1 [0=NO,1=NC]
 [ej]  enable json mode            0 [0=text,1=JSON]
 [jv]  json verbosity              2 [0=silent,1=footer,2=messages,3=configs,4=linenum,5=verbose]
