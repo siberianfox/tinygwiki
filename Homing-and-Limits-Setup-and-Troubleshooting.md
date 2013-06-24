@@ -115,9 +115,10 @@ First, try to reduce the noise at its source
 Next, try to reduce the noise in the lines
 * Use normally closed (NC) switches instead of NO switches.  
 * Use twisted pair shielded wired for switch lines to reduce noise pickup. Ground the shield at the board side of the line and leave the other side floating.
+* Do not run switch lines alongside motor or spindle lines. Especially along spindle lines. If the switch line needs to cross a motor or spindle line do this at right angles.
 * Look for ground loops and eliminate these. Use only a single point of ground for all switches originating at the board's GND connector.
-* Put an RC circuit on each switch input line (need more detail here). 
-* Do not run switch lines alongside motor or spindle lines. If these need to cross cross at right angles.
+* Put an pullup resistor on on each switch input line (need more detail here). TinyG V7's and V8's have a 2.7K pullup resistor to 3.3 volts on each switch line. This value can be lowered somewhat for more noise immunity, but should not really go below about 1K Ohm (parallel, including the 2.7K) or you risk pulling too much current from the 3.3v supply. 
+* Put a capacitor to ground on each switch line. TinyG V8's have a 0.22 uF capacitor to ground on each switch line.
 
 If all else fails
 * Disable the limits using the switch parameters. Use the switches for homing only.
