@@ -56,8 +56,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|-----------|--------|-------------
 	M0 | | Program stop |
 	M1 | | Program stop | Optional program stop switch is not implemented so M1 is equivalent to M0
-	[M2](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#program-end) | | Program end |
-	[M30](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#program-end) | | Program end |
+	[M2](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#m2-m30-program-end) | | Program end |
+	[M30](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#m2-m30-program-end) | | Program end |
 	M60 | | Program stop |
 	M3 | S | Spindle on - CW | S is speed in RPM
 	M4 | S | Spindle on - CCW | S is speed in RPM
