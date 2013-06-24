@@ -1,4 +1,20 @@
 ##Homing and Limits Setup
+### Background
+Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at the its highest point - making all plunges into the work negative values. This translates to the following settings:
+<pre>
+$xsn=1
+$xsx=0
+$ysn=1
+$ysx=0
+$zsn=0
+$zsx=1
+$asn=0
+$asx=0
+</pre>
+
+Switches can be normally open (NO) or normally closed (NC), but all switches must be of the same type. We generally recommend using NC configurations as they are more noise immune, and a fault in the switch or wiring is evident.
+
+### Setup
 Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
 
 Steps:
