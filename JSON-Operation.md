@@ -1,4 +1,4 @@
-_updated 2/24/13 - ash_
+_updated 6/24/13 - ash_
 
 This page describes JSON operation in TinyG firmware version 0.95. This page provides a JSON cheat sheet and an overview of JSON operation. See [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details) for the real nuts and bolts.
 
