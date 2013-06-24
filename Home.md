@@ -15,24 +15,26 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 
 Please come visit / join any or all of the above.
 
-## TinyG Pages
+## TinyG Basic Pages
 * [What is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Tuning TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
-* [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
+
+### TinyG User References
+* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
-
-### TinyG References
-* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
-* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
+* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
+
+### TinyG Developer References
 * [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
-* [Physical Dimensions](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
+* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
-* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
