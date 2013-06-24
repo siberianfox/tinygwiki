@@ -79,68 +79,74 @@ To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. I
 The following commands will display groups.
 <pre>
 $x    --- Show all X axis settings ---
-[xam] x_axis_mode                 1 [standard]
-[xvm] x_velocity_maximum      16000.000 mm/min
-[xfr] x_feedrate_maximum      16000.000 mm/min
-[xtm] x_travel_maximum          220.000 mm
-[xjm] x_jerk_maximum     5000000000 mm/min^3
-[xjd] x_junction_deviation        0.0100 mm (larger is faster)
-[xsn] x_switch_min                3 [0-4]
-[xsx] x_switch_max                2 [0-4]
-[xsv] x_search_velocity        3000.000 mm/min
-[xlv] x_latch_velocity          100.000 mm/min
-[xlb] x_latch_backoff            20.000 mm
-[xzb] x_zero_backoff              3.000 mm
+[xam] x axis mode                 1 [standard]
+[xvm] x velocity maximum      16000.000 mm/min
+[xfr] x feedrate maximum      16000.000 mm/min
+[xtm] x travel maximum          300.000 mm
+[xjm] x jerk maximum     5000000000 mm/min^3
+[xjh] x jerk homing     10000000000 mm/min^3
+[xjd] x junction deviation        0.0100 mm (larger is faster)
+[xsn] x switch min                1 [0=off,1=homing,2=limit,3=limit+homing]
+[xsx] x switch max                0 [0=off,1=homing,2=limit,3=limit+homing]
+[xsv] x search velocity        3000.000 mm/min
+[xlv] x latch velocity          100.000 mm/min
+[xlb] x latch backoff            20.000 mm
+[xzb] x zero backoff              3.000 mm
 tinyg [mm] ok> 
 </pre>
 
 <pre>
 $x    --- Show all X axis settings in inches mode (issue g20 beforehand) ---
-[xam] x_axis_mode                 1 [standard]
-[xvm] x_velocity_maximum        629.921 in/min
-[xfr] x_feedrate_maximum        629.921 in/min
-[xtm] x_travel_maximum            8.661 in
-[xjm] x_jerk_maximum      196850400 in/min^3
-[xjd] x_junction_deviation        0.0004 in (larger is faster)
-[xsn] x_switch_min                3 [0-4]
-[xsx] x_switch_max                2 [0-4]
-[xsv] x_search_velocity         118.110 in/min
-[xlv] x_latch_velocity            3.937 in/min
-[xlb] x_latch_backoff             0.787 in
-[xzb] x_zero_backoff              0.118 in
+[xam] x axis mode                 1 [standard]
+[xvm] x velocity maximum        629.921 in/min
+[xfr] x feedrate maximum        629.921 in/min
+[xtm] x travel maximum           11.811 in
+[xjm] x jerk maximum      196850400 in/min^3
+[xjh] x jerk homing       393700800 in/min^3
+[xjd] x junction deviation        0.0004 in (larger is faster)
+[xsn] x switch min                1 [0=off,1=homing,2=limit,3=limit+homing]
+[xsx] x switch max                0 [0=off,1=homing,2=limit,3=limit+homing]
+[xsv] x search velocity         118.110 in/min
+[xlv] x latch velocity            3.937 in/min
+[xlb] x latch backoff             0.787 in
+[xzb] x zero backoff              0.118 in
 </pre>
 
 <pre>
 $3    --- Show all motor 3 settings ---
-[3ma] m3_map_to_axis              2 [0=X, 1=Y...]
-[3sa] m3_step_angle               1.800 deg
-[3tr] m3_travel_per_revolution    1.250 mm
-[3mi] m3_microsteps               8 [1,2,4,8]
-[3po] m3_polarity                 0 [0,1]
-[3pm] m3_power_management         1 [0,1]
+[3ma] m3 map to axis              2 [0=X,1=Y,2=Z...]
+[3sa] m3 step angle               1.800 deg
+[3tr] m3 travel per revolution    0.049 in
+[3mi] m3 microsteps               4 [1,2,4,8]
+[3po] m3 polarity                 1 [0=normal,1=reverse]
+[3pm] m3 power management         1 [0=off,1=on]
 </pre>
 
 <pre>
 $sys  --- Show all system settings ---
-[fb]  firmware_build            355.04
-[fv]  firmware_version            0.95
-[hv]  hardware_version            7.00
-[gpl] gcode_select_plane          0 [0,1,2]
-[gun] gcode_units_mode            1 [0,1]
-[gco] gcode_coord_system          1 [1-6]
-[gpa] gcode_path_control          2 [0,1,2]
-[gdi] gcode_distance_mode         0 [0,1]
-[ja]  junction_acceleration  200000 mm
-[st]  switch_type                 1 [0,1]
-[ic]  ignore CR or LF on RX       0 [0,1=CR,2=LF]
-[ee]  enable_echo                 0 [0,1]
-[ex]  enable_xon_xoff             1 [0,1]
-[eq]  enable_queue_reports        1 [0,1]
-[ej]  enable_json_mode            0 [0,1]
-[jv]  json_verbosity              4 [0-5]
-[tv]  text_verbosity              3 [0-3]
-[si]  status_interval           200 ms [0=off]
-[baud] USB baud rate              0 [0-6] | Show all system settings
+[fb]  firmware build            377.08
+[fv]  firmware version            0.95
+[hv]  hardware version            7.00
+[id]  TinyG ID                    2X2660-FHZ
+[ja]  junction acceleration   78740 in
+[ct]  chordal tolerance           0.000 in
+[st]  switch type                 1 [0=NO,1=NC]
+[ej]  enable json mode            0 [0=text,1=JSON]
+[jv]  json verbosity              2 [0=silent,1=footer,2=messages,3=configs,4=linenum,5=verbose]
+[tv]  text verbosity              1 [0=silent,1=verbose]
+[qv]  queue report verbosity      0 [0=off,1=filtered,2=verbose]
+[sv]  status report verbosity     1 [0=off,1=filtered,2=verbose]
+[si]  status interval           250 ms
+[ic]  ignore CR or LF on RX       0 [0=off,1=CR,2=LF]
+[ec]  expand LF to CRLF on TX     0 [0=off,1=on]
+[ee]  enable echo                 0 [0=off,1=on]
+[ex]  enable xon xoff             1 [0=off,1=on]
+[baud] USB baud rate              5 [1=9600,2=19200,3=38400,4=57600,5=115200,6=230400]
+[gpl] default gcode plane         0 [0=G17,1=G18,2=G19]
+[gun] default gcode units mode    1 [0=G20,1=G21]
+[gco] default gcode coord system  1 [1-6 (G54-G59)]
+[gpa] default gcode path control  2 [0=G61,1=G61.1,2=G64]
+[gdi] default gcode distance mode 0 [0=G90,1=G91]
 </pre>
 
 Configuration is non-moded; that is, configuration lines and Gcode blocks can be used without changing modes. However, it is not recommended to intermingle configs with Gcode blocks, as the EEPROM writes can interfere with step generation and serial transmission (interrupts). Please note: in some future release config commands that arrive during a gcode cycle may be rejected.
