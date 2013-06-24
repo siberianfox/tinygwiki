@@ -1,4 +1,8 @@
-The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read the [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
+#Homing and Limits Setup
+
+#Homing and Limits Troubleshooting
+The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
+* [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
 
 # Homing Problems
 ## Configuration
