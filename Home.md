@@ -20,7 +20,7 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Tuning TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
+* [Setup and Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 
 ### TinyG User References
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
