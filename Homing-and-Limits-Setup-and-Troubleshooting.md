@@ -1,3 +1,5 @@
+You may want to familiarize yourself with the [main homing page](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) before reading this page.
+
 ##Homing Setup
 ### Background
 Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at its highest point - making all plunges into the work negative values. This translates to the following settings:
