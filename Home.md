@@ -24,11 +24,10 @@ Please come visit / join any or all of the above.
 * [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
+* [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 
 ### TinyG References
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
-* [Homing Troubleshooting](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-and-Limits-Troubleshooting)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
