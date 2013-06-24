@@ -78,7 +78,10 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 Some of the more complicated commands are described here. Much of this is shamelessly cribbed from the [LinuxCNC Gcode pages](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
 ##G28, G28.1, G30, G30.1 Go To Predefined Position
-G28.1 and G30.1 allow you to store a the current position; G28 and G30 will return to that position
+G28 (and G30) will move the machine to the absolute coordinates set in G28.1 (G30.1), optionally through an intermediate point.  Movement will occur at the traverse rate (G0 rate). Axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
+
+Format is:
+<pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
@@ -93,25 +96,9 @@ Example of use:
 * Then go to a gifferent place, e.g. G0 x50 y50
 * Send G28  - The machine will return to x100 y100
 
-
-## G28 / G28.1 - Return to Home
-G28 will move the machine to the absolute coordinates set in G28.1, optionally through an intermediate point.  Movement will occur at the traverse rate (G0 rate). Format is: 
-<pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
-G28 will move to coordinates for any specified axis: axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
-
-For example, G91 G28 Z10 will move to a pre-set point in the XY plane. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
-
-G28.1 sets the G28 position to the current absolute coordinates. On reset this position is zeroed, so G28's will return to machine home.
-
-## G30 / G30.1 - Return to Home
-Works identically to G28 / G28.1
-
-## G28.2 - Homing Sequence (Homing Cycle)
-G28.2 is used to home to physical home switches. G28.2 will find the home switch for an axis then set machine zero for that axis at an offset from the switch location. Format is: 
-<pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre>
-Axes not present are ignored and zero values are not changed.
-
-For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
+Example:
+* Go back to X0Y0
+* Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
