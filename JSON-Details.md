@@ -1,4 +1,4 @@
-_updated 2/24/13 - ash_
+_updated 6/24/13 - ash_
 
 **NOTE: This page describes JSON operations in release 0.95 and later. This page is really a continuation of [this page](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
 
