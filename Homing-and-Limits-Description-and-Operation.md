@@ -27,23 +27,7 @@ Some limitations / constraints in TinyG homing as currently implemented:
 * The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYA (but skipping all axes that are not specified in the G28.2 command)
 * Supports a single home position. I.e. it does not support multiple-homes such as used by dual pallet machines and other complex machining centers
 
-###Return To Home (aka [_Go to Predefined Position_](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html#sub:G28,-G30:-Return))
-G28.1 and G30.1 allow you to store a the current position; G28 and G30 will return to that position
 
-	Gcode | Parameters | Command | Description
-	------|------------|---------|-------------
-	G28 | _axes_ | Go to G28.1 position | Goes through intermediate point if _axes_ are present
-	G28.1 | | Set position for G28 | Axes are not used and are ignored if present
-	G30 | _axes_ | Go to G30.1 position | Goes through intermediate point if _axes_ are present
-	G30.1 | | Set position for G30 | Axes are not used and are ignored if present
-
-Example of use: 
-* Go to an arbitrary position, e.g. G0 x100 y100 
-* Send G28.1  - This will "remember" the absolute position. This position remains constant regardless of what coordinate system is in effect. 
-* Then go to a gifferent place, e.g. G0 x50 y50
-* Send G28  - The machine will return to x100 y100
-
-The 
 
 ## Switches
 ### Switch Port
