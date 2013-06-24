@@ -6,7 +6,9 @@ This page describes the function of homing cycles and related Gcode for version 
 
 #Homing Commands and Operation
 ##Overview
-The term "homing" can have multiple, confusing meanings in CNC. In DIY and small CNC machines "homing the axes" often means setting the absolute machine coordinates (the G53 coordinate system) to a known zero location. Typically is done by running a "homing cycle" that locates Z maximum, X minimum, then Y minimum - in that order. Z is done first so that X and Y moves will clear any obstacles that might be on the work surface. 
+The term "homing" in this context means setting the absolute machine coordinates to a known zero location, or or _zeroing the machine_. The absolute machine coordinate system (aka absolute coordinate system or machine coordinate system, G53 coordinate system) is the reference coordiniate system for the machine. Work coordinate systems G54, G55, G56, G57, G48, G59 can be defined as offsets to the machine coordinates, and G92 can be used to put offsets on the offsets. Yes. It gets confusing. 
+
+Typically is done by running a "homing cycle" that locates Z maximum, X minimum, then Y minimum - in that order. Z is done first so that X and Y moves will clear any obstacles that might be on the work surface. 
 
 In TinyG this is performed by running a G28.2 X0 Y0 Z0 command (The 0's are not used, but the X Y and Z words must have some arbitrary value). 
 
