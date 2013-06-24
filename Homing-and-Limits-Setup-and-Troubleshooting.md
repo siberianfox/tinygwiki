@@ -4,9 +4,9 @@ asdasdasd
 #Homing and Limits Troubleshooting
 The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
 * [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
+* [Homing and Limits Setup](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#homing-and-limits-setup)
 
-# Homing Problems
-## Configuration
+## Configuration Problems
 Most homing problems are configuration problems. Especially if you are running normally closed switches. If you are having issues with homing check your configuration before you do anything else
 * Is your $st switch type variable set to the switch wiring you are using? Check is $st in the system group ($sys) is 0 for NO switches, 1 for NC. All switches must be of the same type.
 * Are the switches set correctly up for all axes that have switches? I'd recommend disabling limits until you have homing working, then going and back and enabling limits if you want to. To configure an axis for homing set the min or max switch to 1, and the other switch to 0. Here's a typical config by way of example:
