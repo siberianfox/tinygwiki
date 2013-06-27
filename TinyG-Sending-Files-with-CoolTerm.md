@@ -20,8 +20,11 @@ Summary:
 4.  Technically, we could send a file to TinyG now.  However, we need to make sure <code>XON</code> is enabled on TinyG.  It IS enabled by default, but it is always good to make sure before sending files that will depend on <code>XON</code>.  To check this you will need to click in the text input box in CoolTerm.  It is at the very bottom of CoolTerm.  Once you are able to type into the input box issue a XON query by sending: <br><code>$ex</code> then hit enter.  You just issued getter command in TinyG for the XON enabled property.  If <code>XON</code> is enabled, you should see something like this:<br>
 $ex 1 - Paste this in.
 5.  Now you are ready to send a gcode file.  Just to re-cap... <br>
-You....
-1. Checked to make sure CoolTerm was connected with <code>XON</code> checked.
-2. Checked to make sure TinyG has <code>XON</code> enabled on the hardware.
-<br>
-Now to send a file (assuming your tool is at the desired X,Y,Z coordinates) click on the <code>Connection</code> menu and then select the "Send Text File".  From here you will be asked to select a text file. <p>WARNING when you click the selected file and hit open you file is being send to TinyG instantly!<p>Selected you gcode file (gcode files are just text files with different file extensions).
+**You are sure you....<p>**
+
+  * Checked to make sure CoolTerm was connected with <code>XON</code> checked.
+  * Checked to make sure TinyG has <code>XON</code> enabled on the hardware.
+<p>
+Now to send a file (assuming your tool is at the desired X,Y,Z coordinates) click on the <code>Connection</code> menu and then select the "Send Text File".  From here you will be asked to select a text file. <p>**WARNING:** when you click the selected file and hit open you file is being send to TinyG instantly!<p>
+
+### **NEED TO FINISH**
