@@ -94,9 +94,9 @@ These $configs invoke reports and functions
 	--------|-------------|-------
 	[$sr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sr---status-report) | Request status report | SR also sets status report format in JSON mode
 	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report) | Request queue report | 
-	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
-	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Disable all motors (unpower) | 
-	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
+	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
+	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#md---disable-motors) | Disable motors | Unpower all motors
+	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#md---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
 	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
@@ -581,7 +581,7 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 ### $QF - Queue Flush
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
-### $MD - Disable all Motors
+### $MD - Disable Motors
 Unpower all motors
 
 ### $ME - Energize Motors
