@@ -96,7 +96,7 @@ These $configs invoke reports and functions
 	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report) | Request queue report | 
 	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
 	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#md---disable-motors) | Disable motors | Unpower all motors
-	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#md---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
+	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#me---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
 	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
