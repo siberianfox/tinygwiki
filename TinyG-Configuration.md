@@ -95,6 +95,8 @@ These $configs invoke reports and functions
 	[$sr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sr---status-report) | Request status report | SR also sets status report format in JSON mode
 	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report) | Request queue report | 
 	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
+	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Disable all motors (unpower) | 
+	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-report) | Enable motors | Enable all motors with $Npm=0 
 	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
@@ -367,6 +369,13 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
+### $MT - Motor power Timeout _(build 378.04 and later)_
+Sets the number of seconds motors will remain powered after the last 'event'. E.g. set to 60 to keep motors powered for 1 minute after a move completes. Only applies to motors with power menagement set to 0 - e.g. $1pm=0.
+<pre>
+$mt=60       - Keep motors energized for 60 seconds after last movement command
+$mt=1000000  - Keep motors energized for 1 million seconds after last movement command (11.57 days)
+</pre> 
+
 <br>
 ####Communications Settings
 
@@ -571,6 +580,12 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 
 ### $QF - Queue Flush
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
+
+### $MD - Disable all Motors
+Unpower all motors
+
+### $ME - Enable Motors
+Power all motors that have power mode set to zero (e.g. $1pm=0)
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
