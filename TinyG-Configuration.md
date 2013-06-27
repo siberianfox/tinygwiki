@@ -188,18 +188,17 @@ Set to one of the following:
 
 Stepper motors actually consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots)
 
-_New behaviors as of build 378.04 and later_
-
-Power management now operates as follows. Setting $1pm=0 sets "powered" mode (as before), but it works differently:
-* A motor set to $1pm=0 will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 10 seconds). The elapsed time is measured from the last "event', such as the end of the move, or from when the enable was turned on.
-* Power mode changes take effect immediately - for changed to '0' or to '1'
-* All '0' motors are powered on startup and from reset
-* ALl '0' motors can be enabled by issuing a $me command
-* All motors are disabled by issuing a $md command 
-
 <pre>
 $4pm=1         Set low-power idle for motor 4
 </pre>
+_New behaviors as of build 378.04 and later_
+
+Power management now operates as follows. Setting $1pm=0 sets "powered" mode (as before), but it works differently:
+* A motor set to $1pm=0 will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ). The elapsed time is measured from the last "event', such as the end of the move, or from when the enable was turned on.
+* Power mode changes take effect immediately - for changed to '0' or to '1'
+* All '0' motors are powered on startup and from reset
+* All '0' motors can be enabled by issuing a $me command (  also {"me":""}  )
+* All motors are disabled by issuing a $md command  (  also {"md":""}  )
 
 ## Axis Settings
 
