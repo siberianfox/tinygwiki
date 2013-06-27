@@ -21,6 +21,7 @@ Please come visit / join any or all of the above.
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Setup and Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
+* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
 ### TinyG User References
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
