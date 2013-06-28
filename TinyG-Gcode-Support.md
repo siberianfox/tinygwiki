@@ -71,7 +71,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|-----------|--------|-------------
 	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
 	[()](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [gcode comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
-	[;](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. THis is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
+	[;](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. This is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
 
 
@@ -115,22 +115,20 @@ program END (M2, M30) performs the following actions:
 * Default INCHES or MM units mode is restored ($gun)
 
 ##Gcode Comments
-
- *	Comment and message handling:
- *	 - Comments field start with a '(' char or alternately a semicolon ';' 
- *	 - Comments and messages are not normalized - they are left alone
- *	 - The 'MSG' specifier in comment can have mixed case but cannot cannot have embedded white spaces
- *	 - Normalization returns true if there was a message to display, false otherwise
- *	 - Comments always terminate the block - i.e. leading or embedded comments are not supported
- *	 	- Valid cases (examples)			Notes:
- *		    G0X10							 - command only - no comment
- *		    (comment text)                   - There is no command on this line
- *		    G0X10 (comment text)
- *		    G0X10 (comment text				 - It's OK to drop the trailing paren
- *		    G0X10 ;comment text				 - It's OK to drop the trailing paren
- *
- *	 	- Invalid cases (examples)			Notes:
- *		    G0X10 comment text				 - Comment with no separator
- *		    N10 (comment) G0X10 			 - embedded comment. G0X10 will be ignored
- *		    (comment) G0X10 				 - leading comment. G0X10 will be ignored
- * 			G0X10 # comment					 - invalid separator
+ * Comments start with a '(' char or alternately a semicolon ';' 
+ * Comments always terminate the block - i.e. leading or embedded comments are not supported
+<pre>
+Valid comment cases       Notes:
+G0X10                      - command only - no comment
+G0X10 (comment text)       - comment with comment
+G0X10 (comment text        - it's OK to drop the trailing paren
+G0X10 ;comment text        - comment delimited by semicolon (firmware build 378.05 and later) 
+(comment text)             - there is no command on this line
+</pre>
+<pre>
+Invalid comment cases     Notes:
+G0X10 comment text         - comment with no separator
+N10 (comment) G0X10        - embedded comment. G0X10 will be ignored
+(comment) G0X10            - leading comment. G0X10 will be ignored
+G0X10 #comment             - invalid comment separator
+</pre>
