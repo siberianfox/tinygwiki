@@ -193,7 +193,7 @@ Hex | char | name | used by
 	0x2E | . | period | Gcode numbers, parameters and expressions
 	0x2F | / | fwd slash | Gcode expressions & block delete char
 	0x3A | : | colon | JSON notation
-	0x3B | ; | semicolon
+	0x3B | ; | semicolon | Gcode comment - Mach3 and reprap style
 	0x3C | < | less than | Gcode expressions
 	0x3D | = | equals | Gcode expressions
 	0x3E | > | greater than | Gcode expressions
