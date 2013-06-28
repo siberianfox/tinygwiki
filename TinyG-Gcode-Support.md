@@ -1,4 +1,4 @@
-_updated 6/24/13 - ash_
+_updated 6/28/13 - ash_
 
 **NOTE: This page describes Gcode supported in release 0.95 and later**
 
@@ -70,7 +70,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
  	Other | Parameter |Command | Description
 	------|-----------|--------|-------------
 	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
-	() | comment | gcode comment | Gcode comments are allowed. They are stripped and ignored, except for messages (below)
+	[()](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [gcode comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
+	[;](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. THis is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
 
 
