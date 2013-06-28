@@ -112,3 +112,24 @@ program END (M2, M30) performs the following actions:
 * Motion mode is canceled like G80 (not set to G1)
 * Coolant is turned off (like M9)
 * Default INCHES or MM units mode is restored ($gun)
+
+##Gcode Comments
+
+ *	Comment and message handling:
+ *	 - Comments field start with a '(' char or alternately a semicolon ';' 
+ *	 - Comments and messages are not normalized - they are left alone
+ *	 - The 'MSG' specifier in comment can have mixed case but cannot cannot have embedded white spaces
+ *	 - Normalization returns true if there was a message to display, false otherwise
+ *	 - Comments always terminate the block - i.e. leading or embedded comments are not supported
+ *	 	- Valid cases (examples)			Notes:
+ *		    G0X10							 - command only - no comment
+ *		    (comment text)                   - There is no command on this line
+ *		    G0X10 (comment text)
+ *		    G0X10 (comment text				 - It's OK to drop the trailing paren
+ *		    G0X10 ;comment text				 - It's OK to drop the trailing paren
+ *
+ *	 	- Invalid cases (examples)			Notes:
+ *		    G0X10 comment text				 - Comment with no separator
+ *		    N10 (comment) G0X10 			 - embedded comment. G0X10 will be ignored
+ *		    (comment) G0X10 				 - leading comment. G0X10 will be ignored
+ * 			G0X10 # comment					 - invalid separator
