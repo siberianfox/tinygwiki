@@ -140,11 +140,15 @@ This is a decimal number which is often 1.8 degrees per step, but should reflect
 </pre> 
 
 ### $1TR - Travel per Revolution
-This is the amount of travel of the mapped axis per motor revolution. It is in mm or inches for X, Y or Z axes, or in degrees for A, B and C axes. The XYZ value will be interpreted and echoed in the prevailing units; G20 sets inches, G21 sets mm. ABC values are always in degrees. _(Note: this last bit is in error right now - rotaries are reported in linear terms)_
+TR needs to be set to the distance the mapped axis will move for one revolution of the motor. If the machine is in mm mode (G21) the TR value for XYZ axes should be entered in mm. If in inches mode (G20) XYZ should be entered in inches. ABC axes are always entered in degrees. See examples below.
 
-For XYZ this value is usually the result of the lead screw pitch or pulley circumference. A 10 TPI leadscrew moves 0.100" / revolution. A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 36.540 mm per revolution. Don't take this as exact - you will need to do your own calibration on your machine to get this setting exact.
+For XYZ the travel-per-revolution value is usually the result of the lead screw pitch or pulley circumference.
+* A 10 thread-per-inch (TPI) leadscrew moves 0.100" per revolution. TR in inches would be 0.100, or 2.54 in mm mode. 
+* A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 36.540 mm per revolution. Don't take this as exact - you will need to do your own calibration on your machine to get this setting exact.
 
-For ABC the travel is entered in degrees. This value will be 360 degrees for an axis that is not geared down. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with 4 degrees of table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
+For ABC the travel-per-revolution value is entered in degrees. This value will be 360 degrees for an axis that is not geared down - one revolution = 360 degrees. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with 4 degrees of table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
+
+Note that the travel-per-revolution is independent of the radius setting in the rotary axis settings. Set TR first to reflect the gearing, then set any Radius values if that is needed.  
 
 Note that Travel per Revolution is a motor parameter, not an axis parameter as one might think. Consider the case of a dual Y gantry with lead screws of different pitch (how weird). The travel per revolution would be different for each motor. 
 
