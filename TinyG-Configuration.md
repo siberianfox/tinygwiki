@@ -140,7 +140,7 @@ This is a decimal number which is often 1.8 degrees per step, but should reflect
 </pre> 
 
 ### $1TR - Travel per Revolution
-TR needs to be set to the distance the mapped axis will move for one revolution of the motor. If the machine is in mm mode (G21) the TR value for XYZ axes should be entered in mm. If in inches mode (G20) XYZ should be entered in inches. ABC axes are always entered in degrees. See examples below.
+TR needs to be set to the distance the mapped axis will move for one revolution of the motor. - e.g. if motor 1 is mapped to the X axis, then $1tr applies to the Xaxis. If the machine is in mm mode (G21) the TR value for XYZ axes should be entered in mm. If in inches mode (G20) XYZ should be entered in inches. ABC axes are always entered in degrees. See examples below.
 
 For XYZ the travel-per-revolution value is usually the result of the lead screw pitch or pulley circumference.
 * A 10 thread-per-inch (TPI) leadscrew moves 0.100" per revolution. TR in inches would be 0.100, or 2.54 in mm mode. 
