@@ -58,7 +58,7 @@ These are reported on the startup strings and should be included in any support 
 	[$ja](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
 	[$ct](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
 	[$st](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---switch-type) | Switch type | 0=NO, 1=NC
-	[$mt](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---motor-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
+	[$mt](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
 
 
 **Communications Settings**
@@ -375,8 +375,8 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
-### $MT - Motor power Timeout _(build 378.04 and later)_
-Sets the number of seconds motors will remain powered after the last 'event'. E.g. set to 60 to keep motors powered for 1 minute after a move completes. Only applies to motors with power menagement set to 0 - e.g. $1pm=0.
+### $MT - Motor Power Timeout
+Sets the number of seconds motors will remain powered after the last 'event'. E.g. set to 60 to keep motors powered for 1 minute after a move completes. Only applies to motors with power menagement set to 0 - e.g. $1pm=0.  _(build 378.04 and later)_
 <pre>
 $mt=60       - Keep motors energized for 60 seconds after last movement command
 $mt=1000000  - Keep motors energized for 1 million seconds after last movement command (11.57 days)
