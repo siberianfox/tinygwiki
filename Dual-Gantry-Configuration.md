@@ -57,7 +57,7 @@ Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 	$4ma=2 | Map to Z axis| 
 	$4sa=1.8 | Step angle in degrees |
 	$4tr=1.25 | Travel per rev in mm | The stock Shapeoko Z screw is 1.25 mm / rev
-	$4mi=4 | Microsteps to 8 | use 4 for more power 
+	$4mi=4 | Microsteps to 4 |
 	$4po=0 | Polarity normal | Set polarity so Z travels up for positive values (G0 Z10)
 	$4pm=1 | Power management mode | 1=axis shuts off when idle. Can also use $4pm=0
 
