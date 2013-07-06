@@ -30,12 +30,34 @@ Here are some example settings for a Shapeoko dual Y gantry setup. You will prob
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$1ma=1 | Map to Y axis| 
-	$1sa=1.8 | Step angle in degrees |
-	$1tr=36.54 | Travel per rev in mm | This value should be calibrated to your setup
-	$1mi=8 | Microsteps to 8 | Experiment with 4 for more power
-	$1po=0 | Polarity normal | Set polarity so Y travels to the rear of the machine for positive values (G0 Y10)
-	$1pm=0 | Power management mode | 0=axis remains powered when idle
+	$2ma=1 | Map to Y axis| 
+	$2sa=1.8 | Step angle in degrees |
+	$2tr=36.54 | Travel per rev in mm | This value should be calibrated to your setup
+	$2mi=8 | Microsteps to 8 | Experiment with 4 for more power
+	$2po=0 | Polarity normal | Set polarity so Y travels to the rear of the machine for positive values (G0 Y10)
+	$2pm=0 | Power management mode | 0=axis remains powered when idle
+
+#### Motor 3 (Y2 Axis)
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$3ma=1 | Map to Y axis| Same as Motor 2
+	$3sa=1.8 | Step angle in degrees |
+	$3tr=36.54 | Travel per rev in mm | MUST BE THE SAME AS MOTOR 2
+	$3mi=8 | Microsteps to 8 | Should be the same as motor 2
+	$3po=0 | Polarity normal | MUST BE OPPOSITE MOTOR 2
+	$3pm=0 | Power management mode | 0=axis remains powered when idle
+
+#### Motor 4 (Z Axis)
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$4ma=2 | Map to Z axis| 
+	$4sa=1.8 | Step angle in degrees |
+	$4tr=1.25 | Travel per rev in mm | The stock Shapeoko Z screw is 1.25 mm / rev
+	$4mi=4 | Microsteps to 8 | use 4 for more power 
+	$4po=0 | Polarity normal | Set polarity so Z travels up for positive values (G0 Z10)
+	$4pm=1 | Power management mode | 1=axis shuts off when idle. Can also use $4pm=0
 
 
 ## Axis Groups
