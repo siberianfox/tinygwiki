@@ -26,6 +26,18 @@ Here are some example settings for a Shapeoko dual Y gantry setup. You will prob
 	$1po=0 | Polarity normal | Set polarity so X travels to the right for positive values (G0 X10)
 	$1pm=0 | Power management mode | 0=axis remains powered when idle
 
+#### Motor 2 (Y1 Axis)
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$1ma=1 | Map to Y axis| 
+	$1sa=1.8 | Step angle in degrees |
+	$1tr=36.54 | Travel per rev in mm | This value should be calibrated to your setup
+	$1mi=8 | Microsteps to 8 | Experiment with 4 for more power
+	$1po=0 | Polarity normal | Set polarity so Y travels to the rear of the machine for positive values (G0 Y10)
+	$1pm=0 | Power management mode | 0=axis remains powered when idle
+
+
 ## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
 
