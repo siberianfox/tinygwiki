@@ -20,11 +20,11 @@ Here are some example settings for a Shapeoko dual Y gantry setup. You will prob
 	Setting | Description | Notes
 	--------|-------------|-------
 	$1ma=0 | Map to X axis| 0-3 will map motors X,Y,Z,A, respectively
-	$1sa=1.8 | Step angle degrees | Set 1.8 for 200 steps/revolution motors, 0.9 for 400 steps/rev
-	1tr | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
-	1mi | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
-	1po | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
-	1pm | Power management mode | 0=axis remains powered when idle, 1=power shuts off when axis is not moving
+	$1sa=1.8 | Step angle in degrees | Set 1.8 for 200 steps/revolution motors, 0.9 for 400 steps/rev
+	$1tr=36.54 | Travel per rev in mm | This value should be calibrated to your setup
+	$1mi=8 | Microsteps to 8 | Experiment with 4 for more power
+	$1po=0 | Polarity normal | Set polarity so X travels to the right for positive values (G0 X10)
+	$1pm=0 | Power management mode | 0=axis remains powered when idle
 
 ## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
