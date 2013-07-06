@@ -22,7 +22,7 @@ Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 	Setting | Description | Notes
 	--------|-------------|-------
 	$1ma=0 | Map to X axis| 0=X axis, 1=Y axis, 2=Z axis
-	$1sa=1.8 | Step angle in degrees | Set 1.8 for 200 steps/revolution motors, 0.9 for 400 steps/rev
+	$1sa=1.8 | Step angle in degrees | Set 1.8 for 200 step / revolution motors, 0.9 for 400 step / revolution
 	$1tr=36.54 | Travel per rev in mm | This value should be calibrated to your setup
 	$1mi=8 | Microsteps to 8 | Experiment with 4 for more power
 	$1po=0 | Polarity normal | Set polarity so X travels to the right for positive values (G0 X10)
