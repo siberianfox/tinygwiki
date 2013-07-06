@@ -1,7 +1,7 @@
 This page describes how to set up configuration for a Dual gantry setup. The example given is a Shapeoko with a Dual Y gantry.
 
 ## Overview
-A dual gantry setup uses 2 motors to drive a single axis. The 4 motors on TinyG can be used like so:
+A dual gantry setup uses 2 motors to drive a single axis. Commonly the dual gantry is the Y axis, but not always. The 4 motors on TinyG can be used to support a dual Y gantry like so:
    
 	Motor | Axis 
 	------|------
@@ -14,6 +14,8 @@ The Y2 axis has reverse polarity from Y1 as the 2 motors are facing each other a
 
 ## Settings
 Here are some example settings for a Shapeoko dual Y gantry setup. You will probably need to experiment to get exact settings for your machine, but this is a good starting point. The maximum velocities and feed rates are set intentionally low and can probably be set higher with tuning. 
+
+Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 
 #### Motor 1 (X Axis)
 
@@ -45,8 +47,8 @@ Here are some example settings for a Shapeoko dual Y gantry setup. You will prob
 	$3sa=1.8 | Step angle in degrees |
 	$3tr=36.54 | Travel per rev in mm | MUST BE THE SAME AS MOTOR 2
 	$3mi=8 | Microsteps to 8 | Should be the same as motor 2
-	$3po=0 | Polarity normal | MUST BE OPPOSITE MOTOR 2
-	$3pm=0 | Power management mode | 0=axis remains powered when idle
+	$3po=1 | Polarity reversed | MUST BE OPPOSITE MOTOR 2
+	$3pm=0 | Power management mode | Should be the same as motor 2
 
 #### Motor 4 (Z Axis)
 
@@ -60,21 +62,21 @@ Here are some example settings for a Shapeoko dual Y gantry setup. You will prob
 	$4pm=1 | Power management mode | 1=axis shuts off when idle. Can also use $4pm=0
 
 
-## Axis Groups
-Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
+#### X Axis
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xam---axis-mode) | Axis mode | See details for setting. Normally this is =1 "normal" 
-	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xfr---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
-	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtm---travel-maximum) | Travel maximum | Used by homing to know when to give up
-	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
-	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
-	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjd---junction-deviation) | Junction deviation | For cornering control
-	[$ara](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ara---radius-value) | Radius setting | Rotational axes only (ABC only)
-	[$xsn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
-	[$xsx](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
-	[$xsv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
-	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
-	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
+	$xam=1 | Axis mode normal |  
+	$xvm=10000 | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
+	$xfr=10000 | Feed rate maximum | Maximum feed rate for that axis. Does NOT set the F word
+	$xtm=220 | Travel maximum 220mm | Used by homing to know when to give up
+	$xjm=5000000000 | Jerk maximum | That's 5 billion
+	$xjh=10000000000 | Jerk homing | That's 10 billion - jerk used during homing operations
+	$xjd=0.01 | Junction deviation | For cornering control
+	$xsn=1 | Minimum switch mode | 1=homing-only
+	$xsx=0 | Maximum switch mode | 0=disabled
+	$xsv=3000 | Search velocity | Homing speed during search phase (drive to switch)
+	$xlv=100 | Latch velocity | Homing speed during latch phase (drive off switch)
+	$xzb=(https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
+
+#define JUNCTION_ACCELERATION	2000000	// 2 million - centripetal acceleration around corners
