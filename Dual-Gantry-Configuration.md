@@ -101,15 +101,15 @@ Y axis commands will drive both Y motors.
 	Setting | Description | Notes
 	--------|-------------|-------
 	$zam=1 | Axis mode normal |  
-	$zvm=800 | Velocity maximum |
-	$zfr=800 | Feed rate maximum | 
+	$zvm=600 | Velocity maximum |
+	$zfr=600 | Feed rate maximum | 
 	$ztm=100 | Travel maximum 220mm | 
 	$zjm=50000000 | Jerk maximum | That's 50 million
 	$zjh=100000000 | Jerk homing | That's 100 million - jerk used during homing operations
 	$zjd=0.01 | Junction deviation | For cornering control
 	$zsn=0 | Minimum switch mode | 0=disabled
 	$zsx=1 | Maximum switch mode | 1=homing-only
-	$zsv=800 | Search velocity | Homing speed during search phase (drive to switch)
+	$zsv=600 | Search velocity | Homing speed during search phase (drive to switch)
 	$zlv=100 | Latch velocity | Homing speed during latch phase (drive off switch)
 	$zzb=3 | Zero backoff | offset from switch for zero in absolute coordinate system
 
