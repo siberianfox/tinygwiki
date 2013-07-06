@@ -61,7 +61,6 @@ Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 	$4po=0 | Polarity normal | Set polarity so Z travels up for positive values (G0 Z10)
 	$4pm=1 | Power management mode | 1=axis shuts off when idle. Can also use $4pm=0
 
-
 #### X Axis
 
 	Setting | Description | Notes
@@ -77,6 +76,45 @@ Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 	$xsx=0 | Maximum switch mode | 0=disabled
 	$xsv=3000 | Search velocity | Homing speed during search phase (drive to switch)
 	$xlv=100 | Latch velocity | Homing speed during latch phase (drive off switch)
-	$xzb=(https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
+	$xzb=3 | Zero backoff | offset from switch for zero in absolute coordinate system
 
-#define JUNCTION_ACCELERATION	2000000	// 2 million - centripetal acceleration around corners
+#### Y Axis
+Y axis commands will drive both Y motors.
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$yam=1 | Axis mode normal |  
+	$yvm=10000 | Velocity maximum |
+	$yfr=10000 | Feed rate maximum | 
+	$ytm=220 | Travel maximum 220mm | 
+	$yjm=5000000000 | Jerk maximum | That's 5 billion
+	$yjh=10000000000 | Jerk homing | That's 10 billion - jerk used during homing operations
+	$yjd=0.01 | Junction deviation | For cornering control
+	$ysn=1 | Minimum switch mode | 1=homing-only
+	$ysx=0 | Maximum switch mode | 0=disabled
+	$ysv=3000 | Search velocity | Homing speed during search phase (drive to switch)
+	$ylv=100 | Latch velocity | Homing speed during latch phase (drive off switch)
+	$yzb=3 | Zero backoff | offset from switch for zero in absolute coordinate system
+
+#### Z Axis
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$zam=1 | Axis mode normal |  
+	$zvm=800 | Velocity maximum |
+	$zfr=800 | Feed rate maximum | 
+	$ztm=100 | Travel maximum 220mm | 
+	$zjm=50000000 | Jerk maximum | That's 50 million
+	$zjh=100000000 | Jerk homing | That's 100 million - jerk used during homing operations
+	$zjd=0.01 | Junction deviation | For cornering control
+	$zsn=0 | Minimum switch mode | 0=disabled
+	$zsx=1 | Maximum switch mode | 1=homing-only
+	$zsv=800 | Search velocity | Homing speed during search phase (drive to switch)
+	$zlv=100 | Latch velocity | Homing speed during latch phase (drive off switch)
+	$zzb=3 | Zero backoff | offset from switch for zero in absolute coordinate system
+
+#### Additional Settings
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$ja=2000000 | Junction acceleration mode normal | max centripetal acceleration around corners
