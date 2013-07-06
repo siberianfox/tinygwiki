@@ -12,10 +12,10 @@ A dual gantry setup uses 2 motors to drive a single axis. Commonly the dual gant
 
 The Y2 axis has reverse polarity from Y1 as the 2 motors are facing each other and therefore need to turn in the opposite direction from each other.
 
+Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
+
 ## Settings
 Here are some example settings for a Shapeoko dual Y gantry setup. You will probably need to experiment to get exact settings for your machine, but this is a good starting point. The maximum velocities and feed rates are set intentionally low and can probably be set higher with tuning. 
-
-Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 
 #### Motor 1 (X Axis)
 
