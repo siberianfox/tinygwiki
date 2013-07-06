@@ -1,5 +1,9 @@
 This page covers things you may want to do once the wiring and physical setup is complete.
 
+## Topics
+* [Tuning Tiny G]([$1ma](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning/#Setting-Maximum-Velocities-and-Feed-Rates-and-Motor-Currents)
+* [Dual Gantry Configuration - Shapeoko Example](https://github.com/synthetos/TinyG/wiki/Dual-Gantry-Configuration)
+
 ## Setting Maximum Velocities and Feed Rates and Motor Currents
 ### Background
 The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
