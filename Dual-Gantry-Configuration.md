@@ -67,7 +67,7 @@ Note that the 'A' axis is not used. Only the 4 motors and the X, Y and Z axes.
 	--------|-------------|-------
 	$xam=1 | Axis mode normal |  
 	$xvm=10000 | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	$xfr=10000 | Feed rate maximum | Maximum feed rate for that axis. Does NOT set the F word
+	$xfr=10000 | Feed rate maximum | Maximum feed rate for that axis. Limits F words to this value
 	$xtm=220 | Travel maximum 220mm | Used by homing to know when to give up
 	$xjm=5000000000 | Jerk maximum | That's 5 billion
 	$xjh=10000000000 | Jerk homing | That's 10 billion - jerk used during homing operations
