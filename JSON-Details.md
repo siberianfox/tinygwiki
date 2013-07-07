@@ -62,7 +62,7 @@ To set a parameter pass an object with the value to be set. The value applied is
 	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | The version stays at 0.95 despite your wishes :(
 
 ### Groups
-The following groups can be read and set using JSON. ENtering the group with a null value ("") will return all members of the group. 
+The following groups can be read and set using JSON. The JSON strings provided below (i.e. the group with a null value ("")) will return all members of the group. 
 <pre>
 {"1":""}    return motor 1 settings
 {"2":""}
