@@ -1,4 +1,4 @@
-_updated 6/24/13 - ash_
+_updated 7/7/13 - ash_
 
 **NOTE: This page describes JSON operations in release 0.95 and later. This page is really a continuation of [this page](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
 
@@ -94,10 +94,10 @@ The following groups can be read and set using JSON. ENtering the group with a n
 Values within a group can be set by including that member in the set command. Examples:
 <pre>
 Set velocity max and feed rate max only (other values are unchanged)
-{"x":{"vm":1500,"fr":1500}
+{"x":{"vm":1500,"fr":1500}}
 
 Set all values in X
-{"x":{"am":1,"vm":1500,"fr":1500,"tm":150,"jm":600000000,"jh":400000000,"jd":0.0100,"sn":1,"sx":0,"sv":750,"lv":150,"lb":5.000,"zb":0.000}
+{"x":{"am":1,"vm":1500,"fr":1500,"tm":150,"jm":600000000,"jh":400000000,"jd":0.0100,"sn":1,"sx":0,"sv":750,"lv":150,"lb":5.000,"zb":0.000}}
 </pre>
 
 ### Status messages
