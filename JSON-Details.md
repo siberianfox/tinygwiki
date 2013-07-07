@@ -61,6 +61,45 @@ To set a parameter pass an object with the value to be set. The value applied is
 	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Try to set status interval to 10 ms, but minimum was 50
 	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | The version stays at 0.95 despite your wishes :(
 
+### Groups
+The following groups can be read and set using JSON. ENtering the group with a null value ("") will return all members of the group. 
+<pre>
+{"1":""}    return motor 1 settings
+{"2":""}
+{"3":""}
+{"4":""}
+{"x":""}    return X axis settings
+{"y":""}
+{"z":""}
+{"a":""}
+{"b":""}
+{"c":""}
+{"sys":""}  return system settings
+{"pos":""}  return work coordinate positions fox XYZABC axes. In mm or inches depending on G20/G21
+{"mpo":""}  return absolute machine positions fox XYZABC axes. Always in mm, regardless of G20/G21
+{"ofs":""}  return current offsets fox XYZABC axes. Sums coordinate system and G92 offsets. in mm.
+{"hom":""}  return homing state fox XYZABC axes, and 'e' for the entire machine. 1=homed, 0=not.
+{"p1":""}   return PWM channel 1 settings (currently there is only 1 PWM channel)
+{"g54":""}  return offsets for work coordinate system #1 (G54)
+{"g55":""}  #2
+{"g56":""}  #3
+{"g57":""}  #4
+{"g58":""}  #5
+{"g59":""}  #6
+{"g92":""}  return G92 offsets currently in effect
+{"g28":""}  return coordinate saved by G28 command
+{"g30":""}  return coordinate saved by G30 command
+</pre>
+
+Values within a group can be set by including that member in the set command. Examples:
+<pre>
+Set velocity max and feed rate max only (other values are unchanged)
+{"x":{"vm":1500,"fr":1500}
+
+Set all values in X
+{"x":{"am":1,"vm":1500,"fr":1500,"tm":150,"jm":600000000,"jh":400000000,"jd":0.0100,"sn":1,"sx":0,"sv":750,"lv":150,"lb":5.000,"zb":0.000}
+</pre>
+
 ### Status messages
 Status messages are end-user text associated with each status code, similar to those on the [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) page. JSON does not return these whereas text mode does. JSON parsers must therefore work to the status codes, and provide their own end-user messages.
 
