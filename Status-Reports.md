@@ -12,9 +12,8 @@ Status reports can be requested from the command line:
 	$sr | equivalent to ?
 	{"sr":""} | JSON status report
 	{"sr":null} | a different way to request a JSON report
-	{"sr":n} | shorthand for above
 
-In text mode, '?' returns a multi-line report like this one:
+In text mode, '?' or $sr returns a multi-line report like this one:
 <pre>
 Line number:         0
 X position:          0.010 mm
