@@ -95,7 +95,31 @@ To get this do the following:
  - Move the files from the original directory into the new directory 
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
 
-7. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer.
+7. Setup the following values in the project file. CLick on the "tinyg" directory in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
+<pre>
+IN THE TOOLCHAIN TAB
+
+  AVR/GNU COMPLIER
+    Optimization should be set to -Os
+
+    SYMBOLS
+      F_CPU=32000000UL
+
+
+  AVR/GNU LINKER 
+    General: 
+      Check the "use vprintf linrary" box
+
+    Libraries: make sure these lines exist:
+       printf_flt
+       libm
+
+
+IN THE DEVICE TAB
+  The DEVICE should be ATxmega192A3
+</pre>
+
+8. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer. Check the files against the directory to make sure you haven't left anything out.
 
 Notes:
 
