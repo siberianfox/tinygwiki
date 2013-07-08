@@ -105,7 +105,6 @@ IN THE TOOLCHAIN TAB
     SYMBOLS
       F_CPU=32000000UL
 
-
   AVR/GNU LINKER 
     General: 
       Check the "use vprintf linrary" box
@@ -114,12 +113,11 @@ IN THE TOOLCHAIN TAB
        printf_flt
        libm
 
-
 IN THE DEVICE TAB
   The DEVICE should be ATxmega192A3
 </pre>
 
-8. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer. Check the files against the directory to make sure you haven't left anything out.
+ 8. Now try to build it from the Build / Build Solution menu. If it doesn't build it's probably because you left out a file in the solution explorer. Check the files against the directory to make sure you haven't left anything out.
 
 Notes:
 
