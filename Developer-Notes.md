@@ -34,6 +34,29 @@ Atmel AVR 8-bit and 32-bit Toolchain 3.3.1 - Windows
 
 Install the toolchain first, then AVRStudio. Click on the tinyg.aps file to start studio4. Run a Rebuild All from the Build tab to test that it's all working. You should get a clean build. The tinyg.hex file you want is in the /default directory.
 
+You will need to set up the project configs like so. Of particular importance is including the floating point libs so the numeric displays will function properly.
+<pre>
+In the Custom Options section, the custom compilation [All files] tab should read:
+-gdwarf-2 
+-std=gnu99
+-Wall
+-DF_CPU=32000000UL
+-Os
+-funsigned-char
+-funsigned-bitfields
+-fpack-struct
+-fshort-enums
+
+In the [Linker options] section if must read:   (Note: may need to scroll left window to the end)
+-Wl,-u,vfprintf
+-lprintf_flt
+-lm
+
+That's -W "ell" (not "one") and all other leading 'l's are also "ell"
+</pre>
+
+Here's a useful link: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=117023
+
 ### Set up AtmelStudio6
 Download and go through the Studio6 install process. We are using Atmel Studio 6.1-2440-beta at this point. Click on the tinyg.atsln file to start the project. A clean build should leave tinyg.hex in the /Debug directory.
 
