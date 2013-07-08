@@ -1,6 +1,8 @@
 ## Overview
 Status reports are a way to query the internal state of the machine (technically, the "dynamic Gcode model"). Status reports are for keeping a running tally of position and velocity for DRO displays or progress drawing, for knowing when the machine is running or complete, the current units mode or coordinate system, and other things like that.
 
+There are 2 ways to get a status report - to request one from the command line "On-Demand Status Reports", or they can be generated automatically.
+
 ### On-Demand Status Reports
 Status reports can be requested from the command line:
 
