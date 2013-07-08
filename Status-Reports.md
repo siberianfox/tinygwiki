@@ -48,7 +48,7 @@ Use these settings:
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	$sv | Status report verbosity | 0=off, 1=filtered, 2=verbose
+	$sv | Status report verbosity | 0=off (disabled), 1=filtered (see next section heading), 2=verbose (on all the time)
 	$si | Status report interval | in milliseconds (50 ms minimum interval)
 
 NOTE: $si won't accept any values less than its minimum interval, which is 50 ms.<br>
