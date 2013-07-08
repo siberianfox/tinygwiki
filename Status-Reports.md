@@ -37,7 +37,14 @@ JSON status reports are parent/child objects with a "sr" parent and one or more 
 </pre>
 
 ### Automatic Status Reports
-Status reports can also be set up to be run automatically on a minimum time interval using these settings:
+Status reports can also be set up to be run automatically. A status report will be generated:
+* every time a move ends (after each Gcode block)
+* during movement every NNN milliseconds as set in the $si value
+* when motion stops (STOP or END). 
+
+Also note that if the gcode blocks are very short and would cause status reports to be generated at a rate faster than the $si interval they will only be generated at the $si interval (i.e. they will never be sent faster than the $si setting).
+
+Use these settings:
 
 	Setting | Description | Notes
 	--------|-------------|-------
