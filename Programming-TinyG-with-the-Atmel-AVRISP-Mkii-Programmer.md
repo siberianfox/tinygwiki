@@ -16,7 +16,18 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 * If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
 * From the drop-down menus select Tools / Program AVR. Choose Auto Connect or Connect. The programmer dialog box should appear after connection. 
 * The header line should read "AVRISP mkII in PDI mode with ATxmega192A3" (or ATxmega192A3U). If it does not, go to the Main tab and select the device as ATxmega192A3.
-* Next go to the fuses and program them according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). If you are not installing the boot loader select BOOTRST to be "Application Reset". If you are installing the bootloader select "Boot Loader Reset"
+* Next go to the Fuses tab and program them according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). If you are not installing the boot loader select BOOTRST to be "Application Reset". If you are installing the bootloader select "Boot Loader Reset".
+* Next go to the Program tab and program the flash. Setting are:
+ * Erase device before programming (checked)
+ * Verify device after programming (checked)
+ * Input HEX file - select the tinyg.hex you want
+* Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Leaving programming mode.. OK!"
+* If not, check the following
+ * TinyG blue power light is on
+ * green light in on in the programmer / USB connection is made to host
+ * device is selected ATxmega192A3
+ * hex file is found and is not corrupt
+ * AVRISP2 firmware is up-to-date
 
 
 ### Atmel Studio 6
