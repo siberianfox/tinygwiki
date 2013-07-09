@@ -77,6 +77,8 @@ The canonical machine is extensible to handle canned cycles like homing cycles, 
 
 The canonical machine is the sole master of the gm struct, and all accesses to it must go through accessors (setters and getters). This is because in some cases the conversions into and out of gm's internal canonical form are complex and it's best not to have any other parts of the program messing with the internals.
 
+## Planner
+
 ## Stepper Module
 The stepper module implements a weird variant of the Bresenham Algorithm (aka DDA).
 
