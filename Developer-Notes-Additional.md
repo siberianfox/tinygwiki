@@ -41,7 +41,7 @@ A note about efficiency: Having all these layers doesn't mean that there are an 
 ### Controller
 The controller is the main loop for the program. It accepts inputs from various sources, dispatches to parsers / interpreters, and manages task threading / scheduling
 
-The controller is an event-driven hierarchical state machine (HSM) implementing cooperative multi-tasking using inverted control - the basic concepts are described [here](http://www.state-machine.com/ www.state-machine.com). This means that the HSM is really just a list of tasks in a main loop, with the ability for a task to skip the rest of the loop depending on its status return (i.e. start the main loop over from the top). 
+The controller is an event-driven hierarchical state machine (HSM) implementing cooperative multi-tasking using inverted control. This means that the HSM is really just a list of tasks in a main loop, with the ability for a task to skip the rest of the loop depending on its status return (i.e. start the main loop over from the top). 
 
 Tasks are written as continuations, so no function ever actually blocks (there is an exception), but instead returns "busy" (TG_EAGAIN) when it would ordinarily block. Each task has a re-entry point (callback) to resume the task once the blocking condition has been removed.
 
