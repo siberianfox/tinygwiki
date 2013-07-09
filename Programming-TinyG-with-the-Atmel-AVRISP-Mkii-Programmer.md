@@ -37,7 +37,7 @@ Select the Fuses from the programmer dialog. You want the following settings
 	RSTDISBL | (unchecked) | default
 	SUT | 0 ms | default
 	WDLOCK | (unchecked) | default
-	JTAGEN | (CHECKED) | default
+	JTAGEN | (CHECKED) | default - never uncheck this or you will brick the board
 	BODACT | BOD enabled continuously | 
 	JTAGEN | (unchecked) | default
 	BODLVL | 2.6v | 
