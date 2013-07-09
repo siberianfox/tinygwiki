@@ -9,11 +9,11 @@ There are (at least) 3 ways to program the board using the AVRISP2:
 
 Also, regardless of method you want to make sure to get the xmega fuses right
 
-## AVR Studio 4
+### AVR Studio 4
 
-## Atmel Studio 6
+### Atmel Studio 6
 
-## AVRDUDE with AVRISP2
+### AVRDUDE with AVRISP2
 
 ## Fuses 
 Select the Fuses from the programmer dialog. You want the following settings
