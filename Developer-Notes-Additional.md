@@ -86,6 +86,20 @@ The planner module plans and executes moves for lines, arcs, dwells, spindle con
 * plan_arc.c
 * plan_arc.h
 
+The planner data structures consist of a list of planning buffers (28 bf's), a planning context or move-model (mm), and a runtime execution model (mr). 
+
+When a new move is introduced into the planner from the canonical machine the planner examines the current planning model state (mm) and the moves queued in the bf's to determine how the move can be executed. The planner figures out the initial velocity and maximum "cruise" velocity, and always assumes the exit velocity will be zero - as it doesn't know if there are any other moves behind the move being processed. It takes acceleration / deceleration limits into account, and also takes maximum cornering limits into account. Then it queues the move into the bf list.
+
+When a move is ready to be executed the planner (at this point called the "exec") copies the data from the head bf into the move runtime (mr) and generates 5 ms acceleration / cruise / deceleration segments to be fed to the stepper module. When the move is completed it returns the head buffer to the buffer pool and pulls the next move from the queue - if there is one.
+
+The planner also handles feedholds and cycle starts after feedholds. In a feedhold the planner executes a state machine that
+* (1) allows the currently executing segment and the next segment to execute (for a deceleration latency of 5 - 10 ms)
+* (2) plans the move currently in mr down to zero at the hold point
+* (3) replans the rest of the queue to accelerate back up from the hold point
+* (4) halts execution once the deceleration reaches the hold point
+
+When a cycle start is provided the hold is releases and the replanned buffer executes from the hold point
+
 ## Stepper Module
 The stepper module implements a weird variant of the Bresenham Algorithm (aka DDA).
 
