@@ -10,7 +10,7 @@ There are (at least) 3 ways to program the board using the AVRISP2:
 Also, regardless of method you want to make sure to get the [xmega fuses](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses) right
 
 ### AVR Studio 4
-* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector.
+* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Studio 4.
 * Apply power to the TinyG. The board will not program unless it's powered up. The board's USB does not need to be connected
 * Bring up Studio 4. If you are in a virtual machine make sure the Atmel AVRIPS mkII device is connected to the virtual machine.
 * If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
