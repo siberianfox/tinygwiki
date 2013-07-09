@@ -13,7 +13,7 @@ Basics:
 The firmware controller, interpreter, canonical machine and stepper layers are organized as so: 
 
 * main.c/tinyg.h - initialization and main loop 
-* [controller.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#controllerch) - scheduler and related functions 
+* [controller.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#controller) - scheduler and related functions 
 * gcode_parser.c/.h - gcode parser / interpreter 
 * json_parser.c/.h - JSON parser
 * [canonical_machine.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#canonical-machine) - machine model and machining command execution 
@@ -38,7 +38,7 @@ Additional modules are:
 
 A note about efficiency: Having all these layers doesn't mean that there are an excessive number of stack operations. TinyG relies heavily on the GCC compiler (-Os) for efficiency. Further hand optimization is sometimes done if profiling shows that the compiler doesn't handle that case, but this is usually not necessary. Much of the code optimizes down to inlines, static scope variables are used for efficiency where this makes sense (i.e. not passed on the stack). And even if there were a lot of function calls, most of the code doesn't need execution-time optimization (with the exception of the inner loops of the planner, steppers and some of the comm drivers). See Module Details / planner.c for a discussion of time budgets.
 
-### Controller.c/.h
+### Controller
 The controller is the main loop for the program. It accepts inputs from various sources, dispatches to parsers / interpreters, and manages task threading / scheduling.
 
 The controller is an event-driven hierarchical state machine (HSM) implementing cooperative multi-tasking using inverted control. This means that the HSM is really just a list of tasks in a main loop, with the ability for a task to skip the rest of the loop depending on its status return (i.e. start the main loop over from the top). 
