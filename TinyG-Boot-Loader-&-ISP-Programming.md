@@ -5,6 +5,7 @@ _Huge thanks to Kevin Osborn who got this working_
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 * [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
 * [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
+* [Programming TinyG with the Atmel AVRISP Mkii Programmer](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-avrisp)
 
 <a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
@@ -319,3 +320,6 @@ in Linker/Memory Settings:
 
 Still to do:
 * Find a way to pre-process the config.h file
+
+<a id="avrisp"></a>
+## Programming with the Atmel AVRISP Mkii Programmer
