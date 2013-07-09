@@ -13,24 +13,24 @@ Basics:
 The firmware controller, interpreter, canonical machine and stepper layers are organized as so: 
 
 * main.c/tinyg.h - initialization and main loop 
-* controller.c/.h - scheduler and related functions 
+* [controller.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#controllerch) - scheduler and related functions 
 * gcode_parser.c/.h - gcode parser / interpreter 
 * json_parser.c/.h - JSON parser
-* canonical_machine.c/.h - machine model and machining command execution 
-* planner.c/.h ... and related files - acceleration / deceleration line planning and feedhold execution 
+* [canonical_machine.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#canonical-machine) - machine model and machining command execution 
+* planner.c/.h ... and related line and arc files - acceleration / deceleration planning and feedhold 
+* cycle_homing.c - homing cycle. Other canned cycles may be added as cycle_xxxxx.c 
 * kinematics.c/.h - inverse kinematics transformations and motor/axis mapping 
-* stepper.c/.h - stepper controls, DDA 
+* [stepper.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#stepper-module) - stepper controls, DDA 
 * spindle.c/.h - spindle controls
 
 Additional modules are:
 
-* cycle_homing.c - homing cycle. Other canned cycles may be added as cycle_xxxxx.c 
+* config.c/.h - configuration and command execution sub-system 
+* report.c/.h - exception reports, status reports and other reporting functions
 * util.c/.h - general purpose utility functions, debug and logging support 
 * gpio.c/.h - parallel ports, LEDs and limit switch support 
 * help.c/.h - help screens 
 * tests.c/.h - self tests
-* config.c/.h - configuration and command execution sub-system 
-* report.c/.h - exception reports, status reports and other reporting functions
 * settings.h ...and related files in /settings - default settings for various machines 
 * system.c./.h - low-level system startup commands and configs
 * xio....c/.h - Xmega serial IO sub-system - device drivers for GCC stdio 
@@ -56,18 +56,19 @@ Continuations are used to manage points where the application would ordinarily b
 
 Rules for writing a continuation task: 
 
-* A continuation is a pair of routines. The first is the outer routine, the second the continuation or callback. for an example see mp_dwell() and _exec_dwell() in planner.c. mp_dwell() is called when the dwell is first queued. _exec_dwell() is the callback which is executed every time the dwell time expires (every 1 ms).
-* The main routine is called first and should never block. It may have function arguments. It performs all initial actions and typically sets up a static structure (singleton) to hold data that is needed by the continuation routine. The main routine should end by returning a uint8_t TG_OK or an error code. 
+* A continuation is a pair of routines. The first is the outer routine, the second the continuation or callback. For an example see ar_arc() and ar_arc_callback() in plan_arc.c.
+* The main routine is called first and should never block. It may have function arguments. It performs all initial actions and typically sets up a static structure (singleton) to hold data that is needed by the continuation routine. The main routine should end by returning STAT_OK or a STAT_xxxx error code. 
 * The continuation task is a callback that is permanently registered (OK, installed) at the right level of the blocking heirarchy in the tg_controller loop; where it will be called repeatedly by the controller. The continuation cannot have input args - all necessary data must be available in the static struct (or by some other means). 
 * Continuations should be coded as state machines. See the homing cycle or the aline execution routines as examples. Common states used by most machines include: OFF, NEW, or RUN. 
- * OFF means take no action (return NOOP). 
+ * OFF means take no action (return STAT_NOOP). 
  * NEW is the the state on initial entry after the main routine. This may be used to perform any further initialization at the continuation level. 
- * RUN is a catch-all for simple routines. More complex state&nbsp;machines may have numerous other states. 
+ * RUN is a catch-all for simple routines. More complex state machines may have numerous other states. 
 * The continuation must return the following codes and may return additional codes to indicate various exception conditions: 
- * TG_NOOP: No operation occurred. This is the usual return from an OFF state. All continuations must be callable with no effect when they are OFF (as they are called repeatedly by the controller whether or not they are active). 
- * TG_EAGAIN: The continuation is blocked or still processing. This one is really important. As long as the continuation still has work to do it must return TG_EAGAIN. Returning eagain causes the tg_controller dispatcher to restart the controller loop from the beginning, skipping all later routines. This enables hierarchical blocking to be performed. The later routines will not be run until the blocking conditions at the lower-level are removed. 
- * TG_OK; The continuation task has completed - i.e. it has just transitioned to OFF. TG_OK should only be returned only once. The next state will be OFF, which will return NOOP. 
- * TG_COMPLETE: This additional state is used for nesting state machines such as the homing cycle. The lower-level routines called by a parent will return TG_EAGAIN until they are done, then they return TG_OK. The return codes from the continuation should be trapped by a wrapper routine that manages the parent and child returns. When the parent REALLY wants to return it sends the wrapper TG_COMPLETE, which is translated to an OK for the parent routine.<br>
+ * STAT_NOOP: No operation occurred. This is the usual return from an OFF state. All continuations must be callable with no effect when they are OFF (as they are called repeatedly by the controller whether or not they are active). 
+ * STAT_EAGAIN: The continuation is blocked or still processing. This one is really important. As long as the continuation still has work to do it must return STAT_EAGAIN. Returning eagain causes the tg_controller dispatcher to restart the controller loop from the beginning, skipping all later routines. This enables hierarchical blocking to be performed. The later routines will not be run until the blocking conditions at the lower-level are removed. 
+ * STAT_OK: The continuation task has completed - i.e. it has just transitioned to OFF. STAT_OK should only be returned only once. The next state will be OFF, which will return STAT_NOOP. 
+ * STAT_COMPLETE: This additional state is used for nesting state machines such as the homing cycle. The lower-level routines called by a parent will return STAT_EAGAIN until they are done, then they return STAT_OK. The return codes from the continuation should be trapped by a wrapper routine that manages the parent and child returns. When the parent REALLY wants to return it sends the wrapper STAT_COMPLETE, which is translated to STAT_OK by the parent routine.
+ * STAT_xxxx: Error returns. See tinyg.h for definitions.
 
 ## Canonical Machine
 The canonical machine provides an interface layer to machining and related functions. It implements the NIST RS274NGC canonical machining functions (more or less). Some functions have been added, some not implemented, and some of the calling conventions are different. The canonical machine normalizes all coordinates and parameters to internal representation, keeps the Gcode model state, and makes calls to the planning and cycle layers for actual movement. 
@@ -92,3 +93,10 @@ Coordinated motion (line drawing) is performed using a classic Bresenham DDA, bu
 * Pulse phasing is also helped by minimizing the time spent loading the next move segment. To achieve this the "on-deck" move is pre-computed during the queuing phase (at least as much as possible). Also, all moves are loaded from interrupts, avoiding the need for mutual exclusion locking or volatiles (which slow things down).
 
 There is a rather involved set of nested interrupts and pulls that occur to support the above - see the header comments in stepper.c for an explanation.
+
+## Config System
+The config module implements internal data handling for communications in and out and command execution. The internal structure for a command is a cmdObj, and commands are kept in a cmdObj list that can contain one or more commands. 
+
+These structures are used to provide da clean separation between the "wire form" of the commands, which may be text or JSON based, and the internal form on which the system operates. This allows TinyG to support text mode and JSON mode strictly at the parser and serializer level, without carrying knowledge of the IO for to lower levels.
+
+For a complete discussion of the command and config system see the header notes in config.h
