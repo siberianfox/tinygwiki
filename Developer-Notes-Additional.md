@@ -38,25 +38,25 @@ Additional modules are:
 
 A note about efficiency: Having all these layers doesn't mean that there are an excessive number of stack operations. TinyG relies heavily on the GCC compiler (-Os) for efficiency. Further hand optimization is sometimes done if profiling shows that the compiler doesn't handle that case, but this is usually not necessary. Much of the code optimizes down to inlines, static scope variables are used for efficiency where this makes sense (i.e. not passed on the stack). And even if there were a lot of function calls, most of the code doesn't need execution-time optimization (with the exception of the inner loops of the planner, steppers and some of the comm drivers). See Module Details / planner.c for a discussion of time budgets.
 
-### Controller
-The controller is the main loop for the program. It accepts inputs from various sources, dispatches to parsers / interpreters, and manages task threading / scheduling
+### Controller.c/.h
+The controller is the main loop for the program. It accepts inputs from various sources, dispatches to parsers / interpreters, and manages task threading / scheduling.
 
 The controller is an event-driven hierarchical state machine (HSM) implementing cooperative multi-tasking using inverted control. This means that the HSM is really just a list of tasks in a main loop, with the ability for a task to skip the rest of the loop depending on its status return (i.e. start the main loop over from the top). 
 
-Tasks are written as continuations, so no function ever actually blocks (there is an exception), but instead returns "busy" (TG_EAGAIN) when it would ordinarily block. Each task has a re-entry point (callback) to resume the task once the blocking condition has been removed.
+Tasks are written as continuations, so no function ever actually blocks (there is an exception), but instead returns "busy" (STAT_EAGAIN) when it would ordinarily block. Each task has a re-entry point (callback) to resume the task once the blocking condition has been removed.
 
-All tasks are in a single dispatch loop with the lowest-level tasks ordered first. The highest priority tasks are run first and progressively lower priority tasks are run only if the higher priority tasks are not blocked. 
+All tasks are in a single dispatch loop with the lowest-level (highest priority) tasks ordered first. The highest priority tasks are run first and progressively lower priority tasks are run only if the higher priority tasks are not blocked. 
 
-A task returns TG_OK or an error if it's complete, or returns TG_EAGAIN to indicate that its blocked on a lower-level condition. If TG_EAGAIN is received the controller aborts the dispatch loop and starts over again at the top, ensuring that no higher level routines (those further down in the dispatcher) will run until the routine either returns successfully (TG_OK), or returns an error. Interrupts run at the highest priority levels; then the kernel tasks are organized into priority groups below the interrupt levels. The priority of operations can be seen by reading the main dispatcher table and the interrupt priority settings in system.h
+A task returns STAT_OK or an error if it's complete, or returns STAT_EAGAIN to indicate that its blocked on a lower-level condition. If STAT_EAGAIN is received the controller aborts the dispatch loop and starts over at the top, ensuring that no higher level routines (those further down in the dispatcher) will run until the routine either returns successfully (STAT_OK), or returns an error. Interrupts run at the highest priority levels; then the kernel tasks are organized into priority groups below the interrupt levels. The priority of operations can be seen by reading the main dispatcher table and the interrupt priority settings in system.h
 
-Exception to blocking: The dispatcher scheme allows a single function to block on a sleep_mode() or infinite loop without upsetting scheduling. Sleep_mode() will sleep until an interrupt occurs, then resume after the interrupt is done. This type of blocking occurs in the character transmit (TX) function. This allows stdio's fprint() functions to work - being as how they don't know about continuations. 
+Exception to blocking: The dispatcher scheme allows one (and only one) function to block on a sleep_mode() or infinite loop without upsetting scheduling. Sleep_mode() will sleep until an interrupt occurs, then resume after the interrupt is done. This type of blocking occurs in the character transmit (TX) function. This allows stdio's printf() functions to work - being as how they don't know about continuations. 
 
 #### How To Code Continuations
-Continuations are used to manage points where the application would ordinarily block. Call it application managed threading. By coding using continuations the application does not need an RTOS and is extremely responsive (there are no "ticks") 
+Continuations are used to manage points where the application would ordinarily block. Call it application managed threading. By coding using continuations the application does not need an RTOS and is extremely responsive (there are no "ticks", or scheduled context changes)
 
 Rules for writing a continuation task: 
 
-* A continuation is a pair of routines. The first is the outer routine, the second the continuation or callback. for an example see mp_dwell() and mp_dwell_callback() 
+* A continuation is a pair of routines. The first is the outer routine, the second the continuation or callback. for an example see mp_dwell() and _exec_dwell() in planner.c. mp_dwell() is called when the dwell is first queued. _exec_dwell() is the callback which is executed every time the dwell time expires (every 1 ms).
 * The main routine is called first and should never block. It may have function arguments. It performs all initial actions and typically sets up a static structure (singleton) to hold data that is needed by the continuation routine. The main routine should end by returning a uint8_t TG_OK or an error code. 
 * The continuation task is a callback that is permanently registered (OK, installed) at the right level of the blocking heirarchy in the tg_controller loop; where it will be called repeatedly by the controller. The continuation cannot have input args - all necessary data must be available in the static struct (or by some other means). 
 * Continuations should be coded as state machines. See the homing cycle or the aline execution routines as examples. Common states used by most machines include: OFF, NEW, or RUN. 
