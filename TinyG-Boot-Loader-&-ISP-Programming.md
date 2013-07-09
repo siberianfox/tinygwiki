@@ -320,6 +320,3 @@ in Linker/Memory Settings:
 
 Still to do:
 * Find a way to pre-process the config.h file
-
-<a id="avrisp"></a>
-## Programming with the Atmel AVRISP Mkii Programmer
