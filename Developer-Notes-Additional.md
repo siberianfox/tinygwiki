@@ -17,7 +17,7 @@ The firmware controller, interpreter, canonical machine and stepper layers are o
 * gcode_parser.c/.h - gcode parser / interpreter 
 * json_parser.c/.h - JSON parser
 * [canonical_machine.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#canonical-machine) - machine model and machining command execution 
-* planner.c/.h ... and related line and arc files - acceleration / deceleration planning and feedhold 
+* [planner.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#planner) ... and related line and arc files - acceleration / deceleration planning and feedhold 
 * cycle_homing.c - homing cycle. Other canned cycles may be added as cycle_xxxxx.c 
 * kinematics.c/.h - inverse kinematics transformations and motor/axis mapping 
 * [stepper.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#stepper-module) - stepper controls, DDA 
@@ -78,6 +78,13 @@ The canonical machine is extensible to handle canned cycles like homing cycles, 
 The canonical machine is the sole master of the gm struct, and all accesses to it must go through accessors (setters and getters). This is because in some cases the conversions into and out of gm's internal canonical form are complex and it's best not to have any other parts of the program messing with the internals.
 
 ## Planner
+The planner module plans and executes moves for lines, arcs, dwells, spindle controls, program stop and end, and any other move that must be synchronized with move execution. It consists of the following files:
+* planner.c
+* planner.h
+* plan_line.c
+* plan_line.h
+* plan_arc.c
+* plan_arc.h
 
 ## Stepper Module
 The stepper module implements a weird variant of the Bresenham Algorithm (aka DDA).
