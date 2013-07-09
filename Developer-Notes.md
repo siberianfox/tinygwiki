@@ -1,3 +1,5 @@
+_updated 7/19/13 - ash_
+
 These are random notes that may be useful for developers.
 
 The best way to understand the code is to read it. It's pretty well commented. Here are some additional developer notes:
@@ -58,8 +60,12 @@ That's -W "ell" (not "one") and all other leading 'l's are also "ell"
 
 Here's a useful link: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=117023
 
+To use Studio4 to program TinyG see [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
+
 ### Set up AtmelStudio6
 Download and go through the Studio6 install process. We are using Atmel Studio 6.1-2440-beta at this point. Click on the tinyg.atsln file to start the project. A clean build should leave tinyg.hex in the /Debug directory.
+
+To use Studio6 to program TinyG see [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ## Virgin AtmelStudio6 Setup (Importing TinyG or another project into Studio6)
 You only need to do this is you are not using the pre-existing project files, as above
