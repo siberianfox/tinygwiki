@@ -37,5 +37,5 @@ Please come visit / join any or all of the above.
 * [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
-* [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
+* [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes), [More Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
