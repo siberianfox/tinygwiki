@@ -4,6 +4,7 @@ The best way to understand the code is to read it. It's pretty well commented. H
 
 * [Notes on TinyG program structure and modules](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional) that explain a few things that are too wordy for the code comments.
 * [Things we learned about github](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Github), usually the hard way
+* [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ## Set Up a Windows Compile Environment for TinyG 
 This is the easiest way to get set up for compilation. It uses the pre-existing project files for AVRStudio4 or AtmelStudio6 to manage the git clone working directory. This page explains how to set up both, so make your choice.
