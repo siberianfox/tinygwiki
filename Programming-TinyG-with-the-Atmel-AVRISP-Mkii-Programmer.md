@@ -31,15 +31,15 @@ Select the Fuses from the programmer dialog. You want the following settings
 	JTAGUSERID | 0xFF | this is the default setting
 	WDWP | 8 cycles | default
 	WDP | 8 cycles | default
-	DVSDON | <unchecked> | default
+	DVSDON | (unchecked) | default
 	BOOTRST | Boot Loader Reset | if you have not installed the boot loader use Application Reset 
 	BODPD | BOD enabled continuously | 
-	RSTDISBL | <unchecked> | default
+	RSTDISBL | (unchecked) | default
 	SUT | 0 ms | default
-	WDLOCK | <unchecked> | default
-	JTAGEN | <CHECKED> | default
+	WDLOCK | (unchecked) | default
+	JTAGEN | (CHECKED) | default
 	BODACT | BOD enabled continuously | 
-	JTAGEN | <unchecked> | default
+	JTAGEN | (unchecked) | default
 	BODLVL | 2.6v | 
 
 The fusebytes are left in their default settings and should read:
