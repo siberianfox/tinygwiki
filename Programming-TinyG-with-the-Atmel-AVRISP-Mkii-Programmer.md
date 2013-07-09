@@ -10,6 +10,7 @@ There are (at least) 3 ways to program the board using the AVRISP2:
 Also, regardless of method you want to make sure to get the [xmega fuses](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses) right
 
 ### AVR Studio 4
+In Studio4 
 
 ### Atmel Studio 6
 
