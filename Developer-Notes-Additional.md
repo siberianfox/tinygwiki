@@ -98,7 +98,7 @@ The planner also handles feedholds and cycle starts after feedholds. In a feedho
 * (3) replans the rest of the queue to accelerate back up from the hold point
 * (4) halts execution once the deceleration reaches the hold point
 
-When a cycle start is provided the hold is releases and the replanned buffer executes from the hold point
+When a cycle start is provided the hold is released and the replanned buffer executes from the hold point
 
 ## Stepper Module
 The stepper module implements a weird variant of the Bresenham Algorithm (aka DDA).
