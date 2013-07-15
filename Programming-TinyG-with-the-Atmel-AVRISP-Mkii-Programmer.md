@@ -20,7 +20,7 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 * Next go to the Program tab and program the flash. Setting are:
  * Erase device before programming (checked)
  * Verify device after programming (checked)
- * Input HEX file - select the tinyg.hex you want
+ * Input HEX file - select the tinyg.hex you want. Studio 4 writes its hex file into the /default directory
 * Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Leaving programming mode.. OK!"
 * If not, check the following
  * TinyG blue power light is on
@@ -37,12 +37,13 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 * If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
 * From the menu bar select Tools / Device Programming. Select Tool to be AVRISP mkII and hit Apply. Device should read ATxmega192A3, Interface should read PDI, and a left navigation bar should appear giving you some options. If the Device is not ATxmega192A3 use the drop down from that field to select ATxmega192A3.
 * Next go to the Fuses tab and program them according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). If you are not installing the boot loader select BOOTRST to be "Application Reset". If you are installing the bootloader select "Boot Loader Reset".
-* Next go to the Program tab and program the flash. Setting are:
- * Erase device before programming (checked)
- * Verify device after programming (checked)
- * Input HEX file - select the tinyg.hex you want
-* Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Leaving programming mode.. OK!"
-* If not, check the following
+* Next go to the Memories tab and program the flash in the Flash box. Setting are:
+ * Erase Flash before programming (checked)
+ * Verify Flash after programming (checked)
+ * Input HEX file - select the tinyg.hex you want. Studio 6 writes its hex file into the /Debug directory. You can also program from the tinyg.elf file. (What does a TinyG Elf look like?)
+* Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Verifying Flash... OK!"
+ * We have seen that Studio 6 doesn't always program the device correctly and gives a verification error to the effect that some byte reads $FF instead of some value. We are not sure why this is and people have reported that the flash programmed correctly even though they saw this error. If this happens try programming again. Regardless of the result, see if the board runs properly. It should.
+* If nonoe fo this works check the following
  * TinyG blue power light is on
  * green light in on in the programmer / USB connection is made to host
  * device is selected ATxmega192A3
@@ -53,7 +54,7 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 ### AVRDUDE with AVRISP2
 
 ## Fuses 
-Select the Fuses from the programmer dialog. You want the following settings. Studi 6 values are in [brackets] if different from Studio 4
+Select the Fuses from the programmer dialog and hit PROGRAM when you are done. You want the following settings. Studio 6 values are in [brackets] if different from Studio 4
 
 	Fuse | Value | Notes
 	-----|-------|------
