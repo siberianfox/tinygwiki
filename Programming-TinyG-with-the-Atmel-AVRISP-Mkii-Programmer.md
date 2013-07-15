@@ -31,27 +31,45 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 
 
 ### Atmel Studio 6
+* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Atmel Studio 6.
+* Apply power to the TinyG. The board will not program unless it's powered up. The board's USB does not need to be connected
+* Bring up Studio 6. If you are in a virtual machine make sure the Atmel AVRISP mkII device is connected to the virtual machine.
+* If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
+* From the menu bar select Tools / Device Programming. Select Tool to be AVRISP mkII and hit Apply. Device should read ATxmega192A3, Interface should read PDI, and a left navigation bar should appear giving you some options. If the Device is not ATxmega192A3 use the drop down from that field to select ATxmega192A3.
+* Next go to the Fuses tab and program them according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). If you are not installing the boot loader select BOOTRST to be "Application Reset". If you are installing the bootloader select "Boot Loader Reset".
+* Next go to the Program tab and program the flash. Setting are:
+ * Erase device before programming (checked)
+ * Verify device after programming (checked)
+ * Input HEX file - select the tinyg.hex you want
+* Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Leaving programming mode.. OK!"
+* If not, check the following
+ * TinyG blue power light is on
+ * green light in on in the programmer / USB connection is made to host
+ * device is selected ATxmega192A3
+ * hex file is found and is not corrupt
+ * AVRISP2 firmware is up-to-date
+
 
 ### AVRDUDE with AVRISP2
 
 ## Fuses 
-Select the Fuses from the programmer dialog. You want the following settings
+Select the Fuses from the programmer dialog. You want the following settings. Studi 6 values are in [brackets] if different from Studio 4
 
 	Fuse | Value | Notes
 	-----|-------|------
 	JTAGUSERID | 0xFF | this is the default setting
-	WDWP | 8 cycles | default
-	WDP | 8 cycles | default
+	WDWP | 8 cycles [8CLK]| default value 
+	WDP | 8 cycles [8CLK]| default value 
 	DVSDON | (unchecked) | default
-	BOOTRST | Boot Loader Reset | if you have not installed the boot loader use Application Reset 
-	BODPD | BOD enabled continuously | 
+	BOOTRST | Boot Loader Reset [BOOTLDR] | if you have not installed the boot loader use Application Reset 
+	BODPD | BOD enabled continuously [CONTINUOUSLY]| 
 	RSTDISBL | (unchecked) | default
 	SUT | 0 ms | default
 	WDLOCK | (unchecked) | default
 	JTAGEN | (CHECKED) | default - never uncheck this or you will brick the board
-	BODACT | BOD enabled continuously | 
+	BODACT | BOD enabled continuously [CONTINUOUSLY]| 
 	JTAGEN | (unchecked) | default
-	BODLVL | 2.6v | 
+	BODLVL | 2.6v [2V6]| 
 
 The fusebytes are left in their default settings and should read:
 
