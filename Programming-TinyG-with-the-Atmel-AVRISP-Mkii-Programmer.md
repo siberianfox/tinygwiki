@@ -43,7 +43,7 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
  * Input HEX file - select the tinyg.hex you want. Studio 6 writes its hex file into the /Debug directory. You can also program from the tinyg.elf file. (What does a TinyG Elf look like?)
 * Hit the Program button. You should see progress bars for programming and verification and a bunch of messages in the message window ending with "Verifying Flash... OK!"
  * We have seen that Studio 6 doesn't always program the device correctly and gives a verification error to the effect that some byte reads $FF instead of some value. We are not sure why this is and people have reported that the flash programmed correctly even though they saw this error. If this happens try programming again. Regardless of the result, see if the board runs properly. It should.
-* If nonoe fo this works check the following
+* If none of this works check the following
  * TinyG blue power light is on
  * green light in on in the programmer / USB connection is made to host
  * device is selected ATxmega192A3
