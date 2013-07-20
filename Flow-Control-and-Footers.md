@@ -101,7 +101,7 @@ Another option:
 The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. THe line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
 
 ####JSON fixes
-Want the 'f' footer to be an independent element under the 'r' response parent at the same level as the paired response. Examples:
+Want the 'f' footer to be a sister element to the 'r' response. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
 <pre>
 current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
 proposed:  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
