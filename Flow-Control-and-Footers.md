@@ -17,7 +17,9 @@ The following methods are currently possible and supported
 
 * XON/XOFF flow control with "blast". Configure $ex=1 and the host obeys XOFF and XON characters. The host sends characters until it's told to stop; resumes when XON is received. THis is what Coolterm does if XON/XOFF is enabled. The advantage is that this is very simple and works very well; the disadvantage is that there is no convenient way to inject feedholds.
 
-* Host character counting
+* Managing serial queue depth by character counting. The footer returns the number of bytes removed from the serial queue so that the host can know how many bytes are occupied in the serial queue. If the serial queue is non-zero, then the assumption is that the planner queue is full or near full. This method is brittle as the character count can get out of phase with errors, and is therefore not the preferred method.
+
+* Managing planner queue depth with queue reports. Enabling queue reports ($qv=2) will cause the queue depth to be reported each time the planner queue changes. This method, coupled with some form of flow control, is preferred. 
 
 ## Changes Being Considered / Options
 
@@ -27,15 +29,19 @@ $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
 
+####Extend queue reports with more information 
+The following is not in test in dev:
+Setting $qv=3 will return:
+
+{"qr":[1,2,3]}   
+
+Where '1' is the number of available buffers in the queue
+'2' is the number of buffers added to the queue since the previous queue report
+'3' is the number of buffers removed from the queue since the previous queue report
+
 ####Eliminate filtered queue reports
 I don't think anyone is using them. This will reduce code and maintenance size and complexity.
 
 ####Eliminate the checksum in the footer
 Again, I don't think anyone is using it, and it adds complexity
 
-####Extend the QR to return more information. 
-In test now is the following:
-{"qr":[1,2,3]}   
-Where '1' is the number of available buffers in the queue
-'2' is the number of buffers added to the queue since the previous queue report
-'3' is the number of buffers removed from the queue since the previous queue report
