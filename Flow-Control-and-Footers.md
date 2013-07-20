@@ -1,4 +1,4 @@
-Just notes for now:
+For now this page is just rough notes.
 
 _This issue obviously affects the current FTDI-driven USB, but we are also considering methods that will work best as the native USB is brought online. So some of this discussion if forward-looking_
 
