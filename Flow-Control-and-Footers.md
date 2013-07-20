@@ -103,6 +103,9 @@ The line number os the Gcode N word provided in the command. If no N was provide
 ####JSON fixes
 Want the 'f' footer to be an independent element under the 'r' response parent at the same level as the paired response. Examples:
 <pre>
-Current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
-proposed:  {“r”:{“fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY”},”f”:[1,0,0,4079]}
+current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
+proposed:  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
+
+current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"feed":0.00,"vel":0.00,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":1},"f":[1,0,10,9193]}}
+proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"feed":0.00,"vel":0.00,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":1}},"f":[1,0,10,9193]}
 </pre>
