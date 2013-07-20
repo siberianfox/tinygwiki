@@ -50,5 +50,16 @@ Again, I don't think anyone is using it, and it adds complexity
 ####Footer changes
 Especially if the above are implemented we may be able to be more efficient with the footers. Currently there is one footer style (1) that returns the following array:
 
-{"f":[footer-style, status-code, byte-count, checksum]}
+{"f":[1, status-code, byte-count, checksum]}    --- where '1' is the footer-style
 
+We could allow the footer style to be set by a hidden variable via config. Here's one option
+
+{"f":[2, status-code, queue-depth, buffers-added, buffers-removed]}
+
+This would eliminate the need for requesting separate queue reports by folding the QR information into the footer.
+
+Another option:
+
+{"f":[3, status-code, line-number, queue-depth, buffers-added, buffers-removed]}
+
+The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. THe line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
