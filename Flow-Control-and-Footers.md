@@ -22,7 +22,7 @@ With hardware flow control, two additional wires are used, one for the RX (RTS, 
 
 ###How this effects TinyG
 
-The challenge is to accomplish and balance these 3 things:
+The challenge is to accomplish and balance these four things:
 
 1. Never overflow a buffer on the TinyG or FTDI. (The XON/XOFF or RTS/CTS should handle this for us, but *it must be turned on per connection from the host side.*)
 1. Keep the planner full enough so it plans optimally and does not starve. This generally requires at least 8 of the 28 buffers to be occupied, 12 is a safer number.
