@@ -50,5 +50,5 @@ Again, I don't think anyone is using it, and it adds complexity
 ####Footer changes
 Especially if the above are implemented we may be able to be more efficient with the footers. Currently there is one footer style (1) that returns the following array:
 <pre>
-{"f":[<footer-style>,<status_code>,<byte_count>,<checksum>]}
+{"f":[< footer-style >,<status_code>,<byte_count>,<checksum>]}
 </pre>
