@@ -3,10 +3,28 @@ For now this page is just rough notes.
 _This issue obviously affects the current FTDI-driven USB, but we are also considering methods that will work best as the native USB is brought online. So some of this discussion if forward-looking_
 
 ##Flow Control Problem Statement
+
 The control of the commands going to the TinyG board and the responses returned is a complex problem that we have been working through for some time now. It's one class of problem if the machine is moving at nominal feed rates and Gcode segment lengths (block lengths); it becomes significantly harder as the feed rates and command rates increase and the segment lengths decrease. 
+
+###Flow Control Issues Explained
+
+RS-232-style serial communication like that employed by the TinyG between the FTDI USB-to-serial converter and the Atmel XMega microcontroller has several advantages but also a few disadvantages.
+
+The advantages are that there are only two wires required for two-way communication: one to transmit (TX), and one to receive (RX).  In order to accomplish talking in either direction over only one wire the two sides have to agree to the timing and format of the signaling.
+
+The disadvantage of this style of communication is that the TX and the RX are each transmitted blindly. Other than the device on the other end sending a response (over the other wire) there's no way to know when a transmission has been received, which is usually just a problem of knowing if the other device is listening. There also no way to tell when the receiving device has been able to handle all of the data that it was sent. Solving this problem is called flow control.
+
+There are many type of flow control, but there are two general methods we will employ, software XON/XOFF and hardware RTS/CTS.
+
+In software flow control, the two devices will send special data (XON and XOFF characters) over the line to indicate that it is ready for more data or that it doesn't have room for more data, respectively. This is problematic because the XON/XOFF chacters are then part of the stream, and in some cases, that means that they go into the end of a transmit buffer. This means that all of the characters ahead of it in the buffer must transmit first. If the hardware on both ends of the line supports XON/XOFF, and will transmit those characters ahead of any internal buffers, then the response time is pretty good. 
+
+With hardware flow control, two additional wires are used, one for the RX (RTS, or Request To Send) and one for TX (CTS, or Clear To Send). Once device controls RTS, and the other controls CTS. For each device, they set RTS when they have buffer space, and clear it when the buffer is (almost) full. When transmitting, the device reads the CTS line, and if it's set we send data. This means that the response to a buffer full condition is near immediate.
+
+###How this effects TinyG
 
 The challenge is to accomplish and balance these 3 things:
 
+1. Never overflow a buffer on the TinyG or FTDI. (The XON/XOFF or RTS/CTS should handle this for us, but *it must be turned on per connection from the host side.*)
 1. Keep the planner full enough so it plans optimally and does not starve. This generally requires at least 8 of the 28 buffers to be occupied, 12 is a safer number.
 1. Keep the serial channel open so that feedholds characters (!'s) can be injected at any time
 1. Keep a flow of status reports back to the host to report on command status and system state changes
@@ -29,7 +47,7 @@ Turns out this is actually a hard problem.
 ## Current Flow Control Options
 The following methods are currently possible and supported
 
-* XON/XOFF flow control with "blast". Configure $ex=1 and the host obeys XOFF and XON characters. The host sends characters until it's told to stop; resumes when XON is received. THis is what Coolterm does if XON/XOFF is enabled. The advantage is that this is very simple and works very well; the disadvantage is that there is no convenient way to inject feedholds.
+* XON/XOFF flow control with "blast". Configure $ex=1 and the TinyG emits XOFF and XON characters. The FTDI, when properly configured, sends characters until it's told to stop; resumes when XON is received. This is what Coolterm does if XON/XOFF is enabled. The advantage is that this is very simple and works very well; the disadvantage is that there is no convenient way to inject feedholds. _However,_ if the FTDI is _not_ configured to obey XON/XOFF from the TinyG, then the XON/XOFF characters will be passed on to the host and the controlling software must honor them. This is problematic because the XOFF may be received after the transmit buffers of the host software, OS, and FTDI are already loaded with data, and those will still be sent even if the host stops transmitting immediately.
 
 * Managing serial queue depth by character counting. The footer returns the number of bytes removed from the serial queue so that the host can know how many bytes are occupied in the serial queue. If the serial queue is non-zero, then the assumption is that the planner queue is full or near full. This method is brittle as the character count can get out of phase with errors, and is therefore not the preferred method.
 
