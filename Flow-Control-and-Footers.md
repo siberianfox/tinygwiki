@@ -106,6 +106,6 @@ Want the 'f' footer to be an independent element under the 'r' response parent a
 current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
 proposed:  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
 
-current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"feed":0.00,"vel":0.00,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":1},"f":[1,0,10,9193]}}
-proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"posa":0.000,"feed":0.00,"vel":0.00,"unit":1,"coor":1,"dist":0,"frmo":0,"momo":0,"stat":1}},"f":[1,0,10,9193]}
+current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1},"f":[1,0,10,9193]}}
+proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1}},"f":[1,0,10,9193]}
 </pre>
