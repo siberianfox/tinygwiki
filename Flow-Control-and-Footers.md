@@ -11,6 +11,20 @@ The challenge is to accomplish and balance these 3 things:
 1. Keep the serial channel open so that feedholds characters (!'s) can be injected at any time
 1. Keep a flow of status reports back to the host to report on command status and system state changes
 
+Turns out this is actually a hard problem. 
+
+* Many commands will end up in the planner buffer, and it's possible that a line of Gcode will consume from 0 to 4 buffers. Possibly more. basically, any command that needs to be synchronized with file execution needs to be queued, so this includes M commands, spindle commands, dwells, etc. Since it's possible to put multiple non-mode-related commands on the same Gcode line there can be more than 1 command per line that ends up in the planner queue. This mostly happens at the start of the Gcode file during setup. It's rare during actual Gcode move execution.
+
+* Further complicating things is that the generation of queue reports is not always one-to-one with commands sent. When a QR is requested it is not sent until the system "gets around to" doing transmissions. In other words, the request is queued but the report is not generated or sent yet. If the system is really busy pushing out a lot of really short Gcode lines - e.g. 5 or 10 ms each, it's going to spend it's time generating and pulsing those lines, not sending text. So in heavy cases there may be multiple requests for QRs made before one is actually sent. When one IS sent it does reflect the current state of the system - it may have "humped" a few states, however. This is unavoidable if you want to the system to prioritize step generation and processing new moves over serial IO. 
+
+* Even with very rapid movement the planner queue does not need to be full to optimally plan. Typically about 8 buffers are required for optimal planning
+
+* The minimum time for a MOVE in the planner to execute is 5 ms, occasionally less. Non-moves (e.g. M codes) may execute faster. So on average 8 buffers would take a minimum of 40 ms, probably longer. 20 would take 100 ms, probably longer. This gives you an idea of how fast the host must react to prevent queue starvation.
+
+* Know that the serial buffer will hold an input line until there are at least 4 buffers available in the planner queue. This is to ensure that the line can be processed, and will not result in an exception.
+
+* The current queue depth is 28 buffers, and could be made somewhat larger if need be.
+
 
 ## Current Flow Control Options
 The following methods are currently possible and supported
@@ -40,6 +54,28 @@ Where '1' is the number of available buffers in the queue
 '3' is the number of buffers removed from the queue since the previous queue report
 
 This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer. 
+
+So here's what we've been thinking and will be experimenting with shortly.
+
+We can add a new verbosity to the queue reports, $qv=3 for an enhanced or "relative" reporting mode. The response would be:
+{"qr":[A,B,C]} where 
+
+A is the number of available buffers - as per current operation
+B is the number of buffers added to the queue since the last QR
+C is the number of buffers removed from the queue since the last QR
+
+In text this might be like:
+qr:A,in:B,out:C   or something like that
+
+This will allow the host to make a decision to send more lines or not, and roughly how many more lines it should send to avoid starvation. Keep in mind the following facts:
+
+So here are some cases the host would react to:
+
+- The QRs show available buffers dropping per report, a move coming in for each report and very few moves going out. This indicates long(ish) moves being queued - at least moves that take longer to execute than the serial system can deliver them. In this case stop sending new moves when there are 4 to 6 buffers left.
+
+- The QRs show available buffers dropping fast, one move coming in per report, and many moves going out. This indicates that a lot of short moves are being executed and the queue is being drained faster than it's being replenished. The host should try to replenish the buffer by sending about as many lines to the board as have been removed.
+
+We are going to experiment with this in the next few days. Want to join us? I'll post to the group when I push these behaviors to dev.
 
 ####Eliminate filtered queue reports
 I don't think anyone is using them. This will reduce code and maintenance size and complexity.
