@@ -118,3 +118,13 @@ proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.
 </pre>
 
 In order to maintain backwards compatibility we suggest a footer-level setting (FL). FL=0 is the new behavior, FL=1 is the legacy behavior.
+
+Some additional JSON changes:
+
+A null response will be returned as {}. 
+
+Responses to ill-formed JSON.  We are considering trapping ill-formed JSON (like a lone { on a line) and returning it as an exception report inside a well formed JSON response. Something like:
+
+{"r":{"ex":"{"}},"f":[1,48,00,0000]} where the '48' is the response code for malformed JSON.  
+
+ 
