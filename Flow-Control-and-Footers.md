@@ -90,7 +90,7 @@ I don't think anyone is using them. This will reduce code and maintenance size a
 ####Eliminate the checksum in the footer
 Again, I don't think anyone is using it, and it adds complexity
 
-####Footer changes
+####Proposed Footer Changes
 Especially if the above are implemented we may be able to be more efficient with the footers. Currently there is one footer style (1) that returns the following array:
 
 {"f":[1, status-code, byte-count, checksum]}    --- where '1' is the footer-style
@@ -107,7 +107,7 @@ Another option:
 
 The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. The line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
 
-####JSON fixes
+####Proposed JSON Changes
 Want the 'f' footer to be a sister element to the 'r' response. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
 <pre>
 current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
