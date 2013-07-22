@@ -25,23 +25,23 @@ With hardware flow control, two additional wires are used, one for the RX (RTS, 
 The challenge is to accomplish and balance these four things:
 
 1. Never overflow a buffer on the TinyG or FTDI. (The XON/XOFF or RTS/CTS should handle this for us, but *it must be turned on per connection from the host side.*)
-1. Keep the planner full enough so it plans optimally and does not starve. This generally requires at least 8 of the 28 buffers to be occupied, 12 is a safer number.
+1. Keep the planner full enough so it plans optimally and does not starve. This generally requires at least 8 of the 28 buffers to be occupied, 12 is a safer number
 1. Keep the serial channel open so that feedhold ("!") and other special characters can be injected at any time
-1. Keep a flow of status reports back to the host to report on command status and system state changes
+1. Keep a flow of status reports and queue reports back to the host to report on command status and system state changes
 
-Turns out this is actually a hard problem. 
+Turns out this is actually a hard problem. Here are some things to make note of:
 
-* Many commands will end up in the planner buffer, and it's possible that a line of Gcode will consume from 0 to 4 buffers. Possibly more. basically, any command that needs to be synchronized with file execution needs to be queued, so this includes M commands, spindle commands, dwells, etc. Since it's possible to put multiple non-mode-related commands on the same Gcode line there can be more than 1 command per line that ends up in the planner queue. This mostly happens at the start of the Gcode file during setup. It's rare during actual Gcode move execution.
+* Many commands other than just Gcode movement will end up in the planner buffer, and it's possible that a line of Gcode will consume from 0 to 4 buffers. Possibly more. basically, any command that needs to be synchronized with Gcode execution needs to be queued, so this includes M commands, spindle commands, dwells, etc. Since it's possible to put multiple non-modally-related commands on the same Gcode line there can be more than 1 command per line that ends up in the planner queue. This mostly happens at the start of the Gcode file during setup. It's less common during actual Gcode move execution.
 
-* Further complicating things is that the generation of queue reports is not always one-to-one with commands sent. When a QR is requested it is not sent until the system "gets around to" doing transmissions. In other words, the request is queued but the report is not generated or sent yet. If the system is really busy pushing out a lot of really short Gcode lines - e.g. 5 or 10 ms each, it's going to spend it's time generating and pulsing those lines, not sending text. So in heavy cases there may be multiple requests for QRs made before one is actually sent. When one IS sent it does reflect the current state of the system - it may have "humped" a few states, however. This is unavoidable if you want to the system to prioritize step generation and processing new moves over serial IO. 
+* Further complicating things is that the generation of queue reports (QRs) is not always one-to-one with commands sent. When a QR is requested it is not sent until the system "gets around to" doing transmissions. In other words, the request is queued but the report is not generated or sent yet. If the system is really busy pushing out a lot of really short Gcode lines - e.g. 5 or 10 ms each, it's going to spend it's time generating and pulsing those lines, not sending text. So in heavy cases there may be multiple requests for QRs made before one is actually sent. When one IS sent it does reflect the current state of the system - it may have "humped" a few states, however. This is unavoidable if you want to the system to prioritize step generation and processing new moves over serial IO. 
+
+* The same is true of status reports (SRs). Depending on the rate of command processing and the minimum reporting interval set in the $SI setting there may be multiple state changes occurring before a status report is actually generated and sent. This can look like "skipping ahead" through multiple line numbers, and other jumps. Again, this is unavoidable if the rate of processing exceeds the rqte at which the reports can be sent. TinyG manages this so that status reports do not "flood".
 
 * Even with very rapid movement the planner queue does not need to be full to optimally plan. Typically about 8 buffers are required for optimal planning
 
 * The minimum time for a MOVE in the planner to execute is 5 ms, occasionally less. Non-moves (e.g. M codes) may execute faster. So on average 8 buffers would take a minimum of 40 ms, probably longer. 20 would take 100 ms, probably longer. This gives you an idea of how fast the host must react to prevent queue starvation.
 
-* Know that the serial buffer will hold an input line until there are at least 4 buffers available in the planner queue. This is to ensure that the line can be processed, and will not result in an exception.
-
-* The current queue depth is 28 buffers, and could be made somewhat larger if need be.
+* In order to manage inbound command flow and avoid buffer full conditions the serial buffer will hold an input line until there are at least 4 buffers available in the planner queue. This is to ensure that the line can be processed, and will not result in an exception. The current queue depth is 28 buffers, so at any given point no more that 24 are usually filled.
 
 
 ## Current Flow Control Options
