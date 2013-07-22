@@ -54,7 +54,7 @@ The following methods are currently possible and supported
 ## Changes Being Considered / Options
 
 #### Add RTS/CTS flow control
-Add this in addition to XON/XOFF as mutually exclusive settings: e.g. 
+RTS/CTS is currently in test in dev branch 380.02 and larger. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
 $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
@@ -71,17 +71,8 @@ Where '1' is the number of available buffers in the queue
 
 This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer. 
 
-So here's what we've been thinking and will be experimenting with shortly.
-
-We can add a new verbosity to the queue reports, $qv=3 for an enhanced or "relative" reporting mode. The response would be:
-{"qr":[A,B,C]} where 
-
-A is the number of available buffers - as per current operation
-B is the number of buffers added to the queue since the last QR
-C is the number of buffers removed from the queue since the last QR
-
 In text this might be like:
-qr:A,in:B,out:C   or something like that
+qr:1,in:2,out:3   or something like that
 
 This will allow the host to make a decision to send more lines or not, and roughly how many more lines it should send to avoid starvation. Keep in mind the following facts:
 
@@ -91,7 +82,7 @@ So here are some cases the host would react to:
 
 - The QRs show available buffers dropping fast, one move coming in per report, and many moves going out. This indicates that a lot of short moves are being executed and the queue is being drained faster than it's being replenished. The host should try to replenish the buffer by sending about as many lines to the board as have been removed.
 
-We are going to experiment with this in the next few days. Want to join us? I'll post to the group when I push these behaviors to dev.
+We are also considering putting this "triple" in the footer as a new footer style. See Footer Changes, below.
 
 ####Eliminate filtered queue reports
 I don't think anyone is using them. This will reduce code and maintenance size and complexity.
@@ -104,7 +95,7 @@ Especially if the above are implemented we may be able to be more efficient with
 
 {"f":[1, status-code, byte-count, checksum]}    --- where '1' is the footer-style
 
-We could allow the footer style to be set by a hidden variable via config. Here's one option
+We could allow the footer style to be set by a config variable. Here's one option:
 
 {"f":[2, status-code, queue-depth, buffers-added, buffers-removed]}
 
@@ -114,7 +105,7 @@ Another option:
 
 {"f":[3, status-code, line-number, queue-depth, buffers-added, buffers-removed]}
 
-The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. THe line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
+The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. The line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
 
 ####JSON fixes
 Want the 'f' footer to be a sister element to the 'r' response. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
@@ -125,3 +116,5 @@ proposed:  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM R
 current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1},"f":[1,0,10,9193]}}
 proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1}},"f":[1,0,10,9193]}
 </pre>
+
+In order to maintain backwards compatibility we suggest a footer-level setting (FL). FL=0 is the new behavior, FL=1 is the legacy behavior.
