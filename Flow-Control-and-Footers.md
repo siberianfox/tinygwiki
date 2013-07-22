@@ -1,6 +1,6 @@
-For now this page is just rough notes.
+For now this page is just rough notes up for discussion.
 
-_This issue obviously affects the current FTDI-driven USB, but we are also considering methods that will work best as the native USB is brought online. So some of this discussion if forward-looking_
+_This issue obviously affects the current FTDI-driven USB, but we are also considering methods that will work best as the native USB is brought online. So some of this discussion is forward-looking_
 
 ##Flow Control Problem Statement
 
