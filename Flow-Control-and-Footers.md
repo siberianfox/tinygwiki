@@ -14,7 +14,7 @@ The advantages are that there are only two wires required for two-way communicat
 
 The disadvantage of this style of communication is that the TX and the RX are each transmitted blindly. Other than the device on the other end sending a response (over the other wire) there's no way to know when a transmission has been received, which is usually just a problem of knowing if the other device is listening. There also no way to tell when the receiving device has been able to handle all of the data that it was sent. Solving this problem is called flow control.
 
-There are many type of flow control, but there are two general methods we will employ, software XON/XOFF and hardware RTS/CTS.
+There are many type of flow control, but there are two general methods we will employ, software XON/XOFF and hardware RTS/CTS (Request-To-Send, Clear-To-Send)
 
 In software flow control, the two devices will send special data (XON and XOFF characters) over the line to indicate that it is ready for more data or that it doesn't have room for more data, respectively. This is problematic because the XON/XOFF chacters are then part of the stream, and in some cases, that means that they go into the end of a transmit buffer. This means that all of the characters ahead of it in the buffer must transmit first. If the hardware on both ends of the line supports XON/XOFF, and will transmit those characters ahead of any internal buffers, then the response time is pretty good. 
 
