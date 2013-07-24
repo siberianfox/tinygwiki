@@ -19,8 +19,14 @@
     ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
     ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime  
 
+**This should work, but doesn't:**
+
     opkg update
     opkg upgrade --force-overwrite
+
+Instead, you have to download the latest image from http://beagleboard.org/latest-images (2013-6-20 right now) and then follow the instruction on updating the BBB from here: http://beagleboard.org/Getting%20Started#update
+
+Note that you'll need a 4GB microSD card.
 
 **This will take a long time.**
 
