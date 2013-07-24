@@ -30,13 +30,14 @@
     opkg install python-compiler
     opkg install kernel-module-ftdi-sio 
 
-To prepare for git:
+### To prepare for git:
 
-From your computer:
+_From your computer:_
+
     scp ~/.ssh/id_rsa* root@beaglebone.local:.ssh
 
+_On the bone:_
 
-On the bone:
     mkdir .ssh 
     # Optional setup of ssh-agent, but it'll save time later
     # You'll need to run this every time you login
@@ -58,7 +59,8 @@ On the bone:
     # It may ask for your ssh key password (several times)
 
 To get the list of tinyg's connected (for now):
-    ./node_modules/serialport/bin/serialportList.js
 
+    ./node_modules/serialport/bin/serialportList.js
+    # This should always return /dev/ttyUSB0
  
 Now navigate to http://beaglebone.local:3000/ in order to control the tester and see results.
