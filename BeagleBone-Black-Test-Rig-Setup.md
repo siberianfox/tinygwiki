@@ -24,7 +24,7 @@
     opkg update
     opkg upgrade --force-overwrite
 
-Instead, you have to download the latest image from http://beagleboard.org/latest-images (2013-6-20 right now) and then follow the instruction on updating the BBB from here: http://beagleboard.org/Getting%20Started#update
+Instead, you have to download the latest image from http://beagleboard.org/latest-images (2013-6-20 right now) and then follow the instruction on updating the BBB from [Adafruit](http://learn.adafruit.com/beaglebone-black-installing-operating-systems/mac-os-x) or the [official instructions](http://beagleboard.org/Getting%20Started#update). (I prefer the Adafruit ones, personally. -Rob)
 
 Note that you'll need a 4GB microSD card.
 
