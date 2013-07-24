@@ -4,7 +4,8 @@ Notes: https://github.com/todbot/ArduinoOnBeagleBone
 
 Prerequisites:
 
-    opkg install libusb-1.0-dev
+    opkg install libftdi-dev
+    #opkg install libusb-1.0-dev
 
 Download and install:
 
