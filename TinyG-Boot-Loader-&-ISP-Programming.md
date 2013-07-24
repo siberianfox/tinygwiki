@@ -107,12 +107,12 @@ Other values should be left alone. These are:
  * WDWP = 8clk
  * WDP = 8clk
  * DVSDON = (unchecked)
- * BODPD = disabled
+ * BODPD = Continuously enabled
  * RSTDISBL = (unchecked)  Don't check this - you will brick the board
  * SUT = 0ms
  * WDLOCK = (unchecked)
  * JTAGEN = (CHECKED) Don't uncheck this, you will brick the board
- * BODACT = disabled
+ * BODACT = Continuously enabled
  * EESAVE = (unchecked)
  * BODLVL = 1v6
 
