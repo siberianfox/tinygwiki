@@ -1,5 +1,17 @@
 Consider these build notes:
 
+var redPin = "P8_12";
+var greenPin = "P8_11";
+var inputPin = "P8_14";
+
+Wire the Red LED from P8-12 to GND (pins P8 1 and 2 are GND).
+Wire the Green LED from P8-11 to GND.
+Wire the button between GND and P8-14, with a pullup resistor to 3v3 (pins P8 3 and 4 are 3v3.)
+
+## Making AVRDude
+
+_Please use the precompiled binary in Dropbox. There are the instructions needed to build it:_
+
 Notes: https://github.com/todbot/ArduinoOnBeagleBone
 
 Prerequisites:
