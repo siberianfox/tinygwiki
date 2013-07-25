@@ -35,7 +35,9 @@ Once you've verified proper operation, to deploy the BB as a programmer, move th
 
 ## Making AVRDude
 
-_Please use the precompiled binary in Dropbox. There are the instructions needed to build it:_
+_Please use the precompiled binary in Dropbox. There are the instructions needed to build it._
+
+**To be clear, if you use the binary from Dropbox, you do not need to follow these instructions.**
 
 Notes: https://github.com/todbot/ArduinoOnBeagleBone
 
