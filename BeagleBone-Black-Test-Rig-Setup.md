@@ -20,6 +20,7 @@ Note that you'll need a 4GB or bigger _micro_SD card.
 
 **This will take a long time.**
 
+Connect the BBB Ethernet port. The BBB must be connected to ethernet for most of the rest of this to work
 Open a Terminal (or PuTTY) windows and type:
 
     ssh root@beaglebone.local
