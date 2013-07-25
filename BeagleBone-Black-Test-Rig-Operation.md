@@ -1,4 +1,4 @@
-# Board Programming Instructions
+## Board Programming Instructions
 These must be done before operating the tester
 Make sure the programmer is properly set up. See Programmer Setup
 
@@ -8,11 +8,12 @@ Make sure the programmer is properly set up. See Programmer Setup
 * Place jumper on left position of J12 - labeled +12v
 * Connect PDI programming header to J10. Red wire should be on the side with the white dot
 
-# Board Test Instructions
+## Board Test Instructions
 Make sure the tester is properly set up. See Tester Setup
 
 
-# Tester Setup
+# Setup Instructions
+## Tester Setup
 Checklist. Perform in order.
 
 * Turn power switch off first
@@ -20,4 +21,4 @@ Checklist. Perform in order.
 * Place Beaglebone Black on mounting headers with Ethernet jack in cutaway
 * Connect BBB USB host (A connector) to USB B connector on tester board (NOT on Tiny board)
 
-# Programmer Setup
+## Programmer Setup
