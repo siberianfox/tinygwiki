@@ -1,3 +1,4 @@
+[BeagleBone Black Test Rig Operation](https://github.com/synthetos/TinyG/wiki/BeagleBone-Black-Test-Rig-Operation)
 ## One-time BBB setup:
 
 **First: update the BBB**
