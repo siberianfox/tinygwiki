@@ -69,7 +69,7 @@ Select the Fuses from the programmer dialog and hit PROGRAM when you are done. Y
 	WDLOCK | (unchecked) | default
 	JTAGEN | (CHECKED) | default - never uncheck this or you will brick the board
 	BODACT | BOD enabled continuously [CONTINUOUSLY]| 
-	JTAGEN | (unchecked) | default
+	EESAVE | (unchecked) | default
 	BODLVL | 2.6v [2V6]| 
 
 The fusebytes are left in their default settings and should read:
