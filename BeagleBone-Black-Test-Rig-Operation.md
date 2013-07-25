@@ -26,7 +26,7 @@ Make sure the tester is properly set up. See [Tester Setup](https://github.com/s
  * Blue power LED on tester (next to power input terminal) should fade off, indicating it is safe to remove any test board if there is one already on the tester.
  * Do not unplug or turn off BeagleBone 5v power wall unit.
 * Carefully align TinyG to test on threaded standoffs. Make sure all pogo pins make contact.
-* tighten board using threaded standoffs
+* Loosely screw on the 4 threaded standoffs to hold the board down. Do not tighten (or you may have problems on removal).
 
 # Setup Instructions
 ## Tester Setup
