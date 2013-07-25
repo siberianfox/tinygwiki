@@ -38,6 +38,7 @@ When the image is finished copying to the SD card:
 Once done, remove the beaglebone:local entry from the known_hosts file
 
 ## TinyG-Specific stuff:
+Into the BB type:
 
     opkg update
     opkg install python-compiler
@@ -46,6 +47,7 @@ Once done, remove the beaglebone:local entry from the known_hosts file
 ### To prepare for git:
 
 _From your computer:_
+From your terminal window:
 
     scp ~/.ssh/id_rsa* root@beaglebone.local:.ssh
 
