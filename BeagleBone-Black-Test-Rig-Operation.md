@@ -11,6 +11,11 @@ Make sure the programmer is properly set up. See [Programmer Setup](https://gith
 ## Board Test Instructions
 Make sure the tester is properly set up. See [Tester Setup](https://github.com/synthetos/TinyG/wiki/BeagleBone-Black-Test-Rig-Operation#tester-setup)
 
+* Turn off board power using switch on tester.
+ * Blue power LED on tester (next to power input terminal) should fade off, indicating it is safe to remove any test board.
+ * Do not unplug or turn off BeagleBone 5v power wall unit.
+* Carefully align TinyG to test on threaded standoffs. Make sure all pogo pins make contact.
+* tighten board using threaded standoffs
 
 # Setup Instructions
 ## Tester Setup
