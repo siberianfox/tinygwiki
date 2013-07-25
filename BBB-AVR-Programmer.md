@@ -1,12 +1,37 @@
 Consider these build notes:
 
-var redPin = "P8_12";
-var greenPin = "P8_11";
-var inputPin = "P8_14";
+### Circuit
+
+    var redPin = "P8_12";
+    var greenPin = "P8_11";
+    var inputPin = "P8_14";
 
 Wire the Red LED from P8-12 to GND (pins P8 1 and 2 are GND).
+
 Wire the Green LED from P8-11 to GND.
+
 Wire the button between GND and P8-14, with a pullup resistor to 3v3 (pins P8 3 and 4 are 3v3.)
+
+
+### Avrdude
+
+Run these command in a terminal _from your Mac_ (Note that this assumed Dropbox is running and synced):
+
+    scp ~/Dropbox/Synthetos/avrdude-5.11.1-BBB.tgz root@beaglebone.local:
+    scp ~/Dropbox/Synthetos/bbb-programmer.tgz root@beaglebone.local:
+    ssh root@beaglebone.local
+
+Now you should be connected to the beaglebone, the rest of the commands in that terminal will go to the BBB:
+
+    tar xzvf ~/avrdude-5.11.1-BBB.tgz
+    tar xzvf ~/bbb-programmer.tgz
+
+Now you should be able to go to [Cloud9](http://beaglebone.local:3000/), open `programmer.js` and run it.
+
+Once you've verified proper operation, to deploy the BB as a programmer, move the `programmer.js` script into the `autorun` folder. You can do that with Cloud9 or in the terminal with this command:
+
+    mv /var/lib/cloud9/{programmer.js,autorun/}
+
 
 ## Making AVRDude
 
