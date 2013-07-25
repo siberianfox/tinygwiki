@@ -49,6 +49,10 @@ These also go into the BBB:
     opkg install python-compiler
     opkg install kernel-module-ftdi-sio 
 
+    # Ignore these warning messages:
+    # WARNING: could not open /lib/modules/3.8.13/modules.order: No such file or directory
+    # WARNING: could not open /lib/modules/3.8.13/modules.builtin: No such file or directory about 
+
     mkdir ~/.ssh 
 
 ### To prepare for git:
