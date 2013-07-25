@@ -1,3 +1,4 @@
+[BeagleBone Black Setup](https://github.com/synthetos/TinyG/wiki/BeagleBone-Black-Test-Rig-Setup)
 ## Board Programming Instructions
 These must be done before operating the tester
 Make sure the programmer is properly set up. See [Programmer Setup](https://github.com/synthetos/TinyG/wiki/BeagleBone-Black-Test-Rig-Operation#programmer-setup)
