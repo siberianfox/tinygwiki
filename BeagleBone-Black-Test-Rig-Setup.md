@@ -25,6 +25,7 @@ Open a Terminal (or PuTTY) windows and type:
 
     ssh root@beaglebone.local
     # You may have to fix your local ~/.ssh/known_hosts if you had another beaglebone connected.
+    # When asked for the beaglebone root password hit ENTER 
 
     # Now you're connected to the BeagleBone, these commands will run on the BBB:
     /usr/bin/ntpdate -b -s -u pool.ntp.org
