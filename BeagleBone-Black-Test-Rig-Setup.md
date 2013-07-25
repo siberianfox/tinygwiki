@@ -85,9 +85,10 @@ _On the bone through ssh:_
 
 To get the list of tinyg's connected (for now):
 
+    cd TinyG-node/       (if you are not already in this directory)
     ./node_modules/serialport/bin/serialportList.js
     # This should always return /dev/ttyUSB0
- 
+
 Now navigate to http://beaglebone.local:3000/ in order to control the tester and see results.
 
 Move the TinyG-node.git/examples/tinygTestRig.js to the top level of the "Workspace" using drag and drop. Double-click on it, then hit run. You can now plug the TinyG into the BBB and it should run the script on the TinyG. Note that you need a recent dev build of TinyG to get the RTS/CTS working, or you will see parser errors.
