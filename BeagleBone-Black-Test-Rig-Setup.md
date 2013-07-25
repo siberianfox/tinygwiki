@@ -30,6 +30,13 @@ Note that you'll need a 4GB microSD card.
 
 **This will take a long time.**
 
+When the image is finished copying to the SD card:
+* Power off the BBB and plug in the SD card
+* Power the BBB on with the S2 switch depressed - opposide side of the board from the SD socket
+(read the adafruit tutorial)
+
+Once done, remove the beaglebone:local entry from the known_hosts file
+
 ## TinyG-Specific stuff:
 
     opkg update
