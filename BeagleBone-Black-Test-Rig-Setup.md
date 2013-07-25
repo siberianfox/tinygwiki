@@ -2,9 +2,29 @@
 
 **First: update the BBB**
 
-    ssh root@beaglebone.local
+Download the latest image from http://beagleboard.org/latest-images (2013-6-20 right now) and then follow the instruction on updating the BBB from [Adafruit]. You wan the eMMC Flasher image.(http://learn.adafruit.com/beaglebone-black-installing-operating-systems/mac-os-x) or the [official instructions](http://beagleboard.org/Getting%20Started#update). (I prefer the Adafruit ones, personally. -Rob)
 
+The staps are, basically: 
+
+1. Download image
+1. Decompress image
+1. Copy (with special software or commands) the decompressed image to an SD card
+1. Put that SD card into a powered-down BBB
+1. Push the "Boot" (S2) button on the BBB (closes to the SD card slot, but on the other side) while plugging in the BBB
+1. Wait 3-40 minutes for all four LEDs to stay lit, then unplug the BBB
+1. Remove the SD card
+1. Plug the BBB back in
+
+Note that you'll need a 4GB or bigger _micro_SD card.
+
+**This will take a long time.**
+
+Open a Terminal (or PuTTY) windows and type:
+
+    ssh root@beaglebone.local
     # You may have to fix your local ~/.ssh/known_hosts if you had another beaglebone connected.
+
+    # Now you're connected to the BeagleBone, these commands will run on the BBB:
     /usr/bin/ntpdate -b -s -u pool.ntp.org
 
     #These are simply for sanity's sake:
@@ -19,41 +39,25 @@
     ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
     ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime  
 
-**This should work, but doesn't:**
-
     opkg update
-    opkg upgrade --force-overwrite
-
-Instead, you have to download the latest image from http://beagleboard.org/latest-images (2013-6-20 right now) and then follow the instruction on updating the BBB from [Adafruit]. You wan the eMMC Flasher image.(http://learn.adafruit.com/beaglebone-black-installing-operating-systems/mac-os-x) or the [official instructions](http://beagleboard.org/Getting%20Started#update). (I prefer the Adafruit ones, personally. -Rob)
-
-Note that you'll need a 4GB microSD card.
-
-**This will take a long time.**
-
-When the image is finished copying to the SD card:
-* Power off the BBB and plug in the SD card
-* Power the BBB on with the S2 switch depressed - opposide side of the board from the SD socket
-(read the adafruit tutorial)
-
-Once done, remove the beaglebone:local entry from the known_hosts file
 
 ## TinyG-Specific stuff:
-Into the BB type:
 
-    opkg update
+These also go into the BBB:
+
     opkg install python-compiler
     opkg install kernel-module-ftdi-sio 
 
+    mkdir .ssh 
+
 ### To prepare for git:
 
-_From your computer:_
-From your terminal window:
+_From your computer (in another terminal/PuTYY window):_
 
     scp ~/.ssh/id_rsa* root@beaglebone.local:.ssh
 
-_On the bone:_
+_On the bone through ssh:_
 
-    mkdir .ssh 
     # Optional setup of ssh-agent, but it'll save time later
     # You'll need to run this every time you login
     ssh-add
@@ -79,3 +83,5 @@ To get the list of tinyg's connected (for now):
     # This should always return /dev/ttyUSB0
  
 Now navigate to http://beaglebone.local:3000/ in order to control the tester and see results.
+
+Move the TinyG-node.git/examples/tinygTestRig.js to the top level of the "Workspace" using drag and drop. Double-click on it, then hit run. You can now plug the TinyG into the BBB and it should run the script on the TinyG. Note that you need a recent dev build of TinyG to get the RTS/CTS working, or you will see parser errors.
