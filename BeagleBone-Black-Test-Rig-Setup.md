@@ -85,7 +85,7 @@ _On the bone through ssh:_
 
 To get the list of tinyg's connected (for now):
 
-    cd TinyG-node/       (if you are not already in this directory)
+    cd /var/lib/cloud9/TinyG-node/       (if you are not already in this directory)
     ./node_modules/serialport/bin/serialportList.js
     # This should always return /dev/ttyUSB0
 
