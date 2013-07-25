@@ -40,12 +40,11 @@ Open a Terminal (or PuTTY) windows and type:
     ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
     ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime  
 
-    opkg update
-
 ## TinyG-Specific stuff:
 
 These also go into the BBB:
 
+    opkg update
     opkg install python-compiler
     opkg install kernel-module-ftdi-sio 
 
