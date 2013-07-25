@@ -48,7 +48,7 @@ These also go into the BBB:
     opkg install python-compiler
     opkg install kernel-module-ftdi-sio 
 
-    mkdir .ssh 
+    mkdir ~/.ssh 
 
 ### To prepare for git:
 
