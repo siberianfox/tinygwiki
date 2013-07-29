@@ -13,7 +13,9 @@ Changed the response to malformed JSON to the following format:
 ...where '48' is the status code for malformed JSON.
 
 Also note: blank JSON lines will return this form:
+
     {"r":{},"f":[1,0,8,4401]}
 
 ...or this for is you actually entered {"":""}
+
     {"r":{"":""},"f":[1,40,8,9345]}
