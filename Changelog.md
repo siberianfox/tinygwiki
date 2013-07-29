@@ -5,7 +5,7 @@ This page records changes made in the dev and edge branches. It provides a bit m
 ## Dev Branch
 #### build 386.01
 * Merged robgrz G28.4 homing changes into dev branch
-* Fixed bug where final machine state remained as "Homing" instead of "Stop"
+* Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
 
 #### build 385.01
 * Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
