@@ -5,6 +5,7 @@ This page records changes made in the dev and edge branches. It provides a bit m
 ## Dev Branch
 #### build 385.01
 Changed the response to malformed JSON to the following format:
+
     {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
     {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
     {"r":{"msg":"{gibberish}"},"f":[1,48,12,8007]}
