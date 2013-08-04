@@ -23,6 +23,7 @@ Run these command in a terminal _from your Mac_ (Note that this assumed Dropbox 
 
 Now you should be connected to the beaglebone, the rest of the commands in that terminal will go to the BBB:
 
+    cd /
     tar xzvf ~/avrdude-5.11.1-BBB.tgz
     tar xzvf ~/bbb-programmer.tgz
 
