@@ -19,6 +19,8 @@ Run these command in a terminal _from your Mac_ (Note that this assumed Dropbox 
 
     scp ~/Dropbox/Synthetos/avrdude-5.11.1-BBB.tgz root@beaglebone.local:
     scp ~/Dropbox/Synthetos/bbb-programmer.tgz root@beaglebone.local:
+    scp ~/Dropbox/Synthetos/programmer-script/index.js root@beaglebone.local:/usr/lib/node_modules/bonescript/
+    
     ssh root@beaglebone.local
 
 Now you should be connected to the beaglebone, the rest of the commands in that terminal will go to the BBB:
