@@ -43,7 +43,7 @@ Once you've verified proper operation, to deploy the BB as a programmer, move th
 
 Run this command on the BBB comand line (sss'd in) to change the hostname to `bbb-prog`:
 
-    perl -pi -e 's/beaglebone2/bbb-prog/' /etc/host{name,s}
+    perl -pi -e 's/beaglebone/bbb-prog/' /etc/host{name,s}
 
 You can change `bbb-prog` to another name is you wish, as long as it's a valid hostname. (No spaces, mostly.)
 
