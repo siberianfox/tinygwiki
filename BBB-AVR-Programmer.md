@@ -19,7 +19,6 @@ Run these command in a terminal _from your Mac_ (Note that this assumed Dropbox 
 
     scp ~/Dropbox/Synthetos/avrdude-5.11.1-BBB.tgz root@beaglebone.local:
     scp ~/Dropbox/Synthetos/bbb-programmer.tgz root@beaglebone.local:
-    scp ~/Dropbox/Synthetos/programmer-script/index.js root@beaglebone.local:
     
     ssh root@beaglebone.local
 
