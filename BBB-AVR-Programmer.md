@@ -39,6 +39,13 @@ Once you've verified proper operation, to deploy the BB as a programmer, move th
 
     mv /var/lib/cloud9/{programmer.js,autorun/}
 
+###Changing the hostname
+
+Run this command on the BBB comand line (sss'd in) to change the hostname to `bbb-prog`:
+
+    perl -pi -e 's/beaglebone2/bbb-prog/' /etc/host{name,s}
+
+
 
 ## Making AVRDude
 
