@@ -26,6 +26,8 @@ Now you should be connected to the beaglebone, the rest of the commands in that 
     cd /
     tar xzvf ~/avrdude-5.11.1-BBB.tgz
     tar xzvf ~/bbb-programmer.tgz
+    opkg update
+    opkg install kernel-module-ftdi-sio
 
 Now you should be able to go to [Cloud9](http://beaglebone.local:3000/), open `programmer.js` and run it.
 
