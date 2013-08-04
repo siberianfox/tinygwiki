@@ -45,7 +45,13 @@ Run this command on the BBB comand line (sss'd in) to change the hostname to `bb
 
     perl -pi -e 's/beaglebone2/bbb-prog/' /etc/host{name,s}
 
+You can change `bbb-prog` to another name is you wish, as long as it's a valid hostname. (No spaces, mostly.)
 
+**Warning:** This will change the hostname to `bbb-prog` after reset or reboot of the BBB. To log in from this point on, the new ssh command is:
+
+   ssh root@bbb-prog.local
+
+All `scp` command will change `beaglebone.local` to `bbb-prog.local` as well.
 
 ## Making AVRDude
 
