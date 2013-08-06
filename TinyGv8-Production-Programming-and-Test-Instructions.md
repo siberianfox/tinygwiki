@@ -12,8 +12,9 @@ The following shorthand is used in these instructions:
 
 **BeagleBone Black (BBB) Details**
 * The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
-* The BBB reset button is the small button at left of the front of the BBB. The reset button us directly below the mounting nut and labeled as RESET and S1. When the BB is reset it takes 30 - 40 seconds to boot and become available.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
+* The BBB reset button is the small button at the left front labeled RESET and S1. It is located directly below the mounting nut. 
+* When the BB is reset it takes 30 - 40 seconds to boot and become available. During this time the 4 indicator lights blink. When reset is complete the right-most indicator light should be ON and the other three OFF.
 
 ## Program and Test Instructions Using Laptop Based Tester
 ### Setup Test Rig 
