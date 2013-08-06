@@ -4,7 +4,7 @@ The following shorthand is used in these instructions:
 	Term | Description
 	-----|--------------
 	DUT | Device Under Test. They TinyGv8 board that is being programmed and tested
-	BBB | Beaglebone Black. The single-board computer located on the left of the test rig
+	BBB | Beaglebone Black. The single-board computer located on the left of the test rig. See details below
 	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
 	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
 	DUT POWER | The DUT power switch is located on the right hand side of the test rig
