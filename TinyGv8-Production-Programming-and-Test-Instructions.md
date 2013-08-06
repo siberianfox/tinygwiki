@@ -1,7 +1,38 @@
+## Background and Shorthand
+In order to keep these instruction easier to read the following shorthand is used
+
+	Term | Description
+	-----|--------------
+	UUT | Unit Under Test. They TinyG board that is being programmed and tested
+	BBB | Beaglebone Black. The single-board computer located on the left of the test rig
+	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
+	pogo board | The tester board with 18 pogo pins
+	UUT power | The UUT power switch is located on the right hand side of the test rig
+
+
+BeagleBone Black (BBB) Details
+
+* The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB
+* The BBB reset button is the small button at left of the front of the BBB. The reset button us directly below the mounting nut and labeled as RESET and S1. When the BB is reset it takes 30 - 40 seconds to boot and become available.
+* The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
+
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Laptop Based Tester
 ### Prepare Test Rig 
 
 These steps only need to be completed once at the start of a test run. 
+
+* **STEP 1** Inspect the test rig and verify against picture ___
+ 1. Verify there is one BeagleBone Black (BBB) board on the test rig
+ 1. Verify there is one tester base board with 18 serrated head pogo pins
+ 1. Verify there is an Atmel AVRISP mkII programmer lugged into the BBB USB A jack
+ 1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the UUT to the tester
+
+* **STEP 2** Turn off tester power using switch on right side of test jig
+* **STEP 3** Plug in 5v wall units and apply power to BBB boards on left of tester
+* **STEP 4** Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
+* **STEP 5** Align motor flags so they all point vertically (12:00 position)
+
+
 
 	Step | Instruction
 	-----|--------------
@@ -10,15 +41,6 @@ These steps only need to be completed once at the start of a test run.
 	3 | Plug in 5v wall units and apply power to BBB boards on left of tester
 	4 | Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
 	5 | Align motor flags so they all point vertically (12:00 position)
-
-* **STEP 1** Inspect the test rig and verify against picture ___
- 1. Verify there is one BeagleBone Black (BBB) board on the test rig
- 1. Verify there is one tester base board with 18 serrated head pogo pins
- 1. Verify there is an Atmel AVRISP mkII programmer lugged into the BBB USB A jack 
-* **STEP 2** Turn off tester power using switch on right side of test jig
-* **STEP 3** Plug in 5v wall units and apply power to BBB boards on left of tester
-* **STEP 4** Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
-* **STEP 5** Align motor flags so they all point vertically (12:00 position)
 
 
 
