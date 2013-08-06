@@ -21,8 +21,7 @@ The following shorthand is used in these instructions:
 
 These steps only need to be completed once at the start of a test run. 
 
-[Tester - Picture 1](http://www.flickr.com/photos/rileyporter/9449872003/sizes/c/in/photostream/)
-![Tester](http://www.flickr.com/photos/rileyporter/9449872003/sizes/c/in/photostream/)
+![Tester](http://farm3.staticflickr.com/2865/9449872003_da07344f43_c_d.jpg)
 
 * **SETUP STEP 1** Inspect the test rig and verify against picture ___
  1. Verify there is one BBB board on the test rig
