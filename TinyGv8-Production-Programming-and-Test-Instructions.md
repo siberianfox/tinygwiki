@@ -11,7 +11,9 @@ These steps only need to be completed once at the start of a test run.
 	4 | Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
 	5 | Align motor flags so they all point vertically (12:00 position)
 
-* **STEP 1** Inspect the test rig. Make sure is one BeagleBone Black (BBB) board on the tester and one tester base board with 18 serrated head pogo pins
+* **STEP 1** Inspect the test rig. 
+ 1. Make sure there is one BeagleBone Black (BBB) board on the test rig
+ 1. Make sure there is one tester base board with 18 serrated head pogo pins
 * **STEP 2** Turn off tester power using switch on right side of test jig
 * **STEP 3** Plug in 5v wall units and apply power to BBB boards on left of tester
 * **STEP 4** Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
