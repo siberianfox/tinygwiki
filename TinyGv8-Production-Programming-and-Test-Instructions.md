@@ -10,8 +10,7 @@ The following shorthand is used in these instructions:
 	DUT POWER | The switch that supplies power to the DUT is located on the right hand side of the test rig
 
 
-BeagleBone Black (BBB) Details
-
+**BeagleBone Black (BBB) Details**
 * The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. This is not DUT POWER and remains on for the entire test run.
 * The BBB reset button is the small button at left of the front of the BBB. The reset button us directly below the mounting nut and labeled as RESET and S1. When the BB is reset it takes 30 - 40 seconds to boot and become available.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
