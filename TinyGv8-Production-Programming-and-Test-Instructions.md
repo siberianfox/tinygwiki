@@ -60,7 +60,16 @@ Run these steps for each board to be programmed and tested
  1. In the Options window hit "Re-Scan Serial Ports" and select ++++++++. Hit OK to exit
  1. Hit "Connect"
  1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
-* **STEP 9** Type the following into the terminal window: _$test=1<CR>_
+* **STEP 9** Type the following into the terminal window: _$test=1_ followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
+ 1. Motor 1 turns clockwise at high speed for about 2 seconds, reverses for about 2 seconds and stops with the flag in the starting position (vertical, at 12:00).
+ 1. Motor 2 does the same
+ 1. Motor 3 does the same
+ 1. Motor 4 does the same
+ 1. All four motors do the same simultaneously
+ 1. Motor 1 turns clockwise at low speed for about 2 seconds, reverses for about 2 seconds and stops with the flag in the starting position (vertical, at 12:00).
+ 1. Motor 2 does the same
+ 1. Motor 3 does the same
+ 1. Motor 4 does the same
 
 
 #### Alternate Steps
