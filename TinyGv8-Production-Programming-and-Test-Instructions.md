@@ -21,6 +21,8 @@ The following shorthand is used in these instructions:
 
 These steps only need to be completed once at the start of a test run. 
 
+
+
 * **SETUP STEP 1** Inspect the test rig and verify against picture ___
  1. Verify there is one BBB board on the test rig
  1. Verify there is one TESTER board with 18 serrated head pogo pins loaded into the pogo sockets
