@@ -6,7 +6,7 @@ In order to keep these instruction easier to read the following shorthand is use
 	UUT | Unit Under Test. They TinyG board that is being programmed and tested
 	BBB | Beaglebone Black. The single-board computer located on the left of the test rig
 	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
-	pogo board | The tester board with 18 pogo pins
+	tester board | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
 	UUT power | The UUT power switch is located on the right hand side of the test rig
 
 
