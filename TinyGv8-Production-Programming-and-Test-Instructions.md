@@ -41,7 +41,7 @@ These steps only need to be completed once at the start of a test run.
 Setup is now complete
 
 ### Instructions for Each TinyGv8 Board
-Run these steps for each board to be programmed and tested
+Run these steps for each board to be programmed and tested. Each UUT should take between 2 and 3 minutes to complete.
 
 * **STEP 1** Turn off UUT POWER using switch on right side of test jig
 * **STEP 2** Fasten the UUT under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs
