@@ -51,8 +51,9 @@ Run these steps for each board to be programmed and tested
 * **STEP 5** Press PROGRAM button on the BBB. Programming takes about 10 seconds, during which time the green LED inside the AVRISP should flash and the LED on the outside of the case should turn orange. If programming is successful the following should occur:
  1. The AVRISP LED inside the case will turn solid green
  1. The AVRISP LED on the case will turn from orange to green
- 1. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence.
- 1. The green LEDs D9-D12 will turn off after about 2 seconds These will turn off after about 2 seconds
+ 1. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence
+ 1. LED D7 (red) will be dimly lit
+ 1. Green LEDs D9-D12 will turn off after about 2 seconds These will turn off after about 2 seconds
  1. If the above occurs the UUT is now programmed. If not, execute step 5R as in Alternate Steps
 * **STEP 6** Disconnect the AVRISP programming header from J9 
 * **STEP 7** Connect the USB from the laptop to the UUT
@@ -61,15 +62,14 @@ Run these steps for each board to be programmed and tested
  1. Hit "Connect"
  1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
 * **STEP 9** Type the following into the terminal window: _$test=1_ followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
- 1. Motor 1 turns clockwise at high speed for about 2 seconds, reverses for about 2 seconds and stops with the flag in the starting position (vertical, at 12:00).
+ 1. Motor 1 turns clockwise at high speed for about 2 seconds, CCW for about 2 seconds and stops with the flag in the starting position (12:00). All four green LEDs D9, D10, D11, D12 should be lit during this and other motor movement operations.
  1. Motor 2 does the same
  1. Motor 3 does the same
  1. Motor 4 does the same
  1. All four motors do the same simultaneously
- 1. Motor 1 turns clockwise at low speed for about 2 seconds, reverses for about 2 seconds and stops with the flag in the starting position (vertical, at 12:00).
- 1. Motor 2 does the same
- 1. Motor 3 does the same
- 1. Motor 4 does the same
+ 1. All four motors turns clockwise at low speed for about 2 seconds, reverse for about 2 seconds and stop with the flags in the starting positions (12:00)
+ 1. An LED sequence will follow, during with the operation of LEDs D5, D6 and D8 should be verified. D7 should already be dimly lit after programming.
+ 1. A final short move on motor 1 indicates that the test sequence is complete
 
 
 #### Alternate Steps
