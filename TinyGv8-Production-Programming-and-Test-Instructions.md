@@ -60,8 +60,7 @@ Run these steps for each board to be programmed and tested
  1. In the Options window hit "Re-Scan Serial Ports" and select ++++++++. Hit OK to exit
  1. Hit "Connect"
  1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
-* **STEP 9** Type the following into the terminal window: 
-    $test=1<CR>
+* **STEP 9** Type the following into the terminal window: _$test=1<CR>_
 
 
 #### Alternate Steps
