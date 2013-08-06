@@ -53,18 +53,22 @@ Run these steps for each board to be programmed and tested
  1. The AVRISP LED on the case will turn from orange to green
  1. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence.
  1. The green LEDs D9-D12 will turn off after about 2 seconds These will turn off after about 2 seconds
- 1. If the above occurs the UUT is now programmed. If not, execute step 5a, below
-* **STEP 5a** Recover the BBB programmer by performing the following steps
- 1. Verify the BBB has power applied. Verify the blue PWR LED next to the barrel connector should is lit
- 1. Press the RESET button located at the left of the BBB. Wait 30-40 seconds. The right-most indicator light should light solid. The other 3 indicator LEDs should be off
- 1. Verify the USB cable is properly connected between the BBB and the AVRISP. The USB A goes into the rear of the BBB. The USB B goes to the AVRISP
- 1. Verify the green LED inside the AVRISP is lit solid. The LED on the AVRISP surface may be red or some other color
+ 1. If the above occurs the UUT is now programmed. If not, execute step 5R as in Alternate Steps
 * **STEP 6** Disconnect the AVRISP programming header from J9 
 * **STEP 7** Connect the USB from the laptop to the UUT
 * **STEP 8** Connect the terminal emulator (CoolTerm) to the UUT by performing the following steps
  1. In the Options window hit "Re-Scan Serial Ports" and select ++++++++. Hit OK to exit
  1. Hit "Connect"
  1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
+
+#### Alternate Steps
+
+* **STEP 5R** Recover the BBB programmer by performing the following steps
+ 1. Verify the BBB has power applied. Verify the blue PWR LED next to the barrel connector should is lit
+ 1. Press the RESET button located at the left of the BBB. Wait 30-40 seconds. The right-most indicator light should light solid. The other 3 indicator LEDs should be off
+ 1. Verify the USB cable is properly connected between the BBB and the AVRISP. The USB A goes into the rear of the BBB. The USB B goes to the AVRISP
+ 1. Verify the green LED inside the AVRISP is lit solid. The LED on the AVRISP surface may be red or some other color
+
 
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Tester
 ### Prepare Test Rig 
