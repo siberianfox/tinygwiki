@@ -6,7 +6,7 @@ In order to keep these instruction easier to read the following shorthand is use
 	UUT | Unit Under Test. They TinyG board that is being programmed and tested
 	BBB | Beaglebone Black. The single-board computer located on the left of the test rig
 	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
-	tester board | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
+	tester | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
 	UUT power | The UUT power switch is located on the right hand side of the test rig
 
 
@@ -17,39 +17,28 @@ BeagleBone Black (BBB) Details
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
 
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Laptop Based Tester
-### Prepare Test Rig 
+### Setup Test Rig 
 
 These steps only need to be completed once at the start of a test run. 
 
-* **STEP 1** Inspect the test rig and verify against picture ___
- 1. Verify there is one BeagleBone Black (BBB) board on the test rig
- 1. Verify there is one tester base board with 18 serrated head pogo pins
- 1. Verify there is an Atmel AVRISP mkII programmer lugged into the BBB USB A jack
+* **SETUP STEP 1** Inspect the test rig and verify against picture ___
+ 1. Verify there is one BBB board on the test rig
+ 1. Verify there is one tester board with 18 serrated head pogo pins loaded into the pogo sockets
+ 1. Verify there is an Atmel AVRISP mkII programmer plugged into the USB jack in the rear of the BBB
  1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the UUT to the tester
+* **SETUP STEP 2** Turn off UUT power using switch on right side of test jig and connect the AC power cord
+* **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side
+* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit
+* **SETUP STEP 5** Align motor flags so they all point vertically (12:00 position)
 
-* **STEP 2** Turn off tester power using switch on right side of test jig
-* **STEP 3** Plug in 5v wall units and apply power to BBB boards on left of tester
-* **STEP 4** Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
-* **STEP 5** Align motor flags so they all point vertically (12:00 position)
-
-
-
-	Step | Instruction
-	-----|--------------
-	1 | Inspect the test rig. Make sure is one BeagleBone Black (BBB) board on the tester and one tester base board with 18 serrated head pogo pins
-	2 | Turn off tester power using switch on right side of test jig
-	3 | Plug in 5v wall units and apply power to BBB boards on left of tester
-	4 | Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
-	5 | Align motor flags so they all point vertically (12:00 position)
-
-
+Setup is now complete
 
 ### Instructions for Each TinyGv8 Board
 Run these steps for each board to be programmed and tested
 
-	Step | Instructions 
-	-----|--------------
-	1 | Turn off tester power using switch on right side of test jig
+* **STEP 1** Turn off UUT power using switch on right side of test jig
+* **STEP 2** Turn off UUT power using switch on right side of test jig
+
 	2 | Fasten board under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs provided
 	3 | Connect programming header to J10. Red polarity marking is towards the white dot next to "PDI"
 	4 | Turn on board power using switch on right side of test jig
