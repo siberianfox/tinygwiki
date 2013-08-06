@@ -1,5 +1,26 @@
-
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Laptop Based Tester
+### Prepare Test Rig 
+
+These steps only need to be completed once at the start of a test run. 
+
+	Step | Instruction
+	-----|--------------
+	1 | Inspect the test rig. Make sure is one BeagleBone Black (BBB) board on the tester and one tester base board with 18 serrated head pogo pins
+	2 | Turn off tester power using switch on right side of test jig
+	3 | Plug in 5v wall units and apply power to BBB boards on left of tester
+	4 | Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
+	5 | Align motor flags so they all point vertically (12:00 position)
+
+1. Inspect the test rig. Make sure is one BeagleBone Black (BBB) board on the tester and one tester base board with 18 serrated head pogo pins
+2. Turn off tester power using switch on right side of test jig
+3. Plug in 5v wall units and apply power to BBB boards on left of tester
+4. Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
+5. Align motor flags so they all point vertically (12:00 position)
+
+
+
+### Instructions for Each TinyGv8 Board
+Run these steps for each board to be programmed and tested
 
 	Step | Instructions 
 	-----|--------------
@@ -19,18 +40,19 @@
 	2 | 
 	2 | 
 
+
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Tester
 ### Prepare Test Rig 
 These steps only need to be completed once at the start of a test run. 
 
 	Step | Instruction
 	-----|--------------
-	1. | Inspect the test rig. Make sure there are two BegalBone Black (BBB) boards on the tester and one tester base board with 18 serrated head pogo pins,
-	1. | Turn off tester power using switch on right side of test jig
-	2. | Plug in 5v wall units and apply power to BeagleBone Black boards on left of tester
-	3 | Hit reset on both Beaglebone boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
-	3 | Align motor flags so they all point vertically (12:00 position)
-	2 | 
+	1 | Inspect the test rig. Make sure there are two BeagleBone Black (BBB) boards on the tester and one tester base board with 18 serrated head pogo pins,
+	2 | Turn off tester power using switch on right side of test jig
+	3 | Plug in 5v wall units and apply power to BBB boards on left of tester
+	4 | Hit reset on both BBB boards. This will take 30-40 seconds to complete. Reset is complete when the right-most a blue LED in the row of 4 is lit and the other three are not lit
+	5 | Align motor flags so they all point vertically (12:00 position)
+ 
 
 ### Instructions for Each TinyGv8 Board
 Run these steps for each board to be programmed and tested
