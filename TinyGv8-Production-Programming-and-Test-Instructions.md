@@ -3,57 +3,68 @@ In order to keep these instruction easier to read the following shorthand is use
 
 	Term | Description
 	-----|--------------
-	UUT | Unit Under Test. They TinyG board that is being programmed and tested
+	UUT | Unit Under Test. They TinyGv8 board that is being programmed and tested
 	BBB | Beaglebone Black. The single-board computer located on the left of the test rig
 	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
-	tester | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
-	UUT power | The UUT power switch is located on the right hand side of the test rig
+	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor an power connectors
+	UUT POWER | The UUT power switch is located on the right hand side of the test rig
 
 
 BeagleBone Black (BBB) Details
 
-* The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB
+* The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. This is not UUT POWER and remains on for the entire test run.
 * The BBB reset button is the small button at left of the front of the BBB. The reset button us directly below the mounting nut and labeled as RESET and S1. When the BB is reset it takes 30 - 40 seconds to boot and become available.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
 
-## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Laptop Based Tester
+## Program and Test Instructions Using Laptop Based Tester
 ### Setup Test Rig 
 
 These steps only need to be completed once at the start of a test run. 
 
 * **SETUP STEP 1** Inspect the test rig and verify against picture ___
  1. Verify there is one BBB board on the test rig
- 1. Verify there is one tester board with 18 serrated head pogo pins loaded into the pogo sockets
- 1. Verify there is an Atmel AVRISP mkII programmer plugged into the USB jack in the rear of the BBB
+ 1. Verify there is one TESTER board with 18 serrated head pogo pins loaded into the pogo sockets
+ 1. Verify there is an Atmel AVRISP programmer plugged into the USB jack in the rear of the BBB
  1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the UUT to the tester
-* **SETUP STEP 2** Turn off UUT power using switch on right side of test jig and connect the AC power cord
-* **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side
-* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit
+* **SETUP STEP 2** Turn off UUT POWER using switch on right side of test jig and connect the AC power cord
+* **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side. The blue PWR LED next to the barrel connector should be lit.
+* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete, during which time the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
+ 1. Verify that the green LED inside the AVRISP is lit and solid (not flashing)
 * **SETUP STEP 5** Align motor flags so they all point vertically (12:00 position)
+* **SETUP STEP 6** Setup the laptop for testing using these steps:
+ 1. Turn on laptop power... (++++++ RILEY ++++++)
+ 1. connect a USB cable to the laptop (not the UUT, yet)
+ 1. start CoolTerm
+ 1. In the Options window select Baudrate to 115200. All other options are OK as defaulted. Hit OK to exit.
+
 
 Setup is now complete
 
 ### Instructions for Each TinyGv8 Board
 Run these steps for each board to be programmed and tested
 
-* **STEP 1** Turn off UUT power using switch on right side of test jig
-* **STEP 2** Turn off UUT power using switch on right side of test jig
-
-	2 | Fasten board under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs provided
-	3 | Connect programming header to J10. Red polarity marking is towards the white dot next to "PDI"
-	4 | Turn on board power using switch on right side of test jig
-	5 | Press PROGRAM button on Beaglebone. The green LED inside the AVRISP should flash. If programming is successful the LED on the case will turn from orange to green. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence. These will turn off after about 2 seconds  
-	6 | Disconnect the J9 programming header
-	7 | 
-	8 | 
-	9 | 
-	2 | 
-	2 | 
-	2 | 
-	2 | 
-	2 | 
-	2 | 
-
+* **STEP 1** Turn off UUT POWER using switch on right side of test jig
+* **STEP 2** Fasten the UUT under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs
+* **STEP 3** Connect the AVRISP programming header to UUT J10. The red polarity marking should be towards the white dot labeled "PDI"
+* **STEP 4** Turn on UUT POWER power using switch on right side of test jig
+ 1. Verify that the UUT blue LED D2 is lit (D7 red LED does not light, unlike in the photograph) 
+* **STEP 5** Press PROGRAM button on the BBB. Programming takes about 10 seconds, during which time the green LED inside the AVRISP should flash and the LED on the outside of the case should turn orange. If programming is successful the following should occur:
+ 1. The AVRISP LED inside the case will turn solid green
+ 1. The AVRISP LED on the case will turn from orange to green
+ 1. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence.
+ 1. The green LEDs D9-D12 will turn off after about 2 seconds These will turn off after about 2 seconds
+ 1. If the above occurs the UUT is now programmed. If not, execute step 5a, below
+* **STEP 5a** Recover the BBB programmer by performing the following steps
+ 1. Verify the BBB has power applied. Verify the blue PWR LED next to the barrel connector should is lit
+ 1. Press the RESET button located at the left of the BBB. Wait 30-40 seconds. The right-most indicator light should light solid. The other 3 indicator LEDs should be off
+ 1. Verify the USB cable is properly connected between the BBB and the AVRISP. The USB A goes into the rear of the BBB. The USB B goes to the AVRISP
+ 1. Verify the green LED inside the AVRISP is lit solid. The LED on the AVRISP surface may be red or some other color
+* **STEP 6** Disconnect the AVRISP programming header from J9 
+* **STEP 7** Connect the USB from the laptop to the UUT
+* **STEP 8** Connect the terminal emulator (CoolTerm) to the UUT by performing the following steps
+ 1. In the Options window hit "Re-Scan Serial Ports" and select ++++++++. Hit OK to exit
+ 1. Hit "Connect"
+ 1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
 
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Tester
 ### Prepare Test Rig 
