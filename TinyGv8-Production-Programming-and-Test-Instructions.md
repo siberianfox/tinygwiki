@@ -1,5 +1,4 @@
 
-
 ## Program and Test TinyGv8 Board Using BeagleBone Black Programmer and Laptop Based Tester
 
 	Step | Instructions 
