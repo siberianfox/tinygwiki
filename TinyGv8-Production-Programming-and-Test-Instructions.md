@@ -57,7 +57,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. The AVRISP LED on the case will turn from orange to green
  1. The TinyG board will flash D6 RED LED about 10 times, then light 4 GREEN LEDS D9 - D12 in sequence
  1. LED D7 (red) will be dimly lit
- 1. Green LEDs D9-D12 will turn off after about 2 seconds These will turn off after about 2 seconds
+ 1. Green LEDs D9-D12 will turn off after about 2 seconds
  1. If the above occurs the DUT is now programmed. If not, execute step 5R as in Alternate Steps
 * **STEP 6** Disconnect the AVRISP programming header from J9 
 * **STEP 7** Connect the USB from the laptop to the DUT
