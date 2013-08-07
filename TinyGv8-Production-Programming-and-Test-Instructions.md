@@ -32,7 +32,7 @@ These steps only need to be completed once at the start of a test run.
 * **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side. The blue PWR LED next to the barrel connector should be lit.
 * **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. After a brief pause the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
  1. Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB and the AVRISP.
-* **SETUP STEP 5** Align motor flags so they all point vertically (12:00 position)
+* **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
  1. Turn on laptop power... (++++++ TO BE COMPLETED ++++++)
  1. connect a USB cable to the laptop (not the DUT, yet)
@@ -71,7 +71,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. Motor 3 does the same
  1. Motor 4 does the same
  1. All four motors do the same simultaneously
- 1. All four motors turns clockwise at low speed for about 2 seconds, reverse for about 2 seconds and stop with the flags in the starting positions (12:00)
+ 1. All four motors turn clockwise at low speed for about 2 seconds, reverse for about 2 seconds and stop with the flags in the 12:00 starting positions
  1. An LED sequence will follow, verifying operation of LEDs D5, D6 and D8. D7 should already be dimly lit after programming and throughout the test sequence.
  1. A final short move on motor 1 indicates that the test sequence is complete (not all green LEDs will light)
 * **STEP 10** Turn off DUT POWER and wait until the blue power LED (D2) is completely off before proceeding to Step 11.
