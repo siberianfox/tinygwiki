@@ -64,7 +64,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 * **STEP 8** Connect the terminal emulator (CoolTerm) to the DUT by performing the following steps
  1. In the Options window hit "Re-Scan Serial Ports" and select (++++++ TO BE COMPLETED ++++++). Hit OK to exit
  1. Hit "Connect"
- 1. In the terminal window hit ? followed by Carriage Return [CR] and verify that a status report followed by the "tinyg [mm] ok> " prompt is presented (See below for a sample status report)
+ 1. In the terminal window hit ? followed by Carriage Return [CR] and verify that a status report followed by the "tinyg [mm] ok> " prompt is presented. See **Sample Status Report**, below
 * **STEP 9** Type the following into the terminal window: _$test=1_ followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
  1. Motor 1 turns clockwise at high speed for about 2 seconds, CCW for about 2 seconds and stops with the flag in the starting position (12:00). All four green LEDs D9, D10, D11, D12 should be lit during this and other motor movement operations.
  1. Motor 2 does the same
@@ -82,7 +82,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 
 You can now go back to Step 1 for the next DUT board.
 
-Sample Status Report
+####Sample Status Report
 <pre>
 Line number:         0
 X position:          0.000 mm
