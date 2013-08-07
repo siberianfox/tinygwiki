@@ -59,7 +59,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. LED D7 (red) will be dimly lit
  1. Green LEDs D9-D12 will turn off after about 2 seconds
  1. If the above occurs the DUT is now programmed. If not, execute step 5R as in Alternate Steps
-* **STEP 6** Disconnect the AVRISP programming header from J9 
+* **STEP 6** Disconnect the AVRISP programming header from J10 PDI 
 * **STEP 7** Connect the USB from the laptop to the DUT
 * **STEP 8** Connect the terminal emulator (CoolTerm) to the DUT by performing the following steps
  1. In the Options window hit "Re-Scan Serial Ports" and select (++++++ TO BE COMPLETED ++++++). Hit OK to exit
