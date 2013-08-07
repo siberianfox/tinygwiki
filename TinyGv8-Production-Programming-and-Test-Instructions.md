@@ -48,7 +48,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 ![DUT](http://farm4.staticflickr.com/3783/9458735036_caa7efb156_b_d.jpg)
 
 * **STEP 1** Turn off DUT POWER using switch on right side of test jig
-* **STEP 2** Fasten the DUT under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs
+* **STEP 2** Fasten the DUT under test to top of tester. Make sure POGO pins make contact. Secure with two 4/40 standoffs though the mounting holes on the right-hand side of the DUT
 * **STEP 3** Connect the AVRISP programming header to DUT J10. The red polarity marking should be towards the white dot labeled "PDI"
 * **STEP 4** Turn on DUT POWER power using switch on right side of test jig
  1. Verify that the DUT blue LED D2 is lit (D7 red LED does not light, unlike in the photograph) 
