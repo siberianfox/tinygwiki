@@ -30,7 +30,7 @@ These steps only need to be completed once at the start of a test run.
  1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the DUT to the tester
 * **SETUP STEP 2** Turn off DUT POWER using switch on right side of test jig and connect the AC power cord
 * **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side. The blue PWR LED next to the barrel connector should be lit.
-* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete, during which time the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
+* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. After a brief pause the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
  1. Verify that the green LED inside the AVRISP is lit and solid (not flashing). This indicates that the BBB has connected to the AVRISP via USB.
 * **SETUP STEP 5** Align motor flags so they all point vertically (12:00 position)
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
