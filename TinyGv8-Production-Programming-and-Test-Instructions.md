@@ -72,8 +72,8 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. Motor 4 does the same
  1. All four motors do the same simultaneously
  1. All four motors turns clockwise at low speed for about 2 seconds, reverse for about 2 seconds and stop with the flags in the starting positions (12:00)
- 1. An LED sequence will follow, during with the operation of LEDs D5, D6 and D8 should be verified. D7 should already be dimly lit after programming.
- 1. A final short move on motor 1 indicates that the test sequence is complete
+ 1. An LED sequence will follow, verifying operation of LEDs D5, D6 and D8. D7 should already be dimly lit after programming and throughout the test sequence.
+ 1. A final short move on motor 1 indicates that the test sequence is complete (not all green LEDs will light)
 * **STEP 10** Turn off DUT POWER and wait until the blue power LED (D2) is completely off before proceeding to Step 11.
 * **STEP 11** Verify the blue power LED (D2) is completely off before removing DUT as so:
  1. Disconnect USB cable
