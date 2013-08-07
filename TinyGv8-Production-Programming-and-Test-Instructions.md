@@ -45,6 +45,8 @@ Setup is now complete
 ### Instructions for Each TinyGv8 Board
 Run these steps for each board to be programmed and tested. Each DUT should take between 2 and 3 minutes to complete.
 
+![DUT](http://farm4.staticflickr.com/3783/9458735036_caa7efb156_b_d.jpg)
+
 * **STEP 1** Turn off DUT POWER using switch on right side of test jig
 * **STEP 2** Fasten the DUT under test to top of tester. Make sure POGO pins make contact. Secure with 2 4/40 standoffs
 * **STEP 3** Connect the AVRISP programming header to DUT J10. The red polarity marking should be towards the white dot labeled "PDI"
