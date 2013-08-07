@@ -34,7 +34,7 @@ These steps only need to be completed once at the start of a test run.
  1. Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB and the AVRISP.
 * **SETUP STEP 5** Align motor flags so they all point vertically (12:00 position)
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
- 1. Turn on laptop power... (++++++ RILEY ++++++)
+ 1. Turn on laptop power... (++++++ TO BE COMPLETED ++++++)
  1. connect a USB cable to the laptop (not the DUT, yet)
  1. start CoolTerm
  1. In the Options window select Baudrate to 115200. All other options are OK as defaulted. Hit OK to exit
@@ -60,7 +60,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 * **STEP 6** Disconnect the AVRISP programming header from J9 
 * **STEP 7** Connect the USB from the laptop to the DUT
 * **STEP 8** Connect the terminal emulator (CoolTerm) to the DUT by performing the following steps
- 1. In the Options window hit "Re-Scan Serial Ports" and select ++++++++. Hit OK to exit
+ 1. In the Options window hit "Re-Scan Serial Ports" and select (++++++ TO BE COMPLETED ++++++). Hit OK to exit
  1. Hit "Connect"
  1. In the terminal window hit Carriage Return [CR] a few times and verify the "tinyg [mm] ok> " prompt
 * **STEP 9** Type the following into the terminal window: _$test=1_ followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
