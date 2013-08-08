@@ -34,7 +34,8 @@ These steps only need to be completed once at the start of a test run.
  1. Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB and the AVRISP.
 * **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
- 1. Turn on laptop power... (++++++ TO BE COMPLETED ++++++)
+ 1. Turn on laptop power using the power button at the top left 
+ 1. Once the computer has booted (Windows started) click on the 
  1. connect a USB cable to the laptop (not the DUT, yet)
  1. start CoolTerm
  1. In the Options window select Baudrate to 115200. All other options are OK as defaulted. Hit OK to exit
