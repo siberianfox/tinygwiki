@@ -35,13 +35,10 @@ These steps only need to be completed once at the start of a test run.
 * **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
  1. Turn on laptop power using the power button at the top left 
- 1. Once the computer has booted (Windows started) click on the 
- 1. connect a USB cable to the laptop (not the DUT, yet)
- 1. start CoolTerm
- 1. In the Options window select Baudrate to 115200. All other options are OK as defaulted. Hit OK to exit
+ 1. Once the computer has booted (Windows started) click on the CoolTerm icon to start CoolTerm. Ignore the warning that there are no serial ports. There will be once you connect a DUT to the USB (later). Click OK to ignore (Perhaps twice).
+ 1. Connect a USB cable to the laptop (not the DUT, yet)
 
-
-Setup is now complete
+Setup is now complete. CoolTerm will be used for every DUT tested.
 
 ### Instructions for Each TinyGv8 Board
 Run these steps for each board to be programmed and tested. Each DUT should take between 2 and 3 minutes to complete.
@@ -61,11 +58,13 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. Green LEDs D9-D12 will turn off after about 2 seconds
  1. If the above occurs the DUT is now programmed. If not, execute step 5R as in Alternate Steps
 * **STEP 6** Disconnect the AVRISP programming header from J10 PDI 
-* **STEP 7** Connect the USB from the laptop to the DUT, Wait until you get a popup message in the lower right stating that your serial port is ready to be used.
-* **STEP 8** On the testing laptop, Located on the Desktop there is a shortcut for the CoolTerm application. Double click the CoolTerm icon.  Once CoolTerm is running click on the Options button.  If you see a serial port listed you can click the Connect button.  If you do not see a serial port listed click the "Re-Scan Serial Ports" button and then click connect.
- 1. Once connected there may be jibberish ASCII. This is OK.
- 2. In the terminal window type ? followed by Carriage Return [CR] and verify that a status report followed by the "tinyg [mm] ok> " prompt is presented. See **Sample Status Report**, below. You may have to enter ? more than once before getting a response.
-* **STEP 9** Type the following into the terminal window: _$test=1_ followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
+* **STEP 7** Connect the USB from the laptop to the DUT. An installing message will appear in the lower left. Wait until it says "Your device is ready to use" before continuing.
+* **STEP 8** Click on the Options button (if not already open) and follow these steps
+ 1. Click the "Re-Scan Serial Ports" button. There should be a COMx serial port named.
+ 1. Click OK to exit the Options window
+ 1. Click connect. Once connected there may be jibberish ASCII. This is OK.
+ 1. In the input bar at the bottom of the terminal window type ? followed by Carriage Return [CR] and verify that a status report followed by the "tinyg [mm] ok> " prompt is presented. See **Sample Status Report**, below. You may have to enter ? more than once before getting a response.
+* **STEP 9** Type the following into the terminal window: **$test=1** followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
  1. Motor 1 turns clockwise at high speed for about 2 seconds, CCW for about 2 seconds and stops with the flag in the starting position (12:00). All four green LEDs D9, D10, D11, D12 should be lit and/or flashing during this and other motor movement operations. Also, the terminal should be displaying position information during motor movements.
  1. Motor 2 does the same
  1. Motor 3 does the same
