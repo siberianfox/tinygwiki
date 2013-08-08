@@ -64,7 +64,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. Click OK to exit the Options window
  1. Click connect. Once connected there may be jibberish ASCII. This is OK.
  1. In the input bar at the bottom of the terminal window type ? followed by Carriage Return [CR] and verify that a status report followed by the "tinyg [mm] ok> " prompt is presented. See **Sample Status Report**, below. You may have to enter ? more than once before getting a response.
-* **STEP 9** Type the following into the terminal window: **$test=1** followed by RETURN. The motors should become active for about 60 seconds, during which the following should be verified.
+* **STEP 9** Type the following into the terminal window: **$test=1** followed by RETURN. (Once you have entered this command you can use the up arrow to "find" it and re-enter on subsequent tests). The motors should become active for about 60 seconds, during which the following should be verified.
  1. Motor 1 turns clockwise at high speed for about 2 seconds, CCW for about 2 seconds and stops with the flag in the starting position (12:00). All four green LEDs D9, D10, D11, D12 should be lit and/or flashing during this and other motor movement operations. Also, the terminal should be displaying position information during motor movements.
  1. Motor 2 does the same
  1. Motor 3 does the same
