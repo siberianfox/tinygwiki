@@ -34,7 +34,7 @@ Please come visit / join any or all of the above.
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
 
 ### TinyG Developer References
-* [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
+* [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader-&-ISP-Programming)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
