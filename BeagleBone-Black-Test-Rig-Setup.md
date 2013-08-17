@@ -72,7 +72,11 @@ _On the bone through ssh:_
 
     # If you ever want to push from git on this BBB:
     git config --global user.name 'Your Name'
-    git config --global user.email 'you@gmail.com'  
+    git config --global user.email 'you@gmail.com'
+
+    # In order to help with ssl issues:
+    opkg install ca-certificates
+    git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
 
     # Now to actually get the tester
     cd /var/lib/cloud9
