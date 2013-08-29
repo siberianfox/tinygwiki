@@ -57,7 +57,7 @@ These instructions use Atmel Studio 6.1 which is currently in Beta.
 ## Fuses 
 Select the Fuses from the programmer dialog and hit PROGRAM when you are done. You want the following settings. Studio 4 and Studio 6.1 values are the same, they just call them slightly different things.
 
-	Fuse | Stdio 4 Value | Studio 6.1 Value | Notes
+	Fuse | Studio 4 Value | Studio 6.1 Value | Notes
 	-----|-------|------|--------
 	JTAGUSERID | 0xFF |  0xFF | this is the default setting
 	WDWP | 8 cycles | 8CLK | default value 
