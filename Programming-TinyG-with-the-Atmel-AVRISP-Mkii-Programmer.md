@@ -2,7 +2,7 @@ TinyG can be programmed over the USB serial port with the boot loader, or it can
 
 There are (at least) 3 ways to program the board using the AVRISP2:
 * Programming using [AVR Studio4](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#avr-studio-4)
-* Programming using [Atmel Studio 6](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#atmel-studio-6)
+* Programming using [Atmel Studio 6](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#atmel-studio-6.1)
 * Programming using [AVRDUDE with AVRISP2](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#avrdude-with-avrisp2)
 
 Also, regardless of method you want to make sure to get the [xmega fuses](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses) right
@@ -28,8 +28,9 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
  * AVRISP2 firmware is up-to-date
 
 
-### Atmel Studio 6
-* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Atmel Studio 6.
+### Atmel Studio 6.1
+These instructions use Atmel Studio 6.1 which is currently in Beta. See here for some more sequencing details (details 
+* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Atmel Studio 6.1
 * Apply power to the TinyG. The board will not program unless it's powered up. The board's USB does not need to be connected
 * Bring up Studio 6. If you are in a virtual machine make sure the Atmel AVRISP mkII device is connected to the virtual machine.
 * If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
