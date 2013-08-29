@@ -80,3 +80,36 @@ The fusebytes are left in their default settings and should read:
 	FUSEBYTE2 | 0xBE | there is no third thing
 	FUSEBYTE4 | 0xFE |
 	FUSEBYTE5 | 0xEB |
+
+### Forum Post on Programming
+from Frankenbeans
+
+Solution:
+
+With power unplugged, remove all connections except power and the mkII.
+Power on.
+Wait for board to finish booting. (Spindle light stops flashing)
+Hit the reset button and wait for the board to finish booting.
+Open AVRStudio 6.1.
+Select Tools->Device Programming
+Select Tool: AVRISP MKII
+Select Device: ATxmega192A3
+Click Apply
+
+If nothing shows up in the Device Signature and Target Voltage boxes, click the Read buttons next to each.
+
+Select Memories
+Select Erase Chip on the Device pulldown if it’s not already selected.
+Click Erase Now
+
+Select Fuses
+Verify all fuses according to the settings on the wiki.
+
+Select Lockbits
+Verify all bits are set according to the settings on the wiki (NOLOCK)
+
+Select Memories
+Flash the bootloader according to the wiki.
+Flash the firmware according to the wiki.
+
+Turn it all off, disco the mkII, hook up a known good USB cable, power on, fire up tgFX and rejoice.
