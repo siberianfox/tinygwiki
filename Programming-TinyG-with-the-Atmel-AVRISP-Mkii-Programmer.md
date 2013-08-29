@@ -55,23 +55,23 @@ These instructions use Atmel Studio 6.1 which is currently in Beta.
 ### AVRDUDE with AVRISP2
 
 ## Fuses 
-Select the Fuses from the programmer dialog and hit PROGRAM when you are done. You want the following settings. Studio 6 values are in [brackets] if different from Studio 4
+Select the Fuses from the programmer dialog and hit PROGRAM when you are done. You want the following settings. Studio 4 and Studio 6.1 values are the same, they just call them slightly different things.
 
-	Fuse | Value | Notes
-	-----|-------|------
-	JTAGUSERID | 0xFF | this is the default setting
-	WDWP | 8 cycles [8CLK]| default value 
-	WDP | 8 cycles [8CLK]| default value 
-	DVSDON | (unchecked) | default
-	BOOTRST | Boot Loader Reset [BOOTLDR] | if you have not installed the boot loader use Application Reset 
-	BODPD | BOD enabled continuously [CONTINUOUSLY]| 
-	RSTDISBL | (unchecked) | default
-	SUT | 0 ms | default
-	WDLOCK | (unchecked) | default
-	JTAGEN | (CHECKED) | default - never uncheck this or you will brick the board
-	BODACT | BOD enabled continuously [CONTINUOUSLY]| 
-	EESAVE | (unchecked) | default
-	BODLVL | 2.6v [2V6]| 
+	Fuse | Stdio 4 Value | Studio 6.1 Value | Notes
+	-----|-------|------|--------
+	JTAGUSERID | 0xFF |  0xFF | this is the default setting
+	WDWP | 8 cycles | 8CLK | default value 
+	WDP | 8 cycles | 8CLK | default value 
+	DVSDON | (unchecked) | (unchecked) | default
+	BOOTRST | Boot Loader Reset | BOOTLDR | if you have not installed the boot loader use Application Reset 
+	BODPD | BOD enabled continuously | CONTINUOUSLY | 
+	RSTDISBL | (unchecked) | (unchecked) | default
+	SUT | 0 ms | 0 ms | default
+	WDLOCK | (unchecked) | (unchecked) | default
+	JTAGEN | (CHECKED) | (CHECKED) | default - never uncheck this or you will brick the board
+	BODACT | BOD enabled continuously | CONTINUOUSLY | 
+	EESAVE | (unchecked) | (unchecked) | default
+	BODLVL | 2.6v | 2V6 | 
 
 The fusebytes should reflect the above settings and should read:
 
