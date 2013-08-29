@@ -73,7 +73,7 @@ Select the Fuses from the programmer dialog and hit PROGRAM when you are done. Y
 	EESAVE | (unchecked) | default
 	BODLVL | 2.6v [2V6]| 
 
-The fusebytes are left in their default settings and should read:
+The fusebytes should reflect the above settings and should read:
 
 	Fuse | Value | Notes
 	-----|-------|------
