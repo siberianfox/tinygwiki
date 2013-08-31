@@ -1,7 +1,13 @@
-This page lists changes made in the dev and edge branches. It's not meant to replace the github commit messages but provides some consolidation and a bit more information than can be found in commit messages.
+Background:
 
+* Build 380.05 was just promoted to Master as of 8/31/13. It's been in edge for a while and tested out to be quite stable. The last code change before pushing to master was to add the RTS/CTS hardware flow control that's been in test since late July.
 
-## Changes between Edge build 380.02/04 and Dev builds 389.06
+* The Dev branch has been moving ahead with new feature requests and aligning the TinyG Xmega code base with the ARM port currently in the G2 repository. Once the Motate hardware abstraction layer is finished for the Xmega these code bases will be merged and there will be a single code base for the Xmega and ARM TinyG variants. The Dev branch is currently at build 389.06 as of 8/31/13.
+
+There are a lot of changes between build 380.05 and 389.06. This page lists the main changes 
+that affect developers and users. This page is not meant to replace the github commit messages but does provide some consolidation and a bit more information than can be found in commit messages alone.
+
+## Changes between Edge build 380.05 and Dev builds 389.06
 
 * Footer location
 
