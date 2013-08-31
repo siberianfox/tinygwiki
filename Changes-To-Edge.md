@@ -7,11 +7,11 @@ Background:
 The Dev branch will be promoted to edge in early September.
 
 There are a lot of changes between build 380.05 and 389.06. This page lists the main changes 
-that affect developers and users. This page is not meant to replace the github commit messages but does provide some consolidation and a bit more information than can be found in commit messages alone.
+that affect developers and users. This page is not meant to replace the github commit messages but does provide some consolidation and a bit more information than can be found in commit messages alone. Changes that affect code internals but not functionality are not listed.
 
 ## Changes between Edge build 380.05 and Dev builds 389.06
 
-* Footer location
+* Footer location. The footer 
 
 * Added robgrz G28.4 homing cycle - but this is not fully tested yet 
 * Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
