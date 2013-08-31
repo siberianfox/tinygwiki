@@ -13,14 +13,13 @@ that affect developers and users. This page is not meant to replace the github c
 
 * Footer location. The footer 
 
-* Added robgrz G28.4 homing cycle - but this is not fully tested yet 
+* Added robgrz G28.4 homing cycle - but this is not fully tested yet
+
 * Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
 
-## Dev Branch
-#### build 386.01
+* Motor power management
 
-#### build 385.01
-Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
+* Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
 
     {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
     {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
