@@ -1,11 +1,15 @@
-This page records changes made in the dev and edge branches. It provides a bit more information than can be found in commit messages.
+This page lists changes made in the dev and edge branches. It's not meant to replace the github commit messages but provides some consolidation and a bit more information than can be found in commit messages.
 
-## Edge Branch
+
+## Changes between Edge build 380.02/04 and Dev builds 389.06
+
+* Footer location
+
+* Added robgrz G28.4 homing cycle - but this is not fully tested yet 
+* Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
 
 ## Dev Branch
 #### build 386.01
-* Merged robgrz G28.4 homing changes into dev branch
-* Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
 
 #### build 385.01
 Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
