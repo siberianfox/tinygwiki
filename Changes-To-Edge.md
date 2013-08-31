@@ -4,6 +4,8 @@ Background:
 
 * The Dev branch has been moving ahead with new feature requests and aligning the TinyG Xmega code base with the ARM port currently in the G2 repository. Once the Motate hardware abstraction layer is finished for the Xmega these code bases will be merged and there will be a single code base for the Xmega and ARM TinyG variants. The Dev branch is currently at build 389.06 as of 8/31/13.
 
+The Dev branch will be promoted to edge in early September.
+
 There are a lot of changes between build 380.05 and 389.06. This page lists the main changes 
 that affect developers and users. This page is not meant to replace the github commit messages but does provide some consolidation and a bit more information than can be found in commit messages alone.
 
