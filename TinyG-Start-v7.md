@@ -1,4 +1,6 @@
-If you have just received a TinyG v7 this is the place to start. The board revision is printed on the silkscreen at the edge of the board. 
+If you have a TinyG v7 this is the place to start. The board revision is printed on the silkscreen at the edge of the board. 
+
+If you have a v8, please use this page instead [Getting Started with TinyG v8](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 
 ## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires and downloading software the image below is a "diagram" of the important sections / parts of you TinyG board. 
