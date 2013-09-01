@@ -23,7 +23,7 @@ Please come visit / join any or all of the above.
 * [Setup and Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
-### TinyG User References
+### TinyG User Pages
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
