@@ -102,9 +102,7 @@ The following instructions are how to flash the boot loader using Atmel Studio6.
 **Step 2**. Bring up Studio6 and the device programming panel. Look under `Tools / Device Programming`
 * In the programming panel verify Tool is AVRISP mkii, the device is ATxmega192A3 and the interface is PDI. Hit `Apply`, then `Read`. You should see the Device signature and voltage field populate. Voltage should be 3.2v or thereabouts.
 
-**Step 3**. Set the fuses. Go to Fuses and set according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses)
-
-Hit `Program` to program the fuses
+**Step 3**. Set the fuses. Go to Fuses and set according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). Hit `Program` to program the fuses.
 
 **Step 4**. Go to `Memories`. Select xboot.hex in the `Flash` section. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). Check the `Erase Flash Before programming` box or it won't verify. Hit `Program`.
 
@@ -117,7 +115,7 @@ If this all worked you will see the Spindle Direction light flash for about 3 se
 # Project Setup and Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
-The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. (You can safely ignore the xmega_boot directory.)
+The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. 
 
 ## Getting Xboot to work from the native Makefile
 Bring up a cmd window and navigate to the working directory. Run the command:
