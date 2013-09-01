@@ -11,15 +11,15 @@ that affect developers and users. This page is not meant to replace the github c
 
 ## Changes between Edge build 380.05 and Dev builds 389.06
 
-* Footer location. The footer 
 
-* Added robgrz G28.4 homing cycle - but this is not fully tested yet
+* **G28.4 homing cycle**  Not fully tested yet. Still has 0.001" offset issue
 
-* Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
+* **Motor power management**
 
-* Motor power management
+* **JSON Responses** 
+ * JSON Footer. The footer 
 
-* Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
+ * Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
 
     {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
     {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
@@ -34,3 +34,5 @@ Also note: blank JSON lines will return this form:
 
     {"r":{"":""},"f":[1,40,8,9345]}
 
+* Bug Fixes
+ * Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
