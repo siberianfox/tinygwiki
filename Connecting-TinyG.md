@@ -12,9 +12,7 @@ What you see above is a TinyG that is connected correctly. **THIS ASSUMES THAT T
 ## Establish USB connection
 Next establish USB connection with your host computer. 
 
-1. If you do not have the FTDI VCP USB drivers for your system you will need to install these. It's quite possible they are already on your system as many applications use these, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get then from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer.
-
- * If you simply cannot connect please try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI rivers that can cause this on occasion.
+1. If you do not have the FTDI VCP USB drivers for your system you will need to install these. It's quite possible they are already on your system as many applications use these, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get then from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
 
 2. Download and connect to Reger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
  * 115,200 baud
@@ -36,6 +34,8 @@ tinyg [mm] ok>
 If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke.
 
 For help from the command line enter 'h' for TinyG help, or '$h' for configuration help 
+
+**If you simply cannot connect try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI drivers that can cause this on occasion.**
 
 ## Wire Your Motors
 First, turn the power back off. Never connect or disconnect anything (except possibly USB) with the power on.
