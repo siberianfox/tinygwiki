@@ -43,7 +43,7 @@ There is currently only one PWM channel (p1), but the configs are structured for
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$p1frq]() | Frequency 
+	[$p1frq]() | Frequency | 
 
 ## System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
