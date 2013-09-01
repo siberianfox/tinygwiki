@@ -29,12 +29,12 @@ that affect developers and users. This page is not meant to replace the github c
 
 * **Malformed JSON** Responses to malformed JSON changed to the following format. An "err" string is returned with the original string, and the '48' is the status code is returned for malformed JSON. See [Status Codes}(https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Quotes in the error string are escaped. Also note the new response for for blank JSON lines
 <pre>
-    {"r":{"err":"{\"gc\"}"},"f":[1,48,7,5466]}           response to {"gc"}
-    {"r":{"err":"{gibberish}"},"f":[1,48,12,4462]}       response to {gibberish}
-    {"r":{"err":"{"},"f":[1,48,2,9860]}                  response to a lone {
+    {"r":{"err":"{\"gc\"}"},"f":[1,48,7,5466]}       response to {"gc"}
+    {"r":{"err":"{gibberish}"},"f":[1,48,12,4462]}   response to {gibberish}
+    {"r":{"err":"{"},"f":[1,48,2,9860]}              response to a lone {
 
-    {"r":{"":""},"f":[1,48,8,9345]}                      response to {"":""}: valid JSON but null command
-    {"r":{"xvd":1},"f":[1,40,10,8992]}                   response to {"xvd":1} valid JSON but unrecognized command (Status code 40)
+    {"r":{"":""},"f":[1,48,8,9345]}                  response to {"":""}: valid JSON but null command
+    {"r":{"xvd":1},"f":[1,40,10,8992]}               response to {"xvd":1} valid JSON but unrecognized command (Status code 40)
 </pre>
 
 * Bug Fixes
