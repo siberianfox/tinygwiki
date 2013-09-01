@@ -14,7 +14,13 @@ that affect developers and users. This page is not meant to replace the github c
 
 * **G28.4 homing cycle**  Not fully tested yet. Still has 0.001" offset issue
 
-* **Motor power management**
+* **Motor power management** ...works differently (better). Changes:
+ * Power management changes take effect immediately (not at the first move)
+ * $1pm=1 works as before. Axis will energize on movement and de-energize immediately when that axis stops moving.
+ * $1pm=0 energizes the axis as soo as any axis moves and leaves the axis energized until N seconds after motion stops
+ * $me energizes all motors set to $1pm=0
+ * $md deenergizes all motors
+
 
 * **JSON Footer** 
 
