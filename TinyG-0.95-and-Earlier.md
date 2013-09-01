@@ -5,4 +5,4 @@ This page is a parking lot for documentation on earlier TinyG firmware Master ve
 
 ## Version 0.94 and earlier
 * [Configuration for version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.94-and-Earlier)
-* [Homing for version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.94-and-earlier))
+* [Homing for version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Homing-(version-0.94-and-earlier)
