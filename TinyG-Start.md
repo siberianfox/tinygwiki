@@ -53,19 +53,21 @@ TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per wind
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
 
 #### Heat Sinks
-The main heatsinking provided for TinyG is the expanse of 2 oz. copper on the bottom and top of the board. You can see this by inspection. TinyG comes with 4 additional heat sinks. Using them is optional. If you are driving NEMA17 or light-duty NEMA23 motors you will probably not need them and should leave them off the board. If you experience thermal shutdown - stuttering, on/off cycling - we recommend fan cooling, and possibly also using the heatsinks. Fan cooling is far more effective and should be used first. To apply the heatsinks simply peel the back sticker off and place the heat sink over each DRV8818 stepper driver chip. Be careful not to contact any of the chip leads, resistors, or any other electrical parts.
+The TI drivers on the TinyG are incredibly robust and will shut down in case of over-current instead of blowing up (unlike some other brands that shall remain nameless). But you don't want to go into thermal shutdown as it will will ruin your job even though the board is still OK. Thermal shutdown is evidenced by anything from a slow on-off cycling of the motor power, getting shorter as the current raises, to a stutter in extreme cases. The chips will be quite hot to the touch.
+
+The main heatsinking provided for TinyG is the expanse of 2 oz. copper on the bottom and top of the board. You can see this by inspection. This is usually sufficient for NEMA17 installations. If you experience thermal shutdown we recommend fan cooling. Fan cooling is the most effective way to cool and far more effective than heatsinking.
 
 #### Cooling Fan
-The TinyGv7's come equipped with a 3-pin fan connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below - sorry it's not more straightforward:
+The TinyGv8's come equipped with a 3-pin fan connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below - sorry it's not more straightforward:
 
-* The "24v" jumper position connects the fan header to the LM7812 12 volt regulator. This should be used if you are running a 12 volt fan and your board power (Vmot) is > 14 volts. This is the default location and your v7 should have been shipped with the jumper in this position. 
-* The "12v" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
+* The "+12v" jumper position connects the fan header to the LM7812 12 volt regulator. This should be used if you are running a 12 volt fan and your board power (Vmot) is > 14 volts. This is the default jumper position and your v8 should have been shipped with the jumper in this position. 
+* The "+Vmot" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
 **Use this side with caution as applying 24 volts to some 12 volt fans will burn them out.**
 
 #### Programmer
 The TinyG code is available at the [Synthetos Github](https://github.com/synthetos/TinyG TinyG github) but most people will not need to use this as TinyG comes loaded with the latest firmware in the Master branch. 
 
-If you want to reporgram (flash) TinyG you need a PDI capable programmer to talk to the Atmel xmega chip. We use the [Atmel AVRISP MKII](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) which is available from Mouser Electronics for roughly $35.00. This is needed to apply firmware updates on TinyG. We are also testing a boot loader that will program over the USB port, but it's not out yet.<br> 
+If you want to re-program (flash) TinyG you will either need to use the boot loader on the TInyG, or use a PDI capable programmer to talk to the Atmel xmega chip. We use the [Atmel AVRISP MKII](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) which is available from Mouser Electronics for roughly $35.00. See the [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader) or [TinyG Programming Page]() for instructions.
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
