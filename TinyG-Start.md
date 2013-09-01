@@ -1,4 +1,4 @@
-If you have just received a TinyG v8 this is the place to start. The board revision is printed on the silkscreen at the edge of the board. If you do not have a v8 board you may want one of these links instead:
+If you have a TinyG v8 this is the place to start. The board revision is printed on the silkscreen at the edge of the board. If you do not have a v8 board you may want one of these links instead:
 
 * [TinyG version 7](https://github.com/synthetos/TinyG/wiki/TinyG-Start-v7/)
 * [TinyG version 6 or earlier](https://github.com/synthetos/TinyG/wiki/TinyG-Start-v6-and-Earlier)
