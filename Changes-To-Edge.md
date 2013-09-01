@@ -35,12 +35,14 @@ that affect developers and users. This page is not meant to replace the github c
 </pre>
 
 Also note: blank JSON lines will return this form:
-
+<pre>
     {"r":{},"f":[1,0,8,4401]}
+</pre>
 
 ...or this for is you actually entered {"":""}
-
+<pre>
     {"r":{"":""},"f":[1,40,8,9345]}
+</pre>
 
 * Bug Fixes
  * Fixed bug where final machine state after homing remained as "Homing" instead of "Stop"
