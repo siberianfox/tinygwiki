@@ -8,7 +8,7 @@ Here's some background if you want to know [what TinyG is](https://github.com/sy
 ## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
-![TinyG V7 Diagram](http://farm8.staticflickr.com/7407/8728450697_915a1cdf24_c.jpg)
+![TinyG v8 Diagram](http://farm4.staticflickr.com/3668/9642075945_e073444e0a_b.jpg)
 
 To highlight a few things in the above diagram:
 
