@@ -23,8 +23,8 @@ that affect developers and users. This page is not meant to replace the github c
 
 * **JSON Footer** The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object:
 <pre>
-    {"r":{"xvm":16000,"f":[1,0,13,1435]}}           old footer format
-    {"r":{"xvm":16000},"f":[1,0,11,6442]}           new footer format
+    {"r":{"xvm":16000,"f":[1,0,13,1435]}}            old footer format
+    {"r":{"xvm":16000},"f":[1,0,11,6442]}            new footer format
 </pre>
 
 * **Malformed JSON** Responses to malformed JSON changed to the following: An "err" string returned with the original string, and a '48' the status code indicating malformed JSON. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Any quotes in the error string are escaped. Also note the new response for for blank JSON lines
