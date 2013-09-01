@@ -30,12 +30,13 @@ Please come visit / join any or all of the above.
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+* [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
+* [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.94-and-Earlier)
 
 ### TinyG Developer References
-* [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader-&-ISP-Programming)
-* [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
+TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes), [More Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional)
