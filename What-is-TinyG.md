@@ -56,14 +56,14 @@ TinyG codebase is written in commented C, open source (GPL), and was orginally f
 * Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos/tinyg)
 * See [TinyG Support Forum](https://www.synthetos.com/forum/tinyg/) if you need help 
 
-## Hardware and other technical details
-TinyG is up to v7 PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have grblshield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield. TinyG hardware has:
+## Hardware and Other Technical Details
+TinyG is up to version 8 (v8) PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have gShield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield. TinyG hardware has:
 
 * Atmel ATxmega192A3 running at 32 Mhz 
 * USB via FTDI - runs 115,200 baud by default 
 * Direct TTL serial inout for drive from Arduino or similar 
 * GPIO ports provide 8 inputs for limit / homing switches, plus 4 general purpose input/output ports for spindle control and other uses 
-* PDI programming connector (3x2) 
+* PDI programming connector (3x2) - Note: Requires Atmel AVRISP MKii programmer or other programmer with PDI capability 
 
 ## TinyG and grbl are related but not the same
 People ask what's the difference. Here's an attempt to explain that.
