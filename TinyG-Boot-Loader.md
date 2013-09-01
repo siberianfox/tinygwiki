@@ -9,13 +9,16 @@ _Huge thanks to Kevin Osborn who got this working_
 
 <a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
-TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes 10 times when you hit reset. 
+TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes when you hit reset:
+
+* On hardware reset (reset button) or software reset (Control-X) the spindle direction bit will flash 4x/sec for about 3 seconds indicating the board is in boot loader mode. After that it will start the application. If no application is present it will revert to the boot loader, so the light will just keep flashing.
+
+You can also manually enter the bootloader from the application:
+
+* Issuing a boot command: $boot=1 or {"boot":1} will enter the boot loader and cause it to remain in the boot loader for 60 seconds before reverting to the application.
+
 
 If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing) if you want do do this yourself. You can also return your board to us and we'll do it. Contact us if you want us to put the bootloader onto your board.
-
-Update: Boot loader behaviors as of build 375.01 are:
-* On hardware reset (reset button) or software reset (Control-X) the spindle direction bit will flash 4x/sec for about 3 seconds indicating the board is in boot loader mode. After that it will start the application. If no application is present it will revert to the boot loader, so the light will just keep flashing.
-* Issuing a boot command: $boot=1 or {"boot":1} will enter the boot loader and cause it to remain in the boot loader for 60 seconds before reverting to the application.
 
 <a id="updating"></a>
 # Updating TinyG Firmware using the Boot Loader
