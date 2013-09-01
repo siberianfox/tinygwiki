@@ -112,7 +112,7 @@ The following instructions are how to flash the boot loader using Atmel Studio6.
 If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
 
 <a id="projectsetup"></a>
-# Project Setup and Compiling the Boot Loader for TinyG
+# Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
 The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. 
