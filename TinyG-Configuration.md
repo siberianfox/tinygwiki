@@ -483,10 +483,11 @@ $ee=0      - Disable character echo
 $ee=1      - Enable character echo
 </pre> 
 
-### $EX - Enable XON/XOFF protocol 
+### $EX - Enable Flow Control 
 <pre>
-$ex=0      - Disable XON/XOFF protocol 
-$ex=1      - Enable XON/XOFF protocol 
+$ex=0      - Disable flow control 
+$ex=1      - Enable XON/XOFF flow control protocol 
+$ex=2      - Enable RTS/CTS flow control protocol 
 </pre>
 
 ### $BAUD - Set USB Baud Rate
