@@ -38,21 +38,21 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
 	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
 
-##Puls Width Modulation (PWM) Group
+##PWM Group (Pulse Width Modulation)
 There is currently only one PWM channel (p1), but the configs are structured for multiple PWM groups. The PWM channel is set up to act as a remote control Electronic Speed Controller (ESC), but can be used for other PWM functions using these settings. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$p1frq]() | Frequency | in Hz, e.g. 100
-	[$p1csl]() | Clockwise speed low | In RPM - arbitrary units unless you calibrate it, e.g. 1000
-	[$p1csh]() | Clockwise speed high | In RPM
-	[$p1cpl]() | Clockwise phase low | 0 to 1, e.g. 0.125 for 12.5% phase angle
-	[$p1cph]() | Clockwise phase high | 0 to 1
-	[$p1wsl]() | Counter clockwise speed low | In RPM 
-	[$p1wsh]() | Counter clockwise speed high | In RPM
-	[$p1wpl]() | Counter clockwise phase low | 0 to 1
-	[$p1wph]() | Counter clockwise phase high | 0 to 1
-	[$p1pof]() | Phase off | 0 to 1
+	$p1frq | Frequency | in Hz, e.g. 100
+	$p1csl | Clockwise speed low | In RPM - arbitrary units unless you calibrate it, e.g. 1000
+	$p1csh | Clockwise speed high | In RPM
+	$p1cpl | Clockwise phase low | 0 to 1, e.g. 0.125 for 12.5% phase angle
+	$p1cph | Clockwise phase high | 0 to 1
+	$p1wsl | Counter clockwise speed low | In RPM 
+	$p1wsh | Counter clockwise speed high | In RPM
+	$p1wpl | Counter clockwise phase low | 0 to 1
+	$p1wph | Counter clockwise phase high | 0 to 1
+	$p1pof | Phase off | 0 to 1
 
 ## System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
