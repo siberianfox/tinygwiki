@@ -21,10 +21,9 @@ that affect developers and users. This page is not meant to replace the github c
  * $me energizes all motors set to $1pm=0
  * $md deenergizes all motors
 
-
-* **JSON Footer** 
-
-* **JSON Footer** 
+* **JSON Footer** The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object:
+    {"r":{"xvm":16000,"f":[1,0,13,1435]}}   (old way)
+    {"r":{"xvm":16000},"f":[1,0,13,1435]}   (new way)
 
 * **Malformed JSON** Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
 
