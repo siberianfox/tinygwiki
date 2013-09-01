@@ -91,7 +91,7 @@ Set communications speeds and modes.
 	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
 	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
-	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-xonxoff-protocol) | Enable XON/XOFF | 0=off, 1=XON enabled, 2=RTS enabled
+	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
 	[$baud](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#baud---set-usb-baud-rate) | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
 
 **Gcode Initialization Defaults**
@@ -130,9 +130,9 @@ The following settings are accessible but do not appear in the system group list
 	--------|-------------|-------
 	[$ml](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ml--minimum-line-segment) | Minimum line length | 
 	[$ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ma---minimum-arc-segment) | Arc segment length |
-	[$m2](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
-	[$qvh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
-	[$qvl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
+	[$ms](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
+	[$qrh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
+	[$qrl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
 <br>
 <br>
 # Settings Details
@@ -605,10 +605,10 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
 ### $MD - Disable Motors
-Unpower all motors
+Unpower all motors (NOT ACTIVE IN 0.96 - still only in Dev)
 
 ### $ME - Energize Motors
-Power all motors that have power management mode set to zero (e.g. $1pm=0)
+Power all motors that have power management mode set to zero (e.g. $1pm=0) (NOT ACTIVE IN 0.96 - still only in dev)
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
