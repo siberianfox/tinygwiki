@@ -27,13 +27,13 @@ that affect developers and users. This page is not meant to replace the github c
     {"r":{"xvm":16000},"f":[1,0,13,1435]}   (new way)
 </pre>
 
-* **Malformed JSON** Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON. ALso note the new response for for blank JSON lines
+* **Malformed JSON** Responses to malformed JSON changed to the following format. An "err" string is returned with the original string, and the '48' is the status code is returned for malformed JSON. Quotes in the error string are escaped. Also note the new response for for blank JSON lines
 <pre>
-    {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
-    {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
-    {"r":{"msg":"{gibberish}"},"f":[1,48,12,8007]}
-    {"r":{},"f":[1,0,8,4401]}                          response to a lone {
-    {"r":{"":""},"f":[1,40,8,9345]}                    response to {"":""} 
+    {"r":{"err":"{"gc":}"},"f":[1,48,8,174]}             response to {"gc"}
+    {"r":{"err":"{"":}"},"f":[1,48,6,9235]}              response to 
+    {"r":{"err":"{gibberish}"},"f":[1,48,12,8007]}       response to {gibberish}
+    {"r":{},"f":[1,48,8,4401]}                           response to a lone {
+    {"r":{"":""},"f":[1,48,8,9345]}                      response to {"":""} 
 </pre>
 
 * Bug Fixes
