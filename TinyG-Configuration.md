@@ -38,6 +38,13 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
 	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
 
+##Puls Width Modulation (PWM) Group
+There is currently only one PWM channel (p1), but the configs are structured for multiple PWM groups. 
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	[$p1frq]() | Frequency 
+
 ## System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
 
