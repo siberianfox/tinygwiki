@@ -27,13 +27,15 @@ that affect developers and users. This page is not meant to replace the github c
     {"r":{"xvm":16000},"f":[1,0,13,1435]}   (new way)
 </pre>
 
-* **Malformed JSON** Responses to malformed JSON changed to the following format. An "err" string is returned with the original string, and the '48' is the status code is returned for malformed JSON. Quotes in the error string are escaped. Also note the new response for for blank JSON lines
+* **Malformed JSON** Responses to malformed JSON changed to the following format. An "err" string is returned with the original string, and the '48' is the status code is returned for malformed JSON. See [Status Codes}(https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Quotes in the error string are escaped. Also note the new response for for blank JSON lines
 <pre>
-    {"r":{"err":"{"gc":}"},"f":[1,48,8,174]}             response to {"gc"}
+    {"r":{"err":"{\"gc\"}"},"f":[1,48,7,5466]}           response to {"gc"}
     {"r":{"err":"{"":}"},"f":[1,48,6,9235]}              response to 
-    {"r":{"err":"{gibberish}"},"f":[1,48,12,8007]}       response to {gibberish}
+    {"r":{"err":"{gibberish}"},"f":[1,48,12,4462]}       response to {gibberish}
     {"r":{},"f":[1,48,8,4401]}                           response to a lone {
-    {"r":{"":""},"f":[1,48,8,9345]}                      response to {"":""} 
+    {"r":{"":""},"f":[1,48,8,9345]}                      response to {"":""}
+
+    {"r":{"xvd":1},"f":[1,40,10,8992]}                   response to {"xvd":1} which is valid JSON but an unrecognized (Status code 40)
 </pre>
 
 * Bug Fixes
