@@ -605,10 +605,10 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
 ### $MD - Disable Motors
-Unpower all motors (NOT ACTIVE IN 0.96 - still only in Dev)
+Unpower all motors
 
 ### $ME - Energize Motors
-Power all motors that have power management mode set to zero (e.g. $1pm=0) (NOT ACTIVE IN 0.96 - still only in dev)
+Power all motors that have power management mode set to zero (e.g. $1pm=0)
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
