@@ -27,7 +27,7 @@ that affect developers and users. This page is not meant to replace the github c
     {"r":{"xvm":16000},"f":[1,0,13,1435]}   (new way)
 </pre>
 
-* **Malformed JSON** Responses to malformed JSON changed to the following format. An "err" string is returned with the original string, and the '48' is the status code is returned for malformed JSON. See [Status Codes}(https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Quotes in the error string are escaped. Also note the new response for for blank JSON lines
+* **Malformed JSON** Responses to malformed JSON changed to the following: An "err" string returned with the original string, and a '48' the status code indicating malformed JSON. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Any quotes in the error string are escaped. Also note the new response for for blank JSON lines
 <pre>
     {"r":{"err":"{\"gc\"}"},"f":[1,48,7,5466]}       response to {"gc"}
     {"r":{"err":"{gibberish}"},"f":[1,48,12,4462]}   response to {gibberish}
