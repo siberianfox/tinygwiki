@@ -20,7 +20,6 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Setup and Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
 ### TinyG User Pages
@@ -28,6 +27,7 @@ Please come visit / join any or all of the above.
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
