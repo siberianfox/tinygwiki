@@ -223,30 +223,30 @@ $zam=2 	     Inhibit the Z axis; $zam1 will restore standard operation
 </pre>
 
 ### $xVM - Velocity Maximum
-(aka traverse rate or seek rate). Sets the maximum velocity the axis will move during a traverse (G0). This is set in length units per minute for linear axes, degrees per minute for rotary axes. The max velocity will be used for all G0's from the time of reset onward. Note that the max velocity is *per-axis*.
+(aka traverse rate or seek rate). Sets the maximum velocity the axis will move during a G0 move (traverse). This is set in length units per minute for linear axes, degrees per minute for rotary axes. 
 
-Diagonal / multi-axis traverses will actually occur at the fastest speed the combined set of axes and the geometry will allow, and may be faster than the individual axis max velocities. For example, max velocity for X and Y are set to 1000 mm/min. For a 45 degree traverse in X and Y the toolhead would travel at 1414.21 mm/min. 
+Note that the max velocity is *per-axis*. Diagonal / multi-axis traverses will actually occur at the fastest speed the combined set of axes and the geometry will allow, and may be faster than the individual axis max velocities. For example, max velocity for X and Y are set to 1000 mm/min. For a 45 degree traverse in X and Y the toolhead would travel at 1414.21 mm/min. 
 
 <pre>
 $xvm=1200        sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
-$zvm=30.0        sets Z to 30 inches per minute - assuming G20 is active
+$zvm=30.0        sets Z to 30 inches per minute - assuming G20 is active (i.e. inches mode)
 $avm=36000       sets A to 100 revolutions per minute (360 * 100)
 </pre>
  
 ### $xFR - Feed Rate maximum
-Sets the maximum velocity the axis will move during a feed in a G1, G2, or G3 move. This works similarly to maximum velocity, but instead of actually setting the speed, it only serves to establish a "do not exceed" for Gcode F words. Put another way, the maximum feed rate setting is NOT used to set the Gcode's F value; it is only a maximum that may be used to limit the F speed provided in a gcode file.
+Sets the maximum velocity the axis will move during a feed in a G1, G2, or G3 move. This works similarly to maximum velocity, but instead of actually setting the speed, it only serves to establish a "do not exceed" for Gcode F words. Put another way, the maximum feed rate setting is NOT used to set the Gcode's F value; it is only a maximum that may be used to limit the F value provided in a gcode file.
 
-Axis feed rates should be equal to or less than the maximum velocity. See Setting Feed Rate and Maximum Velocity for more details. 
+Axis feed rates should be equal to or less than the maximum velocity. See [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for more details. 
 
 <pre>
 $xfr=1000       sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 </pre> 
 
 ### $xTM - Travel Maximum
-Defines the maximum extent of travel in that axis. This is used during homing. See [Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) for more details on how this is used.
+Defines the maximum extent of travel in that axis. This is used during homing. See [Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for more details on how this is used.
 
 ### $xJM - Jerk Maximum
-Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, or Probotix with 5 pitch X and Y screws and 12 pitch Z screws. 
+Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, Probotix with 5 pitch X and Y screws and 12 pitch Z screws, and any machine with both linear and rotary axes.
 
 Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the examples below 
 
@@ -277,7 +277,7 @@ While JA is set globally and applies to all axes, JD is set per axis and can var
  $xJD 0.05     Units are mm
  $yJD 0.05
  $zJD 0.02     Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
- $JA 200,000   Units are mm/min^2. As before, commas are ingored and are provided only for clarity
+ $JA 200,000   Units are mm/min^2. As before, commas are ignored and are provided only for clarity
 </pre>
 
 ### $aRA - Radius value
@@ -288,7 +288,7 @@ For example; if the A radius is set to 10 mm it means that a value of 6.28318531
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
 ### Homing Settings
-Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) for details and more help on  homing settings:
+Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for details and more help on homing settings:
 
 * $xSN - Minimum switch mode
 * $xSX - Maximum switch mode
