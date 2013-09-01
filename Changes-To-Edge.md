@@ -16,15 +16,15 @@ that affect developers and users. This page is not meant to replace the github c
 
 * **Motor power management**
 
-* **JSON Responses** 
- * JSON Footer. The footer 
+* **JSON Footer** 
 
- * Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
+* **JSON Footer** 
+
+* **Malformed JSON** Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
 
     {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
     {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
     {"r":{"msg":"{gibberish}"},"f":[1,48,12,8007]}
-
 
 Also note: blank JSON lines will return this form:
 
