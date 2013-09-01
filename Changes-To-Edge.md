@@ -22,15 +22,17 @@ that affect developers and users. This page is not meant to replace the github c
  * $md deenergizes all motors
 
 * **JSON Footer** The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object:
-
+<pre>
     {"r":{"xvm":16000,"f":[1,0,13,1435]}}   (old way)
     {"r":{"xvm":16000},"f":[1,0,13,1435]}   (new way)
+</pre>
 
 * **Malformed JSON** Responses to malformed JSON Changed the response to malformed JSON to the following format. '48' is the status code for malformed JSON.
-
+<pre>
     {"r":{"msg":"{"gc":}"},"f":[1,48,8,174]}
     {"r":{"msg":"{"":}"},"f":[1,48,6,9235]}
     {"r":{"msg":"{gibberish}"},"f":[1,48,12,8007]}
+</pre>
 
 Also note: blank JSON lines will return this form:
 
