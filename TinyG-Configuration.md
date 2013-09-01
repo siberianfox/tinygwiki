@@ -91,7 +91,7 @@ Set communications speeds and modes.
 	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
 	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
-	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-xonxoff-protocol) | Enable XON/XOFF | 0=off, 1=enabled
+	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-xonxoff-protocol) | Enable XON/XOFF | 0=off, 1=XON enabled, 2=RTS enabled
 	[$baud](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#baud---set-usb-baud-rate) | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
 
 **Gcode Initialization Defaults**
