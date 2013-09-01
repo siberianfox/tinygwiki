@@ -1,7 +1,7 @@
 **The settings on this page are for version 0.95. Please use these links if you are not on version 0.95***
 
 * [TinyG Configuration for 0.96](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [TinyG Configuration for 0.94 and 0.93](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.94-and-Earlier)**
+* [TinyG Configuration for 0.94 and 0.93](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.94-and-Earlier)
 
 This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
