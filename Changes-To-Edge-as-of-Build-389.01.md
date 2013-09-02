@@ -27,6 +27,8 @@ that affect developers and users. This page is not meant to replace the github c
     {"r":{"xvd":1},"f":[1,40,10,8992]}               response to {"xvd":1} valid JSON but unrecognized command (Status code 40)
 </pre>
 
+* **Status report can contain up to 30 NV pairs**  - The caveat is that the total length of the longest SR cannot exceed 512 characters, all inclusive (curlies, LFs, etc). This should be a problem but please keep and eye out for this.
+
 * **G28.4 homing cycle - Experimental code**  - This is code Rob Grzesek (robgrz) and I have been working on. The function is to do a homing cycle without a final zero in the axis. It's Not fully tested yet, and still has an issue where about 0.001" is added to the displayed distance even though the measured distance seems to be accurate. 
 
 * **G38.2 probing cycle - Experimental code**  - This is code Rob added for probing that is still being shaken out. We need a larger discussion of what's needed for probing. So far we have the following cases that people want to do:
@@ -45,4 +47,3 @@ This was already in EDGE, but it's useful to know about:
  * $1pm=0 energizes the axis as soon as any axis moves and leaves the axis energized until N seconds after motion stops
  * $me energizes all motors set to $1pm=0
  * $md deenergizes all motors
-
