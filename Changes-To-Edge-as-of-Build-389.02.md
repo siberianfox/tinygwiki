@@ -1,22 +1,22 @@
 Background:
 
-* Build 380.05 which was previously in edge was just promoted to Master as of 8/31/13. It's been in edge for a while and tested out to be quite stable. The last code change before pushing to master was to add the RTS/CTS hardware flow control that's been in test since late July.
+* Build 380.05 which was previously in edge was just promoted to Master as of 8/31/13; it's Firmware Version 0.96. This code's been in edge for a while and tested out to be quite stable. The last code change before pushing to master was to add the RTS/CTS hardware flow control that's been in test since late July.
 
-* The Dev branch has been moving ahead with new feature requests and aligning the TinyG Xmega code base with the ARM port currently in the G2 repository. Once the Motate hardware abstraction layer is finished for the Xmega these code bases will be merged and there will be a single code base for the Xmega and ARM TinyG variants. The Dev branch is currently at build 391.01 as of 9/2/13.
+* The Dev branch is now designated firmware version 0.97 (candidate), and has been moving ahead with new feature requests and aligning the TinyG Xmega code base with the ARM port currently in the G2 repository. Once the Motate hardware abstraction layer is finished for the Xmega these code bases will be merged and there will be a single code base for the Xmega and ARM TinyG variants. The Dev branch is currently at build 391.02 as of 9/2/13.
 
 The Dev branch will be promoted to edge in early September.
 
-There are a lot of changes between build 380.05 and 391.01. This page lists the main changes 
+There are a lot of changes between build 380.05 and 391.02+. This page lists the main changes 
 that affect developers and users. This page is not meant to replace the github commit messages but does provide some consolidation and a bit more information than can be found in commit messages alone. Changes that affect code internals but not functionality are not listed.
 
-## Changes between Edge build 380.05 and Dev build 391.01
+## Changes between Edge build 380.05 and Dev build 391.02
 
 * **JSON Footer** - The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object:
 <pre>
     {"r":{"xvm":16000,"f":[1,0,13,1435]}}            old footer format
     {"r":{"xvm":16000},"f":[1,0,11,6442]}            new footer format
 </pre>
-I also added a hidden variable {"fd":0} ( $fd ) to set the footer depth to ease transition until you update your JSON parser. Setting to 0 provides the new style, 1 the old style. The default is 0 set in the settings.h file. While in transition you might want to compile this to be 1 or the startup messages will be returned in the new style.
+I also added a hidden variable {"fd":0} ( $fd ) to set the footer depth to ease transition until you update your JSON parser. Setting to 0 provides the new style, 1 the old style. The default is 0 set in the settings.h file. While in transition you might want to compile this to be 1 or the startup messages will be returned in the new style. AT some point the fd will be removed and the code will only work in the new style; probably when 0.97 get pushed to master.
 
 * **Malformed JSON** - Responses to malformed JSON changed to the following: An "err" string returned with the original string, and a status code of 48 indicating malformed JSON. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Any quotes in the error string are escaped. Also note the new response for for blank JSON lines
 <pre>
