@@ -11,13 +11,11 @@ that affect developers and users. This page is not meant to replace the github c
 
 ## Changes between Edge build 380.05 and Dev build 391.02
 
-* **JSON Footer** - The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object:
+* **JSON Footer** - The JSON footer is now at "level 0" instead of "level 1"; i.e. it is now a sibling to the "r" object not a child of the "r" object. This is more correct from an OO perspective, as the footer is an independent object and not an attribute of the Response. This sets things up to use footers with other types of objects, not just R's.
 <pre>
     {"r":{"xvm":16000,"f":[1,0,13,1435]}}            old footer format
     {"r":{"xvm":16000},"f":[1,0,11,6442]}            new footer format
 </pre>
-This is more correct from an OO perspective, as the footer is an independent object and not an attribute of the Response. This sets things up to use footers with other types of objects, not just R's.
-
 I also added a hidden variable {"fd":0} ( $fd ) to set the footer depth to ease transition until you update your JSON parser. Setting to 0 provides the new style, 1 the old style. The default is 0 set in JSON_FOOTER_DEPTH in the settings.h file. While in transition you might want to compile this to be 1 or the startup messages will be returned in the new style. AT some point the fd will be removed and the code will only work in the new style; probably when 0.97 get pushed to master.
 
 * **Malformed JSON** - Responses to malformed JSON changed to the following: An "err" string returned with the original string, and a status code of 48 indicating malformed JSON. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for [tinyg status codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes). Any quotes in the error string are escaped. Also note the new response for for blank JSON lines
