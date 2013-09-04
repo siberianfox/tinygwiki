@@ -4,6 +4,7 @@ If you have a TinyG v8 this is the place to start. The board revision is printed
 * [TinyG version 6 or earlier](https://github.com/synthetos/TinyG/wiki/TinyG-Start-v6-and-Earlier)
 
 Here's some background if you want to know [what TinyG is](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
+Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
 ## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
