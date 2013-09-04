@@ -21,18 +21,26 @@ Currently switches are defined by their homing / limit function. They are bound 
 
 ###Use Cases
 We can envision:
-* UC01: Limit Switches: End-stop switch closure resets machine
-* UC02: Soft Limits: Programmatically detected boundary conditions fire a processing exception
-* UC03: Homing Switches: End-stop switch closure used for referencing an axis to zero
-* UC04: Edge Finder Probe: Find an edge using a probe and a touch-off operation
-* UC05: Corner Finder Probe: Find a corner using a probe and a touch-off operation
-* UC06: Center-finder Probe: Find a center position using a conductive ring and a probe
-* UC07: Wire Deflection Sensor: Detects when wire un-bends and breaks contact with an electrical post
+
+End-Stop Cases
+* UC_01: Limit Switches: End-stop switch closure resets machine
+* UC_: Homing Switches: End-stop switch closure used for referencing an axis to zero
+
+Probe Cases
+* UC_: Edge Finder Probe: Find an edge using a probe and a touch-off operation
+* UC_: Corner Finder Probe: Find a corner using a probe and a touch-off operation
+* UC_: Center finder Probe: Find a center position using a conductive ring and a probe
+
+Other Cases
+* UC_: Soft Limits: Programmatically detected boundary conditions fire a processing exception
+* UC_: Rotary Indexing: A shaft or other device fires a "switch" at a defined spot in a revolution
+* UC_: Wire Deflection Sensor: Detects when wire un-bends and breaks contact with an electrical post
+* UC_: Image Recognition Sensor: An image recognizer sends position information or sets state (e.g. for pick and place)
 
 ###Switch Resource Model
 
 ## Use Case Detail
-###UC01: Limit Switches
+###UC_01: Limit Switches
 Currently when a limit switch is hit all bets are off. This is how my machinist friends tell me it's supposed to work. Hitting a limit is a catastrophic event that immediately shuts down the machine and stops all work. 
 
 In grbl, however, position is preserved when a limit switch is hit; something we've not worried about in TinyG. I see this (position preserved) being used more as compensation for not having a more general probe function. ALso, introducing soft limits should remove many of the cases where a limit will actually get hit. 
