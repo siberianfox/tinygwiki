@@ -73,3 +73,16 @@ If you want to program 'down to the metal" we recommend the [Atmel AVRISP MKII p
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
+
+###Changes in v8 from v7
+
+* LEDs moved to a single edge for better mounting / readout
+* USB changed to USB-B (from mini) for better mechanical integrity
+* IO connections changed from 0.100 headers to screw terminal blocks
+* step/direction/enable signals broken out on headers for external stepper drivers
+* logic power supply is now a switcher (as opposed to a linear) on the v7 for better thermal characteristics
+* FTDI USB chip changed to FT230X from FT232R
+* switch inputs have RC circuit built in for better noise rejection
+* RS-485 removed and replaced with SPI connection
+* transient voltage suppressors added to Vmotor and USB lines
+* mounting hole pattern is slightly different to accommodate about 1/4" growth in the board 
