@@ -29,7 +29,7 @@ End-Stop Cases
 Probe Cases
 * UC_: Edge Finder Probe: Find an edge using a probe and a touch-off operation
 * UC_: Corner Finder Probe: Find a corner using a probe and a touch-off operation
-* UC_: Center finder Probe: Find a center position using a conductive ring and a probe
+* UC_: Center Finder Probe: Find a center position using a conductive ring and a probe
 
 Other Cases
 * UC_: Soft Limits: Programmatically detected boundary conditions fire a processing exception
@@ -38,6 +38,8 @@ Other Cases
 * UC_: Image Recognition Sensor: An image recognizer sends position information or sets state (e.g. for pick and place)
 
 ###Switch Resource Model
+
+'S' objects (sensor objects) holds an array of switches and possibly other sensors. These get bound to use cases, which get bound to specific types of cycles. That way the sensor can be used differently in different modes of operation. I don't really know yet.
 
 ## Use Case Detail
 ###UC_01: Limit Switches
