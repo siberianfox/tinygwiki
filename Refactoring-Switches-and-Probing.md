@@ -39,7 +39,21 @@ Other Cases
 
 ###Switch Resource Model
 
+_I'm really just throwing stuff at the wall for now in this pert. Just saying._
+
 'S' objects (sensor objects) holds an array of switches and possibly other sensors. These get bound to use cases, which get bound to specific types of cycles. That way the sensor can be used differently in different modes of operation. I don't really know yet.
+
+Use the 'sN' prefix for groups, e.g. s1 - s8 for the current switch array 
+
+	Setting | Description | Notes
+	--------|-------------|-------
+	$s1mo | Switch mode | 0=disabled, 1=NO, 2=NC
+	$s1ty | Switch type | 1=mechanical, 2=opto, 3=probe... Sets defaults for switch behaviors. Can be overridden below
+	$s1deb | Switch debounce | -1=use default for switch type, 0-N = samples to debounce (mSec)
+	$s1deg | Switch deglitch | -1=use default for switch type, 0-N = lockout time after firing (mSec)
+
+
+
 
 ## Use Case Detail
 ###UC_01: Limit Switches
