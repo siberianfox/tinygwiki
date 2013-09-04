@@ -9,9 +9,10 @@ Currently switches are defined by their homing / limit function. They are bound 
 * Support various types of switches including (but not limited to)
  * "microswitch" style button and leaf actuated switches
  * probe "switches" where electrical closure is made by contact between the probe (or tool) and the work or a conductive surface
+ * "raw" switches which are just 2 conductive surfaces in contact (a degenerate case of a probe) 
  * Opto switches
  * Hall effect sensors
-* have a structure that's also capable of supporting other types of positional and state input including:
+* Have a structure that's also capable of supporting other types of positional and state input including:
  * rotary / linear encoders
  * image recognition systems (e.g. edge or centroid reporting via data inputs)
  * "buttons" and other user-activated inputs
@@ -20,12 +21,18 @@ Currently switches are defined by their homing / limit function. They are bound 
 
 ###Use Cases
 We can envision:
-* UC1: Limit switch for an axis / system resets on limit switch closure
-* UC2: Homing switch for an axes / homing cycles
+* UC01: Limit Switches: End-stop switch closure resets machine
+* UC02: Soft Limits: Programmatically detected boundary conditions fire a processing exception
+* UC03: Homing Switches: End-stop switch closure used for referencing an axis to zero
+* UC04: Edge Finder Probe: Find an edge using a probe and a touch-off operation
+* UC05: Corner Finder Probe: Find a corner using a probe and a touch-off operation
+* UC06: Center-finder Probe: Find a center position using a conductive ring and a probe
+* UC07: Wire Deflection Sensor: Detects when wire un-bends and breaks contact with an electrical post
+
 ###Switch Resource Model
 
 ## Use Case Detail
-###UC1: Limit Switches
+###UC01: Limit Switches
 Currently when a limit switch is hit all bets are off. This is how my machinist friends tell me it's supposed to work. Hitting a limit is a catastrophic event that immediately shuts down the machine and stops all work. 
 
 In grbl, however, position is preserved when a limit switch is hit; something we've not worried about in TinyG. I see this (position preserved) being used more as compensation for not having a more general probe function. ALso, introducing soft limits should remove many of the cases where a limit will actually get hit. 
