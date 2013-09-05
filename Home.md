@@ -32,7 +32,7 @@ Please come visit / join any or all of the above.
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 
-### TinyG Firmware Update, Programming and Hostorical References
+### TinyG Firmware Update, Programming and Historical References
 * [Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
