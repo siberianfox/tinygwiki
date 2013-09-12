@@ -1,4 +1,4 @@
-Hard alarms are caused hitting a limit switch or by an unrecoverable internal error. In this case the system is considered unrecoverable and the current job is presumed lost. Soft alarms are not yet supported; see section on behaviors as we work this out.  
+Hard alarms are caused hitting a limit switch or by an unrecoverable internal error. In this case the system is considered unrecoverable and the current job is presumed lost. Soft alarms are not yet supported; see Discussion of Soft Alarms as we work this out.  
 
 ##Hard Alarms in Version 0.96 and Earlier
 The current system behavior for an alarm is:
@@ -8,7 +8,7 @@ The current system behavior for an alarm is:
 * The system will not process any new input, or any commands queued in the planner or serial input buffers.
 * The system can only be recovered by hitting RESET, or by sending ^x (control X) to the serial port.
 
-##Discussion of Revised Alarms 
+##Discussion of Soft Alarms 
 We would like to preserve the hard alarm behavior, but introduce soft alarms as well.
 * Hard alarms still work like above, but status code is moved from 2 to 11 (or some other number)
 
@@ -26,4 +26,3 @@ The interesting question is what to do next. If the serial RX buffer is empty it
 I suggest (a) even though it's a bit messy. Some of this could be mitigated using line numbers or a machine generated "program counter" so the host knows exactly what was rejected.
 
 Really speaks to managing the flow control using QRs and not serial-level FC.
-
