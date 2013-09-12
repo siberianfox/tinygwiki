@@ -2,7 +2,8 @@ Hard alarms are caused hitting a limit switch or by an unrecoverable internal er
 
 ##Hard Alarms in Version 0.96 and Earlier
 The current system behavior for an alarm is:
-* A switch configured as a limit being hit causes the board to go into an ALARM state (status code = 2).  (also the case for an internal assertion failure).
+* A switch configured as a limit being hit causes the board to go into an ALARM state (status code = 2). 
+* (Another case generating a hard alarm is an internal assertion failure such as a memory corruption or stack overflow).
 * Everything is shut down immediately and the spindle direction LED flashes quickly. (Note: an assertion failure might find the system so compromised that it cannot even do this and remaining steps)
 * An exception report is generated indicating the cause
 * The system will not process any new input, or any commands queued in the planner or serial input buffers.
