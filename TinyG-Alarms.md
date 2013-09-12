@@ -19,8 +19,11 @@ If a soft alarm is triggered the following happens:
 
 The interesting question is what to do next. If the serial RX buffer is empty it's easy enough to send in a command to release the alarm stat (calm), but if it's not that's a different story. Running the system using queue reports can keep the buffer empty. 
 
-(a) One possible solution to a non-empty RX buffer is to read and reject all commands with a known error response such as "system alarmed, command rejected" until a "calm" command is received. This puts the burden of replay back on the controller. 
+(a) One possible solution to a non-empty RX buffer is to read and reject all motion commands with a known error response such as "system alarmed, command rejected" until a "calm" command is received. This puts the burden of replay back on the controller. Status reports and other queries should be possible prior to receiving a calm.
 
-(b) Another possibility is to add a new single character command that can jump the queue (e.g. *) or overload one of the existing ones, like cycle start ~. Sounds good, but even this won't work if the host is jammed up in flow control on its end. Nothing TinyG can do about that.
+(b) Another possibility is to add a new single character command that can jump the queue (e.g. ^Y) or overload one of the existing ones, like a feedhold (!) received during an alarm. But even this won't work if the host is jammed up in flow control on its end. Nothing TinyG can do about that.
 
-(all for now)
+I suggest (a) even though it's a bit messy. Some of this could be mitigated using line numbers or a machine generated "program counter" so the host knows exactly what was rejected.
+
+Really speaks to managing the flow control using QRs and not serial-level FC.
+
