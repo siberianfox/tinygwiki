@@ -47,8 +47,7 @@ Open a Terminal (or PuTTY) windows and type:
 These also go into the BBB:
 
     opkg update
-    opkg install python-compiler
-    opkg install kernel-module-ftdi-sio 
+    opkg install python-compiler python-distutils python-multiprocessing python-misc kernel-module-ftdi-sio 
 
     # Ignore these warning messages:
     # WARNING: could not open /lib/modules/3.8.13/modules.order: No such file or directory
