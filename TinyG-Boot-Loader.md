@@ -33,7 +33,7 @@ To update the TinyG firmware run avrdude from a directory that has the tinyg.hex
 * Send a `^x` (control X) to the board (software reset)
 * Send an `ESC` to the board
 * Send the command `$boot=1`
-* Send the JSON command `{"boot":1}
+* Send the JSON command `{"boot":1}`
  
 Next you need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times, or about 3 seconds.
 
