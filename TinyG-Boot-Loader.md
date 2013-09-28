@@ -28,7 +28,7 @@ To update the TinyG firmware run avrdude from a directory that has the tinyg.hex
 
 **Step2**. Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
-**Step3**. Enter the boot loader and flash the chip using Avrdude.  Use the Avrdude distributed with the Arduino - it's pretty up to date. You can enter the bootloader any of the following ways:
+**Step3**. Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
 * Hit reset on the board
 * Send a `^x` (control X) to the board (software reset)
 * Send an `ESC` to the board
