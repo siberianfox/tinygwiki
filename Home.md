@@ -19,7 +19,8 @@ Please come visit / join any or all of the above.
 * [What is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
-* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Initial Setup] (https://github.com/synthetos/TinyG/wiki/Initial-Setup)
+* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
 ### TinyG User Pages
