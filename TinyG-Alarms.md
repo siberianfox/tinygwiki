@@ -14,6 +14,11 @@ We would like to preserve the hard alarm behavior, but introduce soft alarms as 
 * Hard alarms still work like above, but status code is moved from 2 to 11 (or some other number)
 
 If a soft alarm is triggered the following happens:
+* The newly arriving move causes a soft limit error and returns an according error code (73)
+* The system will not accept any new commands until a {"clear":true} is received. Any new commands will fail with an "Alarm violation" error code (some somesuch).
+* Independently of the above, the moves already in the planner queue will be run to completion. If the host does not want this behavior they can issue a feedhold and buffer flush before or after the clear command.
+
+(old text - deprecated)
 * System halts all movement with a feedhold and preserves position at the feedhold point.
 * Stops processing any commands in the planner or serial queue
 * Generates an exception report indicating the type of alarm. The type is returned as a status code (2) and some displayable message text.
