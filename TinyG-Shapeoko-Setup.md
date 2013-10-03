@@ -7,11 +7,11 @@ Settings use the following format by way of example:
 
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
+For details of the command see the [TinyG Configuration Page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
 ### System Settings
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$jd | 0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
 	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
 
@@ -51,24 +51,20 @@ Dual gantry setups: Map motor 4 to the Y axis and set everything else up the sam
 ### Axis Settings
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$xam | 0 | AXIS_MODE | 1= standard mode.
+	$xam | 0 | AXIS_MODE | 1=standard mode
+	$xvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this. Test it and adjust current pots
+	$xfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
+	$xtm | 300 | TRAVEL_MAX | Max travel before crash
+	$xjm | 5000000000 | JERK_MAX | That's 5 billion. Count the zeros to be sure
+	$xjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
+	$xsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
+	$xsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
+	$xsv | 3000 | SEARCH_VELOCITY | Homing speed to drive onto switch
+	$xlv | 100 | LATCH_VELOCITY | Speed to back off homing switch
+	$xlb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
+	$xzb | 5 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
+	$xjh | 5000000000 | JERK_HOMING | Jerk to use during homing operations. Typically bigger than JERK_MAX
 
-#define				AXIS_STANDARD		// xam		see canonical_machine.h cmAxisMode for valid values
-#define X_VELOCITY_MAX			16000 				// xvm		G0 max velocity in mm/min
-#define X_FEEDRATE_MAX			X_VELOCITY_MAX		// xfr 		G1 max feed rate in mm/min
-#define X_TRAVEL_MAX			220					// xtm		travel between switches or crashes
-//#define X_TRAVEL_MAX			300					// xtm		travel between switches or crashes
-#define X_JERK_MAX				5000000000			// xjm		yes, that's "5 billion" mm/(min^3)
-#define X_JUNCTION_DEVIATION	JUNCTION_DEVIATION	// xjd
-#define X_SWITCH_MODE_MIN 		SW_MODE_HOMING		// xsn		SW_MODE_DISABLED, SW_MODE_HOMING, SW_MODE_LIMIT, SW_MODE_HOMING_LIMIT
-//#define X_SWITCH_MODE_MAX 		SW_MODE_DISABLED	// xsx		SW_MODE_DISABLED, SW_MODE_HOMING, SW_MODE_LIMIT, SW_MODE_HOMING_LIMIT
-#define X_SWITCH_MODE_MAX 		SW_MODE_LIMIT	// xsx		SW_MODE_DISABLED, SW_MODE_HOMING, SW_MODE_LIMIT, SW_MODE_HOMING_LIMIT
-#define X_SEARCH_VELOCITY		3000				// xsv		minus means move to minimum switch
-#define X_LATCH_VELOCITY		100					// xlv		mm/min
-#define X_LATCH_BACKOFF			20					// xlb		mm
-#define X_ZERO_BACKOFF			3					// xzb		mm
-//#define X_JERK_HOMING			X_JERK_MAX			// xjh
-#define X_JERK_HOMING			10000000000			// xjh
 
 #define Y_AXIS_MODE				AXIS_STANDARD
 #define Y_VELOCITY_MAX			16000
