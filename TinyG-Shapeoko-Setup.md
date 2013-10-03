@@ -1,13 +1,18 @@
 This page describes the setup for a 3 axis (single Y) original shapeoko with 375mm slides. You may need to change this for larger slides or dual Y. 
 
+Settings use the following format by way of example:
+
+  $jd=0.01
+  $xvm=16000
+
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
 
-	cmd line | setting | Notes
-	---------|---------|---------
-	$jd=0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
 
-2000000      JUNCTION_ACCELERATION - 2 million - centripetal acceleration around corners
+	$ setting | value | description |notes
+	---------|---------|---------|-------
+	$jd | 0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
+	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 
 // *** settings.h overrides ***
 
