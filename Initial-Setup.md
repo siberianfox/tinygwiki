@@ -11,3 +11,5 @@ This is a placeholder for a setup page that will help new users configure TinyG 
 -Homing
 
 -Emergency Stop
+
+See also http://edslifedaily.weebly.com/uploads/2/5/6/1/2561031/win7_grbl_setup.pdf
