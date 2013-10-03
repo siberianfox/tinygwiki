@@ -36,11 +36,11 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 	$3mi | 4 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$3po | 0 | POLARITY | Depends on how you wired your motors 
 	$3pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
-	$4ma | 3 | MOTOR_MAP | map motor 4 to A ROTARY axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$4ma | 2 | MOTOR_MAP | map motor 4 to second Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$4sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
-	$4tr | 360 | TRAVEL_PER_REV | Amount A moves IN DEGREES in 1 motor revolution
+	$4tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 motor revolution
 	$4mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
-	$4po | 0 | POLARITY | Depends on how you wired your motors 
+	$4po | 0 | POLARITY | Set so it doesn't fight motor 2's Y. 
 	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
 Note on polarity. X should mov the right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of that axis if this is not true. 
@@ -51,9 +51,9 @@ Dual gantry setups: Map motor 4 to the Y axis and set everything else up the sam
 ### Axis Settings
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$xam | 0 | AXIS_MODE | 1= standard mode.
 
-#define X_AXIS_MODE				AXIS_STANDARD		// xam		see canonical_machine.h cmAxisMode for valid values
+#define				AXIS_STANDARD		// xam		see canonical_machine.h cmAxisMode for valid values
 #define X_VELOCITY_MAX			16000 				// xvm		G0 max velocity in mm/min
 #define X_FEEDRATE_MAX			X_VELOCITY_MAX		// xfr 		G1 max feed rate in mm/min
 #define X_TRAVEL_MAX			220					// xtm		travel between switches or crashes
