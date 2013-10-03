@@ -8,7 +8,6 @@ Settings use the following format by way of example:
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
 
-
 	$ setting | value | description |notes
 	---------|---------|---------|-------
 	$jd | 0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
