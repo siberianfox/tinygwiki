@@ -1,4 +1,4 @@
-This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the TinyG Tuning Page for some details about tuning up the machine.
+This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the [TinyG Tuning Page](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for some details about tuning up the machine.
 
 Settings use the following format by way of example:
 
@@ -132,4 +132,3 @@ Usually you are not using these, so just set some reasonable values like below. 
 	$alb | 5 | LATCH_BACKOFF | Max distance to back off switch during latch phase
 	$azb | 2 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 	$ajh | 2400000000 | JERK_HOMING | Jerk to use during homing operations
-
