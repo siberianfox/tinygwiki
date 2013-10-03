@@ -4,6 +4,7 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 
 
 	cmd line | setting | Notes
+	---------|---------|---------
 	$jd=0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
 
 2000000      JUNCTION_ACCELERATION - 2 million - centripetal acceleration around corners
@@ -213,4 +214,3 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 #define G59_A_OFFSET 0
 #define G59_B_OFFSET 0
 #define G59_C_OFFSET 0
-
