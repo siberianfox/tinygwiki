@@ -9,14 +9,14 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 
 
 ### System Settings
-	$ setting | value | description |notes
+	setting | value | description |notes
 	---------|---------|---------|-------
 	$jd | 0.01 | JUNCTION_DEVIATION |default value, in mm - smaller is faster
 	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
 
 ### Motor Settings
-	$ setting | value | description |notes
+	setting | value | description |notes
 	---------|---------|---------|-------
 	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$1sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
@@ -24,21 +24,12 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 	$1mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$1po | 0 | POLARITY | Depends on how you wired your motors 
 	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves. Best setting for belt machines like Shapeoko 
-
-
-#define M1_MOTOR_MAP 			AXIS_X	// 1ma
-#define M1_STEP_ANGLE			1.8		// 1sa
-#define		36.54	// 1tr
-#define M1_MICROSTEPS			8		// 1mi		1,2,4,8
-#define M1_POLARITY				1		// 1po		0=normal, 1=reversed
-#define M1_POWER_MODE			0		// 1pm		TRUE=low power idle enabled 
-
-#define M2_MOTOR_MAP			AXIS_Y
-#define M2_STEP_ANGLE			1.8
-#define M2_TRAVEL_PER_REV		36.54
-#define M2_MICROSTEPS			8
-#define M2_POLARITY				0
-#define M2_POWER_MODE			0
+	$2ma | 1 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$2sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$2tr | 36.54 | TRAVEL_PER_REV | Amount the belts move the head in 1 revolution. You setup may be slightly different.
+	$2mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$2po | 0 | POLARITY | Depends on how you wired your motors 
+	$2pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
 #define M3_MOTOR_MAP			AXIS_Z
 #define M3_STEP_ANGLE			1.8
