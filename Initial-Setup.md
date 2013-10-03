@@ -12,4 +12,9 @@ This is a placeholder for a setup page that will help new users configure TinyG 
 
 -Emergency Stop
 
-See also http://edslifedaily.weebly.com/uploads/2/5/6/1/2561031/win7_grbl_setup.pdf
+See also: 
+http://edslifedaily.weebly.com/uploads/2/5/6/1/2561031/win7_grbl_setup.pdf
+
+http://calculator.josefprusa.cz/
+
+https://thingsihack.wordpress.com/2012/07/08/calibration-and-sending-g-code/
