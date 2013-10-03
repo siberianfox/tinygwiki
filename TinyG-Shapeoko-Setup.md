@@ -9,13 +9,14 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 
 For details of the command see the [TinyG Configuration Page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
-### System Settings
+## System Settings
 	setting | value | description |notes
 	---------|---------|---------|-------
 	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
 
-### Motor Settings
+## Motor Settings
+###Motor 1
 	setting | value | description |notes
 	---------|---------|---------|-------
 	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
@@ -49,6 +50,7 @@ Dual gantry setups: Map motor 4 to the Y axis and set everything else up the sam
 
 
 ### Axis Settings
+#### X Axis
 	setting | value | description |notes
 	---------|---------|---------|-------
 	$xam | 0 | AXIS_MODE | 1=standard mode
