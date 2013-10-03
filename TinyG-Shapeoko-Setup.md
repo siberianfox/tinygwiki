@@ -7,7 +7,7 @@ Settings use the following format by way of example:
 
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
-For details of the command see the [TinyG Configuration Page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+For details of the settings see the [TinyG Configuration Page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
 ## System Settings
 	setting | value | description |notes
