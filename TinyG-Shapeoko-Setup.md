@@ -20,62 +20,38 @@ All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at
 	---------|---------|---------|-------
 	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$1sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
-	$1tr | 36.54 | TRAVEL_PER_REV | Amount the belts move the head in 1 revolution. You setup may be slightly different.
+	$1tr | 36.54 | TRAVEL_PER_REV | Amount X moves in 1 motor revolution. Your setup may be slightly different.
 	$1mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$1po | 0 | POLARITY | Depends on how you wired your motors 
-	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves. Best setting for belt machines like Shapeoko 
-	$2ma | 1 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves. Good for belt machines like Shapeoko 
+	$2ma | 1 | MOTOR_MAP | map motor 2 to Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$2sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
-	$2tr | 36.54 | TRAVEL_PER_REV | Amount the belts move the head in 1 revolution. You setup may be slightly different.
+	$2tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 revolution
 	$2mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$2po | 0 | POLARITY | Depends on how you wired your motors 
 	$2pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
+	$3ma | 2 | MOTOR_MAP | map motor 3 to Z axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$3sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$3tr | 1.25 | TRAVEL_PER_REV | Amount Z moves in 1 revolution
+	$3mi | 4 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$3po | 0 | POLARITY | Depends on how you wired your motors 
+	$3pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
+	$4ma | 3 | MOTOR_MAP | map motor 4 to A ROTARY axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$4sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$4tr | 360 | TRAVEL_PER_REV | Amount A moves IN DEGREES in 1 motor revolution
+	$4mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$4po | 0 | POLARITY | Depends on how you wired your motors 
+	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
-#define M3_MOTOR_MAP			AXIS_Z
-#define M3_STEP_ANGLE			1.8
-#define M3_TRAVEL_PER_REV		1.25
-#define M3_MICROSTEPS			4
-#define M3_POLARITY				1
-#define M3_POWER_MODE			1
+Note on polarity. X should mov the right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of that axis if this is not true. 
 
-#define M4_MOTOR_MAP			AXIS_A
-#define M4_STEP_ANGLE			1.8
-#define M4_TRAVEL_PER_REV		360		// degrees per motor rev - no gearing
-#define M4_MICROSTEPS			8
-#define M4_POLARITY				0
-#define M4_POWER_MODE			0
+Dual gantry setups: Map motor 4 to the Y axis and set everything else up the same. Set polarity so the motors are not fighting each other.
 
-/* Mapping for dual grantry setup
-#define M1_MOTOR_MAP 			AXIS_X	// 1ma
-#define M1_STEP_ANGLE			0.9		// 1sa
-#define M1_TRAVEL_PER_REV		36.54	// 1tr
-#define M1_MICROSTEPS			8		// 1mi		1,2,4,8
-#define M1_POLARITY				0		// 1po		0=normal, 1=reversed
-#define M1_POWER_MODE			1		// 1pm		TRUE=low power idle enabled 
 
-#define M2_MOTOR_MAP			AXIS_Y
-#define M2_STEP_ANGLE			0.9
-#define M2_TRAVEL_PER_REV		36.54
-#define M2_MICROSTEPS			8
-#define M2_POLARITY				1
-#define M2_POWER_MODE			1
-
-#define M3_MOTOR_MAP			AXIS_Y
-#define M3_STEP_ANGLE			0.9
-#define M3_TRAVEL_PER_REV		36.54
-#define M3_MICROSTEPS			8
-#define M3_POLARITY				0
-#define M3_POWER_MODE			1
-
-#define M4_MOTOR_MAP			AXIS_Z
-#define M4_STEP_ANGLE			0.45
-#define M4_TRAVEL_PER_REV		2.1166
-#define M4_MICROSTEPS			8
-#define M4_POLARITY				1
-#define M4_POWER_MODE			0
-*/
-
-// *** axis settings ***
+### Axis Settings
+	setting | value | description |notes
+	---------|---------|---------|-------
+	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 
 #define X_AXIS_MODE				AXIS_STANDARD		// xam		see canonical_machine.h cmAxisMode for valid values
 #define X_VELOCITY_MAX			16000 				// xvm		G0 max velocity in mm/min
