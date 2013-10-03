@@ -2,8 +2,8 @@ This page describes the setup for a 3 axis (single Y) original shapeoko with 375
 
 Settings use the following format by way of example:
 
-  $jd=0.01
-  $xvm=16000
+  $jd=0.01<br>
+  $xvm=16000<br>
 
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
