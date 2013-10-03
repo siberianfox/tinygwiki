@@ -1,4 +1,4 @@
-This page describes the setup for a 3 axis (single Y) original shapeoko with 375mm slides. You may need to change this for larger slides or dual Y. 
+This page describes the setup for a 3 axis or 4 axis Shapeoko with 375mm slides. You may need to change this for larger slides.
 
 Settings use the following format by way of example:
 
