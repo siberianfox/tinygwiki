@@ -1,4 +1,4 @@
-This page describes the setup for a 3 axis or 4 axis Shapeoko with 375mm slides. You may need to change this for larger slides.
+This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the TinyG Tuning Page for some details about tuning up the machine.
 
 Settings use the following format by way of example:
 
