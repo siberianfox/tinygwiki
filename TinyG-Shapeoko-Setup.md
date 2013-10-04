@@ -49,11 +49,11 @@ For details of the settings see the [TinyG Configuration Page](https://github.co
 ###Motor 4
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$4ma | 2 | MOTOR_MAP | map motor 4 to second Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$4ma | 1 | MOTOR_MAP | map motor 4 to second Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$4sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
 	$4tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 motor revolution
 	$4mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
-	$4po | 0 | POLARITY | Set so it doesn't fight motor 2's Y. 
+	$4po | 1 | POLARITY | Reverse from Motor 2 so it doesn't fight motor 2's Y. 
 	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
 Note on polarity. X should move right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of the axis if this is not true. 
