@@ -142,7 +142,7 @@ A status report may contain one or more of the following attributes. The [token]
 [path] path_control_mode  - 0=exact stop, 1=exact path, 2=continuous
 [dist] distance_mode      - 0=absolute distance, 1=incremental distance
 [frmo] feed_rate_mode     - 0=units-per-minute-mode, 1=inverse-time-mode
-[hold] hold_stat          - 0=off, 1=sync, 2=plan, 3=decel, 4=holding, 5=end-hold
+[hold] hold_state         - 0=off, 1=sync, 2=plan, 3=decel, 4=holding, 5=end-hold
 
 [posx] x work position    - X work position in prevailing units (mm or inch) 
 [posy] y work position        Reports position in current coordinate system
