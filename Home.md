@@ -22,7 +22,6 @@ Please come visit / join any or all of the above.
 * [Initial Setup] (https://github.com/synthetos/TinyG/wiki/Initial-Setup)
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
-
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 
 ### TinyG User Pages
