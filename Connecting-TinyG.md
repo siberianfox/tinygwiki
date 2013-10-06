@@ -1,3 +1,4 @@
+**Note: This page currently illustrates connecting a v7 TinyG. The instructions for V8 are identical - still need to update the picture.**
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
 
