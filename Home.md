@@ -16,7 +16,7 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 Please come visit / join any or all of the above.
 
 ## TinyG Basic Pages
-* [What is TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
+* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
