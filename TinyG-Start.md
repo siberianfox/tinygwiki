@@ -25,10 +25,13 @@ Here is what you are going to need in order to use TinyG:
 * Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
 * 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding (See Notes)
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
-* Programmer (Optional.. If you want firmware updates..)
+* Programmer (Optional.. You can use the Bootloader for firmware updates, See Notes)
 * Case (Optional) 
 
-Notes: We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
+NOTES: 
+* TinyG requires a PDI capable programmer such as the [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D). Standard AVR ICSP programmers will not work.
+
+* We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
 
 #### TinyG Board
 You can get the TinyG controller board fully assembled from the [Synthetos Store](https://www.synthetos.com/webstore/index.php/assembled-electronics/tiny-g.html)
