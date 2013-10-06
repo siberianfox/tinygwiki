@@ -1,5 +1,3 @@
-_updated 6/28/13 - ash_
-
 **NOTE: This page describes Gcode supported in release 0.95 and later**
 
 See also:
