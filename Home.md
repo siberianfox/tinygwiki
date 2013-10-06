@@ -19,6 +19,7 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
+* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
