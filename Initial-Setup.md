@@ -1,3 +1,7 @@
+It appears that much of the information on [this page](http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring) appears to be applicable and seems to supply some of the missing information below.  
+
+--------------------------------------
+
 This page is meant to pick up where the Connect Motors page left off, enabling a user to get useful work done.
 
 To begin with, you will need to tell your TinyG about your machine, so it knows what you have and how to drive it.  
