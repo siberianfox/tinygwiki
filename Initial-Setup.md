@@ -7,7 +7,8 @@ To begin with, you will need to tell your TinyG about your machine, so it knows 
 * Hello World example
 * Emergency Stop
 
-See also: 
+These seem useful:
+* [Older Wiki configuring] (http://www.synthetos.com/wiki/index.php?title=TinyG:Configuring)
 * [GRBL setup](http://edslifedaily.weebly.com/uploads/2/5/6/1/2561031/win7_grbl_setup.pdf)
 * [Rob Noble's Setup calculator](http://noblesque.org.uk/ShapeOko/grblcalc/) (TPI, pitch, microstepping, etc.)
 * [A useful configuration calculator](http://calculator.josefprusa.cz/)
