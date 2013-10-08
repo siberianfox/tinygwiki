@@ -41,6 +41,7 @@ Please come visit / join any or all of the above.
 
 ### TinyG Developer Pages
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
 * [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes), [More Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
