@@ -10,6 +10,8 @@ Status codes are returned in the second element of the footer array, e.g.
 "f":[1,0,255,1234]
 </pre>
 
+Codes:
+
 	errno | name | Description
 	---------|--------------|-------------
 	0 | TG_OK | universal OK code (function completed successfully)
