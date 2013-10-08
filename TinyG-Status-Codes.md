@@ -5,6 +5,10 @@ See also:
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 ## Status Codes
+Status codes are returned in the second element of the footer array, e.g.
+<pre>
+"f":[1,0,255,1234]
+</pre>
 
 	errno | name | Description
 	---------|--------------|-------------
