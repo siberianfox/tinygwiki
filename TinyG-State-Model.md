@@ -1,1 +1,1 @@
-![TinyG State Model](http://www.flickr.com/photos/rileyporter/10154487504/sizes/l/in/photostream/)
+![TinyG State Model](http://farm8.staticflickr.com/7395/10154487504_26c80661e1_o.jpg)
