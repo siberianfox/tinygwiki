@@ -24,7 +24,8 @@ If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot L
 # Updating Firmware Using AVRdude and Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
-**Step0**. Get the tinyg.hex file. In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
+##**Step0**
+Get the tinyg.hex file. In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
 <pre>
 https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
 </pre>
@@ -34,11 +35,14 @@ Notes:
 - If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. 
 - The hex in the default directory is compiled using AVR Studio 4, which is the one we test on. There may also be a hex in a Debug directory. This is compiled in Atmel Studio 6, and will have a different size.
 
-**Step1**. Navigate to the directory that has the tinyg.hex file you want.
+##**Step1**
+Navigate to the directory that has the tinyg.hex file you want.
 
-**Step2**. Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
+##**Step2**
+Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
-**Step3**. Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
+##**Step3**
+Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
 * Hit reset on the board
 * Send a `^x` (control X) to the board (software reset)
 * Send an `ESC` to the board
