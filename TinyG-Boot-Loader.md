@@ -24,8 +24,7 @@ If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot L
 # Updating Firmware Using AVRdude and Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
-**Step0**. Get the tinyg.hex file
-In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
+**Step0**. Get the tinyg.hex file. In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
 <pre>
 https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
 </pre>
