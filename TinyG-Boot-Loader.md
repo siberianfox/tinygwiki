@@ -24,7 +24,7 @@ If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot L
 # Updating Firmware Using AVRdude and Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
-##**Step0**
+###**Step0**
 Get the tinyg.hex file. In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
 <pre>
 https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
@@ -35,13 +35,13 @@ Notes:
 - If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. 
 - The hex in the default directory is compiled using AVR Studio 4, which is the one we test on. There may also be a hex in a Debug directory. This is compiled in Atmel Studio 6, and will have a different size.
 
-##**Step1**
+###**Step1**
 Navigate to the directory that has the tinyg.hex file you want.
 
-##**Step2**
+###**Step2**
 Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
-##**Step3**
+###**Step3**
 Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
 * Hit reset on the board
 * Send a `^x` (control X) to the board (software reset)
@@ -105,8 +105,10 @@ avrdude done.  Thank you.
 macintosh-3:default username$ 
 </pre>
 
+
+#Advanced Topics
 <a id="flashing"></a>
-# Flashing the Boot Loader onto the Xmega Chip
+## Flashing the Boot Loader onto the Xmega Chip
 _Update 5/22/13: We have had reports that programming (flashing) the boot loader using AtmelStudio6.0 or Studio6.1 can report a verification error. The boot loader is actually loaded correctly and does work, in spite of this error (so far no counter examples have been reported). Flashing using AVRStudio4 does not report these errors._
 
 The following instructions are how to flash the boot loader using Atmel Studio6. AVRStudio4 is similar, as would be command-line operation. These instructions use the xboot.hex file already in the project.  You can get the xboot.hex file here.  [xboot.hex] (https://raw.github.com/synthetos/TinyG/master/xboot/xboot/xboot.hex)  **NOTE: You need to right click and save as on the xboot.hex link to download the hex file correctly.** The hex should be all you need to get the bootloader onto the chip, but if you want to compile the bootloader yourself go to the next section: [Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#compiling-the-boot-loader-for-tinyg)
@@ -126,12 +128,12 @@ The following instructions are how to flash the boot loader using Atmel Studio6.
 If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
 
 <a id="projectsetup"></a>
-# Compiling the Boot Loader for TinyG
+## Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
 
 The boot loader is Alex Forencich's xboot which can be found in the xboot directory in the main TinyG git tree. This xboot has the settings and modifications for use on TinyG. 
 
-## Getting Xboot to work from the native Makefile
+### Getting Xboot to work from the native Makefile
 Bring up a cmd window and navigate to the working directory. Run the command:
 <pre>
 make conf/x192a3.conf.mk
