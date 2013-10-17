@@ -24,6 +24,13 @@ If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot L
 # Updating TinyG Firmware Using AVRdude and the Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
+**Step0**. Get the tinyg.hex file
+In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
+<pre>
+https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
+</pre>
+Save page as tinyg.hex (you may need to get rid of a .txt extension during this save). Save it in some known directory that you can get back to.
+
 **Step1**. Navigate to the directory that has the tinyg.hex file you want.
 
 **Step2**. Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
