@@ -21,7 +21,7 @@ You can also manually enter the bootloader from the application:
 If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing) if you want do do this yourself. You can also return your board to us and we'll do it. Contact us if you want us to put the bootloader onto your board.
 
 <a id="updating"></a>
-# Updating TinyG Firmware Using AVRdude and the Boot Loader
+# Updating Firmware Using AVRdude and Boot Loader
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
 **Step0**. Get the tinyg.hex file
