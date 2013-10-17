@@ -30,6 +30,10 @@ https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
 </pre>
 Save page as tinyg.hex (you may need to get rid of a .txt extension during this save). Save it in some known directory that you can get back to.
 
+Notes: 
+- If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. 
+- The hex in the default directory is compiled using AVR Studio 4, which is the one we test on. There may also be a hex in a Debug directory. This is compiled in Atmel Studio 6, and will have a different size.
+
 **Step1**. Navigate to the directory that has the tinyg.hex file you want.
 
 **Step2**. Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
