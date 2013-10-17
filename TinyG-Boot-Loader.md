@@ -45,7 +45,6 @@ Find your serial port. You will need to enter the USB port you are actually usin
 Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
 * Hit reset on the board
 * Send a `^x` (control X) to the board (software reset)
-* Send an `ESC` to the board
 * Send the command `$boot=1`
 * Send the JSON command `{"boot":1}`
  
