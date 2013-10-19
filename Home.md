@@ -40,8 +40,9 @@ Please come visit / join any or all of the above.
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
 
 ### TinyG Developer Pages
+* [Introduction to the to TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
 * [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
-* [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes), [More Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional)
+* [Developer Notes](https://github.com/synthetos/TinyG/wiki/Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
