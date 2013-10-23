@@ -9,7 +9,7 @@ Here is a list of [differences between the v7 and v8 boards](https://github.com/
 ## Getting Started with TinyG - What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
-![TinyG v8 Diagram](http://farm4.staticflickr.com/3668/9642075945_e073444e0a_b.jpg)
+![TinyG v8 Diagram](http://farm3.staticflickr.com/2818/10127232803_847336b2db_o.png)
 
 To highlight a few things in the above diagram:
 
