@@ -15,4 +15,8 @@ Hardware:
 2. One power supply. 12v - 30v (24v recommended)
 3. USB Type A (Typical USB printer cable)
 4. One computer (OSX or Windows.  Linux can be used but is not included in this guide)
+5. At least one bi-polar stepper motor (Typically, 3 are used for 3 axis mills)
+
+Software:
+1.  Coolterm - A serial terminal program.  (http://freeware.the-meiers.org/)
 
