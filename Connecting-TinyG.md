@@ -1,7 +1,7 @@
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
 
-![TinyG diagram version 8](http://farm3.staticflickr.com/2818/10127232803_847336b2db_o.png)
+![TinyG diagram version 8](http://farm3.staticflickr.com/2842/10495433164_c3e47f475a_o.png)
 
 **THIS DOCUMENT ASSUMES THAT THE POWER SUPPLY'S BLACK IS GROUND AND RED OR YELLOW IS +24VOLT (HOT)**. Not all power supplies adhere to this convention so you still need to check this carefully. Read below:
 
