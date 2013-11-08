@@ -11,6 +11,7 @@ TinyG communicates over USB serial. The default baud rate is 115,200 baud, but c
 TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the $ic setting. So this is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under Flow Control.
 
 There are 3 types of commands that can be pulled from the serial buffer:
+
 1. Gcode commands such as g0x10, m7, or g17
 1. Configuration commands such as {"xvm":16000}
 1. Motion control commands such as ! (feedhold) and ~ (cycle start)
