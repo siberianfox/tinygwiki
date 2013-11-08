@@ -11,7 +11,7 @@ If you are writing a programmatic interface we highly recommend that you use the
 ##Theory of Operation
 TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
 
-TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The **controller** pulls serial lines off the serial buffer and passes them to the correct parser for that type of command. 
+TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines off the serial buffer and passes them to the correct parser for that type of command. 
 
 So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
