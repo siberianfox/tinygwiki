@@ -55,6 +55,7 @@ TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per wind
 * [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html www.allelectronics.com/make-a-store/category/400/Motors/1.html)
 * [Sparkfun](https://www.sparkfun.com/categories/178)
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
+* [Oriental Motor Company](http://www.omc-stepperonline.com/)
 
 #### Heat Sinks
 The TI drivers on the TinyG are incredibly robust and will shut down in case of over-current instead of blowing up (unlike some other brands that shall remain nameless). But you don't want to go into thermal shutdown as it will will ruin your job even though the board is still OK. Thermal shutdown is evidenced by anything from a slow on-off cycling of the motor power, getting shorter as the current raises, to a stutter in extreme cases. The chips will be quite hot to the touch.
