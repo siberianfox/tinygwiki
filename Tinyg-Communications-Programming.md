@@ -69,10 +69,19 @@ These commands are the types of things that you might find on the front panel of
 For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". Hopefully this will be clearer after you read about flow control in the next section.
 
 ## Host Programming Considerations
+Now that we've described how the system works, let's talk about how you program to it. 
 
 ### Flow Control Options
+The main topic is flow control. Let's review. There are 2 queues to manage (1) the planner buffer that contains the Gcode moves and synchronized commands, and (2) the serial buffer that feeds the controller, and hence the planner queue.
 
-So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
+THe state you want during movement (in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve". This means that the moves in the buffer are not sufficient to get the motion to its maximum and steady velocity. 
+
+To understand this look at how the planner buffer is built. Let's say there are a series of short segments that want to run at some reasonable feed rate (velocity), say 1000 mm/min. (By the way, this is the case for the vast majority of Gcode files - lots of short G1 moves with some target velocity Fnnnn set for all of them.)
+
+
+If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
+
+The 
 
 So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
 
