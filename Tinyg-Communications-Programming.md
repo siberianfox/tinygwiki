@@ -48,8 +48,13 @@ The simplest way to deal with this is to (1) don't issue config commands during 
 #### Action Commands
 There are a small number of commands that look like configs but actually perform actions or return 'reports". These are:
 
-* {"sr":null} - retrieve
-
+	Command  | Description
+	---------|-------------------------
+	{"sr":null} | Request a status report
+	{"defa":1} | Reset configuration to default
+	{"test":N} | Run self test N
+	{"boot":1} | Enter boot loader
+	{"help":null} | Request help screen
 
 #### In-Cycle Commands / Out-Of-Cycle Commands
 
