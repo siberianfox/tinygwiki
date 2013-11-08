@@ -43,7 +43,7 @@ Writing a config value (e.g.  {"xvm":16000} ) is more complicated. Writing usual
 1. You cannot do a configuration write during a machining cycle as the steppers will stop
 2. There can be no serial activity the duration of the write (something < 30 ms)
 
-The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a gcode command.
+The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a gcode file.
 
 ### Action Commands
 There are a small number of commands that look like configs but actually perform actions or return 'reports". These are:
@@ -56,7 +56,7 @@ There are a small number of commands that look like configs but actually perform
 	{"boot":1} | Enter boot loader
 	{"help":null} | Request help screen
 
-Obviously these commands should neo be run during a machining cycle.
+Obviously these commands should not be run during a machining cycle.
 
 ### Front-Panel Commands
 These commands are the types of things that you might find on the front panel of a CNC machine. They effect the dynamic model (i.e. are not config or action commands), and are not found in the gcode "file". Currently there are only two front panel commands, but at some point we expect there will be more.
@@ -66,6 +66,7 @@ These commands are the types of things that you might find on the front panel of
 	! | Feedhold (pause)
 	~ | Cycle start (resume)
 
+For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". Hopefully this will all be more clear after You read about flow control in the next section.
 
 ## Host Programming Considerations
 
