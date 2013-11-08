@@ -90,16 +90,32 @@ _Note: The planner queue actually has 28 buffers, but the controller will not pr
 
 ### Flow Control Options
 
-The best way to ensure that the planner queue is happy is to use the queue reports. The following variables are available:
+#### Using Queue Reports for Flow Control
+The best way to feed the system and ensure that the planner queue is happy is to use the queue reports. The following variables are available:
 
 	Variable  | Description
 	---------|-------------------------
-	qr | Buffers remaining in planner queue
+	qr | Buffers remaining in planner queue - i.e. 0 means the planner is full
 	qi | Buffers added to planner queue since last report (in)
 	qo | Buffers removed from queue since last report (out)
 
+A queue report that returns the qr value values can be requested by {"qv":1}  (1=QR_SINGLE). A queue report that returns all 3 values can be requested by {"qv":2}  (2=QR_TRIPLE). Queue reports will be returned every time the planner buffer changes state, or at a maximum rate set by how fast the system can process queue reports. This means that not every planner queue transition will return a result, which is why the in and out values are useful.
 
+#### Serial Flow Control
 If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
+
+Serial flow control uses channel level flow control to make sure the serial buffer is not overrun. TinyG supports both XON/XOFF flow control and RTS/RTS flow control. One or the other - they cannot be both used at the same time time.
+
+Serial flow control is not as good as using queue reports, but does work. The host must stop transmitting when TinyG sends the OFF signal. In this case the system is "jammed", i.e. there will be a significant amount of data in the serial buffers.
+
+Serial flow control has its own challenges. Unfortunately, much of the serial code used by host-side Java, Python, Node and other languages does not implement either XON or RTS flow control properly. The root cause is sloppy programming in the RXTX libraries that most of these packages rely on or are derived from. The only way we know to reliably run serial flow control is to implement a good application-level XON/XOFF implementation as some of our users have done.
+
+Separately, we have fixed the serial handling in the Node voodootiki project, but this is not part if the default release yet.
+
+---- INCOMPLETE FROM HERE ON DOWN ----
+
+#### Serial Flow Control by Byte Counting
+It is possible for the host to keep track of the number of bytes it has loaded into the serial buffer and remove 
 
 The 
 
