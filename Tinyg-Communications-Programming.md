@@ -106,8 +106,8 @@ If you overflow the serial buffer you will get erratic results as characters wil
 
 Serial flow control uses channel level flow control to make sure the serial buffer is not overrun. TinyG supports both XON/XOFF flow control and RTS/RTS flow control. One or the other - they cannot be both used at the same time time.
 
-Serial flow control is not as good as using queue reports, but does work. The host must stop transmitting when TinyG sends the OFF signal. In this case the system is "jammed", i.e. there will be a significant amount of data in the serial buffers.
-
+Serial flow control is not as good as using queue reports, but does work. The host must stop transmitting when TinyG sends the OFF signal. TinyG sends an OFF signal (e.g. XOFF) when the serial input buffer reaches about 80% full. In this case the system is "jammed", i.e. there will be a significant amount of data in the serial buffers. At 115.200 that's about 100 uSec per char to react to an XOFF, so 80% of 254 chars gives about 50 chars, so that host has about 5 ms to stop sending before it would overrun the buffer.
+ 
 Serial flow control has its own challenges. Unfortunately, much of the serial code used by host-side Java, Python, Node and other languages does not implement either XON or RTS flow control properly. The root cause is sloppy programming in the RXTX libraries that most of these packages rely on or are derived from. The only way we know to reliably run serial flow control is to implement a good application-level XON/XOFF implementation as some of our users have done.
 
 Separately, we have fixed the serial handling in the Node voodootiki project, but this is not part if the default release yet.
