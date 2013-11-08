@@ -5,9 +5,9 @@ The tinyg **project** is a motion control **application** built on a set of unde
 * Make it easy to use tinyg components in free and commercial projects/products- i.e. encourage use of tinyg components as a library
 * Notwithstanding the above, make the application when used as a whole retain GPLv2 copyleft and other provisions 
 
-tinyg licensing is based on GPLv2 with the [BeRTOS extension](http://www.bertos.org/discover/license) to enable using component files without invoking GPL copyleft. To this end, all files in the project are licensed under GPLv2. Those files that are considered "components" carry the BeRTOS exception, that allows their use without opening source code that they come in contact with. 
+TinyG licensing is based on GPLv2 with the [BeRTOS extension](http://www.bertos.org/discover/license) to enable using component files without invoking GPL copyleft. To this end, all files in the project are licensed under GPLv2. Those files that are considered "components" carry the BeRTOS exception, that allows their use without opening source code that they come in contact with. 
 
-tinyg also includes [Motate](https://github.com/giseburt/Motate) hardware abstraction components that are licensed under the same scheme. 
+TinyG also includes [Motate](https://github.com/giseburt/Motate) hardware abstraction components that are licensed under the same scheme. 
 
 Most of what follows is shamelessly cribbed from the BeRTOS site.
 
@@ -15,7 +15,7 @@ Most of what follows is shamelessly cribbed from the BeRTOS site.
 ###You are free to...
 * Include tinyg components within any product, distributed under any license, including commercial licenses and/or closed-source licenses
 * Modify tinyg components as you want under the following conditions:
- * Attribution - You must declare in a written statement in documentation and source code that you are using tinyg components in your application and offer to provide the (possibly modified) tinyg2 source code
+ * Attribution - You must declare in a written statement in documentation and source code that you are using tinyg components in your application and offer to provide the (possibly modified) tinyg source code
  * Share-alike - If you modify tinyg components, you may distribute them only under the original license
  * Contribution - If you modify tinyg components, you must contribute the modifications back to the tinyg project
 
@@ -25,7 +25,7 @@ If you are a company or individual doing commercial embedded products, you can:
 * Sell products based on tinyg components without paying royalties or other fees
 * Sell products based on tinyg components without opening or giving away your other application source code
 
-###What you must do with tinyg2 components...
+###What you must do with tinyg components...
 If you sell or otherwise distribute code/products that use tinyg components you must:
 * Provide attribution that you are using tinyg components in the documentation and source code. Text like this is sufficient:
 <pre>
