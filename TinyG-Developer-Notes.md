@@ -4,8 +4,8 @@ These are random notes that may be useful for developers.
 
 The best way to understand the code is to read it. It's pretty well commented. Here are some additional developer notes:
 
-* [Notes on TinyG program structure and modules](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional) that explain a few things that are too wordy for the code comments.
-* [Things we learned about github](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Github), usually the hard way
+* [Introduction to the TinyG code](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base) that explain a few things that are too wordy for the code comments.
+* [Things we learned about github](https://github.com/synthetos/TinyG/wiki/TinyG-Github-Notes), usually the hard way
 * [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ## Set Up a Windows Compile Environment for TinyG 
