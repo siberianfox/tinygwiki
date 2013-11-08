@@ -25,9 +25,9 @@ When a Gcode block is encountered it is passed to the Gcode parser. Depending on
 
 In machinist-speak Gcode commands are "cycle" commands. This means that Gcode commands execute after a cycle start. (In fact, the firmware performs an automatic cycle start when it receives a Gcode command if it's not already in a machining cycle. This is all kept in the internal [system state model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)). When the Gcode "file" is done it is supposed to be terminated with a Program End (M2 or M30), indicating that the machining cycle is over. 
 
-This in-cycle / out-of-cycle is an important distinction because configuration and actions should only occur out-of-cycle of various errors and undesirable behaviors can creep in. There are some exceptions. This is discussed later.
+This in-cycle / out-of-cycle is an important distinction because (notwithstanding some exceptions) configuration and actions should only occur out-of-cycle or errors and undesirable behaviors can creep in. This is discussed later.
 
-Another way to look at this is that the in-cycle commands represent the "dynamic model" of the machine. The dynamic model is typically what is returned from status reports. (See status reports section). In RESTful terms, the dynamic model is a Resource.
+Another way to look at Gcode commands is that the in-cycle commands manipulate the "dynamic model" of the machine. The dynamic model is typically what is returned from status reports. (See status reports section). In RESTful terms, the dynamic model is a Resource.
 
 _Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
