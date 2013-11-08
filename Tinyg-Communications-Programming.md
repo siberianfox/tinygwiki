@@ -25,7 +25,9 @@ Commands from the serial buffer are handled as per below:
 #### Gcode Blocks
 When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
 
-In machinist-speak Gcode commands are delivered "in-cycle". This means that Gcode commands execute after a cycle start. When the Gcode commands are done they are supposed to be terminated with a Program End (M2 or M30), indicating that the cycle is over. This in-cycle / out-of-cycle is an important distinction because configuration and actions should only occur out-of-cycle of various errors and undesiraable behaviors can creep in. There are some exceptions. This is discussed later.
+In machinist-speak Gcode commands are delivered "in-cycle". This means that Gcode commands execute after a cycle start. When the Gcode commands are done they are supposed to be terminated with a Program End (M2 or M30), indicating that the cycle is over. Put another way, the in-cycle commands represent the "dynamic model" of the machine. The dynamic model is typically what is returned from status reports. (See status reports section).
+
+This in-cycle / out-of-cycle is an important distinction because configuration and actions should only occur out-of-cycle of various errors and undesirable behaviors can creep in. There are some exceptions. This is discussed later.
 
 _Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
