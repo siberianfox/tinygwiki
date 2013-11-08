@@ -1,12 +1,12 @@
 If you are on this page we can assume you want to write a program that talks to TinyG to send Gcode files, and possibly also to read and set configuration variables, report machine status, control jogging and homing, and other functions.
 
-This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It's may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base) 
-
-If you are writing a programmatic interface we highly recommend that you use the JSON syntax and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples are provide in JSON form.
-
 If you are just looking for an off-the-shelf way to drive TinyG please see these other links:
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
 * [Sending Files with tgFX](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-tgFX)<br>
+
+This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It's may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base) 
+
+If you are writing a programmatic interface we highly recommend that you use the JSON syntax and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples are provide in JSON form.
 
 #Communications Basics
 ##Theory of Operation
