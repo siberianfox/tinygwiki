@@ -1,8 +1,8 @@
 ## Intent
 The tinyg **project** is a motion control **application** built on a set of underlying **components**. We want the licensing to reflect this, and to treat using the application as a whole somewhat differently than using the components as a library. The intent of the tinyg licensing scheme is summarized as:
-* Ensure that the tinyg2 project remains open source
+* Ensure that the tinyg project remains open source
 * Encourage contribution to the project and ensure that most changes and enhancements are returned to the community
-* Make it easy to use tinyg2 components in free and commercial projects/products- i.e. encourage use of tinyg2 components as a library
+* Make it easy to use tinyg components in free and commercial projects/products- i.e. encourage use of tinyg components as a library
 * Notwithstanding the above, make the application when used as a whole retain GPLv2 copyleft and other provisions 
 
 tinyg licensing is based on GPLv2 with the [BeRTOS extension](http://www.bertos.org/discover/license) to enable using component files without invoking GPL copyleft. To this end, all files in the project are licensed under GPLv2. Those files that are considered "components" carry the BeRTOS exception, that allows their use without opening source code that they come in contact with. 
