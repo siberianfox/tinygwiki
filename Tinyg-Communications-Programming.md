@@ -16,7 +16,7 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 	Command Type | Example(s)
 	---------|-------------------------
 	Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10} (both JSON wrapped and unwrapped forms are supported)
-	Configuration commands | {"xvm":16000}, {"1mi":8}
+	Configuration commands | {"xvm":16000} (set X mav velocity to 16000), {"1mi":8} (set motor 1 microsteps to 8)
 	Action commands | {"defa":1} reset config values to default, {"sr":null} request a status report 
 	Front-Panel commands | ! (feedhold), ~ (cycle start)
 
