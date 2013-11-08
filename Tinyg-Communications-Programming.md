@@ -20,18 +20,14 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 
 So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
-As commands are pulled from the serial buffer (one by one) they are executed immediately. handling differs depending on the type of command - listed below.
+Commands from the serial buffer are handled as per below:
 
 #### Gcode Blocks
-When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
+When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
 
-So the planner is the second queue that needs to be managed. The planner has 24 buffers. The 
+So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
 
- so if you just jammed a gcode file down to the system without an flow control here's what would happen:
-
-* The first gcode block would go into the serial buffer
-
-Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the follwoing are acceptable forms:
+_Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
 g0x10
 {"gc":"g0x10}
