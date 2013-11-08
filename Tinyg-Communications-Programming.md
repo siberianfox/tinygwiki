@@ -18,6 +18,13 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 1. Actions such as {"defa":1} (reset all configuration values to default)
 1. Front-Panel commands such as ! (feedhold) and ~ (cycle start)
 
+	Command Type | Example(s)
+	---------|-------------------------
+	Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10} (both JSON wrapped and unwrapped forms are supported)
+	Configuration commands | {"xvm":16000}
+	Action commands | {"defa":1} reset config values to default, {"sr":null} request a status report 
+	Front-Panel commands | ! (feedhold), ~ (cycle start)
+
 Commands from the serial buffer are handled as per below:
 
 #### Gcode Blocks
