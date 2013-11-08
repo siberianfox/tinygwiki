@@ -86,9 +86,18 @@ On the other hand, If the planner is always full then the serial buffer will bac
 
 So the optimal way to feed the system is to have about 20 to 24 moves in the planner buffer at all times once movement has started. This overage (relative to 12 moves, for example) is useful to absorb the non-movement synchronized commands such as M commands, etc. This will keep the serial buffer free at all times.
 
+_Note: The planner queue actually has 28 buffers, but the controller will not process a command from the serial buffer unless at least 4 buffers are free, so the effective max queue depth is actually 24, not 28_
+
 ### Flow Control Options
 
-The best way to ensure 
+The best way to ensure that the planner queue is happy is to use the queue reports. The following variables are available:
+
+	Variable  | Description
+	---------|-------------------------
+	qr | Buffers remaining in planner queue
+	qi | Buffers added to planner queue since last report (in)
+	qo | Buffers removed from queue since last report (out)
+
 
 If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
 
