@@ -4,7 +4,7 @@ If you are just looking for an off-the-shelf way to drive TinyG please see these
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
 * [Sending Files with tgFX](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-tgFX)<br>
 
-This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It's may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base) 
+This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It's may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base).
 
 If you are writing a programmatic interface we highly recommend that you use the [JSON syntax](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples are provide in JSON form.
 
@@ -27,7 +27,7 @@ In machinist-speak Gcode commands are "cycle" commands. This means that Gcode co
 
 This in-cycle / out-of-cycle is an important distinction because (notwithstanding some exceptions) configuration and actions should only occur out-of-cycle or errors and undesirable behaviors can creep in. This is discussed later.
 
-Another way to look at Gcode commands is that the in-cycle commands manipulate the "dynamic model" of the machine. The dynamic model is typically what is returned from [status reports](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Reports). In RESTful terms, the dynamic model is a Resource.
+Another way to look at Gcode commands is that the in-cycle commands manipulate the "dynamic model" of the machine. The dynamic model is typically what is returned from [status reports](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Reports). In RESTful terms, the dynamic model is a stateful Resource.
 
 _Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
@@ -36,7 +36,7 @@ g0x10
 </pre>
 
 #### Configuration Commands
-Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that 
+Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that should be set up before tyou enter a cycle. This is the "static model" for the machinbe, and is represented by a series of stateful Resources (e.g. {"x":null}, {"1":null}, {"sys":null} )
 
 For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
 
