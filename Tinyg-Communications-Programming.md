@@ -13,11 +13,6 @@ TinyG communicates over a single USB serial channel. The default baud rate is 11
 
 TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines off the serial buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
 
-1. Gcode blocks (commands) such as g0x10, m7, or g17
-1. Configuration commands such as {"xvm":16000}
-1. Actions such as {"defa":1} (reset all configuration values to default)
-1. Front-Panel commands such as ! (feedhold) and ~ (cycle start)
-
 	Command Type | Example(s)
 	---------|-------------------------
 	Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10} (both JSON wrapped and unwrapped forms are supported)
