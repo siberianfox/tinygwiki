@@ -10,30 +10,32 @@ If you are writing a programmatic interface we highly recommend that you use the
 
 #Communications Basics
 ##Theory of Operation
-TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the $baud=N command; {"baud":N} in JSON. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
+TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
 
-TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the $ic setting. So this is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under Flow Control.
+TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. So this is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
 There are 4 general classes of commands that can be pulled from the serial buffer:
 
-1. Gcode commands (blocks) such as g0x10, m7, or g17
+1. Gcode blocks (commands) such as g0x10, m7, or g17
 1. Configuration commands such as {"xvm":16000}
-1. Actions, such as $defa=1 (reset all configuration values to default)
+1. Actions, such as {"defa":1} (reset all configuration values to default)
 1. In-cycle commands such as ! (feedhold) and ~ (cycle start) (These have special handling - [see below](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#in-cycle-commands))
 
-As commands are pulled from the serial buffer (one by one) they are executed immediately. For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
+As commands are pulled from the serial buffer (one by one) they are executed immediately. handling may differe depending on the type of command - listed below.
+
+#### Gcode Blocks
+
+#### Configuration Commands
+
+For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
 
 Commands are not pulled from the serial buffer until the firmware knows it has the resources (time and space) to process them. 
  one at a time from the serial buffer.
 the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
 
-### Gcode Blocks
+#### Action Commands
 
-### Configuration Commands
-
-### Action Commands
-
-### In-Cycle Commands
+#### In-Cycle Commands
 
 
 ## Flow Control Options
