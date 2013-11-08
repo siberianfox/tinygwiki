@@ -15,8 +15,8 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 
 1. Gcode blocks (commands) such as g0x10, m7, or g17
 1. Configuration commands such as {"xvm":16000}
-1. Actions, such as {"defa":1} (reset all configuration values to default)
-1. In-cycle commands such as ! (feedhold) and ~ (cycle start) (These have special handling - [see below](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#in-cycle-commands))
+1. Actions such as {"defa":1} (reset all configuration values to default)
+1. Front-Panel commands such as ! (feedhold) and ~ (cycle start)
 
 Commands from the serial buffer are handled as per below:
 
@@ -56,7 +56,15 @@ There are a small number of commands that look like configs but actually perform
 	{"boot":1} | Enter boot loader
 	{"help":null} | Request help screen
 
-#### In-Cycle Commands / Out-Of-Cycle Commands
+Obviously these commands should neo be run during a machining cycle.
+
+#### Front-Panel Commands
+These commands are the types of things that you might find on the front panel of a CNC machine. They effect the dynamic model (i.e. are not config or action commands), and are not found in the gcode "file". Currently there are only two front panel commands, but at some point we expect there will be more.
+
+	Command  | Description
+	---------|-------------------------
+	! | Feedhold (pause)
+	~ | Cycle start (resume)
 
 
 ## Flow Control Options
