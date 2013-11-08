@@ -15,7 +15,7 @@ There are 3 types of commands that can be pulled from the serial buffer:
 1. Gcode commands such as g0x10, m7, or g17
 1. Configuration commands such as {"xvm":16000}
 1. Actions, such as $defa=1 (reset all configuration values to default)
-1. In-cycle commands such as ! (feedhold) and ~ (cycle start) (These have special handling - see later)
+1. In-cycle commands such as ! (feedhold) and ~ (cycle start) (These have special handling - [see below](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#in-cycle-commands))
 
 As commands are pulled from the serial buffer (one by one) they are executed immediately. For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
 
