@@ -66,15 +66,20 @@ These commands are the types of things that you might find on the front panel of
 	! | Feedhold (pause)
 	~ | Cycle start (resume)
 
-For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". Hopefully this will be clearer after you read about flow control in the next section.
+For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". (Hopefully this will be clearer after you read about flow control in the next section.)
+
+BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
+
 
 ## Host Programming Considerations
-Now that we've described how the system works, let's talk about how you program to it. 
+Now that we've described how the commands work, let's talk about how to feed commands to TinyG for optimal program execution.
 
 ### Flow Control Options
 The main topic is flow control. Let's review. There are 2 queues to manage (1) the planner buffer that contains the Gcode moves and synchronized commands, and (2) the serial buffer that feeds the controller, and hence the planner queue.
 
-THe state you want during movement (in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve". This means that the moves in the buffer are not sufficient to get the motion to its maximum and steady velocity. 
+The steady-state you want during movement (in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve". If it's always full then the serial buffer "backs up" and you lose a lot of data if you need to recover from a soft alarm, or if you want to inject some of the more complex front-panel commands that we have planned.
+
+This means that the moves in the buffer are not sufficient to get the motion to its maximum and steady velocity. 
 
 To understand this look at how the planner buffer is built. Let's say there are a series of short segments that want to run at some reasonable feed rate (velocity), say 1000 mm/min. (By the way, this is the case for the vast majority of Gcode files - lots of short G1 moves with some target velocity Fnnnn set for all of them.)
 
