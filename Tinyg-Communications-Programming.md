@@ -36,15 +36,20 @@ g0x10
 </pre>
 
 #### Configuration Commands
-Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that should be set up before tyou enter a cycle. This is the "static model" for the machinbe, and is represented by a series of stateful Resources (e.g. {"x":null}, {"1":null}, {"sys":null} )
+Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that should be set up **before** you enter a cycle. This is the "static model" for the machine, and is represented by a series of stateful Resources (e.g. {"x":null}, {"1":null}, {"sys":null} )
 
-For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
+Reading a configuration command (e.g. {"xvm":null} or {"x":null} ) is a no-brainer as it's just a retrieval. Setting one (e.g.  {"xvm":16000} ) is more complicated as this usually implies that the new value is persisted to non-volatile memory (aka NVM, EEPROM). On the Xmega, at least, this persistence operation is painful in that it must disable all interrupts while the NVM write occurs. This means 2 things:
 
-Commands are not pulled from the serial buffer until the firmware knows it has the resources (time and space) to process them. 
- one at a time from the serial buffer.
-the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
+1. You cannot do a configuration write during a machining cycle as the steppers will stop
+2. There can be no serial activity the duration of the write (something < 30 ms)
+
+The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a gcode command.
 
 #### Action Commands
+There are a small number of commands that look like configs but actually perform actions or return 'reports". These are:
+
+* {"sr":null} - retrieve
+
 
 #### In-Cycle Commands / Out-Of-Cycle Commands
 
@@ -54,6 +59,10 @@ the designated termination character set by  with a  (aka a Gcode "block", if it
 So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
 So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
+
+Commands are not pulled from the serial buffer until the firmware knows it has the resources (time and space) to process them. 
+ one at a time from the serial buffer.
+the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
 
 
 
