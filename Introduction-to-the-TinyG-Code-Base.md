@@ -13,19 +13,19 @@ Basics:
 The firmware controller, interpreter, canonical machine and stepper layers are organized as so: 
 
 * main.c/tinyg.h - initialization and main loop 
-* [controller.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#controller) - scheduler and related functions 
+* [controller.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#controller) - scheduler and related functions 
 * gcode_parser.c/.h - gcode parser / interpreter 
 * json_parser.c/.h - JSON parser
-* [canonical_machine.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#canonical-machine) - machine model and machining command execution 
-* [planner.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#planner) ... and related line and arc files - acceleration / deceleration planning and feedhold 
+* [canonical_machine.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#canonical-machine) - machine model and machining command execution 
+* [planner.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#planner) ... and related line and arc files - acceleration / deceleration planning and feedhold 
 * cycle_homing.c - homing cycle. Other canned cycles may be added as cycle_xxxxx.c 
 * kinematics.c/.h - inverse kinematics transformations and motor/axis mapping 
-* [stepper.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#stepper-module) - stepper controls, DDA 
+* [stepper.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#stepper-module) - stepper controls, DDA 
 * spindle.c/.h - spindle controls
 
 Additional modules are:
 
-* [config.c/.h](https://github.com/synthetos/TinyG/wiki/Developer-Notes-Additional#config-system) - configuration and command execution sub-system 
+* [config.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#config-system) - configuration and command execution sub-system 
 * report.c/.h - exception reports, status reports and other reporting functions
 * util.c/.h - general purpose utility functions, debug and logging support 
 * gpio.c/.h - parallel ports, LEDs and limit switch support 
