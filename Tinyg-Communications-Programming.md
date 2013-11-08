@@ -25,7 +25,7 @@ Commands from the serial buffer are handled as per below:
 #### Gcode Blocks
 When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
 
-So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
+In machinist-speak Gcode commands are delivered "in-cycle". This means that Gcode commands execute after a cycle start. When the Gcode commands are done they are supposed to be terminated with a Program End (M2 or M30), indicating that the cycle is over. This in-cycle / out-of-cycle is an important distinction because configuration and actions should only occur out-of-cycle of various errors and undesiraable behaviors can creep in. There are some exceptions. This is discussed later.
 
 _Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
@@ -33,7 +33,10 @@ g0x10
 {"gc":"g0x10}
 </pre>
 
+So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
+
 #### Configuration Commands
+Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that 
 
 For a configuration or action command this means that the values are applied and (usually) the EEPROM is updated. See [EEPROM Handling](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#eeprom-handling) - this is important.
 
@@ -43,7 +46,7 @@ the designated termination character set by  with a  (aka a Gcode "block", if it
 
 #### Action Commands
 
-#### In-Cycle Commands
+#### In-Cycle Commands / Out-Of-Cycle Commands
 
 
 ## Flow Control Options
