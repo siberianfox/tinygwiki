@@ -25,7 +25,7 @@ the designated termination character set by  with a  (aka a Gcode "block", if it
 
 
 
-##Flow Control Options
+### Flow Control Options
 
-## EEPROM Handling
+### EEPROM Handling
 Yikes!
