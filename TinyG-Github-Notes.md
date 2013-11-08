@@ -1,4 +1,8 @@
+_Updated 11/8/13 - ash_
 This gets pretty deep in the weeds. This page is a collection of tings that tripped us up on Github and some documentation for common procedures like branch promotion, etc.
+
+## At Last - Gitx
+If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some thing still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier.
 
 ## Github Cheat Sheet
 A few rules to live by. Most git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
