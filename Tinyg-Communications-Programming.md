@@ -1,14 +1,23 @@
 If you are on this page we can assume you want to write a program that talks to TinyG to send Gcode files, and possibly also to read and set configuration variables, report machine status, control jogging and homing, and other functions.
 
-If you are just looking to use an off-the-shelf solution please see these other links
+If you are just looking for an off-the-shelf way to drive TinyG please see these other links:
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
 * [Sending Files with tgFX](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-tgFX)<br>
 
 #Communications Basics
 ##Theory of Operation
-TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the $baud=N command; {"baud":N} in JSON.
+TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the $baud=N command; {"baud":N} in JSON. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
 
-TinyG has a 254 byte serial buffer that receives raw commands. A "command" is a single line of text ending with the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
+TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the $ic setting. So this is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under Flow Control.
+
+There are 3 types of commands that can be pulled from the serial buffer:
+1. Gcode commands such as g0x10, m7, or g17
+1. Configuration commands such as {"xvm":16000}
+1. Motion control commands such as ! (feedhold) and ~ (cycle start)
+
+Commands are not pulled from the serial buffer until the firmware knows it has the resources (time and space) to process them. 
+ one at a time from the serial buffer.
+the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
 
 
 
