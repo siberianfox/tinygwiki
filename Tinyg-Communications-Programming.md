@@ -8,11 +8,12 @@ This page attempts to lay out the issues and approaches to writing a good progra
 
 If you are writing a programmatic interface we highly recommend that you use the JSON syntax and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples are provide in JSON form.
 
-#Communications Basics
 ##Theory of Operation
 TinyG communicates over USB serial. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
 
-TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. So this is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
+TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The **controller** pulls serial lines off the serial buffer and passes them to the correct parser for that type of command. 
+
+So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
 There are 4 general classes of commands that can be pulled from the serial buffer:
 
@@ -24,6 +25,19 @@ There are 4 general classes of commands that can be pulled from the serial buffe
 As commands are pulled from the serial buffer (one by one) they are executed immediately. handling may differe depending on the type of command - listed below.
 
 #### Gcode Blocks
+When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
+
+So the planner is the second queue that needs to be managed. The planner has 24 buffers. The 
+
+ so if you just jammed a gcode file down to the system without an flow control here's what would happen:
+
+* The first gcode block would go into the serial buffer
+
+Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the follwoing are acceptable forms:
+<pre>
+g0x10
+{"gc":"g0x10}
+</pre>
 
 #### Configuration Commands
 
