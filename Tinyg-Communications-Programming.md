@@ -82,13 +82,13 @@ To understand planner queue starvation look at how the planner buffer is built. 
 
 For the velocities and move lengths achievable by TinyG the planner is usually happy with a small number of moves, somewhere between 4 and 12 moves. So as long as you can keep this number in the planner, the file will execute optimally (i.e. at the target velocity). Less than this and it will starve, never reliably achieving the target velocity.
 
-If the planner is always full then the serial buffer will back up. This means you will lose a lot of data if you need to recover from a soft alarm, or you will introduce delays if want to inject some of the more complex front-panel commands that we have planned. You don't want that, either.
+On the other hand, If the planner is always full then the serial buffer will back up. This means you will lose a lot of data in the serial buffer if you need to recover from a soft alarm, or you will introduce delays if want to inject some of the more complex front-panel commands that we have planned. You don't want that, either.
 
-So the optimal way to drive the system is to have about 20 to 24 moves in the planner buffer at all times once movement has started. This overage (relative to 12 moves, for example) is useful to absorb the non-movement synchronized commands such as M commands, etc. This will keep the serial buffer free at all times.
+So the optimal way to feed the system is to have about 20 to 24 moves in the planner buffer at all times once movement has started. This overage (relative to 12 moves, for example) is useful to absorb the non-movement synchronized commands such as M commands, etc. This will keep the serial buffer free at all times.
 
 ### Flow Control Options
 
-The best way to 
+The best way to ensure 
 
 If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
 
