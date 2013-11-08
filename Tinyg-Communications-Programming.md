@@ -66,7 +66,7 @@ These commands are the types of things that you might find on the front panel of
 	! | Feedhold (pause)
 	~ | Cycle start (resume)
 
-For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". Hopefully this will all be more clear after You read about flow control in the next section.
+For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". Hopefully this will be clearer after you read about flow control in the next section.
 
 ## Host Programming Considerations
 
