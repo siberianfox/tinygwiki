@@ -67,7 +67,9 @@ These commands are the types of things that you might find on the front panel of
 	~ | Cycle start (resume)
 
 
-## Flow Control Options
+## Host Programming Considerations
+
+### Flow Control Options
 
 So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
 
