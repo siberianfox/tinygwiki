@@ -22,7 +22,7 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 
 Commands from the serial buffer are handled as per below:
 
-#### Gcode Blocks
+### Gcode Blocks
 When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
 
 In machinist-speak Gcode commands are "cycle" commands. This means that Gcode commands execute after a cycle start. (In fact, the firmware performs an automatic cycle start when it receives a Gcode command if it's not already in a machining cycle). Gcode cycle commands manipulate the internal [system state model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model). When the Gcode "file" is done it is supposed to be terminated with a Program End (M2 or M30), indicating that the machining cycle is over. 
@@ -37,7 +37,7 @@ g0x10
 {"gc":"g0x10}
 </pre>
 
-#### Configuration Commands
+### Configuration Commands
 Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that should be set up **before** you enter a cycle. This is the "static model" for the machine, and is represented by a series of stateful Resources (e.g. {"x":null}, {"1":null}, {"sys":null} )
 
 Reading a configuration command (e.g. {"xvm":null} or {"x":null} ) is a no-brainer as it's just a retrieval. Setting one (e.g.  {"xvm":16000} ) is more complicated as this usually implies that the new value is persisted to non-volatile memory (aka NVM, EEPROM). On the Xmega, at least, this persistence operation is painful in that it must disable all interrupts while the NVM write occurs. This means 2 things:
@@ -47,7 +47,7 @@ Reading a configuration command (e.g. {"xvm":null} or {"x":null} ) is a no-brain
 
 The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a gcode command.
 
-#### Action Commands
+### Action Commands
 There are a small number of commands that look like configs but actually perform actions or return 'reports". These are:
 
 	Command  | Description
@@ -60,7 +60,7 @@ There are a small number of commands that look like configs but actually perform
 
 Obviously these commands should neo be run during a machining cycle.
 
-#### Front-Panel Commands
+### Front-Panel Commands
 These commands are the types of things that you might find on the front panel of a CNC machine. They effect the dynamic model (i.e. are not config or action commands), and are not found in the gcode "file". Currently there are only two front panel commands, but at some point we expect there will be more.
 
 	Command  | Description
