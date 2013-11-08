@@ -70,18 +70,21 @@ For ease of processing these are single character commands. This is so that they
 
 BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
 
-
 ## Host Programming Considerations
 Now that we've described how the commands work, let's talk about how to feed commands to TinyG for optimal program execution.
 
 ### Flow Control Options
-The main topic is flow control. Let's review. There are 2 queues to manage (1) the planner buffer that contains the Gcode moves and synchronized commands, and (2) the serial buffer that feeds the controller, and hence the planner queue.
+The main topic is flow control. Let's review. There are 2 queues to manage (1) the planner buffer that contains the Gcode moves and synchronized commands, and (2) the serial buffer that feeds the controller, and hence the downstream planner queue.
 
-The steady-state you want during movement (in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve". If it's always full then the serial buffer "backs up" and you lose a lot of data if you need to recover from a soft alarm, or if you want to inject some of the more complex front-panel commands that we have planned.
+The steady-state you want during movement (i.e. in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve". If it's always full then the serial buffer "backs up" and you lose a lot of data if you need to recover from a soft alarm, or if you want to inject some of the more complex front-panel commands that we have planned.
 
+To understand "planner queue starvation" look at how the planner buffer is built. Let's say there are a series of short segments that want to run at some reasonable feed rate (velocity), say 1000 mm/min. (By the way, this is the case for the vast majority of Gcode files - lots of short G1 moves with some target velocity FNNNN set for all of them). Bear in mind that the planner must always plan the last block it knows about to zero velocity (a stop). So when the first Gcode block (move) is presented it plans it up from zero then down to zero. Since this a short move it probably cannot achieve the target velocity of 1000 mm/min. Then the next block comes in. Now the planner can reach a higher velocity by joining the two moves than it could for just the one move, but perhaps still not the target velocity. This continues as new moves are added - each new move allows the planner to achieve a higher target velocity, until there is some critical number of moves that allows the planner to achieve and maintain the target velocity as new moves come in. 
+
+For the velocities and move lengths achievable by TinyG this as actually a small number of moves, usually somewhere between 4 and 12 moves. So as long as you can keep this number in the planner, the file will execute optimally (i.e. at the target velocity). Less than this and it will starve, never reliably achieving the target velocity. THis can be heard as a rough" or "bumpy" movement where a smooth movement should be.
+
+To un
 This means that the moves in the buffer are not sufficient to get the motion to its maximum and steady velocity. 
 
-To understand this look at how the planner buffer is built. Let's say there are a series of short segments that want to run at some reasonable feed rate (velocity), say 1000 mm/min. (By the way, this is the case for the vast majority of Gcode files - lots of short G1 moves with some target velocity Fnnnn set for all of them.)
 
 
 If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
