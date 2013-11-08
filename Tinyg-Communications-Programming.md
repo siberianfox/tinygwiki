@@ -18,24 +18,22 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 1. Actions, such as {"defa":1} (reset all configuration values to default)
 1. In-cycle commands such as ! (feedhold) and ~ (cycle start) (These have special handling - [see below](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#in-cycle-commands))
 
-So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
-
 Commands from the serial buffer are handled as per below:
 
 #### Gcode Blocks
 When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units. 
 
-In machinist-speak Gcode commands are delivered "in-cycle". This means that Gcode commands execute after a cycle start. When the Gcode commands are done they are supposed to be terminated with a Program End (M2 or M30), indicating that the cycle is over. Put another way, the in-cycle commands represent the "dynamic model" of the machine. The dynamic model is typically what is returned from status reports. (See status reports section).
+In machinist-speak Gcode commands are delivered "in-cycle". This means that Gcode commands execute after a cycle start. When the Gcode "file" is done it is supposed to be terminated with a Program End (M2 or M30), indicating that the machining cycle is over. 
 
 This in-cycle / out-of-cycle is an important distinction because configuration and actions should only occur out-of-cycle of various errors and undesirable behaviors can creep in. There are some exceptions. This is discussed later.
+
+Another way to look at this is that the in-cycle commands represent the "dynamic model" of the machine. The dynamic model is typically what is returned from status reports. (See status reports section). In RESTful terms, the dynamic model is a Resource.
 
 _Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms:_
 <pre>
 g0x10
 {"gc":"g0x10}
 </pre>
-
-So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
 
 #### Configuration Commands
 Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that 
@@ -52,6 +50,11 @@ the designated termination character set by  with a  (aka a Gcode "block", if it
 
 
 ## Flow Control Options
+
+So the serial buffer is the first queue that needs to be managed. If you overflow the serial buffer you will get erratic results. More on this under [Flow Control Options](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming#flow-control-options).
+
+So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this. 
+
 
 
 ### EEPROM Handling
