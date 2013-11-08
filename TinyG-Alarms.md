@@ -1,4 +1,8 @@
-Hard alarms are caused hitting a limit switch or by an unrecoverable internal error. In this case the system is considered unrecoverable and the current job is presumed lost. Soft alarms are not yet supported; see Discussion of Soft Alarms as we work this out.  
+TinyG distinguishes between hard and soft alarms. 
+
+A hard alarm is unrecoverable and sends the machine into a shutdown state. Hard alarms are caused by hitting a limit switch or by an unrecoverable internal error. In this case the system is considered unrecoverable and the current job is presumed lost. All position information is lost and the machine must be recovered from reset. 
+
+A soft alarm preserves machine state and may be recoverable by the host.
 
 ##Hard Alarms in Version 0.96 and Earlier
 The current system behavior for an alarm is:
