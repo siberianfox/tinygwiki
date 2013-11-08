@@ -38,7 +38,7 @@ Configuration commands are all the motor settings, axis settings, PWM settings, 
 
 Reading a configuration command (e.g. {"xvm":null} or {"x":null} ) is a no-brainer as it's just a retrieval. 
 
-Setting a config value (e.g.  {"xvm":16000} ) is more complicated. Setting a config usually means that the new value is persisted to non-volatile memory (aka NVM, EEPROM). On the Xmega, at least, this persistence operation is painful in that it must disable all interrupts while the NVM write occurs. This means 2 things:
+Writing a config value (e.g.  {"xvm":16000} ) is more complicated. Writing usually means that the new value is persisted to non-volatile memory (aka NVM, EEPROM). On the Xmega, at least, this persistence operation is painful in that it must disable all interrupts while the NVM write occurs. This means 2 things:
 
 1. You cannot do a configuration write during a machining cycle as the steppers will stop
 2. There can be no serial activity the duration of the write (something < 30 ms)
