@@ -4,25 +4,35 @@ A hard alarm is unrecoverable and sends the machine into a shutdown state. Hard 
 
 A soft alarm preserves machine state and may be recoverable by the host.
 
-##Hard Alarms in Version 0.96 and Earlier
+## Hard Alarms 
+### Hard Alarms in Version 0.96 and Earlier
 The current system behavior for an alarm is:
 * A switch configured as a limit being hit causes the board to go into an ALARM state (status code = 2). 
 * (Another case generating a hard alarm is an internal assertion failure such as a memory corruption or stack overflow).
 * Everything is shut down immediately and the spindle direction LED flashes quickly. (Note: an assertion failure might find the system so compromised that it cannot even do this and remaining steps)
-* An exception report is generated indicating the cause
+* A hard-alarm exception report is generated indicating the cause
 * The system will not process any new input, or any commands queued in the planner or serial input buffers.
-* The system can only be recovered by hitting RESET, or by sending ^x (control X) to the serial port.
+* The system can only be recovered by hitting RESET, sending ^x (control X) to the serial port, or power cycling.
 
-##Discussion of Soft Alarms 
-We would like to preserve the hard alarm behavior, but introduce soft alarms as well.
-* Hard alarms still work like above, but status code is moved from 2 to 11 (or some other number)
+### Hard Alarms in Version 0.97 and Later
+Hard alarms still work like above but the status code is moved from 2 to 11. The '2' status code is now reserved for a soft alarm.
+
+## Soft Alarms 
+Soft alarms are introduced in version 0.97. Soft alarms can occur for the following reasons
+* The system determines that a move will exceed the soft limits
+* An illegal Gcode command is detected
+* An arc is specified in a way that cannot be executed
 
 If a soft alarm is triggered the following happens:
-* The move that caused the soft limit error returns a "soft limit exceeded" error code (73)
-* The system will not accept any new commands until a {"clear":true} is received. Any new commands will fail with an "Alarm violation" error code (or somesuch).
+* The move that caused the soft limit error returns a "soft limit exceeded" error code, or some other error code.
+* A soft-alarm exception report is generated indicating the cause, and repeating the above status code
+* The system will not accept any new commands until a {"clear":true} ( alt: $clear=1 ) is received. Any new commands will fail with an "Alarm violation" error code (or somesuch).
+* All commands in the serial buffer will be flushed by reading and discarding them (Note: not just by killing the serial buffer). This way the clear can always be received.
 * Independently of the above, the moves already in the planner queue will be run to completion. If the host does not want this behavior they can issue a feedhold and buffer flush before or after the clear command.
 
-(old text - deprecated)
+
+
+###(old text - deprecated)
 * System halts all movement with a feedhold and preserves position at the feedhold point.
 * Stops processing any commands in the planner or serial queue
 * Generates an exception report indicating the type of alarm. The type is returned as a status code (2) and some displayable message text.
