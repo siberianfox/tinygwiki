@@ -62,21 +62,17 @@ $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
 
 ####Extend queue reports with more information 
-The following is in test in dev:
-Setting $qv=3 will return:
+The following is in test in dev: Setting $qv=2 (triple reports) will return:
 
-{"qr":1, "qi":2, "qo":3}   
+{"qr":27, "qi":1, "qo":0} 
 
-Where qr (1) is the number of available buffers in the queue
-qi (2) is the number of buffers added to the queue since the previous queue report
-qo (3) is the number of buffers removed from the queue since the previous queue report
+Where qr (27) is the number of available buffers in the queue
+qi (1) is the number of buffers added to the queue since the previous queue report
+qo (0) is the number of buffers removed from the queue since the previous queue report
 
 This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer. 
 
-In text this might be like:
-qr:1,in:2,out:3   or something like that
-
-This will allow the host to make a decision to send more lines or not, and roughly how many more lines it should send to avoid starvation. Keep in mind the following facts:
+This allows the host to make a decision to send more lines or not, and roughly how many more lines it should send to avoid starvation. Keep in mind the following facts:
 
 So here are some cases the host would react to:
 
@@ -84,13 +80,10 @@ So here are some cases the host would react to:
 
 - The QRs show available buffers dropping fast, one move coming in per report, and many moves going out. This indicates that a lot of short moves are being executed and the queue is being drained faster than it's being replenished. The host should try to replenish the buffer by sending about as many lines to the board as have been removed.
 
-We are also considering putting this "triple" in the footer as a new footer style. See Footer Changes, below.
+Other things that have been done:
 
 ####Eliminate filtered queue reports
 I don't think anyone is using them. This will reduce code and maintenance size and complexity.
-
-####Eliminate the checksum in the footer
-Again, I don't think anyone is using it, and it adds complexity
 
 ####Proposed Footer Changes
 Especially if the above are implemented we may be able to be more efficient with the footers. Currently there is one footer style (1) that returns the following array:
