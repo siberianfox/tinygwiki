@@ -2,6 +2,8 @@ For now this page is just rough notes up for discussion.
 
 _This issue obviously affects the current FTDI-driven USB, but we are also considering methods that will work best as the native USB is brought online. So some of this discussion is forward-looking_
 
+_Updated 11/13/13 to reflect current state - circa 380.08 (master) and build 398.xx in dev_
+
 ##Flow Control Problem Statement
 
 The control of the commands going to the TinyG board and the responses returned is a complex problem that we have been working through for some time now. It's one class of problem if the machine is moving at nominal feed rates and long-ish Gcode segment lengths (block lengths); it becomes significantly harder as the feed rates and command rates increase and the segment lengths decrease. 
