@@ -51,7 +51,7 @@ The following methods are currently possible and supported
 
 * Managing serial queue depth by character counting. The footer returns the number of bytes removed from the serial queue so that the host can know how many bytes are occupied in the serial queue. If the serial queue is non-zero, then the assumption is that the planner queue is full or near full. This method is brittle as the character count can get out of phase with errors, and is therefore not the preferred method.
 
-* Managing planner queue depth with queue reports. Enabling queue reports ($qv=2) will cause the queue depth to be reported each time the planner queue changes. This method, coupled with some form of flow control, is preferred. 
+* Managing planner queue depth with queue reports. Enabling queue reports ($qv=1) will cause the queue depth to be reported each time a command(s) is added to the planner. As mentioned earlier, these queue reports may be throttled by the system if they are very closely spaced. This method, coupled with some form of flow control, is preferred. 
 
 ## Changes Being Considered / Options
 
