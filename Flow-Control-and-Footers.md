@@ -53,10 +53,10 @@ The following methods are currently possible and supported
 
 * Managing planner queue depth with queue reports. Enabling queue reports ($qv=1) will cause the queue depth to be reported each time a command(s) is added to the planner. As mentioned earlier, these queue reports may be throttled by the system if they are very closely spaced. This method, coupled with some form of flow control, is preferred. 
 
-## Changes Being Considered / Options
+## Changes Made
 
 #### Add RTS/CTS flow control
-RTS/CTS is currently in test in dev branch 380.02 and larger. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
+RTS/CTS is currently in test in the master branch (build 380.08) and later builds. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
 $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
@@ -65,11 +65,11 @@ $ex=2  RTS/CTS flow control
 The following is in test in dev:
 Setting $qv=3 will return:
 
-{"qr":[1,2,3]}   
+{"qr":1, "qi":2, "qo":3}   
 
-Where '1' is the number of available buffers in the queue
-'2' is the number of buffers added to the queue since the previous queue report
-'3' is the number of buffers removed from the queue since the previous queue report
+Where qr (1) is the number of available buffers in the queue
+qi (2) is the number of buffers added to the queue since the previous queue report
+qo (3) is the number of buffers removed from the queue since the previous queue report
 
 This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer. 
 
