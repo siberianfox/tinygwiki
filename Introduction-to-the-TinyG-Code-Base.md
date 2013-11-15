@@ -102,9 +102,9 @@ The planner also handles feedholds and cycle starts after feedholds. In a feedho
 When a cycle start is provided the hold is released and the replanned buffer executes from the hold point
 
 ## Stepper Module
-The stepper module implements a weird variant of the Bresenham Algorithm (aka DDA).
+The stepper module implements a constant-clock-rate variant of the Bresenham Algorithm (aka DDA).
 
-Coordinated motion (line drawing) is performed using a classic Bresenham DDA, but a number of additional steps are taken to optimize interpolation and pulse train accuracy such as constant clock-rate timing generation, fractional step handling within the DDA, and phase correction between pulse sequences ("segments"). 
+Coordinated motion (line drawing) is performed using a classic Bresenham DDA, but a number of additional measures are taken to optimize interpolation and pulse train accuracy such as constant clock-rate timing generation, fractional step handling within the DDA, and phase correction between pulse sequences ("segments"). 
 
 * The DDA clock always runs at its maximum rate, which is 50 Khz "pulse rate". Sometimes we hear "but this is so inefficient!"  Well yes and no. If you assume that at some point the system will need to run at the maximum rate, then the system must be able to operate steady state (not burst) at that rate without cycle-starving any other processing or communications. So if the system works at the maximum rate, then why not run it at max all the time? This has the advantage of dramatically reducing single-axis and multi-axis aliasing errors, and it keeps the code much simpler.
 
