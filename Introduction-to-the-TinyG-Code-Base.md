@@ -25,7 +25,8 @@ The firmware controller, interpreter, canonical machine and stepper layers are o
 
 Additional modules are:
 
-* [config.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#config-system) - configuration and command execution sub-system 
+* [config.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#config-system) - generic part of configuration and command execution sub-system 
+* [config_app.c/.h](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base#config-system) - application specific part of configuration and command execution sub-system 
 * report.c/.h - exception reports, status reports and other reporting functions
 * util.c/.h - general purpose utility functions, debug and logging support 
 * gpio.c/.h - parallel ports, LEDs and limit switch support 
