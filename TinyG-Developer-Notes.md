@@ -105,7 +105,7 @@ Here's an example of setting up a project called "extruderfin"
  - Move the files from the original directory into the new directory. You can delete the _ORIG directory now.
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
 
-7. Setup the following values in the project file. Click on the "tinyg" directory in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
+7. Setup the following values in the project file. Right click on the main directory (e.g. `tinyg`) in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
 <pre>
 IN THE TOOLCHAIN TAB
 
@@ -113,18 +113,18 @@ IN THE TOOLCHAIN TAB
     Optimization should be set to -Os
 
     SYMBOLS
-      F_CPU=32000000UL
+      F_CPU=32000000UL   (or F_CPU=16000000UL or whatever is correct for your 328 processor)
 
   AVR/GNU LINKER 
     General: 
-      Check the "use vprintf linrary" box
+      Check the `use vprintf library (-Wl,-u,vprintf)` box
 
     Libraries: make sure these lines exist:
        printf_flt
        libm
 
  IN THE DEVICE TAB
-  The DEVICE should be ATxmega192A3
+  The DEVICE should be ATxmega192A3 (or whatever you are using)
 
 </pre>
 
