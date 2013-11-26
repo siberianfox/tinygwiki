@@ -88,7 +88,8 @@ To get this do the following:
  - TinyG is a `GCC C Executable Project`
  - The Name is `tinyg`
  - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: `Z:\Alden\Projects\proj38_TinyG\TinyG`
- - The Solution name is `firmware`. Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` it's OK to rename this, e.g. `tinyg.atsln`
+ - The Solution name is `firmware`. Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` 
+ -  - Note: Once this is done you can launch the project by double clicking either the .atsln file or the .cpproj file. It's also OK to rename the atsln file tom something more meaningful, like `tinyg.atsln`
 
 Here's an example of setting up a project called "extruderfin"
 ![example image](https://www.dropbox.com/s/n7zbysjmjvsq1lv/Screenshot%202013-11-26%2006.16.15.png)
@@ -104,7 +105,6 @@ Here's an example of setting up a project called "extruderfin"
  - Create a new directory off the parent directory with the name you want (e.g. xio). 
  - Move the files from the original directory into the new directory. You can delete the _ORIG directory now.
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
- - Note: Once this is done you can launch the project by double clicking either the .atsln file or the .cpproj file.
 
 7. Setup the following values in the project file. Right click on the main directory (e.g. `tinyg`) in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
 <pre>
