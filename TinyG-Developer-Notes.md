@@ -85,10 +85,10 @@ To get this do the following:
 1. Create a git repository in the main directory (TinyG).
 
 2. Open studio6 and create a new project. Parameters are:
- - TinyG is a "GCC C Executable Project" 
- - The Name is "tinyg"
- - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: Z:\Alden\Projects\proj38_TinyG\TinyG
- - The Solution name is "firmware". Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` it's OK to rename this, e.g. `tinyg.atsln`
+ - TinyG is a `GCC C Executable Project`
+ - The Name is `tinyg`
+ - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: `Z:\Alden\Projects\proj38_TinyG\TinyG`
+ - The Solution name is `firmware`. Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` it's OK to rename this, e.g. `tinyg.atsln`
 
 Here's an example of setting up a project called "extruderfin"
 ![example image](https://www.dropbox.com/s/n7zbysjmjvsq1lv/Screenshot%202013-11-26%2006.16.15.png)
