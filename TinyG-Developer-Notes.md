@@ -99,11 +99,13 @@ Here's an example of setting up a project called "extruderfin"
 
 5. Go to the Solution Explorer that should be in a right-hand nav box. Right click the orange project directory icon and select add / existing item. Select all the .c, .h and any other files **IN THE MAIN DIRECTORY** that are necessary for the compiler / linker. Don't attempt to add sub-directories until step 6. Don't bother to add .txt, .doc, .md, any .cproj or .atsln files, any AVRstudio4 project files, or anything else that you may have under git management but are not actually part of the compile/link process. If there are compilation or linking artifacts this might be a good time to run `make clean`. You may have to go back multiple times to select as the file browser doesn't work the way you think it should - at least not under VMware on OSX. 
 
-6. Now do this to **add the files in project sub-directories**. (Aside): If you have an exiting project with sub-directories (like tinyg) there is no straightforward way to add the files to the project and leave the directory structure intact. You can't just click on the directory to add the entire directory. If you try to add a new directory it won't let you because that name is already used. If you add the items as "existing items" then navigate and click them it moves the files into the parent directory. Here's what you must do. 
+6. Now do this to **add the files in project sub-directories**. (Aside): If you have an existing project with sub-directories (like tinyg) there is no straightforward way to add the files to the project and leave the directory structure intact. You can't just click on the directory to add the entire directory. If you try to add a new directory it won't let you because that name is already used. If you add the items as "existing items" then navigate and click them it moves the files into the parent directory. Here's what you must do. 
  - Either move the sub-directory out of the path or rename it (e.g. xio_ORIG) to get it out of the way. 
  - Create a new directory off the parent directory with the name you want (e.g. xio). 
  - Move the files from the original directory into the new directory. You can delete the _ORIG directory now.
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
+
+Note: Once this is done you can launch the project by double clicking either the .atsln file or the .cpproj file.
 
 7. Setup the following values in the project file. Right click on the main directory (e.g. `tinyg`) in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
 <pre>
