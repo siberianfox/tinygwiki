@@ -117,14 +117,14 @@ IN THE TOOLCHAIN TAB
 
   AVR/GNU LINKER 
     General: 
-      Check the `use vprintf library (-Wl,-u,vprintf)` box
+      Check the "use vprintf library (-Wl,-u,vprintf)" box (last box)
 
     Libraries: make sure these lines exist:
        printf_flt
        libm
 
  IN THE DEVICE TAB
-  The DEVICE should be ATxmega192A3 (or whatever you are using)
+  The DEVICE should say ATxmega192A3 (or whatever you are using)
 
 </pre>
 
