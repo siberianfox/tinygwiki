@@ -87,13 +87,13 @@ To get this do the following:
 2. Open studio6 and create a new project. Parameters are:
  - TinyG is a "GCC C Executable Project" 
  - The Name is "tinyg"
- - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: Z:\Alden\Projects\proj72_ExtruderFin\ExtruderFin
+ - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: Z:\Alden\Projects\proj38_TinyG\TinyG
  - The Solution name is "firmware". Allow it to create a new solution and to create a directory for the solution
 
 Here's an example of setting up a project called "extruderfin"
 ![example image](https://www.dropbox.com/s/n7zbysjmjvsq1lv/Screenshot%202013-11-26%2006.16.15.png)
 
-3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use mega328p
+3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use ATmega328p
 
 4. Now move all the .c and .h files into the project directory (e.g. tinyg). If there's a collision with the main.c or PROJECT.c file then replace the project-generated file with the one you are moving in. If there's a collision with the .cproj file do not replace it, instead use the one that's already in the directory (the newer one).
 
@@ -102,10 +102,10 @@ Here's an example of setting up a project called "extruderfin"
 6. Now do this to **add the files in project sub-directories**. (Aside): If you have an exiting project with sub-directories (like tinyg) there is no straightforward way to add the files to the project and leave the directory structure intact. You can't just click on the directory to add the entire directory. If you try to add a new directory it won't let you because that name is already used. If you add the items as "existing items" then navigate and click them it moves the files into the parent directory. Here's what you must do. 
  - Either move the sub-directory out of the path or rename it (e.g. xio_ORIG) to get it out of the way. 
  - Create a new directory off the parent directory with the name you want (e.g. xio). 
- - Move the files from the original directory into the new directory 
+ - Move the files from the original directory into the new directory. You can delete the _ORIG directory now.
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
 
-7. Setup the following values in the project file. CLick on the "tinyg" directory in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
+7. Setup the following values in the project file. Click on the "tinyg" directory in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
 <pre>
 IN THE TOOLCHAIN TAB
 
