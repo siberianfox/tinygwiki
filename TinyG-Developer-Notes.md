@@ -105,7 +105,7 @@ Here's an example of setting up a project called "extruderfin"
  - Move the files from the original directory into the new directory. You can delete the _ORIG directory now.
  - Go back to the nav, click on the newly created directory and select "add existing files". Add the files that are found in the newly populated sub-directory. 
 
-Note: Once this is done you can launch the project by double clicking either the .atsln file or the .cpproj file.
+`Note: Once this is done you can launch the project by double clicking either the .atsln file or the .cpproj file.`
 
 7. Setup the following values in the project file. Right click on the main directory (e.g. `tinyg`) in the solution explorer then go to the Project / Properties tab from the drop-down menus. Enter the following values if they are not already set:
 <pre>
