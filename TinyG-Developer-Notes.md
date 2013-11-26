@@ -88,7 +88,7 @@ To get this do the following:
  - TinyG is a `GCC C Executable Project`
  - The Name is `tinyg`
  - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: `Z:\Alden\Projects\proj38_TinyG\TinyG`
- - The Solution name is `firmware`. Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` in the `firmware` directory and a `tinyg.cppproj` file in the working directory. Once this is done you can launch the project by double clicking either file. It's also OK to rename `firmware.atsln` to something more meaningful, like `tinyg.atsln`
+ - The Solution name is `firmware`. Allow it to create a new solution and to create a directory for the solution. This will create a file called `firmware.atsln` in the `firmware` directory and a `tinyg.cppproj` file in the working directory. Once this is done you can launch the project by double clicking either file. It's also OK to rename `firmware.atsln` to something more meaningful, like `tinyg.atsln`. It can also be moved to the working directory if you desire.
 
 Here's an example of setting up a project called "extruderfin"
 ![example image](https://www.dropbox.com/s/n7zbysjmjvsq1lv/Screenshot%202013-11-26%2006.16.15.png)
