@@ -63,16 +63,16 @@ Here's a useful link: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=view
 To use Studio4 to program TinyG see [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ### Set up AtmelStudio6
-Download and go through the Studio6 install process. We are using Atmel Studio 6.1-2440-beta at this point. Click on the tinyg.atsln file to start the project. A clean build should leave tinyg.hex in the /Debug directory.
+Download and go through the Studio6 install process. We are using Atmel Studio 6.1 sp2 at this point. Click on the tinyg.atsln file to start the project. A clean build should leave tinyg.hex in the /Debug directory.
 
 To use Studio6 to program TinyG see [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ## Virgin AtmelStudio6 Setup (Importing TinyG or another project into Studio6)
 You only need to do this is you are not using the pre-existing project files, as above
 <br><br>
-The simplest way to import TinyG or some other existing project into Studio6 is to clone the github repository and use the solution and project files provided. If for some reason these are not available or don't work or for some reason you just want to generate them yourselves the following instructions should help. 
+The simplest way to import TinyG or some other existing project into Studio6 is to clone the github repository and use the solution and project files provided. If for some reason these are not available or don't work or you just want to generate them yourselves the following instructions should help. 
 
-These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in 6 every single time. There is a menu item called "add existing project" but I think this is only useful for brining in a "project" into a "solution" and we are setting up a new "solution" in this case.
+These instructions are for importing an existing project such as tinyg into Atmel Studio6 solution/project in a way that's compatible with how we have organized the directories on github. Studio6 likes to set up virgin projects and is not really set up for importing existing projects; someone at Microsoft or Atmel never really exercised this use case, it seems. So I trip over project import in AS6 every single time. There is a menu item called "add existing project" but I think this is only useful for bringing in a "project" into a "solution" and we are setting up a new "solution" in this case.
 
 The directory structure we use is:
 
@@ -87,8 +87,11 @@ To get this do the following:
 2. Open studio6 and create a new project. Parameters are:
  - TinyG is a "GCC C Executable Project" 
  - The Name is "tinyg"
- - The Location is the path for the git repository
+ - The Location is the path for the git repository. If you are in a VMware VM you may notice that your mounted drive (in my case the Z drive) is not in the browse list. You will need to enter the entire path name, for example: Z:\Alden\Projects\proj72_ExtruderFin\ExtruderFin
  - The Solution name is "firmware". Allow it to create a new solution and to create a directory for the solution
+
+Here's an example of setting up a project called "extruderfin"
+![example image](https://www.dropbox.com/s/n7zbysjmjvsq1lv/Screenshot%202013-11-26%2006.16.15.png)
 
 3. Select the processor - TinyG uses an xmega192a3. Kinen slaves usually use mega328p
 
