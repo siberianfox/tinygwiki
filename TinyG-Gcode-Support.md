@@ -38,8 +38,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G58 | | Select coord system 5 |
 	G59 | | Select coord system 6 |
 	[G61](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
-	[G61.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Exact path mode | Motion will be blended between Gcode blocks - exact path will be traced
-	[G64](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Continuous path mode | Motion will be blended between Gcode blocks - may deviate from exact path
+	[G61.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
+	[G64](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
