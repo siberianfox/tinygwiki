@@ -99,6 +99,9 @@ Example:
 * Go back to X0Y0
 * Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
+##G61, G61.1, G64 Path Control Modes
+
+
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
 
