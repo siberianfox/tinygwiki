@@ -100,6 +100,7 @@ Example:
 * Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
 ##G61, G61.1, G64 Path Control Modes
+TinyG supports exact stop mode (G61) and exact path mode (G61.1). G64 is recognized, but is treated as exact path mode. In exact stop mode motion will stop between each Gcode block. In exact path mode the exact path is followed (i.e. corners are not rounded). The velocity at the points joining 2 blocks is controlled to keep the change in direction between the blocks within centripetal acceleration limit set by $JA. 
 
 
 ##M2, M30 Program End
