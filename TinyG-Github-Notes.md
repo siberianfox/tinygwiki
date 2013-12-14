@@ -207,3 +207,22 @@ tinyg.eep
 .DS_Store
 </pre>
 See here for details: http://help.github.com/ignore-files/
+
+###Replacing the main branch with a Recovery Branch (Rollback - see 405.xx builds)
+Here's the scenario this is useful for:
+* You find your main branch (presumably dev) has some killer error, and it's already been pushed
+* You go back and find the last commit that worked OK by checking it out as a detached head
+* You create a new branch (called "recovery") from there
+* You work on the recovery branch and make a bunch of changes and commits
+* Now you want to merge recovery into the main branch, but have the main branch "become" what's in recovery, discarding all the changes you made in the main branch 
+
+Here;s how to do this:
+<pre>
+git checkout recovery
+git merge --strategy=ours dev
+git status  (just checking)
+git checkout dev
+git merge recovery
+git push
+</pre>
+You can then delete the recovery branch. If you want it to garbage collect right away type `git gc`
