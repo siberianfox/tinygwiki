@@ -207,3 +207,17 @@ Values commonly reported in status reports. See also canonical_machine.h for the
 ## Random Notes
 * The reason the machine position (mpo) is in internal coordinates is to return a clean representation of the internal position model. This allows the status report output to be used directly to chart tool path on a graphics window. This way the drawing model ignores things like units changes, coordinate systems and g92 offsets.
 * You can get the actual work position for display in a DRO by subtracting the offset from the machine position. So a convenient way to set up a status report is to use filtered reports to return mpox, mpoy, mpoz, ofsx, ofsy, ofsz. You will get back the xyz positions that are actually moving. The offsets will be reported once at the start of the status reports, and then only if they are changed by a gcode command. The offsets can be queried at any time by issuing a {"sr":""}, which will always return a complete SR regardless of the $sv setting
+
+## Status Reports for Diagnostics
+Status reports can be a good way to report back diagnostics when developing and debugging. In reason is that embedding printf() statements in code (especially in interrupts) can choke the system and cause it to lock up unless you are really careful. Status reports have a mechanism to manage bandwidth that you can take advantage of.
+
+The convention for adding diagnostic parameters to status reports is to lead with an underscore. This makes mnemonics somewhat tortured, but at least it keeps them out of the main parameter namespace. Here are a few that have been defined as diagnostics for mp_exec_line()
+
+	group | example | description
+	------|-------|-------------
+	_te | _tex | Target endpoint value for axis: mr.target[axis]
+	_tr | _trx | Target runtime value for axis: mr.gm.target[axis]
+	_ts | _ts1 | Target motor steps: mr.target_steps[motor]
+	_ps | _ps1 | Position motor steps: mr.position_steps[motor]
+	_ns | _ns1 | Encoder steps: mr.encoder_steps[motor]
+	_es | _es1 | Encoder error in steps: &mr.encoder_error[motor]
