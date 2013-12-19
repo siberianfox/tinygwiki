@@ -211,7 +211,7 @@ Values commonly reported in status reports. See also canonical_machine.h for the
 ## Status Reports for Diagnostics
 Status reports can be a good way to report back diagnostics when developing and debugging. In reason is that embedding printf() statements in code (especially in interrupts) can choke the system and cause it to lock up unless you are really careful. Status reports have a mechanism to manage bandwidth that you can take advantage of.
 
-The convention for adding diagnostic parameters to status reports is to lead with an underscore. This makes mnemonics somewhat tortured, but at least it keeps them out of the main parameter namespace. Here are a few that have been defined as diagnostics for mp_exec_line()
+The convention for adding diagnostic parameters to status reports is to lead with an underscore. This makes mnemonics somewhat tortured, but at least it keeps them out of the main parameter namespace. Here are a few that have been defined as diagnostics for mp_exec_line().
 
 	group | example | description
 	------|-------|-------------
@@ -221,3 +221,5 @@ The convention for adding diagnostic parameters to status reports is to lead wit
 	_ps | _ps1 | Position motor steps: mr.position_steps[motor]
 	_ns | _ns1 | Encoder steps: mr.encoder_steps[motor]
 	_es | _es1 | Encoder error in steps: &mr.encoder_error[motor]
+
+These will show up as JSON in status reports or can be invoked from the command line individually or in groups. Examples: `$_te` or `$_tex`
