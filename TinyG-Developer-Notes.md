@@ -1,4 +1,4 @@
-_updated 11/8/13 - ash_
+_updated 12/20/13 - ash_
 
 These are random notes that may be useful for developers.
 
@@ -139,6 +139,13 @@ Notes:
 We've seen this with earlier versions and Studio6.0 build 1996. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you rae on the latest firmware for the AVRISP mkii.
 
 We've found that even though the verification failed the programming is good. You can either turn off verification or chose to ignore the warning. By the way - we've never seen this failure on Studio4. I actually think this is a bug in Studio6 rather than and actual failure. I have not seen any code die or act erratically when I get these errors.
+
+#### Simulator won't start - Cannot find debugger message
+Who knows why this happens. The get the debugger (simulator) back do the following
+* Plug in and select an AVRISP mkII in the tinyg/tools tab
+* Hit Debug and stop to try to debug. It will fail
+* Go back to the tools tab and now select simulator for the tool
+* Try to debug again. 60% of the time it works every time
 
 #### Can't view ASCII strings in the debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
