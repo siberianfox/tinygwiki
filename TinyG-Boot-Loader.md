@@ -53,6 +53,8 @@ Next you need to enter the avrdude command before the LED stops blinking. It cur
 Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
+Be sure to change COM19 above to match the com port you are using.
+
 Here's an example command line from Mac:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
 
