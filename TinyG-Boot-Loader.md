@@ -42,13 +42,13 @@ Navigate to the directory that has the tinyg.hex file you want.
 Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
 ###**Step3**
-Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. You can enter the bootloader any of the following ways:
+Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. (Or download and install it.) You can enter the bootloader any of the following ways:
 * Hit the reset button on the board
 * Send a `^x` (control X) to the board (software reset)
 * Send the command `$boot=1`
 * Send the JSON command `{"boot":1}`
  
-Next you need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times, or about 3 seconds.
+Next you need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times, or about 3 seconds. (The com port can only be open by one program, so you will need to issue the boot command, shut down CoolTerm, and then issue the AVRdude command.)
 
 Here's an example command line from Windows:<br>
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
