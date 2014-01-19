@@ -7,8 +7,8 @@ We get a lot of questions about what stepper motors and power supplies to use, s
 Here are some sources that carry some good motors. Please feel free to add your favorites.
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55) See the OSM's in particular. Often have some interesting surplus Lin motors. Have NEMA8's
 * [Pololu](http://www.pololu.com/category/87/stepper-motors) Have some nice smaller motors as well, e.g. NEMA11
-* [Automation Technologies (Keling)](http://www.automationtechnologiesinc.com/) In particular they carry a 425 Oz-in NEMA23 that only takes 2.8 amps. Monster.
-* [Automation Direct](http://www.automationdirect.com/adc/Shopping/Catalog/Motion_Control/Stepper_Systems). Check out the STP-MTR-17060, a 125 ox-in NEMA17
+* [Automation Technologies (Keling)](http://www.automationtechnologiesinc.com/) In particular they carry a 425 oz-in NEMA23 that only takes 2.8 amps. Monster.
+* [Automation Direct](http://www.automationdirect.com/adc/Shopping/Catalog/Motion_Control/Stepper_Systems). Check out the STP-MTR-17060, a 125 oz-in NEMA17
 
 
 ## References
