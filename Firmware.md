@@ -16,7 +16,7 @@ https://github.com/synthetos/TinyG/tree/SOMETHING/firmware/tinyg/default
 
 To burn the firmware into your TinyG, follow these instructions:
 
-https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader
-https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating
-https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier
-https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer
+* https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader
+* https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating
+* https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier
+* https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer
