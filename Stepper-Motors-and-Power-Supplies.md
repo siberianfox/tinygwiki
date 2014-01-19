@@ -1,6 +1,9 @@
 We get a lot of questions about what stepper motors and power supplies to use, so we've started this page. As of today (1/19/14) it's pretty sketchy but we'll fill this in. A lot of this information is scatter over the rest of the wiki, but it's nice to pull it together in one place.
+
 # Stepper Motors
+
 ## Sources
+
 Here are some sources that carry some good motors. Please feel free to add your favorites.
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55) See the OSM's in particular. Often have some interesting surplus Lin motors. Have NEMA8's
 * [Pololu](http://www.pololu.com/category/87/stepper-motors) Have some nice smaller motors as well, e.g. NEMA11
@@ -67,5 +70,13 @@ Finding pairs in a unipolar motor is a bit more complicated, but not much. You w
 
 ## Sources
 
+Here are some power supplies we like: 
+* [Meanwell NES-150-24](http://www.mouser.com/ProductDetail/Mean-Well/NES150-24/?qs=sGAEpiMZZMsPs3th5F8koDNPbuqd%252bfezne6r6bnnXjA%3d), [Meanwell NES-350-24](http://www.mouser.com/ProductDetail/Mean-Well/NES-350-24/?qs=%2fha2pyFaduhxfhzsenBkIkgMfhBr0hSVdTJWNZMLFL2wp6eI7VH7oQ%3d%3d)<br> You can usually hunt around and find this for < $50. They also make lower amperage supplies that are cheaper. 
+
+_Note: Some power supplies have a 110v/220v switch on the side, and usually shipped in the 220v position. Be sure to switch the AC input from 220v to 110v if you are in the US or a 110v mains country. Most PSs will still work, but will audibly "click" and lose power if you don't set this correctly.
+
 ## General
 
+TinyG v8 supports up to 2.5A per winding per motor and needs a 12v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically).
+
+You might think that 4 motors at 2 amps per winding (about the top-end of NEMA17's) would require 4 motors X 2 windings X 2 amps = 16 amps to drive, but you'd be wrong. 4 to 4.5 amps or above will handle this as not all motors + phases are ever maxed out at the same time. We like to have at least 6 amps for NEMA17's and this is absolutely required for NEMA23s.
