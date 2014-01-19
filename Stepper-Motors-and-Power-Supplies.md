@@ -28,9 +28,10 @@ TinyG is capable of delivering 2 amps per winding, and 2.5 amps per winding with
 ### What's with the motor's rated voltage?
 The question comes up - can I run a motor with a rated voltage of 4.2 volts (for example) with a 24 volt supply? Will this burn out the motor?
 
-The motor's rated voltage is irrelevant and can be ignored. 
+The motor's rated voltage is irrelevant and can be ignored. Any stepper motor rated at any voltage will work, regardless of the power supply voltage provided. The rated motor voltage just states what the max voltage would be if you applied a direct DC voltage to the winding and wanted to stay in the rated current of the motor. Since the stepper drivers regulate the current the voltage doesn’t matter.
 
-When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
+In fact, the lower the rated voltage the better as this is a reflection of low impedance windings which will transfer power better and provide "snappier" operation than a similar motor with a higher voltage rating. 
+
 ### Finding the Coil Pairs on a stepper motor
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
