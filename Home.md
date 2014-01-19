@@ -32,6 +32,7 @@ Please come visit / join any or all of the above.
 * [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
 * [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/Stepper-Motors-and-Power-Supplies)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 
 ### TinyG Firmware Update, Programming and Historical References
