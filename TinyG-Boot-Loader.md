@@ -1,11 +1,16 @@
 _Huge thanks to Kevin Osborn who got this working_
 
 **Topics:**
+* [Where is the firmware?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-whereisthe)
 * [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 * [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
 * [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 * [Programming TinyG with the Atmel AVRISP Mkii Programmer](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-avrisp)
+
+<a id="whereisthe"></a>
+# Where is the firmware?
+Firmware is the software that runs on the TinyG. It is often updated, and if you want your TinyG to have the new features, you need to put the new firmware on your TinyG, using one of the methods shown on this page.  Firmware is explained more on [this page](https://github.com/synthetos/TinyG/wiki/firmware).
 
 <a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
