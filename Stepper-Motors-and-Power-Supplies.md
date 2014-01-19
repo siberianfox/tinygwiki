@@ -71,9 +71,11 @@ Finding pairs in a unipolar motor is a bit more complicated, but not much. You w
 ## Sources
 
 Here are some power supplies we like: 
-* [Meanwell NES-150-24](http://www.mouser.com/ProductDetail/Mean-Well/NES150-24/?qs=sGAEpiMZZMsPs3th5F8koDNPbuqd%252bfezne6r6bnnXjA%3d), [Meanwell NES-350-24](http://www.mouser.com/ProductDetail/Mean-Well/NES-350-24/?qs=%2fha2pyFaduhxfhzsenBkIkgMfhBr0hSVdTJWNZMLFL2wp6eI7VH7oQ%3d%3d)<br> You can usually hunt around and find this for < $50. They also make lower amperage supplies that are cheaper. 
+* [Meanwell NES-150-24](http://www.mouser.com/ProductDetail/Mean-Well/NES150-24/?qs=sGAEpiMZZMsPs3th5F8koDNPbuqd%252bfezne6r6bnnXjA%3d)
+* [Meanwell NES-350-24](http://www.mouser.com/ProductDetail/Mean-Well/NES-350-24/?qs=%2fha2pyFaduhxfhzsenBkIkgMfhBr0hSVdTJWNZMLFL2wp6eI7VH7oQ%3d%3d)
 
-_Note: Some power supplies have a 110v/220v switch on the side, and usually shipped in the 220v position. Be sure to switch the AC input from 220v to 110v if you are in the US or a 110v mains country. Most PSs will still work, but will audibly "click" and lose power if you don't set this correctly.
+
+_Note: Some power supplies have a 110v/220v switch on the side, and usually shipped in the 220v position. Be sure to switch the AC input from 220v to 110v if you are in the US or a 110v mains country. Most PSs will still work, but will audibly "click" and lose power if you don't set this correctly._
 
 ## General
 
