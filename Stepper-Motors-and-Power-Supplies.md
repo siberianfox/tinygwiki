@@ -1,4 +1,4 @@
-We get a lot of questions about what stepper motors and power supplies to use, so we've started this page. As of today (1/19/14) it's pretty sketchy but we'll fill this in.
+We get a lot of questions about what stepper motors and power supplies to use, so we've started this page. As of today (1/19/14) it's pretty sketchy but we'll fill this in. A lot of this information is scatter over the rest of the wiki, but it's nice to pull it together in one place.
 
 # Stepper Motors
 
@@ -7,9 +7,13 @@ We get a lot of questions about what stepper motors and power supplies to use, s
 Here are some sources that carry some good motors. Please feel free to add your favorites.
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55) See the OSM's in particular. Often have some interesting surplus Lin motors. Have NEMA8's
 * [Pololu](http://www.pololu.com/category/87/stepper-motors) Have some nice smaller motors as well, e.g. NEMA11
+* [Sparkfun](https://www.sparkfun.com/categories/178)
+* [Phidgets](http://www.phidgets.com/products.php?category=23)
+* [Oriental Motor Company](http://www.omc-stepperonline.com/)
 * [Automation Technologies (Keling)](http://www.automationtechnologiesinc.com/) In particular they carry a 425 oz-in NEMA23 that only takes 2.8 amps. Monster.
 * [Automation Direct](http://www.automationdirect.com/adc/Shopping/Catalog/Motion_Control/Stepper_Systems). Check out the STP-MTR-17060, a 125 oz-in NEMA17
-
+* [MPJA](http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/) Surplus motors
+* [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html www.allelectronics.com/make-a-store/category/400/Motors/1.html) Surplus motors
 
 ## References
 
@@ -18,6 +22,15 @@ More some useful information on steppers and wiring steppers:
 
 ## General
 
+### NEMA17 versus NEMA23
+TinyG is capable of delivering 2 amps per winding, and 2.5 amps per winding with cooling. Given that, we have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding (with the caveat that you might not get full power if it calls for more than 2.5 amps). We also routinely run NEMA34's, but not at full power and therefore not in high mechanical load situations. 
+
+### What's with the motor's rated voltage?
+The question comes up - can I run a motor with a rated voltage of 4.2 volts (for example) with a 24 volt supply? Will this burn out the motor?
+
+The motor's rated voltage is irrelevant and can be ignored. 
+
+When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
 ### Finding the Coil Pairs on a stepper motor
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
