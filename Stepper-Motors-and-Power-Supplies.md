@@ -36,6 +36,10 @@ In fact, the lower the rated voltage the better as this is a reflection of low i
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
+Wires are often color coded by convention. Common wire pairings are:
+* Green goes with Black. Yellow is often used for the center tap in a unipolar
+* Red goes with Blue. White is often used for the center tap in a unipolar
+
 The following color code is typical for many motors
 
 <pre>
