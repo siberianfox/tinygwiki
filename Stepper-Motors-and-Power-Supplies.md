@@ -1,4 +1,4 @@
-We get a lot of questions about what stepper motors and power supplies to use, so we've started this page. As of today (1/19/14) it's pretty sketchy but we'll fill this in. A lot of this information is scatter over the rest of the wiki, but it's nice to pull it together in one place.
+We get a lot of questions about what stepper motors and power supplies to use, so we've started this page. A lot of this information is scatter over the rest of the wiki, but it's nice to pull it together in one place.
 
 # Stepper Motors
 
