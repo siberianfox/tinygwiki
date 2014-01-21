@@ -79,6 +79,6 @@ The fusebytes should reflect the above settings and should read:
 	-----|-------|------
 	FUSEBYTE0 | 0xFF |
 	FUSEBYTE1 | 0x00 |
-	FUSEBYTE2 | 0xBE | there is no third thing
-	FUSEBYTE4 | 0xFE |
+	FUSEBYTE2 | 0xBE | will be FE if Application Reset is selected 
+	FUSEBYTE4 | 0xFE | there is no third fusebyte, and nobody expects the Spanish Inquisition
 	FUSEBYTE5 | 0xEB |
