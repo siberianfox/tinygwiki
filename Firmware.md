@@ -6,13 +6,11 @@ There are three levels of firmware:
 * "Edge" is midway between master and experimental. It's not quite fully working, but 
 it might have useful features for the brave.
 
-* "something" is experimental. You should not load this unless you are an active developer.
+* "Dev" is experimental. You should not load this unless you are an active developer.
 
-https://github.com/synthetos/TinyG/tree/master/firmware/tinyg/default
+Go here: https://github.com/synthetos/TinyG/tree/master/support
 
-https://github.com/synthetos/TinyG/tree/edge/firmware/tinyg/default
-
-https://github.com/synthetos/TinyG/tree/SOMETHING/firmware/tinyg/default
+Find the button in the upper left corner that says "Branch: master".Click that button, and choose either "master" or "edge".
 
 To burn the firmware into your TinyG, follow these instructions:
 
