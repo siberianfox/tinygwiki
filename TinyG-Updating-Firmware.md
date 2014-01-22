@@ -17,7 +17,7 @@ https://github.com/synthetos/TinyG/raw/edge/firmware/tinyg/default/tinyg.hex
 Please note that you will need to **"right click, save as"** to save this file properly.  Failure to do so will introduce a corrupted firmware download.
 
 ###Dev Branch
-The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The `dev` branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev brach firmware file.
+The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The `dev` branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file.
 
 
 Once you have downloaded you the firmware of your choice you can move on to [firmware updating methods](https://github.com/synthetos/TinyG/wiki/_preview#firmware-updating-methods).
