@@ -1,4 +1,4 @@
-This page SHOULD show where to get the various version of the TinyG firmware.  What Tom King me this page, and what follow is his best guesses, because he's tired of not finding information about a CNC controller he paid for. Next, I will place links to this page on all the other pages that discuss the firmware, but don't actually tell you where you can find the firmware.
+This page SHOULD show where to get the various version of the TinyG firmware.  Tom King made this page, and what follow is his best guesses, because he's tired of not finding information about a CNC controller he paid for. Next, I will place links to this page on all the other pages that discuss the firmware, but don't actually tell you where you can find the firmware.
 
 There are three levels of firmware:
 * The "master" is the latest fully working version.  
@@ -8,9 +8,9 @@ it might have useful features for the brave.
 
 * "Dev" is experimental. You should not load this unless you are an active developer.
 
-Go here: https://github.com/synthetos/TinyG/tree/master/support
+To get the firmware, go here: https://github.com/synthetos/TinyG/tree/master/support
 
-Find the button in the upper left corner that says "Branch: master".Click that button, and choose either "master" or "edge".
+Find the button in the upper left corner that says "Branch: master". Click that button, and choose either "master" or "edge".
 
 To burn the firmware into your TinyG, follow these instructions:
 
