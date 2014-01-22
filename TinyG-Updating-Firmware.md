@@ -28,7 +28,7 @@ Once you have downloaded you the firmware of your choice you can move on to [fir
 
 You will need to select a TinyG firmware `master` or `edge` branches.  If you have not done so you need to return to the [firmware updating explained](https://github.com/synthetos/TinyG/wiki/_preview#tinyg-firmware-explained) section above and selected a TinyG firmware file to download.  
 
-There are 2 ways to update the firmware on your TinyG.  The first method is to use the bootloader on TinyG along with avrdude.  This method requires no special hardware programming devices *only the TinyG USB cable).
+There are 2 ways to update the firmware on your TinyG.  The first method is to use the bootloader on TinyG along with avrdude.  This method requires no special hardware programming devices, only the TinyG USB cable.
 <br>
 The second method is using an AVR Programmer (such as an AVRISP MKII programmer).  This method requires more work and is not described here as of yet.  It is also not needed if you have a bootloader loaded on your TinyG.  If you would like to read more about how to tell if you have a bootloader on your TinyG you can go [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader).  
 
