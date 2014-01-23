@@ -36,6 +36,7 @@ Please come visit / join any or all of the above.
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 
 ### TinyG Firmware Update, Programming and Historical References
+* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Location of firmware](https://github.com/synthetos/TinyG/wiki/firmware)
 * [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
