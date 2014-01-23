@@ -1,4 +1,4 @@
-This page explains what you need to know about the process of updating your TinyG firmware.  It provides the links to the firmware files as well as the differences between code branches.  Lastly, it will explain the updating procedure and how to perform this procedure.  
+This page explains what you need to know about the process of updating your TinyG firmware.  It provides the links to the firmware files as well as the differences between code branches.  Lastly, it will explain the updating procedure and how to perform this procedure.  However, if you are experiencing something different than anything below we urge you to open a thread on the [TinyG Support Forum](https://www.synthetos.com/forums/tinyg/tinyg-support/) for additional assistance.
 
 ##TinyG Firmware Explained
 The TinyG development team uses three code branches.  Master, Edge and Dev.  Each code branch is fully explained below.  After reading each code branch description you should have enough information on to which firmware you would like to load onto your TinyG.  However, when in doubt, pick the master branch.
