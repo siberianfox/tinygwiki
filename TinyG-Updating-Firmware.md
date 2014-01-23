@@ -43,7 +43,7 @@ Again, if you have not already acquired the `tinyg.hex` from the code branch you
 Save page as tinyg.hex (you may need to get rid of a .txt extension during this save). Save it in some known directory that you can get back to.
 
 Notes: 
-- If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. 
+- If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. <br>
 - The hex in the default directory is compiled using AVR Studio 4, which is the one we test on. There may also be a hex in a Debug directory. This is compiled in Atmel Studio 6, and will have a different size.
 
 ####**Step1**
@@ -67,9 +67,9 @@ Inside of the Arduino IDE directory you will find avrdude.exe (or just avrdude i
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg.hex`
 
 **Notes:** 
-1. This assumes that the file (tinyg.hex) that you downloaded above, is in the same directory as the avrdude.exe is.
-2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.
-3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
+1. This assumes that the file (tinyg.hex) that you downloaded above, is in the same directory as the avrdude.exe is.<br>
+2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.<br>
+3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`<br>
 
 
 If all worked correctly, you should see the following dialog if the loader works correctly
