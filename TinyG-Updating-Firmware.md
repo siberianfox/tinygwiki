@@ -17,11 +17,10 @@ https://github.com/synthetos/TinyG/raw/edge/firmware/tinyg/default/tinyg.hex
 Please note that you will need to **"right click, save as"** to save this file properly.  Failure to do so will introduce a corrupted firmware download.
 
 ###Dev Branch
-The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The `dev` branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file.
+The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The dev branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file.
 
 
-Once you have downloaded you the firmware of your choice you can move on to [firmware updating methods](https://github.com/synthetos/TinyG/wiki/_preview#firmware-updating-methods).
-
+Once you have downloaded the firmware of your choice, you can move on to [firmware updating methods](https://github.com/synthetos/TinyG/wiki/_preview#firmware-updating-methods).
 
 
 ##Firmware Updating Methods
@@ -32,16 +31,15 @@ There are 2 ways to update the firmware on your TinyG.  The first method is to u
 <br>
 The second method is using an AVR Programmer (such as an AVRISP MKII programmer).  This method requires more work and is not described here as of yet.  It is also not needed if you have a bootloader loaded on your TinyG.  If you would like to read more about how to tell if you have a bootloader on your TinyG you can go [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader).  
 
-
 <a id="updating"></a>
 ##Updating TinyG With avrdude
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
 ###**Step0**
-Get the tinyg.hex file. In most cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
-<pre>
-https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex
-</pre>
+Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
+
+`https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex`
+
 Save page as tinyg.hex (you may need to get rid of a .txt extension during this save). Save it in some known directory that you can get back to.
 
 Notes: 
