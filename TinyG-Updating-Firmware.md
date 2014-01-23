@@ -126,7 +126,7 @@ This section should help you sift though any errors you might encounter during t
 ###Firmware Verification Error:
 This error occurs when the `fuse bits` are incorrectly set on your TinyG's XMega CPU.  This error was something we ran into in early 2012 and should not continue to be an issue.  However, if you do get this error or you have an older TinyG you should read [this page](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) for help solving this issue.
 
-###Never Ending Flashing Red Light
+###Never Ending Flashing Red Light After Update
 So you did everything above and you flashed your TinyG with tinyg.hex file from github.  Now your TinyG just continues to flash a red light on the spindle CW/CCW led.  This most likely was an invalid tinyg.hex file.  99% of the time this occurs when someone tries to save the tinyg.hex file from github and actually just pulls down the HTML vs the raw Intel Hex file format that TinyG needs.  You can verify your tinyg.hex file is valid by opening the file with a text editor.
 
 Your hex file must contain many of lines like this:
