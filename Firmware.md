@@ -2,14 +2,14 @@ This page SHOULD show where to get the various version of the TinyG firmware.  T
 
 Your hex file must contain thousands of lines like this:
 
-`:100000000C9402190C9423190C94F1990C94231953
-:100010000C9423190C9423190C9423190C94231970
-:100020000C9423190C9423190C9423190C948E947A`
+> :100000000C9402190C9423190C94F1990C94231953
+> :100010000C9423190C9423190C9423190C94231970
+> :100020000C9423190C9423190C9423190C948E947A
 
 If your hex file starts like the following, it will not work:
 
-`<!DOCTYPE html>
-<html>`
+> <!DOCTYPE html>
+> <html>
 
 If you hex file contains html, you must right click and "save as" or it will not work.
 
