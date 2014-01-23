@@ -53,23 +53,26 @@ Navigate to the directory that has the tinyg.hex file you want.
 Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
 
 ###**Step3**
-Enter the boot loader and flash the chip using Avrdude.  **Use the Avrdude distributed with the Arduino** - it's pretty up to date. (Or download and install it.) You can enter the bootloader any of the following ways:
+To update your firmware we must enter your TinyG into bootloader mode.  To enter bootloader mode on the TinyG it is as easy as hitting the `reset` button on the TinyG board.  (You can locate the reset button on this [diagram](https://github.com/synthetos/TinyG/wiki/TinyG-Start#getting-started-with-tinyg---what-you-need)).  You can tell that your TinyG is in bootloader mode by the flashing red Spindle CW/CCW light.  You can also enter bootloader mode by sending `$boot=1` or `{"boot":1}` from the command line interface via console program.  You can read more about the [command line interface](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line) if you wish.  You will have 3 seconds to initiate an firmware update via `avrdude`.  However, we will describe how to do this next.  Just remember to recap, this is how you can enter your TinyG into bootloader mode:
+
 * Hit the reset button on the board
 * Send a `^x` (control X) to the board (software reset)
 * Send the command `$boot=1`
 * Send the JSON command `{"boot":1}`
- 
-Next you need to enter the avrdude command before the LED stops blinking. It currently blinks 10 times, or about 3 seconds. (The com port can only be open by one program, so you will need to issue the boot command, shut down CoolTerm, and then issue the AVRdude command.)
 
-Here's an example command line from Windows:<br>
-`avrdude -p x192a3 -c avr109 -b 115200 -P COM19 -U flash:w:tinyg.hex`
 
-Be sure to change COM19 above to match the com port you are using.
+To transfer the firmware update to your TinyG you need to use a program called avrdude.  avrdude is open-source and runs on all major operating systems.  The quickest way to get a binary version of avrdude for your system is to download the latest version of the [Arduino IDE](http://arduino.cc/en/Main/Software#toc1).  
 
-Here's an example command line from Mac:<br>
-`avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
+Inside of the Arduino IDE directory you will find avrdude.exe (or just avrdude if in mac or linux).  Below is the command that you need to issue to send and updated firmware to TinyG.
+`avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg.hex`
 
-You should see the following dialog if the loader works correctly
+**Notes:** 
+1. This assumes that the file (tinyg.hex) that you downloaded above, is in the same directory as the avrdude.exe is.
+2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.
+3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`
+
+
+If all worked correctly, you should see the following dialog if the loader works correctly
 <pre>
 macintosh-3:default username$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex
 
