@@ -1,7 +1,6 @@
 _Huge thanks to Kevin Osborn who got this working_
 
 **Topics:**
-* [Where is the firmware?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-whereisthe)
 * [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 * [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
