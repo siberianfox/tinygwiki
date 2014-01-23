@@ -66,7 +66,7 @@ To transfer the firmware update to your TinyG you need to use a program called a
 Inside of the Arduino IDE directory you will find avrdude.exe (or just avrdude if in mac or linux).  Below is the command that you need to issue to send and updated firmware to TinyG.
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg.hex`
 
-**Notes:** 
+**Notes:**<br> 
 1. This assumes that the file (tinyg.hex) that you downloaded above, is in the same directory as the avrdude.exe is.<br>
 2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.<br>
 3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`<br>
