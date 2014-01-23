@@ -130,11 +130,17 @@ This error occurs when the `fuse bits` are incorrectly set on your TinyG's XMega
 So you did everything above and you flashed your TinyG with tinyg.hex file from github.  Now your TinyG just continues to flash a red light on the spindle CW/CCW led.  This most likely was an invalid tinyg.hex file.  99% of the time this occurs when someone tries to save the tinyg.hex file from github and actually just pulls down the HTML vs the raw Intel Hex file format that TinyG needs.  You can verify your tinyg.hex file is valid by opening the file with a text editor.
 
 Your hex file must contain many of lines like this:
+<br>
 `:100000000C9402190C9423190C94F1990C94231953`
-If your hex file does not look similar to the format above, your tinyg.hex file is not valid and is corrupt.  Most often if your tinyg.hex file look like this below:<br>
+<br>
+If your hex file does not look similar to the format above, your tinyg.hex file is not valid and is corrupt.  Most often if your tinyg.hex file look like this below:
+<br>
 `
 <!DOCTYPE html>
 `
-Then you did not download the tinyg.hex file correctly.  As noted above you must **right click, save as** the `https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex` link.  Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:<br>
+<br>
+Then you did not download the tinyg.hex file correctly.  As noted above you must **right click, save as** the `https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex` link.  Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:
+<br>
 `:100000000C9402190C9423190C94F1990C94231953`
+<br>
 If so go ahead and try to reflash.
