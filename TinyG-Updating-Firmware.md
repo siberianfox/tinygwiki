@@ -131,10 +131,10 @@ So you did everything above and you flashed your TinyG with tinyg.hex file from 
 
 Your hex file must contain many of lines like this:
 `:100000000C9402190C9423190C94F1990C94231953`
-If your hex file does not look similar to the format above, your tinyg.hex file is not valid and is corrupt.  Most often if your tinyg.hex file look like this below:
+If your hex file does not look similar to the format above, your tinyg.hex file is not valid and is corrupt.  Most often if your tinyg.hex file look like this below:<br>
 `
 <!DOCTYPE html>
 `
-Then you did not download the tinyg.hex file correctly.  As noted above you must **right click, save as** the `https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex` link.  Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:
+Then you did not download the tinyg.hex file correctly.  As noted above you must **right click, save as** the `https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex` link.  Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:<br>
 `:100000000C9402190C9423190C94F1990C94231953`
 If so go ahead and try to reflash.
