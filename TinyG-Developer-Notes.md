@@ -6,6 +6,17 @@ This page contains notes that may be useful for developers:
 * [Things we learned about github](https://github.com/synthetos/TinyG/wiki/TinyG-Github-Notes), usually the hard way
 * [Programming TinyG with the Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
+Here are a number of other pages that may be useful to UI and TinyG firmware developers:
+
+* [TinyG Communications Programming](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming)
+* [Flow Control and JSON Footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers)
+* [JSON Syntax and Use (JSON Operation)](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
+* [JSON Details])https://github.com/synthetos/TinyG/wiki/JSON-Details)
+* [TinyG Alarms](https://github.com/synthetos/TinyG/wiki/TinyG-Alarms)
+* [TinyG Licensing](https://github.com/synthetos/TinyG/wiki/TinyG-Licensing)
+* [TinyG State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
+
+
 ## Set Up a Windows Compile Environment for TinyG 
 This is the easiest way to get set up for compilation. It uses the pre-existing project files for AVRStudio4 or AtmelStudio6 to manage the git clone working directory. This page explains how to set up both, so make your choice.
 
