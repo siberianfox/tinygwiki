@@ -45,8 +45,8 @@ Turns out this is actually a hard problem. Here are some things to make note of:
 * In order to manage inbound command flow and avoid buffer full conditions the serial buffer will hold an input line until there are at least 4 buffers available in the planner queue. This is to ensure that the line can be processed, and will not result in an exception. The current queue depth is 28 buffers, so at any given point no more than 24 buffers can be filled.
 
 
-## Current Flow Control Options
-The following methods are currently possible and supported
+## Current Flow Control Options in Master Branch
+The following methods are currently possible and supported in the Master Branch (build 380.xx)
 
 * XON/XOFF flow control with "blast". Configure $ex=1 and the TinyG emits XOFF and XON characters. The FTDI, when properly configured, sends characters until it's told to stop; resumes when XON is received. This is what Coolterm does if XON/XOFF is enabled. The advantage is that this is very simple and works very well; the disadvantage is that there is no convenient way to inject feedholds. _However,_ if the FTDI is _not_ configured to obey XON/XOFF from the TinyG, then the XON/XOFF characters will be passed on to the host and the controlling software must honor them. This is problematic because the XOFF may be received after the transmit buffers of the host software, OS, and FTDI are already loaded with data, and those will still be sent even if the host stops transmitting immediately.
 
@@ -54,15 +54,15 @@ The following methods are currently possible and supported
 
 * Managing planner queue depth with queue reports. Enabling queue reports ($qv=1) will cause the queue depth to be reported each time a command(s) is added to the planner. As mentioned earlier, these queue reports may be throttled by the system if they are very closely spaced. This method, coupled with some form of flow control, is preferred. 
 
-## Changes Made
-
-#### Add RTS/CTS flow control
-RTS/CTS is currently in test in the master branch (build 380.08) and later builds. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
+* RTS/CTS flow control
+RTS/CTS is currently in master branch (build 380.08) and later builds. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
 $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
 
-####Triple queue reports 
+## Additional Flow Control Options Available in Edge Branch
+
+### Triple queue reports 
 The following is in test in dev and edge: Setting $qv=2 (triple reports) will return:
 
 {"qr":27, "qi":1, "qo":0} 
@@ -81,33 +81,17 @@ So here are some cases the host would react to:
 
 - The QRs show available buffers dropping fast, one move coming in per report, and many moves going out. This indicates that a lot of short moves are being executed and the queue is being drained faster than it's being replenished. The host should try to replenish the buffer by sending about as many lines to the board as have been removed.
 
-Other things that have been done:
+### Other things that have been done:
 
-####Eliminate filtered queue reports
-I don't think anyone is using them. This will reduce code and maintenance size and complexity.
+* Eliminate filtered queue reports
+I don't think anyone is using them. This has reduced code and maintenance size and complexity.
 
-####Proposed Footer Changes
-Especially if the above are implemented we may be able to be more efficient with the footers. Currently there is one footer style (1) that returns the following array:
-
-{"f":[1, status-code, byte-count, checksum]}    --- where '1' is the footer-style
-
-We could allow the footer style to be set by a config variable. Here's one option:
-
-{"f":[2, status-code, queue-depth, buffers-added, buffers-removed]}
-
-This would eliminate the need for requesting separate queue reports by folding the QR information into the footer.
-
-Another option:
-
-{"f":[3, status-code, line-number, queue-depth, buffers-added, buffers-removed]}
-
-The line number os the Gcode N word provided in the command. If no N was provided a zero would be returned. The line number would be repeated across multiple status reports if the Gcode move generated multiple SRs, or if the Gcode line had multiple commands that queued in the planner.
-
-####Proposed JSON Changes
-Want the 'f' footer to be a sister element to the 'r' response. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
+## JSON Changes
+### JSON Footer Depth
+It is more correct (and easier to manage) if the 'f' footer is a sister element to the 'r' response rather than a child. A new footer option has been added to accomplish this. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
 <pre>
-current:   {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
-proposed:  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
+old style ($fd=1): {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
+old style ($fd=0):  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
 
 current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1},"f":[1,0,10,9193]}}
 proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1}},"f":[1,0,10,9193]}
