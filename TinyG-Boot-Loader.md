@@ -9,7 +9,7 @@ _Huge thanks to Kevin Osborn who got this working_
 
 <a id="whereisthe"></a>
 # Where is the firmware?
-Firmware is the software that runs on the TinyG. It is often updated, and if you want your TinyG to have the new features, you need to put the new firmware on your TinyG, using one of the methods shown on this page.  [This page](https://github.com/synthetos/TinyG/wiki/firmware) discusses firmware and where you can find it.
+Firmware is the software that runs on the TinyG. It is often updated, and if you want your TinyG to have the new features, you need to put the new firmware on your TinyG, using one of the methods shown on this page.  [This page](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware) discusses firmware and where you can find it.
 
 <a id="howdoiknow"></a>
 # How Do I Know if I Have the Bootloader?
