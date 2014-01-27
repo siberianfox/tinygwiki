@@ -88,23 +88,19 @@ I don't think anyone is using them. This has reduced code and maintenance size a
 
 ## JSON Changes
 ### JSON Footer Depth
-It is more correct (and easier to manage) if the 'f' footer is a sister element to the 'r' response rather than a child. A new footer option has been added to accomplish this. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. Examples:
+It is more correct (and easier to manage) if the 'f' footer is a sister element to the 'r' response rather than a child. A new footer option has been added to accomplish this. Both live as siblings at depth 0 under the outer enclosing curlies {}. This causes some of the current JSON to change. In order to maintain backwards compatibility with existing UIs TinyG provides a footer-depth setting, $fd. fd=0 is the new behavior, fd=1 is the legacy behavior. Examples:
 <pre>
+new style ($fd=0): {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
 old style ($fd=1): {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY","f":[1,0,0,4079]}}
-old style ($fd=0):  {"r":{"fb":380.05,"fv":0.950,"hv":7,"id":"9H3583-YMZ","msg":"SYSTEM READY"},"f":[1,0,0,4079]}
 
-current:   {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1},"f":[1,0,10,9193]}}
-proposed:  {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1}},"f":[1,0,10,9193]}
+new style ($fd=0): {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1}},"f":[1,0,10,9193]}
+old style ($fd=1): {"r":{"sr":{"line":0,"posx":0.000,"posy":0.000,"posz":0.000,"feed":0.00,"vel":0.00,"unit":1,"stat":1},"f":[1,0,10,9193]}}
 </pre>
 
-In order to maintain backwards compatibility we suggest a footer-level setting (FL). FL=0 is the new behavior, FL=1 is the legacy behavior.
+### Some additional JSON changes:
 
-Some additional JSON changes:
+* A null response is returned as {}.
 
-A null response will be returned as {}. 
+* Responses to ill-formed JSON. Ill-formed JSON (like a lone { on a line) and is trapped and returned as an exception report inside a well formed JSON response. Something like:
 
-Responses to ill-formed JSON.  We are considering trapping ill-formed JSON (like a lone { on a line) and returning it as an exception report inside a well formed JSON response. Something like:
-
-{"r":{"ex":"{"}},"f":[1,48,00,0000]} where the '48' is the response code for malformed JSON.  
-
- 
+{"r":{"ex":"{"}},"f":[1,48,00,0000]} where the '48' is the response code for a JSON syntax error (malformed JSON).  
