@@ -62,8 +62,8 @@ $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
 
-####Extend queue reports with more information 
-The following is in test in dev: Setting $qv=2 (triple reports) will return:
+####Triple queue reports 
+The following is in test in dev and edge: Setting $qv=2 (triple reports) will return:
 
 {"qr":27, "qi":1, "qo":0} 
 
