@@ -11,7 +11,7 @@ Here are a number of other pages that may be useful to UI and TinyG firmware dev
 * [TinyG Communications Programming](https://github.com/synthetos/TinyG/wiki/Tinyg-Communications-Programming)
 * [Flow Control and JSON Footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers)
 * [JSON Syntax and Use (JSON Operation)](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
-* [JSON Details])https://github.com/synthetos/TinyG/wiki/JSON-Details)
+* [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details)
 * [TinyG Alarms](https://github.com/synthetos/TinyG/wiki/TinyG-Alarms)
 * [TinyG Licensing](https://github.com/synthetos/TinyG/wiki/TinyG-Licensing)
 * [TinyG State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
