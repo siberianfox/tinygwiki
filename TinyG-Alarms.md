@@ -1,4 +1,4 @@
-_This page currently applies to code In the Edge and Dev branches - build 407xx and later (as of 1/27/14)_ 
+_This page currently applies to code In the Edge and Dev branches - build 407xx and later (as of 1/27/14)_ <br><br>
 TinyG distinguishes between hard and soft alarms. 
 
 A hard alarm is unrecoverable and sends the machine into a shutdown state. Hard alarms are caused by hitting a limit switch or by an internal error indicating the firmware may have lost its mind (e.g. assertion failures or conditional branches that should never happen). In this case the system is considered unrecoverable and the current job is presumed lost. All position information is lost and the machine must be recovered from reset. 
