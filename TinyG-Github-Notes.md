@@ -216,7 +216,7 @@ Here's the scenario this is useful for:
 * You work on the recovery branch and make a bunch of changes and commits
 * Now you want to merge recovery into the main branch, but have the main branch "become" what's in recovery, discarding all the changes you made in the main branch 
 
-Here;s how to do this:
+Here's how to do this:
 <pre>
 git checkout recovery
 git merge --strategy=ours dev
@@ -226,3 +226,17 @@ git merge recovery
 git push
 </pre>
 You can then delete the recovery branch. If you want it to garbage collect right away type `git gc`
+
+###Brute force promotion of dev to edge or edge to master
+Promotion checklist
+* Set Default settings
+
+<pre>
+make sure both dev and edge are clean (no uncommitted files)
+git checkout dev
+git merge --strategy=ours edge
+git status  (just checking)
+git checkout edge
+git merge dev
+git push
+</pre>
