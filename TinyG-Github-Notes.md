@@ -230,6 +230,7 @@ You can then delete the recovery branch. If you want it to garbage collect right
 ###Brute force promotion of dev to edge or edge to master
 Promotion checklist
 * Set Default settings
+* Final check compile in both AS4 and AS6 (ensure project files are OK)
 
 <pre>
 make sure both dev and edge are clean (no uncommitted files)
