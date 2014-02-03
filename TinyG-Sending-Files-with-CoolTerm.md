@@ -7,7 +7,7 @@ If you want a no frill easy to setup and send files quickly sort of solution the
 ### Cons:
 * [Asynchronous Commands](https://github.com/synthetos/TinyG/wiki/JSON-Flow-Control-Specification#async-commands) are not available during a file send. 
 * No GUI Preview.
-*If you cancel a job in progress, unsent code in the send buffer could crash your machine. See below.
+* If you cancel a job in progress, unsent code in the send buffer could crash your machine. See below.
 
 Summary:
 ##
