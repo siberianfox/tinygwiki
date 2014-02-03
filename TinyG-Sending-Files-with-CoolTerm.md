@@ -31,6 +31,6 @@ Now to send a file (assuming your tool is at the desired X,Y,Z coordinates) clic
 ### About Canceling
 Be cautious about canceling a gcode file you have sent to TinyG. You may want to cancel, for example, to change a broken bit or to modify your gcode. When you press 'cancel' there might be a partial command still in the send buffer.  When you press return, either alone or with a new command, you will add the new command to what is already in the send buffer, and CoolTerm will send it all. This has some chance of crashing your machine.  (For example, say your TinyG is routing a hole at Y299X33, and you send Y299X32, but part-way through you hit cancel. If CoollTerm only sends "Y2" (missing the last 99X32) then your machine could crash as it tries to get to unexpectedly go from Y299 to Y2.)<p>
 
-The "clear send buffer" would appear to solve this problem, but doesn't seem to work. Until a solution is found, the best practice is to cancel, then issue a "return" with your hand poised by the emergency stop.<p>
+The "connection/flush serial port" ought to solve this problem, but does not. Until a solution is found, the best practice is to hit cancel, then issue a "return" with your hand poised by the emergency stop.<p>
 
 ### **NEED TO FINISH**
