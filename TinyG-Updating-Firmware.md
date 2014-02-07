@@ -1,23 +1,18 @@
 This page explains what you need to know about the process of updating your TinyG firmware.  It provides the links to the firmware files as well as the differences between code branches.  Lastly, it will explain the updating procedure and how to perform this procedure.  However, if you are experiencing something different than anything below we urge you to open a thread on the [TinyG Support Forum](https://www.synthetos.com/forums/tinyg/tinyg-support/) for additional assistance.
 
+For downloads of the binaries (hex files), see [Firmware Download Pages](http://synthetos.github.io/)
+
 ###TinyG Firmware Explained
-The TinyG development team uses three code branches.  Master, Edge and Dev.  Each code branch is fully explained below.  After reading each code branch description you should have enough information on to which firmware you would like to load onto your TinyG.  However, when in doubt, pick the master branch.
+The TinyG development team uses three main code branches, Master, Edge and Dev. Each code branch is explained below.  After reading each code branch description you should have enough information on to which firmware you would like to load onto your TinyG.  However, when in doubt, pick the master branch.
 
 ####Master Branch
-The first branch is the `master` branch.  This branch is considered **stable** and 99.9% of the time this is the code base you need to use. You can get the `tinyg.hex` firmware file for the `master` branch at:
-https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex
-
-
-Please note that you will need to **"right click, save as"** to save this file properly.  Failure to do so will introduce a corrupted firmware download.
+The main branch is the `master` branch.  Master is considered **stable** and 99.9% of the time this is the code base you need to use. See here for the master hex file: [Firmware Download Pages (http://synthetos.github.io/)
 
 ####Edge Branch
-The second branch is the `edge` branch.  **The edge branch should not be used in production!**  This branch is used to test upcoming features and possible bug fixes.  This branch should be considered `unstable` or in a `testing` state.   You can get the `tinyg.hex` firmware file for the `edge` branch at:
-https://github.com/synthetos/TinyG/raw/edge/firmware/tinyg/default/tinyg.hex
-
-Please note that you will need to **"right click, save as"** to save this file properly.  Failure to do so will introduce a corrupted firmware download.
+The second branch is the `edge` branch.  **The edge branch should not be used in production!**  This branch is used to test upcoming features and possible bug fixes.  This branch should be considered `semi-stable` or in a `testing` state. See here for the edge hex file: [Firmware Download Pages (http://synthetos.github.io/)
 
 ####Dev Branch
-The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The dev branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file.
+The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The dev branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file. If you want to use dev you will need to compile the project. Setting up a project is described here: 
 
 
 Once you have downloaded the firmware of your choice, you can move on to [firmware updating methods](https://github.com/synthetos/TinyG/wiki/_preview#firmware-updating-methods).
