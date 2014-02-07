@@ -1,3 +1,5 @@
+Draft mockup. None of these numbers are real, yet.
+
 This is the specification data sheet for the TinyG version 8 board. All specifications are subject to change as we improve the product.
 
 <dl>
@@ -21,4 +23,4 @@ This is the specification data sheet for the TinyG version 8 board. All specific
 
 </dl>
 
-Specification data sheet for TinyG Version 7.....
+Specification data sheet for <a href=>TinyG Version 7.....
