@@ -29,6 +29,7 @@ The following should be noted if you are going to use these outputs.
  * Step pulses have been stretched on builds 412.xx and above and are at least 2 microseconds wide.
 
 * Microsteps 
- * Microsteps need to be set ion 2 places: on the external driver and in the TinyG settings. If these don't match you will see movement that it too fast or too slow - usually by factors of 2. 
- * TinyG supports microsteps if 1x, 2x, 4, and 8x. Some external drivers use microstep settings other than these - like 10x on Gecko drivers. TinyG will accept "non-standard" settings. It will warn you that you are inputting a non-supported setting, but will accept it and compute in just the same. Yet another reason to turn down the ob-board drivers.
- * At some point TinyG cannot output steps fast enough to keep up with higher microstep settings. If you want to use settings above 8x you need to compute the upper limit. TinyG is capable of delivering pulses up to 50,000 pulses per second (50 KHz). The formula for computing maximum velocity via pulses is: 
+ * Microsteps need to be set in 2 places: on the external driver and in the TinyG settings. If these don't match you will see movement that is too fast or too slow - usually by factors of 2. 
+ * TinyG supports microsteps of 1x, 2x, 4, and 8x. Some external drivers use microstep settings other than these - like 10x on Gecko drivers. TinyG will accept "non-standard" settings. It will warn you that you are inputting a non-supported setting, but will accept it and compute in just the same. Yet another reason to turn down the ob-board drivers.
+ * At some point TinyG cannot output steps fast enough to keep up with higher microstep settings. If you want to use settings above 8x you need to compute the upper limit. TinyG is capable of delivering pulses up to 50,000 pulses per second (50 KHz). Multiply the steps per revolution (360 / degrees per step) * travel per revolution * microstep setting to get the maximum velocity.
+
