@@ -1,15 +1,15 @@
 This page explains what you need to know about the process of updating your TinyG firmware.  It provides the links to the firmware files as well as the differences between code branches.  Lastly, it will explain the updating procedure and how to perform this procedure.  However, if you are experiencing something different than anything below we urge you to open a thread on the [TinyG Support Forum](https://www.synthetos.com/forums/tinyg/tinyg-support/) for additional assistance.
 
-For downloads of the binaries (hex files), see [Firmware Download Pages](http://synthetos.github.io/)
+For downloads of the binaries (hex files), see [Synthetos Download Page](http://synthetos.github.io/)
 
 ###TinyG Firmware Explained
 The TinyG development team uses three main code branches, Master, Edge and Dev. Each code branch is explained below.  After reading each code branch description you should have enough information on to which firmware you would like to load onto your TinyG.  However, when in doubt, pick the master branch.
 
 ####Master Branch
-The main branch is the `master` branch.  Master is considered **stable** and 99.9% of the time this is the code base you need to use. See here for the master hex file: [Firmware Download Pages (http://synthetos.github.io/)
+The main branch is the `master` branch.  Master is considered **stable** and 99.9% of the time this is the code base you need to use. See here for the master hex file: [Synthetos Download Page](http://synthetos.github.io/)
 
 ####Edge Branch
-The second branch is the `edge` branch.  **The edge branch should not be used in production!**  This branch is used to test upcoming features and possible bug fixes.  This branch should be considered `semi-stable` or in a `testing` state. See here for the edge hex file: [Firmware Download Pages (http://synthetos.github.io/)
+The second branch is the `edge` branch.  **The edge branch should not be used in production!**  This branch is used to test upcoming features and possible bug fixes.  This branch should be considered `semi-stable` or in a `testing` state. See here for the edge hex file: [Synthetos Download Page](http://synthetos.github.io/)
 
 ####Dev Branch
 The last branch is the `dev` branch.  In the spirit of completeness we are mentioning the `dev` branch.  This branch is in the state of **all bets are off**.  **The dev branch should be assumed that it will instantly break your machine or ruin any work on your CNC. ** Therefore we provide NO links for the `tinyg.hex` dev branch firmware file. If you want to use dev you will need to compile the project. Setting up a project is described here: 
@@ -31,18 +31,15 @@ The second method is using an AVR Programmer (such as an AVRISP MKII programmer)
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
 
 ####**Step0**
-Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here:
+Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here: [Synthetos Download Page](http://synthetos.github.io/)
 
-`https://raw.github.com/synthetos/TinyG/master/firmware/tinyg/default/tinyg.hex`
-
-Save page as tinyg.hex (you may need to get rid of a .txt extension during this save). Save it in some known directory that you can get back to.
+Save the hex file in some known directory that you can get back to.
 
 Notes: 
-- If you just go to the github file page and download from there you will not get the hex, you will get HTML. You need the RAW page. <br>
-- The hex in the default directory is compiled using AVR Studio 4, which is the one we test on. There may also be a hex in a Debug directory. This is compiled in Atmel Studio 6, and will have a different size.
+- The download hex is compiled using AVR Studio 4.19, which is the dev environment we test with. If you compile using Atmel Studio 6.x, your hex will have a different size.
 
 ####**Step1**
-Navigate to the directory that has the tinyg.hex file you want.
+Navigate to the directory that has the tinyg---.hex file you want.
 
 ####**Step2**
 Find your serial port. You will need to enter the USB port you are actually using. To find your serial port in Mac/Linux you can run `ls /dev` and look for the tty.usbserial-XXXXXXX port<br>
@@ -59,17 +56,17 @@ To update your firmware we must enter your TinyG into bootloader mode.  To enter
 To transfer the firmware update to your TinyG you need to use a program called avrdude.  avrdude is open-source and runs on all major operating systems.  The quickest way to get a binary version of avrdude for your system is to download the latest version of the [Arduino IDE](http://arduino.cc/en/Main/Software#toc1).  
 
 Inside of the Arduino IDE directory you will find avrdude or averdude.exe. Below is the command that you need to issue to send and updated firmware to TinyG. 
-`avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg.hex`
+`avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg----.hex`  (use the correct hex file name)
 
 **Notes:**<br> 
-1. This assumes that the file (tinyg.hex) that you downloaded above, is in the same directory as the avrdude.exe is.<br>
+1. This assumes that the file (tinyg----.hex) that you downloaded above, is in the same directory as the avrdude.exe is.<br>
 2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.<br>
-3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex`<br>
+3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg-master-380.08.hex`<br>
 4.  On Windows, avrdude is found in \Arduino\hardware\tools\avr\bin . Open a command window, navigate to the avrdude directory. Issue the avrdude command from there. Your com port is the same one that CoolTerm uses. CoolTerm and avrdude can't both use the com port at the same time. Mine was COM9.
 
 If all worked correctly, you should see the following dialog if the loader works correctly
 <pre>
-macintosh-3:default username$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg.hex
+macintosh-3:default username$ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg----.hex
 
 Connecting to programmer: .
 Found programmer: Id = "XBoot++"; type = S
@@ -88,8 +85,8 @@ avrdude: Device signature = 0x1e9744
 avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
          To disable this feature, specify the -D option.
 avrdude: erasing chip
-avrdude: reading input file "tinyg.hex"
-avrdude: input file tinyg.hex auto detected as Intel Hex
+avrdude: reading input file "tinyg----.hex"
+avrdude: input file tinyg----.hex auto detected as Intel Hex
 avrdude: writing flash (96706 bytes):
 
 Writing | ################################################## | 100% 12.09s
@@ -97,10 +94,10 @@ Writing | ################################################## | 100% 12.09s
 
 
 avrdude: 96706 bytes of flash written
-avrdude: verifying flash memory against tinyg.hex:
-avrdude: load data flash data from input file tinyg.hex:
-avrdude: input file tinyg.hex auto detected as Intel Hex
-avrdude: input file tinyg.hex contains 96706 bytes
+avrdude: verifying flash memory against tinyg----.hex:
+avrdude: load data flash data from input file tinyg----.hex:
+avrdude: input file tinyg----.hex auto detected as Intel Hex
+avrdude: input file tinyg----.hex contains 96706 bytes
 avrdude: reading on-chip flash data:
 
 Reading | ################################################## | 100% 11.51s
@@ -119,7 +116,7 @@ macintosh-3:default username$
 This section should help you sift though any errors you might encounter during the firmware updating procedure.  
 
 ####Firmware Verification Error:
-This error occurs when the `fuse bits` are incorrectly set on your TinyG's XMega CPU.  This error was something we ran into in early 2012 and should not continue to be an issue.  However, if you do get this error or you have an older TinyG you should read [this page](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) for help solving this issue.
+This error occurs when the `fuse bits` are incorrectly set on your TinyG's XMega CPU.  This error was something we ran into in early 2012 and should not continue to be an issue. However, if you do get this error or you have an older TinyG you should read [this page](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) for help solving this issue.
 
 ####Never Ending Flashing Red Light After Update
 So you did everything above and you flashed your TinyG with tinyg.hex file from github.  Now your TinyG just continues to flash a red light on the spindle CW/CCW led.  This most likely was an invalid tinyg.hex file.  99% of the time this occurs when someone tries to save the tinyg.hex file from github and actually just pulls down the HTML vs the raw Intel Hex file format that TinyG needs.  You can verify your tinyg.hex file is valid by opening the file with a text editor.
@@ -134,7 +131,7 @@ If your hex file does not look similar to the format above, your tinyg.hex file 
 <!DOCTYPE html>
 `
 <br>
-Then you did not download the tinyg.hex file correctly.  As noted above you must **right click, save as** the [https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex](https://github.com/synthetos/TinyG/raw/master/firmware/tinyg/default/tinyg.hex) link.  Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:
+Then somehow you did not get the tinyg.hex file correctly.  Go back to [Synthetos Download Page](http://synthetos.github.io/). The file should download with a single click. Once you re-download this file you should again verify with a text editor that it does indeed now start with something similar to this:
 <br>
 `:100000000C9402190C9423190C94F1990C94231953`
 <br>
