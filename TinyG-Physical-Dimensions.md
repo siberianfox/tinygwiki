@@ -16,3 +16,9 @@
 * J11 spindle/coolant connector center 0.25", 1.08"
 * J12 reset takeoff connector center 0.25", 0.687"
 * J13 limit switch connector center 0.99", 0.14"
+
+##Hardware
+This is the mating (wire) connector for the quick release motor plugs on the v7 and earlier:
+[4 pin 0.156 motor header housing](http://www.mouser.com/Search/ProductDetail.aspx?R=09-50-3041virtualkey53810000virtualkey538-09-50-3041)
+[crimp terminals for above](http://www.mouser.com/Search/ProductDetail.aspx?R=08-50-0134virtualkey53810000virtualkey538-08-50-0134)
+
