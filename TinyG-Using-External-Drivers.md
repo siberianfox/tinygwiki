@@ -15,7 +15,7 @@ The following connectors are brought out for driving external stepper drivers.
 
 * J17 also brings out 3.3 volts and can be used to draw up to 50 ma.
 
-* The signals are 3 volt signals. The output current is also very limited, as these are simply outputs from the micro-controller itself. However, these signals should be adequate to drive 3.3 volt and 5 volt external systems, but may be marginal in some cases. Please watch for this.
+* The signals are the raw 3.3 volt signals coming form the micro-controller itself. The output current is very limited - a few ma (see Xmega192 specs if you need details). However, these signals should be adequate to drive 3.3 volt and 5 volt external systems for test, but may be marginal in some cases. If you are planning to use these signals in a critical application we advise providing external isolation and possibly level shifting. These functions are not provided by the TinyG board.
 
 * ~Enable is active low. That is, it goes to zero volts (almost) when the motor is active. There is no software provision to make it active HI.
 
