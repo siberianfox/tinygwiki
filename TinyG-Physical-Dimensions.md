@@ -19,6 +19,6 @@
 
 ##Hardware
 This is the mating (wire) connector for the quick release motor plugs on the v7 and earlier:
-[4 pin 0.156 motor header housing](http://www.mouser.com/Search/ProductDetail.aspx?R=09-50-3041virtualkey53810000virtualkey538-09-50-3041)
-[crimp terminals for above](http://www.mouser.com/Search/ProductDetail.aspx?R=08-50-0134virtualkey53810000virtualkey538-08-50-0134)
+* [4 pin 0.156 motor header housing](http://www.mouser.com/Search/ProductDetail.aspx?R=09-50-3041virtualkey53810000virtualkey538-09-50-3041)
+* [crimp terminals for above](http://www.mouser.com/Search/ProductDetail.aspx?R=08-50-0134virtualkey53810000virtualkey538-08-50-0134)
 
