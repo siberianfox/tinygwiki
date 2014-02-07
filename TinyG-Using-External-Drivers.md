@@ -1,4 +1,6 @@
-This page discusses using TinyG with external drivers. All pinouts and other board information refers to the version 8 boards (v8), but with some translation should apply as well to the v7 (v6 and earlier did not bring these signals out).
+This page discusses using TinyG with external drivers. While some users are using external drivers, this is still a rather new area for us. We encourage you help us record your knowledge, folklore, voodoo in this (and other) areas by actively contributing to the wiki.
+
+All pinouts and other board information refers to the version 8 boards (v8), but with some translation should apply as well to the v7 (v6 and earlier did not bring these signals out).
 
 ### Connectors
 The following connectors are brought out for driving external stepper drivers.
