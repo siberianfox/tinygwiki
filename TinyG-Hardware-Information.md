@@ -1,4 +1,5 @@
-## Board Dimensions for TinyG Version 7 and earlier
+## Board Dimensions and Holes
+### Board Dimensions for TinyG Version 7 and earlier
 
 * Board dimensions (X,Y)  3.75",  4.15"
 * Holes are 4-40 - 0.120" bore, 0.250" clearance
@@ -17,7 +18,6 @@
 * J12 reset takeoff connector center 0.25", 0.687"
 * J13 limit switch connector center 0.99", 0.14"
 
-##Hardware
 ###Motor Plugs for v7 and Earlier
 This is the mating (wire) connector for the quick release motor plugs on the v7 and earlier:
 * [4 pin 0.156 motor header housing](http://www.mouser.com/Search/ProductDetail.aspx?R=09-50-3041virtualkey53810000virtualkey538-09-50-3041)
