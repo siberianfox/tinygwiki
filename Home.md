@@ -46,6 +46,6 @@ Please come visit / join any or all of the above.
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
-* [Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Physical-Dimensions)
+* [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
