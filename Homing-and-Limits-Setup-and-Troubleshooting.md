@@ -9,6 +9,11 @@ Troubleshooting homing and limit operation can involve a number of potential are
 
 
 ##Homing Behaviors - How it's supposed to work
+Homing is supposed to follow this sequence. 
+* Enter `G28.2 X0 Y0 Z0` any axis you want homed must be in the command. The value (e.g. 0) is irrelevant but must be present
+* Homing always following this sequence: `Z-->X-->Y-->A-->` Z is always first so the tool lists from the table
+
+* Initial backoff - if any switches are 
 
 ##Limit Behaviors - How it's supposed to work
 
