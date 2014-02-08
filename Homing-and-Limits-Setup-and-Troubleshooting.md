@@ -1,7 +1,19 @@
 You may want to familiarize yourself with the [main homing page](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) before reading this page.
 
-##Homing Setup
-### Background
+Troubleshooting homing and limit operation can involve a number of potential areas. These areas are treated as separate topics:
+
+* Homing Behaviors - How it's supposed to work
+* Limit Behaviors - How it's supposed to work
+* Homing Setup and Configuration
+* Switch Wiring and Grounding / Noise Problems
+
+
+##Homing Behaviors - How it's supposed to work
+
+##Limit Behaviors - How it's supposed to work
+
+
+##Homing Setup and Configuration
 Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at its highest point - making all plunges into the work negative values. This translates to the following settings:
 <pre>
 $xsn=1
@@ -16,8 +28,8 @@ $asx=0
 
 Switches can be normally open (NO) or normally closed (NC), but all switches must be of the same type. We generally recommend using NC configurations as they are more noise immune, and a fault in a switch or the wiring is evident.
 
-### Setup
-Homing needs to be set up exactly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
+### Homing Configuration
+Homing needs to be set up and configured correctly for it to work. And the switches need to be firing exactly and not picking up spurious noise. This is s step-by-step guide to setting up homing by doing one thing at a time.
 
 **BEFORE YOU DO ANYTHING** Realize that the switch inputs are limited to 3.3 volts. Do not apply higher voltages as this may damage the processor. In normal wiring this is not an issue as the switches are just tied to ground; but for active switches or other configurations this must be dealt with.
 
