@@ -10,7 +10,7 @@ Troubleshooting homing and limit operation can involve a number of potential are
 
 ##Homing Behaviors - How it's supposed to work
 Homing is supposed to follow this sequence. 
-* Enter `G28.2 X0 Y0 Z0` any axis you want homed must be in the command. The value (e.g. 0) is irrelevant but must be present
+* Enter `G28.2 X0 Y0 Z0`. Any axis you want homed must be in the command. The value (e.g. 0) is irrelevant but must be present
 * Homing always following this sequence: `Z-->X-->Y-->A` Z is always first so the tool lifts from the table and clears all objects
 * Initial backoff - if either Zmin or Zmax are closed when homing starts the first movement is to back off that switch
 * Search Move - the axis should move towards the limit switch at a medium search velocity, hit the switch, and stop immediately.
