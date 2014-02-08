@@ -14,7 +14,11 @@ Homing is supposed to follow this sequence.
 * Homing always following this sequence: `Z-->X-->Y-->A` Z is always first so the tool lifts from the table and clears all objects
 
 * Initial backoff - if either Zmin or Zmax are closed when homing starts the first movement is to back off that switch
-* Search Move - the axis should move towards the limit switch at a medium search velocity
+* Search Move - the axis should move towards the limit switch at a medium search velocity, hit the switch, and stop immediately.
+* Latch Move - the axis should move off the switch at a very slow velocity, stopping once the switch is cleared
+* Zero Backoff - the axis moves to a set zero position - usually a few mm away from the latch position
+* At this point the homing flag for that axis is set, in this case $homz = 1.
+* The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1
 
 ##Limit Behaviors - How it's supposed to work
 
