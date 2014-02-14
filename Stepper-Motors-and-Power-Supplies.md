@@ -36,7 +36,7 @@ In fact, the lower the rated voltage the better as this is a reflection of low i
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 
 
-Bipolar motors (4 wire) or 8 wire motrs (that you can therefore wire the phases in parallel to effectively make them a bipolar) are preferred over unipolar motors. This is because bipolars will have lower coil impedance and therefore more power transfer and torque.
+Bipolar motors (4 wire) or 8 wire motors (that you can therefore wire the phases in parallel to effectively make them a bipolar) are preferred over unipolar motors. This is because bipolars will have lower coil impedance and therefore more power transfer and torque.
 
 Five (5) wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
