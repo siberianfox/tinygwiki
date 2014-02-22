@@ -3,7 +3,7 @@
 Welcome to the TinyG wiki!
 
 This wiki is used to keep documentation from version 0.95 onward. Documentation for previous versions - 0.94 and earlier - can also be found on this site. See the intro sections on various pages for the links.
-![Version 8 of the TinyG board](http://www.flickr.com/photos/rileyporter/12692585715)
+![Version 8 of the TinyG board](http://farm4.staticflickr.com/3719/12692585715_ca174304c0_b.jpg)
 
 This wiki is the TinyG user and programmer manual. We (Synthetos) maintain it, but it's an open wiki. If you want to post wiki-type stuff, feel free to do it here. Please let us know via a github Issue if it's anything major. Issues are good for requested changes, discussions and bona-fide software bugs.
 
