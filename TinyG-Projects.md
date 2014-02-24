@@ -1,6 +1,4 @@
-Welcome! This is a page for TinyG projects. If you have a project you want to list please edit the table below with a short description and a link. 
-
-You can link to your project directly and/or make a page for your project on this wiki using the New Page button above or just clicking [HERE](https://github.com/synthetos/TinyG/wiki/_new). If you make a page here please name your page something like "TinyG Project - Your Project Name" 
+Welcome! This is a page for TinyG projects. If you have a project you want to list please edit the table below with a short description and a link. You can link to your project directly and/or make a page for your project on this wiki using the New Page button above or just clicking [HERE](https://github.com/synthetos/TinyG/wiki/_new). If you make a page here please name your page something like "TinyG Project - Your Project Name" 
 
 Thanks for sharing.
 
