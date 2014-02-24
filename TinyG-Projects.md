@@ -7,5 +7,6 @@ Thanks for sharing.
 	--------------|--------------|--------------
 	[JCNC](http://www.jtronics.de/151-steuersoftware-jcnc-v1-03.html) | M. Junghans | JCNC is a gui software for windows (3D GCode Viewer, CNC iterface for TinyG and Grbl, Code Editor)
 
-
+<br>
+<br>
 _(editing note: Table entries require a TAB as the first character. If you can't enter one from your keyboard just copy and paste the last table line to get one. Also, don't forget the `|` pipe separators)_  
