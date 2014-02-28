@@ -35,6 +35,7 @@ Please come visit / join any or all of the above.
 * [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/Stepper-Motors-and-Power-Supplies)
 * [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
+* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/TinyG-Projects) List your project here!
 
 ### TinyG Firmware Update, Programming and Historical References
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
