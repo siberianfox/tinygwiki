@@ -62,7 +62,14 @@ Inside of the Arduino IDE directory you will find avrdude or averdude.exe. Below
 1. This assumes that the file (tinyg----.hex) that you downloaded above, is in the same directory as the avrdude.exe is.<br>
 2.  While trying to update your TinyG you can have only 1 connection open to your serial port.  If you have coolterm, tgFX or any other program that is using your TinyG's serial port connection you will first need to disconnect before attempting to update your TinyG.<br>
 3.  COM1 was the port that I used on my system.  This could be different on your system.   For instance this is an example of an OSX avrdude commandline.  `avrdude -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg-master-380.08.hex`<br>
-4.  On Windows, avrdude is found in \Arduino\hardware\tools\avr\bin . Open a command window, navigate to the avrdude directory. Issue the avrdude command from there. Your com port is the same one that CoolTerm uses. CoolTerm and avrdude can't both use the com port at the same time. Mine was COM9.
+4.  On Windows, avrdude is found in \Arduino\hardware\tools\avr\bin . Open a command window, navigate to the avrdude directory. Issue the avrdude command from there. Your com port is the same one that CoolTerm uses. CoolTerm and avrdude can't both use the com port at the same time. Mine was COM9.<br>
+5.  In some case, avrdude will respond with an error:<br>
+<pre>    avrdude: can't open config file "": Invalid argument
+    avrdude: error reading system wide configuration file ""
+</pre>
+This occurs when avrdude can't find it's configuration file, and you'll need to tell it where to look to get the command line update to work. The avrdude configuration file is usually found in \Arduino\hardware\tools\avr\etc, so add the "-C ..\etc\avrdude.conf" option to your command line string. 
+`avrdude -C ../etc/avrdude.conf -p x192a3 -c avr109 -b 115200 -P /dev/tty.usbserial-AE01DWZS -U flash:w:tinyg-master-380.08.hex`<br>
+6.  When entering command line options with directory structures, use a backslash `\` to separate directories in Windows, and use a forward slash `/` in MacOS and Linux.<br>
 
 If all worked correctly, you should see the following dialog if the loader works correctly
 <pre>
