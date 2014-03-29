@@ -61,17 +61,17 @@ TinyG will work with bipolar and unipolar stepper motors up to 2.5 amps per wind
 #### Heat Sinks
 The TI drivers on the TinyG are incredibly robust and will shut down in case of over-current instead of blowing up (unlike some other brands that shall remain nameless). But you don't want to go into thermal shutdown as it will will ruin your job even though the board is still OK. Thermal shutdown is evidenced by anything from a slow on-off cycling of the motor power, getting shorter as the current raises, to a stutter in extreme cases. The chips will be quite hot to the touch.
 
-The main heatsinking provided for TinyG is the expanse of 2 oz. copper on the bottom and top of the board. You can see this by inspection. This is usually sufficient for NEMA17 installations. If you experience thermal shutdown we recommend fan cooling. Fan cooling is the most effective way to cool and far more effective than heatsinking.
+The main heatsinking provided for TinyG is the expanse of 2 oz. copper on the bottom and top of the board. You can see this by inspection. This is usually sufficient for NEMA17 installations and many NEMA23 applications. If you experience thermal shutdown or if you feel the chips are running too hot we recommend fan cooling. Fan cooling is the most effective way to cool and far more effective than heatsinking (see below). Just putting little heatsinks on the top doesn't do much good. We used to sell TinyG with these but don;t any more.
 
 #### Cooling Fan
-The TinyGv8's come equipped with a 3-pin fan connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below - sorry it's not more straightforward:
+The TinyGv8's come equipped with a 3-pin fan connector that can be used to power a standard 12vdc PC fan, or a 24vdc fan - depending on a jumper setting and your board voltage (Vmot). Please read the silkscreen designators as below:
 
-* The "+12v" jumper position connects the fan header to the LM7812 12 volt regulator. This should be used if you are running a 12 volt fan and your board power (Vmot) is > 14 volts. This is the default jumper position and your v8 should have been shipped with the jumper in this position. 
+* The "+12v" jumper position connects the fan header to the on-board 12 volt regulator (LM7812). This should be used if you are running a 12 volt fan and your board power (Vmot) is greater than 12 volts. This is the default jumper position and your v8 should have been shipped with the jumper in this position. 
 * The "+Vmot" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
 **Use this side with caution as applying 24 volts to some 12 volt fans will burn them out.**
 
 #### Flashing TinyG (Firmware Updates)
-The TinyG code base is under heavy development.  We introduce new features and fix bugs quite often.  All information on how to update TinyG's firmware can be found at [Updating TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware).
+The TinyG code base is still under development. We introduce new features and fix bugs quite often. All information on how to update TinyG's firmware can be found at [Updating TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware).
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
