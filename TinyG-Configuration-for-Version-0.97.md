@@ -1,6 +1,6 @@
 **The settings on this page are for firmware version 0.97.** The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 423.xx 
 
-If you have an earlier version see [here](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.95). You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.
+If you have an earlier version see [here](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.95). 
 
 This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
