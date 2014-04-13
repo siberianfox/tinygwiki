@@ -91,7 +91,7 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (not in 380.08)
 	$xtm | 220 | TRAVEL_MAX | Max travel before crash
 	$xjm | 5000 | JERK_MAX | Jerk X 1 million. (see note for 380.08 or earlier)
-	$xjh | 10000 | JERK_HOMING | Jerk X 1M to use during homing operations. Typically bigger than JERK_MAX (see 380.08 note)
+	$xjh | 10000 | JERK_HOMING | Jerk X 1 million to use for homing. Typically > JERK_MAX (see 380.08 note)
 	$xjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
 	$xsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
 	$xsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
