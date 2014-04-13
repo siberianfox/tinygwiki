@@ -26,7 +26,12 @@ The general settings for a 3 motor machine are listed below. For dual Y axis set
 	$mt | 10 | MOTOR_TIMEOUT | In build 412.01 and above this sets the number of seconds motors will stay energized after a machining cycle is complete.
 
 ## Motor Settings
-Use the following settings for a 3 motor system - that is a motor on each of X, Y and Z axes. See [Dual Y Settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings) for dual Y gantry setups.
+Use the following settings for a 3 motor system - and assumes:
+* X axis is wired to Motor 1
+* Y axis is wired to Motor 2
+* Z axis is wired to Motor 3
+
+See [Dual Y Settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings) for dual Y gantry setups.
 
 _A note on polarity:_ The motor polarity is the most likely setting to need adjustment, as it's dependent on how the motors are wired. Set polarity so that X moves to the right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of the axis if this is not true. Or you can swap the two leads of one of the coil pairs on your motor wiring to do this in hardware.
 
@@ -73,6 +78,8 @@ In this config motor 4 does not need to be set up. The following settings are fo
 	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
 ## Axis Settings
+Axis settings apply to both 3 motor and 4 motor configurations. Only the motor parameters and mappings need to change.
+
 ### X Axis
 	setting | value | description |notes
 	---------|---------|---------|-------
