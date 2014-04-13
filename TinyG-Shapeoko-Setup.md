@@ -4,15 +4,15 @@ The general settings are listed below. For dual Y axis setups use the general se
 
 Settings use the following format by way of example:
 
-  $jd=0.01<br>
-  $xvm=16000<br>
+* $jd=0.01<br>
+* $xvm=16000<br>
 
 All settings are in mm, so be sure you are in mm mode. If in doubt enter  G21 at the command line.
 
 Settings can also be entered in JSON, which is a better way to do it for machine-to-machine communications:
 
-  {"jd":0.01}<br>
-  {"xvm":16000}<br>
+* {"jd":0.01}<br>
+* {"xvm":16000}<br>
 
 Additionally, using JSON all the settings for a motor or an axis can be done in one command. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
