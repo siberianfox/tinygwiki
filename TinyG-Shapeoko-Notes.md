@@ -16,8 +16,16 @@ TinyG works with tgfx, a cross-platform control program available for Mac, Windo
 Setting up Shapeoko to use TinyG is pretty straightforward. This page provides all the settings needed
 https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup
 
-This page 
+A few things to keep in mind.
 
+* TinyG treats motors independently from the axes. So it natively supports dual-y configurations. 2 motors map to the Y axis - and both are driven by Y axis controls. But they must be going in opposite directions (i.e. have reverse polarity settings) for the gantry to move as a unit. Polarity can be handled electrically by reversing one of the coil pairs on one of the motors, or under software control by setting the polarity motor parameter. I prefer firmware as this way all the motors are wired the same and are interchangeable.
+
+###Tuning
+Here are some points to get the most out of the system.
+
+* The velocity maximum settings determine how fast traverses (G0's) will move. We usually set these to 16000 mm/min (267 mm/sec for 3dp types), but these can often be set higher
+
+* The mechanical system is the heart of tuning. The electrical system can at best compensate for it, but can never improvie it.
 
 I think the blog post should start with 
 A brief overview of the general advantages of the TinyG.
