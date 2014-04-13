@@ -1,7 +1,5 @@
 This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the [TinyG Tuning Page](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for some details about tuning up the machine.
 
-The general settings are listed below. For dual Y axis setups use the general setting, but also see [Dual Y Motor settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings)
-
 Settings use the following format by way of example:
 
 * $jd=0.01<br>
@@ -17,6 +15,8 @@ Settings can also be entered in JSON, which is a better way to do it for machine
 Additionally, using JSON all the settings for a motor or an axis can be done in one command. See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 For details of the settings see the [TinyG Configuration Page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+
+The general settings for a 3 motor machine are listed below. For dual Y axis setups use the general settings, but also see [Dual Y Motor settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings)
 
 ## System Settings
 	setting | value | description |notes
