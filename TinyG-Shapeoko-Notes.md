@@ -36,11 +36,13 @@ _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this
 Setings
 Once the mechanical system is working well you can start in on the settings. Do these one axis at a time then in combination. All values are in millimeters using the X axis as an example. Other axes are similar.
 
-	setting | value | description |notes
 
-<pre>CAVEAT: Be sure your machine is in mm distance mode before starting. The distance mode should be obvious from the command prompt:
-* tinyg[mm]>
-* tinyg[inches]>
+<pre>
+CAVEAT: Be sure your machine is in mm distance mode before starting. 
+The distance mode should be obvious from the command prompt:
+  tinyg[mm]>      not:
+  tinyg[inches]>
+
 Enter G21 to change to mm mode (G20 to change to inches)
 </pre>
 
