@@ -38,10 +38,11 @@ Once the mechanical system is working well you can start in on the settings. Do 
 
 	setting | value | description |notes
 
-	CAVEAT: Be sure your machine is in mm distance mode before starting. The distance mode should be obvious from the command prompt:
+<pre>CAVEAT: Be sure your machine is in mm distance mode before starting. The distance mode should be obvious from the command prompt:
 * tinyg[mm]>
 * tinyg[inches]>
 Enter G21 to change to mm mode (G20 to change to inches)
+</pre>
 
 Axis tuning starts with getting good values for the following:
 
