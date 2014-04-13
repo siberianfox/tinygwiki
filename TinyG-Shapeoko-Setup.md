@@ -88,17 +88,17 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 	$xam | 0 | AXIS_MODE | 1=standard mode
 	$xvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this. Test it and adjust current pots
 	$xfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
-	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (this setting is not in 380.08)
+	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (not in 380.08)
 	$xtm | 220 | TRAVEL_MAX | Max travel before crash
-	$xjm | 5000 | JERK_MAX | That's 5 billion. (see note for 380.08 or earlier)
+	$xjm | 5000 | JERK_MAX | Jerk X 1 million. (see note for 380.08 or earlier)
+	$xjh | 10000 | JERK_HOMING | Jerk X 1M to use during homing operations. Typically bigger than JERK_MAX (see 380.08 note)
 	$xjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
 	$xsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
 	$xsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
 	$xsv | 3000 | SEARCH_VELOCITY | Homing speed to drive onto switch
 	$xlv | 100 | LATCH_VELOCITY | Speed to back off homing switch
 	$xlb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
-	$xzb | 5 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
-	$xjh | 10000000000 | JERK_HOMING | Jerk to use during homing operations. Typically bigger than JERK_MAX
+	$xzb | 2 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 
 Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No spaces or commas. Count the zeros
 
@@ -108,8 +108,9 @@ Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No space
 	$yam | 0 | AXIS_MODE | 1=standard mode
 	$yvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this
 	$yfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
+	$ytn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (not in 380.08)
 	$ytm | 220 | TRAVEL_MAX | Max travel before crash
-	$yjm | 5000000000 | JERK_MAX | That's 5 billion. Count the zeros to be sure
+	$yjm | 5000 | JERK_MAX | Jerk X 1 million. (see note for 380.08 or earlier)
 	$yjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
 	$ysn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
 	$ysx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
@@ -128,8 +129,8 @@ Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No space
 	$ztm | 100 | TRAVEL_MAX | Max travel before crash
 	$zjm | 50000000 | JERK_MAX | That's 50 million. Count the zeros to be sure
 	$zjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
-	$zsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
-	$zsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
+	$zsn | 1 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 1 is HOMING
+	$zsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is DISABLED
 	$zsv | 3000 | SEARCH_VELOCITY | Homing speed to drive onto switch
 	$zlv | 100 | LATCH_VELOCITY | Speed to back off homing switch
 	$zlb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
