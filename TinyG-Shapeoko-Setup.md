@@ -23,6 +23,7 @@ The general settings for a 3 motor machine are listed below. For dual Y axis set
 	---------|---------|---------|-------
 	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
+	$mt | 10 | MOTOR_TIMEOUT | In build 412.01 and above this parameters sets the number of seconds motors will stay energized after a machining cycle is complete.
 
 ## Motor Settings
 Use the following settings for a 3 motor system - that is a motor on each of X, Y and Z axes. See [Dual Y Settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings) for dual Y gantry setups.
