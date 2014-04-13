@@ -24,7 +24,7 @@ A few things to keep in mind.
 ##Tuning Shapeoko and TinyG
 Once you are set up you can tune the Shapeoko/TinyG system for optimal performance. There is a page on the TinyG wiki about [tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) that the following was adapted from. What follows are tuning instructions and guidance specifically for the Shapeoko/TinyG combination.
 
-Tuning the machine is about getting the maximum performance form the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the envelope set. So it';s important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
+Tuning the machine is about getting the maximum performance from the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the envelope set. So it';s important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
 
 ###Mechanical
 A well functioning mechanical system is the heart of tuning. The electrical system can at best compensate for the mechanical system, but can never fundamentally improve it. Here are a number of points to make sure the Shapeoko itself is tuned up.
