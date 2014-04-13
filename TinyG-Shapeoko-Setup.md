@@ -38,7 +38,7 @@ _A note on polarity:_ The motor polarity is the most likely setting to need adju
 	$1tr | 36.54 | TRAVEL_PER_REV | Amount X moves in 1 motor revolution. Your setup may be slightly different.
 	$1mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$1po | 0 | POLARITY | Depends on how you wired your motors 
-	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves. Good for belt machines like Shapeoko 
+	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves 
 
 ###Motor 2
 	setting | value | description |notes
