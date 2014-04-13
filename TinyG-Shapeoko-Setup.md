@@ -1,5 +1,7 @@
 This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the [TinyG Tuning Page](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for some details about tuning up the machine.
 
+The general settings are listed below. See also [extensions for dual Y motor setups]
+
 Settings use the following format by way of example:
 
   $jd=0.01<br>
