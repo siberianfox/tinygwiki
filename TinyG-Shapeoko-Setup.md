@@ -62,6 +62,7 @@ _A note on polarity:_ The motor polarity is the most likely setting to need adju
 
 ###Motor 4
 In this config motor 4 does not need to be set up. The following settings are for an A axis, and are provided just as an example.
+
 	setting | value | description |notes
 	---------|---------|---------|-------
 	$4ma | 3 | MOTOR_MAP | map motor 4 to second A axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
