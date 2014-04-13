@@ -82,12 +82,18 @@ Do these steps for each axis in turn.
 
 1. Once you have the axis working you can see if raising the velocity ($xvm), the jerk ($xjm) and providing more current can increase the top speed. This is a case of experimenting. Try to avoid excessive current, however, as after a point the current setting provides diminishing benefits and only heats up the motors and risks thermal shutdown. 
 
-1. Once you have the velocity working, set the feed rates to the max velocity value or somewhat lower. The max feed rates often require adjustment for a given job or material as the cutting loads may vary. The traverse rates should not require job-by-job adjustment.
+1. Once you have the maximum velocity where you want it set the max feed rate to the max velocity value or somewhat lower. The max feed rates often require adjustment for a given job or material as the cutting loads may vary. The traverse rates should not require job-by-job adjustment.
 
 It's worth noting that the mechanics of the axes may not be identical, and the achievable traverse rates may differ for each axis. You can set them optimally for each axis and moves in more than one dimension will takes the individual settings into account.
 
 It's also worth noting that on some machines mechanical resistance is greater in some parts of the travel than others (e.g. more resistance at the ends of travel due to shaft coupler runout or other mechanical factors). Be sure to test the entire travel for each axis before finalizing the settings.
 
 ####Tuning the Cornering Speeds
+So far all the tuning has been about straight line movement. Cornering is is the rest of the story. Corner velocity is the maximum velocity the tool head can move through a corner without exceeding a setting to limit centripetal acceleration. 
 
-Set 
+The centripetal acceleration limit is called Junction Acceleration ($ja) and can be found by looking at the system parameters by typing `$sys`. This value applies to all axes, as cornering is inherently a multi-axis movement. 
+
+Each axis is controlled by by its Junction Deviation value ($xjd). This sets how tight the "corner" is for that axis. The larger this number, the faster that axis can corner. 
+
+The settings provided in the Shapeoko setup are a good starting point. If you find the job is stalling or skipping in tight corners you will want to lower one or the other or both of these values.
+
