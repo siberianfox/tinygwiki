@@ -20,6 +20,8 @@ For details of the settings see the [TinyG Configuration Page](https://github.co
 ## Motor Settings
 Use the following settings for a 3 motor system - that is a motor on each of X, Y and Z axes. See [Dual Y Settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings) for dual Y gantry setups.
 
+_A note on polarity:_ The motor polarity is the most likely setting to need adjustment, as it's dependent on how the motors are wired. Set polarity so that X moves tot he right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of the axis if this is not true. Or you can swap the two leads of one of the coil pairs on your motor wiring to do this in hardware.
+
 ###Motor 1
 	setting | value | description |notes
 	---------|---------|---------|-------
@@ -134,8 +136,9 @@ Usually you are not using these, so just set some reasonable values like below. 
 	$ajh | 2400000000 | JERK_HOMING | Jerk to use during homing operations
 
 # Dual Y Motor Settings
+For a dual Y setup only the motor settings need to change. Axis settings are the same.
 
-## Motor Settings
+Dual gantry setups: Map motor 4 to the Y axis and set everything else up the same. Set polarity so the motors are not fighting each other.
 ###Motor 1
 	setting | value | description |notes
 	---------|---------|---------|-------
