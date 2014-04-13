@@ -82,8 +82,12 @@ Do these steps for each axis in turn.
 
 1. Once you have the axis working you can see if raising the velocity ($xvm), the jerk ($xjm) and providing more current can increase the top speed. This is a case of experimenting. Try to avoid excessive current, however, as after a point the current setting provides diminishing benefits and only heats up the motors and risks thermal shutdown. 
 
+1. Once you have the velocity working, set the feed rates to the max velocity value or somewhat lower. The max feed rates often require adjustment for a given job or material as the cutting loads may vary. The traverse rates should not require job-by-job adjustment.
+
 It's worth noting that the mechanics of the axes may not be identical, and the achievable traverse rates may differ for each axis. You can set them optimally for each axis and moves in more than one dimension will takes the individual settings into account.
 
 It's also worth noting that on some machines mechanical resistance is greater in some parts of the travel than others (e.g. more resistance at the ends of travel due to shaft coupler runout or other mechanical factors). Be sure to test the entire travel for each axis before finalizing the settings.
 
-1. Once you have the velocity working, set the feed rates to the max velocity value or somewhat lower. The max feed rates often require adjustment for a given job or material as the cutting loads may vary. The traverse rates should not require job-by-job adjustment.
+####Tuning the Cornering Speeds
+
+Set 
