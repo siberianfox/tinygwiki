@@ -18,6 +18,8 @@ For details of the settings see the [TinyG Configuration Page](https://github.co
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
 
 ## Motor Settings
+Use the following settings for a 3 motor system - that is a motor on each of X, Y and Z axes. See [Dual Y Settings](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup#dual-y-motor-settings) for dual Y gantry setups.
+
 ###Motor 1
 	setting | value | description |notes
 	---------|---------|---------|-------
@@ -49,19 +51,15 @@ For details of the settings see the [TinyG Configuration Page](https://github.co
 	$3pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
 
 ###Motor 4
+In this config motor 4 does not need to be set up. The following settings are for an A axis, and are provided just as an example.
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$4ma | 1 | MOTOR_MAP | map motor 4 to second Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$4ma | 3 | MOTOR_MAP | map motor 4 to second A axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$4sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
-	$4tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 motor revolution
+	$4tr | 360 | TRAVEL_PER_REV | Amount A moves in degrees for 1 motor revolution. Reduce if A is geared.
 	$4mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
-	$4po | 1 | POLARITY | Reverse from Motor 2 so it doesn't fight motor 2's Y. 
+	$4po | 0 | POLARITY | Reverse from Motor 2 so it doesn't fight motor 2's Y. 
 	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
-
-Note on polarity. X should move right for positive moves. Y should move away from the front of the table for positive moves. Z should move up for positive moves. Reverse polarity of the axis if this is not true. 
-
-Dual gantry setups: Map motor 4 to the Y axis and set everything else up the same. Set polarity so the motors are not fighting each other.
-
 
 ## Axis Settings
 ### X Axis
@@ -136,3 +134,44 @@ Usually you are not using these, so just set some reasonable values like below. 
 	$ajh | 2400000000 | JERK_HOMING | Jerk to use during homing operations
 
 # Dual Y Motor Settings
+
+## Motor Settings
+###Motor 1
+	setting | value | description |notes
+	---------|---------|---------|-------
+	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$1sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$1tr | 36.54 | TRAVEL_PER_REV | Amount X moves in 1 motor revolution. Your setup may be slightly different.
+	$1mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$1po | 0 | POLARITY | Depends on how you wired your motors 
+	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves. Good for belt machines like Shapeoko 
+
+###Motor 2
+	setting | value | description |notes
+	---------|---------|---------|-------
+	$2ma | 1 | MOTOR_MAP | map motor 2 to first Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$2sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$2tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 revolution
+	$2mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$2po | 0 | POLARITY | Depends on how you wired your motors 
+	$2pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
+
+###Motor 3
+	setting | value | description |notes
+	---------|---------|---------|-------
+	$3ma | 1 | MOTOR_MAP | map motor 3 to second Y axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$3sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$3tr | 36.54 | TRAVEL_PER_REV | Amount Y moves in 1 motor revolution
+	$3mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$3po | 1 | POLARITY | Reverse from Motor 2 so it doesn't fight motor 2's Y. 
+	$3pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
+
+###Motor 4
+	setting | value | description |notes
+	---------|---------|---------|-------
+	$4ma | 2 | MOTOR_MAP | map motor 4 to Z axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
+	$4sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
+	$4tr | 1.25 | TRAVEL_PER_REV | Amount Z moves in 1 revolution
+	$4mi | 4 | MICROSTEPS | Supported values are 1, 2, 4 and 8
+	$4po | 0 | POLARITY | Depends on how you wired your motors 
+	$4pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves
