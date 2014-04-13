@@ -33,17 +33,30 @@ _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this
 
 * Make sure the machine is in perfect alignment and belt tension is correct. All parts should be square and the belt axes (X and Y) should be tight but move with almost no resistance. Test that pulleys and wheels rotate freely and do not bind or wobble. Test that shaft couplers are well seated and tightened with minimum eccentric wobble ("runout").
 
-It's a good idea to test slide resistance with no motors on the system to look for any rough spots in the slide, or any points where resistance is greater than others. If the motors are mounted at least make sure they are electrically disconnected and their winding leads are not shorted (as this will cause mechanical resistance to go way up) . 
+* It's a good idea to test slide resistance with no motors mounted. Look for any rough spots in the slide, or any points where resistance is greater than others. Test again once the motors are mounted. When motors are mounted make sure they are electrically disconnected from the stepper board, and their winding leads are not shorted (as this will cause mechanical resistance to go way up).
 
-* The Z axis should turn as smoothly as possible with no binding. Many people upgrade to an Acme screw for this reason. 
+* The Z axis should turn as smoothly as possible with no binding. Many people upgrade to an Acme screw for this reason. Observe similar guidance about mounting the motor.
 
 ###Settings
 Once the mechanical system is working well you can start in on the settings. Do these one axis at a time then in combination. All values are in millimeters using the X axis as an example. Other axes are similar.
 
-The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
-Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
+Some terms:
 
-The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
+* The **velocity maximum** - aka **traverse rate** - is the top speed of an axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall. These will be obvious if the motor makes grinding or other bad noises.
+
+* Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
+
+* The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
+
+* The **jerk** is the rate of change of acceleration - technically the derivative of acceleration or the third derivative of position. In practical terms, jerk is a measure of the impact to the machine due to rapidly changing velocity. It causes the machine to - well - jerk. When setting jerk values you are looking for two things. (1) finding the minimum time the axis can get up to speed without stalling or missing steps (which you will be able to hear), and (2) finding the maximum jerk the machine can withstand along that axis without shaking too much. These might be different. Optimize for (2) over (1). 
+
+###Axis Tuning
+Axis tuning starts with getting good values for the following:
+
+* Velocity Maximum ($xvm)
+* Feed Rate Maximum ($xfr)
+* Jerk Maximum ($xjm)
+* Motor Currents (potentiometer settings)
 
 <pre>
 CAVEAT: Be sure your machine is in mm distance mode before starting. 
@@ -53,14 +66,6 @@ The distance mode should be obvious from the command prompt:
 
 Enter G21 to change to mm mode (G20 to change to inches)
 </pre>
-
-###Axis Tuning
-Axis tuning starts with getting good values for the following:
-
-* Velocity Maximum ($xvm)
-* Feed Rate Maximum ($xfr)
-* Jerk Maximum ($xjm)
-* Motor Currents (potentiometer settings)
 
 **Steps**<br>
 Do these steps for each axis in turn.
