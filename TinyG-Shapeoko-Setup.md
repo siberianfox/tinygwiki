@@ -1,5 +1,7 @@
 This page provides and example setup for a reasonably well tuned 3 axis or 4 axis Shapeoko with 375mm slides. Depending on your mechanics you may need to change values, but this should offer a reasonable starting point. Please see the [TinyG Tuning Page](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for some details about tuning up the machine.
 
+The settings on this page are listed for TinyG build 412.01 and higher. If you have build 380.08 (or lower) these settings are listed when there are differences. You can tell what build you are on by typing $fb at the command prompt, or looking at the build number display in tgfx. Better yet, update to 412.01.
+
 Settings use the following format by way of example:
 
 * $jd=0.01<br>
@@ -86,7 +88,8 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 	$xam | 0 | AXIS_MODE | 1=standard mode
 	$xvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this. Test it and adjust current pots
 	$xfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
-	$xtm | 300 | TRAVEL_MAX | Max travel before crash
+	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero)
+	$xtm | 220 | TRAVEL_MAX | Max travel before crash
 	$xjm | 5000000000 | JERK_MAX | That's 5 billion. Count the zeros to be sure
 	$xjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
 	$xsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
