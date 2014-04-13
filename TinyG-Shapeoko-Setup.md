@@ -110,14 +110,15 @@ Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No space
 	$yfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
 	$ytn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (not in 380.08)
 	$ytm | 220 | TRAVEL_MAX | Max travel before crash
-	$yjm | 5000 | JERK_MAX | Jerk X 1 million. (see note for 380.08 or earlier)
+	$yjm | 5000 | JERK_MAX | Jerk X 1 million.
+	$yjh | 10000 | JERK_HOMING | Jerk X 1 million to use for homing. Typically > JERK_MAX
 	$yjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
-	$ysn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
-	$ysx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
+	$ysn | 1 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 1 is HOMING
+	$ysx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is DISABLED
 	$ysv | 3000 | SEARCH_VELOCITY | Homing speed to drive onto switch
 	$ylv | 100 | LATCH_VELOCITY | Speed to back off homing switch
 	$ylb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
-	$yzb | 5 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
+	$yzb | 2 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 	$yjh | 10000000000 | JERK_HOMING | Jerk to use during homing operations
 
 ### Z Axis
@@ -126,16 +127,17 @@ Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No space
 	$zam | 0 | AXIS_MODE | 1=standard mode
 	$zvm | 800 | VELOCITY_MAX | Heavily dependent on how clean you can get the Z axis setup. Might go faster.
 	$zfr | 800 | FEEDRATE_MAX | Typically set the same as velocity. May be set slower but not faster.
+	$ztn | 0 | TRAVEL_MIN | Typically zero but may be negative (e.g. set travel max to zero)
 	$ztm | 100 | TRAVEL_MAX | Max travel before crash
-	$zjm | 50000000 | JERK_MAX | That's 50 million. Count the zeros to be sure
+	$zjm | 50 | JERK_MAX | 50 million
+	$zjh | 100 | JERK_HOMING | 100 million. Jerk to use during homing operations
 	$zjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
-	$zsn | 1 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 1 is HOMING
-	$zsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is DISABLED
+	$zsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is DISABLED
+	$zsx | 1 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 1 is HOMING
 	$zsv | 3000 | SEARCH_VELOCITY | Homing speed to drive onto switch
 	$zlv | 100 | LATCH_VELOCITY | Speed to back off homing switch
 	$zlb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
-	$zzb | 5 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
-	$zjh | 100000000 | JERK_HOMING | 100 million. Jerk to use during homing operations
+	$zzb | 2 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 
 ### A, B and C Axes
 Usually you are not using these, so just set some reasonable values like below. All distances are in degrees. 
