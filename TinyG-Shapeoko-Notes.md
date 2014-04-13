@@ -2,14 +2,15 @@
 Shopeoko and TinyG are a great fit. The combination make a good upgrade to support very smooth, fast motor operation, built-in support for dual Y axis configurations, and other enhancements. 
 
 ###What Does It Do?
-TinyG's motion control is very smooth due to precise timing and constant jerk acceleration. This means a number of things to the Shapeoko user. TinyG has an optimized, low jitter step generation coupled with constant jerk acceleration management. As a result TinyG gets a lot out of your motors. If you think you need to upgrade from the stock NEMA17 motors to something larger you may find that more precise control offered by TinyG is really all you need.
+TinyG's motion control is very smooth due to precise timing and constant jerk acceleration. This means a number of things to the Shapeoko user. TinyG has an optimized, low jitter step generation coupled with constant jerk acceleration management. As a result TinyG gets a lot out of your motors. If you think you need to upgrade from NEMA17 motors to something larger you may find that more precise control offered by TinyG is really all you need.
 
-The constant jerk acceleration management also makes for extremely fast rapids (traverses), which helps cut down job times. It does all this with minimal shaking of the machine and toolhead, making for smoother cuts with less change of skipping, chattering, or other artifacts.
+The constant jerk acceleration management also makes for extremely fast rapids (traverses), which helps cut down job times. It does all this with minimal shaking of the machine and toolhead, making for smoother cuts, better surface finish, and less change of skipping, chattering, or other artifacts.
 
 <Insert video here>
 
 ###Tgfx
-TinyG works with tgfx, a cross-platform control program available for Mac, Windows and Linux.
+TinyG works with tgfx, a cross-platform control program available for Mac, Windows and Linux. 
+_Need more text_
 
 ###Setup
 
@@ -20,7 +21,7 @@ A few things to keep in mind.
 
 * TinyG treats motors independently from the axes. So it natively supports dual-y configurations. 2 motors map to the Y axis - and both are driven by Y axis controls. But they must be going in opposite directions (i.e. have reverse polarity settings) for the gantry to move as a unit. Polarity can be handled electrically by reversing one of the coil pairs on one of the motors, or under software control by setting the polarity motor parameter. I prefer firmware as this way all the motors are wired the same and are interchangeable.
 
-###Tuning
+##Tuning Shapeoko and TinyG
 Once you are set up you can tune the Shapeoko/TinyG system for optimal performance. There is a page on the TinyG wiki about [tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) that the following was adapted from. What follows are tuning instructions and guidance specifically for the Shapeoko/TinyG combination.
 
 Mechanical
@@ -28,12 +29,27 @@ A well functioning mechanical system is the heart of tuning. The electrical syst
 
 _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this area_
 
-* Make sure the machine is in perfect alignment and bel tension is correct. All parts should be square and the belt axes (X and Y) should move with almost no resistance. It's a good idea to test this with no motors on the system to look for any rough spots in the slide, or any points where resistance is greater than others. If the motors are mounted  at least make sure they are electrically disconnected and their winding leads are not shorted. 
+* Make sure the machine is in perfect alignment and belt tension is correct. All parts should be square and the belt axes (X and Y) should be tight but move with almost no resistance. It's a good idea to test this with no motors on the system to look for any rough spots in the slide, or any points where resistance is greater than others. If the motors are mounted at least make sure they are electrically disconnected and their winding leads are not shorted. 
 
 * The Z axis should turn as smoothly as possible with no binding. Many people upgrade to an Acme screw for this reason. 
 
-Once the mechanical system is working well you can start in on the settings. Do one axis at a time then in combination. Here's a page that describes a tuning procedure.
-https://github.com/synthetos/TinyG/wiki/TinyG-Tuning
+Setings
+Once the mechanical system is working well you can start in on the settings. Do these one axis at a time then in combination. All values are in millimeters using the X axis as an example. Other axes are similar.
+
+CAVEAT: Be sure your machine is in mm distance mode before starting. The distance mode should be obvious from the command prompt:
+
+* tinyg[mm]>
+* tinyg[inches]>
+
+Enter G21 to change to mm mode (G20 to change to inches)
+
+Axis tuning starts with getting good values for the following:
+
+* Velocity Maximum ($xvm)
+* Feed Rate Maximum
+* Jerk
+* Motor Currents (potentiometer settings)
+
 
 * The velocity maximum settings determine how fast traverses (G0's) will move. We usually set these to 16000 mm/min (267 mm/sec for 3dp types), but these can often be set higher
 
@@ -42,11 +58,6 @@ This page covers things you may want to do once the wiring and physical setup is
 
 ##Tuning TinyG for Shapeoko
 
-Tuning involves setting these to good values:
-* Velocity Maximum 
-* Feed Rate Maximum
-* Jerk
-* Motor Currents (potentiometer settings)
 
 Then these:
 * JA
