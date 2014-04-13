@@ -24,6 +24,8 @@ A few things to keep in mind.
 ##Tuning Shapeoko and TinyG
 Once you are set up you can tune the Shapeoko/TinyG system for optimal performance. There is a page on the TinyG wiki about [tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) that the following was adapted from. What follows are tuning instructions and guidance specifically for the Shapeoko/TinyG combination.
 
+Tuning the machine is about getting the maximum performance form the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the envelope set. So it';s important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
+
 ###Mechanical
 A well functioning mechanical system is the heart of tuning. The electrical system can at best compensate for the mechanical system, but can never fundamentally improve it. Here are a number of points to make sure the Shapeoko itself is tuned up.
 
@@ -36,6 +38,11 @@ _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this
 ###Settings
 Once the mechanical system is working well you can start in on the settings. Do these one axis at a time then in combination. All values are in millimeters using the X axis as an example. Other axes are similar.
 
+The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
+Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
+
+The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
+
 <pre>
 CAVEAT: Be sure your machine is in mm distance mode before starting. 
 The distance mode should be obvious from the command prompt:
@@ -44,14 +51,6 @@ The distance mode should be obvious from the command prompt:
 
 Enter G21 to change to mm mode (G20 to change to inches)
 </pre>
-
-### Tuning Background
-Tuning the machine is about getting the maximum performance form the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the envelope set. So it';s important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
-
-The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
-Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
-
-The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
 
 ###Axis Tuning
 Axis tuning starts with getting good values for the following:
