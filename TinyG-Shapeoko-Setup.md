@@ -134,3 +134,5 @@ Usually you are not using these, so just set some reasonable values like below. 
 	$alb | 5 | LATCH_BACKOFF | Max distance to back off switch during latch phase
 	$azb | 2 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 	$ajh | 2400000000 | JERK_HOMING | Jerk to use during homing operations
+
+# Dual Y Motor Settings
