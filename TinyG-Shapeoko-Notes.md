@@ -24,14 +24,16 @@ A few things to keep in mind.
 ##Tuning Shapeoko and TinyG
 Once you are set up you can tune the Shapeoko/TinyG system for optimal performance. There is a page on the TinyG wiki about [tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) that the following was adapted from. What follows are tuning instructions and guidance specifically for the Shapeoko/TinyG combination.
 
-Tuning the machine is about getting the maximum performance from the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the envelope set. So it';s important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
+Tuning the machine is about getting the maximum performance from the system while setting the "envelope" in which the machine can work. The envelope defines the reliable limits on all parameters. TinyG is written such that if Gcode asks for more than the machine can deliver (e.g. too high a feed rate) the system will execute the Gcode to the best of its ability while not exceeding the performance envelope. So it's important to tune the machine so you avoid over-specified Gcode files causing jobs to fail.
 
 ###Mechanical
 A well functioning mechanical system is the heart of tuning. The electrical system can at best compensate for the mechanical system, but can never fundamentally improve it. Here are a number of points to make sure the Shapeoko itself is tuned up.
 
 _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this area_
 
-* Make sure the machine is in perfect alignment and belt tension is correct. All parts should be square and the belt axes (X and Y) should be tight but move with almost no resistance. It's a good idea to test this with no motors on the system to look for any rough spots in the slide, or any points where resistance is greater than others. If the motors are mounted at least make sure they are electrically disconnected and their winding leads are not shorted. 
+* Make sure the machine is in perfect alignment and belt tension is correct. All parts should be square and the belt axes (X and Y) should be tight but move with almost no resistance. Test that pulleys and wheels rotate freely and do not bind or wobble. Test that shaft couplers are well seated and tightened with minimum eccentric wobble ("runout").
+
+It's a good idea to test slide resistance with no motors on the system to look for any rough spots in the slide, or any points where resistance is greater than others. If the motors are mounted at least make sure they are electrically disconnected and their winding leads are not shorted (as this will cause mechanical resistance to go way up) . 
 
 * The Z axis should turn as smoothly as possible with no binding. Many people upgrade to an Acme screw for this reason. 
 
