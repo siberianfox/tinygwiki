@@ -9,8 +9,7 @@ The constant jerk acceleration management also makes for extremely fast rapids (
 <Insert video here>
 
 ###Tgfx
-TinyG works with tgfx, a cross-platform control program available for Mac, Windows and Linux. 
-_Need more text_
+TinyG works with tgfx, a cross-platform control program available for Mac, Windows and Linux. Tgfx provides a graphical user interface that lets you configure, run and monitor jobs.
 
 ###Setup
 
