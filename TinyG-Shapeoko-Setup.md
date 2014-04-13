@@ -25,7 +25,7 @@ The general settings for a 3 motor machine are listed below. For dual Y axis set
 	---------|---------|---------|-------
 	$ja | 2000000 | JUNCTION_ACCELERATION | 2 million - centripetal acceleration around corners
 	$st | 1 | SWITCH_TYPE | 0=normally open, 1=normally closed. Use NC for better noise immunity 
-	$mt | 10 | MOTOR_TIMEOUT | In build 412.01 and above this sets the number of seconds motors will stay energized after a machining cycle is complete.
+	$mt | 10 | MOTOR_TIMEOUT | In build 412.01 and above this sets the number of seconds motors will stay energized after a machining cycle is complete. (this setting is not in 380.08)
 
 ## Motor Settings
 Use the following settings for a 3 motor system - and assumes:
@@ -88,9 +88,9 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 	$xam | 0 | AXIS_MODE | 1=standard mode
 	$xvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this. Test it and adjust current pots
 	$xfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
-	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero)
+	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (this setting is not in 380.08)
 	$xtm | 220 | TRAVEL_MAX | Max travel before crash
-	$xjm | 5000000000 | JERK_MAX | That's 5 billion. Count the zeros to be sure
+	$xjm | 5000 | JERK_MAX | That's 5 billion. (see note for 380.08 or earlier)
 	$xjd | 0.01 | JUNCTION_DEVIATION | in mm - smaller is faster cornering
 	$xsn | 0 | SWITCH_MODE_MIN | Switch mode for minimum travel switch. 0 is disabled
 	$xsx | 0 | SWITCH_MODE_MAX | Switch mode for maximum travel switch. 0 is disabled
@@ -99,6 +99,8 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 	$xlb | 20 | LATCH_BACKOFF | Max distance to back off switch during latch phase
 	$xzb | 5 | ZERO_BACKOFF | Distance to back off switch before setting axis zero position
 	$xjh | 10000000000 | JERK_HOMING | Jerk to use during homing operations. Typically bigger than JERK_MAX
+
+Note: Build 380.08 requires the full number for 5 billion: 5000000000.  No spaces or commas. Count the zeros
 
 ### Y Axis
 	setting | value | description |notes
