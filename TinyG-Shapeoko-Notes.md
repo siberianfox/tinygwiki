@@ -24,7 +24,7 @@ A few things to keep in mind.
 ##Tuning Shapeoko and TinyG
 Once you are set up you can tune the Shapeoko/TinyG system for optimal performance. There is a page on the TinyG wiki about [tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) that the following was adapted from. What follows are tuning instructions and guidance specifically for the Shapeoko/TinyG combination.
 
-Mechanical
+###Mechanical
 A well functioning mechanical system is the heart of tuning. The electrical system can at best compensate for the mechanical system, but can never fundamentally improve it. Here are a number of points to make sure the Shapeoko itself is tuned up.
 
 _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this area_
@@ -33,9 +33,8 @@ _Bart - perhaps you can tweak this part. I'm sure you know 10x what I do in this
 
 * The Z axis should turn as smoothly as possible with no binding. Many people upgrade to an Acme screw for this reason. 
 
-Setings
+###Settings
 Once the mechanical system is working well you can start in on the settings. Do these one axis at a time then in combination. All values are in millimeters using the X axis as an example. Other axes are similar.
-
 
 <pre>
 CAVEAT: Be sure your machine is in mm distance mode before starting. 
@@ -46,48 +45,28 @@ The distance mode should be obvious from the command prompt:
 Enter G21 to change to mm mode (G20 to change to inches)
 </pre>
 
-Axis tuning starts with getting good values for the following:
-
-* Velocity Maximum ($xvm)
-* Feed Rate Maximum
-* Jerk
-* Motor Currents (potentiometer settings)
-
-
-* The velocity maximum settings determine how fast traverses (G0's) will move. We usually set these to 16000 mm/min (267 mm/sec for 3dp types), but these can often be set higher
-
-
-This page covers things you may want to do once the wiring and physical setup is complete.
-
-##Tuning TinyG for Shapeoko
-
-
-Then these:
-* JA
-* 
-
-### Background
+### Tuning Background
 The **velocity maximum** - aka **traverse rate** - is the top speed of a machine axis under no cutting load. Traverses (G0's) move the machine at the maximum velocity and generally don't change from job to job. A good maximum velocity will drive the motor reliably at high speed and allow for a little headroom where the motor is still running well. Attempting to set this rate above this speed may cause the motor to operate erratically, drop steps, or stall.<br><br>
 Bear in mind that with traverses (G0) the actual speed of movement may well be above any of the traverse rates of the individual axes as it's the cartesian sum. For example, if xvm and yvm are set to 10,000 mm/min a G0 from (0,0) to (100,100) will actually run at 14,142 mm/min (assuming it has room to accelerate to the target velocity). 
 
 The **feed rate** is the maximum cutting speed the axis can sustain for a given tooling, material and type of cut and may change considerably from job to job. The max feed rates set here are just an upper limit that a Gcode file cannot exceed. The actual control of feed rate should be done from the F words in the Gcode file itself. The max feed rates should be set lower than the maximum velocity and generally set after these have been set.
 
-### Tuning Procedure
-The following procedure can be used to set the max velocities ($xvm, $yvm...) and feed rates. Some notes:
+###Axis Tuning
+Axis tuning starts with getting good values for the following:
 
-* Values shown are in inches. Millimeter values are also provided in square brackets for comparison [mm]. MM values may be approximate but accurate enough for these purposes. 
-* Setting the machine is inches mode is done by issuing a G20 command at the command line (or in a file). Issue a G21 for mm mode.
-* Settings strings in this example, such as $xvm show the x axis. Other axes are similar, such as $yvm, $zvm, $avm, $bvm, $cvm. 
-* The example shows motor 1 mapped to the X axis. Other motors mapped to other axes are similar.
+* Velocity Maximum ($xvm)
+* Feed Rate Maximum
+* Jerk Maximum
+* Motor Currents (potentiometer settings)
 
 **Steps**<br>
 Do these steps for each axis in turn.
 
-1. Ensure the step angle ($1sa), microsteps ($1mi), and polarity ($1po) settings are correct for the motor and wiring. In general, positive X moves to the right, positive Y moves away from you (towards the rear of the machine), and positive Z moves upwards. Typical values are $1sa = 1.8 degrees per step, $1mi = 8 microsteps, $1po = 0 (not inverted).
-1. Make sure the travel per revolution ($1tr) is set correctly. Example: $1tr = 0.100 is a value for a 10 thread-per-inch lead screw [or 2.54 in mm]. Some machines have different travel per revolution for different axes. 
-1. Start with the current potentiometer at the middle position - 12:00. Never exceed the potentiometers' range of motion, which is 270 degrees, or from about 8:00 to about 4:00. 
-1. Set a maximum jerk value ($xjm) where you can audibly hear the motor come up to speed. A value of 20,000,000 [50,000,000] is a good starting point. _Note: commas are accepted by the configuration routines in text mode, but not in JSON mode._
-1. Test traverse rate with a G0, such as G0 X5 [G0 X100]. The motor should accelerate, cruise at speed, then decelerate to a stop. The motor should not stall or fail to start. Lower the velocity if this is the case. 
+1. Ensure the Motor settings for step angle ($1sa), travel per revolution ($1tr), microsteps ($1mi), and polarity ($1po) settings are correct for each motor. Verify that the Axis settings for velocity maximum ($xvm) and jerk maximum $(xjm) are set correctly. If in doubt, go back to the [TinyG Shapeoko Setup page](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
+
+1. Locate the X axis current setting potentiometer on the TinyG board and start with it at the middle position - 12:00. Never exceed the potentiometers' range of motion, which is 270 degrees, or from about 8:00 to about 4:00. 
+
+1. Test a traverse with a long G0 move, such as G0 X100 (Be sure you have 100 mm of clearance on the X axis before you do this!) The motor should accelerate, cruise at speed, then decelerate to a stop. The motor should not stall or fail to start. Lower the velocity if this is the case. 
 1. If the motor hums but doesn't start it's probably not getting enough current. Turn it up to 1:00 or 2:00. Alternately, if the motor stops and starts; or stutters; and the driver chips are excessively hot the motor is getting too much current. Turn the pot down a bit.
 1. If the the motor more or less works but seems to be dropping steps it could be any of the mechanical system (too much friction), the current setting, or the velocity max being too high; or possibly some combination of all three. Experimentation is required. It's best to try to fix them in that order. Start with the mechanical system, then the current, then the setting.
 1. Once you have the axis working you can see if raising the jerk ($xjm) and providing more current can increase the top speed. This is a case of experimenting. Try to avoid excessive current, however, as after a point the current setting provides diminishing benefits and only heats up the motors and risks thermal shutdown. 
