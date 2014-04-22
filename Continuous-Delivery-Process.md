@@ -23,7 +23,7 @@ _Rob, April 21, 2014:_ This is my proposed _procedure_:
 
   1. Travis-CI will, on every commit and pull-request, verify build ONLY, and will NOT push the binary up.
   1. Upon a Tag being added to a commit or ANY BRANCH (but only in the Synthetos repo), with the format `v###.##nnn` and with a comment, then Travis-CI WILL push a built binary to the synthetos.github.io repo.
-    1. In the tag format, `#` is a number from `0-9`, and `nnn` is any (option) combination of letters or numbers.
+    1. In the tag format, `#` is a number from `0-9`, and `nnn` is any (option) combination of letters, "-", or numbers.
       1. Travis-CI will NOT upload the binary if the `###.##` portion does not match the `TINYG_FIRMWARE_BUILD` define from the code.
     1. Example tags would be `v120.00rc1`, `v120.01b1`, or `v120.02`. Tags could also contain (very short) descriptions: 
     1. The comment of the tag will be used as the build description on the web site, and should be as descriptive as possible.
@@ -39,12 +39,29 @@ The presentation of the binaries on the web site will be as follows:
   1. Builds from Edge will be separated by both space and a warning that these are experimental builds an NOT SUPPORTED as well as the list itself will be collapsed by default, and a button must be clicked to expand the list.
   1. Builds from Dev OR from any branch with `#hidden` in the tag comment will NOT be shown, UNLESS you go to a specially crafted url with the query string `?show=${tag}` at the end of the url, and `${tag}` must match _exactly_ the tag of the build.
     1. http://synthetos.github.io/ will ONLY show the Master and Edge builds as described above.
-    1. http://synthetos.github.io/?show=v120.00othercutter will show and highlight the build with the tag `v120.00othercutter`.
+    1. http://synthetos.github.io/?show=v120.00-othermill will show and highlight the build with the tag `v120.00-othermill`.
 
-# JSON upload format
+# `tinyg-binaries.json` format
+
+The sort order of these has no bearing on the order shown on the web site. 
 
 ```JSON
+{
+  "NOTICE" : "Existence of a binary in this file does NOT mean that it's supported or stable.\
+See http://github.com/synthetos/TinyG/wiki/tinyg-binaries.json-notes for more info.",
 
-
-
+  "binaries": [
+    {
+      "branch": "master",
+      "name": "tinyg-master-380.08",
+      "tag": "v380.08-othermill", 
+      "version": "380.08",
+      "uploaded": "_date-time_",
+      "description": "Comments from the tag.\
+May contain multiple lines.",
+      "hidden": false
+    },
+...
+  ]
+}
 ```
