@@ -65,3 +65,10 @@ May contain multiple lines.",
   ]
 }
 ```
+
+# Notes
+
+To create a tag in GitHub (vs through git directly), you navigate to the Releases tab as described here: https://help.github.com/articles/creating-releases That would then trigger Travis-CI to do a build.
+
+GitHub releases also allow you to attach binaries, and should be incorporated into the mechanism or pushing to the web site: https://developer.github.com/v3/repos/releases/
+
