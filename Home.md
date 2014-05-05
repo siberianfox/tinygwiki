@@ -16,7 +16,7 @@ Please come visit / join any or all of the above.
 
 ## TinyG Basic Pages
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.00-What-is-TinyG)
-* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
+* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.01-TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
