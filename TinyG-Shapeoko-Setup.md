@@ -90,7 +90,7 @@ Axis settings apply to both 3 motor and 4 motor configurations. Only the motor p
 ### X Axis
 	setting | value | description |notes
 	---------|---------|---------|-------
-	$xam | 0 | AXIS_MODE | 1=standard mode
+	$xam | 1 | AXIS_MODE | 1=standard mode
 	$xvm | 16000 | VELOCITY_MAX | Your machine might go faster or slower than this. Test it and adjust current pots
 	$xfr | 16000 | FEEDRATE_MAX | Typcially set the same as velocity. May be set slower but not faster.
 	$xtn | 0 | TRAVEL_MIN | Minimum travel (almost aways zero) (not in 380.08)
