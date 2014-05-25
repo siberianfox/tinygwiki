@@ -240,14 +240,14 @@ Promotion checklist
 #first make sure both dev and edge are clean (no uncommitted files)
 git checkout dev
 git merge -s ours edge
-git status  (just checking)
-git diff HEAD^
+git status       (just checking)
+git diff HEAD^   (should show no changes)
 
 #now go merge
 git checkout edge
 git merge dev
 
 #verify it worked
-git diff dev
+git diff dev     (should show no changes)
 git push
 </pre>
