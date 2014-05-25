@@ -246,8 +246,9 @@ git merge dev
 git push
 </pre>
 
-#Alternate merge dev into edge
+####Alternate merge dev into edge
 <pre>
+#make sure both dev and edge are clean (no uncommitted files)
 git checkout dev
 git branch dev-backup
 git merge -s ours edge
