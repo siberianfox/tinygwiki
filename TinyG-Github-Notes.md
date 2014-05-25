@@ -245,3 +245,16 @@ git checkout edge
 git merge dev
 git push
 </pre>
+
+#Alternate merge dev into edge
+<pre>
+git checkout dev
+git branch dev-backup
+git merge -s ours edge
+git checkout dev
+git merge dev-backup
+#verify it worked:
+git diff dev
+#then delete the backup
+git branch -D dev-backup
+</pre>
