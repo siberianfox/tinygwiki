@@ -237,25 +237,17 @@ Promotion checklist
  * __SIMULATION is off
 
 <pre>
-make sure both dev and edge are clean (no uncommitted files)
+#first make sure both dev and edge are clean (no uncommitted files)
 git checkout dev
-git merge --strategy=ours edge
+git merge -s ours edge
 git status  (just checking)
+git diff HEAD^
+
+#now go merge
 git checkout edge
 git merge dev
-git push
-</pre>
 
-####Alternate merge dev into edge
-<pre>
-#make sure both dev and edge are clean (no uncommitted files)
-git checkout dev
-git branch dev-backup
-git merge -s ours edge
-git checkout dev
-git merge dev-backup
-#verify it worked:
+#verify it worked
 git diff dev
-#then delete the backup
-git branch -D dev-backup
+git push
 </pre>
