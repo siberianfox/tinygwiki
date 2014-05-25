@@ -249,5 +249,5 @@ git merge dev
 
 #verify it worked
 git diff dev     (should show no changes)
-git push
+git push origin edge
 </pre>
