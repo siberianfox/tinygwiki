@@ -60,7 +60,7 @@ Codes:
 	52 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
 	 | **Gcode and machining errors** | application specific errors for Gcode problems
 	60 | TG_MINIMUM_LENGTH_MOVE_ERROR | move is below minimum length or zero
-	60 | TG_MINIMUM_TIME_MOVE_ERROR | move is below minimum time or zero
+	61 | TG_MINIMUM_TIME_MOVE_ERROR | move is below minimum time or zero
 	62 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
 	63 | TG_GCODE_INPUT_ERROR | general error for gcode input 
 	64 | TG_GCODE_FEEDRATE_ERROR | no feedrate specified
