@@ -1,13 +1,13 @@
 ## Board Dimensions and Holes
 ### Board Dimensions for TinyG Version 8
 
-* Board dimensions (X,Y)  3.75",  4.15"
+* Board dimensions (X,Y)  4.00",  4.15"
 * Holes are 4-40 - 0.120" bore, 0.250" clearance
 * Hole locations (X,Y)
  * 0.15", 0.15"
  * 3.85", 0.15"
  * 0.15", 4.00"
- * 3.80", 4.00"
+ * 3.85", 4.00"
 * Motor connector centers
  * Motor1  3.618", 3.315"
  * Motor2  3.618", 2.453"
