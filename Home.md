@@ -15,16 +15,16 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 Please come visit / join any or all of the above.
 
 ### Getting Started
-* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.00-What-is-TinyG)
-* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.01-TinyG-Start)
-* [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.02-Connecting-TinyG)
+* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.01-What-is-TinyG)
+* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.02-TinyG-Start)
+* [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.03-Connecting-TinyG)
 
 ### Machine Setup and Tuning
-* [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
-* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
-* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
-* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
+* [Initial Setup](https://github.com/synthetos/TinyG/wiki/2.01-Initial-Setup)
+* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/2.02-TinyG-Tuning), and [4.01-Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/2.03-Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/2.04-Homing-and-Limits-Setup-and-Troubleshooting)
+* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/2.05-TinyG-Sending-Files)
+* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.06-TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.07-TinyG-Shapeoko-Setup)
 
 ### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
