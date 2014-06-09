@@ -14,6 +14,7 @@ Here are some sources that carry some good motors. Please feel free to add your 
 * [Automation Direct](http://www.automationdirect.com/adc/Shopping/Catalog/Motion_Control/Stepper_Systems). Check out the STP-MTR-17060, a 125 oz-in NEMA17
 * [MPJA](http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/) Surplus motors
 * [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html www.allelectronics.com/make-a-store/category/400/Motors/1.html) Surplus motors
+* [Robot Digg](http://robotdigg.com/category/13/More-than-3D-Printing)
 
 ## References
 
