@@ -2,6 +2,8 @@
 
 Welcome to the TinyG wiki!
 
+_As of 6/9/14 - Please be patient - we are updating the wiki to accommodate github's new and "improved" right hand navigation page, and in general to clean up a bit. There will be many broken links until this process is complete. Thanks for your patients. The actual pages can all be found in the right hand nav window, but you will have to hunt for them._
+
 This wiki is used to keep documentation from version 0.95 onward. Documentation for previous versions - 0.94 and earlier - can also be found on this site. See the intro sections on various pages for the links.
 ![Version 8 of the TinyG board](http://farm4.staticflickr.com/3719/12692585715_ca174304c0_b.jpg)
 
@@ -14,7 +16,7 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 
 Please come visit / join any or all of the above.
 
-_Please be patient - we are updating the wiki to accommodate github's new and "improved" right hand navigation page, and in general to clean up a bit. There will be many broken links until this process is complete. Thanks for your patients. The actual pages can all be found in the right hand nav window, but you will have to hunt for them. _
+
 
 ### Getting Started
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.01-What-is-TinyG)
