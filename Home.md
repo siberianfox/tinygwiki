@@ -19,7 +19,7 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.02-TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.03-Connecting-TinyG)
 
-### Machine Setup and Tuning
+### Machine Setup, Tuning and Specialized Use
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/2.01-Initial-Setup)
 * [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/2.02-TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/2.03-Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/2.04-Homing-and-Limits-Setup-and-Troubleshooting)
