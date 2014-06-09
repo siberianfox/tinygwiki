@@ -44,9 +44,6 @@ Please come visit / join any or all of the above.
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [TinyG Projects](https://github.com/synthetos/TinyG/wiki/TinyG-Projects) List your project here!
 
-### Historical Pages
-* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
-
 ### Developer Pages
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
@@ -54,3 +51,6 @@ Please come visit / join any or all of the above.
 * [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
+
+### Historical and Deprecated Pages
+* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
