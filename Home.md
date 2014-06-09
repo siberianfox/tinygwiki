@@ -19,46 +19,46 @@ Please come visit / join any or all of the above.
 
 
 ### Getting Started
-* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.01-What-is-TinyG)
-* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.02-TinyG-Start)
-* [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.03-Connecting-TinyG)
+* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
+* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
+* [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 
 ### Machine Setup, Tuning, and Specialized Uses
-* [Initial Setup](https://github.com/synthetos/TinyG/wiki/2.01-Initial-Setup)
-* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/2.02-TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
-* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/2.03-Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/2.04-Homing-and-Limits-Setup-and-Troubleshooting)
-* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/2.05-TinyG-Sending-Files)
-* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.06-TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.07-TinyG-Shapeoko-Setup)
-* [Automatic Z Homing When Milling PCBs](https://github.com/synthetos/TinyG/wiki/2.08-Automatic-Z-Homing-When-Milling-PCBs)
-* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/2.90-Troubleshooting)
+* [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
+* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
+* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
+* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
+* [Automatic Z Homing When Milling PCBs](https://github.com/synthetos/TinyG/wiki/Automatic-Z-Homing-When-Milling-PCBs)
+* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 
 ### Firmware Update and Programming
-* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/3.01-TinyG-Updating-Firmware)
+* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Updating Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Updating Firmware using an External Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
-* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
-* [Gcode Support](https://github.com/synthetos/TinyG/wiki/4.02-TinyG-Gcode-Support)
-* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/4.03-TinyG-Command-Line)
-* [JSON Operation](https://github.com/synthetos/TinyG/wiki/4.04-JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/4.05-JSON-Details)
-* [Status Reports](https://github.com/synthetos/TinyG/wiki/4.06-Status-Reports)
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/4.07-TinyG-Feedhold-and-Resume)
-* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/4.09-TinyG-Using-External-Drivers)
-* [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/4.10-TinyG-Data-Sheets))
+* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
+* [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details)
+* [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
+* [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/TinyG-Data-Sheets))
 * [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
 
 ### Resources
 * [TinyG Projects](https://github.com/synthetos/TinyG/wiki/5.01-TinyG-Projects) List your project here!
-* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/5.02-Stepper-Motors-and-Power-Supplies)
+* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/Stepper-Motors-and-Power-Supplies)
 
 ### Developer Pages
-* [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/7.01 Introduction-to-the-TinyG-Code-Base)
-* [Status Codes](https://github.com/synthetos/TinyG/wiki/7.02 TinyG-Status-Codes)
-* [State Model](https://github.com/synthetos/TinyG/wiki/7.03 TinyG-State-Model)
+* [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
+* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
+* [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
 * [Project Setup]
-* [Developer Notes](https://github.com/synthetos/TinyG/wiki/7.04 TinyG-Developer-Notes)
+* [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
 
 ### Historical and Deprecated Pages
