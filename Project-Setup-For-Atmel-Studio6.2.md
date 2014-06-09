@@ -4,6 +4,7 @@ This page provides in instructions to set up an Atmel Studio 6.2 project for Tin
 
 ### Get a Windows Environment that will Support this
 We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what we've learned about this setup
+* If you can, build a dedicated VM for this application. Who knows how Windows programs interact if you have more than one in an environment. 
 * Allocate 2 Gb of RAM to the W7 OS and about 40 - 60 Gb of disk. 
 * Select the option to break the disk into 2Gb chunks. 
 * Do not snapshot as it bloats the VM image. Make offline backups instead. 
@@ -11,7 +12,8 @@ We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what 
 * Use the C: drive only for installing the Studio6.2 and the rest of the tool chain 
 * Mount the Mac filesystem as an external filesystem and use this for all your project files. Make sure you actually attach it to the W7 filesystem as a Z: drive or something. Studio6 won't compile if there is just a pathspec and no disk drive letter in the path.
 
-### 
+### Get The Studio6.2 Complete Install Kit
+Go to Atmel and sign up to download the entire Studio 6.2 production install package, including the .NET part. It's about 700 Mbytes.
 
 ### Clone the TinyG Github Repository 
 Run git clone to set up TinyG working directory. First you must install git. See github for instructions to do this if you haven't already.
