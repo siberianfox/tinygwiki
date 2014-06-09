@@ -35,18 +35,17 @@ Here are some known bugs that we have had to work around
 This seems to be a known bug with AVRGCC 4.8.1. The fix is to compile under -O2. Find this in the Properties (TinyG) / Toolchain / AVR/GCC Coplier / Optimization window. In the flags box that follows add: 
 `-fno-align-functions  -fno-align-jumps  -fno-align-loops -fno-align-labels -fno-reorder-blocks -fno-reorder-blocks-and-partition -fno-prefetch-loop-arrays -fno-tree-vect-loop-version`
 
-
 #### Can't view ASCII strings in the debugger
-There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
+The problem is that ASCII display are shown as decimal or hedidecimal numbers. There is a way around this documented here: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
-Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  <br>Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track
+* Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  <br>Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track
 
 From the Studio6 Help Pages:
 
-_While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch_
+* _While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch_
 
-_To add a QuickWatch expression to the Watch window_
-_In the QuickWatch dialog box, click Add Watch._
+* _To add a QuickWatch expression to the Watch window_
+* _In the QuickWatch dialog box, click Add Watch._
 
 #### AtmelStudio6 fails verification when programming the xmega
 We've seen this with earlier versions and Studio6.0 build 1996. We have not heard of this yet for AS6.2. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
