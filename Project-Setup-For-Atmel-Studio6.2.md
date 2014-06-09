@@ -10,7 +10,8 @@ We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what 
 * Do not snapshot as it bloats the VM image. Make offline backups instead. 
 * Make sure the VM is set to the number of cores on your machine or it may run excessively slowly. There's some kind of bug in the communications if the cores are mismatched. This may have been fixed.
 * Use the C: drive only for installing the Studio6.2 and the rest of the tool chain 
-* Mount the Mac filesystem as an external filesystem and use this for all your project files. Make sure you actually attach it to the W7 filesystem as a Z: drive or something. Studio6 won't compile if there is just a pathspec and no disk drive letter in the path.
+* Mount the Mac filesystem as an external filesystem and use this for all your project files. See note below:
+* _Note that if you are installing under VMware and have your project files in a shared volume (//vmware-host/...) you will need to map a network drive so that AS6.2 can see a windows path as opposed to a UNC path. You can tell by looking at the full filepath in the directory window to see if it starts with Z:\... or Y:\...  If not then the IDE will not be able to compile._
 
 ### Get The Studio6.2 Complete Install Kit
 * Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET part. It's about 700 Mbytes. Current build is build 1153.
@@ -24,7 +25,6 @@ git clone git@github.com:synthetos/TinyG.git
 </pre>
 You should have a directory with all the source files and the Atmel project files for both Studio4 and Studio6. Some of the project files are ignored by git so they don't cause havoc. You will need the AtmelStudio6 project files, which are `tinyg.atsln` and `tinyg.cproj`
 
-_Note that if you are installing under VMware and have your project files in a shared volume (//vmware-host/...) you may need to map a network drive so that the IDE (4 or 6) can see a windows path as opposed to a UNC path. You can tell by looking at the full filepath in the directory window to see if it starts with Z:\... or Y:\...  If not then the IDE may not be able to compile._
 
 ### Setup AVRStudio4
 You can find AvrStudio 4.19 and the AVR toolchain you need here: http://www.atmel.com/tools/studioarchive.aspx
