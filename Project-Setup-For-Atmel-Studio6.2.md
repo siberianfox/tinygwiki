@@ -18,6 +18,7 @@ We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what 
 * Walk through the entire installation process. You will not need the Atmel Solutions framework when asked. You will need the USB drivers when asked.
 
 ### Get a Hardware Programmer
+You will need a programmer that supports the SPI protocol used by Atmel. ICSP programmers such as your garden variety Adafruit AVR programmer will not work. The unit to get these days is the new Atmel-ICE, which programs AVRs and Atmel ARMS, and supports real-time debugging. ALl for about $30. The older AVRISP mkII will also work but does not support real-time debugging.
 
 ### Clone the TinyG Github Repository 
 * Run git clone to set up TinyG working directory. First you must install git. See github for instructions to do this if you haven't already.
