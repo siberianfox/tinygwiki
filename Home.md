@@ -14,18 +14,19 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 
 Please come visit / join any or all of the above.
 
-## TinyG Basic Pages
+## Getting Started
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.00-What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.01-TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.02-Connecting-TinyG)
-* [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
-* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
-* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Synthetos Download Page](http://synthetos.github.io/)
 
-### TinyG User Pages
+### Machine Setup and Tuning
+* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
+* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
+* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
+
+### Reference Pages
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
@@ -38,14 +39,14 @@ Please come visit / join any or all of the above.
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [TinyG Projects](https://github.com/synthetos/TinyG/wiki/TinyG-Projects) List your project here!
 
-### TinyG Firmware Update, Programming and Historical References
+### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Firmware Download Pages](http://synthetos.github.io/)
 * [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
 
-### TinyG Developer Pages
+### Developer Pages
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
