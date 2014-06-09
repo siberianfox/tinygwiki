@@ -46,7 +46,7 @@ Please come visit / join any or all of the above.
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
 * [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
-* [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/TinyG-Data-Sheets))
+* [TinyG Data Sheets](https://github.com/synthetos/TinyG/wiki/Data-Sheets)
 * [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
 
 ### Resources
