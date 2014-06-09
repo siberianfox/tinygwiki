@@ -16,8 +16,6 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 
 Please come visit / join any or all of the above.
 
-
-
 ### Getting Started
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
@@ -48,6 +46,7 @@ Please come visit / join any or all of the above.
 * [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
 * [TinyG Data Sheets](https://github.com/synthetos/TinyG/wiki/Data-Sheets)
 * [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
+* [Licensing](https://github.com/synthetos/TinyG/wiki/TinyG-Licensing)
 
 ### Resources
 * [TinyG Projects](https://github.com/synthetos/TinyG/wiki/5.01-TinyG-Projects) List your project here!
