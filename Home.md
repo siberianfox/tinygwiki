@@ -55,9 +55,10 @@ Please come visit / join any or all of the above.
 
 ### Developer Pages
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
+* [Project Setup]
 * [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
 * [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
-* [Project Setup]
+* [Flow COntrol and Footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers)
 * [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
 
