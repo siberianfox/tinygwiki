@@ -22,6 +22,7 @@ Please come visit / join any or all of the above.
 * [Synthetos Download Page](http://synthetos.github.io/)
 
 ### Machine Setup and Tuning
+* [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
