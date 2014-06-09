@@ -27,10 +27,10 @@ Please come visit / join any or all of the above.
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
 ### Firmware Update and Programming
-* [Firmware Download Pages](http://synthetos.github.io/)
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
+* [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
