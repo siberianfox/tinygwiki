@@ -22,7 +22,7 @@ Please come visit / join any or all of the above.
 ### Machine Setup and Tuning
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
 * [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
+* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
