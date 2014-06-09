@@ -21,28 +21,28 @@ Please come visit / join any or all of the above.
 
 ### Machine Setup and Tuning
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/2.01-Initial-Setup)
-* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/2.02-TinyG-Tuning), and [4.01-Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/2.02-TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/2.03-Homing-and-Limits-Description-and-Operation), and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/2.04-Homing-and-Limits-Setup-and-Troubleshooting)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/2.05-TinyG-Sending-Files)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.06-TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.07-TinyG-Shapeoko-Setup)
+* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/2.90-Troubleshooting)
 
 ### Firmware Update and Programming
-* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
-* [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
-* [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
+* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/3.01-TinyG-Updating-Firmware)
+* [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/3.02-TinyG-Boot-Loader)
+* [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/3.03-Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
-* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
-* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
-* [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
-* [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
-* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/Stepper-Motors-and-Power-Supplies)
-* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
-* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
-* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/TinyG-Projects) List your project here!
+* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
+* [Gcode Support](https://github.com/synthetos/TinyG/wiki/4.02-TinyG-Gcode-Support)
+* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/4.03-TinyG-Command-Line)
+* [JSON Operation](https://github.com/synthetos/TinyG/wiki/4.04-JSON-Operation)
+* [Status Reports](https://github.com/synthetos/TinyG/wiki/4.05-Status-Reports)
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/4.06-TinyG-Feedhold-and-Resume)
+* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/4.07-Stepper-Motors-and-Power-Supplies)
+* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/4.08-TinyG-Using-External-Drivers)
+* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/2.09-TinyG-Projects) List your project here!
 
 ### Developer Pages
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
