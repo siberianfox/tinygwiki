@@ -1,4 +1,4 @@
-This page provides in instructions to set up an Atmel Studio 6.2 project for TinyG. TinyG is maintained in this environment so all the project files are available. TinyG is also under development in various other environments that support AVRCCC, such as Xcode, and AVR Studio 4.
+This page provides in instructions to set up an Atmel Studio 6.2 project for TinyG. TinyG is maintained in this environment so all the project files are available. TinyG is also under development in various other environments that support AVRCCC, such as AVR Studio 4.
 
 ## Setting Up TinyG as an Atmel Studio 6.2 Project
 
