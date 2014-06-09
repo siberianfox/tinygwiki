@@ -19,7 +19,6 @@ Please come visit / join any or all of the above.
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.01-TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.02-Connecting-TinyG)
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Synthetos Download Page](http://synthetos.github.io/)
 
 ### Machine Setup and Tuning
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
