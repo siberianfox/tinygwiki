@@ -23,16 +23,15 @@ Please come visit / join any or all of the above.
 
 ### Machine Setup and Tuning
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
-* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
+* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 
 ### Firmware Update and Programming
-* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Firmware Download Pages](http://synthetos.github.io/)
+* [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Programming using AVRdude and the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
-* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
 
 ### Reference Pages
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
@@ -46,6 +45,9 @@ Please come visit / join any or all of the above.
 * [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
 * [TinyG Projects](https://github.com/synthetos/TinyG/wiki/TinyG-Projects) List your project here!
+
+### Historical Pages
+* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
 
 ### Developer Pages
 * [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
