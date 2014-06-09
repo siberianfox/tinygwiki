@@ -14,6 +14,8 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 
 Please come visit / join any or all of the above.
 
+_Please be patient - we are updating the wiki to accommodate github's new and "improved" right hand navigation page, and in general to clean up a bit. There will be many broken links until this process is complete. Thanks for your patients. The actual pages can all be found in the right hand nav window, but you will have to hunt for them. _
+
 ### Getting Started
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.01-What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.02-TinyG-Start)
