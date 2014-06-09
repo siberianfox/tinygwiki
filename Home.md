@@ -18,11 +18,10 @@ Please come visit / join any or all of the above.
 * [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/1.00-What-is-TinyG)
 * [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/1.01-TinyG-Start)
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.02-Connecting-TinyG)
-* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
 ### Machine Setup and Tuning
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
-* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning)
+* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Homing TinyG](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation), [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
@@ -34,6 +33,7 @@ Please come visit / join any or all of the above.
 * [Programming using Atmel AVRISP mkii Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 
 ### Reference Pages
+* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
