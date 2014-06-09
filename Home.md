@@ -30,7 +30,6 @@ Please come visit / join any or all of the above.
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/2.05-TinyG-Sending-Files)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.06-TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.07-TinyG-Shapeoko-Setup)
 * [Automatic Z Homing When Milling PCBs](https://github.com/synthetos/TinyG/wiki/2.08-Automatic-Z-Homing-When-Milling-PCBs)
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/2.09-TinyG-Feedhold-and-Resume)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/2.90-Troubleshooting)
 
 ### Firmware Update and Programming
@@ -45,17 +44,21 @@ Please come visit / join any or all of the above.
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/4.03-TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/4.04-JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/4.05-JSON-Details)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/4.06-Status-Reports)
-* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/4.07-Stepper-Motors-and-Power-Supplies)
-* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/4.08-TinyG-Using-External-Drivers)
-* [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/4.09-TinyG-Data-Sheets))
-* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/4.10-TinyG-Projects) List your project here!
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/4.07-TinyG-Feedhold-and-Resume)
+* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/4.09-TinyG-Using-External-Drivers)
+* [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/4.10-TinyG-Data-Sheets))
+* [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
+
+### Resources
+* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/5.01-TinyG-Projects) List your project here!
+* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/5.02-Stepper-Motors-and-Power-Supplies)
 
 ### Developer Pages
-* [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
-* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
-* [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
-* [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
-* [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
+* [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/7.01 Introduction-to-the-TinyG-Code-Base)
+* [Status Codes](https://github.com/synthetos/TinyG/wiki/7.02 TinyG-Status-Codes)
+* [State Model](https://github.com/synthetos/TinyG/wiki/7.03 TinyG-State-Model)
+* [Project Setup]
+* [Developer Notes](https://github.com/synthetos/TinyG/wiki/7.04 TinyG-Developer-Notes)
 * [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
 
 ### Historical and Deprecated Pages
