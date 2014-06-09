@@ -13,7 +13,8 @@ We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what 
 * Mount the Mac filesystem as an external filesystem and use this for all your project files. Make sure you actually attach it to the W7 filesystem as a Z: drive or something. Studio6 won't compile if there is just a pathspec and no disk drive letter in the path.
 
 ### Get The Studio6.2 Complete Install Kit
-Go to Atmel and sign up to download the entire Studio 6.2 production install package, including the .NET part. It's about 700 Mbytes.
+* Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET part. It's about 700 Mbytes. Current build is build 1153.
+* Walk through the entire installation process. You will not need the Atmel Solutions framework when asked. You will need the USB drivers when asked.
 
 ### Clone the TinyG Github Repository 
 Run git clone to set up TinyG working directory. First you must install git. See github for instructions to do this if you haven't already.
