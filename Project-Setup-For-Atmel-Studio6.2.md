@@ -32,7 +32,9 @@ git clone git@github.com:synthetos/TinyG.git
 Here are some known bugs that we have had to work around
 
 #### Can't compile under -Os optimization
-This seems fto be a known bug with AVRGCC 4.8.1. The fix is to compile under -O2 and add the following line 
+This seems to be a known bug with AVRGCC 4.8.1. The fix is to compile under -O2 and add the following line 
+`-fno-align-functions  -fno-align-jumps  -fno-align-loops -fno-align-labels -fno-reorder-blocks -fno-reorder-blocks-and-partition -fno-prefetch-loop-arrays -fno-tree-vect-loop-version`
+
 
 #### Can't view ASCII strings in the debugger
 There is a way around this: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
