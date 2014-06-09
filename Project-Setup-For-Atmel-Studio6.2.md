@@ -38,14 +38,17 @@ This seems to be a known bug with AVRGCC 4.8.1. The fix is to compile under -O2.
 #### Can't view ASCII strings in the debugger
 The problem is that ASCII display are shown as decimal or hedidecimal numbers. There is a way around this documented here: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
-* Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  <br>Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track
+* Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track. Once you have made these time-consuming changes you will want to save your project.
 
-From the Studio6 Help Pages:
+See also from the Studio6 Help Pages:
 
 * _While debugging you might want to track a value of a variable or an expression. To do so you can right click at the expression under cursor and select Add a Watch or Quickwatch_
-
 * _To add a QuickWatch expression to the Watch window_
 * _In the QuickWatch dialog box, click Add Watch._
+
+#### Floating point numbers appear as unit32's in the debugger
+
+We don't have a workaround for this one yet. Perhaps something similar to the ASCII fix might work.
 
 #### AtmelStudio6 fails verification when programming the xmega
 We've seen this with earlier versions and Studio6.0 build 1996. We have not heard of this yet for AS6.2. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
