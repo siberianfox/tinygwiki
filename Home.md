@@ -30,6 +30,7 @@ Please come visit / join any or all of the above.
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/2.05-TinyG-Sending-Files)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.06-TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/2.07-TinyG-Shapeoko-Setup)
 * [Automatic Z Homing When Milling PCBs](https://github.com/synthetos/TinyG/wiki/2.08-Automatic-Z-Homing-When-Milling-PCBs)
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/2.09-TinyG-Feedhold-and-Resume)
 * [Troubleshooting](https://github.com/synthetos/TinyG/wiki/2.90-Troubleshooting)
 
 ### Firmware Update and Programming
@@ -42,9 +43,8 @@ Please come visit / join any or all of the above.
 * [Configuration Reference](https://github.com/synthetos/TinyG/wiki/4.01-TinyG-Configuration)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/4.02-TinyG-Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/4.03-TinyG-Command-Line)
-* [JSON Operation](https://github.com/synthetos/TinyG/wiki/4.04-JSON-Operation)
-* [Status Reports](https://github.com/synthetos/TinyG/wiki/4.05-Status-Reports)
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/4.06-TinyG-Feedhold-and-Resume)
+* [JSON Operation](https://github.com/synthetos/TinyG/wiki/4.04-JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/4.05-JSON-Details)
+* [Status Reports](https://github.com/synthetos/TinyG/wiki/4.06-Status-Reports)
 * [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/4.07-Stepper-Motors-and-Power-Supplies)
 * [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/4.08-TinyG-Using-External-Drivers)
 * [TinyG Data Sheets]((https://github.com/synthetos/TinyG/wiki/4.09-TinyG-Data-Sheets))
