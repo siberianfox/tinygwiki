@@ -7,7 +7,7 @@ We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what 
 * Allocate 2 Gb of RAM to the W7 OS and about 40 - 60 Gb of disk. 
 * Select the option to break the disk into 2Gb chunks. 
 * Do not snapshot as it bloats the VM image. Make offline backups instead. 
-* Make sure the VM is set to the number of cores on your machine it it can run excessively slow. There's some kind of bug in the communications if the cores are mismatched. This may have been fixed.
+* Make sure the VM is set to the number of cores on your machine or it may run excessively slowly. There's some kind of bug in the communications if the cores are mismatched. This may have been fixed.
 * Use the C: drive only for installing the Studio6.2 and the rest of the tool chain 
 * Mount the Mac filesystem as an external filesystem and use this for all your project files. Make sure you actually attach it to the W7 filesystem as a Z: drive or something. Studio6 won't compile if there is just a pathspec and no disk drive letter in the path.
 
