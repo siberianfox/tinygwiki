@@ -48,8 +48,10 @@ See also from the Studio6 Help Pages:
 * _In the QuickWatch dialog box, click Add Watch._
 
 #### Floating point numbers appear as unit32's in the debugger
+Use GDB as the debugger. Select the AVR8 version. FRom the ADVANCED tab of the TINYG properties page. 
 
-We don't have a workaround for this one yet. Perhaps something similar to the ASCII fix might work.
+#### Debugger won't set breakpoints
+They disappear into little open circles with tiny triangular warnings. You must compile in Debug, not Release profile.
 
 #### AtmelStudio6 fails verification when programming the xmega
 We've seen this with earlier versions and Studio6.0 build 1996. We have not heard of this yet for AS6.2. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
