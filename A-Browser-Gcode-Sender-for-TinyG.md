@@ -1,4 +1,4 @@
-# Chilipeppr - Browser based TinyG UI
+## Chilipeppr - Browser based TinyG UI
 [chilipeppr.com/tinyg](http://chilipeppr.com/tinyg)
 ![](http://www.chilipeppr.com/img/screenshot-tinyg.png)
 
