@@ -94,10 +94,42 @@ git push origin dev --tags
 
 The pull should have been done before you made any changes, but at least this will tell you if you are going to have a problem in your push.
 
+### Tracking Branches
+If you cannot push to origin from a tracking branch run this command:
+<pre>
+git branch -u origin/feature-tinyg-410-base
+
+Example:
+Freds-MacBook-Pro-143:g2 Fred$ git branch -u origin/feature-tinyg-410-base
+Branch feature-tinyg-410-base set up to track remote branch feature-tinyg-410-base from origin.
+</pre>
 
 ### Merging
-
 This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
+
+If you have not already set up a graphical merge too run this:
+<pre>
+git config merge.tool                    (response is silent as you have no merge tool)
+git config --global merge.tool opendiff
+git config merge.tool                    (response should now say opendiff)
+opendiff                                 (run the command just to see of you have it. Response is "too few arguments...)
+</pre>
+
+Now do the pull and get one or more conflicts. Git status will show Unmerged Paths. SOmething like:
+<pre>
+# Unmerged paths:
+#   (use "git add <file>..." to mark resolution)
+#
+#	both modified:      TinyG2/tinyg2.h
+</pre>
+
+Type `git mergetool` and hit return at the prompt. Filemerge will open. There is a dot at the bottom of Opendiff that you can drag up to show the resulting file in a new pane (default position does not show the bottom pane). When done, "save" and then quit opendiff completely. It should take you back to the terminal. If there are more files to merge hit return again and repeat.
+
+When done run `git commit`. (from command line - does not work from gitx). It may throw you into vi. Save / Quit using `:x`
+
+You might ens up with one or more xxxx.orig files. Run `git clean -n` to list these. You can then run `git clean -f` to remove them
+
+
 
 The command is: 
 <pre>
