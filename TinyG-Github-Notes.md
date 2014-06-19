@@ -107,15 +107,15 @@ Branch feature-tinyg-410-base set up to track remote branch feature-tinyg-410-ba
 ### Merging
 This is a bit tricky but not hard. Just need to use a nice GUI merge tool if there are conflicts. 
 
-If you have not already set up a graphical merge too run this:
+If you have not already set up a graphical merge tool run this:
 <pre>
-git config merge.tool                    (response is silent as you have no merge tool)
+git config merge.tool   (response is silent as you have no merge tool)
 git config --global merge.tool opendiff
-git config merge.tool                    (response should now say opendiff)
-opendiff                                 (run the command just to see of you have it. Response is "too few arguments...)
+git config merge.tool   (response should now say opendiff)
+opendiff                (run the command just to see of you have it. Response is "too few arguments...)
 </pre>
 
-Now do the pull and get one or more conflicts. Git status will show Unmerged Paths. SOmething like:
+Now do the pull and get one or more conflicts. Git status will show Unmerged Paths. Something like:
 <pre>
 # Unmerged paths:
 #   (use "git add <file>..." to mark resolution)
@@ -127,41 +127,7 @@ Type `git mergetool` and hit return at the prompt. Filemerge will open. There is
 
 When done run `git commit`. (from command line - does not work from gitx). It may throw you into vi. Save / Quit using `:x`
 
-You might ens up with one or more xxxx.orig files. Run `git clean -n` to list these. You can then run `git clean -f` to remove them
-
-
-
-The command is: 
-<pre>
-git checkout master
-(This sets your master branch active... This is where you are going to PULL another branch into merge with) git merge branch-to-merge-with 
-</pre>
-
-
-First make sure everything is up to date - synchronize the lowest branch to github: 
-
-* If the IDE is open close it and save whatever you need to 
-* Add and Commit anything that's been changed 
-* run git status to confirm there's nothing hanging out there 
-* git push origin &lt;branch&gt;
-
-Example of merging master with edge: 
-<pre>
-git checkout master
-git merge edge
-</pre> 
-That should do it.<br> But it usually doesn't. Usually you find merge conflicts on readme.md, tinyg.aws or other files. Do this:<br> 
-
-* Make a temp directory on the desktop or somewhere else outside the git directory 
-* Put copies of all the files in conflict into this directory
-* git rm all the conflicted files. Remember to do *git rm*, not just *rm*!
-* See if the files that were pulled in from the pull branch (e.g. from edge merging into master) are the ones you want. If so keep them,. If not, overwrite them from the temp directory
-* Add any new files to git - e.g git add .
-* Commit all changes - e.g. commit -m"339.09 added files from edge into master as part of a merge"
-* Do the merge again (e.g. git merge edge)
-**Finish the merge by running git**
-
-
+You might end up with one or more xxxx.orig files. Run `git clean -n` to list these. You can then run `git clean -f` to remove them
 
 ### Checklist for Promoting Branches
 Steps to promote dev to edge and edge to master are listed here. There's probably an easier way to do this for someone that really knows how to use github, but this is what I do. Comments and suggestions for improvement are welcome. Derision and sneers are amusing.
