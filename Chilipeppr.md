@@ -1,7 +1,7 @@
 ### A Browser based TinyG UI
 [chilipeppr.com/tinyg](http://chilipeppr.com/tinyg)
 ![](http://www.chilipeppr.com/img/screenshot-tinyg.png)
-
+Chilipeppr represents a modern way to do CNC software control for the [TinyG](http://synthetos.myshopify.com/products/tinyg) motion controller.
 ## Features
 * 3D Viewer
 * Gcode Sender
