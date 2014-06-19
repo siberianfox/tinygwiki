@@ -18,3 +18,11 @@ The first thing you need to get chilipeppr working with TinyG is a **Serial Port
 
 ## Loading chilipeppr
 Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bring up the official TinyG workspace for the chilipeppr interface.
+
+##Sending Files
+
+##Extending Chilipeppr
+
+##Forking Chilipeppr
+
+##Offline Chilipeppr
