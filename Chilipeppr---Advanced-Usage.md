@@ -3,27 +3,26 @@ This page is a place holder to describe sending files over the network to a SPJS
 Hello World Widget
 
 HTML
-`<div id="com-chilipeppr-widget-hello" class="panel panel-default">`
-    `<div class="panel-heading">`
-        `<div class="btn-toolbar pull-right" role="toolbar" >`
-            `<div class="btn-group">`
-            `</div>`
-            `<div class="btn-group">`
-                `<div class="dropdown">`
-                `<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>`
-                `<ul class="dropdown-menu dropdown-menu-right" role="menu">`
-                `</ul>`
-                `</div>`
-            `</div>`
-        `</div>`
-        `<span class="panel-title" data-toggle="popover">Hello World</span>`
-    `</div>`
-    `<div id="com-chilipeppr-widget-hello-body" class="panel-body">`
-        `Hello World`
-    `</div>`
-    `<div id="com-chilipeppr-widget-hello-ftr" class="panel-footer hidden">`
-`</div>`
-
+`<div id="com-chilipeppr-widget-hello" class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-toolbar pull-right" role="toolbar" >
+            <div class="btn-group">
+            </div>
+            <div class="btn-group">
+                <div class="dropdown">
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                </ul>
+                </div>
+            </div>
+        </div>
+        <span class="panel-title" data-toggle="popover">Hello World</span>
+    </div>
+    <div id="com-chilipeppr-widget-hello-body" class="panel-body">
+        Hello World
+    </div>
+    <div id="com-chilipeppr-widget-hello-ftr" class="panel-footer hidden">
+</div>`
 
 Javascript
 `// Test this element. This code is auto-removed by the chilipeppr.load()`
