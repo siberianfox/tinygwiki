@@ -23,7 +23,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
 	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1mi---microsteps) | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
 	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
-	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power management mode | 0=motor disabled, 1=motor always on,2=motor on when in cycle,3=motor on only when moving
+	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power management mode | 0=motor disabled, 1=motor always on, 2=motor on when in cycle, 3=motor on only when moving
 	[$1pl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power level (ARM only) | 0.000=no power to steppers, 1.00=max power to steppers
 
 ## Axis Groups
@@ -35,7 +35,7 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
 	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xfr---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
 	[$xtn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel minimum | Used by homing and soft limits 
-	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) |  Travel maximum | Used by homing and soft limits 
+	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel maximum | Used by homing and soft limits 
 	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
 	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
 	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjd---junction-deviation) | Junction deviation | For cornering control
@@ -70,9 +70,10 @@ These are reported on the startup strings and should be included in any support 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 380.05 
-	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.96
-	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware version | Read-write value, set this to to 6 for v6 and earlier boards, 8 for v7 and later boards. Defaults to 8
+	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 435.05 
+	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.97
+	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware platform | Read-only value, 1=Xmega, 2=Due, 3-v9(ARM)
+	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware version | Read-write value, set this to to 6 for v6 and earlier boards, 7 or 8 for v7 and v8 boards, respectively. Defaults to 8
 	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
 
 **Global System Settings**
