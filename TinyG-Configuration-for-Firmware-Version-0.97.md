@@ -225,13 +225,12 @@ Examples:
 <pre>
 $4pm=2         Set motor 4 to be powered when any axis is moving
 {4pm:2}        Same as above
-{4{pm:2}}      Same as above
+{4:{pm:2}}     Same as above
 </pre>
 
 Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots). 
 
-Some other notes:
-
+Other notes:
 * A motor set to $1pm=2 (or 3) will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ).
 * Power mode changes take effect immediately (used to change on the next move)
 * All non-disabled motors are powered on startup and from reset. They may time out according to $mt 
