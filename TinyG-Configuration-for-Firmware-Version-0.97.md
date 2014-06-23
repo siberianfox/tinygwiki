@@ -22,7 +22,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	[$1sa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1sa---step-angle-for-the-motor) | Step angle | Motor parameter indicating the angle traveled per whole step. Typical setting is $1sa=1.8 for 1.8 degrees per step (200 steps per revolution)
 	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
 	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1mi---microsteps) | Microsteps | Microsteps per whole step. TinyG uses 1,2,4 and 8. Other values are accepted but warned
-	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
+	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1po---polarity) | Polarity | Set polarity for proper movement of the axis. 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring, and axis movement is dependent on the mechanical system.
 	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode) | Power management mode | 0=motor disabled, 1=motor always on, 2=motor on when in cycle, 3=motor on only when moving
 	[$1pl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode) | Power level (ARM only) | 0.000=no power to steppers, 1.00=max power to steppers
 
@@ -214,23 +214,25 @@ $3po=0        Set polarity to normal
 </pre>
 
 ### $1PM - Power Management mode
-Set to one of the following: 
+Power management is used to keep the steppers on when you need them and turn them off when you don't. Set to one of the following: 
 
-* 0 = Leave motor powered on when stopped
-* 1 = Turn motor power off when stopped
+* 0 = Motor disabled
+* 1 = Motor always powered
+* 2 = Motor powered during a machining cycle (i.e. when any axis is moving)
+* 3 = Motor only powered when it is moving
 
-Stepper motors actually consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots)
+Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots). SOme machines need power to hold position, such as some 5 axis machines.
 
 <pre>
-$4pm=1         Set low-power idle for motor 4
+$4pm=2         Set motor 4 to be powered when any axis is moving
 </pre>
-_New behaviors as of build 378.04 and later_
 
-Power management now operates as follows. Setting $1pm=0 sets "powered" mode (as before), but it works differently:
-* A motor set to $1pm=0 will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ). The elapsed time is measured from the last "event', such as the end of the move, or from when the enable was turned on.
-* Power mode changes take effect immediately - for changed to '0' or to '1'
-* All '0' motors are powered on startup and from reset
-* All '0' motors can be enabled by issuing a $me command (  also {"me":""}  )
+Some other notes:
+
+* A motor set to $1pm=2 (or 3) will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ).
+* Power mode changes take effect immediately (used to change on the next move)
+* All non-disabled motors are powered on startup and from reset. They may time out according to $mt 
+* All non-disabled motors can be enabled by issuing a $me command (  also {"me":""}  )
 * All motors are disabled by issuing a $md command  (  also {"md":""}  )
 
 ## Axis Settings
