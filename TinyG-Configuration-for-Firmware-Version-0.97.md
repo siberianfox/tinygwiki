@@ -377,7 +377,7 @@ By way of example, my Shapeoko is set up this way:
 ## System Group Settings
 These are general system-wide parameters and are part of the "sys" group.
 <br>
-####Identification Settings
+###Identification Settings
 
 ### $FB - Firmware Build number
 Read-only value. Example `$fb=345.06`<br>
@@ -399,8 +399,7 @@ Read-write value. Used to set behaviors inside the firmware. Defaults to 8 for v
 ### $ID - Unique Board Identifier
 Read-only value.
 
-<br>
-####Global System Settings
+###Global System Settings
 
 ### $JA - Junction Acceleration 
 In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
@@ -411,11 +410,12 @@ $ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance mac
 </pre> 
 
 ### $CT - Chordal Tolerance
-Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal tolerance sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be in the middle of the line / arc. 
+Arcs are generated as sets of very short straight lines that approximate a curve. Each line is a "chord" that spans the endpoints of that segment of the arc. Chordal tolerance sets the maximum allowable deviation between the true arc and straight line that approximates it - which will be the value of the deviation in the middle of the line / arc.
 
 Setting chordal tolerance high will make curves "rougher", but they can execute faster. Setting them smaller will make for smoother arcs that may take longer to execute. The lower-limit of $ct is set by the minimum arc segment length, which really should not be changed (See hidden parameters).
-
-Sonny Jeon of the grbl project pointed this one out.
+<pre>
+$ct=0.01   - Normally a good value (in mm)
+</pre> 
 
 ### $ST - Switch Type
 Sets the type of switch used for homing and/or limits. All switches must be of the same type (mixes are not supported).
@@ -424,28 +424,29 @@ $st=0   - Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
+Note that probing cycles (G38.2) will work regardless of the switch setting. Probing (currently) assumes a normally open switch in the Z minimum position. During the probe cycle switches are set to NO (and ignored). They are restored to their actual $st setting when probing is complete.
+
 ### $MT - Motor Power Timeout
-Sets the number of seconds motors will remain powered after the last 'event'. E.g. set to 60 to keep motors powered for 1 minute after a move completes. Only applies to motors with power menagement set to 0 - e.g. $1pm=0.  _(build 378.04 and later)_
+Sets the number of seconds motors will remain powered after the last 'event'. E.g. set to 60 to keep motors powered for 1 minute after a move completes. Only applies to motors with power management modes that actually time out the motors (modes 2 and 3). See also $ME and $MD commands, further down this page.
 <pre>
-$mt=60       - Keep motors energized for 60 seconds after last movement command
+$mt=5        - Keep motors energized for 5 seconds after last movement command
 $mt=1000000  - Keep motors energized for 1 million seconds after last movement command (11.57 days)
 </pre> 
 
-<br>
-####Communications Settings
+###Communications Settings
 
 ### $EJ - Enable JSON Mode on Power Up
 This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
 
-Please note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board.
+_Note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board._
 
 <pre>
-$ej=0      - Disable JSON mode on power-up and reset (e - Set Baud Ratenables text mode)
+$ej=0      - Disable JSON mode on power-up and reset
 $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
 ### $JV - Set JSON verbosity
-If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably want setting 3 or 4. You may also want to change the baud rate to 230400. 
+Sets how much information is returned in JSON mode. If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably do not full verbose mode (5). 
 <pre>
 $jv=0      - Silent   - No response is provided for any command
 $jv=1      - Footer   - Returns footer only - no command echo, gcode blocks or messages
@@ -456,31 +457,27 @@ $jv=5      - Verbose  - Returns footer, messages, config command body, and gcode
 </pre>
 
 ### $TV - Set Text mode verbosity
-We recommend using Verbose, except for very special cases.
+Sets how much information is returned in text mode. We recommend using Verbose, except for very special cases.
 <pre>
 $tv=0      - Silent - no response is provided
 $tv=1      - Verbose - returns OK and error responses
 </pre>
 
 ### $QV - Queue Report Verbosity
-Queue reports return the number of available buffers in the planner queue. The planner queue has 24 buffers and therefore can have as many as 24 Gcode blocks queued for execution. An empty queue will report 24 available buffers. A full one will report 0. 
+Queue reports return the number of available buffers in the planner queue. The planner queue has 28 buffers and therefore can have as many as 28 Gcode blocks queued for execution. An empty queue will report 28 available buffers. A full one will report 0. 
 
 Using the planner queue depth as a way to manage flow control when sending a Gcode file is actually a much better way than managing the serial input buffer. If you keep the planner full to about 2 blocks available it will run really smoothly. You also want to make sure the queue doesn't starve, say - more than 20 blocks available.
 
 Verbosity settings are:
 <pre>
-$qv=0      - Silent   - queue reports are off
-$qv=1      - Filtered - returns reports when depth changes and is above hi water mark or below low water mark
-$qv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
+$qv=0      - Silent - queue reports are off
+$qv=1      - Single - returns reports when depth changes and is above hi water mark or below low water mark
+$qv=2      - Triple - returns queue reports for every block queued to the planner buffer
 </pre>
 
-You can also get a manual queue report by sending [$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report)
+You can also get a manual queue report by sending [$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#qr---queue-report)
 
-### $QVH - Queue Report High Water Mark
-Set high-water mark for reporting. Set to 20 by default. This is a hidden setting and will not show up in $sys listings.
-
-### $QVL - Queue Report Low Water Mark
-Set low-water mark for reporting. Set to 2 by default. This is a hidden setting and will not show up in $sys listings.
+_Note: In general you don't want to fill up the buffer with more than 24 commands as some Gcode blocks can occupy multiple planner buffer slots (4 are allowed)._
 
 ### $SV - Status Report Verbosity
 Please see [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports) for a discussion of $sv and $si status report settings.
@@ -491,19 +488,16 @@ $sv=2      - Verbose  - returns all values in status reports
 </pre>
 
 ### $SI - Status Interval 
-The minimum is 50 ms. Trying to set a value below the minimum will set the minimum value. 
+The minimum is 100 ms. Trying to set a value below the minimum will set the minimum value. 
 <pre>
-$si=100    - Status interval in milliseconds
+$si=250    - Status interval in milliseconds
 </pre>
 
 ### $IC - Ignore CR or LF on RX 
-<pre>
-$ic=0      - Don't ignore CR or LF in received data
-$ic=1      - Ignore CR in received data
-$ic=2      - Ignore LF in received data
-</pre> 
+_Note: IC was removed in 0.97. Lines may be terminated with any combination of <CR>, <LF>, <CR<LF>, <LF<CR>. It doesn't matter anymore._
 
 ### $EC - Expand LF to CRLF on TX data
+If this setting is OFF returned lines have a single <LF>. If on they are terminated with <CR><LF> (2 characters).
 <pre>
 $ec=0      - off
 $ec=1      - on
@@ -565,8 +559,8 @@ $gco=6      - G59 (coordinate system 6)
 
 ###$GPA - Gcode Default Path Control
 <pre>
-$gpa=0      - G61 (exact stop mode)
-$gpa=1      - G61.1 (exact path mode)
+$gpa=0      - G61 (exact path mode)
+$gpa=1      - G61.1 (exact stop mode)
 $gpa=2      - G64 (continuous mode)
 </pre> 
 
@@ -580,7 +574,7 @@ $gdi=1      - G91 (incremental mode)
 ### $g54x - $g59c
 Coordinate system offsets are the values used by G54, G55, G56, G57, G58 and G59 commands to define the offsets from the machine (absolute) coordinate system for X,Y,Z,A,B and C. G54-G59 correspond to the Gcode coordinate systems 1-6, respectively. 
 
-By convention G54 is set to no offsets (all zeroes) so it is the same as the machine's absolute coordinate system. This is true because the G53 command "move in absolute coordinates" is only in effect for the current Gcode block. After that the dynamic model reverts to the coordinate system previously in effect. So if you want to say in absolute coordinates you need a persistent machine coordinate system, by convention G54.
+By convention G54 is often set to no offsets (all zeroes) so it is the same as the machine's absolute coordinate system. This is true because the G53 command "move in absolute coordinates" is only in effect for the current Gcode block. After that the dynamic model reverts to the coordinate system previously in effect. So if you want to say in absolute coordinates you need a persistent machine coordinate system, by convention G54.
 
 Another convention is to set G55 to your common coordinate system, we set this to be 0,0 in the middle of the table. So once you have zeroed issuing g55 g28 will set to this system and position the head in the middle of the table. (Note: this can be done on one line of gcode - it does not need to be 2 separate commands).
 
@@ -601,7 +595,7 @@ $g55b=0
 $g55c=0
 </pre> 
 
-In JSON mode you can set a coordiante system in a single command. Only those axes specified are changed. 
+In JSON mode you can set a coordinate system in a single command. Only those axes specified are changed. 
 <pre>
 {"g55"":{"x":90,"y":90,"z":"0"}}
 </pre> 
@@ -618,10 +612,10 @@ Offsets can be displayed individually
 ...or all together: 
 `$o` - returns all offsets in the system (not available in JSON)
 
-Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings which are just in the volatile Gcode model and are thus not preserved. 
+Note: the G54-G59 settings are persistent settings that are preserved between resets (i.e. in EEPROM), unlike the G92 origin offset settings and the G28 and G30 "go home" settings which are just in the volatile Gcode model and are thus not preserved. 
 
 #### G10 Operation
-Gcode provides the G10 L2 command to perform this same function. Coordinate offsets can be set from Gcode using the G10 command, e.g. G10 P2 L2 X20.000 - the P word is the coordinate system numbered 1-6, the L word =2 is according to standard, but is ignored by TinyG (for now)
+Gcode provides the G10 L2 command to perform this same coordinate system offset setting function. Coordinate offsets can be set from Gcode using the G10 command, e.g. G10 P2 L2 X20.000 - the P word is the coordinate system numbered 1-6, the L word =2 is according to standard, but is ignored by TinyG (for now)
 
 TinyG does not persist G10 settings, however. This is not in accordance with the [Gcode spec](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CEkQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.141.2441%26rep%3Drep1%26type%3Dpdf&ei=rm7UULm2F6ex0AH1sICQDA&usg=AFQjCNH72m_sRg2TycD-8cf8d40FZ6Co_g&sig2=MrjWabHA5YwPsWtrj2TtOA&bvm=bv.1355534169,d.dmQ). Any G10 settings that are provided will be used until reset, power cycle, or they are overwritten by a $g5xx command or another G10 command. 
 
@@ -637,17 +631,19 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 ### $QF - Queue Flush
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
-### $MD - Disable Motors
+### $MD - Motor De-energize
 Unpower all motors
 
-### $ME - Energize Motors
-Power all motors that have power management mode set to zero (e.g. $1pm=0)
+### $ME - Motor Energize
+Energizes all non-disabled motors. Motors will time out according to their power management a mode and timeout value.
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
 
 ### $DEFA - Reset default profile settings
-TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profles are settable at compile time by including the right .h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
+TinyG comes with a set of defaults pre-programmed to a specific machine profile. The default profile is set for a relatively slow screw machine such as the Zen Toolworks 7x12. Other default profiles are settable at compile time by including the right settings_XXXXXX.h file. If you are having trouble with your settings and want to revert to the default settings enter: `$defa=1`  
+
+***WARNING*** This will revert all settings to defaults. Do a screencap of the $$ dump if you want to refer back to the current settings
 
 ## Hidden Parameters
 These parameters are not part of any group and generally should not be changed. Serious malfunction can occur if these are not set correctly
