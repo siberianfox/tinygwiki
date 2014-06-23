@@ -221,11 +221,14 @@ Power management is used to keep the steppers on when you need them and turn the
 * 2 = Motor powered during a machining cycle (i.e. when any axis is moving)
 * 3 = Motor only powered when it is moving
 
-Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots). SOme machines need power to hold position, such as some 5 axis machines.
-
+Examples:
 <pre>
 $4pm=2         Set motor 4 to be powered when any axis is moving
+{4pm:2}        Same as above
+{4{pm:2}}      Same as above
 </pre>
+
+Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots). 
 
 Some other notes:
 
