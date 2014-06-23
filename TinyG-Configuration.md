@@ -264,8 +264,17 @@ Axis feed rates should be equal to or less than the maximum velocity. See [TinyG
 $xfr=1000       sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 </pre> 
 
-### $xTM - Travel Maximum
-Defines the maximum extent of travel in that axis. This is used during homing. See [Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for more details on how this is used.
+### $xTN / $xTM - Travel Minimum / Travel Maximum
+Defines the minimum and maximum extent of travel in that axis. This is used during homing. See [Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for more details on how this is used. These numbers may be positive or negative, but maximum should always be more positive than minimum. 
+
+To set the travel for an infinite axis (like a rotary axis) set both numbers to the same value, e.g. 
+<pre>
+$xtn = -1
+$xtm = -1
+or
+$xtn = 0
+$xtm = 0
+</pre>
 
 ### $xJM - Jerk Maximum
 Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, Probotix with 5 pitch X and Y screws and 12 pitch Z screws, and any machine with both linear and rotary axes.
