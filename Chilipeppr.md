@@ -30,7 +30,7 @@ Video walkthrough of the ChiliPeppr Hardware Fiddle - TinyG Workspace.
 * Done. You should now be able to view your newly forked workspace.
 
 Video Tutorial of Creating a Hello World Fork
-[![Screenshot](http://chilipeppr.com/img/helloworldtutorial.png)](http://youtu.be/xlOQ_6SsdUk)
+[![Screenshot](http://chilipeppr.com/img/helloworldtutorial.png)](http://youtu.be/W7G_veKyb_k)
 
 ##Offline Chilipeppr
 For those of you who want to run ChiliPeppr offline, here are some strategy ideas to achieve this. ChiliPeppr is dynamically pulling all of the widgets/elements from JSFiddle's or other code sources across the Internet. For instance, the 3D Viewer pulls roughly 10 different Javascript files from different CDN networks. To create an offline version you would have to pull down locally each Javascript file and each JSFiddle and perhaps host your own web server. You would have to scan through all of the code and repoint the Javascript files to your local server. This can be achieved, but would just require somebody to write a script that did all of the redirecting.
