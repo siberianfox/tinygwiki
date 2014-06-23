@@ -287,7 +287,7 @@ $xtm = 0
 ### $xJM - Jerk Maximum
 Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, Probotix with 5 pitch X and Y screws and 12 pitch Z screws, and any machine with both linear and rotary axes.
 
-Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the examples below 
+Jerk is in units per minutes^3, so the numbers are quite large (but see note below). Some common values are shown in *millimeters* in the examples below 
 
 <pre>
 $xjm=50,000,000          Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
@@ -301,6 +301,8 @@ The jerk term in mm is measured in mm/min^3. In inches mode it's units are inche
 25,000,000 mm/min^3      is 984,251 in/min^3 1,000,000 would suffice
 5,000,000,000 mm/min^3   is 196,850,400 in/min^3 200,000,000 would suffice
 </pre> 
+
+_Note: Jerk values that are less than 1,000,000 are assumed to be multiplied by 1 million. This keeps from having to keep track of all those zeros. For example, to enter 5 billion the value '5000' can be entered._
 
 ### $xJH - Jerk Homing
 Sets the jerk value used for homing to stop movement when switches are hit or released. In most cases the same value as $xJM is OK. However, if your $xJM is very low you may need a higher value for homing in order to prevent damage to the switches.
