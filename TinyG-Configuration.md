@@ -4,7 +4,7 @@ This page describes how configuration works in text mode from the [Command Line]
 You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.
 If you have an earlier (or later) version see below: 
 
-* [Configuration for Version 0.97](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.97)
+* [Configuration for Version 0.97](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Version-0.97)
 * [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.95) 
 * [Configuration for Version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.94) 
 
