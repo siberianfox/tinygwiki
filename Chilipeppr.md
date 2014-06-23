@@ -32,5 +32,12 @@ To DO
 * Step 3. Fork the boot Javascript by choosing "Fork Boot Javascript" from upper-most right menu in ChiliPeppr (just to the right of your login name). You must be logged in to do this step. Pick a new URL for your workspace. Modify the sample boot Javascript to point to your workspace that you created in Step 2.
 * Done. You should now be able to view your newly forked workspace.
 
+Video Tutorial of Creating a Hello World Fork
+[![Screenshot](http://chilipeppr.com/img/helloworldtutorial.png)](http://youtu.be/xlOQ_6SsdUk)
+
 ##Offline Chilipeppr
-To DO
+For those of you who want to run ChiliPeppr offline, here are some strategy ideas to achieve this. ChiliPeppr is dynamically pulling all of the widgets/elements from JSFiddle's or other code sources across the Internet. For instance, the 3D Viewer pulls roughly 10 different Javascript files from different CDN networks. To create an offline version you would have to pull down locally each Javascript file and each JSFiddle and perhaps host your own web server. You would have to scan through all of the code and repoint the Javascript files to your local server. This can be achieved, but would just require somebody to write a script that did all of the redirecting.
+
+1. You could visit ChiliPeppr.com and load the workspace and then disconnect from the Internet. As long as you never reload you should be ok. It is likely you will need to reload at some point, so this is a short-lived solution.
+2. You could setup a local proxy on your computer using Charles. http://www.charlesproxy.com/. You could then load the workspace from ChiliPeppr.com, open the developer console, and copy the HTML content of the DOM. You would have to setup a web server on your localhost and serve up that page from http://localhost. Then you'd have to watch your the Charles Proxy UI to see what URL's are being requested by your browser and where they fail. Then go retrieve that file manually and make a local copy. Then create a mapping for that file in Charles Proxy. After working through all dependencies you should be good to go.
+3. ChiliPeppr uses Require.js to load all Javascript files so you could create a remapping inside the app.js or require.js file that is used as part of ChiliPeppr. You would overload the chilipeppr.load command as well as the require.js require() method.
