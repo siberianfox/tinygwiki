@@ -380,19 +380,24 @@ These are general system-wide parameters and are part of the "sys" group.
 ####Identification Settings
 
 ### $FB - Firmware Build number
-Read-only value. Can be queried. Currently this is something above 370.02.
+Read-only value. Example `$fb=345.06`<br>
+Indicates the build of firmware and changes frequently. Please provide this number in any communication about an issue.
 
 ### $FV - Firmware Version
-Read-only value. Can be queried.
+Read-only value. Example `$fv=0.97`<br>
+Indicates the major version of the firmware; changes infrequently. Generally all settings, behaviors and other system functions will remain the same within a version - that's why this page is useful for all 0.97 versions.
 
 ### $HP - Hardware Platform
-Read-only value. Reads 1 for TinyG Xmega series, 2 for Arduino Due G2 (ARM), 3 for TinyG v9 G2 (ARM)
+Read-only value. Returns:
+* 1 = TinyG Xmega series
+* 2 for Arduino Due G2 (ARM)
+* 3 for TinyG v9 G2 (ARM)
 
 ### $HV - Hardware Version
-Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board, 8 for version 8. Used to configure switch and output ports which are somewhat different between revs. This is set to 8 by default.
+Read-write value. Used to set behaviors inside the firmware. Defaults to 8 for v8. If you have a TinyG v6 or earlier you must set this value to 6.
 
 ### $ID - Unique Board Identifier
-Read-only value. Can be queried.
+Read-only value.
 
 <br>
 ####Global System Settings
