@@ -32,8 +32,8 @@ Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,
 	--------|-------------|-------
 	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xam---axis-mode) | Axis mode | See details for setting. Normally this is =1 "normal" 
 	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xfr---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
-	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtm---travel-maximum) | Travel maximum | Used by homing to know when to give up
+	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtn--xtm---travel-minimum--travel-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
+	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtn--xtm---travel-minimum--travel-maximum) | Travel maximum | Used by homing to know when to give up
 	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
 	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
 	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjd---junction-deviation) | Junction deviation | For cornering control
