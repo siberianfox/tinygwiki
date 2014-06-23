@@ -23,6 +23,7 @@ Please come visit / join any or all of the above.
 
 ### Machine Setup, Tuning, and Specialized Uses
 * [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
+* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
@@ -37,7 +38,7 @@ Please come visit / join any or all of the above.
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
-* [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details)
