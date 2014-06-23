@@ -72,7 +72,7 @@ These are reported on the startup strings and should be included in any support 
 	--------|-------------|-------
 	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 435.05 
 	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.97
-	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware platform | Read-only value, 1=Xmega, 2=Due, 3-v9(ARM)
+	[$hp](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware platform | Read-only value, 1=Xmega, 2=Due, 3=v9(ARM)
 	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware version | Read-write value, set this to to 6 for v6 and earlier boards, 7 or 8 for v7 and v8 boards, respectively. Defaults to 8
 	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
 
