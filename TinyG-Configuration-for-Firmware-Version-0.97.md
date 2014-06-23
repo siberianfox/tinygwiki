@@ -378,8 +378,11 @@ Read-only value. Can be queried. Currently this is something above 370.02.
 ### $FV - Firmware Version
 Read-only value. Can be queried.
 
+### $HP - Hardware Platform
+Read-only value. Reads 1 for TinyG Xmega series, 2 for Arduino Due G2 (ARM), 3 for TinyG v9 G2 (ARM)
+
 ### $HV - Hardware Version
-Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board. Used to configure switch and output ports which are somewhat different between revs. This is set to v7 by default.
+Read-write value. Set to 6 for version 6 or earlier board, Set to 7 for version 7 board, 8 for version 8. Used to configure switch and output ports which are somewhat different between revs. This is set to 8 by default.
 
 ### $ID - Unique Board Identifier
 Read-only value. Can be queried.
