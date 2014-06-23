@@ -21,7 +21,7 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	[$1ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1ma---map-motor-to-axis) | Motor mapping to axis| Configures the axis to which this motor is connected (for Cartesian machines) Typically: $1ma=0, $2ma=1, $3ma=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
 	[$1sa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1sa---step-angle-for-the-motor) | Step angle | Motor parameter indicating the angle traveled per whole step. Typical setting is $1sa=1.8 for 1.8 degrees per step (200 steps per revolution)
 	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
-	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1mi---microsteps) | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
+	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1mi---microsteps) | Microsteps | Microsteps per whole step. TinyG uses 1,2,4 and 8. Other values are accepted but warned
 	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
 	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode) | Power management mode | 0=motor disabled, 1=motor always on, 2=motor on when in cycle, 3=motor on only when moving
 	[$1pl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode) | Power level (ARM only) | 0.000=no power to steppers, 1.00=max power to steppers
@@ -191,7 +191,9 @@ TinyG microsteps are set in firmware, not as hardware jumpers as on some other s
 * 4 = quarter stepping
 * 8 = eighth stepping
 
-It is a misconception that higher microstep values are better - beyond a certain point they are a detriment to performance. In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power. 
+TinyG can also drive external stepper drivers using the breakout headers. Some drivers use other values than the above, so any value is accepted. Values other than those above are warned as non-standard.
+
+_Note about Microsteps: It is a misconception that higher microstep values are better - beyond a certain point they are a detriment to performance. In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power._
 
 <pre>
 $3mi=8	        Set 1/8 microsteps for motor 3 
