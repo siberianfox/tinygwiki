@@ -1,4 +1,12 @@
-**The settings on this page are for firmware version 0.96.** If you have an earlier version see [here](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.95). You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.
+**The settings on this page are for firmware version 0.96.** <br>
+You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.<br>
+If you have an earlier (or later) version see below: 
+
+If you have an earlier version see:
+* [Configuration for Version 0.96](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.95) 
+* [Configuration for Version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-0.94) 
+
 
 This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
