@@ -27,24 +27,25 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	[$1pl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode) | Power level (ARM only) | 0.000=no power to steppers, 1.00=max power to steppers
 
 ## Axis Groups
-Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
+Settings specific to a given axis. There are 6 axis groups, X,Y,Z linear axes, and A,B,C rotary axes. Not all axes have all parameters.
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xam---axis-mode) | Axis mode | See details for setting. Normally this is =1 "normal" 
+	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xam---axis-mode) | Axis mode | Normally this is =1 "normal". See details for setting. 
 	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xfr---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
-	[$xtn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel minimum | Used by homing and soft limits 
-	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel maximum | Used by homing and soft limits 
-	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
-	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
-	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjd---junction-deviation) | Junction deviation | For cornering control
-	[$ara](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ara---radius-value) | Radius setting | Rotational axes only (ABC only)
+	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xfr---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the Gcode F word
+	[$xtn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel minimum | Minimum travel in absolute coordinates. Used by homing and soft limits 
+	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum) | Travel maximum | Maximum travel in absolute coordinates. Used by homing and soft limits 
+	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjm---jerk-maximum) | Jerk maximum | Main parameter for acceleration management (Note: takes the place of a max acceleration value)
+	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjh---jerk-homing) | Jerk Homing | Jerk used during homing operations. (found on axes XYZA only)
+	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjd---junction-deviation) | Junction deviation | Sets the theoretical radius For cornering control. Larger values yield faster cornering, but more corner jerk.
+	[$ara](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ara---radius-value) | Radius setting | An artificial radius to convert incoming linear values to degrees. Found on rotational axes (ABC) only.
 	[$xsn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
 	[$xsx](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
 	[$xsv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
 	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
-	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
+	[$xlb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Latch backoff | Maximum distance to back off switch during latch phase (drive off switch) (XYZA only)
+	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#homing-settings) | Zero backoff | Offset from switch for zero in absolute coordinates (XYZA only)
 
 ##PWM Group (Pulse Width Modulation)
 There is currently only one PWM channel (p1), but the configs are structured for multiple PWM groups. The PWM channel is set up to act as a remote control Electronic Speed Controller (ESC), but can be used for other PWM functions using these settings. 
