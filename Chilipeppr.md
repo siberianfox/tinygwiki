@@ -23,9 +23,6 @@ Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bri
 Video walkthrough of the ChiliPeppr Hardware Fiddle - TinyG Workspace.
 [![Screenshot](http://chilipeppr.com/img/vidwalkthrough.png)](http://youtu.be/mKLdgpz8gpQ)
 
-##Extending Chilipeppr
-To DO
-
 ##Forking Chilipeppr
 * Step 1. Pick a widget that you want to modify. Pick "Fork" from the upper right menu of the widget. Save your widget in JSFiddle and note the new URL.
 * Step 2. Fork the workspace by choosing "Fork" from upper right menu of the workspace title area. Modify it to point to your new forked widget from Step 1. You'll have to look around inside the code and find where the chilipeppr.load() methods are and change the URL from the old widget to the new one.
