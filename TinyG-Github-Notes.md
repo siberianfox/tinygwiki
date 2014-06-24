@@ -237,7 +237,7 @@ Promotion checklist
 <pre>
 #first make sure both dev and edge are clean (no uncommitted files)
 git checkout dev
-git merge -s ours edge
+git merge -s ours edge    (edit commit message, exit with ":x")
 git status       (just checking)
 git diff HEAD^   (should show no changes)
 
