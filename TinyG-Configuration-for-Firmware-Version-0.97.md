@@ -98,7 +98,7 @@ Set communications speeds and modes.
 	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
-	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | REMOVED ON 0.97. Not needed.
+	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | REMOVED IN 0.97. Not needed.
 	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
 	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
@@ -141,8 +141,6 @@ The following settings are accessible but do not appear in the system group list
 	[$ml](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ml--minimum-line-segment) | Minimum line length | 
 	[$ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ma---minimum-arc-segment) | Arc segment length |
 	[$ms](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
-	[$qrh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
-	[$qrl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
 <br>
 <br>
 # Settings Details
