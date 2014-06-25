@@ -98,7 +98,7 @@ Set communications speeds and modes.
 	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
 	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
-	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | REMOVED ON 0.97. Not needed.
 	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
 	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
