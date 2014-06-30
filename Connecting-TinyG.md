@@ -12,11 +12,13 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 ## Establish USB connection
 Next establish USB connection with your host computer. 
 
-1. If you do not have the FTDI VCP USB drivers for your system you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. If not, unplug TinyG and install the drivers. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
+* **Install FTDI Drivers** If you do not have the FTDI VCP USB drivers for your system you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
+
+If not, unplug TinyG and install the drivers. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
 
 **Please note: As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, there is a bug in the mac drivers that will cause a job to stall midstream. You still need to install the FTDI suppled drivers. The OSX versions are available in the /support sub-directory of the github project. FOr windows please get the latest from the FTDI page directly.**
 
-2. Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
+* **Get Coolterm** Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
  * 115,200 baud
  * 8 data bits
  * no parity
@@ -26,9 +28,9 @@ It's also useful to set the following - but not strictly necessary
  * Options/Terminal - Line Mode
  * Options/Enter Key Emulation - CR
 
-3. Hit OK to leave the Options menu 
+Hit OK to leave the Options menu
 
-3. Hit the "Connect" button. Enter a few carriage returns. TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
+* **Connect to TinyG** Hit the "Connect" button. Enter a few carriage returns. TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
 <pre>
 {"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
 {"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"SYSTEM READY","f":[1,0,0,8820]}}
@@ -40,7 +42,7 @@ For help from the command line enter 'h' for TinyG help, or '$h' for configurati
 
 **If you simply cannot connect try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI drivers that can cause this sometimes.**
 
-3. Verify you have flow control configured properly. The default flow control for TinyG is XON, which can be set by `$ex=1`. Enter `$ex` to see the setting. You must have XON flow control enabled on both the Coolterm terminal (`XON`) and on the TinyG board. RTS flow control is also available, and as with XON, both Coolterm and TinyG must be configured the same. On Coolterm this is the `CTS` setting, and is `$ex=2` on TinyG.
+* **Verify flow control** Verify you have flow control configured properly. The default flow control for TinyG is XON, which can be set by `$ex=1`. Enter `$ex` to see the setting. You must have XON flow control enabled on both the Coolterm terminal (`XON`) and on the TinyG board. RTS flow control is also available, and as with XON, both Coolterm and TinyG must be configured the same. On Coolterm this is the `CTS` setting, and is `$ex=2` on TinyG.
 
 ## Wire Your Motors
 First, turn off the power to TinyG. Never connect or disconnect anything (except possibly USB) with the power on.
