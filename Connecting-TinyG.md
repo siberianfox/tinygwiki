@@ -45,7 +45,10 @@ tinyg [mm] ok>
 * **If you simply cannot connect try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI drivers that can cause this sometimes.**
 
 ####Verify Flow Control
-* Verify you have flow control configured properly. The default flow control for TinyG is XON, which can be set by `$ex=1`. Enter `$ex` to see the setting. You must have XON flow control enabled on both the Coolterm terminal (`XON`) and on the TinyG board. 
+* Verify you have flow control configured properly. The default flow control for TinyG is XON, which uses the folliwing settings:
+ * Coolterm: `XON` checked
+ * TinyG `$ex=1`
+
 * RTS/CTS flow control is also available. Both Coolterm and TinyG must be configured the with these settings:
  * Coolterm: `CTS` checked
  * Coolterm: `DTR` checked
