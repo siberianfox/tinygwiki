@@ -8,6 +8,8 @@ If you have an earlier version see:
 * [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.95) 
 * [Configuration for Version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
 
+**Note: If you are scripting or otherwise automating settings see [Scripting Settings]()**
+
 # Summary / Cheat Sheet
 Connect to the TinyG USB at 115,200 baud.
 To see a value enter `$cmd`. To set a value enter `$cmd=value`. 
