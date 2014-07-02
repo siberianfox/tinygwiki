@@ -19,30 +19,30 @@ Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 a
 	Setting | Description | Notes
 	--------|-------------|-------
 	[$1ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#1ma---map-motor-to-axis) | Motor mapping to axis| Typically: $1ma=0, $2ma=1, $3ma=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
-	[$1sa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1sa---step-angle-for-the-motor) | Step angle | Typical setting is $1s1=1.8 for 1.8 degrees per step (200 steps per revolution)
-	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
-	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1mi---microsteps) | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
-	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
-	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#1pm---power-management-mode) | Power management mode | 0=axis remains powered when idle, 1=power shuts off when axis is not moving
+	[$1sa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#1sa---step-angle-for-the-motor) | Step angle | Typical setting is $1s1=1.8 for 1.8 degrees per step (200 steps per revolution)
+	[$1tr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
+	[$1mi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96-for-Firmware-Version-0.96#1mi---microsteps) | Microsteps | TinyG uses 1,2,4 and 8. Other values are accepted but warned
+	[$1po](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#1po---polarity) | Polarity | 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring. 
+	[$1pm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#1pm---power-management-mode) | Power management mode | 0=axis remains powered when idle, 1=power shuts off when axis is not moving
 
 ## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, one for each of X,Y,Z,A,B,C. Not all axes have all parameters.
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xam---axis-mode) | Axis mode | See details for setting. Normally this is =1 "normal" 
-	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
-	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtn--xtm---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
-	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xtn--xtm---maximum) | Travel maximum | Used by homing to know when to give up
-	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
-	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
-	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjd---junction-deviation) | Junction deviation | For cornering control
-	[$ara](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ara---radius-value) | Radius setting | Rotational axes only (ABC only)
-	[$xsn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
-	[$xsx](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
-	[$xsv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
-	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
-	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
+	[$xam](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xam---axis-mode) | Axis mode | See details for setting. Normally this is =1 "normal" 
+	[$xvm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xvm---velocity-maximum) | Velocity maximum | Max velocity for axis, aka "traverse rate" or "seek" 
+	[$xfr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xtn--xtm---feed-rate-maximum) | Feed rate maximum | Sets maximum feed rate for that axis. Does NOT set the F word
+	[$xtm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xtn--xtm---maximum) | Travel maximum | Used by homing to know when to give up
+	[$xjm](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xjm---jerk-maximum) | Jerk maximum | main parameter for acceleration management (Note: takes the place of a max acceleration value)
+	[$xjh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xjh---jerk-homing) | Jerk homing | jerk used during homing operations. On axes XYZA only
+	[$xjd](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#xjd---junction-deviation) | Junction deviation | For cornering control
+	[$ara](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ara---radius-value) | Radius setting | Rotational axes only (ABC only)
+	[$xsn](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#homing-settings) | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
+	[$xsx](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#homing-settings) | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
+	[$xsv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#homing-settings) | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
+	[$xlv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
+	[$xzb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#homing-settings) | Zero backoff | offset from switch for zero in absolute coordinate system (XYZA only)
 
 ##PWM Group (Pulse Width Modulation)
 There is currently only one PWM channel (p1), but the configs are structured for multiple PWM groups. The PWM channel is set up to act as a remote control Electronic Speed Controller (ESC), but can be used for other PWM functions using these settings. 
@@ -68,19 +68,19 @@ These are reported on the startup strings and should be included in any support 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 380.05 
-	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.96
-	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#hv---hardware-version) | Hardware version | Read-write value, set this to to 6 for v6 and earlier boards, 8 for v7 and later boards. Defaults to 8
-	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
+	[$fb](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#fb---firmware-build-number) | Firmware build | Read-only value, e.g. 380.05 
+	[$fv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#fv---firmware-version) | Firmware version | Read-only value, e.g. 0.96
+	[$hv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#hv---hardware-version) | Hardware version | Read-write value, set this to to 6 for v6 and earlier boards, 8 for v7 and later boards. Defaults to 8
+	[$id](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#id---unique-board-identifier) | Unique ID | Each board has a read-only unique ID
 
 **Global System Settings**
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$ja](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
-	[$ct](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
-	[$st](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---switch-type) | Switch type | 0=NO, 1=NC
-	[$mt](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#st---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
+	[$ja](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
+	[$ct](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
+	[$st](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#st---switch-type) | Switch type | 0=NO, 1=NC
+	[$mt](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#st---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
 
 
 **Communications Settings**
@@ -88,41 +88,41 @@ Set communications speeds and modes.
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$ej](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ej---enable-json-mode-on-power-up) | Enable JSON mode | 0=text mode, 1=JSON mode
-	[$jv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#jv---set-json-verbosity) | JSON verbosity | 0=silent ... 5=verbose (see details)
-	[$tv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
-	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
-	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
-	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
-	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
-	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
-	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
-	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
-	[$baud](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#baud---set-usb-baud-rate) | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
+	[$ej](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ej---enable-json-mode-on-power-up) | Enable JSON mode | 0=text mode, 1=JSON mode
+	[$jv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#jv---set-json-verbosity) | JSON verbosity | 0=silent ... 5=verbose (see details)
+	[$tv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
+	[$qv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
+	[$sv](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
+	[$si](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
+	[$ic](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | 0=accept CR or LF as line terminator, 1=ignore CRs, 2=ignore LFs
+	[$ec](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
+	[$ee](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
+	[$ex](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
+	[$baud](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#baud---set-usb-baud-rate) | Baud rate | 1=9600, 2=19200, 3=38400, 4=57600, 5=115200, 6=230400 -- 115200 is default
 
 **Gcode Initialization Defaults**
 Gcode settings loaded on power up, abort/reset and Program End (M2 or M30). Changing these does NOT change the current Gcode mode, only the initialization settings. 
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$gpl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gpl---gcode-default-plane-selection) | Default plane selection | 0=XY plane (G17), 1=XZ plane (G18), 2=YZ plane (G19)
-	[$gun](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gun---gcode-default-units) | Default units mode | 0=inches mode (G20), 1=mm mode (G21) 
-	[$gco](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gco---gcode-default-coordinate-system) | Default coordinate system | 1=G54, 2=G55, 3=G56, 4=G57, 5=G58, 6=G59
-	[$gpa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gpa---gcode-default-path-control) | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
-	[$gdi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#gdi---gcode-distance-mode) | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
+	[$gpl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#gpl---gcode-default-plane-selection) | Default plane selection | 0=XY plane (G17), 1=XZ plane (G18), 2=YZ plane (G19)
+	[$gun](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#gun---gcode-default-units) | Default units mode | 0=inches mode (G20), 1=mm mode (G21) 
+	[$gco](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#gco---gcode-default-coordinate-system) | Default coordinate system | 1=G54, 2=G55, 3=G56, 4=G57, 5=G58, 6=G59
+	[$gpa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#gpa---gcode-default-path-control) | Default path control mode | 0=Exact path mode (G61), 1=Exact stop mode (G61.1), 2=Continuous mode (G64)
+	[$gdi](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#gdi---gcode-distance-mode) | Default distance mode | 0=Absolute mode (G90), 1=Incremental mode (G91)
 
 ##Commands and Reports
 These $configs invoke reports and functions
 
 	Command | Description | Notes
 	--------|-------------|-------
-	[$sr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#sr---status-report) | Request status report | SR also sets status report format in JSON mode
-	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report) | Request queue report | 
-	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
-	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#md---disable-motors) | Disable motors | Unpower all motors
-	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#me---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
-	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
-	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
+	[$sr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#sr---status-report) | Request status report | SR also sets status report format in JSON mode
+	[$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qr---queue-report) | Request queue report | 
+	[$qf](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
+	[$md](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#md---disable-motors) | Disable motors | Unpower all motors
+	[$me](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#me---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
+	[$test](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
+	[$defa](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
 	$help | Show help screen | Show system help screen; $h also works
 
@@ -134,11 +134,11 @@ The following settings are accessible but do not appear in the system group list
 
 	Setting | Description | Notes
 	--------|-------------|-------
-	[$ml](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ml--minimum-line-segment) | Minimum line length | 
-	[$ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ma---minimum-arc-segment) | Arc segment length |
-	[$ms](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
-	[$qrh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
-	[$qrl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
+	[$ml](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ml--minimum-line-segment) | Minimum line length | 
+	[$ma](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ma---minimum-arc-segment) | Arc segment length |
+	[$ms](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
+	[$qrh](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qvh---queue-report-high-water-mark) | Queue report hi water mark | set between 0 and 24; default is 20
+	[$qrl](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qvl---queue-report-low-water-mark) | Queue report low water mark | set between 0 and 24; default is 2
 <br>
 <br>
 # Settings Details
@@ -447,7 +447,7 @@ $qv=1      - Filtered - returns reports when depth changes and is above hi water
 $qv=2      - Verbose  - returns queue reports for every block queued to the planner buffer
 </pre>
 
-You can also get a manual queue report by sending [$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qr---queue-report)
+You can also get a manual queue report by sending [$qr](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qr---queue-report)
 
 ### $QVH - Queue Report High Water Mark
 Set high-water mark for reporting. Set to 20 by default. This is a hidden setting and will not show up in $sys listings.
@@ -605,7 +605,7 @@ These commands cause various actions, and are not technically "settings".
 Returns a status report or set the contents of a status report (JSON only). Identical to ? command. See [Status Reports]() for details.
 
 ### $QR - Queue Report
-Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#qv---queue-report-verbosity) for details.
+Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96#qv---queue-report-verbosity) for details.
 
 ### $QF - Queue Flush
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
