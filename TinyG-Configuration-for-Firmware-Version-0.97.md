@@ -4,7 +4,7 @@ This page describes how configuration works in text mode from the [Command Line]
 The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 435.xx and later.
 
 If you have an earlier version see:
-* [Configuration for Version 0.96](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Configuration for Version 0.96](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.96)
 * [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.95) 
 * [Configuration for Version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
 
