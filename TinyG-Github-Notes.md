@@ -206,7 +206,7 @@ tinyg.eep
 </pre>
 See here for details: http://help.github.com/ignore-files/
 
-###Replacing the main branch with a Recovery Branch (Rollback - see 405.xx builds)
+###Replacing working branch with a recover branch
 Here's the scenario this is useful for:
 * You find your main branch (presumably dev) has some killer error, and it's already been pushed
 * You go back and find the last commit that worked OK by checking it out as a detached head
