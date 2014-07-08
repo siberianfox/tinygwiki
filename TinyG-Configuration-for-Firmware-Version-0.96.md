@@ -5,6 +5,7 @@ If you have a different version see below:
 * [Configuration for Version 0.97](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97)
 * [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.95) 
 * [Configuration for Version 0.94](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.94) 
+* [Configuration main page](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
 <br>
 This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
