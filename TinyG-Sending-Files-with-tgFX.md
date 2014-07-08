@@ -1,4 +1,4 @@
-
+## Sending
 To send a file in tgFX all you need to do is click "Load" button that is located in the "Gcode" tab on tgFX.
 ## Gotchas
 There are a few things to make sure before you send your file.
