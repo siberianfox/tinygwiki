@@ -1,4 +1,4 @@
-**The settings on this page are for firmware version 0.96.** <br>
+**The settings on this page are for firmware version 0.96.** 
 You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.
 If you have an earlier (or later) version see below: 
 
