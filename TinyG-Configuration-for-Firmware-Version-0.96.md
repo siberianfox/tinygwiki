@@ -1,6 +1,6 @@
 **The settings on this page are for firmware version 0.96.** 
 You can find out the firmware version by entering $fv or by looking at the console output when you hit reset.
-If you have an earlier (or later) version see below: 
+If you have a different version see below: 
 
 * [Configuration for Version 0.97](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97)
 * [Configuration for Version 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.95) 
