@@ -1,5 +1,5 @@
 ## Sending
-To send a file in tgFX all you need to do is click "Load" button that is located in the "Gcode" tab on tgFX.
+To send a file in tgFX all you need to do is click "Load" button that is located in the "Gcode" tab on tgFX.  Once you have loaded a valid gcode file, to run it click the "Run" button located on the "Gcode" tab as well.
 ## Gotchas
 There are a few things to make sure before you send your file.
 * Make sure your toolhead is homed (or placed where you think it should be) and your axis are zeroed.
