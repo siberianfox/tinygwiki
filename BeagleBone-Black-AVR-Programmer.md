@@ -81,3 +81,18 @@ To get bison working (maybe):
 Then you can make:
 
     make
+
+
+## Manually calling avrdude
+
+If you wish to just call `avrdude` directly, you can use the following command line:
+
+```bash
+export TINYG=path_to_tinyg.hex
+export XBOOT=path_to_xboot.hex
+avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:${TINYG} -U boot:w:${XBOOT} -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m
+```
+
+**WARNING**: This assumes the fuses are the same as shown. Double check them!
+
+This also assumes you're using an AVR ISP MkII. Adjust the `-c avrisp2` as appropriate.
