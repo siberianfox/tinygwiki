@@ -39,7 +39,7 @@ Please come visit / join any or all of the above.
 
 ### Reference Pages
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [Gcode Support](https://github.com/synthetos/TinyG/wiki/Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
 * [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details)
 * [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
