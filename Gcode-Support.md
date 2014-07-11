@@ -1,4 +1,4 @@
-**NOTE: This page describes Gcode supported by TinyG in release 0.95 and later**
+**NOTE: This page describes Gcode supported by TinyG in firmware versions 0.95 and later**
 
 See also:
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/Feedhold-and-Resume)
@@ -76,11 +76,17 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 #Gcode Reference
 Some of the more complicated commands are described here. Much of this is shamelessly cribbed from the [LinuxCNC Gcode pages](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
+##G10 Set Parameters (Offsets)
+Currently the only G10 command supported is G10 L2, which is used to set coordinate offsets. Use Pn to select coordiante system 1-6 (G54 - G59, respectively), and one or more axis value to set the offset for that axis. The format is:
+<pre>
+G10 L2 P1 X0 Y0 Z0 A0 B0 C0  - set G54 offsets to zero, making G54 act as persistent absolute coordinates
+</pre>
+
 ##G28, G28.1, G30, G30.1 Go To Predefined Position
 G28 (and G30) will move the machine to the absolute coordinates set in G28.1 (G30.1), optionally through an intermediate point.  Movement will occur at the traverse rate (G0 rate). Axes that are not specified are ignored (not moved). The axis value is the intermediate point for that axis. 
 
 Format is:
-<pre>G28 X0 Y0 Z0 A0 B0 C0</pre> 
+<pre>G28 X0 Y0 Z0 A0 B0 C0</pre>
 
 	Gcode | Parameters | Command | Description
 	------|------------|---------|-------------
@@ -92,7 +98,7 @@ Format is:
 Example of use: 
 * Go to an arbitrary position, e.g. G0 x100 y100 
 * Send G28.1  - This will "remember" the absolute position. This position remains constant regardless of what coordinate system is in effect. 
-* Then go to a gifferent place, e.g. G0 x50 y50
+* Then go to a different place, e.g. G0 x50 y50
 * Send G28  - The machine will return to x100 y100
 
 Example:
