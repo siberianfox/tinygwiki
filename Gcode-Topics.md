@@ -13,8 +13,8 @@ TinyG supports the following coordinate systems, offsets and positioning command
 * G92 - Temporary offsets (G92.1, G92.2, G92.3, G92.4)
 * G28.1 - Saves the absolute position and G28 returns to the saved position
 * G30.1 - Saves the absolute position and G30 returns to the saved position
-* G28.2 - Set absolute coordinates using Homing cycle
-* G28.3 - Set absolute coordinates using command
+* G28.2 - Set absolute coordinates using homing cycle
+* G28.3 - Set absolute coordinates using axis words in the gcode command
 * G38.2 - Probe position
 
 ###Absolute Coordinate System
