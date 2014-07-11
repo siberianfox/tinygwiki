@@ -1,4 +1,4 @@
-**NOTE: This page describes Gcode supported in release 0.95 and later**
+**NOTE: This page describes Gcode supported by TinyG in release 0.95 and later**
 
 See also:
 * [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
