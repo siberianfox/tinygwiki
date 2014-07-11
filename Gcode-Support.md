@@ -18,7 +18,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G4 | P | Dwell | Pause for P seconds
-	G10 L2 | _axes_, P | Set offset parameters | P selects coordinate system 1-6
+	[G10 L2](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g10-set-parameters-offsets) | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane | G17, G18 and G19 set the plan in which the G2/G3 arcs are drawn
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
