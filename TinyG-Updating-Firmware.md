@@ -32,7 +32,7 @@ To update the TinyG firmware run avrdude from a directory that has the tinyg.hex
 * https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
 * https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
 * https://github.com/arduino/Arduino/tree/master/build/windows
-* You can also find Avrdude in the Arduino download, version 1.5.7. Avrdude is buried in the latest Arduino package, version 1.5.7. Unzip the app and right click to show package contents (these are OSX instructions, other platforms may be different). You can find Avrdude in Contents/Resources/Java/hardware/tools/avr/bin/avrdude<br>
+* You can also find Avrdude in the Arduino application download. Avrdude is buried in the latest Arduino package, version 1.5.7. Unzip the app and right click to show package contents (these are OSX instructions, other platforms may be different). You can find Avrdude in Contents/Resources/Java/hardware/tools/avr/bin/avrdude<br>
 
 ####**Step0**
 Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here: [Synthetos Download Page](http://synthetos.github.io/)
