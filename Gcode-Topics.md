@@ -19,7 +19,7 @@ TinyG supports the following coordinate systems, offsets and positioning command
 * G38.2 - Probe for a position
 
 ###Absolute Coordinate System
-The coordinate systems and their offsets can be viewed in layers. The bottom layer is the **absolute** coordinate system aka **machine** coordinate system. This is always the G53 coordinate system, and can be selected by including G53 on the Gcode line. G53 is non-modal, meaning that it only applies to the line it's present on.
+The coordinate systems and their offsets can be viewed in layers. The bottom layer is the **absolute** coordinate system aka **machine** coordinate system. This is always the G53 coordinate system, and can be selected by including G53 on the Gcode line. G53 is non-modal, meaning that it only applies to the line where it is present.
 
 The absolute coordinate system can be set a few different ways. The G28.2 homing operation runs a homing cycle for the axes specified, at the end of which the absolute coordinate system will be (or is supposed to be) referenced to the homing switches. G28.2 is not an official Gcode - it's just something we implemented in TinyG.
 
