@@ -15,7 +15,7 @@ TinyG supports the following coordinate systems, offsets and positioning command
 * G30.1 - Saves the absolute position and G30 returns to the saved position
 * G28.2 - Set absolute coordinates using homing cycle
 * G28.3 - Set absolute coordinates using axis words in the gcode command
-* G38.2 - Probe position
+* G38.2 - Probe for a position
 
 ###Absolute Coordinate System
 The coordinate systems and their offsets can be viewed in layers. The bottom layer is the **absolute** coordinate system aka **machine** coordinate system. This is always the G53 coordinate system, and can be selected by including G53 on the Gcode line. G53 is non-modal, meaning that it only applies to the line it's present on.
