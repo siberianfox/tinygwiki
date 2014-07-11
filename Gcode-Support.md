@@ -1,7 +1,7 @@
 **NOTE: This page describes Gcode supported by TinyG in release 0.95 and later**
 
 See also:
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
+* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/Feedhold-and-Resume)
 * [Homing and Limits](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation)
 
 TinyG implements the NIST RS274v3/ngc dialect of Gcode. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications:
@@ -24,12 +24,12 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G19 | | Select YZ plane |
 	G20 | | Select inches units mode |
 	G21 | | Select mm units mode |
-	[G28](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
-	[G28.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
+	[G28](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
+	[G28.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
 	[G28.2](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#g282---homing-sequence-homing-cycle) | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
 	[G28.3](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#g283---set-absolute-position) | _axes_ | Set Absolute Position | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
-	[G30](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
-	[G30.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G30 | The current machine position is recorded (No parameters are provided)
+	[G30](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
+	[G30.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G30 | The current machine position is recorded (No parameters are provided)
 	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
 	G54 | | Select coord system 1 | G54 is typically used as the "normal" coordinate system and reflects the machine position
 	G55 | | Select coord system 2 |
@@ -37,9 +37,9 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G57 | | Select coord system 4 |
 	G58 | | Select coord system 5 |
 	G59 | | Select coord system 6 |
-	[G61](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
-	[G61.1](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
-	[G64](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
+	[G61](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
+	[G61.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
+	[G64](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
@@ -54,8 +54,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|-----------|--------|-------------
 	M0 | | Program stop |
 	M1 | | Program stop | Optional program stop switch is not implemented so M1 is equivalent to M0
-	[M2](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#m2-m30-program-end) | | Program end |
-	[M30](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#m2-m30-program-end) | | Program end |
+	[M2](https://github.com/synthetos/TinyG/wiki/Gcode-Support#m2-m30-program-end) | | Program end |
+	[M30](https://github.com/synthetos/TinyG/wiki/Gcode-Support#m2-m30-program-end) | | Program end |
 	M60 | | Program stop |
 	M3 | S | Spindle on - CW | S is speed in RPM
 	M4 | S | Spindle on - CCW | S is speed in RPM
@@ -68,8 +68,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
  	Other | Parameter |Command | Description
 	------|-----------|--------|-------------
 	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
-	[()](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | [gcode comment](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
-	[;](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. This is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
+	[()](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | [comment](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | [gcode comment](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
+	[;](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. This is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
 
 
@@ -100,7 +100,7 @@ Example:
 * Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
 ##G61, G61.1, G64 Path Control Modes
-TinyG supports exact stop mode (G61) and exact path mode (G61.1). G64 is recognized, but is treated as exact path mode. In exact stop mode motion will stop between each Gcode block. In exact path mode the exact path is followed (i.e. corners are not rounded). The velocity at the points joining 2 blocks is controlled to keep the change in direction between the blocks within centripetal acceleration limit set by $JA. Please see [here](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#xjd---junction-deviation) for an explanation.
+TinyG supports exact stop mode (G61) and exact path mode (G61.1). G64 is recognized, but is treated as exact path mode. In exact stop mode motion will stop between each Gcode block. In exact path mode the exact path is followed (i.e. corners are not rounded). The velocity at the points joining 2 blocks is controlled to keep the change in direction between the blocks within centripetal acceleration limit set by $JA. Please see [here](https://github.com/synthetos/TinyG/wiki/Configuration#xjd---junction-deviation) for an explanation.
 
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
