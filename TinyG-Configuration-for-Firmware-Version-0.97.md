@@ -532,7 +532,8 @@ $baud=6     - 230400
 </pre>
 
 ####Gcode Default Parameters
-These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up.
+These parameters set the values for the Gcode model on power-up or reset. They do not affect the current gcode dynamic model. <br>
+For example, entering $gun=0 will not change the system to inches mode, but it will cause it to initialize in inches mode during reset or power-up. A G21 received in the Gcode stream will then change the units to MM mode. On reset or restart they will change back to the $gun setting 
 
 These are also part of the "sys" group.
 
