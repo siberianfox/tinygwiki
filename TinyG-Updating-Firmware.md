@@ -28,7 +28,7 @@ The second method is using an AVR Programmer (such as an AVRISP MKII programmer)
 
 <a id="updating"></a>
 ###Updating TinyG With avrdude
-To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.<br>
+To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. You can find Avrdude in the Arduino download, version 1.5.7. <br>
 
 ####**Step0**
 Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here: [Synthetos Download Page](http://synthetos.github.io/)
