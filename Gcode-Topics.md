@@ -23,7 +23,7 @@ The coordinate systems and their offsets can be viewed in layers. The bottom lay
 
 The absolute coordinate system can be set a few different ways. The G28.2 homing operation runs a homing cycle for the axes specified, at the end of which the absolute coordinate system will be (or is supposed to be) referenced to the homing switches. G28.2 is not an official Gcode - it's just something we implemented in TinyG.
 
-G28.3 also sets absolute coordinates, but without running a homing cycle. It sets the axis or axes specified to the axis words provided. This is useful for infinite axes and special cases. For example, a particular cardboard cutter has a pair of pinch rollers to feed cardboard in and out on the Y axis. Asking the user to insert the cardboard then press a button can send G28.3 Y0 to set the Y axis to zero at the edge of the cardboard. G28.3 is another TinyG-only code.
+G28.3 also sets absolute coordinates, but without running a homing cycle. It sets the axis or axes specified to the axis words provided. This is useful for infinite axes and other special cases. For example, a particular cardboard cutter has a pair of pinch rollers to feed cardboard in and out on the Y axis. Asking the user to insert the cardboard then press a button can send G28.3 Y0 to set the Y axis to zero at the edge of the cardboard. G28.3 is another TinyG-only code.
 
 G28 and G30 also use absolute coordinates, as explained later.
 
