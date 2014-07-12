@@ -52,7 +52,7 @@ These steps need to be done at the start of each test run
 
 ![Coolterm-terminal](https://farm4.staticflickr.com/3924/14448727147_292950c987_o_d.jpg)
 
-* Open up a command line terminal window (term on OSX, or Command on Win) and navigate to your Avrdude directory
+* Open up a command line terminal window (e.g. Terminal on OSX, Command on Win) and navigate to your Avrdude directory.
 
 #Per-Board Instructions
 * With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs.
