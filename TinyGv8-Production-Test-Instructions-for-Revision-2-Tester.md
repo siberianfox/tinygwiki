@@ -9,13 +9,13 @@ The following shorthand is used in these instructions:
 	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
 	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
-
+#Initial Setup
 **Host Details**
 The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). 
 
 Setup steps are:
 * Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
-* Set up a directory for programming. Youw will need everything that's [here]()
+* Set up a directory for programming. Youw will need everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa)
 and BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
 * The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut. 
