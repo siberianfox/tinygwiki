@@ -14,6 +14,11 @@ Wire the button between GND and P8-14, with a pullup resistor to 3v3 (pins P8 3 
 
 
 ### Avrdude
+Here are a few places to find Avrdude for different platforms.
+* https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
+* https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
+* https://github.com/arduino/Arduino/tree/master/build/windows
+* You can also find Avrdude in the Arduino application download. Avrdude is buried in the latest Arduino package, version 1.5.7. Unzip the app and right click to show package contents (these are OSX instructions, other platforms may be different). You can find Avrdude in Contents/Resources/Java/hardware/tools/avr/bin/avrdude<br>
 
 Run these command in a terminal _from your Mac_ (Note that this assumed Dropbox is running and synced):
 
