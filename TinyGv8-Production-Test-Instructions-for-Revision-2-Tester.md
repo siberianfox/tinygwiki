@@ -71,8 +71,6 @@ These steps need to be done at the start of each test run
 
   You should see something like this:
 <pre>
-macintosh-3:BoardTester alden$ avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m
-
 avrdude: AVR device initialized and ready to accept instructions
 avrdude: Device signature = 0x1e9744
 avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
