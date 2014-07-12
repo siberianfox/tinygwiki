@@ -1,7 +1,7 @@
 **This page discusses coordinate systems which can be source of endless confusion**
 
 ##Coordinate Systems and Offsets
-TinyG supports the following coordinate systems, offsets and positioning commands that are all related:
+TinyG supports these coordinate, offsets and positioning commands that are all related:
 
 * G10 L2 - Set coordinate offsets 
 * G53 - Absolute coordinate system (aka machine coordinate system)
