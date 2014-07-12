@@ -44,7 +44,7 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 These steps need to be done at the start of each test run
 
 * Turn on the host computer and start Coolterm
-* Select the `OPTIONS` dialog and set up the Serial and Terminal windows as shown. You don't have a board plugged in yet so you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
+* Select the `OPTIONS` dialog and set up the Serial Port and Terminal windows as shown. You don't have a board plugged in yet so you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
 
 ![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
 
