@@ -45,7 +45,9 @@ These steps need to be done at the start of each test run
 
 * Turn on the host computer and start Coolterm
 * Select the `OPTIONS` dialog and set up the Serial and Terminal windows as below. If you don't have a board plugged in yet you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
+
 ![Coolterm-serial](https://farm6.staticflickr.com/5564/14631893761_69be22d2dc_o_d.jpg)
+
 ![Coolterm-terminal](https://farm4.staticflickr.com/3924/14448727147_292950c987_o_d.jpg)
 
 * Open up a command line terminal window (term on OSX, or Command on Win) and navigate to your Avrdude directory
