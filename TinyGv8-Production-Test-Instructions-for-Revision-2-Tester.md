@@ -4,14 +4,19 @@ The following shorthand is used in these instructions:
 	Term | Description
 	-----|--------------
 	DUT | Device Under Test. They TinyGv8 board that is being programmed and tested
-	BBB | Beaglebone Black. The single-board computer located on the left of the test rig. See details below
-	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
+	HOST | Tester's host computer used to program the board and start the tests via USB
+	AVRISP | The blue Atmel programmer. It has a USB connector and a programming header
 	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
-	DUT POWER | The switch that supplies power to the DUT is located on the right hand side of the test rig
+	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
 
-**BeagleBone Black (BBB) Details**
-* The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
+**Host Details**
+The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). 
+
+Setup steps are:
+* Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
+* Set up a directory for programming. Youw will need everything that's [here]()
+and BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
 * The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut. 
 * When the BB is reset it takes 30 - 40 seconds to boot and become available. During this time the 4 indicator lights blink. When reset is complete the right-most indicator light should be ON and the other three OFF.
