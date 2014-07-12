@@ -15,7 +15,11 @@ The host computer can be a Mac OSX machine, Linux or a Windows machine. Instruct
 
 Setup steps are:
 * Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
-* Set up a directory for programming. Youw will need everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa)
+* Set up a directory for programming. Youw will need everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa). The Avrdud in the directory is for mac. Other platforms can be found here:
+ * https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
+ * https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
+ * https://github.com/arduino/Arduino/tree/master/build/windows
+
 and BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
 * The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut. 
