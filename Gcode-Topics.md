@@ -36,12 +36,16 @@ Another common practice is to set one of the coordinate systems to the middle of
 
 Another use of coordinate offsets is to locate the tool position in Z. If you do a G38.2 probe (see later) the resulting position can be used to set an offset in Z that locates the probe position at 0, all without messing with the absolute coordinate system.
 
-G10 offsets are persistent, that is they are saved to EEPROM once the machining cycle is done. SO you can set them up once and use them for multiple jobs.
+G10 offsets are persistent, that is they are saved to EEPROM once the machining cycle is done. So you can set them up once and use them for multiple jobs.
 
 ##Offsets to the Offsets (G92)
-G92 provides **temporary** offsets that can be applied on top of the coordinate system offsets. So now we are 3 layers deep. 
+G92 provides **temporary** offsets that can be applied on top of the coordinate system offsets. So now we are 3 layers deep. G92 sets temporary offsets similarly to the way G28.3 works. It sets the current position to some value you provide. If you want the current position to be seen as 0,0,0, then issue `G92 X0 Y0 Z0`. But instead of changing absolute coordinates it just computes the offsets on to of the currently active coordinate system. G92.1 un-does the offsets and returns you to the value in the current coordinate system. If you change the coordinate system the offsets remain the same and the position you set in the G92 will shift by the difference between the 2 systems (confused yet? Try programming this.)
 
-(UGH - Got to take a break!!!)
+G92 offsets are temporary. They are not saved to EEPROM, and they are forgotten when you do a cycle end (M2 or M30)
+
+###G28/G30 Go To Position
+Now that the offsets are clear as mud, let's discuss G28 and G30. These are actually quite simple. 
+
 
 
 https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position
