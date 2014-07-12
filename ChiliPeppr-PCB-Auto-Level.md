@@ -4,8 +4,9 @@ You can now auto-level PCBs using your TinyG inside the ChiliPeppr Hardware Fidd
 
 ### Video Tutorial
 
-This video is roughly 20 minutes and walks you through the entire probing process from start to finish.
+This video walks you through the entire probing process from start to finish.
 
+<div><a href="http://youtu.be/6WNE3E1ZZYY"><img src="http://chilipeppr.com/img/autolevel-youtube.png" alt="Screenshot" width="400"/></a></div>
 
 ### How To
 
