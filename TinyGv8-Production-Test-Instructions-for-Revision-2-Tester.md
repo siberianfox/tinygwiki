@@ -66,7 +66,7 @@ These steps need to be done at the start of each test run
 ![Board-jumper](https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg)
 
 * Turn on bench supply power. 
-* Verify that the blue power LED is lit (POWER VERIFICATION)
+* Verify that the blue power LED is lit (VERIFIED 3.3v POWER)
 * Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file of from here: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
   You should see something like this:
@@ -146,10 +146,34 @@ avrdude: 1 bytes of fuse5 verified
 avrdude done.  Thank you.
 </pre>
 
+* At this point the red PWM LED should light, perhaps somewhat dimly, as it's PWMing. (VERIFIED PROGRAMMING)
+* Press the RESET button and verify that the SpDIR flashes about 12 times (VERIFIED BOOT LOADER)
+* Connect Coolterm to the board. In the `Options` / `Serial Port` dialog box hit `Re-Scan Serial Ports`. Select the one that looks like `usbserial-DA00xxxx` on OSX, or a new COM-xx port on Windows. (Note: THere is a bug on Windows that prevents the com port from incrementing past 255. We have a fix for that. Ask us if you need it).
+* Connect to the board using the `Connect` button. 
+![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
+* You should be able to enter in one or more ?'s and see something like the below. The TinyG firmware takes about 4 seconds to start up, so it will be unresponsive until then.
 
+<pre>
+X position:          0.000 mm
+Y position:          0.000 mm
+Z position:          0.000 mm
+A position:          0.000 deg
+Feed rate:           0.000 mm/min
+Velocity:            0.000 mm/min
+Units:               G21 - millimeter mode
+Coordinate system:   G54 - coordinate system 1
+Distance mode:       G90 - absolute distance mode
+Feed rate mode:      G94 - units-per-minute mode (i.e. feedrate mode)
+Motion mode:         G80 - cancel motion mode (none active)
+Machine state:       Ready
+tinyg [mm] ok> 
+</pre>
 
-
-
+[Optionally] If you hit reset and wait for the boot loader to end (blinking lights) You might also see this:
+<pre>
+{"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"Initializing configs to default settings"},"f":[1,15,0,3266]}
+{"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"SYSTEM READY"},"f":[1,0,0,7259]}
+</pre>
 ## Program and Test Instructions Using Laptop Based Tester
 
 
