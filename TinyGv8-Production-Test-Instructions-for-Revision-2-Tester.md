@@ -22,9 +22,11 @@ The host computer can be a Mac OSX machine, Linux or a Windows machine. Instruct
 ##Test Rig Setup
 The test rig should look something like this:
 
-<large picture>
-<close up picture>
 ![Tester](http://farm6.staticflickr.com/5329/9458736352_65e87354f9_b_d.jpg)
+
+![Tester-wide](https://www.dropbox.com/s/yuid7lj6g3iibnf/tester-wide.jpg)
+
+![Tester-close](https://www.dropbox.com/s/zrd4a8omtz46ljk/tester-close.jpg)
 
 Test kit includes:
 * Tester board with 14 pogo pins
@@ -40,7 +42,18 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 * Connect the bench supply and the motors to the tester.
 * Verify that the pogo pins are all at the same starting level and have about 1/4" of good travel
 
+#Prep for a Test Run
+These steps need to be done at the start of each test run
+
+* Turn on the host computer and start Coolterm
+
+
+
+
+
 ## Program and Test Instructions Using Laptop Based Tester
+
+
 ### Setup Test Rig 
 
 These steps only need to be completed once at the start of a test run. 
