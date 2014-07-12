@@ -10,18 +10,30 @@ The following shorthand is used in these instructions:
 	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
 #Initial Setup
-##Setup Host
+##Host Setup
 The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). Setup steps are:
 * Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
 * Set up a directory for programming. Copy in everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa). The Avrdude in the directory is for OSX. Other platforms can be found here:
  * https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
  * https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
  * https://github.com/arduino/Arduino/tree/master/build/windows
+* The tinyg.hex file in the directory is the current release. If you need a different hex file replace this one.
 
-and BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
-* The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
-* The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut. 
-* When the BB is reset it takes 30 - 40 seconds to boot and become available. During this time the 4 indicator lights blink. When reset is complete the right-most indicator light should be ON and the other three OFF.
+##Test Rig Setup
+The test rig should look something like this:
+
+<large picture>
+<close up picture>
+
+Test kit includes:
+* Tester board with 14 pogo pins
+* 4 NEMA23 motors
+* Atmel AVRISP MkII programmer (blue thing)
+* 2 USB cables - one for the AVRISP and 1 for the UUT
+* MPJA 9631PS bench power supply
+* Extra pogo pins and hold-down standoffs
+
+The large bench supply, oscilloscope and the Ultimaker in the picture are not part of the tester kit.
 
 ## Program and Test Instructions Using Laptop Based Tester
 ### Setup Test Rig 
