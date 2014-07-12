@@ -143,10 +143,7 @@ avrdude: input file 0xEB contains 1 bytes
 avrdude: reading on-chip fuse5 data:
 avrdude: verifying ...
 avrdude: 1 bytes of fuse5 verified
-
 avrdude done.  Thank you.
-
-macintosh-3:BoardTester alden$ 
 </pre>
 
 
