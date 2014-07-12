@@ -26,14 +26,6 @@ The test rig should look something like this:
 
 ![Tester-close](https://farm6.staticflickr.com/5570/14631839291_2021285168_o_d.jpg)
 
-![Tester-with-board](https://farm4.staticflickr.com/3855/14654991973_2ace1fbd3d_o_d.jpg)
-![Board-pots](https://farm3.staticflickr.com/2933/14631844071_55065a3316_o_d.jpg)
-![Board-jumper](https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg)
-![Coolterm-serial](https://farm6.staticflickr.com/5564/14631893761_69be22d2dc_o_d.jpg)
-![Coolterm-terminal](https://farm4.staticflickr.com/3924/14448727147_292950c987_o_d.jpg)
-![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
-
-
 Test kit includes:
 * Tester board with 14 pogo pins
 * 4 NEMA23 motors
@@ -52,7 +44,26 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 These steps need to be done at the start of each test run
 
 * Turn on the host computer and start Coolterm
-![Coolterm-serial](https://www.dropbox.com/s/lekex053svumy8k/Screenshot%202014-07-12%2009.55.50.png)
+* Select the `OPTIONS` dialog and set up the Serial and Terminal windows as below. If you don't have a board plugged in yet you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
+![Coolterm-serial](https://farm6.staticflickr.com/5564/14631893761_69be22d2dc_o_d.jpg)
+![Coolterm-terminal](https://farm4.staticflickr.com/3924/14448727147_292950c987_o_d.jpg)
+
+* Open up a command line terminal window (term on OSX, or Command on Win) and navigate to your Avrdude directory
+
+#Per-Board Instructions
+* With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs.
+* Plug in the programmer (blue thing) and the USB port to the board
+![Tester-with-board](https://farm4.staticflickr.com/3855/14654991973_2ace1fbd3d_o_d.jpg)
+
+* Verify that the potentiometers are in the 50% position:
+![Board-pots](https://farm3.staticflickr.com/2933/14631844071_55065a3316_o_d.jpg)
+
+* Place a jumper on the +12v position on J12 
+![Board-jumper](https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg)
+
+* Go to the Coolterm 
+![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
+
 
 
 
