@@ -24,9 +24,17 @@ The test rig should look something like this:
 
 ![Tester](http://farm6.staticflickr.com/5329/9458736352_65e87354f9_b_d.jpg)
 
-![Tester-wide](https://farm4.staticflickr.com/3925/14612068816_2627c8f5ec_k_d.jpg)
+![Tester-wide](https://farm4.staticflickr.com/3859/14634630352_4098b8a3e6_o_d.jpg)
 
-![Tester-close](https://www.dropbox.com/s/zrd4a8omtz46ljk/tester-close.jpg)
+![Tester-close](https://farm6.staticflickr.com/5570/14631839291_2021285168_o_d.jpg)
+
+https://farm4.staticflickr.com/3855/14654991973_2ace1fbd3d_o_d.jpg
+https://farm3.staticflickr.com/2933/14631844071_55065a3316_o_d.jpg
+https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg
+https://farm6.staticflickr.com/5564/14631893761_69be22d2dc_o_d.jpg
+https://farm4.staticflickr.com/3924/14448727147_292950c987_o_d.jpg
+https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg
+
 
 Test kit includes:
 * Tester board with 14 pogo pins
