@@ -43,7 +43,11 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 #Prep for a Test Run
 These steps need to be done at the start of each test run
 
-* Turn on the host computer and start Coolterm
+* Boot the host computer
+* Connect the AVRISP (blue thing) and the USB cable for the TinyG board to the host USB ports
+  * Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB 
+
+* Start Coolterm
 * Select the `OPTIONS` dialog and set up the Serial Port and Terminal windows as shown. You don't have a board plugged in yet so you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
 
 ![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
@@ -55,6 +59,7 @@ These steps need to be done at the start of each test run
 * Open up a command line terminal window (e.g. Terminal on OSX, Command on Win) and navigate to your Avrdude directory.
 
 #Per-Board Instructions
+##Mount and Prep Board
 * With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs.
 * Plug in the programmer (blue thing) and the USB port to the board
 ![Tester-with-board](https://farm4.staticflickr.com/3855/14654991973_2ace1fbd3d_o_d.jpg)
@@ -67,6 +72,8 @@ These steps need to be done at the start of each test run
 
 * Turn on bench supply power. 
 * Verify that the blue power LED is lit (VERIFIED 3.3v POWER)
+
+##Program the Board
 * Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file of from here: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
   You should see something like this:
@@ -148,6 +155,8 @@ avrdude done.  Thank you.
 
 * At this point the red PWM LED should light, perhaps somewhat dimly, as it's PWMing. (VERIFIED PROGRAMMING)
 * Press the RESET button and verify that the SpDIR flashes about 12 times (VERIFIED BOOT LOADER)
+
+##Connect to Board
 * Connect Coolterm to the board. In the `Options` / `Serial Port` dialog box hit `Re-Scan Serial Ports`. Select the one that looks like `usbserial-DA00xxxx` on OSX, or a new COM-xx port on Windows. (Note: THere is a bug on Windows that prevents the com port from incrementing past 255. We have a fix for that. Ask us if you need it).
 * Connect to the board using the `Connect` button. 
 ![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
@@ -169,28 +178,23 @@ Machine state:       Ready
 tinyg [mm] ok> 
 </pre>
 
-[Optionally] If you hit reset and wait for the boot loader to end (blinking lights) You might also see this:
+[Optionally] If you hit reset and wait for the boot loader to end (blinking lights) You should see the startup strings below. Also, if you re-program the board with AVRdude once the USB has already been initialized with the host you would also see the startup strings.
 <pre>
 {"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"Initializing configs to default settings"},"f":[1,15,0,3266]}
 {"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"SYSTEM READY"},"f":[1,0,0,7259]}
 </pre>
-## Program and Test Instructions Using Laptop Based Tester
+
+##Run Board Tests
 
 
-### Setup Test Rig 
-
-These steps only need to be completed once at the start of a test run. 
 
 
 * **SETUP STEP 1** Inspect the test rig and verify against the picture above
- 1. Verify there is one BBB board on the test rig
- 1. Verify there is one TESTER board with 18 serrated head pogo pins loaded into the pogo sockets
- 1. Verify there is an Atmel AVRISP programmer plugged into the USB jack in the rear of the BBB
  1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the DUT to the tester
 * **SETUP STEP 2** Turn off DUT POWER using switch on right side of test jig and connect the AC power cord
 * **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side. The blue PWR LED next to the barrel connector should be lit.
 * **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. After a brief pause the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
- 1. Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB and the AVRISP.
+and the AVRISP.
 * **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
  1. Turn on laptop power using the power button at the top left 
