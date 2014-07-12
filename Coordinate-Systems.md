@@ -1,4 +1,4 @@
-**This page discusses some of the parts of Gcode that we have seen cause confusion. Please feel free to add topics if you are confused.**
+**This page discusses coordinate systems which can be source of endless confusion**
 
 ##Coordinate Systems and Offsets
 TinyG supports the following coordinate systems, offsets and positioning commands that are all related. More detail later, but here they are:
@@ -44,8 +44,10 @@ G92 provides **temporary** offsets that can be applied on top of the coordinate 
 G92 offsets are temporary. They are not saved to EEPROM, and they are forgotten when you do a cycle end (M2 or M30)
 
 ###G28/G30 Go To Position
-Now that the offsets are clear as mud, let's discuss G28 and G30. These are actually quite simple. 
+Now that the offsets are clear as mud, let's discuss G28 and G30. These are actually quite simple. G30 is just another G28, so for this discussion we'll just talk about G28. G30 works identically.
 
+To 'save' a position just send `G28.1`. This saves the current position in absolute coordinates - regardless of the coordinate system the machine is in and the state of the G92 offsets. When you want to return to that position send `G28`. 
 
+If you send axis words along with the G28, say `G28 Z10` the tool will move to the intermediate position first, then move to the saved position. This is useful for clearing the work before moving. G28 is a good choice for tool changes and things like that.
 
-https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position
+See also: https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position
