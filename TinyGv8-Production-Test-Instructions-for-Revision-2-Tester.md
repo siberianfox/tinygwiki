@@ -10,10 +10,8 @@ The following shorthand is used in these instructions:
 	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
 #Initial Setup
-**Host Details**
-The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). 
-
-Setup steps are:
+##Setup Host
+The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). Setup steps are:
 * Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
 * Set up a directory for programming. Copy in everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa). The Avrdude in the directory is for OSX. Other platforms can be found here:
  * https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
