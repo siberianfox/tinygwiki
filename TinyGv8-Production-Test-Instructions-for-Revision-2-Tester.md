@@ -65,10 +65,91 @@ These steps need to be done at the start of each test run
 * Place a jumper on the +12v position on J12 
 ![Board-jumper](https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg)
 
-* Go to the Coolterm 
-![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
+* Turn on bench supply power. 
+* Verify that the blue power LED is lit (POWER VERIFICATION)
+* Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file of from here: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
+  You should see something like this:
+<pre>
+macintosh-3:BoardTester alden$ avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m
 
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e9744
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "tinyg.hex"
+avrdude: input file tinyg.hex auto detected as Intel Hex
+avrdude: writing flash (117856 bytes):
+avrdude: 117856 bytes of flash written
+avrdude: verifying flash memory against tinyg.hex:
+avrdude: load data flash data from input file tinyg.hex:
+avrdude: input file tinyg.hex auto detected as Intel Hex
+avrdude: input file tinyg.hex contains 117856 bytes
+avrdude: reading on-chip flash data:
+avrdude: verifying ...
+avrdude: 117856 bytes of flash verified
+avrdude: reading input file "xboot-boot.hex"
+avrdude: input file xboot-boot.hex auto detected as Intel Hex
+avrdude: writing boot (4496 bytes):
+avrdude: 4496 bytes of boot written
+avrdude: verifying boot memory against xboot-boot.hex:
+avrdude: load data boot data from input file xboot-boot.hex:
+avrdude: input file xboot-boot.hex auto detected as Intel Hex
+avrdude: input file xboot-boot.hex contains 4496 bytes
+avrdude: reading on-chip boot data:
+avrdude: verifying ...
+avrdude: 4496 bytes of boot verified
+avrdude: reading input file "0xFF"
+avrdude: writing fuse0 (1 bytes):
+avrdude: 1 bytes of fuse0 written
+avrdude: verifying fuse0 memory against 0xFF:
+avrdude: load data fuse0 data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip fuse0 data:
+avrdude: verifying ...
+avrdude: 1 bytes of fuse0 verified
+avrdude: reading input file "0x00"
+avrdude: writing fuse1 (1 bytes):
+avrdude: 1 bytes of fuse1 written
+avrdude: verifying fuse1 memory against 0x00:
+avrdude: load data fuse1 data from input file 0x00:
+avrdude: input file 0x00 contains 1 bytes
+avrdude: reading on-chip fuse1 data:
+avrdude: verifying ...
+avrdude: 1 bytes of fuse1 verified
+avrdude: reading input file "0xBE"
+avrdude: writing fuse2 (1 bytes):
+avrdude: 1 bytes of fuse2 written
+avrdude: verifying fuse2 memory against 0xBE:
+avrdude: load data fuse2 data from input file 0xBE:
+avrdude: input file 0xBE contains 1 bytes
+avrdude: reading on-chip fuse2 data:
+avrdude: verifying ...
+avrdude: 1 bytes of fuse2 verified
+avrdude: reading input file "0xFE"
+avrdude: writing fuse4 (1 bytes):
+avrdude: 1 bytes of fuse4 written
+avrdude: verifying fuse4 memory against 0xFE:
+avrdude: load data fuse4 data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip fuse4 data:
+avrdude: verifying ...
+avrdude: 1 bytes of fuse4 verified
+avrdude: reading input file "0xEB"
+avrdude: writing fuse5 (1 bytes):
+avrdude: 1 bytes of fuse5 written
+avrdude: verifying fuse5 memory against 0xEB:
+avrdude: load data fuse5 data from input file 0xEB:
+avrdude: input file 0xEB contains 1 bytes
+avrdude: reading on-chip fuse5 data:
+avrdude: verifying ...
+avrdude: 1 bytes of fuse5 verified
+
+avrdude done.  Thank you.
+
+macintosh-3:BoardTester alden$ 
+</pre>
 
 
 
