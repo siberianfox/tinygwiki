@@ -46,6 +46,8 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 These steps need to be done at the start of each test run
 
 * Turn on the host computer and start Coolterm
+![Coolterm-serial](https://www.dropbox.com/s/lekex053svumy8k/Screenshot%202014-07-12%2009.55.50.png)
+
 
 
 
