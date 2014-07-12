@@ -24,7 +24,7 @@ The test rig should look something like this:
 
 ![Tester](http://farm6.staticflickr.com/5329/9458736352_65e87354f9_b_d.jpg)
 
-![Tester-wide](https://www.dropbox.com/s/yuid7lj6g3iibnf/tester-wide.jpg)
+![Tester-wide](https://www.flickr.com/photos/rileyporter/14181586880/in/photostream/)
 
 ![Tester-close](https://www.dropbox.com/s/zrd4a8omtz46ljk/tester-close.jpg)
 
