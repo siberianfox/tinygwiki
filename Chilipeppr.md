@@ -14,14 +14,17 @@ Chilipeppr represents a modern way to do CNC software control for the [TinyG](ht
 All open source. Have fun.
 
 ## Getting Started
-The first thing you need to get chilipeppr working with TinyG is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can also use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network, however we will cover that in the [Advanced Chilipeppr Usage](https://github.com/synthetos/TinyG/wiki/Chilipeppr---Advanced-Usage) of this document.  Currently, there are Windows, OSX, Raspberrypi and BBB versions of this agent available for download here.  Once you have downloaded and ran [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on.
+The first thing you need to get ChiliPeppr working with TinyG is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network or via your localhost.  Currently, there are Windows, OSX, Linux, Raspberry Pi and BeagleBone Black versions of this server available for download inside ChiliPeppr.  Once you have downloaded and launched [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on.
 
-## Loading chilipeppr
-Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bring up the official TinyG workspace for the chilipeppr interface.
+## Loading ChiliPeppr
+Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bring up the official TinyG workspace for the ChiliPeppr interface.
 
 ##Sending Files
 Video walkthrough of the ChiliPeppr Hardware Fiddle - TinyG Workspace.
 [![Screenshot](http://chilipeppr.com/img/vidwalkthrough.png)](http://youtu.be/mKLdgpz8gpQ)
+
+##Issues Tracking
+https://github.com/chilipeppr/tinyg There is a Github project that is available for tracking issues. Please open a ticket here if you find a bug.
 
 ##Forking Chilipeppr
 * Step 1. Pick a widget that you want to modify. Pick "Fork" from the upper right menu of the widget. Save your widget in JSFiddle and note the new URL.
