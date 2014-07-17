@@ -9,6 +9,8 @@ The following shorthand is used in these instructions:
 	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
 	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
+Verification steps are marked as [VERIFIED xxxxxx] for the step
+
 #Initial Setup
 ##Host Setup
 The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). Setup steps are:
