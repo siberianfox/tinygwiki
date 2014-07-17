@@ -43,10 +43,13 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 #Prep for a Test Run
 These steps need to be done at the start of each test run
 
+* Turn off the bench supply.
+* Inspect the test rig and verify against the picture above
+ 1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the UUT to the tester
+* With power off, align motor flags so they all point vertically - i.e. the 12:00 position. 
 * Boot the host computer
 * Connect the AVRISP (blue thing) and the USB cable for the TinyG board to the host USB ports
   * Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB 
-
 * Start Coolterm
 * Select the `OPTIONS` dialog and set up the Serial Port and Terminal windows as shown. You don't have a board plugged in yet so you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
 
@@ -191,19 +194,6 @@ tinyg [mm] ok>
 In Coolterm:
 * Enter `$test=1` to start the on-board tests
 
-
-
-* **SETUP STEP 1** Inspect the test rig and verify against the picture above
- 1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the DUT to the tester
-* **SETUP STEP 2** Turn off DUT POWER using switch on right side of test jig and connect the AC power cord
-* **SETUP STEP 3** Plug in 5v wall unit and apply power to BBB board via the barrel jack located on the front, right side. The blue PWR LED next to the barrel connector should be lit.
-* **SETUP STEP 4** Hit reset on the BBB. Reset will take 30-40 seconds to complete. After a brief pause the 4 indicator lights should flash. Reset is complete when the right-most blue indicator LED (of the 4) is lit and the other three are not lit.
-and the AVRISP.
-* **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
-* **SETUP STEP 6** Setup the laptop for testing using these steps:
- 1. Turn on laptop power using the power button at the top left 
- 1. Once the computer has booted (Windows started) click on the CoolTerm icon to start CoolTerm. Ignore the warning that there are no serial ports. There will be once you connect a DUT to the USB (later). Click OK to ignore (Perhaps twice).
- 1. Connect a USB cable to the laptop (not the DUT, yet)
 
 Setup is now complete. CoolTerm will be used for every DUT tested.
 
