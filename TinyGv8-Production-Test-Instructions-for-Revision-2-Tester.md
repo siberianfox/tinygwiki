@@ -234,6 +234,6 @@ In Coolterm:
  1. Unscrew the 2 hex standoffs
  1. Remove the UUT
 
-You can now go back to [[Per Board Instructions]] for the next board.
+You can now go back to the [per board instructions](#per-board-instructions) for the next board.
 
 (https://github.com/synthetos/TinyG/wiki/TinyGv8-Production-Test-Instructions-for-Revision-2-Tester#per-board-instructions 1 for the next board.
