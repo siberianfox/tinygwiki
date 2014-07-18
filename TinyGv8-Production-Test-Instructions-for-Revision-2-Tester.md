@@ -90,7 +90,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 1. Enter ? to verify connection **[VERIFIED USB CONNECTION]**
 1. Press reset to verify flasshing bot loader and startup strings **[VERIFIED BOOT LOADER]**
 
-**[Run Board Functional Tests](#run-board-functional-tests)
+**[Run Board Functional Tests](#run-board-functional-tests)**
 
 1. Enter `$test=1`
 1. Confirm LED pattern **[VERIFIED OUTPUTS]**
