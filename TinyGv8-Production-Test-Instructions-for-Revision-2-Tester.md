@@ -77,24 +77,24 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 1. Plug in programmer and USB cable
 1. Check pots for 50%
 1. Place fan jumper on 12v position
-1. Turn on bench supply and verify blue LED [**VERIFIED 3.3v POWER**]
+1. Turn on bench supply and verify blue LED **[VERIFIED 3.3v POWER]**
 
 **[Program Board](#program-the-board)**
 
-1. Cut and paster into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
-1. Look for red PWM LED to be dimly lit [**VERIFIED PROGRAMMING**]
+1. Cut and paste into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
+1. Look for red PWM LED to be dimly lit **[VERIFIED PROGRAMMING]**
 
 **[Connect to Board](#connect-to-board)**
 
 1. Coolterm sequence: `Disconnect`, `Options`, `Re-Scan Serial Ports`, `OK`, `Connect`
-1. Enter ? to verify connection [**VERIFIED USB CONNECTION**]
-1. Press reset to verify flasshing bot loader and startup strings [** VERIFIED BOOT LOADER**]
+1. Enter ? to verify connection **[VERIFIED USB CONNECTION]**
+1. Press reset to verify flasshing bot loader and startup strings **[VERIFIED BOOT LOADER]**
 
 **[Run Board Functional Tests](#run-board-functional-tests)
 
 1. Enter `$test=1`
-1. Confirm LED pattern [**VERIFIED OUTPUTS**]
-1. Confirm motor movement and current levels [**VERIFIED MOTOR DRIVERS**]
+1. Confirm LED pattern **[VERIFIED OUTPUTS]**
+1. Confirm motor movement and current levels **[VERIFIED MOTOR DRIVERS]**
 1. Turn off bench power and wait for blue LED to turn off before removing board
 
 ##Mount and Prep Board
@@ -230,7 +230,7 @@ tinyg [mm] ok>
 {"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"SYSTEM READY"},"f":[1,0,0,7259]}
 </pre>
 
-**[VERIFIED BOOT LOADER PRESENT]**
+**[VERIFIED BOOT LOADER]**
 
 ##Run Board Functional Tests
 
