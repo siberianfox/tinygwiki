@@ -68,7 +68,7 @@ These steps need to be done at the start of each test run
 **[VERIFIED PREP]**
 
 #Per-Board Instructions
-Per-board tests should take about 1 2 minutes minute to complete.
+Per-board tests should take about 1 to 2 minutes minute to complete.
 
 ##Mount and Prep Board
 * With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs as pictured.
