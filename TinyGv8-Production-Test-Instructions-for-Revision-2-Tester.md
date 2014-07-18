@@ -237,3 +237,9 @@ In Coolterm:
 You can now go back to the [per board instructions](#per-board-instructions) for the next board.
 
 # Per Board Summary
+
+###[VERIFIED 3.3V POWER](#mount-and-prep-board)
+
+	VERIFIED | Description
+	-----|--------------
+	3.3v POWER | * Turn offUnit Under Test. They TinyGv8 board that is being programmed and tested
