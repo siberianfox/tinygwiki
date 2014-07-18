@@ -72,6 +72,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 
 ## Per Board Summary
 **[Mount and Prep Board](#mount-and-prep-board)**
+
 1. With power off, mount board on tester
 1. Plug in programmer and USB cable
 1. Check pots for 50%
@@ -79,15 +80,18 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 1. Turn on bench supply and verify blue LED [**VERIFIED 3.3v POWER**]
 
 **[Program Board](#program-the-board)**
+
 1. Cut and paster into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 1. Look for red PWM LED to be dimly lit [**VERIFIED PROGRAMMING**]
 
 **[Connect to Board](#connect-to-board)**
+
 1. Coolterm sequence: `Disconnect`, `Options`, `Re-Scan Serial Ports`, `OK`, `Connect`
 1. Enter ? to verify connection [**VERIFIED USB CONNECTION**]
 1. Press reset to verify flasshing bot loader and startup strings [** VERIFIED BOOT LOADER**]
 
 **[Run Board Functional Tests](#run-board-functional-tests)
+
 1. Enter `$test=1`
 1. Confirm LED pattern [**VERIFIED OUTPUTS**]
 1. Confirm motor movement and current levels [**VERIFIED MOTOR DRIVERS**]
