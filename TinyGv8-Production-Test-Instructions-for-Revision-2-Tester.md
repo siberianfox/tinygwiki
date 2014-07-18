@@ -70,6 +70,14 @@ These steps need to be done at the start of each test run
 #Per-Board Instructions
 Per-board tests should take about 1 to 2 minutes minute to complete.
 
+## Per Board Summary
+####[VERIFIED 3.3V POWER](#mount-and-prep-board)
+1. With power off, mount board on tester
+1. Plug in programmer and USB cable
+1. Check pots for 50%
+1. Place fan jumper on 12v position
+1. Turn on bench supply and verify blue LED
+
 ##Mount and Prep Board
 * With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs as pictured.
 * Plug in the programmer (blue thing) and the USB port to the board
@@ -235,11 +243,3 @@ In Coolterm:
  1. Remove the UUT
 
 You can now go back to the [per board instructions](#per-board-instructions) for the next board.
-
-# Per Board Summary
-
-###[VERIFIED 3.3V POWER](#mount-and-prep-board)
-
-	VERIFIED | Description
-	-----|--------------
-	3.3v POWER | * Turn offUnit Under Test. They TinyGv8 board that is being programmed and tested
