@@ -236,4 +236,4 @@ In Coolterm:
 
 You can now go back to the [per board instructions](#per-board-instructions) for the next board.
 
-(https://github.com/synthetos/TinyG/wiki/TinyGv8-Production-Test-Instructions-for-Revision-2-Tester#per-board-instructions 1 for the next board.
+# Per Board Summary
