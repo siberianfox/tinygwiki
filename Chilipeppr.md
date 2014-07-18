@@ -14,7 +14,9 @@ Chilipeppr represents a modern way to do CNC software control for the [TinyG](ht
 All open source. Have fun.
 
 ## Getting Started
-The first thing you need to get ChiliPeppr working with TinyG is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network or via your localhost.  Currently, there are Windows, OSX, Linux, Raspberry Pi and BeagleBone Black versions of this server available for download inside ChiliPeppr.  Once you have downloaded and launched [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on.
+The first thing you need to get ChiliPeppr working with TinyG is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network or via your localhost.  Currently, there are Windows, OSX, Linux, Raspberry Pi and BeagleBone Black versions of this server available for download inside ChiliPeppr.  Once you have downloaded and launched [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on. 
+
+_FYI: Here's a tutorial to get Go installed on a mac:_ http://www.cyberciti.biz/faq/installing-go-programming-language-on-mac-os-x/
 
 ## Loading ChiliPeppr
 Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bring up the official TinyG workspace for the ChiliPeppr interface.
