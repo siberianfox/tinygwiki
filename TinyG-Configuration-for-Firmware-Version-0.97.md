@@ -59,13 +59,13 @@ There is currently only one PWM channel (p1), but the configs are structured for
 	$p1frq | Frequency | in Hz, e.g. 100
 	$p1csl | Clockwise speed low | In RPM - arbitrary units unless you calibrate it, e.g. 1000
 	$p1csh | Clockwise speed high | In RPM
-	$p1cpl | Clockwise phase low | 0 to 1, e.g. 0.125 for 12.5% phase angle
-	$p1cph | Clockwise phase high | 0 to 1
+	$p1cpl | Clockwise phase low | 0.000 to 1.000, e.g. 0.125 for 12.5% phase angle
+	$p1cph | Clockwise phase high | 0.000 to 1.000
 	$p1wsl | Counter clockwise speed low | In RPM 
 	$p1wsh | Counter clockwise speed high | In RPM
-	$p1wpl | Counter clockwise phase low | 0 to 1
-	$p1wph | Counter clockwise phase high | 0 to 1
-	$p1pof | Phase off | 0 to 1
+	$p1wpl | Counter clockwise phase low | 0.000 to 1.000
+	$p1wph | Counter clockwise phase high | 0.000 to 1.000
+	$p1pof | Phase off | 0.000 to 1.000 used to set OFF phase for PWM devices that are not off at 0 phase
 
 ## System Group
 The system group contains the following global machine and communication settings. The system group can be listed by requesting `$sys`  or {"sys":""} in JSON mode
