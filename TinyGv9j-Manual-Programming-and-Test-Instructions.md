@@ -35,7 +35,7 @@ READ the Device. It should return a device signature and read about 3.3v
 Hit the MEMORIES tab to get the programming dialog
 ![memories](https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg)
 
-Program the chip. First you must select the tinyg2.elf file you wish to program onto the chip. Then hit PROGRAM.
+Program the chip. First you must select the tinyg2.elf file you wish to program onto the chip. Then hit PROGRAM. Programming and verification takes about 20-30 seconds. 
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
 Set the boot fuse. Select GPNVM Bits. Select boot from Flash, Bank 0<br>
