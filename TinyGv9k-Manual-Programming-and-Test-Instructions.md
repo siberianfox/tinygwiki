@@ -58,10 +58,26 @@ Connect to the board.
 Confirm startup string. You should see something like this in the terminal window
 ![startup string](https://farm3.staticflickr.com/2899/14770612536_398eb602f0_b.jpg)
 
-Enter The following Gcode sequence and look for proper motor movement. You can use the Coolterm Send String command under the Connection menu to run this command multiple times or for subsequent boards. It will persist if you expose the send-string window and then just click on the window when you need it again.
+Enter The following Gcode sequence and look for proper motor movement. 
+<pre>
+G0 X20
+Y20
+Z20
+A20
+X0
+Y0
+Z0
+A0
+G1 F200 X4
+Y4
+Z4
+A4
+X0 Y0 Z0 A0
+</pre>
+You can use the Coolterm Send String command under the Connection menu to run this command multiple times or for subsequent boards. It will persist if you expose the send-string window and then just click on the window when you need it again.
 ![gcode](https://farm4.staticflickr.com/3871/14607094947_a11a866053_b.jpg)
 
-## The NExt Board
+## The Next Board
 The instructions above were for the first board. Here's what's different for subsequent boards.
 
 ###Programming the Next Board
