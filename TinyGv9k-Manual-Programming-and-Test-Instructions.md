@@ -6,3 +6,13 @@ The assembled board should be set up with the following:
 
 ![setup](https://farm4.staticflickr.com/3910/14770638616_fa3c1c8794_b.jpg)
 ![power](https://farm4.staticflickr.com/3902/14791273484_149bdaa802_b.jpg)
+
+The Atmel-ICE should be plugged into the SAM port
+![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
+
+The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
+![jtag-connector](https://farm3.staticflickr.com/2927/14607120307_1fdab4157f_b.jpg)
+
+The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected.
+![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
+ 
