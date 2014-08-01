@@ -28,3 +28,11 @@ Select /Tools/Device Programming
 
 Select the Atmel ICE. Select the device to be ATSAM3X8C. Select SWD programming mode. Hit APPLY.
 ![setup-programming](https://farm6.staticflickr.com/5596/14793276122_775356456f_b.jpg)
+
+Read the Device
+https://farm4.staticflickr.com/3853/14790490561_3c5e88d333_b.jpg
+
+Hit Memories tab
+https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg
+
+Hit Program
