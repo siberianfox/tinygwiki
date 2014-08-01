@@ -38,5 +38,5 @@ Hit the MEMORIES tab to get the programming dialog
 Program the chip. First you must select the tinyg2.elf file you wish to program onto the chip. Then hit PROGRAM.
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
-Set the boot fuse. Select Fuses. Select boot from Flash, Bank 0
+Set the boot fuse. Select GPNVM Bits. Select boot from Flash, Bank 0
 _I don't have a picture for this yet and I'm going from memory, so I may not have this exactly right. You do not want the chip to boot from ROM, and you want bank 0, not 1._
