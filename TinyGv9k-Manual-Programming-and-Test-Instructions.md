@@ -26,5 +26,5 @@ Start Atmel Studio 6.2
 Select /Tools/Device Programming 
 ![device-programming](https://farm4.staticflickr.com/3902/14606994178_5385b2c3fe_b.jpg)
 
-Select the Atmel ICE. Select the device to be SAM3X8C. Select SWD programming mode. 
-![setup-programming]9https://farm3.staticflickr.com/2929/14770626866_23a4f0dc13_b.jpg)
+Select the Atmel ICE. Select the device to be SAM3X8C. Select SWD programming mode. Hit APPLY.
+![setup-programming](https://farm3.staticflickr.com/2929/14770626866_23a4f0dc13_b.jpg)
