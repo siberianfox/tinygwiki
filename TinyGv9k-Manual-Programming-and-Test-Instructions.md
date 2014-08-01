@@ -1,7 +1,7 @@
 ##Setup
 The assembled board should be set up with the following:
 * Atmel-ICE programmer
-* Bench power supply - set to 24volts, current limit about 1.5 amps
+* Bench power supply - set to 24volts, current limit about 1.5 amps - OBSERVE POLARITY WHEN CONNECTING TO BOARD
 * Four stepper motors
 * USB connected to host computer
 
@@ -17,6 +17,14 @@ The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug 
 The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected.
 ![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
 
+The blue power light should light when the power supply is turned on.
+
 ##Programming
 Start Atmel Studio 6.2
 ![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
+
+Select /Tools/Device Programming 
+![device-programming](https://farm4.staticflickr.com/3902/14606994178_5385b2c3fe_b.jpg)
+
+Select the Atmel ICE. Select the device to be SAM3X8C. Select SWD programming mode. 
+![setup-programming]9https://farm3.staticflickr.com/2929/14770626866_23a4f0dc13_b.jpg)
