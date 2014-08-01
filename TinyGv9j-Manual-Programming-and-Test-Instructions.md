@@ -1,7 +1,7 @@
 ##Setup
 The assembled board should be set up with the following:
 * Atmel-ICE programmer
-* Bench power supply - set to 24volts, current limit about 1.5 amps - OBSERVE POLARITY WHEN CONNECTING TO BOARD
+* Bench power supply - set to 24volts, current limit about 1.5 amps<br>**OBSERVE POLARITY WHEN CONNECTING TO BOARD**
 * Four stepper motors
 * USB connected to host computer
 
