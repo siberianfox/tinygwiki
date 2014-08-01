@@ -1,3 +1,4 @@
+##Setup
 The assembled board should be set up with the following:
 * Atmel-ICE programmer
 * Bench power supply - set to 24volts, current limit about 1.5 amps
@@ -15,4 +16,7 @@ The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug 
 
 The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected.
 ![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
- 
+
+##Programming
+Start Atmel Studio 6.2
+![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
