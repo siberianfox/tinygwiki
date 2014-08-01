@@ -87,4 +87,4 @@ The instructions above were for the first board. Here's what's different for sub
 * You should be able to just re-open the Studio6 programming dialog. Most values will be the same, but you still have to APPLY the programmer, READ the chip, select MEMORIES, PROGRAM the chip, and then exit.
 
 ###Testing the Next Board
-* The previous board is probably still connected - at least in Coolterm's mind. When you plug in the next board you can probably skip the whole OPTIONS dialog as the next board will also come up as usbmodem001. You will need to hit the DISCONNECT button and CONNECT again to establish connection with the new board
+* The previous board is probably still connected - at least in Coolterm's mind. You will need to hit the DISCONNECT button and CONNECT again to establish connection with the new board. You can probably skip the whole OPTIONS dialog as the next board will also come up as usbmodem001. If the board does not connect go back to the options dialog, rescan, and look for the new board in the USB choices.
