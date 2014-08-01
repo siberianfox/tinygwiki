@@ -75,7 +75,9 @@ A4
 X0 Y0 Z0 A0
 
 </pre>
-You can use the Coolterm Send String command under the Connection menu to run this command multiple times or for subsequent boards. It will persist if you expose the send-string window and then just click on the window when you need it again. The final move must be terminated with a carriage return or it won't run.
+The final move must be terminated with a carriage return or it won't run.<br><br>
+You can use the Coolterm Send String command under the Connection menu to run this command multiple times or for subsequent boards. (On the mac the Connection menu item is at the top of the screen, not on the Coolterm window itself)<br><br>
+The string you type into the dialog box will persist if you move the send-string window so you can get at it later, and then just click on the window when you need it again.
 ![gcode](https://farm4.staticflickr.com/3871/14607094947_a11a866053_b.jpg)
 
 ## The Next Board
