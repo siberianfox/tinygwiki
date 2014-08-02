@@ -22,9 +22,9 @@ Please come visit / join any or all of the above.
 * [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
 
 ### Machine Setup, Tuning, and Specialized Uses
-* [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
-* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning), and [Configuration Reference](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* [Initial Setup](Initial-Setup)
+* [Configuring TinyG](TinyG-Configuration)
+* [TinyG Tuning](TinyG-Tuning)
 * [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
 * [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
 * [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
@@ -38,7 +38,7 @@ Please come visit / join any or all of the above.
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
-* [TinyG Topics](TinyG-Topics) - This is a link page for various discussions addressing specific areas
+* [TinyG Topics - link page for various discussions addressing specific areas](TinyG-Topics)
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
