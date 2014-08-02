@@ -41,7 +41,8 @@ Program the chip. First you must select the tinyg2.elf file you wish to program 
 Set the boot fuse. Select GPNVM Bits. Select boot from Flash, Bank 0<br>
 _I don't have a picture for this yet and I'm going from memory, so I may not have this exactly right. You do not want the chip to boot from ROM, and you want bank 0, not 1._<br>
 
-Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.
+Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
+**Verify programming is OK - the red TX LED should cycle at about 1 Hz.**
 
 ##Test the Motors
 Gentlemen, start your Coolterm.
