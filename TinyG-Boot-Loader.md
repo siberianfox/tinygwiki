@@ -3,7 +3,7 @@ _Huge thanks to Kevin Osborn who got this working_
 **Topics:**
 * [How Do I Know if I Have the Bootloader?](#how-do-i-know-if-i-have-the-bootloader)
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
-* [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
+* [Flashing the Boot Loader onto the Xmega Chip](#flashing-the-boot-loader-onto-the-xmega-chip)
 * [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 * [Programming TinyG with the Atmel AVRISP Mkii Programmer](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-avrisp)
 
