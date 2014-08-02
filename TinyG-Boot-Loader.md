@@ -6,8 +6,8 @@ _Huge thanks to Kevin Osborn who got the bootloader working_
 
 **If you are on this page because you want to program or modify the boot loader itself follow these links**
 * [Flashing the Boot Loader onto the Xmega Chip](#flashing-the-boot-loader-onto-the-xmega-chip)
-* [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
-* [Programming TinyG with the Atmel AVRISP Mkii Programmer](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-avrisp)
+* [Compiling the Boot Loader for TinyG](#compiling-the-boot-loader-for-tinyg)
+* [Setting up Xboot as an AVRStudio4 Project](#setting-up-xboot-as-an-avrstudio4-project)
 
 **If you have no idea why you are on this page follow this link**
 * http://vimeo.com/82393638
