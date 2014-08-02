@@ -5,7 +5,19 @@ Basically:
 * G20 will cause all gcode from this point onwards to be interpreted in inches
 * G21 will cause all gcode from this point onwards to be interpreted in millimeters
 
-The current units mode setting is referred to as the 'prevailing units mode'.
+The current units mode setting is referred to as the 'prevailing units mode'.<br>
+The units mode affects all the following:
+* XYZ axis positions in gcode programs. ABC are in degrees regardless of unit mode.
+* Feed rate in gcode programs (F words)
+* Status reports returned by gcode execution
+* The following motor settings
+  * Travel per revolution {1tr:...}
+* The following axis settings
+  *
+* The following system settings
+  * Junction acceleration {ja:...}
+  * Chordal tolerance {ct:...}
+
 
 The prevailing units mode will remain in effect until:
 * It is changed by another G20 or G21 command
