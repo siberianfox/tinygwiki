@@ -9,7 +9,7 @@ The current units mode setting is referred to as the 'prevailing units mode'.
 
 The prevailing units mode will remain in effect until:
 * It is changed by another G20 or G21 command
-* An M2 or M30 Program END is hit. At this point it will revert to the Default units ($gun)
+* An M2 or M30 Program END is hit. At this point it will revert to the Default units ($gun). Note that a Program STOP (M0, M1) does not change the units mode.
 
 ###$GUN, {gun:_} - Set Default Units Mode
 The GUN setting sets the default (starting) units mode on power-on or reset. Gun does not change the units mode on the board if it is changed. It only affects the mode during power on or reset. 
