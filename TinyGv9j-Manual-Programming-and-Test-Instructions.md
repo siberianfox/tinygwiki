@@ -44,9 +44,11 @@ _I don't have a picture for this yet and I'm going from memory, so I may not hav
 Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.
 
 ##Test the motors
-Start Coolterm.
+Start the Coolterm.
 
-Select the Options menu. Re-Scan the ports. You should see a port labeled usbmodem001. Select it. Don't worry about baud rates or other settings. These are handled natively by USB, which should connect at 12 Mbps. If you see something like usbmodem12123 then check the GPNVM bits and make sure the chip is booting from Flash, Bank 0.
+Select the Options menu. Re-Scan the ports. You should see a port labeled usbmodem001. Select it. Don't worry about baud rates or other settings. These are handled natively by USB, which should connect at 12 Mbps. If you see something like usbmodemfa12121 then try the following:
+* Power cycle the board down and rescan. Please note this condition in testing notes for this board.
+* If that doesn't work check the GPNVM bits and make sure the chip is booting from Flash, Bank 0.
 ![rescan-ports](https://farm3.staticflickr.com/2919/14606961019_465d4811c4_b.jpg)
 
 Select the Transmit window. It's convenient to set to LINE mode and CR 
