@@ -32,7 +32,7 @@ Please come visit / join any or all of the above.
 
 ### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
-* [Firmware Download Pages](http://synthetos.github.io/)
+* [Firmware Download Page](http://synthetos.github.io/)
 
 ### Reference Pages
 * [Gcode Supported by TInyG](Gcode-Support)
