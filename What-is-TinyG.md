@@ -19,15 +19,17 @@ We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode spe
 
 ## Additional CNC features
 * Feedhold and cycle start with full planning (pause and resume motion) 
-* Homing cycle 
-* Low-power idle mode 
-* Status reports for DRO style readouts 
+* Homing cycle
+* Probing
+* Jogging support
+* Various stepper motor power management modes 
+* Real-time status reports for DRO style readouts
 * Independent, per-axis control of jerk, maximum seek and feed rate and other parameters to enable fine tuning a wide variety of machine types 
 * Axis/motor mapping to support dual gantry and other configurations (e.g. XYYZ, XYZA, XYZC...) 
 * Non-cartesian inverse kinematics are supported at the C code level
 
 ## Programming support
-TinyG codebase is written in commented C, open source (GPL), and was orginally forked from grbl. A special thank you to Simen Svale Skogsrud and Sonny Jeon for making grbl available and continuing the good work 
+TinyG codebase is written in commented C, open source (GPLv2 with some exceptions that loosen that up a bit), and was originally forked from grbl. A special thank you to Simen Svale Skogsrud and Sonny Jeon for making grbl available and continuing the good work.
 
 * Code is written in well commented C. Complies under avrGCC in AVR Studio4, AtmelStudio6 and native AVRGCC environments
 * Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos/tinyg)
