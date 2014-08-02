@@ -13,7 +13,7 @@ The TinyG project is a multi-axis motion control system. It is designed for CNC 
 TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications Refs:<br>
 [Kramer's NIST RS274NGCv3 Gcode Specification](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf)<br>
 [LinuxCNC Gcode Specification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
-See [TinyG Gcode Support](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support) for more details 
+See [TinyG Gcode Support](Gcode-Support) for more details 
 
 * G0 Rapid linear motion (traverse)
 * G1 Linear motion at feed rate
