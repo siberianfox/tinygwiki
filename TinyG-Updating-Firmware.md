@@ -1,5 +1,6 @@
 This page explains what you need to know about the process of updating your TinyG firmware.  It provides the links to the firmware files as well as the differences between code branches.  Lastly, it will explain the updating procedure and how to perform this procedure.  However, if you are experiencing something different than anything below we urge you to open a thread on the [TinyG Support Forum](https://www.synthetos.com/forums/tinyg/tinyg-support/) for additional assistance.
 
+###Downloading TinyG Firmware
 For downloads of the binaries (hex files), see [Synthetos Download Page](http://synthetos.github.io/)
 
 ###TinyG Firmware Explained
