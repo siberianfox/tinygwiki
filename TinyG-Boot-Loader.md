@@ -22,8 +22,7 @@ You can also manually enter the bootloader from the application:
 * Issuing a boot command: $boot=1 or {"boot":1} will enter the boot loader and cause it to remain in the boot loader for 60 seconds before reverting to the application.
 
 
-If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing) if you want do do this yourself. You can also return your board to us and we'll do it. Contact us if you want us to put the bootloader onto your board.
-
+If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](#flashing-the-boot-loader-onto-the-xmega-chip) if you want do do this yourself. You can also return your board to us and we'll do it. Contact us if you want us to put the bootloader onto your board.
 
 ##Advanced Topics
 ### Flashing the Boot Loader onto the Xmega Chip
