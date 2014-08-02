@@ -11,11 +11,9 @@ The units mode affects all the following:
 * XYZ axis positions in gcode programs. ABC are in degrees regardless of unit mode.
 * Feed rate in gcode programs (F words)
 * Status reports returned by gcode execution
-* The following motor settings
-  * Travel per revolution {1tr:...}
-* The following axis settings
-  *
-* The following system settings
+* Configuration settings including:
+  * Almost all axis settings
+  * Travel per revolution motor setting {1tr:...} 
   * Junction acceleration {ja:...}
   * Chordal tolerance {ct:...}
 
