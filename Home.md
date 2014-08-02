@@ -32,8 +32,6 @@ Please come visit / join any or all of the above.
 
 ### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
-* [Updating Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader)
-* [Updating Firmware using an External Programmer](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer)
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
@@ -61,3 +59,4 @@ Please come visit / join any or all of the above.
 * [Flow Control and Footers](Flow-Control-and-Footers)
 * [Developer Notes](TinyG-Developer-Notes)
 * [Additional Notes](Additional-Notes)
+* [Boot Loader Source Code](TinyG-Boot-Loader)
