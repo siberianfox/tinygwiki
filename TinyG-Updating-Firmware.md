@@ -18,16 +18,14 @@ The last branch is the `dev` branch.  In the spirit of completeness we are menti
 
 Once you have downloaded the firmware of your choice, you can move on to firmware updating methods, below.
 
-###Firmware Updating Methods
-
-You will need to select a TinyG firmware `master` or `edge` branches.  If you have not done so you need to return to the [firmware updating explained](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware#tinyg-firmware-explained) section above and selected a TinyG firmware file to download.  
+##Firmware Update Methods
+You will need to select a TinyG firmware `master` or `edge` branches.  If you have not done so you need to return to the [firmware updating explained](#tinyg-firmware-explained) section above and selected a TinyG firmware file to download.  
 
 There are 2 ways to update the firmware on your TinyG.  The first method is to use the bootloader on TinyG along with avrdude.  This method requires no special hardware programming devices, only the TinyG USB cable.
 <br>
 The second method is using an AVR Programmer (such as an AVRISP MKII programmer).  This method requires more work and is not described here as of yet.  It is also not needed if you have a bootloader loaded on your TinyG.  If you would like to read more about how to tell if you have a bootloader on your TinyG you can go [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader).  
 
-<a id="updating"></a>
-###Updating TinyG With avrdude
+###Updating TinyG With Avrdude
 To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. Here are a few places to find Avrdude for different platforms.
 * https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
 * https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
