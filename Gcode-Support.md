@@ -18,18 +18,18 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G2 | _axes_, F, I,J,K or R | Clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G3 | _axes_, F, I,J,K or R | Counter clockwise arc feed | Arc at feed rate F. Offset mode IJK or radius mode R
 	G4 | P | Dwell | Pause for P seconds
-	[G10 L2](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g10-set-parameters-offsets) | _axes_, P | Set offset parameters | P selects coordinate system 1-6
+	[G10 L2](#g10-set-parameters-offsets) | _axes_, P | Set offset parameters | P selects coordinate system 1-6
 	G17 | | Select XY plane | G17, G18 and G19 set the plan in which the G2/G3 arcs are drawn
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
-	G20 | | Select inches units mode |
-	G21 | | Select mm units mode |
-	[G28](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
-	[G28.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
+	[G20](Inch-and-Millimeter-Units-Mode) | | Select inches units mode |
+	[G21](Inch-and-Millimeter-Units-Mode) | | Select mm units mode |
+	[G28](#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
+	[G28.1](#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
 	[G28.2](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#g282---homing-sequence-homing-cycle) | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
 	[G28.3](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#g283---set-absolute-position) | _axes_ | Set Absolute Position | Set axis to zero or other value. Use to zero axes that cannot otherwise be homed
-	[G30](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
-	[G30.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G30 | The current machine position is recorded (No parameters are provided)
+	[G30](#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G30.1 position | Optional axes specify an intermediate point
+	[G30.1](#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G30 | The current machine position is recorded (No parameters are provided)
 	G53 | | Select absolute coordinates | Non-Modal: Applies only to current block
 	G54 | | Select coord system 1 | G54 is typically used as the "normal" coordinate system and reflects the machine position
 	G55 | | Select coord system 2 |
@@ -37,9 +37,9 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G57 | | Select coord system 4 |
 	G58 | | Select coord system 5 |
 	G59 | | Select coord system 6 |
-	[G61](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
-	[G61.1](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
-	[G64](https://github.com/synthetos/TinyG/wiki/Gcode-Support#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
+	[G61](#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
+	[G61.1](#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
+	[G64](#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
@@ -54,8 +54,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	------|-----------|--------|-------------
 	M0 | | Program stop |
 	M1 | | Program stop | Optional program stop switch is not implemented so M1 is equivalent to M0
-	[M2](https://github.com/synthetos/TinyG/wiki/Gcode-Support#m2-m30-program-end) | | Program end |
-	[M30](https://github.com/synthetos/TinyG/wiki/Gcode-Support#m2-m30-program-end) | | Program end |
+	[M2](#m2-m30-program-end) | | Program end |
+	[M30](#m2-m30-program-end) | | Program end |
 	M60 | | Program stop |
 	M3 | S | Spindle on - CW | S is speed in RPM
 	M4 | S | Spindle on - CCW | S is speed in RPM
@@ -68,8 +68,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
  	Other | Parameter |Command | Description
 	------|-----------|--------|-------------
 	N | line number | label gcode block | Line numbers are allowed, handled, and may be reported back in status reports. Don't underestimate how useful this is for debugging Gcode files.
-	[()](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | [comment](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | [gcode comment](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
-	[;](https://github.com/synthetos/TinyG/wiki/Gcode-Support#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. This is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
+	[()](#gcode-comments) | [comment](#gcode-comments) | [gcode comment](#gcode-comments) | Gcode comments are supported. They are stripped and ignored, except for messages (below)
+	[;](#gcode-comments) | comment | alternate comment | A semicolon is an alternate way to delimit a comment. This is not Gcode "standard", but is used by Mach and some Reprap codes. (available as of build 378.05)
 	(msg....) | message | gcode message | Gcode messages are comments that begin with the characters `msg` (case insensitive). These will be echoed to the operator 
 
 
@@ -77,7 +77,7 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 Some of the more complicated commands are described here. Much of this is shamelessly cribbed from the [LinuxCNC Gcode pages](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
 ##G10 Set Parameters (Offsets)
-Currently the only G10 command supported is G10 L2, which is used to set coordinate offsets. Use Pn to select coordiante system 1-6 (G54 - G59, respectively), and one or more axis value to set the offset for that axis. The format is:
+Currently the only G10 command supported is G10 L2, which is used to set coordinate offsets. Use Pn to select coordinate system 1-6 (G54 - G59, respectively), and one or more axis value to set the offset for that axis. The format is:
 <pre>
 G10 L2 P1 X0 Y0 Z0 A0 B0 C0  - set G54 offsets to zero, making G54 act as persistent absolute coordinates
 </pre>
