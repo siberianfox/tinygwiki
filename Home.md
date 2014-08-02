@@ -37,6 +37,7 @@ Please come visit / join any or all of the above.
 * [JSON Operation](JSON-Operation) and [JSON Details](JSON-Details)
 * [Status Reports](Status-Reports)
 * [Status Codes](TinyG-Status-Codes)
+* [Units Modes - Inches and Millimeters](Inch-and-Millimeter-Units-Mode)
 * [Feedhold and Cycle Start (Pause and Resume)](TinyG-Feedhold-and-Resume)
 * [Shapeoko Notes](TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](TinyG-Shapeoko-Setup)
 * [Using TinyG with External Stepper Drivers](TinyG-Using-External-Drivers)
