@@ -12,9 +12,6 @@ _Huge thanks to Kevin Osborn who got the bootloader working_
 **If you have no idea why you are on this page follow this link**
 * http://vimeo.com/82393638
 
-## Getting TinyG Firmware
-Firmware is the software that runs on the TinyG. It is often updated, and if you want your TinyG to have the new features, you need to put the new firmware on your TinyG, using one of the methods shown on this page.  [This page](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware) discusses firmware and where you can find it.
-
 ## How Do I Know if I Have the Bootloader?
 TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes when you hit reset:
 
