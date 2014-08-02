@@ -17,7 +17,7 @@ There is also a [TinyG Development Google Group](https://groups.google.com/forum
 Please come visit / join any or all of the above.
 
 ### Getting Started and Basic Setup
-* [What is TinyG? A hardware and software description](What-is-TinyG)
+* [What is TinyG?](What-is-TinyG) -  A hardware and software description
 * [TinyG Start Page](TinyG-Start)
 * [Connecting TinyG](Connecting-TinyG)
 * [Sending Gcode Files](TinyG-Sending-Files)
