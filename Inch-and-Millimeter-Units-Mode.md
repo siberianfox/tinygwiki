@@ -13,8 +13,8 @@ The units mode affects all the following:
 * Gcode execution, including:
   * XYZ axis positions in gcode programs (ABC are in degrees regardless of unit mode).
   * Feed rate in gcode programs (F words)
-  * Offsets and coordinates - whether enterd via G10 or $g54 or similar)
-* Status reports returned by gcode execution
+  * Offsets and coordinates - whether entered via G10 or $g54 or similar
+* Status reports returned by gcode execution (See Status Reports section below)
 * Configuration settings including:
   * Almost all axis settings
   * Travel per revolution motor setting {1tr:...} 
