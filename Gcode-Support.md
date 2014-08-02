@@ -22,8 +22,8 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G17 | | Select XY plane | G17, G18 and G19 set the plan in which the G2/G3 arcs are drawn
 	G18 | | Select XZ plane |
 	G19 | | Select YZ plane |
-	[G20](Inch-and-Millimeter-Units-Mode) | | Select inches units mode |
-	[G21](Inch-and-Millimeter-Units-Mode) | | Select mm units mode |
+	[G20](Inch-and-Millimeter-Units-Mode) | | Select inches units mode | All Gcode from this point on will be interpreted in inches
+	[G21](Inch-and-Millimeter-Units-Mode) | | Select mm units mode | All Gcode from this point on will be interpreted in millimeters
 	[G28](#g28-g281-g30-g301-go-to-predefined-position) | _axes_ | Go to G28.1 position | Optional axes specify an intermediate point
 	[G28.1](#g28-g281-g30-g301-go-to-predefined-position) | | Set position for G28 | The current machine position is recorded (No parameters are provided)
 	[G28.2](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#g282---homing-sequence-homing-cycle) | _axes_ | Homing Sequence | Homes all axes present in command. At least one axis must be specified
