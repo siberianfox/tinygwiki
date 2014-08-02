@@ -22,6 +22,7 @@ We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode spe
 * Homing cycle
 * Probing
 * Jogging support
+* Feedhold and resume (cycle start)
 * Various stepper motor power management modes 
 * Real-time status reports for DRO style readouts
 * Independent, per-axis control of jerk, maximum seek and feed rate and other parameters to enable fine tuning a wide variety of machine types 
@@ -31,18 +32,17 @@ We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode spe
 ## Programming support
 TinyG codebase is written in commented C, open source (GPLv2 with some exceptions that loosen that up a bit), and was originally forked from grbl. A special thank you to Simen Svale Skogsrud and Sonny Jeon for making grbl available and continuing the good work.
 
-* Code is written in well commented C. Complies under avrGCC in AVR Studio4, AtmelStudio6 and native AVRGCC environments
+* Code is written in well commented C. Compiles under avrGCC in AtmelStudio6 and native AVRGCC environments such as Xcode.
 * Entire code base is open source, available at the [Synthetos Github](https://github.com/synthetos/tinyg)
 * See [TinyG Support Forum](https://www.synthetos.com/forum/tinyg/) if you need help 
 
 ## Hardware and Other Technical Details
-TinyG is up to version 8 (v8) PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have gShield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield. TinyG hardware has:
+TinyG is up to version 8 (v8) PRODUCTION boards, which are reflected in the TinyG hardware specs. We also have gShield available, which is a 3 axis "no CPU" version of TinyG with 3 axes of stepper controller that plugs onto an Arduino as a shield and runs grbl. TinyG hardware has:
 
 * Atmel ATxmega192A3 running at 32 Mhz 
 * USB via FTDI - runs 115,200 baud by default 
-* Direct TTL serial inout for drive from Arduino or similar 
-* GPIO ports provide 8 inputs for limit / homing switches, plus 4 general purpose input/output ports for spindle control and other uses 
-* PDI programming connector (3x2) - Note: Requires Atmel AVRISP MKii programmer or other programmer with PDI capability 
+* GPIO ports provide 8 inputs for limit / homing switches, plus 4 output ports for spindle, coolant or other uses 
+* PDI programming connector (3x2) - Note: Requires Atmel AVRISP MKii programmer, ATMEL-ICE or other programmer with PDI capability.
 
 ## TinyG and grbl are related but not the same
 People ask what's the difference. Here's an attempt to explain that.
@@ -58,14 +58,14 @@ Basic similarities between grbl and tinyg:
 [LinuxCNC Gcode Specification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
 
 * Both implement enhanced CNC features such as homing cycles, feedhold (!) and restart (~ , aka cycle start) and software reset (control-x) 
-* Both use Texas Instruments DRV8818 stepper controller chips (as of grblShield v4 and TinyG v7)
+* Both use Texas Instruments DRV8818 stepper controller chips (as of gShield v4 and TinyG v7)
 * Both are written in C, GNU GPL open source licensed
 * Both projects are currently widely deployed but are technically still in beta - with production for both expected "any day now" - realistically sometime in 2Q2013, if we both keep on schedule.
 
 Some fundamental differences are: 
 * grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the [NIST spec](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf) as to how rotary axes work.
 
-* TinyG has 4 motors, grblshield has 3. It is possible (and common) for grbl to run dual gantry configs - like a dual Y by using 2 stepper drivers attached to the Y step and dir lines. This can present some challenges in homing, but in general this works pretty well. Grblshield only supports 3 axes, and the motors are tied to the X, Y and Z axes. In TinyG the motors are configurable (mappable) to an axis. If you want 4 X axes, map motors 1-4 to X and have a great day. Generally people map the 4th motor to Y the or A axis.
+* TinyG has 4 motors, gShield has 3. It is possible (and common) for grbl to run dual gantry configs - like a dual Y by using 2 stepper drivers attached to the Y step and dir lines. This can present some challenges in homing, but in general this works pretty well. gShield only supports 3 axes, and the motors are tied to the X, Y and Z axes. In TinyG the motors are configurable (mappable) to an axis. If you want 4 X axes, map motors 1-4 to X and have a great day. Generally people map the 4th motor to Y the or A axis.
 
 * TinyG runs 3rd order, constant jerk acceleration profiles, grbl runs 2nd order constant acceleration profiles. What does this mean? In grbl the velocity profile during acceleration and deceleration looks like a pure trapezoid in time. For example the move starts at zero velocity, then velocity ramps in a straight line to the target velocity, then decelerates in a straight line back to zero. In TinyG the velocity profile is an S curve that ramps to the target velocity during acceleration and in reverse during the deceleration phase. The means that you can run to motors harder in transition and hence operate at faster accelerations and decelerations. It also means there are fewer machine resonances excited (that cause chatter and other problems) as the jerk term is controlled. Jerk is a measure of the impact a machine is hit with during a velocity change. See: [TinyG driving an Ultimaker](http://www.youtube.com/watch?v=Om0wTqFA-Dw) and [driving a Shapeoko](http://www.youtube.com/watch?v=pCC1GXnYfFI). The machines are not fastened to the table and don't jump around because of the jerk control.
 
