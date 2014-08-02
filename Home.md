@@ -38,6 +38,7 @@ Please come visit / join any or all of the above.
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
+* [TinyG Topics](TinyG-Topics) - This is a link page for various discussions addressing specific areas
 * [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [Gcode Support](https://github.com/synthetos/TinyG/wiki/Gcode-Support)
 * [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
