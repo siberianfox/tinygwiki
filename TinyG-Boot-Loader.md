@@ -1,17 +1,16 @@
 _Huge thanks to Kevin Osborn who got this working_
 
 **Topics:**
-* [How Do I Know if I Have the Bootloader?](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
+* [How Do I Know if I Have the Bootloader?](#how-do-i-know-if-i-have-the-bootloader)
+(https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 * [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
 * [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
 * [Programming TinyG with the Atmel AVRISP Mkii Programmer](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-avrisp)
 
-<a id="whereisthe"></a>
 ## Where is the firmware?
 Firmware is the software that runs on the TinyG. It is often updated, and if you want your TinyG to have the new features, you need to put the new firmware on your TinyG, using one of the methods shown on this page.  [This page](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware) discusses firmware and where you can find it.
 
-<a id="howdoiknow"></a>
 ## How Do I Know if I Have the Bootloader?
 TinyG's shipped from March 10, 2013 have a boot loader that supports flashing the TinyG firmware using AVRdude (aka the AVR109 protocol). You can tell if you have the boot loader if the Spindle Direction LED flashes when you hit reset:
 
