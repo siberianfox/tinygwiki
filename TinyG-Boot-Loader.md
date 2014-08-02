@@ -1,9 +1,8 @@
 _Huge thanks to Kevin Osborn who got the bootloader working_
 
 **If you are on this page because you want to upgrade the firmware on your TinyG board follow these links**
-* [Getting TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware#tinyg-firmware-explained)
+* [Updating TinyG Firmware](TinyG-Updating-Firmware)
 * [How Do I Know if I Have the Bootloader?](#how-do-i-know-if-i-have-the-bootloader)
-* [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 
 **If you are on this page because you want to program or modify the boot loader itself follow these links**
 * [Flashing the Boot Loader onto the Xmega Chip](#flashing-the-boot-loader-onto-the-xmega-chip)
