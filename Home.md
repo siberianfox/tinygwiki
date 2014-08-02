@@ -20,29 +20,25 @@ Please come visit / join any or all of the above.
 * [What is TinyG?](What-is-TinyG) -  A hardware and software description
 * [TinyG Start Page](TinyG-Start)
 * [Connecting TinyG](Connecting-TinyG)
-* [Sending Gcode Files](TinyG-Sending-Files)
 * [Configuring TinyG](TinyG-Configuration)
+* [Sending Gcode Files](TinyG-Sending-Files)
 * [Troubleshooting](Troubleshooting)
 
 ### More Setup, Tuning, and Specialized Uses
 * [More Setup Info](Initial-Setup)
 * [TinyG Tuning](TinyG-Tuning)
 * [Homing and Limit Switch setup] (Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](Homing-and-Limits-Setup-and-Troubleshooting)
-* [Shapeoko Notes](TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](TinyG-Shapeoko-Setup)
-
-### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
 * [Firmware Download Page](http://synthetos.github.io/)
 
-### Reference Pages
+### Discussion Topics and Reference Pages
 * [Gcode Supported by TInyG](Gcode-Support)
-* [TinyG Topics - link page for various discussions addressing specific areas](TinyG-Topics)
-* [Configuring TinyG](TinyG-Configuration)
 * [Command Line Operation](TinyG-Command-Line)
 * [JSON Operation](JSON-Operation) and [JSON Details](JSON-Details)
 * [Status Reports](Status-Reports)
 * [Status Codes](TinyG-Status-Codes)
 * [Feedhold and Cycle Start (Pause and Resume)](TinyG-Feedhold-and-Resume)
+* [Shapeoko Notes](TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](TinyG-Shapeoko-Setup)
 * [Using TinyG with External Stepper Drivers](TinyG-Using-External-Drivers)
 * [TinyG Data Sheets](https://github.com/synthetos/TinyG/wiki/Data-Sheets)
 * [Hardware and Mechanical](TinyG-Hardware-Information)
@@ -59,4 +55,4 @@ Please come visit / join any or all of the above.
 * [Flow Control and Footers](Flow-Control-and-Footers)
 * [Developer Notes](TinyG-Developer-Notes)
 * [Additional Notes](Additional-Notes)
-* [Boot Loader Source Code](TinyG-Boot-Loader)
+* [Boot Loader](TinyG-Boot-Loader)
