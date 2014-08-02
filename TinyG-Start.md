@@ -30,7 +30,7 @@ Here is what you are going to need in order to use TinyG:
 * Case (Optional) 
 
 NOTES: 
-* TinyG requires a PDI capable programmer such as the [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D). Standard AVR ICSP programmers will not work.
+* If you want to use an external programmer the Xmega on TinyG requires a PDI capable programmer such as the [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) or the newer [ATMEL-ICE-BASIC programmer](http://www.digikey.com/product-detail/en/ATATMEL-ICE-BASIC/ATATMEL-ICE-BASIC-ND/4753381). Older AVR ICSP programmers will not work. Also note that while AVRdude will program using the AVRISP MKii, it will not program using the ATMEL-ICE (who's advantage is that it offers real-time debugging via Atmel Studio of Open OCD).
 
 * We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
 
