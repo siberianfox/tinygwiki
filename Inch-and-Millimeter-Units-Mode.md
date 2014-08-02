@@ -2,8 +2,8 @@ This page discusses G20/G21 units mode selection and related topics. It explains
 
 ###G20 / G21 - Set Units Mode
 Basically:
-* G20 will cause all gcode from this point onwards to be interpreted in inches
-* G21 will cause all gcode from this point onwards to be interpreted in millimeters
+* G20 will cause all gcode and settings from this point on to be interpreted in inches
+* G21 will cause all gcode and settings from this point on to be interpreted in millimeters
 
 The current units mode setting is referred to as the 'prevailing units mode'. The prevailing units mode will remain in effect until:
 * It is changed by another G20 or G21 command
