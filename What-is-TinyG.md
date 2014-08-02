@@ -10,34 +10,9 @@ The TinyG project is a multi-axis motion control system. It is designed for CNC 
 * Microstepping up to 1/8 (optimized DDA makes this smoother than many 1/16 implementations)
 
 ## Gcode Support
-TinyG implements the NIST RS274v3/ngc dialect of Gcode including the following functions. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications Refs:<br>
+TinyG implements a sub-set of the NIST RS274v3/ngc dialect of Gcode. See[TinyG Gcode Support](Gcode-Support) for details. We try to adhere as closely as possible to the NIST Gcode and LinuxCNC Gcode specifications Refs:<br>
 [Kramer's NIST RS274NGCv3 Gcode Specification](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf)<br>
 [LinuxCNC Gcode Specification](http://www.linuxcnc.org/docs/2.4/html/gcode_main.html)<br>
-See [TinyG Gcode Support](Gcode-Support) for more details 
-
-* G0 Rapid linear motion (traverse)
-* G1 Linear motion at feed rate
-* G2, G3 Clockwise / counterclockwise arc at feed rate
-* G4 Dwell
-* G10 L2 Set coordinate system offsets 
-* G17, G18, G19 Select plane: G17=XY plane, G18=XZ plane, G19=YZ plane
-* G20, G21 Length units: G20=inches, G21=millimeters
-* G28, G28.1 Return to home, set home point
-* G28.2 Initiate machine homing cycle (reference axes to limit switches)
-* G30, G30.1 Return to home, set home point
-* G53 Move in absolute (machine) coordinates
-* G54-G59 Select work coordinate systems 1-6, respectively
-* G61, G61.1, G64 Set path control mode
-* G80 Cancel motion mode
-* G90, G91 Set distance mode; G90=absolute mode, G91=incremental mode 
-* G92, G92.1, G92.2, G92.3 Coordinate System Offsets - full support
-* G93, G94 Set feed rate mode: G93=inverse time mode, G94=units per minute mode 
-* M0, M1, M60, Program stop, optional program stop
-* M2, M30 Program end
-* M3, M4 Turn spindle clockwise / counterclockwise
-* M5 Stop spindle turning
-* M7, M8 Turn on coolant
-* M9 Turn off coolant
 
 ## Additional CNC features
 * Feedhold and cycle start with full planning (pause and resume motion) 
