@@ -10,8 +10,10 @@ The current units mode setting is referred to as the 'prevailing units mode'. Th
 * An M2 or M30 Program END is hit. At this point it will revert to the Default units ($gun). Note that a Program STOP (M0, M1) does not change the units mode.
 
 The units mode affects all the following:
-* XYZ axis positions in gcode programs. ABC are in degrees regardless of unit mode.
-* Feed rate in gcode programs (F words)
+* Gcode execution, including:
+  * XYZ axis positions in gcode programs (ABC are in degrees regardless of unit mode).
+  * Feed rate in gcode programs (F words)
+  * Offsets and coordinates - whether enterd via G10 or $g54 or similar)
 * Status reports returned by gcode execution
 * Configuration settings including:
   * Almost all axis settings
