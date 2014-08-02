@@ -2,7 +2,6 @@ _Huge thanks to Kevin Osborn who got this working_
 
 **Topics:**
 * [How Do I Know if I Have the Bootloader?](#how-do-i-know-if-i-have-the-bootloader)
-(https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-howdoiknow)
 * [Updating TinyG Firmware using the Boot Loader](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-updating)
 * [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing)
 * [Project Setup and Compiling the Boot Loader for TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-projectsetup)
@@ -24,8 +23,7 @@ You can also manually enter the bootloader from the application:
 If the LED doesn't flash you don't have the bootloader. See [Flashing the Boot Loader onto the Xmega Chip](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#wiki-flashing) if you want do do this yourself. You can also return your board to us and we'll do it. Contact us if you want us to put the bootloader onto your board.
 
 
-#40 #Advanced Topics
-<a id="flashing"></a>
+##Advanced Topics
 ### Flashing the Boot Loader onto the Xmega Chip
 _Update 5/22/13: We have had reports that programming (flashing) the boot loader using AtmelStudio6.0 or Studio6.1 can report a verification error. The boot loader is actually loaded correctly and does work, in spite of this error (so far no counter examples have been reported). Flashing using AVRStudio4 does not report these errors._
 
