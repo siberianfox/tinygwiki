@@ -18,5 +18,8 @@ The GUN setting sets the default (starting) units mode on power-on or reset. Gun
 Commands in text mode and JSON mode accept values in and respond back in the prevailing units mode. 
 
 ###Status Reports
-Status reports return all values in the prevailing units mode with the following exception:
-* the machine positions values (mpox, mpoy ...mpoc) are always in millimeter units.
+Status reports return all values in the prevailing units mode with the following exception.
+
+The machine positions values (mpox, mpoy ...mpoc) are always in millimeter units and always in the machine absolute coordinate system (G53). This is so that hosts and UI's can always have a stable position reference for display generation regardless of the G2/G21 setting or the coordinate system and offsets selected (G54-G59, G92). 
+
+In order to interpret the Mpos values back to work coordinates (say for DRO display), the status reports should also return the units (unit) and offsets (ofsx, ofsy ... ofsc) for the axes being monitored.
