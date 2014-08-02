@@ -10,26 +10,25 @@ This wiki is used to keep documentation from version 0.95 onward. Documentation 
 This wiki is the TinyG user and programmer manual. We (Synthetos) maintain it, but it's an open wiki. If you want to post wiki-type stuff, feel free to do it here. Please let us know via a github Issue if it's anything major. Issues are good for requested changes, discussions and bona-fide software bugs.
 
 For general support use the [Synthetos Forums](https://www.synthetos.com/forum/tinyg/)
-The forum is for general questions about how to setup and use tinyg (and grblshield). Sometimes the questions end up in the github issues list, but generally they do not. Feel free to post github issues as you see fit, but more people read the forum than the issues, so if you are looking for help the forum is probably a better choice.
+The forum is for general questions about how to setup and use tinyg (and gShield). Sometimes the questions end up in the github issues list, but generally they do not. Feel free to post github issues as you see fit, but more people read the forum than the issues, so if you are looking for help the forum is probably a better choice.
 
 There is also a [TinyG Development Google Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/devTinyG). This is a conversation about new development, options, related products like controllers and android tablets, etc.
 
 Please come visit / join any or all of the above.
 
-### Getting Started
-* [What is TinyG? A hardware and software description](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)
-* [TinyG Start Page](https://github.com/synthetos/TinyG/wiki/TinyG-Start)
-* [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/Connecting-TinyG)
-
-### Machine Setup, Tuning, and Specialized Uses
-* [Initial Setup](Initial-Setup)
+### Getting Started and Basic Setup
+* [What is TinyG? A hardware and software description](What-is-TinyG)
+* [TinyG Start Page](TinyG-Start)
+* [Connecting TinyG](Connecting-TinyG)
+* [Sending Gcode Files](TinyG-Sending-Files)
 * [Configuring TinyG](TinyG-Configuration)
+* [Troubleshooting](Troubleshooting)
+
+### More Setup, Tuning, and Specialized Uses
+* [More Setup Info](Initial-Setup)
 * [TinyG Tuning](TinyG-Tuning)
-* [Homing and Limit Switch setup] (https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting)
-* [Sending Gcode Files](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files)
-* [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](https://github.com/synthetos/TinyG/wiki/TinyG-Shapeoko-Setup)
-* [Automatic Z Homing When Milling PCBs](https://github.com/synthetos/TinyG/wiki/Automatic-Z-Homing-When-Milling-PCBs)
-* [Troubleshooting](https://github.com/synthetos/TinyG/wiki/Troubleshooting)
+* [Homing and Limit Switch setup] (Homing-and-Limits-Description-and-Operation) and [Troubleshooting Homing](Homing-and-Limits-Setup-and-Troubleshooting)
+* [Shapeoko Notes](TinyG-Shapeoko-Notes) and [Example Shapeoko Setup](TinyG-Shapeoko-Setup)
 
 ### Firmware Update and Programming
 * [Updating Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware)
@@ -38,30 +37,27 @@ Please come visit / join any or all of the above.
 * [Firmware Download Pages](http://synthetos.github.io/)
 
 ### Reference Pages
+* [Gcode Supported by TInyG](Gcode-Support)
 * [TinyG Topics - link page for various discussions addressing specific areas](TinyG-Topics)
-* [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
-* [Gcode Support](https://github.com/synthetos/TinyG/wiki/Gcode-Support)
-* [Command Line Operation](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line)
-* [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details)
-* [Status Reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
-* [Feedhold and Cycle Start (Pause and Resume)](https://github.com/synthetos/TinyG/wiki/TinyG-Feedhold-and-Resume)
-* [Using TinyG with External Stepper Drivers](https://github.com/synthetos/TinyG/wiki/TinyG-Using-External-Drivers)
+* [Configuring TinyG](TinyG-Configuration)
+* [Command Line Operation](TinyG-Command-Line)
+* [JSON Operation](JSON-Operation) and [JSON Details](JSON-Details)
+* [Status Reports](Status-Reports)
+* [Status Codes](TinyG-Status-Codes)
+* [Feedhold and Cycle Start (Pause and Resume)](TinyG-Feedhold-and-Resume)
+* [Using TinyG with External Stepper Drivers](TinyG-Using-External-Drivers)
 * [TinyG Data Sheets](https://github.com/synthetos/TinyG/wiki/Data-Sheets)
-* [Hardware and Mechanical](https://github.com/synthetos/TinyG/wiki/TinyG-Hardware-Information)
-* [Licensing](https://github.com/synthetos/TinyG/wiki/TinyG-Licensing)
+* [Hardware and Mechanical](TinyG-Hardware-Information)
+* [Licensing](TinyG-Licensing)
 
 ### Resources
-* [TinyG Projects](https://github.com/synthetos/TinyG/wiki/5.01-TinyG-Projects) List your project here!
-* [Stepper Motors and Power Supplies](https://github.com/synthetos/TinyG/wiki/Stepper-Motors-and-Power-Supplies)
+* [TinyG Projects](TinyG-Projects) List your project here!
+* [Stepper Motors and Power Supplies](Stepper-Motors-and-Power-Supplies)
 
 ### Developer Pages
-* [Introduction to the TinyG Code Base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base)
-* [Tool Chains and Project Setup](https://github.com/synthetos/TinyG/wiki/Tool-Chains-and-Project-Setup)
-* [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes)
-* [State Model](https://github.com/synthetos/TinyG/wiki/TinyG-State-Model)
-* [Flow COntrol and Footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers)
-* [Developer Notes](https://github.com/synthetos/TinyG/wiki/TinyG-Developer-Notes)
-* [Additional Notes](https://github.com/synthetos/TinyG/wiki/Additional-Notes)
-
-### Historical and Deprecated Pages
-* [Documentation for Firmware Versions Earlier than 0.95](https://github.com/synthetos/TinyG/wiki/TinyG-0.95-and-Earlier)
+* [Introduction to the TinyG Code Base](Introduction-to-the-TinyG-Code-Base)
+* [Tool Chains and Project Setup](Tool-Chains-and-Project-Setup)
+* [State Model](TinyG-State-Model)
+* [Flow Control and Footers](Flow-Control-and-Footers)
+* [Developer Notes](TinyG-Developer-Notes)
+* [Additional Notes](Additional-Notes)
