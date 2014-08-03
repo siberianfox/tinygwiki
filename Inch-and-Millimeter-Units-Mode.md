@@ -17,11 +17,14 @@ The units mode affects all the following:
 * Status reports returned by gcode execution (See Status Reports section below)
   * Velocity and feed rate reporting
   * Position reporting (except mpos)
-* Configuration settings in both text and JSON mode, including:
+* Configuration settings, including:
   * Almost all axis settings
   * Travel per revolution motor setting {1tr:...} 
   * Junction acceleration {ja:...}
   * Chordal tolerance {ct:...}
+
+###JSON versus Text Mode
+The units mode should be the same regardless of whether the system is operating in JSON mode or text mode.
 
 ###$GUN, {gun:_} - Set Default Units Mode
 The GUN setting sets the default (starting) units mode on power-on or reset. Gun does not change the units mode on the board if it is changed. It only affects the mode during power on or reset. 
