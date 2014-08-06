@@ -23,6 +23,12 @@ The assembled board should be set up with the following:
 **VERIFY that the blue power LED is lit when the power supply is turned on**<br>
 (Some other LEDs may also be lit)
 
+##Board Setup
+Make sure the following jumpers are placed:
+* J19 jump pins 1 and 2 (+12v position). J19 is located behind the fan connector
+* J20 jump pins 1 and 2 (3.3v position). J20 is located above the U10 14 pin SOIC
+* J15 jump pins 13 and 26. (Interlock override) These pins are located above the 10 pin mini-JTAG connector J6, and are marked with white silkscreen and labeled "Jump for Operation"
+
 ##Programming
 If you have not already done so bring up the host computer and related programs
 * Boot the mac (which is what we are using in this example. You know the password)
