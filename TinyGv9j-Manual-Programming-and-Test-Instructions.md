@@ -47,16 +47,15 @@ Hit the MEMORIES tab to get the programming dialog
 ![memories](https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg)
 
 Program the chip. 
-* First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is stick so it will stay selected if you are doing more than one board.
-* Then hit PROGRAM
-
-Programming and verification takes about 20-30 seconds. 
+* First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is sticky so it will stay selected if you are doing more than one board.
+* Hit PROGRAM. Programming and verification takes about 20-30 seconds. When done the red TX LED on the board should cycle at about 1 Hz.
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
-**When done verify programming is OK - the red TX LED on the board should cycle at about 1 Hz.**
+If the TX LED did not start flashing verify the boot fuse is set correctly. 
+* Select GPNVM Bits. 
+* Select boot from Flash, Bank 0<br>
 
-Set the boot fuse. Select GPNVM Bits. Select boot from Flash, Bank 0<br>
-_I don't have a picture for this yet and I'm going from memory, so I may not have this exactly right. You do not want the chip to boot from ROM, and you want bank 0, not 1._<br>
+![boot-fuses](https://farm6.staticflickr.com/5557/14660500899_fd6205cbe7_b.jpg)
 
 Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
 **Verify programming is OK - the red TX LED should cycle at about 1 Hz.**
@@ -64,14 +63,20 @@ Close the programming dialog box. This is necessary to release the USB port so i
 ##Test the Motors
 Gentlemen, start your Coolterm.
 
-Select the Options menu and Re-Scan Serial Ports. You should see a port labeled usbmodem001. Select it. Don't worry about baud rates or other settings. These are handled natively by USB, which should connect at 12 Mbps.<br><br>
+* Select the Options menu and Re-Scan Serial Ports
+* In the drop-down menu you should see a port labeled usbmodem001 
+* Select it
+
+Don't worry about baud rates or other settings. These are handled natively by USB, which should connect at 12 Mbps.<br><br>
 If you see something like usbmodemfa12121 then try the following:
 * Power cycle the board and rescan. Please note this condition in testing notes for this board.
 * If that doesn't work check the GPNVM bits to make sure it's booting from Flash, Bank 0.
 
 ![rescan-ports](https://farm3.staticflickr.com/2919/14606961019_465d4811c4_b.jpg)
 
-Select the Transmit window. It's convenient to set to LINE mode and CR 
+* Select the Terminal window
+* Set to LINE mode 
+* Set to CR 
 ![transmit](https://farm6.staticflickr.com/5555/14606959559_128d4b7fda_b.jpg)
 
 Connect to the board. 
@@ -80,7 +85,7 @@ Connect to the board.
 Confirm startup string. You should see something like this in the terminal window
 ![startup string](https://farm3.staticflickr.com/2899/14770612536_398eb602f0_b.jpg)
 
-Enter The following Gcode sequence and look for proper motor movement. 
+Enter The following Gcode sequence and look for proper motor movement. The test file is on the mac Desktop as `Test Pattern.txt` or `Test Pattern.gcode`
 <pre>
 G0 X20
 Y20
@@ -98,9 +103,12 @@ X0 Y0 Z0 A0
 
 </pre>
 The final move must be terminated with a carriage return or it won't run.<br><br>
-You can use the Coolterm Send String command under the Connection menu to run this command multiple times or for subsequent boards. (On the mac the Connection menu item is at the top of the screen, not on the Coolterm window itself)<br><br>
+
+Instead of typing this in use the Coolterm `Connection/Send Textfile` to run this command. (On the mac the Connection menu item is at the top of the screen, not on the Coolterm window itself)<br><br>
 The string you type into the dialog box will remain available for the next board if you move the send-string window so you can get at it later, and then just click on the window when you need it again.
 ![gcode](https://farm4.staticflickr.com/3871/14607094947_a11a866053_b.jpg)
+
+Note: The command `$md` will shut down the motor power if you need to.
 
 ## The Next Board
 The instructions above were for the first board. Here's what's different for subsequent boards.
