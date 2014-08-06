@@ -14,19 +14,27 @@ The Atmel-ICE should be plugged into the SAM port
 The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
 ![jtag-connector](https://farm3.staticflickr.com/2927/14607120307_1fdab4157f_b.jpg)
 
-The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected.
+The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected. The ground pin is marked by white silkscreen on the board.
 ![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
 
 The blue power light should light when the power supply is turned on.
 
 ##Programming
-Start Atmel Studio 6.2
-![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
+If you have not already done so bring up the host computer and related programs
+* Boot the mac (which is what we are using in this example. You know the password)
+* Start the Windows 7 virtual machine (virtual machine labeled as `W7 WORKING CURRENT`)
 
-Select /Tools/Device Programming 
+Start Atmel Studio 6.2. The file name is TInyG2.atsln. AS6 can be started either from the project directory or from the ladybug on the desktop. Atmel studio 6.2 can take a loooong time to start up. 2-3 minutes on some machines.
+![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
+![studio6.2_2](https://farm4.staticflickr.com/3904/14660499388_fa0c9cb5bc_b.jpg)
+
+Select /Tools/Device Programming
 ![device-programming](https://farm4.staticflickr.com/3902/14606994178_5385b2c3fe_b.jpg)
 
-Select the Atmel ICE. Select the device to be ATSAM3X8C. Select SWD programming mode. Hit APPLY.
+* Under TOOL select the Atmel ICE. See the second picture if you don't see the Atmel-ICE as an option 
+* Under DEVICE select ATSAM3X8C from the long list of Atmel products
+* Under INTERFACE select SWD programming mode
+* Hit APPLY
 ![setup-programming](https://farm6.staticflickr.com/5596/14793276122_775356456f_b.jpg)
 
 READ the Device. It should return a device signature and read about 3.3v
