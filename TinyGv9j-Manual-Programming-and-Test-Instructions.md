@@ -12,10 +12,12 @@ The assembled board should be set up with the following:
 
 ![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
 
-The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
+* The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
+
 ![jtag-connector](https://farm3.staticflickr.com/2927/14607120307_1fdab4157f_b.jpg)
 
-The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected. The ground pin is marked by white silkscreen on the board.
+* The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected. The ground pin is marked by white silkscreen on the board.
+
 ![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
 
 The blue power light should light when the power supply is turned on.
