@@ -20,7 +20,7 @@ The assembled board should be set up with the following:
 
 ![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
 
-The blue power light should light when the power supply is turned on.
+**VERIFY that the blue power LED is light when the power supply is turned on** (some other LEDs may also be lit)
 
 ##Programming
 If you have not already done so bring up the host computer and related programs
