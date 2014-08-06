@@ -8,7 +8,8 @@ The assembled board should be set up with the following:
 ![setup](https://farm4.staticflickr.com/3910/14770638616_fa3c1c8794_b.jpg)
 ![power](https://farm4.staticflickr.com/3902/14791273484_149bdaa802_b.jpg)
 
-The Atmel-ICE should be plugged into the SAM port
+* The Atmel-ICE should be plugged into the SAM port
+
 ![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
 
 The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
@@ -24,7 +25,8 @@ If you have not already done so bring up the host computer and related programs
 * Boot the mac (which is what we are using in this example. You know the password)
 * Start the Windows 7 virtual machine (virtual machine labeled as `W7 WORKING CURRENT`)
 
-Start Atmel Studio 6.2. The file name is TInyG2.atsln. AS6 can be started either from the project directory or from the ladybug on the desktop. Atmel studio 6.2 can take a loooong time to start up. 2-3 minutes on some machines.
+* Start Atmel Studio 6.2. The file name is TinyG2.atsln. AS6 can be started either from the project directory or from the ladybug on the desktop. Atmel studio 6.2 can take a loooong time to start up. 2-3 minutes on some machines.
+
 ![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
 ![studio6.2_2](https://farm4.staticflickr.com/3904/14660499388_fa0c9cb5bc_b.jpg)
 
@@ -40,13 +42,17 @@ Select /Tools/Device Programming
 ![vmware-usb-dialog](https://farm4.staticflickr.com/3915/14846789962_315b1fb2b8_b.jpg)
 If the Atmel-ICE is not an option it's either because it's (1) not plugged in, or (2) not connected to the virtual machine. Use the above dialog to connect it. Then go back to the TOOL / DEVICE / INTERFACE step, above.
 
-READ the Device. The board must be powered up. It should return a device signature and read about 3.3v
+* Power the board if not already powered
+* Hit READ to query the Device
+* It should return a device signature and read about 3.3v
+
 ![read](https://farm4.staticflickr.com/3853/14790490561_3c5e88d333_b.jpg)
 
-Hit the MEMORIES tab to get the programming dialog
+* Hit the MEMORIES tab to get the programming dialog
+
 ![memories](https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg)
 
-Program the chip. 
+* Program the chip. 
 * First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is sticky so it will stay selected if you are doing more than one board.
 * Hit PROGRAM. Programming and verification takes about 20-30 seconds. When done the red TX LED on the board should cycle at about 1 Hz.
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
