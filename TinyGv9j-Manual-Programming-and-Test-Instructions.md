@@ -63,13 +63,14 @@ If the Atmel-ICE is not an option it's either because it's (1) not plugged in, o
 
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
-If the TX LED did not start flashing verify the boot fuse is set correctly. 
 * Select GPNVM Bits. 
-* Select boot from Flash, Bank 0<br>
+* Select boot options:
+  * Flash
+  * Bank 0
 
 ![boot-fuses](https://farm6.staticflickr.com/5557/14660500899_fd6205cbe7_b.jpg)
 
-Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
+* Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
 **Verify programming is OK - the red TX LED on the board should be lit and will begin to cycle at about 1 Hz.**
 
 ##Test the Motors
