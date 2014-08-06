@@ -35,16 +35,25 @@ Select /Tools/Device Programming
 * Under DEVICE select ATSAM3X8C from the long list of Atmel products
 * Under INTERFACE select SWD programming mode
 * Hit APPLY
-![setup-programming](https://farm6.staticflickr.com/5596/14793276122_775356456f_b.jpg)
 
-READ the Device. It should return a device signature and read about 3.3v
+![setup-programming](https://farm6.staticflickr.com/5596/14793276122_775356456f_b.jpg)
+![vmware-usb-dialog](https://farm4.staticflickr.com/3915/14846789962_315b1fb2b8_b.jpg)
+If the Atmel-ICE is not an option it's either because it's (1) not plugged in, or (2) not connected to the virtual machine. Use the above dialog to connect it. Then go back to the TOOL / DEVICE / INTERFACE step, above.
+
+READ the Device. The board must be powered up. It should return a device signature and read about 3.3v
 ![read](https://farm4.staticflickr.com/3853/14790490561_3c5e88d333_b.jpg)
 
 Hit the MEMORIES tab to get the programming dialog
 ![memories](https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg)
 
-Program the chip. First you must select the tinyg2.elf file you wish to program onto the chip. Then hit PROGRAM. Programming and verification takes about 20-30 seconds. 
+Program the chip. 
+* First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is stick so it will stay selected if you are doing more than one board.
+* Then hit PROGRAM
+
+Programming and verification takes about 20-30 seconds. 
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
+
+**When done verify programming is OK - the red TX LED on the board should cycle at about 1 Hz.**
 
 Set the boot fuse. Select GPNVM Bits. Select boot from Flash, Bank 0<br>
 _I don't have a picture for this yet and I'm going from memory, so I may not have this exactly right. You do not want the chip to boot from ROM, and you want bank 0, not 1._<br>
