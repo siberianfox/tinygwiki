@@ -33,7 +33,8 @@ If you have not already done so bring up the host computer and related programs
 ![studio6.2](https://farm4.staticflickr.com/3847/14790500471_6c7aba38db_b.jpg)
 ![studio6.2_2](https://farm4.staticflickr.com/3904/14660499388_fa0c9cb5bc_b.jpg)
 
-Select /Tools/Device Programming
+* Select `/Tools/Device Programming`
+
 ![device-programming](https://farm4.staticflickr.com/3902/14606994178_5385b2c3fe_b.jpg)
 
 * Under TOOL select the Atmel ICE. See the second picture if you don't see the Atmel-ICE as an option 
@@ -57,7 +58,9 @@ If the Atmel-ICE is not an option it's either because it's (1) not plugged in, o
 
 * Program the chip. 
 * First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is sticky so it will stay selected if you are doing more than one board.
-* Hit PROGRAM. Programming and verification takes about 20-30 seconds. When done the red TX LED on the board should cycle at about 1 Hz.
+* Hit PROGRAM. Programming and verification takes about 20-30 seconds
+* When done the red TX LED on the board should cycle at about 1 Hz.
+
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
 If the TX LED did not start flashing verify the boot fuse is set correctly. 
@@ -67,34 +70,39 @@ If the TX LED did not start flashing verify the boot fuse is set correctly.
 ![boot-fuses](https://farm6.staticflickr.com/5557/14660500899_fd6205cbe7_b.jpg)
 
 Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
-**Verify programming is OK - the red TX LED should cycle at about 1 Hz.**
+**Verify programming is OK - the red TX LED on the board should be lit and will begin to cycle at about 1 Hz.**
 
 ##Test the Motors
 Gentlemen, start your Coolterm.
 
 * Select the Options menu and Re-Scan Serial Ports
-* In the drop-down menu you should see a port labeled usbmodem001 
+* In the drop-down menu you should see a port labeled usbmodem001
 * Select it
 
 Don't worry about baud rates or other settings. These are handled natively by USB, which should connect at 12 Mbps.<br><br>
-If you see something like usbmodemfa12121 then try the following:
-* Power cycle the board and rescan. Please note this condition in testing notes for this board.
-* If that doesn't work check the GPNVM bits to make sure it's booting from Flash, Bank 0.
+If you see something other than usbmodem001 (like usbmodemfa12121) then try the following:
+* Power cycle the board and rescan
+* If that doesn't work check the GPNVM bits to make sure it's booting from Flash, Bank 0
+* Please note this condition in testing notes for this board
 
 ![rescan-ports](https://farm3.staticflickr.com/2919/14606961019_465d4811c4_b.jpg)
 
 * Select the Terminal window
 * Set to LINE mode 
-* Set to CR 
+* Set to CR
+
 ![transmit](https://farm6.staticflickr.com/5555/14606959559_128d4b7fda_b.jpg)
 
-Connect to the board. 
+* Connect to the board
+
 ![connect to board](https://farm6.staticflickr.com/5587/14607097897_2271207ae0_b.jpg)
 
-Confirm startup string. You should see something like this in the terminal window
+* Confirm startup string. You should see something like this in the terminal window
+
 ![startup string](https://farm3.staticflickr.com/2899/14770612536_398eb602f0_b.jpg)
 
-Enter The following Gcode sequence and look for proper motor movement. The test file is on the mac Desktop as `Test Pattern.txt` or `Test Pattern.gcode`
+* Enter The following Gcode sequence and look for proper motor movement. 
+* The test file is on the mac Desktop as `Test Pattern.txt` or `Test Pattern.gcode`
 <pre>
 G0 X20
 Y20
@@ -117,7 +125,7 @@ Instead of typing this in use the Coolterm `Connection/Send Textfile` to run thi
 The string you type into the dialog box will remain available for the next board if you move the send-string window so you can get at it later, and then just click on the window when you need it again.
 ![gcode](https://farm4.staticflickr.com/3871/14607094947_a11a866053_b.jpg)
 
-Note: The command `$md` will shut down the motor power if you need to.
+* Note: The command `$md` will shut down the motor power if you need to.
 
 ## The Next Board
 The instructions above were for the first board. Here's what's different for subsequent boards.
