@@ -30,8 +30,11 @@ The units mode should be the same regardless of whether the system is operating 
 The GUN setting sets the default (starting) units mode on power-on or reset. Gun does not change the units mode on the board if it is changed. It only affects the mode during power on or reset. 
 
 ###Status Reports
-Status reports return all values in the prevailing units mode with the following exception.
+Status reports return all values in the prevailing units mode with the following exceptions.
 
+* mpox ... mpoc - Machine positions
 The machine positions values (mpox, mpoy ...mpoc) are always in millimeter units and always in the machine absolute coordinate system (G53). This is so that hosts and UI's can always have a stable position reference for display generation regardless of the G2/G21 setting or the coordinate system and offsets selected (G54-G59, G92). 
+
+* ofsx ... ofsc - Work offsets are also always returned in mm mode for the same reasons.
 
 In order to interpret the Mpos values back to work coordinates (say for DRO display), the status reports should also return the units (unit) and offsets (ofsx, ofsy ... ofsc) for the axes being monitored.
