@@ -1,5 +1,5 @@
-_Updated 11/8/13 - ash_
-This gets pretty deep in the weeds. This page is a collection of tings that tripped us up on Github and some documentation for common procedures like branch promotion, etc.
+_Updated 8/9/14 - ash_
+This gets pretty deep in the weeds. This page is a collection of common practices we use on Github. It's a way to document the things that have tripped us up on Github and to provide some documentation for common procedures like branch promotion, etc.
 
 ## At Last - Gitx
 If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier.
