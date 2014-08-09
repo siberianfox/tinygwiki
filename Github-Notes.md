@@ -2,10 +2,10 @@ _Updated 8/9/14 - ash_
 This gets pretty deep in the weeds. This page is a collection of common practices we use on Github. It's a way to document the things that have tripped us up on Github and to provide some documentation for common procedures like branch promotion, etc.
 
 ## At Last - Gitx
-If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier.
+If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. The following items are written assuming Gitx. Some command line operations are also provides in brackets, e.g. [`git status`]
 
 ## Github Cheat Sheet
-A few rules to live by. Most git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
+A few rules to live by. Many git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 * When you sit down to work always do this:
  * `git status` to see where you are and if you have any uncommitted files in your local repository
   * If you do have uncommitted files then stash them somewhere before doing the pull
