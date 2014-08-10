@@ -5,10 +5,16 @@ TOC
  * [Gitx Git GUI](#at-last---gitx)
  * [Github Cheat Sheet](#github-cheat-sheet)
 
-## At Last - Gitx
+## Getting Started
+If you are unfamiliar with git it's useful to start here:
+* http://learn.github.com/p/intro.html
+* http://gitref.org
+* http://learn.github.com/p/tagging.html
+
+### At Last - Gitx
 If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. The following items are written assuming Gitx. Some command line operations are also provides in brackets, e.g. [`git status`]
 
-## Github Cheat Sheet
+## Github Standard Practices
 A few rules to live by. Many git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 
 **When you sit down to work always do this**
@@ -30,13 +36,7 @@ A few rules to live by. Many git problems I have start from working in some "pla
 * `git checkout NEW_BRANCH`
 * `git pull origin NEW_BRANCH`
 
-## TinyG Github Notes
-If you are unfamiliar with git it's useful to start here:
-* http://learn.github.com/p/intro.html
-* http://gitref.org
-* http://learn.github.com/p/tagging.html
-
-### Setting up TinyG in Github
+## Setting up TinyG in Github
 Do a complete pull 
 <pre>git clone git@github.com:synthetos/TinyG.git</pre>
 You will have all 3 branches:
@@ -51,7 +51,6 @@ git config --global user.email "alden@asdfsd.com"
 </pre> 
 This will make it so when you push updates, your name will be "blue" for tracking purposes on github. (blue meaning it will link to your profile on github)
 
-
 ### Normal Operations
 Before getting started coding always make sure you are in sync with the github central repository. 
 <pre>
@@ -60,7 +59,7 @@ git status
 git pull origin your-current-branch
 </pre>
 
-Status tells you what branch you have open and what files are not committed. The pull gets you up-to-date with the centrol repo and ensures you are not going to clobber something later.
+Status tells you what branch you have open and what files are not committed. The pull gets you up-to-date with the central repo and ensures you are not going to clobber something later.
 
 From here it depends on what you want to work on. I assume you want to go to dev to push your new changes you made.
 
