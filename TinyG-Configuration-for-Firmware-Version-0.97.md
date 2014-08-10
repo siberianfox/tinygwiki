@@ -8,7 +8,7 @@ See also:
 * [Configuration for Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
 
 <br>
-This page describes how configuration works in text mode from the [Command Line](https://github.com/synthetos/TinyG/wiki/TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](https://github.com/synthetos/TinyG/wiki/JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
+This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
 
 **Note: If you are scripting or otherwise automating settings see [Scripting Settings]()**
 
