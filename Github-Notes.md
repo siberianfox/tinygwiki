@@ -3,6 +3,7 @@ This gets pretty deep in the weeds. This page is a collection of common practice
 
 TOC
  * [[#at-last---gitx]]
+
 ## At Last - Gitx
 If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. The following items are written assuming Gitx. Some command line operations are also provides in brackets, e.g. [`git status`]
 
