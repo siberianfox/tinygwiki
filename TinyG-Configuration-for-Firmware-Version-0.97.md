@@ -152,6 +152,10 @@ The following settings are accessible but do not appear in the system group list
 Settings are case insensitive - they are shown in upper case for emphasis only. The leading '1' can be any motor, 1-4, and the leading 'x' can be any axis (with some restrictions as noted).
 
 ## Motor Settings
+Note: In TinyG the motor travel settings are independent of each other. You don;t need to put them into an equation. The board does that for your. For example, if you want motor 1 to run on a 200 step per revolution motor, with a 3mm GT2 Timing Belt and a 20 Teeth Pulley, and want to run at 8 microsteps you simply enter:
+* $1sa=1.8
+* $1tr=60   (which is 3 * 20)
+* $1mi=8
 
 ### $1MA - MAp motor to axis
 Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor4. 
