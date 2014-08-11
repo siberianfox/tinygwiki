@@ -21,7 +21,7 @@ Most commands are self explanatory. See the sections following the cheat sheet f
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board. 
 
 	Setting | Description | Notes
-	--------|-------------|-------
+	:--------|:-------------|:-------
 	[$1ma](#1ma---map-motor-to-axis) | Motor mapping to axis | Configures the axis to which this motor is connected (for Cartesian machines) Typically: $1ma=0, $2ma=1, $3ma=2, $4ma=3 to map motors 1-4 to X,Y,Z,A, respectively
 	[$1sa](#1sa---step-angle-for-the-motor) | Step angle | Motor parameter indicating the angle traveled per whole step. Typical setting is $1sa=1.8 for 1.8 degrees per step (200 steps per revolution)
 	[$1tr](#1tr---travel-per-revolution) | Travel per revolution | How far the mapped axis moves per motor revolution. E.g 2.54mm for a 10 TPI screw axis
