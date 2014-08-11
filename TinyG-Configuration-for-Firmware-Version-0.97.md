@@ -152,7 +152,7 @@ The following settings are accessible but do not appear in the system group list
 Settings are case insensitive - they are shown in upper case for emphasis only. The leading '1' can be any motor, 1-4, and the leading 'x' can be any axis (with some restrictions as noted).
 
 ## Motor Settings
-Note: In TinyG the motor travel settings are independent of each other. You don;t need to put them into an equation. The board does that for your. For example, if you want motor 1 to run on a 200 step per revolution motor, with a 3mm GT2 Timing Belt and a 20 Teeth Pulley, and want to run at 8 microsteps you simply enter:
+_Note: In TinyG the motor travel settings are independent of each other. You don't need to put them into an equation - the board does that for you. For example, if you want run motor #1 with a 200 step per revolution motor, a 3mm GT2 timing belt with a 20 tooth pulley, and want to run at 8 microsteps you simply enter:_
 * $1sa=1.8
 * $1tr=60   (which is 3 * 20)
 * $1mi=8
