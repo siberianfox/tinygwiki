@@ -19,7 +19,7 @@ Most commands are self explanatory. See the sections following the cheat sheet f
 
 ##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board.<br><br>
-_Please note: In TinyG the motor travel settings are independent of each other. You don't need to put them into an equation. The board does the for you. Please see note about this in the [Motor Settings](#motor-settings) section._
+_Please note: In TinyG the motor travel settings are independent of each other. You don't need to put them into an equation. The board does this for you. Please see note about this in the [Motor Settings](#motor-settings) section._
 
 	Setting | Description | Notes
 	:--------|:-------------|:-------
