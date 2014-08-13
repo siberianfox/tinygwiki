@@ -1,5 +1,3 @@
-_As of 6/9/14 - We are updating the wiki to accommodate github's new and "improved" right hand navigation panel, and in general to clean up a bit. There may be some broken links until this process is complete. The actual pages can all be found in the right hand nav --->, but you will have to hunt for them. Thanks for your patience._
-
 **Affordable Industrial Grade Motion Control**
 
 Welcome to the TinyG wiki!
