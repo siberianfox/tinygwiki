@@ -25,13 +25,13 @@ Here is what you are going to need in order to use TinyG:
 
 * [A TinyG board](http://synthetos.myshopify.com/products/tinyg)
 * Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
-* 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 2.5 amps per winding (See Notes)
+* 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 3 amps per winding (See Notes)
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * Programmer (Optional... You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates, See Notes)
 * Case (Optional) 
 
 NOTES: 
-* We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's (or above) we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the bottom as well as the top.
+* We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's or any motor that draws more than 2 amps we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the **bottom of the board** as well as the top.
 
 * If you want to use an external programmer the Xmega on TinyG requires a PDI capable programmer such as the [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) or the newer [ATMEL-ICE-BASIC programmer](http://www.digikey.com/product-detail/en/ATATMEL-ICE-BASIC/ATATMEL-ICE-BASIC-ND/4753381). Older AVR ICSP programmers will not work. Also note that while AVRdude will program using the AVRISP MKii, it will not program using the ATMEL-ICE (who's advantage is that it offers real-time debugging via Atmel Studio of Open OCD).
 
