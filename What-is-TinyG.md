@@ -2,7 +2,7 @@ The TinyG project is a multi-axis motion control system. It is designed for CNC 
 
 * Integrated motion control system with embedded microcontroller (Atmel ATxmega192) 
 * 4 stepper motor drivers (TI DRV8818) integrated on a ~4 inch square board 
-* Stepper drivers handle 2.5 amps per winding which will handle most motors up thru NEMA23 and some NEMA34 motors 
+* Stepper drivers handle 2.5 amps per winding which will handle NEMA17 motors and most NEMA23s
 * Accepts Gcode from USB port and interprets it locally on the board 
 * 6-axis control (XYZ + ABC rotary axes) maps to any 4 motors
 * Constant jerk acceleration planning (3rd order S curves) for smooth and fast motion transitions
