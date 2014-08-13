@@ -8,7 +8,22 @@ Here's some background if you want to know [about TinyG](https://github.com/synt
 Here's some additional information about [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)<br>
 Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
-## Getting Started with TinyG - What You Need
+## Getting Started with TinyG - Cheat Sheet
+Here are the steps to get started. We recommend following them in order
+* [What You Need](#what-you-need)
+  * Board
+  * Power supply
+  * Motors
+  * Fans 
+* [Connecting TinyG]()
+  * Connecting power
+  * Connecting USB
+  * Testing Connection
+  * Wiring your motors
+  * Setting motor current
+
+
+##What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
 ![TinyG diagram version 8](http://farm3.staticflickr.com/2873/10863830183_579999a30c_o.png)
@@ -71,9 +86,6 @@ The TinyGv8's come equipped with a 3-pin fan connector that can be used to power
 * The "+12v" jumper position connects the fan header to the on-board 12 volt regulator (LM7812). This should be used if you are running a 12 volt fan and your board power (Vmot) is greater than 12 volts. This is the default jumper position and your v8 should have been shipped with the jumper in this position. 
 * The "+Vmot" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
 **Use this side with caution as applying 24 volts to some 12 volt fans will burn them out.**
-
-#### Flashing TinyG (Firmware Updates)
-The TinyG code base is still under development. We introduce new features and fix bugs quite often. All information on how to update TinyG's firmware can be found at [Updating TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware).
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](Connecting-TinyG)
