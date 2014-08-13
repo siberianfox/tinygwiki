@@ -76,7 +76,7 @@ The TinyGv8's come equipped with a 3-pin fan connector that can be used to power
 The TinyG code base is still under development. We introduce new features and fix bugs quite often. All information on how to update TinyG's firmware can be found at [Updating TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware).
 
 ### Connecting TinyG
-At this point you can move on to [Connecting TinyG](https://github.com/synthetos/TinyG/wiki/1.02-Connecting-TinyG)
+At this point you can move on to [Connecting TinyG](Connecting-TinyG)
 
 ###Changes in v8 from v7
 
