@@ -1,3 +1,4 @@
+[<<< Home](https://github.com/synthetos/TinyG/wiki) --- [To Connecting TinyG>>>](Connecting-TinyG)<br><br>
 If you have a TinyG v8 this is the place to start. The board revision is printed on the silkscreen at the edge of the board. If you do not have a v8 board you may want one of these links instead:
 
 * [TinyG version 7](https://github.com/synthetos/TinyG/wiki/TinyG-Start-v7/)
