@@ -47,7 +47,7 @@ TinyG is up to version 8 (v8) PRODUCTION boards, which are reflected in the Tiny
 ## TinyG and grbl are related but not the same
 People ask what's the difference. Here's an attempt to explain that.
 
-TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG work the same as grbl but many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the grblshield as we recognize that they serve different needs and user bases. When we talk about grbl hardware features, below, we are referring to grbl+grblShield.
+TinyG was forked from grbl in early 2010 as the base for building a 6 axis controller with jerk controlled acceleration planning. So some things in TinyG work the same as grbl but many are different. It's worth noting that we (Synthetos) are active in each project. We offer both TinyG and the gShield as we recognize that they serve different needs and user bases. When we talk about grbl hardware features, below, we are referring to grbl+gShield.
 
 Basic similarities between grbl and tinyg: 
 
@@ -60,7 +60,7 @@ Basic similarities between grbl and tinyg:
 * Both implement enhanced CNC features such as homing cycles, feedhold (!) and restart (~ , aka cycle start) and software reset (control-x) 
 * Both use Texas Instruments DRV8818 stepper controller chips (as of gShield v4 and TinyG v7)
 * Both are written in C, GNU GPL open source licensed
-* Both projects are currently widely deployed but are technically still in beta - with production for both expected "any day now" - realistically sometime in 2Q2013, if we both keep on schedule.
+* Both projects are currently widely deployed but are technically still in beta - with production for both expected "any day now".
 
 Some fundamental differences are: 
 * grbl is an XYZ 3 axis controller (i.e. a cartesian robot). TinyG is a 6 axis controller that runs XYZ and also ABC rotational axes. Many of the differences are attributable to this fact. See the [NIST spec](http://technisoftdirect.com/catalog/download/RS274NGC_3.pdf) as to how rotary axes work.
