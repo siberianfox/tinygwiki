@@ -41,7 +41,7 @@ You can get the TinyG controller board fully assembled from the [Synthetos Store
 TinyG v8's are "blue" boards labeled as TinyGv8. These use the DRV8818 driver chips. TI also makes other driver chips in this same family, but the 8818's have the lowest ON resistance therefore the best current handling. 
 
 #### Power Supply
-TinyG v8 supports up to 2.5A per winding per motor and needs a 12v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically).
+The drivers on the TinyG v8 are rated to 2.5A per winding per motor, but will actually do up to 3 amps with proper cooling. FOr anything over 2 amps we really recommend a 24v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically).
 
 You might think that 4 motors at 2 amps per winding (about the top-end of NEMA17's) would require 4 motors X 2 windings X 2 amps = 16 amps to drive, but you'd be wrong. 4 to 4.5 amps or above will handle this as not all motors + phases are ever maxed out at the same time. We like to have at least 6 amps for NEMA17's and this is absolutely required for NEMA23s.
 
