@@ -9,7 +9,7 @@ Here's some additional information about [Initial Setup](https://github.com/synt
 Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
 ## Getting Started with TinyG - Cheat Sheet
-Here are the steps to get started. We recommend following them in order
+Here are the steps to get started. We recommend following them in order. (_Note: This section is still under development_)
 * [What You Need](#what-you-need)
   * Board
   * Power supply
@@ -21,7 +21,13 @@ Here are the steps to get started. We recommend following them in order
   * Testing Connection
   * Wiring your motors
   * Setting motor current
-
+  * Test Drive
+* [Configuring TinyG](tinyg-configuration)
+  * About your CNC
+    * Shapeoko2 section
+  * Configuring motors
+  * Configuring axes
+  * Configuring system and communication parameters
 
 ##What You Need
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
