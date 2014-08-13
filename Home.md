@@ -4,10 +4,10 @@ _As of 6/9/14 - We are updating the wiki to accommodate github's new and "improv
 
 Welcome to the TinyG wiki!
 
-This wiki is used to keep documentation from version 0.95 onward. Documentation for previous versions - 0.94 and earlier - can also be found on this site. See the intro sections on various pages for the links.
-![Version 8 of the TinyG board](http://farm4.staticflickr.com/3719/12692585715_ca174304c0_b.jpg)
+This wiki is the TinyG user manual and programmer's guide. We (Synthetos) maintain it, but it's an open wiki. If you want to post wiki-type stuff, feel free to do it here. Please let us know via a github Issue if it's anything major. Github Issues are good for requested changes, discussions and bona-fide software bugs.
 
-This wiki is the TinyG user and programmer manual. We (Synthetos) maintain it, but it's an open wiki. If you want to post wiki-type stuff, feel free to do it here. Please let us know via a github Issue if it's anything major. Issues are good for requested changes, discussions and bona-fide software bugs.
+The wiki has info for the current version of TinyG, which is the v8 hardware and firmware version 0.97. It also has docs for previous versions.
+![Version 8 of the TinyG board](http://farm4.staticflickr.com/3719/12692585715_ca174304c0_b.jpg)
 
 For general support use the [Synthetos Forums](https://www.synthetos.com/forum/tinyg/)
 The forum is for general questions about how to setup and use tinyg (and gShield). Sometimes the questions end up in the github issues list, but generally they do not. Feel free to post github issues as you see fit, but more people read the forum than the issues, so if you are looking for help the forum is probably a better choice.
