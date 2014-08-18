@@ -29,7 +29,7 @@ Next establish USB connection with your host computer.
 
 * If not, unplug TinyG and install the drivers on your computer. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
 
-* **Please note: As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, there is a bug in the mac drivers that will cause a job to stall midstream. You still need to install the FTDI suppled drivers. For OSX you want the [FTDI VCP driver of OSX, version 2.2.18](http://www.ftdichip.com/Drivers/VCP.htm), presumably 64 bit X86 if that's what your machine supports.**
+* **Please note: As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, there is a bug in the mac drivers that can cause a job to stall midstream. You still need to install the FTDI suppled drivers. For OSX you want the [FTDI VCP driver of OSX, version 2.2.18](http://www.ftdichip.com/Drivers/VCP.htm), presumably 64 bit X86 if that's what your machine supports.**
 
 ####Get Coolterm
 * Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
