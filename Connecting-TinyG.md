@@ -8,7 +8,8 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 
 **THIS PAGE ASSUMES THAT THE POWER SUPPLY'S BLACK IS GROUND AND RED OR YELLOW IS +24VOLT (HOT)**. Not all power supplies adhere to this convention so you still need to check this carefully. Read below:
 
-1. Check you have the correct power supply. You should have a DC power supply between 12 and 30 volts --- 24 volts is ideal. It should be capable of providing 4 to 15 amps (or more). BEFORE connecting it to TinyG, turn on the power supply and make sure you have correct voltage. Make sure it is DC, not AC. Hopefully you have a volt meter or can get your hands on one. If you don't you might consider a trip to the Radar Shed for something like [this](http://www.radioshack.com/product/index.jsp?productId=4214667).
+1. Check you have the correct power supply. You should have a DC power supply between 12 and 30 volts --- 24 volts is ideal. It should be capable of providing 4 to 15 amps. 
+1. BEFORE connecting it to TinyG, turn on the power supply and make sure you have correct voltage. Make sure it is DC, not AC. Hopefully you have a volt meter or can get your hands on one. If you don't you might consider a trip to the Radar Shed for something like [this](http://www.radioshack.com/product/index.jsp?productId=4214667).
 1. Wire the negative to the GND terminal of the power input block, and the positive to the +Vmot side. Negative is BLACK by convention and positive is RED or YELLOW, or some other bright color. Check you have the correct voltage and polarity before connecting the power supply to TinyG. We have encountered power supplies that do not obey these conventions, and incorrect voltage or polarity can destroy your board!
 1. Turn on the power supply. If the blue light turns on this is a good sign. If not, blow away the smoke and send us an email.
 
