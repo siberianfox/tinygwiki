@@ -15,14 +15,15 @@ Here are the steps to get started. We recommend following them in order. (_Note:
   * Power supply
   * Motors
   * Fans 
-* [Connecting and Testing TinyG](connecting-tinyG)
+* [Connecting TinyG](connecting-tinyG)
   * Connecting power
   * Connecting USB
   * Testing Connection
   * Wiring your motors
   * Setting motor current
   * Test Drive
-* [Configuring TinyG](tinyg-configuration)
+* [Testing TinyG](testing-tinyg)
+* [Setting Up Your Machine and Configuring TinyG](tinyg-configuration)
   * About your CNC
     * Shapeoko2 section
   * Configuring motors
