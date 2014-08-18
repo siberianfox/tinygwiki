@@ -8,6 +8,18 @@ Here's some background if you want to know [about TinyG](https://github.com/synt
 Here's some additional information about [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)<br>
 Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
+## Overview
+The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of your TinyG board. 
+
+![TinyG diagram version 8](http://farm3.staticflickr.com/2873/10863830183_579999a30c_o.png)
+
+To highlight a few things in the above diagram:
+
+* The **MOST IMPORTANT** thing to do is to wire your power input correctly. The input will take up to 30 volts, but most people use 24, 19 or 12 volt power supplies. Double check that the polarity for the GND and Vmot are correct BEFORE plugging in your TinyG board. If you have ANY doubt about the power supply output please check it with a volt meter first.
+* Power output for the PC fan is an important to make sure you have right! Failure to set your fan jumper may result in providing 24v to a 12v fan and maybe blowing it up. See more about this below. 
+* All logic input voltages are limited to 3.3v MAX! 
+* Start with the current setting trim pots in the middle, 6:00, straight-up-and-down position, and DO NOT over torque the trim pots!
+
 ## Getting Started with TinyG - Cheat Sheet
 Here are the steps to get started. We recommend following them in order. (_Note: This section is still under development_)
 * [What You Need](#what-you-need)  (TinyG board, power supply, motors, fan (optional))
@@ -36,16 +48,7 @@ Optional
 * **Fan** - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * **Programmer/Debugger** You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates. If you want to do real-time debugging or serious development we recommend picking up a programmer.
 
-The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
-![TinyG diagram version 8](http://farm3.staticflickr.com/2873/10863830183_579999a30c_o.png)
-
-To highlight a few things in the above diagram:
-
-* The **MOST IMPORTANT** thing to do is to wire your power input correctly. The input will take up to 30 volts, but most people use 24, 19 or 12 volt power supplies. Double check that the polarity for the GND and Vmot are correct BEFORE plugging in your TinyG board. If you have ANY doubt about the power supply output please check it with a volt meter first.
-* Power output for the PC fan is an important to make sure you have right! Failure to set your fan jumper may result in providing 24v to a 12v fan and maybe blowing it up. See more about this below. 
-* All logic input voltages are limited to 3.3v MAX! 
-* Start with the current setting trim pots in the middle, 6:00, straight-up-and-down position, and DO NOT over torque the trim pots!
 
 
 
