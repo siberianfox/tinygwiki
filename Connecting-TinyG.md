@@ -70,11 +70,11 @@ tinyg [mm] ok>
 First, turn off the power to TinyG. Never connect or disconnect anything (except possibly USB) with the power on.
 
 ### Motor Connectors (was "Synthetos Connector Kit")
-Most TinyG v7s and above have screw terminals and therefore do not need a motor connector kit. If you have a board that has quick release headers on it there are the mating parts. You need 4 terminals for each housing.
+Most TinyG v7s and above have screw terminals and therefore do not need a motor connector kit. If you have a board that has quick release headers on it here are the mating parts:
 * Terminal Shell - Molex 09-50-3041 (need 1 per motor)
 * Crimp Terminals - Molex 08-50-0134 (need 4 per motor, and usually some extras)
 
-You can get these from Mouser or DigiKey. TE/Amp also makes some nice parts: TE/Amp 3-644463-4
+You need 4 terminals for each housing (shell). You can get these from Mouser or DigiKey. TE/Amp also makes some nice parts with the shell and terminals all-in-one: TE/Amp 3-644463-4
 
 ### Find the Coil Pairs
 The first thing you need to do is make sure you know which wires are connected to the same coil. 
