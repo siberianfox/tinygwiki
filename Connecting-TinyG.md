@@ -83,7 +83,6 @@ Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some ot
 
 The following color code is typical for many motors
 
-<pre>
 	Color    | Bipolar      | Unipolar      | Notes
 	---------|--------------|---------------|--------
 	Green    |  Winding A1  | Winding A1    |
@@ -93,7 +92,6 @@ The following color code is typical for many motors
 	White    |  (none)      | Center tap B  |
 	Blue     |  Winding B2  | Winding B2    |
 
-</pre>
 
 Use your volt meter to verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar motor you can just leave the center taps disconnected.
 
