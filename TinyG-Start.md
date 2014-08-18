@@ -15,7 +15,7 @@ Here are the steps to get started. We recommend following them in order. (_Note:
   * Power supply
   * Motors
   * Fans 
-* [Connecting TinyG]()
+* [Connecting and Testing TinyG](connecting-tinyG)
   * Connecting power
   * Connecting USB
   * Testing Connection
