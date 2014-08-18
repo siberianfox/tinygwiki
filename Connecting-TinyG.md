@@ -1,13 +1,13 @@
 [<<< Prev - Getting Started](TinyG-Start) --- [Next - Test Drive>>>](Test-Drive-TinyG)<br><br>
 If you are on this page you have already selected your motors and power supply and are ready to hook them up.
 
-* [Connecting TinyG - Steps](connecting-tinyG)
-  * Connecting power
-  * Connecting USB
-  * Testing Connection
-  * Wiring your motors
-  * Setting motor current
-  * Test drive
+Connecting TinyG Steps
+* Connecting power
+* Connecting USB
+* Testing Connection
+* Wiring your motors
+* Setting motor current
+* Test drive
 
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
