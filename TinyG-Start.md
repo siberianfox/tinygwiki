@@ -29,8 +29,7 @@ Here are the steps to get started. We recommend following them in order. (_Note:
   * Testing Connection
   * Wiring your motors
   * Setting motor current
-  * Test Drive
-* [Testing TinyG](testing-tinyg)
+  * Test drive
 * [Setting Up Your Machine and Configuring TinyG](tinyg-configuration)
   * About your CNC
     * Shapeoko2 section
@@ -40,23 +39,23 @@ Here are the steps to get started. We recommend following them in order. (_Note:
 
 ###What You Need
 Here is what you are going to need in order to use TinyG: 
-* [**A TinyG board**](http://synthetos.myshopify.com/products/tinyg)
-* **Power Supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
-* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors. These are up to 3 amps per winding 
+* [**TinyG board**](http://synthetos.myshopify.com/products/tinyg)
+* **Power supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps
+* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors, up to 3 amps per winding 
 
 Optional
-* **Fan** - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
-* **Programmer/Debugger** You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates. If you want to do real-time debugging or serious development we recommend picking up a programmer.
+* **Fan** - A 12VDC or 24VDC fan is recommended if the motors are pulling more than 2 amps per winding, especially if the board is in an enclosure.
+* **Programmer/Debugger** You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates, so you don;t need a programmer. But if you want to do real-time debugging or serious development we recommend picking up a programmer.
 
 #### TinyG Board
-You can get the TinyG controller board fully assembled from the [Synthetos Store](https://synthetos.myshopify.com/products/tinyg)
-
-TinyG v8's are "blue" boards labeled as TinyGv8. These use the DRV8818 driver chips. TI also makes other driver chips in this same family, but the 8818's have the lowest ON resistance therefore the best current handling. 
+You can get the TinyG controller board fully assembled from the [Synthetos Store](https://synthetos.myshopify.com/products/tinyg). Details of the board are in the diagram at the beginning of this page. 
 
 #### Power Supply
-The drivers on the TinyG v8 are rated to 2.5A per winding per motor, but will actually do up to 3 amps with proper cooling. FOr anything over 2 amps we really recommend a 24v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically).
+The drivers on the TinyG v8 are rated to 2.5A per winding per motor, but will actually do up to 3 amps with proper cooling. Almost every NEMA17 motor we have seen draws less than 2 amps. The exceptions are some of those very long NEMA17s with torque ratings above 90 Oz-in. Most NEMA 23's we are familiar with are between 2 and 3 amps (and should be fan cooled).
 
-You might think that 4 motors at 2 amps per winding (about the top-end of NEMA17's) would require 4 motors X 2 windings X 2 amps = 16 amps to drive, but you'd be wrong. 4 to 4.5 amps or above will handle this as not all motors + phases are ever maxed out at the same time. At 24 volts we like to have at least 4.5 amps for NEMA17's and 6 or more is recommended for NEMA23s.
+We highly recommend a 24v-30v motor power input. While 12 volt operation is possible and entirely fine, running with a 24v power supply will allow the motors to be more responsive and actually run cooler (ironically).
+
+You might think that 4 motors at 2 amps per winding would require 4 motors * 2 windings * 2 amps = 16 amps to drive, but you'd be wrong. 4 to 4.5 amps or above will handle this as not all motors + phases are ever maxed out at the same time. At 24 volts we like to have at least 4.5 amps for NEMA17's and 6 or more is recommended for NEMA23s.
 
 Here are a couple power supplies we like: [Meanwell NES-150-24](http://www.mouser.com/ProductDetail/Mean-Well/NES150-24/?qs=sGAEpiMZZMsPs3th5F8koDNPbuqd%252bfezne6r6bnnXjA%3d), [Meanwell NES-350-24](http://www.mouser.com/ProductDetail/Mean-Well/NES-350-24/?qs=%2fha2pyFaduhxfhzsenBkIkgMfhBr0hSVdTJWNZMLFL2wp6eI7VH7oQ%3d%3d)<br>You can usually hunt around and find this for < $50. They also make lower amperage supplies that are cheaper. 
 
