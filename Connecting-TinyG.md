@@ -138,5 +138,5 @@ Fan cooling is the best way to cool. TinyG uses copper for cooling both on the t
 ## Configuring Limit and Homing Switches
 Version 8 of TinyG has screw terminals for connecting your limit and homing switches. [This page](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) describes setup, operation and troubleshooting of the limit and homing switches.
 
-# Initial Setup
-Now that you are connected your motors and limit switches, move on the [Initial Setup.](https://github.com/synthetos/TinyG/wiki/Initial-Setup)
+# Test Drive
+Now that you are connected your motors and limit switches, move on the [Test Drive your TinyG](https://github.com/synthetos/TinyG/wiki/Test-Drive-TinyG)
