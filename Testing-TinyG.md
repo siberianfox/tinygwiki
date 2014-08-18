@@ -1,0 +1,1 @@
+This page discusses how to test TinyG to make sure everything is working properly.
