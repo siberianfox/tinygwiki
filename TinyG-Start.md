@@ -8,6 +8,16 @@ Here's some background if you want to know [about TinyG](https://github.com/synt
 Here's some additional information about [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)<br>
 Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
+Here are the steps to get started. We recommend following them in order.
+* [What You Need](#what-you-need)  (TinyG board, motors, power supply, fan (optional))
+* [Connecting TinyG](connecting-tinyG)
+* [Setting Up Your Machine and Configuring TinyG](tinyg-configuration)
+  * About your CNC
+    * Shapeoko2 section
+  * Configuring motors
+  * Configuring axes
+  * Configuring system and communication parameters
+
 ## Overview
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of your TinyG board. 
 
@@ -19,23 +29,6 @@ To highlight a few things in the above diagram:
 * Power output for the PC fan is an important to make sure you have right! Failure to set your fan jumper may result in providing 24v to a 12v fan and maybe blowing it up. See more about this below. 
 * All logic input voltages are limited to 3.3v MAX! 
 * Start with the current setting trim pots in the middle, 6:00, straight-up-and-down position. These are single-turn trim pots that travel about 270 degrees. DO NOT over torque the trim pots!
-
-## Getting Started with TinyG - Cheat Sheet
-Here are the steps to get started. We recommend following them in order. (_Note: This section is still under development_)
-* [What You Need](#what-you-need)  (TinyG board, motors, power supply, fan (optional))
-* [Connecting TinyG](connecting-tinyG)
-  * Connecting power
-  * Connecting USB
-  * Testing Connection
-  * Wiring your motors
-  * Setting motor current
-  * Test drive
-* [Setting Up Your Machine and Configuring TinyG](tinyg-configuration)
-  * About your CNC
-    * Shapeoko2 section
-  * Configuring motors
-  * Configuring axes
-  * Configuring system and communication parameters
 
 ###What You Need
 Here is what you are going to need in order to use TinyG: 
