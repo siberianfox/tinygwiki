@@ -10,11 +10,7 @@ Here is a list of [differences between the v7 and v8 boards](https://github.com/
 
 ## Getting Started with TinyG - Cheat Sheet
 Here are the steps to get started. We recommend following them in order. (_Note: This section is still under development_)
-* [What You Need](#what-you-need)
-  * Board
-  * Power supply
-  * Motors
-  * Fans 
+* [What You Need](#what-you-need)  (TinyG board, power supply, motors, fan (optional))
 * [Connecting TinyG](connecting-tinyG)
   * Connecting power
   * Connecting USB
@@ -45,9 +41,9 @@ To highlight a few things in the above diagram:
 ### Parts You Will Need
 Here is what you are going to need in order to use TinyG: 
 
-* [A TinyG board](http://synthetos.myshopify.com/products/tinyg)
-* Power supply - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
-* 1 - 4 stepper motors - typically NEMA17 or NEMA23 up to 3 amps per winding (See Notes)
+* [**A TinyG board**](http://synthetos.myshopify.com/products/tinyg)
+* **Power Supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
+* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors. These are up to 3 amps per winding (See Notes)
 * Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * Programmer (Optional... You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates, See Notes)
 * Case (Optional) 
