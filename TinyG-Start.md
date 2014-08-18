@@ -18,7 +18,7 @@ Here are the steps to get started. We recommend following them in order.
   * Configuring axes
   * Configuring system and communication parameters
 
-## Overview
+## Read This First
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of your TinyG board. 
 
 ![TinyG diagram version 8](http://farm3.staticflickr.com/2873/10863830183_579999a30c_o.png)
