@@ -27,6 +27,15 @@ Here are the steps to get started. We recommend following them in order. (_Note:
   * Configuring system and communication parameters
 
 ##What You Need
+Here is what you are going to need in order to use TinyG: 
+* [**A TinyG board**](http://synthetos.myshopify.com/products/tinyg)
+* **Power Supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
+* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors. These are up to 3 amps per winding 
+
+Optional
+* **Fan** - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
+* **Programmer/Debugger** You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates. If you want to do real-time debugging or serious development we recommend picking up a programmer.
+
 The getting started page is your first place to go to figure out what you need to get to get your TinyG up and running quickly. However before we dive into hooking up wires, configuring, and running Gcode files the image below is a "diagram" of the important sections / parts of you TinyG board. 
 
 ![TinyG diagram version 8](http://farm3.staticflickr.com/2873/10863830183_579999a30c_o.png)
@@ -38,15 +47,7 @@ To highlight a few things in the above diagram:
 * All logic input voltages are limited to 3.3v MAX! 
 * Start with the current setting trim pots in the middle, 6:00, straight-up-and-down position, and DO NOT over torque the trim pots!
 
-### Parts You Will Need
-Here is what you are going to need in order to use TinyG: 
 
-* [**A TinyG board**](http://synthetos.myshopify.com/products/tinyg)
-* **Power Supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
-* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors. These are up to 3 amps per winding (See Notes)
-* Fan - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
-* Programmer (Optional... You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates, See Notes)
-* Case (Optional) 
 
 NOTES: 
 * We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's or any motor that draws more than 2 amps we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the **bottom of the board** as well as the top.
