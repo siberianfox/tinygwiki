@@ -25,7 +25,7 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 Next establish USB connection with your host computer. 
 
 ####Install FTDI Drivers
-* If you do not have the FTDI VCP USB drivers for your system you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
+* If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
 
 * If not, unplug TinyG and install the drivers. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
 
