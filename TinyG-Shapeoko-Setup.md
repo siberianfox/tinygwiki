@@ -42,7 +42,7 @@ _A note on polarity:_ The motor polarity is the most likely setting to need adju
 	---------|---------|---------|-------
 	$1ma | 0 | MOTOR_MAP | map motor 1 to X axis (0=X, 1=Y, 2=Z, 3=A, 4=B, 5=C)
 	$1sa | 1.8 | STEP_ANGLE | set 1.8 degrees for 200 step motors, 0.9 for 400 step motors
-	$1tr | 36.54 (40.00) | TRAVEL_PER_REV | Amount X moves in 1 motor revolution. **For Shapeoko 2 try 40. THats 20teeth * 2 mm/tooth** Your setup may be slightly different.
+	$1tr | 36.54 (40.00) | TRAVEL_PER_REV | Amount X moves in 1 motor revolution. **For Shapeoko 2 try 40. That's 20 teeth * 2 mm/tooth** Your setup may be slightly different.
 	$1mi | 8 | MICROSTEPS | Supported values are 1, 2, 4 and 8
 	$1po | 0 | POLARITY | Depends on how you wired your motors 
 	$1pm | 0 | POWER_MODE | 0 leaves steppers on if anything moves 
