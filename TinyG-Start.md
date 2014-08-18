@@ -40,8 +40,8 @@ Here are the steps to get started. We recommend following them in order. (_Note:
 ###What You Need
 Here is what you are going to need in order to use TinyG: 
 * [**TinyG board**](http://synthetos.myshopify.com/products/tinyg)
-* **Power supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps
-* **Stepper motors** - Most setups require 3 or 4 NEMA17 or NEMA23 motors, up to 3 amps per winding 
+* [**Stepper motors**](#stepper-motors)
+* [**Power supply**]()
 
 Optional
 * **Fan** - A 12VDC or 24VDC fan is recommended if the motors are pulling more than 2 amps per winding, especially if the board is in an enclosure.
@@ -64,6 +64,7 @@ Some of out favorite sources for stepper motors are:
 * [Sparkfun](https://www.sparkfun.com/categories/178)
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
 * [Oriental Motor Company](http://www.omc-stepperonline.com/)
+
 #### Power Supply
 The drivers on the TinyG v8 are rated to 2.5A per winding per motor, but will actually do up to 3 amps with proper cooling. Almost every NEMA17 motor we have seen draws less than 2 amps. The exceptions are some of those very long NEMA17s with torque ratings above 90 Oz-in. Most NEMA 23's we are familiar with are between 2 and 3 amps (and should be fan cooled).
 
