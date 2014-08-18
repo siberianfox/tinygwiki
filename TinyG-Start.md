@@ -38,7 +38,7 @@ Here are the steps to get started. We recommend following them in order. (_Note:
   * Configuring axes
   * Configuring system and communication parameters
 
-##What You Need
+###What You Need
 Here is what you are going to need in order to use TinyG: 
 * [**A TinyG board**](http://synthetos.myshopify.com/products/tinyg)
 * **Power Supply** - Anything between 12VDC and 30VDC, typically 24 volts DC at 4 to 15 amps. 
@@ -47,15 +47,6 @@ Here is what you are going to need in order to use TinyG:
 Optional
 * **Fan** - A 12VDC or 24VDC fan is recommended, especially if the board is in an enclosure 
 * **Programmer/Debugger** You can use TinyG's [Bootloader](TinyG-Boot-Loader) for firmware updates. If you want to do real-time debugging or serious development we recommend picking up a programmer.
-
-
-
-
-
-NOTES: 
-* We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's or any motor that draws more than 2 amps we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the **bottom of the board** as well as the top.
-
-* If you want to use an external programmer the Xmega on TinyG requires a PDI capable programmer such as the [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) or the newer [ATMEL-ICE-BASIC programmer](http://www.digikey.com/product-detail/en/ATATMEL-ICE-BASIC/ATATMEL-ICE-BASIC-ND/4753381). Older AVR ICSP programmers will not work. Also note that while AVRdude will program using the AVRISP MKii, it will not program using the ATMEL-ICE (who's advantage is that it offers real-time debugging via Atmel Studio of Open OCD).
 
 #### TinyG Board
 You can get the TinyG controller board fully assembled from the [Synthetos Store](https://synthetos.myshopify.com/products/tinyg)
@@ -72,7 +63,11 @@ Here are a couple power supplies we like: [Meanwell NES-150-24](http://www.mouse
 PS Caveat: Be sure to switch the AC input from 240v to 120v if you are in the US or a 120v mains country. Most PSs will still work, but will audibly "click" and lose power if you don't set this correctly. Also, we've gotten Meanwell clones ordering from eBay - like Meigwei. Sheesh - they said I was ordering a Meanwell.
 
 #### Stepper Motors
-TinyG will work with bipolar and unipolar stepper motors. This covers most NEMA17 and NEMA23 motors you are likely to encounter. It will not work with motors wired as 5 wire "star configurations", so avoid these. Some of out favorite sources for stepper motors are: 
+TinyG will work with bipolar and unipolar stepper motors. This covers most NEMA17 and NEMA23 motors you are likely to encounter. It will not work with motors wired as 5 wire "star configurations", so avoid these. 
+
+We have never found a NEMA17 that would not work with TinyG, and almost every NEMA23 we have tried will work if rated up to about 3 amps per winding. We also routinely run NEMA34's, but not in high mechanical load situations. The motor's rated voltage is irrelevant and can be ignored. When running NEMA23's or any motor that draws more than 2 amps we recommend fan cooling. Note that most of the heat comes off the bottom copper, so be sure to provide air circulation for the **bottom of the board** as well as the top.
+
+Some of out favorite sources for stepper motors are: 
 
 * [Automation Technology Inc. (Keling)](http://www.automationtechnologiesinc.com/)
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55 www.alltronics.com/cgi-bin/category/55)
@@ -93,6 +88,13 @@ The TinyGv8's come equipped with a 3-pin fan connector that can be used to power
 * The "+12v" jumper position connects the fan header to the on-board 12 volt regulator (LM7812). This should be used if you are running a 12 volt fan and your board power (Vmot) is greater than 12 volts. This is the default jumper position and your v8 should have been shipped with the jumper in this position. 
 * The "+Vmot" jumper position connects the fan header directly to the board power (Vmot). In this case your fan voltage needs to be the same as your Motor voltage, be it 12 volts, 24 volts, or anything else.<br>
 **Use this side with caution as applying 24 volts to some 12 volt fans will burn them out.**
+
+### Programmer/Debugger
+If you are doing serious development or want to do real-time debugging we recommend getting a programmer debugger. The unot of choice these days is the [ATMEL-ICE-BASIC programmer](http://www.digikey.com/product-detail/en/ATATMEL-ICE-BASIC/ATATMEL-ICE-BASIC-ND/4753381). The basic sells for about $50 and will program and debug AVRs (like the Xmega on the TiInyG v8) as well as the Atmel ARM chip on the pre-release TinyG v9. Note that as of now Avrdude will not program using the ATMEL-ICE (who's advantage is that it offers real-time debugging via Atmel Studio or Open OCD).
+
+The older [Atmel AVRISP MKII programmer](http://www.mouser.com/Search/ProductDetail.aspx?qs=sGAEpiMZZMsaJrqdZ%252b6EWyua%252bG%2FwcOQP26MNKN%252bCIDE%3D) will also program the Xmega, and does work with AVRdude. But it doesn't do debugging and won't work with the ARM chips.
+
+Note that older AVR ICSP programmers will not work. 
 
 ### Connecting TinyG
 At this point you can move on to [Connecting TinyG](Connecting-TinyG)
