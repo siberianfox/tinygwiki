@@ -1,3 +1,6 @@
+[<<< Prev - Getting Started](https://TinyG-Start) --- [Next - Test Drive>>>](Connecting-TinyG)<br><br>
+If you are on this page you have already selected your motors and power supply and are ready to hook them up.
+
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
 
