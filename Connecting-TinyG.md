@@ -2,11 +2,11 @@
 If you are on this page you have already selected your motors and power supply and are ready to hook them up.
 
 Connecting TinyG Steps
-* Connecting power
-* Connecting USB
-* Testing Connection
-* Wiring your motors
-* Setting motor current
+* Connect power
+* Connect USB
+* Test Connection
+* Wire your motors
+* Set motor current
 * Test drive
 
 ## Connect Power
