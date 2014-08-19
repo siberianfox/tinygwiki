@@ -7,7 +7,7 @@ See also:
 
 	Code | Label | Description
 	---------|--------------|-------------
-	_ | _ | **Low level codes** typically system and communications status
+	_ | **Low level codes** | Typically system and communications status
 	0 | OK | universal OK code (function completed successfully)
 	1 | ERROR | generic error return (EPERM)
 	2 | EAGAIN | function would block here (call again)
