@@ -168,70 +168,7 @@ Status codes are returned in the second element of the footer array, e.g.
 "f":[1,0,255,1234]
 </pre>
 
-Codes:
 
-	errno | name | Description
-	---------|--------------|-------------
-	0 | TG_OK | universal OK code (function completed successfully)
-	 |  **Low level codes** | typically system and communications status
-	1 | TG_ERROR | generic error return (EPERM)
-	2 | TG_EAGAIN | function would block here (call again)
-	3 | TG_NOOP | function had no-operation
-	4 | TG_COMPLETE | operation is complete
-	5 | TG_TERMINATE | operation terminated (gracefully)
-	6 | TG_RESET | operation was hard reset (sig kill)
-	7 | TG_EOL | function returned end-of-line or end-of-message
-	8 | TG_EOF | function returned end-of-file 
-	9 | TG_FILE_NOT_OPEN 
-	10 | TG_FILE_SIZE_EXCEEDED 
-	11 | TG_NO_SUCH_DEVICE 
-	12 | TG_BUFFER_EMPTY 
-	13 | TG_BUFFER_FULL 
-	14 | TG_BUFFER_FULL_FATAL 
-	15 | TG_INITIALIZING | initializing - not ready for use
-	16 | TG_ENTERING_BOOT_LOADER | entering boot loader from application
-	17-19 | TG_ERROR_16 - TG_ERROR_19 | reserved
-	 | **Internal errors** | typically unrecoverable
-	20 | TG_INTERNAL_ERROR | unrecoverable internal error
-	21 | TG_INTERNAL_RANGE_ERROR | number range error other than by user input
-	22 | TG_FLOATING_POINT_ERROR | number conversion error
-	23 | TG_DIVIDE_BY_ZERO
-	24 | TG_INVALID_ADDRESS
-	25 | TG_READ_ONLY_ADDRESS
-	26 | TG_INIT_FAIL | Initialization failure
-	[27](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes#status-code-27---system-shutdown) | TG_SHUTDOWN | System alarmed and went into shutdown
-	28 | TG_MEMORY_FAULT | Memory fault or corruption detected
-	29-39 | TG_ERROR_29 - TG_ERROR_39 | reserved
-	 | **Input errors** | typically data problems on inputs
-	40 | TG_UNRECOGNIZED_COMMAND | parser didn't recognize the command
-	41 | TG_EXPECTED_COMMAND_LETTER | malformed line to parser
-	42 | TG_BAD_NUMBER_FORMAT | number format error
-	43 | TG_INPUT_EXCEEDS_MAX_LENGTH | input string is too long 
-	44 | TG_INPUT_VALUE_TOO_SMALL | value is under minimum for this parameter
-	45 | TG_INPUT_VALUE_TOO_LARGE | value is over maximum for this parameter
-	46 | TG_INPUT_VALUE_RANGE_ERROR | input error: value is out-of-range for this parameter
-	47 | TG_INPUT_VALUE_UNSUPPORTED | input error: value is not supported for this parameter
-	48 | TG_JSON_SYNTAX_ERROR | JSON string is not well formed
-	49 | TG_JSON_TOO_MANY_PAIRS | JSON string or has too many name:value pairs
-	50 | TG_JSON_TOO_LONG | JSON output string too long for output buffer
-	51 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
-	52 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
-	 | **Gcode and machining errors** | application specific errors for Gcode problems
-	60 | TG_MINIMUM_LENGTH_MOVE_ERROR | move is below minimum length or zero
-	61 | TG_MINIMUM_TIME_MOVE_ERROR | move is below minimum time or zero
-	62 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
-	63 | TG_GCODE_INPUT_ERROR | general error for gcode input 
-	64 | TG_GCODE_FEEDRATE_ERROR | no feedrate specified
-	65 | TG_GCODE_AXIS_WORD_MISSING | command requires at least one axis present
-	66 | TG_MODAL_GROUP_VIOLATION | gcode modal group error
-	67 | TG_HOMING_CYCLE_FAILED | homing cycle did not complete
-	68 | TG_MAX_TRAVEL_EXCEEDED 
-	69 | TG_MAX_SPINDLE_SPEED_EXCEEDED 
-	70 | TG_ARC_SPECIFICATION_ERROR
-	71-79 | TG_ERROR_71 - TG_ERROR_79 | reserved
-	80-99 | Expansion | Expansion ranges
-	100-119 | Expansion  | 
-	etc. | Expansion | 
 
 ## Status Report Enumerations
 Values commonly reported in status reports are listed below. See canonical_machine.h for the actual code.
@@ -387,3 +324,68 @@ System alarms occur when the system must halt operation for some reason. You wil
 Alarms may occur when:
 * A limit switch has been hit. This is normal if you have limit switches enabled. This can also happen sporadically if there is noise on the limit switch line. 
 * Memory fault or corruption has been detected. This indicates a program error. Please report this to Synthetos. 
+
+###Legacy Status Codes:
+
+	errno | name | Description
+	---------|--------------|-------------
+	0 | TG_OK | universal OK code (function completed successfully)
+	 |  **Low level codes** | typically system and communications status
+	1 | TG_ERROR | generic error return (EPERM)
+	2 | TG_EAGAIN | function would block here (call again)
+	3 | TG_NOOP | function had no-operation
+	4 | TG_COMPLETE | operation is complete
+	5 | TG_TERMINATE | operation terminated (gracefully)
+	6 | TG_RESET | operation was hard reset (sig kill)
+	7 | TG_EOL | function returned end-of-line or end-of-message
+	8 | TG_EOF | function returned end-of-file 
+	9 | TG_FILE_NOT_OPEN 
+	10 | TG_FILE_SIZE_EXCEEDED 
+	11 | TG_NO_SUCH_DEVICE 
+	12 | TG_BUFFER_EMPTY 
+	13 | TG_BUFFER_FULL 
+	14 | TG_BUFFER_FULL_FATAL 
+	15 | TG_INITIALIZING | initializing - not ready for use
+	16 | TG_ENTERING_BOOT_LOADER | entering boot loader from application
+	17-19 | TG_ERROR_16 - TG_ERROR_19 | reserved
+	 | **Internal errors** | typically unrecoverable
+	20 | TG_INTERNAL_ERROR | unrecoverable internal error
+	21 | TG_INTERNAL_RANGE_ERROR | number range error other than by user input
+	22 | TG_FLOATING_POINT_ERROR | number conversion error
+	23 | TG_DIVIDE_BY_ZERO
+	24 | TG_INVALID_ADDRESS
+	25 | TG_READ_ONLY_ADDRESS
+	26 | TG_INIT_FAIL | Initialization failure
+	[27](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes#status-code-27---system-shutdown) | TG_SHUTDOWN | System alarmed and went into shutdown
+	28 | TG_MEMORY_FAULT | Memory fault or corruption detected
+	29-39 | TG_ERROR_29 - TG_ERROR_39 | reserved
+	 | **Input errors** | typically data problems on inputs
+	40 | TG_UNRECOGNIZED_COMMAND | parser didn't recognize the command
+	41 | TG_EXPECTED_COMMAND_LETTER | malformed line to parser
+	42 | TG_BAD_NUMBER_FORMAT | number format error
+	43 | TG_INPUT_EXCEEDS_MAX_LENGTH | input string is too long 
+	44 | TG_INPUT_VALUE_TOO_SMALL | value is under minimum for this parameter
+	45 | TG_INPUT_VALUE_TOO_LARGE | value is over maximum for this parameter
+	46 | TG_INPUT_VALUE_RANGE_ERROR | input error: value is out-of-range for this parameter
+	47 | TG_INPUT_VALUE_UNSUPPORTED | input error: value is not supported for this parameter
+	48 | TG_JSON_SYNTAX_ERROR | JSON string is not well formed
+	49 | TG_JSON_TOO_MANY_PAIRS | JSON string or has too many name:value pairs
+	50 | TG_JSON_TOO_LONG | JSON output string too long for output buffer
+	51 | TG_NO_BUFFER_SPACE | Buffer pool is full and cannot perform this operation
+	52 - 59 | TG_ERROR_51 - TG_ERROR_59 | reserved
+	 | **Gcode and machining errors** | application specific errors for Gcode problems
+	60 | TG_MINIMUM_LENGTH_MOVE_ERROR | move is below minimum length or zero
+	61 | TG_MINIMUM_TIME_MOVE_ERROR | move is below minimum time or zero
+	62 | TG_GCODE_BLOCK_SKIPPED | block was skipped - usually because it was is too short
+	63 | TG_GCODE_INPUT_ERROR | general error for gcode input 
+	64 | TG_GCODE_FEEDRATE_ERROR | no feedrate specified
+	65 | TG_GCODE_AXIS_WORD_MISSING | command requires at least one axis present
+	66 | TG_MODAL_GROUP_VIOLATION | gcode modal group error
+	67 | TG_HOMING_CYCLE_FAILED | homing cycle did not complete
+	68 | TG_MAX_TRAVEL_EXCEEDED 
+	69 | TG_MAX_SPINDLE_SPEED_EXCEEDED 
+	70 | TG_ARC_SPECIFICATION_ERROR
+	71-79 | TG_ERROR_71 - TG_ERROR_79 | reserved
+	80-99 | Expansion | Expansion ranges
+	100-119 | Expansion  | 
+	etc. | Expansion | 
