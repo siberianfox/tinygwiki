@@ -2,12 +2,12 @@
 If you are on this page you have already selected your motors and power supply and are ready to hook them up.
 
 Connecting TinyG Steps
-* Connect power
-* Connect USB
-* Test Connection
-* Wire your motors
-* Set motor current
-* Test drive
+* [Connect power](#connect-power)
+* [Connect USB](#establish-usb-connection)
+* [Test connection](#test-connection-to-tinyg)
+* [Wire your motors](#wire-your-motors)
+* [Set motor current](#setting-motor-current)
+* [Test drive](Test-Drive-TinyG)
 
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
@@ -45,17 +45,6 @@ Next establish USB connection with your host computer.
 
 * Hit OK to leave the Options menu
 
-####Connect to TinyG
-* Hit the "Connect" button. Enter a few carriage returns. TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
-<pre>
-{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
-{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"SYSTEM READY","f":[1,0,0,8820]}}
-tinyg [mm] ok> 
-</pre>
-* If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke. For help from the command line enter 'h' for TinyG help, or '$h' for configuration help 
-
-* **If you simply cannot connect try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI drivers that can cause this sometimes.**
-
 ####Verify Flow Control
 * Verify you have flow control configured properly. The default flow control for TinyG is XON, which uses the folliwing settings:
  * Coolterm: `XON` checked
@@ -65,6 +54,17 @@ tinyg [mm] ok>
  * Coolterm: `CTS` checked
  * Coolterm: `DTR` checked
  * TinyG: `$ex=2`
+
+####Test Connection to TinyG
+* Hit the "Connect" button. Enter a few carriage returns. TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
+<pre>
+{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
+{"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"SYSTEM READY","f":[1,0,0,8820]}}
+tinyg [mm] ok> 
+</pre>
+* If not, go back and check your driver, your serial settings, your USB cable, and that you have a blue light and not blue smoke. For help from the command line enter 'h' for TinyG help, or '$h' for configuration help 
+
+* **If you simply cannot connect try powering down the TinyG and quitting Coolterm (or your terminal program), powering back up and restarting the terminal. There is a known bug in the FTDI drivers that can cause this sometimes.**
 
 ## Wire Your Motors
 First, turn off the power to TinyG. Never connect or disconnect anything (except possibly USB) with the power on.
