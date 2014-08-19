@@ -86,7 +86,7 @@ You need 4 terminals for each housing (shell). You can get these from Mouser or 
 * TE/Amp 3-644463-4 (need one per motor)
 
 ### Find the Coil Pairs
-The first thing you need to do is make sure you know which wires are connected to the same coil. 
+The first step is make sure you know which wires are connected to the same coil. 
 
 Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
