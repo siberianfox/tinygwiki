@@ -8,7 +8,7 @@ See also:
 	errno | name | Description
 	---------|--------------|-------------
 	0 | TG_OK | universal OK code (function completed successfully)
-	|| **Low level codes** typically system and communications status
+	| | **Low level codes** typically system and communications status
 	0 | STAT_OK 0 | function completed OK
 	1 | STAT_ERROR 1 | generic error return (EPERM)
 	2 | STAT_EAGAIN 2 | function would block here (call again)
