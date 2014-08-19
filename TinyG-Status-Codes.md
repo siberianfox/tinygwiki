@@ -8,155 +8,157 @@ See also:
 	Code | Label | Description
 	---------|--------------|-------------
 	_ | _ | **Low level codes** typically system and communications status
-	0 | STAT_OK | universal OK code (function completed successfully)
-	1 | STAT_ERROR | generic error return (EPERM)
-	2 | STAT_EAGAIN | function would block here (call again)
-	3 | STAT_NOOP | function had no-operation
-	4 | STAT_COMPLETE | operation is complete
-5 | STAT_TERMINATE | operation terminated (gracefully)
-	6 | STAT_RESET | operation was hard reset (sig kill)
-	7 | STAT_EOL | function returned end-of-line
-	8 | STAT_EOF | function returned end-of-file
-	9 | STAT_FILE_NOT_OPEN
-	10 | STAT_FILE_SIZE_EXCEEDED
-	11 | STAT_NO_SUCH_DEVICE
-	12 | STAT_BUFFER_EMPTY
-	13 | STAT_BUFFER_FULL
-	14 | STAT_BUFFER_FULL_FATAL
-	15 | STAT_INITIALIZING | initializing - not ready for use
-	16 | STAT_ENTERING_BOOT_LOADER | this code actually emitted from boot loader, not TinyG
-	17 | STAT_FUNCTION_IS_STUBBED
+	0 | OK | universal OK code (function completed successfully)
+	1 | ERROR | generic error return (EPERM)
+	2 | EAGAIN | function would block here (call again)
+	3 | NOOP | function had no-operation
+	4 | COMPLETE | operation is complete
+5 | TERMINATE | operation terminated (gracefully)
+	6 | RESET | operation was hard reset (sig kill)
+	7 | EOL | function returned end-of-line
+	8 | EOF | function returned end-of-file
+	9 | FILE_NOT_OPEN
+	10 | FILE_SIZE_EXCEEDED
+	11 | NO_SUCH_DEVICE
+	12 | BUFFER_EMPTY
+	13 | BUFFER_FULL
+	14 | BUFFER_FULL_FATAL
+	15 | INITIALIZING | initializing - not ready for use
+	16 | ENTERING_BOOT_LOADER | this code actually emitted from boot loader, not TinyG
+	17 | FUNCTION_IS_STUBBED
 	18 - 19 | Reserved 
 _ | _ | **Internal errors and startup messages**
-	20 | STAT_INTERNAL_ERROR | unrecoverable internal error
-	21 | STAT_INTERNAL_RANGE_ERROR | number range other than by user input
-	22 | STAT_FLOATING_POINT_ERROR | number conversion error
-	23 | STAT_DIVIDE_BY_ZERO
-	24 | STAT_INVALID_ADDRESS
-	25 | STAT_READ_ONLY_ADDRESS
-	26 | STAT_INIT_FAIL
-	27 | STAT_ALARMED
-	28 | STAT_FAILED_TO_GET_PLANNER_BUFFER
-	29 | STAT_GENERIC_EXCEPTION_REPORT | used for test
-	30 | STAT_PREP_LINE_MOVE_TIME_IS_INFINITE
-	31 | STAT_PREP_LINE_MOVE_TIME_IS_NAN
-	32 | STAT_FLOAT_IS_INFINITE
-	33 | STAT_FLOAT_IS_NAN
-	34 | STAT_PERSISTENCE_ERROR
-	35 | STAT_BAD_STATUS_REPORT_SETTING
+	20 | INTERNAL_ERROR | unrecoverable internal error
+	21 | INTERNAL_RANGE_ERROR | number range other than by user input
+	22 | FLOATING_POINT_ERROR | number conversion error
+	23 | DIVIDE_BY_ZERO
+	24 | INVALID_ADDRESS
+	25 | READ_ONLY_ADDRESS
+	26 | INIT_FAIL
+	27 | ALARMED
+	28 | FAILED_TO_GET_PLANNER_BUFFER
+	29 | GENERIC_EXCEPTION_REPORT | used for test
+	30 | PREP_LINE_MOVE_TIME_IS_INFINITE
+	31 | PREP_LINE_MOVE_TIME_IS_NAN
+	32 | FLOAT_IS_INFINITE
+	33 | FLOAT_IS_NAN
+	34 | PERSISTENCE_ERROR
+	35 | BAD_STATUS_REPORT_SETTING
 	36 – 89 | Reserved
 _ | _ | **Assertion failures** Build down from 99 until they meet the system internal errors
-	90 | STAT_CONFIG_ASSERTION_FAILURE
-	91 | STAT_XIO_ASSERTION_FAILURE
-	92 | STAT_ENCODER_ASSERTION_FAILURE
-	93 | STAT_STEPPER_ASSERTION_FAILURE
-	94 | STAT_PLANNER_ASSERTION_FAILURE
-	95 | STAT_CANONICAL_MACHINE_ASSERTION_FAILURE
-	96 | STAT_CONTROLLER_ASSERTION_FAILURE
-	97 | STAT_STACK_OVERFLOW
-	98 | STAT_MEMORY_FAULT | generic memory corruption detected by magic numbers
-	99 | STAT_GENERIC_ASSERTION_FAILURE 99 | generic assertion failure - unclassified
+	90 | CONFIG_ASSERTION_FAILURE
+	91 | XIO_ASSERTION_FAILURE
+	92 | ENCODER_ASSERTION_FAILURE
+	93 | STEPPER_ASSERTION_FAILURE
+	94 | PLANNER_ASSERTION_FAILURE
+	95 | CANONICAL_MACHINE_ASSERTION_FAILURE
+	96 | CONTROLLER_ASSERTION_FAILURE
+	97 | STACK_OVERFLOW
+	98 | MEMORY_FAULT | generic memory corruption detected by magic numbers
+	99 | GENERIC_ASSERTION_FAILURE 99 | generic assertion failure - unclassified
 	_ | _ | ** Application and data input errors**
 _ | _ | **Generic data input errors**
-	100 | STAT_UNRECOGNIZED_NAME | parser didn't recognize the name
-	101 | STAT_MALFORMED_COMMAND_INPUT | malformed line to parser
-	102 | STAT_BAD_NUMBER_FORMAT | number format error
-	103 | STAT_INPUT_EXCEEDS_MAX_LENGTH | input string is too long
-	104 | STAT_INPUT_VALUE_TOO_SMALL | input error: value is under minimum
-	105 | STAT_INPUT_VALUE_TOO_LARGE | input error: value is over maximum
-	106 | STAT_INPUT_VALUE_RANGE_ERROR | input error: value is out-of-range
-	107 | STAT_INPUT_VALUE_UNSUPPORTED | input error: value is not supported
-	108 | STAT_JSON_SYNTAX_ERROR | JSON input string is not well formed
-	109 | STAT_JSON_TOO_MANY_PAIRS | JSON input string has too many JSON pairs
-	110 | STAT_JSON_TOO_LONG | JSON output exceeds buffer size
-	111 | STAT_CONFIG_NOT_TAKEN | configuration value not taken while in machining cycle
-	112 | STAT_COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
+	100 | UNRECOGNIZED_NAME | parser didn't recognize the name
+	101 | MALFORMED_COMMAND_INPUT | malformed line to parser
+	102 | BAD_NUMBER_FORMAT | number format error
+	103 | INPUT_EXCEEDS_MAX_LENGTH | input string is too long
+	104 | INPUT_VALUE_TOO_SMALL | input error: value is under minimum
+	105 | INPUT_VALUE_TOO_LARGE | input error: value is over maximum
+	106 | INPUT_VALUE_RANGE_ERROR | input error: value is out-of-range
+	107 | INPUT_VALUE_UNSUPPORTED | input error: value is not supported
+	108 | JSON_SYNTAX_ERROR | JSON input string is not well formed
+	109 | JSON_TOO_MANY_PAIRS | JSON input string has too many JSON pairs
+	110 | JSON_TOO_LONG | JSON output exceeds buffer size
+	111 | CONFIG_NOT_TAKEN | configuration value not taken while in machining cycle
+	112 | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
 	113 – 129 | Reserved |
 _ | _ | **Gcode errors and warnings** Most originate from NIST
-	130 | STAT_GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
-	131 | STAT_GCODE_COMMAND_UNSUPPORTED | G command is not supported
-	132 | STAT_MCODE_COMMAND_UNSUPPORTED | M command is not supported
-	133 | STAT_GCODE_MODAL_GROUP_VIOLATION | gcode modal group error
-	134 | STAT_GCODE_AXIS_IS_MISSING | command requires at least one axis present
-	135 | STAT_GCODE_AXIS_CANNOT_BE_PRESENT | error if G80 has axis words
-	136 | STAT_GCODE_AXIS_IS_INVALID | an axis is specified that is illegal for the command
-	137 | STAT_GCODE_AXIS_IS_NOT_CONFIGURED | WARNING: attempt to program an axis that is disabled
-	138 | STAT_GCODE_AXIS_NUMBER_IS_MISSING | axis word is missing its value
-	139 | STAT_GCODE_AXIS_NUMBER_IS_INVALID | axis word value is illegal
-	140 | STAT_GCODE_ACTIVE_PLANE_IS_MISSING | active plane is not programmed
-	141 | STAT_GCODE_ACTIVE_PLANE_IS_INVALID | active plane selected is not valid for this command
-	142 | STAT_GCODE_FEEDRATE_NOT_SPECIFIED | move has no feedrate
-	143 | STAT_GCODE_INVERSE_TIME_MODE_CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
-	144 | STAT_GCODE_ROTARY_AXIS_CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
-	145 | STAT_GCODE_G53_WITHOUT_G0_OR_G1 | G0 or G1 must be active for G53
-	146 | STAT_REQUESTED_VELOCITY_EXCEEDS_LIMITS
-	147 | STAT_CUTTER_COMPENSATION_CANNOT_BE_ENABLED
-	148 | STAT_PROGRAMMED_POINT_SAME_AS_CURRENT_POINT
-	149 | STAT_SPINDLE_SPEED_BELOW_MINIMUM
-	150 | STAT_SPINDLE_SPEED_MAX_EXCEEDED
-	151 | STAT_S_WORD_IS_MISSING
-	152 | STAT_S_WORD_IS_INVALID
-	153 | STAT_SPINDLE_MUST_BE_OFF
-	154 | STAT_SPINDLE_MUST_BE_TURNING | some canned cycles require spindle to be turning when called
-	155 | STAT_ARC_SPECIFICATION_ERROR | generic arc specification error
-	156 | STAT_ARC_AXIS_MISSING_FOR_SELECTED_PLANE | arc is missing axis (axes) required by selected plane
-	157 | STAT_ARC_OFFSETS_MISSING_FOR_SELECTED_PLANE | one or both offsets are not specified
-	158 | STAT_ARC_RADIUS_OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
-	159 | STAT_ARC_ENDPOINT_IS_STARTING_POINT
-	160 | STAT_P_WORD_IS_MISSING | P must be present for dwells and other functions
-	161 | STAT_P_WORD_IS_INVALID | generic P value error
-	162 | STAT_P_WORD_IS_ZERO
-	163 | STAT_P_WORD_IS_NEGATIVE | dwells require positive P values
-	164 | STAT_P_WORD_IS_NOT_AN_INTEGER | G10s and other commands require integer P numbers
-	165 | STAT_P_WORD_IS_NOT_VALID_TOOL_NUMBER
-	166 | STAT_D_WORD_IS_MISSING
-	167 | STAT_D_WORD_IS_INVALID
-	168 | STAT_E_WORD_IS_MISSING
-	169 | STAT_E_WORD_IS_INVALID
-	170 | STAT_H_WORD_IS_MISSING
-	171 | STAT_H_WORD_IS_INVALID
-	172 | STAT_L_WORD_IS_MISSING
-	173 | STAT_L_WORD_IS_INVALID
-	174 | STAT_Q_WORD_IS_MISSING
-	175 | STAT_Q_WORD_IS_INVALID
-	176 | STAT_R_WORD_IS_MISSING
-	177 | STAT_R_WORD_IS_INVALID
-	178 | STAT_T_WORD_IS_MISSING
-	179 | STAT_T_WORD_IS_INVALID
+	130 | GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
+	131 | GCODE_COMMAND_UNSUPPORTED | G command is not supported
+	132 | MCODE_COMMAND_UNSUPPORTED | M command is not supported
+	133 | GCODE_MODAL_GROUP_VIOLATION | gcode modal group error
+	134 | GCODE_AXIS_IS_MISSING | command requires at least one axis present
+	135 | GCODE_AXIS_CANNOT_BE_PRESENT | error if G80 has axis words
+	136 | GCODE_AXIS_IS_INVALID | an axis is specified that is illegal for the command
+	137 | GCODE_AXIS_IS_NOT_CONFIGURED | WARNING: attempt to program an axis that is disabled
+	138 | GCODE_AXIS_NUMBER_IS_MISSING | axis word is missing its value
+	139 | GCODE_AXIS_NUMBER_IS_INVALID | axis word value is illegal
+	140 | GCODE_ACTIVE_PLANE_IS_MISSING | active plane is not programmed
+	141 | GCODE_ACTIVE_PLANE_IS_INVALID | active plane selected is not valid for this command
+	142 | GCODE_FEEDRATE_NOT_SPECIFIED | move has no feedrate
+	143 | GCODE_INVERSE_TIME_MODE_CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
+	144 | GCODE_ROTARY_AXIS_CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
+	145 | GCODE_G53_WITHOUT_G0_OR_G1 | G0 or G1 must be active for G53
+	146 | REQUESTED_VELOCITY_EXCEEDS_LIMITS
+	147 | CUTTER_COMPENSATION_CANNOT_BE_ENABLED
+	148 | PROGRAMMED_POINT_SAME_AS_CURRENT_POINT
+	149 | SPINDLE_SPEED_BELOW_MINIMUM
+	150 | SPINDLE_SPEED_MAX_EXCEEDED
+	151 | S_WORD_IS_MISSING
+	152 | S_WORD_IS_INVALID
+	153 | SPINDLE_MUST_BE_OFF
+	154 | SPINDLE_MUST_BE_TURNING | some canned cycles require spindle to be turning when called
+	155 | ARC_SPECIFICATION_ERROR | generic arc specification error
+	156 | ARC_AXIS_MISSING_FOR_SELECTED_PLANE | arc is missing axis (axes) required by selected plane
+	157 | ARC_OFFSETS_MISSING_FOR_SELECTED_PLANE | one or both offsets are not specified
+	158 | ARC_RADIUS_OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
+	159 | ARC_ENDPOINT_IS_STARTING_POINT
+	160 | P_WORD_IS_MISSING | P must be present for dwells and other functions
+	161 | P_WORD_IS_INVALID | generic P value error
+	162 | P_WORD_IS_ZERO
+	163 | P_WORD_IS_NEGATIVE | dwells require positive P values
+	164 | P_WORD_IS_NOT_AN_INTEGER | G10s and other commands require integer P numbers
+	165 | P_WORD_IS_NOT_VALID_TOOL_NUMBER
+	166 | D_WORD_IS_MISSING
+	167 | D_WORD_IS_INVALID
+	168 | E_WORD_IS_MISSING
+	169 | E_WORD_IS_INVALID
+	170 | H_WORD_IS_MISSING
+	171 | H_WORD_IS_INVALID
+	172 | L_WORD_IS_MISSING
+	173 | L_WORD_IS_INVALID
+	174 | Q_WORD_IS_MISSING
+	175 | Q_WORD_IS_INVALID
+	176 | R_WORD_IS_MISSING
+	177 | R_WORD_IS_INVALID
+	178 | T_WORD_IS_MISSING
+	179 | T_WORD_IS_INVALID
 	180 - 199| Reserved | reserved for Gcode errors
 _ | _ | **TinyG errors and warnings
-	200 | STAT_GENERIC_ERROR
-	201 | STAT_MINIMUM_LENGTH_MOVE | move is less than minimum length
-	202 | STAT_MINIMUM_TIME_MOVE | move is less than minimum time
-	203 | STAT_MACHINE_ALARMED | machine is alarmed. Command not processed
-	204 | STAT_LIMIT_SWITCH_HIT | a limit switch was hit causing shutdown
-	205 | STAT_PLANNER_FAILED_TO_CONVERGE | trapezoid generator can through this exception
+	200 | GENERIC_ERROR
+	201 | MINIMUM_LENGTH_MOVE | move is less than minimum length
+	202 | MINIMUM_TIME_MOVE | move is less than minimum time
+	203 | MACHINE_ALARMED | machine is alarmed. Command not processed
+	204 | LIMIT_SWITCH_HIT | a limit switch was hit causing shutdown
+	205 | PLANNER_FAILED_TO_CONVERGE | trapezoid generator can through this exception
 	206 - 219| Reserved
-	220 | STAT_SOFT_LIMIT_EXCEEDED | soft limit error - axis unspecified
-	221 | STAT_SOFT_LIMIT_EXCEEDED_XMIN | soft limit error - X minimum
-	222 | STAT_SOFT_LIMIT_EXCEEDED_XMAX | soft limit error - X maximum
-	223 | STAT_SOFT_LIMIT_EXCEEDED_YMIN | soft limit error - Y minimum
-	224 | STAT_SOFT_LIMIT_EXCEEDED_YMAX | soft limit error - Y maximum
-	225 | STAT_SOFT_LIMIT_EXCEEDED_ZMIN | soft limit error - Z minimum
-	226 | STAT_SOFT_LIMIT_EXCEEDED_ZMAX | soft limit error - Z maximum
-	227 | STAT_SOFT_LIMIT_EXCEEDED_AMIN | soft limit error - A minimum
-	228 | STAT_SOFT_LIMIT_EXCEEDED_AMAX | soft limit error - A maximum
-	229 | STAT_SOFT_LIMIT_EXCEEDED_BMIN | soft limit error - B minimum
-	230 | STAT_SOFT_LIMIT_EXCEEDED_BMAX | soft limit error - B maximum
-	231 | STAT_SOFT_LIMIT_EXCEEDED_CMIN | soft limit error - C minimum
-	232 | STAT_SOFT_LIMIT_EXCEEDED_CMAX | soft limit error - C maximum
+	220 | SOFT_LIMIT_EXCEEDED | soft limit error - axis unspecified
+	221 | SOFT_LIMIT_EXCEEDED_XMIN | soft limit error - X minimum
+	222 | SOFT_LIMIT_EXCEEDED_XMAX | soft limit error - X maximum
+	223 | SOFT_LIMIT_EXCEEDED_YMIN | soft limit error - Y minimum
+	224 | SOFT_LIMIT_EXCEEDED_YMAX | soft limit error - Y maximum
+	225 | SOFT_LIMIT_EXCEEDED_ZMIN | soft limit error - Z minimum
+	226 | SOFT_LIMIT_EXCEEDED_ZMAX | soft limit error - Z maximum
+	227 | SOFT_LIMIT_EXCEEDED_AMIN | soft limit error - A minimum
+	228 | SOFT_LIMIT_EXCEEDED_AMAX | soft limit error - A maximum
+	229 | SOFT_LIMIT_EXCEEDED_BMIN | soft limit error - B minimum
+	230 | SOFT_LIMIT_EXCEEDED_BMAX | soft limit error - B maximum
+	231 | SOFT_LIMIT_EXCEEDED_CMIN | soft limit error - C minimum
+	232 | SOFT_LIMIT_EXCEEDED_CMAX | soft limit error - C maximum
 	233 – 239 | Reserved
-	240 | STAT_HOMING_CYCLE_FAILED 240 | homing cycle did not complete
-	241 | STAT_HOMING_ERROR_BAD_OR_NO_AXIS 
-	242 | STAT_HOMING_ERROR_ZERO_SEARCH_VELOCITY 
-	243 | STAT_HOMING_ERROR_ZERO_LATCH_VELOCITY 
-	244 | STAT_HOMING_ERROR_TRAVEL_MIN_MAX_IDENTICAL 
-	245 | STAT_HOMING_ERROR_NEGATIVE_LATCH_BACKOFF 
-	246 | STAT_HOMING_ERROR_SWITCH_MISCONFIGURATION 
+	240 | HOMING_CYCLE_FAILED 240 | homing cycle did not complete
+	241 | HOMING_ERROR_BAD_OR_NO_AXIS 
+	242 | HOMING_ERROR_ZERO_SEARCH_VELOCITY 
+	243 | HOMING_ERROR_ZERO_LATCH_VELOCITY 
+	244 | HOMING_ERROR_TRAVEL_MIN_MAX_IDENTICAL 
+	245 | HOMING_ERROR_NEGATIVE_LATCH_BACKOFF 
+	246 | HOMING_ERROR_SWITCH_MISCONFIGURATION 
 	247 – 249 | Reserved
-	250 | STAT_PROBE_CYCLE_FAILED | probing cycle did not complete
-	251 | STAT_PROBE_ENDPOINT_IS_STARTING_POINT 
-	252 | STAT_JOGGING_CYCLE_FAILED | jogging cycle did not complete
+	250 | PROBE_CYCLE_FAILED | probing cycle did not complete
+	251 | PROBE_ENDPOINT_IS_STARTING_POINT 
+	252 | JOGGING_CYCLE_FAILED | jogging cycle did not complete
+
+
 
 
 
