@@ -5,7 +5,12 @@ See also:
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 ## Status Codes 
-The following status code are defined.  Earlier revisions (build 380.xx) may be using [these status codes](#legacy-status-codes) (Apologies for the table formatting - it's the best we can do)
+The following status code are defined. Status codes are returned in the second element of the footer array, e.g.
+<pre>
+"f":[1,0,255,1234]   -- '0' is the OK code
+</pre>
+
+_Earlier revisions (build 380.xx) may be using [these status codes](#legacy-status-codes)_
 
 	Code | Label | Description
 	---------|:--------------|:-------------
@@ -159,15 +164,6 @@ The following status code are defined.  Earlier revisions (build 380.xx) may be 
 	250 | PROBE_CYCLE_FAILED | probing cycle did not complete
 	251 | PROBE_ENDPOINT IS_STARTING_POINT 
 	252 | JOGGING_CYCLE_FAILED | jogging cycle did not complete
-
-
-
-## Status Codes
-Status codes are returned in the second element of the footer array, e.g.
-<pre>
-"f":[1,0,255,1234]
-</pre>
-
 
 
 ## Status Report Enumerations
