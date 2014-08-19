@@ -154,7 +154,7 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
 
   When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
 
-* Now is also a good time to make a mental note to enable [Power Management](TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode). Most applications work best with power management set to $_pm=2: "Motor powered during a machining cycle" (i.e. when any axis is moving).
+* Now is also a good time to check out [Power Management](TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode). By default power management is set to $_pm=2: "Motor powered during a machining cycle" (i.e. when any axis is moving).
 
 ## Cooling
 You can get more headroom before thermal shutdown by cooling the board. As much of the board as possible is 2 oz. heatsink copper. Both top and bottom copper provide cooling. But passive cooling can only do so much given the TinyG footprint. 
