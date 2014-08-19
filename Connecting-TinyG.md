@@ -161,8 +161,5 @@ You can get more headroom before thermal shutdown by cooling the board. As much 
 
 Fan cooling is the best way to cool. TinyG uses copper for cooling both on the top and the bottom of the board, so make sure air flow is provided to both surfaces.
 
-## Configuring Limit and Homing Switches
-Version 8 of TinyG has screw terminals for connecting your limit and homing switches. [This page](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) describes setup, operation and troubleshooting of the limit and homing switches.
-
 # Test Drive
 Now that you are connected your motors and limit switches, move on the [Test Drive your TinyG](https://github.com/synthetos/TinyG/wiki/Test-Drive-TinyG)
