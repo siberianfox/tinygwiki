@@ -101,7 +101,7 @@ The following are common motor types:
 
 * Unipolar motors typically have 6 wires also connected to to 2 windings. The additional wires are the center taps for each winding. These can usually be ignore (not connected). This wire color code is typical for many unipolar motors:
 
-	Color    | Winding      
+	Wire Color | Winding      
 	---------|------------
 	Green    | Winding A1
 	Yellow   | Center tap A
