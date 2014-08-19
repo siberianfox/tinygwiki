@@ -115,9 +115,9 @@ The following are common motor types:
 * 5 wire motors are in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
 
-Use your volt meter to verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar motor you can just leave the center taps disconnected.
+To determine which wires go to which windings use a volt meter to verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar motor the center taps will show 1/2 the resistance of the full winding.
 
-If this doesn't work here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
+Here's a shortcut to finding wire pairs for a bipolar (4 wire) motor.
 
 Spin your stepper motor with your fingers. Depending on the size / holding torque this could be easy or pretty hard. All you really want from this is to get a feel how the motor spins without any of the wires connected to each other. Now that you know how hard it is to spin with your fingers, connect 2 wires together. Just pick any two. Try to spin the motor again. If it feels the same then more than likely these are NOT connected to the same coil. Disconnect these wires. Connect one of the other wires to one of the first wire pairs you tried. Try to spin the motors again. This should be much harder. If so, you have found your wire pairs. Tape these 2 together (not wired but just taped to group them). Tape the remaining 2 wires together as well. 
 
