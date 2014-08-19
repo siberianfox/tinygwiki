@@ -5,9 +5,9 @@ See also:
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 
-
+	errno | name | Description
+	---------|--------------|-------------
 	0 | TG_OK | universal OK code (function completed successfully)
-
 	|  **Low level codes** | typically system and communications status
 	0 | STAT_OK 0 | function completed OK
 	1 | STAT_ERROR 1 | generic error return (EPERM)
