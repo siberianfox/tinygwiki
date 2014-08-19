@@ -51,7 +51,7 @@ _ | _ | **Assertion failures** Build down from 99 until they meet the system int
 	92 | ENCODER_ASSERTION_FAILURE
 	93 | STEPPER_ASSERTION_FAILURE
 	94 | PLANNER_ASSERTION_FAILURE
-	95 | CANONICAL_MACHINE_ASSERTION_FAILURE
+	95 | CANONICAL_MACHINE ASSERTION_FAILURE
 	96 | CONTROLLER_ASSERTION_FAILURE
 	97 | STACK_OVERFLOW
 	98 | MEMORY_FAULT | generic memory corruption detected by magic numbers
@@ -86,12 +86,12 @@ _ | _ | **Gcode errors and warnings** Most originate from NIST
 	140 | GCODE_ACTIVE_PLANE_IS_MISSING | active plane is not programmed
 	141 | GCODE_ACTIVE_PLANE_IS_INVALID | active plane selected is not valid for this command
 	142 | GCODE_FEEDRATE_NOT_SPECIFIED | move has no feedrate
-	143 | GCODE_INVERSE_TIME_MODE_CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
-	144 | GCODE_ROTARY_AXIS_CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
+	143 | GCODE_INVERSE_TIME_MODE CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
+	144 | GCODE_ROTARY_AXIS CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
 	145 | GCODE_G53_WITHOUT_G0_OR_G1 | G0 or G1 must be active for G53
-	146 | REQUESTED_VELOCITY_EXCEEDS_LIMITS
-	147 | CUTTER_COMPENSATION_CANNOT_BE_ENABLED
-	148 | PROGRAMMED_POINT_SAME_AS_CURRENT_POINT
+	146 | REQUESTED_VELOCITY EXCEEDS_LIMITS
+	147 | CUTTER_COMPENSATION CANNOT_BE_ENABLED
+	148 | PROGRAMMED_POINT SAME_AS_CURRENT_POINT
 	149 | SPINDLE_SPEED_BELOW_MINIMUM
 	150 | SPINDLE_SPEED_MAX_EXCEEDED
 	151 | S_WORD_IS_MISSING
@@ -99,10 +99,10 @@ _ | _ | **Gcode errors and warnings** Most originate from NIST
 	153 | SPINDLE_MUST_BE_OFF
 	154 | SPINDLE_MUST_BE_TURNING | some canned cycles require spindle to be turning when called
 	155 | ARC_SPECIFICATION_ERROR | generic arc specification error
-	156 | ARC_AXIS_MISSING_FOR_SELECTED_PLANE | arc is missing axis (axes) required by selected plane
-	157 | ARC_OFFSETS_MISSING_FOR_SELECTED_PLANE | one or both offsets are not specified
-	158 | ARC_RADIUS_OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
-	159 | ARC_ENDPOINT_IS_STARTING_POINT
+	156 | ARC_AXIS_MISSING FOR_SELECTED_PLANE | arc is missing axis (axes) required by selected plane
+	157 | ARC_OFFSETS_MISSING FOR_SELECTED_PLANE | one or both offsets are not specified
+	158 | ARC_RADIUS OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
+	159 | ARC_ENDPOINT IS_STARTING_POINT
 	160 | P_WORD_IS_MISSING | P must be present for dwells and other functions
 	161 | P_WORD_IS_INVALID | generic P value error
 	162 | P_WORD_IS_ZERO
@@ -147,16 +147,18 @@ _ | _ | **TinyG errors and warnings
 	232 | SOFT_LIMIT_EXCEEDED_CMAX | soft limit error - C maximum
 	233 – 239 | Reserved
 	240 | HOMING_CYCLE_FAILED 240 | homing cycle did not complete
-	241 | HOMING_ERROR_BAD_OR_NO_AXIS 
-	242 | HOMING_ERROR_ZERO_SEARCH_VELOCITY 
-	243 | HOMING_ERROR_ZERO_LATCH_VELOCITY 
-	244 | HOMING_ERROR_TRAVEL_MIN_MAX_IDENTICAL 
-	245 | HOMING_ERROR_NEGATIVE_LATCH_BACKOFF 
-	246 | HOMING_ERROR_SWITCH_MISCONFIGURATION 
+	241 | HOMING_ERROR BAD_OR_NO_AXIS 
+	242 | HOMING_ERROR ZERO_SEARCH_VELOCITY 
+	243 | HOMING_ERROR ZERO_LATCH_VELOCITY 
+	244 | HOMING_ERROR TRAVEL_MIN_MAX_IDENTICAL 
+	245 | HOMING_ERROR NEGATIVE_LATCH_BACKOFF 
+	246 | HOMING_ERROR SWITCH_MISCONFIGURATION 
 	247 – 249 | Reserved
 	250 | PROBE_CYCLE_FAILED | probing cycle did not complete
-	251 | PROBE_ENDPOINT_IS_STARTING_POINT 
+	251 | PROBE_ENDPOINT IS_STARTING_POINT 
 	252 | JOGGING_CYCLE_FAILED | jogging cycle did not complete
+
+
 
 
 
