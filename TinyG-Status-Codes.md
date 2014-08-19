@@ -8,7 +8,7 @@ See also:
 	errno | name | Description
 	---------|--------------|-------------
 	0 | TG_OK | universal OK code (function completed successfully)
-	|  **Low level codes** | typically system and communications status
+	|| **Low level codes** typically system and communications status
 	0 | STAT_OK 0 | function completed OK
 	1 | STAT_ERROR 1 | generic error return (EPERM)
 	2 | STAT_EAGAIN 2 | function would block here (call again)
@@ -29,7 +29,7 @@ See also:
 	17 | STAT_FUNCTION_IS_STUBBED
 	18 | STAT_ERROR_18
 	19 | STAT_ERROR_19 19 | NOTE: XIO codes align to here
-	| **Internal errors and startup messages** |
+	|| **Internal errors and startup messages**
 	20 | STAT_INTERNAL_ERROR 20 | unrecoverable internal error
 	21 | STAT_INTERNAL_RANGE_ERROR 21 | number range other than by user input
 	22 | STAT_FLOATING_POINT_ERROR 22 | number conversion error
@@ -47,7 +47,7 @@ See also:
 	34 | STAT_PERSISTENCE_ERROR 34
 	35 | STAT_BAD_STATUS_REPORT_SETTING 35
 	36 – 89 | Reserved
-	| **Assertion failures** |build down from 99 until they meet the system internal errors
+	|| **Assertion failures** build down from 99 until they meet the system internal errors
 	90 | STAT_CONFIG_ASSERTION_FAILURE 90
 	91 | STAT_XIO_ASSERTION_FAILURE 91
 	92 | STAT_ENCODER_ASSERTION_FAILURE 92
@@ -58,8 +58,8 @@ See also:
 	97 | STAT_STACK_OVERFLOW 97
 	98 | STAT_MEMORY_FAULT 98 | generic memory corruption detected by magic numbers
 	99 | STAT_GENERIC_ASSERTION_FAILURE 99 | generic assertion failure - unclassified
-	| ** Application and data input errors** |
-	| **Generic data input errors** |
+	|| ** Application and data input errors**
+	|| **Generic data input errors**
 	100 | STAT_UNRECOGNIZED_NAME 100 | parser didn't recognize the name
 	101 | STAT_MALFORMED_COMMAND_INPUT 101 | malformed line to parser
 	102 | STAT_BAD_NUMBER_FORMAT 102 | number format error
@@ -74,7 +74,7 @@ See also:
 	111 | STAT_CONFIG_NOT_TAKEN 111 | configuration value not taken while in machining cycle
 	112 | STAT_COMMAND_NOT_ACCEPTED 112 | command cannot be accepted at this time
 	113 – 129 | Reserved |
-	| **Gcode errors and warnings** | Most originate from NIST - by concept if not by number
+	|| **Gcode errors and warnings** Most originate from NIST - by concept if not by number
 	130 | STAT_GCODE_GENERIC_INPUT_ERROR 130 | generic error for gcode input
 	131 | STAT_GCODE_COMMAND_UNSUPPORTED 131 | G command is not supported
 	132 | STAT_MCODE_COMMAND_UNSUPPORTED 132 | M command is not supported
@@ -126,7 +126,7 @@ See also:
 	178 | STAT_T_WORD_IS_MISSING 178 |
 	179 | STAT_T_WORD_IS_INVALID 179 |
 	180 - 199| Reserved | reserved for Gcode errors
-	| **TinyG errors and warnings |
+	|| **TinyG errors and warnings
 	200 | STAT_GENERIC_ERROR 200 |
 	201 | STAT_MINIMUM_LENGTH_MOVE 201 | move is less than minimum length
 	202 | STAT_MINIMUM_TIME_MOVE 202 | move is less than minimum time
