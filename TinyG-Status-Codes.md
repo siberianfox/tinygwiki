@@ -4,6 +4,8 @@ See also:
 * [**Configuration Commands**](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
+## Status Codes 
+The following status code are defined.  Earlier revisions (build 380.xx) may be using [these status codes]() 
 
 	Code | Label | Description
 	---------|--------------|-------------
