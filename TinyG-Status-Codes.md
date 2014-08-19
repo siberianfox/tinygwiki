@@ -1,6 +1,6 @@
 This page contains status codeas and other enumerations that may be returned in status reports
 See also:
-* [**Gcode Commands**](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)
+* [**Gcode Commands**](Gcode-Support)
 * [**Configuration Commands**](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
