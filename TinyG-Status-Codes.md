@@ -5,7 +5,7 @@ See also:
 * [**JSON Formatting**](https://github.com/synthetos/TinyG/wiki/JSON-Operation)
 
 ## Status Codes 
-The following status code are defined.  Earlier revisions (build 380.xx) may be using [these status codes]() 
+The following status code are defined.  Earlier revisions (build 380.xx) may be using [these status codes](#legacy-status-codes) 
 
 	Code | Label | Description
 	---------|--------------|-------------
