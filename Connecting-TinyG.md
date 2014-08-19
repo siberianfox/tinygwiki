@@ -126,7 +126,7 @@ Unipolars are a bit more complicated, but not much. To do a series wiring find t
 Some useful information on wiring steppers can be found here: [http://reprap.org/wiki/Stepper_motor](http://reprap.org/wiki/Stepper_motor)
 
 ### Connector Pinouts
-Back to connecing your TinyG. Each of the 4 motor outputs have a four pin terminal block wired as: 
+Back to connecting your TinyG. Each of the 4 motor outputs have a four pin terminal block wired as: 
 
 * A1
 * A2
@@ -141,6 +141,8 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
 Motor current for each axis is adjusted with the trimpot nearest that axis. Clockwise increases current, counter-clockwise decreases current.
 
 You want the motor current set slightly above the range you need for your application, but not much higher. Overdriving the motors draws more current and risks overheating or thermal shutdown. 
+
+A motor that is receiving too much current may also run "rough". If you experience this try backing off the current and see if the motor runs more smoothly.
 
 Overcurrent also causes your motors to heat up a lot more. Stepper motors draw the most current when they are not moving so this is when they will get the hottest. Motors that run too hot run the risk of being ruined by demagnetizing.
 
