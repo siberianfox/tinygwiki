@@ -131,7 +131,7 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	178 | T_WORD_IS_MISSING
 	179 | T_WORD_IS_INVALID
 	180 - 199| Reserved | reserved for Gcode errors
-	 | **TinyG Errors and Warnings
+	 | **TinyG Errors and Warnings**
 	200 | GENERIC_ERROR
 	201 | MINIMUM_LENGTH_MOVE | move is less than minimum length
 	202 | MINIMUM_TIME_MOVE | move is less than minimum time
