@@ -138,21 +138,21 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
 ## Setting Motor Current
 **WARNING: Do not turn the current trimpots too hard. They will break. They adjust from the 8pm position to 4pm, only.**
 
-Motor current for each axis is adjusted with the trimpot nearest that axis. Clockwise increases current, counter-clockwise decreases current.
+* Motor current for each axis is adjusted with the trimpot nearest that axis. Clockwise increases current, counter-clockwise decreases current.
 
-You want the motor current set slightly above the range you need for your application, but not much higher. Overdriving the motors draws more current and risks overheating or thermal shutdown. 
+* You want the motor current set slightly above the range you need for your application, but not much higher. Overdriving the motors draws more current and risks overheating or thermal shutdown. 
 
-A motor that is receiving too much current may also run "rough". If you experience this try backing off the current and see if the motor runs more smoothly.
+  A motor that is receiving too much current may also run "rough". If you experience this try backing off the current and see if the motor runs more smoothly.
 
-Overcurrent also causes your motors to heat up a lot more. Stepper motors draw the most current when they are not moving so this is when they will get the hottest. Motors that run too hot run the risk of being ruined by demagnetizing.
+  Overcurrent also causes your motors to heat up a lot more. Stepper motors draw the most current when they are not moving so this is when they will get the hottest. Motors that run too hot run the risk of being ruined by demagnetizing.
 
-Begin by setting the current to zero by gently turning the trimpot all the way counter-clockwise. Then issue a very long Gcode command for that axis, something like g0x1000.  Turn the trimpot clockwise until the motor starts moving reliably. You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting. Note this lower bound pot setting. 
+* Begin by setting the current to zero by gently turning the trimpot all the way counter-clockwise. Then issue a very long Gcode command for that axis, something like g0x1000.  Turn the trimpot clockwise until the motor starts moving reliably. You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting. Note this lower bound pot setting. 
 
-Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occurring. Now back off until the cycling stops and mark this as your upper limit. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)! Mark the spot just below thermal shutdown as the upper limit. Now read about cooling to increase the upper limit. 
+* Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occurring. Now back off until the cycling stops and mark this as your upper limit. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)! Mark the spot just below thermal shutdown as the upper limit. Now read about cooling to increase the upper limit. 
 
-When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
+  When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
 
-Now is also a good time to make a mental note to enable Low Power Idle mode (e.g. $1pm=1) if you have a leadscrew-type machine or some other configuration that will hold position while idle without power being applied to the motors. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
+* Now is also a good time to make a mental note to enable Low Power Idle mode (e.g. $1pm=1) if you have a leadscrew-type machine or some other configuration that will hold position while idle without power being applied to the motors. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
 
 ## Cooling
 You can get more headroom before thermal shutdown by cooling the board. As much of the board as possible is 2 oz. heatsink copper. Both top and bottom copper provide cooling. But passive cooling can only do so much given the TinyG footprint. 
