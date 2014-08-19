@@ -8,7 +8,7 @@ See also:
 The following status code are defined.  Earlier revisions (build 380.xx) may be using [these status codes](#legacy-status-codes) (Apologies for the table formatting - it's the best we can do)
 
 	Code | Label | Description
-	---------|--------------|-------------
+	---------|:--------------|:-------------
 	 | **Low level codes** | System and comms status
 	0 | OK | universal OK code
 	1 | ERROR | generic error return
