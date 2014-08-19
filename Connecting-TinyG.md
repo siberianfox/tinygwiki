@@ -88,18 +88,31 @@ You need 4 terminals for each housing (shell). You can get these from Mouser or 
 ### Find the Coil Pairs
 The first step is make sure you know which wires are connected to the same coil. 
 
-Bipolar motors have 4 wires (2 pairs), Unipolar motors typically have 6. Some other motors have 5, or 8, or whatever. 8 wire motors are usually wired as 2 sets of bipolar windings (i.e. essentially 2 bipolars wired together). 5 wire motors are usually in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
+The following are common motor types:
 
-The following color code is typical for many motors
+* Bipolar motors have 4 wires (2 pairs). This wire color code is typical for many bipolar motors:
 
-	Color    | Bipolar      | Unipolar      | Notes
-	---------|--------------|---------------|--------
-	Green    |  Winding A1  | Winding A1    |
-	Yellow   |  (none)      | Center tap A  |
-	Black    |  Winding A2  | Winding A2    |
-	Red      |  Winding B1  | Winding B1    |
-	White    |  (none)      | Center tap B  |
-	Blue     |  Winding B2  | Winding B2    |
+	Wire Color  | Winding
+	---------|-------------
+	Green    |  Winding A1
+	Black    |  Winding A2
+	Red      |  Winding B1
+	Blue     |  Winding B2 
+
+* Unipolar motors typically have 6 wires also connected to to 2 windings. The additional wires are the center taps for each winding. These can usually be ignore (not connected). This wire color code is typical for many unipolar motors:
+
+	Color    | Winding      
+	---------|------------
+	Green    | Winding A1
+	Yellow   | Center tap A
+	Black    | Winding A2
+	Red      | Winding B1
+	White    | Center tap B
+	Blue     | Winding B2 
+
+* 8 wire motors: 8 wire motors are usually wired as 2 sets of bipolar windings - essentially these are 2 bipolars wired together. They can be wired by finding which pairs are in parallel with each other and either not using the second winding, or wiring it in parallel for more torque (and more current draw). There is no common color code for 8 wire motors. (Please correct me if I'm wrong).
+
+* 5 wire motors are in a "star" configuration that has a common ground and require a specialized driver. TinyG cannot drive 5 wire steppers.
 
 
 Use your volt meter to verify that green and black connect together, and red and blue connect together, and that they don't connect to the other pair. Typical DC resistance across a winding is about 1 to 5 ohms. If you have a Unipolar motor you can just leave the center taps disconnected.
