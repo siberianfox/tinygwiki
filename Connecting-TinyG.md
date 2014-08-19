@@ -73,7 +73,7 @@ Once you are connected it's a good idea to verify you have the correct flow cont
 ## Wire Your Motors
 It's best to wire your motors when they are not yet in your machine. This way you can test drive them without worrying about mechanical issues such as excessive friction or crashing into the side of the machine.
 
-If your motors are already in a machine sometimes it's easier just to use one or more spare motors rather than remove one or more. It will not damage the TinyG board to drive an axis with no motor attached.
+If your motors are already in a machine sometimes it's easier just to use one or more spare motors rather than remove them. It will not damage the TinyG board to drive an axis with no motor attached.
 
 But first, turn off the power to TinyG. Never connect or disconnect anything (except possibly USB) with the power on.
 
