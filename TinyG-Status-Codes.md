@@ -52,7 +52,7 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	34 | PERSISTENCE_ERROR
 	35 | BAD_STATUS_REPORT_SETTING
 	36 – 89 | Reserved
-	 | **Assertion Failures** | Build down from 99 until meet system errors
+	 | **Assertion Failures** | Build down from 99 until they meet system errors
 	90 | CONFIG_ASSERTION_FAILURE
 	91 | XIO_ASSERTION_FAILURE
 	92 | ENCODER_ASSERTION_FAILURE
