@@ -27,7 +27,7 @@ See also:
 	16 | ENTERING_BOOT_LOADER | emitted by boot loader, not TinyG
 	17 | FUNCTION_IS_STUBBED
 	18 - 19 | Reserved 
- | **Internal System Errors**
+	 | **Internal System Errors**
 20 | INTERNAL_ERROR | unrecoverable internal error
 	21 | INTERNAL_RANGE_ERROR
 	22 | FLOATING_POINT_ERROR | number conversion error
@@ -45,7 +45,7 @@ See also:
 	34 | PERSISTENCE_ERROR
 	35 | BAD_STATUS_REPORT_SETTING
 	36 – 89 | Reserved
- | **Assertion Failures** | Build down from 99 until meet system errors
+	 | **Assertion Failures** | Build down from 99 until meet system errors
 	90 | CONFIG_ASSERTION_FAILURE
 	91 | XIO_ASSERTION_FAILURE
 	92 | ENCODER_ASSERTION_FAILURE
@@ -57,7 +57,7 @@ See also:
 	98 | MEMORY_FAULT | generic memory corruption detected
 	99 | GENERIC_ASSERTION_FAILURE | unclassified assertion failure
 	 | **Application and Data Input Errors**
- | **Generic Data Input Errors**
+	 | **Generic Data Input Errors**
 	100 | UNRECOGNIZED_NAME | parser didn't recognize the command
 	101 | MALFORMED_COMMAND_INPUT | malformed line to parser
 	102 | BAD_NUMBER_FORMAT | number format error
@@ -72,7 +72,7 @@ See also:
 	111 | CONFIG_NOT_TAKEN | config value not taken while in machining cycle
 	112 | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
 	113 – 129 | Reserved
- | **Gcode Errors and Warnings** | Most are from NIST
+	 | **Gcode Errors and Warnings** | Most are from NIST
 	130 | GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
 	131 | GCODE_COMMAND_UNSUPPORTED | G command is not supported
 	132 | MCODE_COMMAND_UNSUPPORTED | M command is not supported
@@ -124,7 +124,7 @@ See also:
 	178 | T_WORD_IS_MISSING
 	179 | T_WORD_IS_INVALID
 	180 - 199| Reserved | reserved for Gcode errors
- | **TinyG Errors and Warnings
+	 | **TinyG Errors and Warnings
 	200 | GENERIC_ERROR
 	201 | MINIMUM_LENGTH_MOVE | move is less than minimum length
 	202 | MINIMUM_TIME_MOVE | move is less than minimum time
@@ -157,8 +157,6 @@ See also:
 	250 | PROBE_CYCLE_FAILED | probing cycle did not complete
 	251 | PROBE_ENDPOINT IS_STARTING_POINT 
 	252 | JOGGING_CYCLE_FAILED | jogging cycle did not complete
-
-
 
 
 
