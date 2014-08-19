@@ -325,7 +325,7 @@ Alarms may occur when:
 * A limit switch has been hit. This is normal if you have limit switches enabled. This can also happen sporadically if there is noise on the limit switch line. 
 * Memory fault or corruption has been detected. This indicates a program error. Please report this to Synthetos. 
 
-###Legacy Status Codes:
+###Legacy Status Codes
 
 	errno | name | Description
 	---------|--------------|-------------
