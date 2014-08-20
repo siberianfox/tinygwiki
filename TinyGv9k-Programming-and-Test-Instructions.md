@@ -10,7 +10,7 @@ The tester kit should be equipped with the following:
 ![setup](https://farm4.staticflickr.com/3845/14787093530_92e84aa772_b.jpg)
 ![power](https://farm4.staticflickr.com/3859/14787227777_24e21d4ea5_b.jpg)
 
-**NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED ITH AUTOMATED PROCESSES***
+#NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED ITH AUTOMATED PROCESSES
 
 * The Atmel-ICE should be plugged into the SAM port
 
