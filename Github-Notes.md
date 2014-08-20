@@ -12,7 +12,9 @@ If you are unfamiliar with git it's useful to start here:
 * http://learn.github.com/p/tagging.html
 
 ### At Last - Gitx
-If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. The following items are written assuming Gitx. Some command line operations are also provides in brackets, e.g. [`git status`]
+If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. 
+
+The examples on this page are written assuming Gitx. Some command line operations are also provided as cit command line commands, e.g. `user& git status`
 
 ## Github Standard Practices
 A few rules to live by. Many git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
