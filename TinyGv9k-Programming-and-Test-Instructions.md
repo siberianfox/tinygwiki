@@ -5,8 +5,8 @@ The assembled board should be set up with the following:
 * USB connected to host computer
 * Bench power supply - set to 24volts, current limit about 1.5 amps<br>**OBSERVE POLARITY WHEN CONNECTING TO BOARD**
 
-![setup](https://farm4.staticflickr.com/3910/14770638616_fa3c1c8794_b.jpg)
-![power](https://farm4.staticflickr.com/3902/14791273484_149bdaa802_b.jpg)
+![setup](https://farm4.staticflickr.com/3845/14787093530_92e84aa772_b.jpg)
+![power](https://farm4.staticflickr.com/3859/14787227777_24e21d4ea5_b.jpg)
 
 * The Atmel-ICE should be plugged into the SAM port
 
