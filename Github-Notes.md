@@ -11,6 +11,8 @@ If you are unfamiliar with git it's useful to start here:
 * http://gitref.org
 * http://learn.github.com/p/tagging.html
 
+* http://sethrobertson.github.io/GitBestPractices/ -- Read this. We try not to repeat what's already here.
+
 ### At Last - Gitx
 If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI for Github. It's not perfect, but it really helps. Some things still need to be done from the command line, and it can hang up occasionally on large push and pull operations and need to be killed from the Activity Monitor. But on balance it makes managing the git tasks much easier. 
 
