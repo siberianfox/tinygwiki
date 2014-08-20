@@ -1,8 +1,10 @@
 ##Setup
-The assembled board should be set up with the following:
-* Atmel-ICE programmer
+The tester kit should be equipped with the following:
+* Test jig 
+  * Tester board and pressure contact plate for tinyGv9k
+  * Beaglebone Black
+  * Atmel-ICE programmer
 * Four stepper motors
-* USB connected to host computer
 * Bench power supply - set to 24volts, current limit about 1.5 amps<br>**OBSERVE POLARITY WHEN CONNECTING TO BOARD**
 
 ![setup](https://farm4.staticflickr.com/3845/14787093530_92e84aa772_b.jpg)
