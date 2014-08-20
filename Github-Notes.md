@@ -20,7 +20,7 @@ The examples on this page are written assuming Gitx. Some command line operation
 A few rules to live by. Many git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 
 **When you sit down to work always do this**
-* Check Branches and Stage [`git status`] to see what branch you are on and if you have any uncommitted files in your local repository
+* Check Branches and Stage area (`user& git status`) to see what branch you are on and if you have any uncommitted files in your local repository
 * If you do have uncommitted files then stash them somewhere before doing the pull
 * Pull origin and update current branch [`git pull origin CURRENT_BRANCH`] to make sure you are synced with origin
 
