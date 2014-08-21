@@ -3,9 +3,10 @@ The tester kit should be equipped with the following:
 * Test jig 
   * Tester board and pressure contact plate for tinyGv9k
   * Beaglebone Black
-  * Atmel-ICE programmer
-* Four stepper motors
-* Bench power supply - set to 24volts, current limit about 1.5 amps<br>**OBSERVE POLARITY WHEN CONNECTING TO BOARD**
+  * Atmel-ICE programmer (previously delivered)
+* Four stepper motors with 0.156 friction lock headers (previously delivered)
+* Bench power supply - set to 24volts, current limit about 1.5 amps (previously delivered)<br>
+**OBSERVE POLARITY WHEN CONNECTING TO BOARD**
 
 ![setup](https://farm4.staticflickr.com/3845/14787093530_92e84aa772_b.jpg)
 ![power](https://farm4.staticflickr.com/3859/14787227777_24e21d4ea5_b.jpg)
