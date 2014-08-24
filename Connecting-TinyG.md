@@ -153,7 +153,8 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
    * Try the move again at this new setting. If it's still stalled increase the current some more and try again, or drop to a slower feed rate (F value).
    * Once the motor is running turn the current down until it stops. Mark this as the low current spot.
    * Run the motor again and adjust current up until it runs rough or goes into thermal shutdown (see below).
-   * Now back off until the cycling stops and the motor runs smoothly, and mark this as your upper limit.  
+   * Now back off until the cycling stops and the motor runs smoothly, and mark this as your upper limit.
+   * Repeat the above with a high speed move, like a `g0 x100`. This should also work without stalling. If it does still it may have more to do with your maximum velocity or jerk settings - you may need to tune those. See TinyG Tuning. 
    * When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
 
   If the motor starts to cycle on and off it indicates thermal shutdown is occurring. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)!
