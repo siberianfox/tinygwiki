@@ -18,12 +18,13 @@ If you are working on the Mac, [Gitx](http://gitx.frim.nl/) is a really nice UI 
 The examples on this page are written assuming Gitx. Some command line operations are also provided as git command line commands, e.g. `user& git status`, or [`user& git status`] for the command line version of the gitx command just mentioned.
 
 ## Github Standard Practices
-A few rules to live by. Many git problems I have start from working in some "place" I don't think I'm in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
+A few rules to live by. Many git problems start from working in some "place" you don't think you are in or on some set of files in an indeterminate state. These practices help reduce those possibilities.
 
 **When you sit down to work always do this**
 * Check Branches and Stage area [`user& git status`] to see what branch you are on and if you have any uncommitted files in your local repository
-* Stash any uncommitted files then stash them somewhere before doing the pull. You should generally avoid leaving uncommitted files at the end of a session, but it's not always possible.
+* Commit or stash any uncommitted files before doing the pull. You should generally avoid leaving uncommitted files at the end of a session, but it's not always possible.
 * Pull origin and update current branch [`user& git pull origin CURRENT_BRANCH`] to make sure you are synced with origin.
+  * You might need to do a manual merge at this point.
 
 **When you are ready to end the session** leave the work area clean. Commit everything - unless you are sure you don't want to. Decide if you want to push or not.
 * Commit from Stage dialog
