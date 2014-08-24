@@ -146,13 +146,17 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
 
   Overcurrent also causes your motors to heat up a lot more. Stepper motors draw the most current when they are not moving so this is when they will get the hottest. Motors that run too hot run the risk of being ruined by demagnetizing.
 
-* Begin by setting the current to zero by gently turning the trimpot all the way counter-clockwise. Then issue a very long Gcode command for that axis, something like g0x1000.  Turn the trimpot clockwise until the motor starts moving reliably. You can hit the reset button and re-enter the Gcode command to verify that it will start at this current setting. Note this lower bound pot setting. 
+* Follow these steps to set the motor current:
+   * Set current to zero by gently turning the trimpot all the way counter-clockwise
+   * Send a relatively slow move to that axis, something like `g1 f400 x50`
+   * Adjust the current up (clockwise) until the motor moves or starts humming (meaning it's stalled)
+   * Try the move again at this new setting. If it's still stalled increase the current some more and try again, or drop to a slower feed rate (F value).
+   * Once the motor is running turn the current down until it stops. Mark this as the low current spot.
+   * Run the motor again and adjust current up until it runs rough or goes into thermal shutdown (see below).
+   * Now back off until the cycling stops and the motor runs smoothly, and mark this as your upper limit.  
+   * When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
 
-* Next continue to turn up the pot until the motor starts to cycle on and off - indicating thermal shutdown is occurring. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)!
-
-  Now back off until the cycling stops and the motor runs smoothly, and mark this as your upper limit.  Mark the spot just below thermal shutdown as the upper limit. Now read about cooling to increase the upper limit. 
-
-  When you actually run jobs you want to back off the current as much as you can while still running reliably to somewhere between your upper and lower limit. This will minimize board and motor heating.
+  If the motor starts to cycle on and off it indicates thermal shutdown is occurring. Cycling will occur under thermal shutdown, and only gets more severe as the current goes up - where it appears the motor is stuttering. Thermal shutdown is, of course, to be avoided, but we've never seen it actually damage the drivers or motors and we've seen some pretty abusive cases (actually, we caused them)!
 
 * Now is also a good time to check out [Power Management](TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode). By default power management is set to $_pm=2: "Motor powered during a machining cycle" (i.e. when any axis is moving).
 
