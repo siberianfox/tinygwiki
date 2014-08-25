@@ -14,12 +14,12 @@ The tester kit should be equipped with the following:
 Connections to tester:
 * Connect +24vdc from the bench supply (off, of course)
 * Connect USB to the USB on the tester. This will be used to connect to the board via Coolterm
-* Connect the Atmel-ICE to the 0.050" JTAG connector. Be sure the Atmel-ICE is in the SAM position as pictured below.
+* Connect the Atmel-ICE to the 0.050" JTAG connector. 
+  * Be sure the Atmel-ICE is in the SAM position as pictured below.
 * Connect a 12 volt PC fan to the fan connector
 * Place a jumper on J11 to connect the Interlock
 * Place a jumper on J2 when testing OEM configuration boards. This jumper should be removed for End-User configuration boards (but will not do damage if it is left on).
-
-* The Atmel-ICE should be plugged into the SAM port
+* Connect 4 stepper motors to J6, J7, J8, and J9 positions 
 
 ![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
 
