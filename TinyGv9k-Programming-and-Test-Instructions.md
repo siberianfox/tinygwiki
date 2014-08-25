@@ -69,6 +69,7 @@ If the Atmel-ICE is not an option it's either because it's (1) not plugged in, o
 
 * Program the chip. 
 * First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is sticky so it will stay selected if you are doing more than one board.
+  The v9k file con be found here: https://www.dropbox.com/s/599xo2xfsy9lih6/TinyG2.elf?dl=0
 * Hit PROGRAM. Programming and verification takes about 20-30 seconds
 * When done the red TX LED on the board should cycle at about 1 Hz.
 
