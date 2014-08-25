@@ -114,7 +114,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 **[VERIFIED 3.3v POWER]**
 
 ##Program the Board
-* Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file of from here: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
+* Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file into the terminal window and hit return: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
 <See Synthetos/PRoduction Support/TinyGv8_tester_version_2>
   You should see something like this:
