@@ -140,6 +140,7 @@ X0 Y0 Z0 A0
 
 </pre>
 The final move must be terminated with a carriage return or it won't run.<br><br>
+The file coan be found here: https://www.dropbox.com/s/os0mkzr0p26k6ms/test_pattern.txt?dl=0
 
 Instead of typing this in use the Coolterm `Connection/Send Textfile` to run this command. (On the mac the Connection menu item is at the top of the screen, not on the Coolterm window itself)<br><br>
 The string you type into the dialog box will remain available for the next board if you move the send-string window so you can get at it later, and then just click on the window when you need it again.
