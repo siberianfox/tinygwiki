@@ -23,13 +23,14 @@ Connections to tester:
 
 ![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
 
+Apply power to the tester. The Vmot +24vdc blue LED should be lit. If J2 is in place Vmot2 should also be lit. No other LEDs should be lit.
+
 ###NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED WITH AUTOMATED PROCESSES.
 
-##Board Setup
-Make sure the following jumpers are placed:
+##Board Setup - Done for each board to test
+Make sure the following jumpers are placed on the board under test:
 * J19 jump pins 1 and 2 (+12v position). J19 is located behind the fan connector
 * J20 jump pins 1 and 2 (3.3v position). J20 is located above the U10 14 pin SOIC
-* J15 jump pins 13 and 26. (Interlock override) These pins are located above the 10 pin mini-JTAG connector J6, and are marked with white silkscreen and labeled "Jump for Operation"
 
 ##Programming
 If you have not already done so bring up the host computer and related programs
