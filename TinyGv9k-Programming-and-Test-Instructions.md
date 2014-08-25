@@ -25,8 +25,6 @@ Connections to tester:
 
 Apply power to the tester. The Vmot +24vdc blue LED should be lit. If J2 is in place Vmot2 should also be lit. No other LEDs should be lit.
 
-###NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED WITH AUTOMATED PROCESSES.
-
 ##Board Setup - Done for each board to test
 Make sure the following jumpers are placed on the board under test:
 * J19 jump pins 1 and 2 (+12v position). J19 is located behind the fan connector
@@ -40,6 +38,8 @@ The following LEDs should be lit:
    * 3.3v
    * 12v
    * The fan should turn on if it is connected to the tester
+
+###NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED WITH AUTOMATED PROCESSES.
 
 ##Programming
 If you have not already done so bring up the host computer and related programs
