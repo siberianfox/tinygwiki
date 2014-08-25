@@ -19,22 +19,11 @@ Connections to tester:
 * Place a jumper on J11 to connect the Interlock
 * Place a jumper on J2 when testing OEM configuration boards. This jumper should be removed for End-User configuration boards (but will not do damage if it is left on).
 
-###NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED WITH AUTOMATED PROCESSES.
-
 * The Atmel-ICE should be plugged into the SAM port
 
 ![atmel-ice](https://farm3.staticflickr.com/2912/14813475953_7781856e74_b.jpg)
 
-* The JTAG (SWD) connector needs to be properly seated. It's all too easy to plug this connector into only one row of pins.
-
-![jtag-connector](https://farm3.staticflickr.com/2927/14607120307_1fdab4157f_b.jpg)
-
-* The motor connectors should plug in as shown. The 5th pin (grounding pin) is left unconnected. The ground pin is marked by white silkscreen on the board.
-
-![motor-connectors](https://farm4.staticflickr.com/3898/14606999538_19c8b88de2_b.jpg)
-
-**VERIFY that the blue power LED is lit when the power supply is turned on**<br>
-(Some other LEDs may also be lit)
+###NOTE: FROM HERE ON DOWN ARE THE MANUAL TEST INSTRUCTIONS. THESE WILL BE UPDATED WITH AUTOMATED PROCESSES.
 
 ##Board Setup
 Make sure the following jumpers are placed:
