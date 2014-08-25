@@ -1,4 +1,4 @@
-##Setup
+##Tester Setup
 The tester kit should be equipped with the following:
 * Test jig 
   * Tester board and pressure contact plate for tinyGv9k
@@ -31,6 +31,15 @@ Apply power to the tester. The Vmot +24vdc blue LED should be lit. If J2 is in p
 Make sure the following jumpers are placed on the board under test:
 * J19 jump pins 1 and 2 (+12v position). J19 is located behind the fan connector
 * J20 jump pins 1 and 2 (3.3v position). J20 is located above the U10 14 pin SOIC
+* Place board on test jig and secure with clamp.
+* Apply 24vdc power form bench supply.
+The following LEDs should be lit:
+   * Vmot (24vdc)
+   * Vmot2 (24vdc)
+   * 5v
+   * 3.3v
+   * 12v
+   * The fan should turn on if it is connected to the tester
 
 ##Programming
 If you have not already done so bring up the host computer and related programs
