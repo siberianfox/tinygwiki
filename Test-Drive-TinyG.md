@@ -7,5 +7,5 @@ $test=1 is the basic test that will show if the motors and output bits are runni
 
 From here you may want to look at 
 * [TinyG Configuration](TinyG-Configuration) 
-* [Tuning](TinyG-Tuning)
+* [TinyG Tuning](TinyG-Tuning)
 * [Sending Gcode files to TinyG](TinyG-Sending-Files)
