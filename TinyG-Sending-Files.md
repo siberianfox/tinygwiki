@@ -10,4 +10,3 @@ Currently there are a number of ways to send gcode files to TinyG.<br>
 1. [Sending Files with CoolTerm](TinyG-Sending-Files-with-CoolTerm)
 1. [Sending Files with tgFX](TinyG-Sending-Files-with-tgFX)
 1. [Sending Files programmatically](Tinyg-Communications-Programming)
-1. [Sending Files with JCNC (only Windows)](http://www.jtronics.de/software/jcnc-cnc-steuerung.html)
