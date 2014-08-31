@@ -81,7 +81,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 
 **[Program Board](#program-the-board)**
 
-1. Cut and paste into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
+1. Cut and paste into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`<br><br>
    Alterate: `./avrdude -C ./avrdude.conf -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 1. Look for red PWM LED to be dimly lit **[VERIFIED PROGRAMMING]**
 
