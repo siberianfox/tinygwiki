@@ -82,6 +82,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 **[Program Board](#program-the-board)**
 
 1. Cut and paste into terminal window: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
+   Alterate: `./avrdude -C ./avrdude.conf -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 1. Look for red PWM LED to be dimly lit **[VERIFIED PROGRAMMING]**
 
 **[Connect to Board](#connect-to-board)**
@@ -116,12 +117,13 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 ##Program the Board
 * Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file into the terminal window and hit return: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
-* If you dont ahve AVRdude already installed you can go to the prohramming directory and enter this:
-`./avrdude -C ./avrdude.conf -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
-
-  If you don't have AVRdude here are some mac instructions
+* If you don't have AVRdude already installed you can get if from these links:
 http://www.ladyada.net/learn/avr/setup-mac.html
 http://www.obdev.at/products/crosspack/download.html
+
+  Or just go to the programming directory and enter this command string:
+`./avrdude -C ./avrdude.conf -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
+
 
 
 <See Synthetos/PRoduction Support/TinyGv8_tester_version_2>
