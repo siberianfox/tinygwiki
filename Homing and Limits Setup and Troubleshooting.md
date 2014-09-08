@@ -32,6 +32,11 @@ A axis homing state: 0
 B axis homing state: 0
 C axis homing state: 0
 tinyg [mm] ok> 
+</pre>
+<pre>
+tinyg [mm] ok> {hom:n}
+{"r":{"hom":{"e":1,"x":1,"y":1,"z":1,"a":0,"b":0,"c":0}},"f":[1,0,8]}
+</pre>
 
 ##Soft and Hard Limits - How it's supposed to work
 
