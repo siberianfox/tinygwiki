@@ -22,6 +22,19 @@ Homing is supposed to follow this sequence.
 ##Soft and Hard Limits - How it's supposed to work
 
 ###Soft Limits
+Soft limits will check each new Gcode block to see if it would cause the tool to exceed the work volume defined in the axis setup. If the Gcode would cause an error program execution is halted (alarmed). The alarm can be cleared by sending a clear command `$clear` or `{clear:n}`, or resetting the system with `^x` (control x), the reset button, or a power cycle. The clear command preserves system state, the resets do not.
+
+The following steps use a Shapeoko2 as an example for setup and use:
+* Configure the machine dimensions
+<pre>
+[xtn] x travel minimum            0.000 mm
+[xtm] x travel maximum          280.000 mm
+[ytn] y travel minimum            0.000 mm
+[ytm] y travel maximum          280.000 mm
+[ztn] z travel minimum          -95.000 mm
+[ztm] z travel maximum            0.000 mm
+</pre> 
+* Enable soft limits
 
 ###Hard Limits
 
