@@ -67,6 +67,10 @@ Homing state:        Homed  (indicates entire machine is homed)
 tinyg [mm] ok> {home:n}
 {"r":{"home":1},"f":[1,0,9]}
 </pre>
+* A command that exceeds limits will send the machine into an Alarm state. An error 220 will be returned, "Soft limit exceeded"
+  * Gcode blocks received after the soft limit will be rejected with error 203 "Machine is alarmed" 
+  * Gcode blocks received prior to the soft limit (i.e. in the planner queue) will run to completion. The machine will stop in an Alarm state at the end of the last move before the move that exceeded soft limits.
+
 ###Hard Limits
 
 ##Homing Setup and Configuration
