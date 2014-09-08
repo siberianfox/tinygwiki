@@ -21,7 +21,8 @@ Homing is supposed to follow this sequence.
 <pre>
 tinyg [mm] ok> $home
 Homing state:        Homed
- 
+</pre>
+<pre>
 tinyg [mm] ok> $hom
 Homing state:        Homed
 X position:          1.000 mm
