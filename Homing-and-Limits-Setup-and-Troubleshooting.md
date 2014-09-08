@@ -17,7 +17,20 @@ Homing is supposed to follow this sequence.
 * Latch Move - the axis should move off the switch at a very slow velocity, stopping once the switch is cleared
 * Zero Backoff - the axis moves to a set zero position - usually a few mm away from the latch position
 * At this point the homing flag for that axis is set, in this case $homz = 1.
-* The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1
+* The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1. The following commands should return like so:
+<pre>
+tinyg [mm] ok> $home
+Homing state:        Homed
+
+tinyg [mm] ok> $hom
+Homing state:        Homed
+X position:          1.000 mm
+Y position:          1.000 mm
+Z position:          1.000 mm
+A position:          0.000 deg
+B position:          0.000 deg
+C position:          0.000 deg
+</pre>
 
 ##Soft and Hard Limits - How it's supposed to work
 
