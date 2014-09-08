@@ -60,7 +60,7 @@ $sl=1
 <pre>
 {sl:1}
 </pre>
-* Make sure the machine is homed. Soft limits are only enabled if the machine is homed. Test is:
+* Soft limits are only enabled if the machine is homed. Home the machine if not already homed. Test is:
 <pre>
 tinyg [mm] ok> $home
 Homing state:        Homed  (indicates entire machine is homed)
@@ -69,10 +69,17 @@ Homing state:        Homed  (indicates entire machine is homed)
 tinyg [mm] ok> {home:n}
 {"r":{"home":1},"f":[1,0,9]}
 </pre>
-* A command that exceeds limits will send the machine into an Alarm state. An error 220 will be returned, "Soft limit exceeded"
+* At this point any command that exceeds limits will send the machine into an Alarm state. An error 220 will be returned, "Soft limit exceeded"
   * Gcode blocks received after the soft limit will be rejected with error 203 "Machine is alarmed" 
   * Gcode blocks received prior to the soft limit (i.e. in the planner queue) will run to completion. The machine will stop in an Alarm state at the end of the last move before the move that exceeded soft limits.
-
+* To clear the alarm state enter:
+<pre>
+$clear
+</pre>
+<pre>
+{clear:n}
+</pre>
+Since commands arriving after the soft limit are rejected the host can always send a clear, as the buffer will be read until the clear can be processed. If the host is going to attempt job recovery care must be taken to restart the job from the correct point. We recommend using line numbers. It may be moot. If the Gcode file is not sized properly for the work volume there really may be no way to restart the job anyway. 
 ###Hard Limits
 
 ##Homing Setup and Configuration
