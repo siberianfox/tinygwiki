@@ -20,18 +20,18 @@ Homing is supposed to follow this sequence.
 * The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1. The following commands should return like so:
 <pre>
 tinyg [mm] ok> $home
-Homing state:        Homed
+Homing state:        Homed       (indicates entire machine has been homed)
 </pre>
 <pre>
 tinyg [mm] ok> $hom
 Homing state:        Homed
-X position:          1.000 mm
-Y position:          1.000 mm
-Z position:          1.000 mm
-A position:          0.000 deg
-B position:          0.000 deg
-C position:          0.000 deg
-</pre>
+X axis homing state: 1           (indicates a particular axis has been homed)
+Y axis homing state: 1
+Z axis homing state: 1
+A axis homing state: 0
+B axis homing state: 0
+C axis homing state: 0
+tinyg [mm] ok> 
 
 ##Soft and Hard Limits - How it's supposed to work
 
