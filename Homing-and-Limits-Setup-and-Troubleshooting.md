@@ -19,7 +19,7 @@ Homing is supposed to follow this sequence.
 * At this point the homing flag for that axis is set, in this case $homz = 1.
 * The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1
 
-##Soft and Hard Limit - How it's supposed to work
+##Soft and Hard Limits - How it's supposed to work
 
 ###Soft Limits
 
