@@ -56,14 +56,16 @@ The following steps use a Shapeoko2 as an example for setup and use:
 * Enable soft limits
 <pre>
 $sl=1
-...or
+</pre>
+<pre>
 {sl:1}
 </pre>
 * Make sure the machine is homed. Soft limits are only enabled if the machine is homed. Test is:
 <pre>
 tinyg [mm] ok> $home
 Homing state:        Homed  (indicates entire machine is homed)
-...or
+</pre>
+<pre>
 tinyg [mm] ok> {home:n}
 {"r":{"home":1},"f":[1,0,9]}
 </pre>
