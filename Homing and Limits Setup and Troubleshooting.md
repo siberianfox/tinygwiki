@@ -19,8 +19,11 @@ Homing is supposed to follow this sequence.
 * At this point the homing flag for that axis is set, in this case $homz = 1.
 * The above actions complete for all other axes in the homing sequence. At the end of a successful homing cycle the Machine Homed flag is also set: $home = 1
 
-##Limit Behaviors - How it's supposed to work
+##Soft and Hard Limit - How it's supposed to work
 
+###Soft Limits
+
+###Hard Limits
 
 ##Homing Setup and Configuration
 Most machines (but not all) have the XY origin in the lower left hand corner - i.e. the minimum X (to the left) and minimum Y (towards the operator - you). Z is commonly zeroed at its highest point - making all plunges into the work negative values. This translates to the following settings:
