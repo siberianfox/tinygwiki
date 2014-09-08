@@ -54,7 +54,19 @@ The following steps use a Shapeoko2 as an example for setup and use:
 [ztm] z travel maximum            0.000 mm
 </pre> 
 * Enable soft limits
-
+<pre>
+$sl=1
+...or
+{sl:1}
+</pre>
+* Make sure the machine is homed. Soft limits are only enabled if the machine is homed. Test is:
+<pre>
+tinyg [mm] ok> $home
+Homing state:        Homed  (indicates entire machine is homed)
+...or
+tinyg [mm] ok> {home:n}
+{"r":{"home":1},"f":[1,0,9]}
+</pre>
 ###Hard Limits
 
 ##Homing Setup and Configuration
