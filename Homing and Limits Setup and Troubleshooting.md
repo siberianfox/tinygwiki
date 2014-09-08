@@ -8,7 +8,7 @@ Troubleshooting homing and limit operation can involve a number of potential are
 * [Switch Wiring and Grounding / Troubleshooting Noise Problems](#limit-switches)
 
 
-##Homing Behaviors - How it's supposed to work
+##Homing - How it's supposed to work
 Homing is supposed to follow this sequence. 
 * Enter `G28.2 X0 Y0 Z0`. Any axis you want homed must be in the command. The value (0) is irrelevant but must be present
 * Homing always following this sequence: `Z-->X-->Y-->A` Z is always first so the tool lifts from the table and clears all objects
