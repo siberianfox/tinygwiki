@@ -2,8 +2,8 @@ You may want to familiarize yourself with the [main homing page](https://github.
 
 Troubleshooting homing and limit operation can involve a number of potential areas. These areas are treated as separate topics:
 
-* [Homing Behaviors - How it's supposed to work](#homing-behaviors---how-its-supposed-to-work)
-* [Soft and Hard Limits - How it's supposed to work](#limit-behaviors---how-its-supposed-to-work)
+* [Homing - How it's supposed to work](#homing---how-its-supposed-to-work)
+* [Soft and Hard Limits - How it's supposed to work](#soft-and-hard-limits---how-its-supposed-to-work)
 * [Homing Setup and Configuration](#homing-setup-and-configuration)
 * [Switch Wiring and Grounding / Troubleshooting Noise Problems](#limit-switches)
 
