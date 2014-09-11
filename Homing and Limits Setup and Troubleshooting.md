@@ -43,6 +43,8 @@ tinyg [mm] ok> {hom:n}
 ###Soft Limits
 Soft limits check each new Gcode block to see if it would cause the tool to exceed the work volume defined by the travel limits. If the Gcode exceeds limits program execution is halted (alarmed). The alarm can be cleared by sending a clear command `$clear` or `{clear:n}`, or resetting the system with `^x` (control x), the reset button, or a power cycle. The clear command preserves system state, the resets do not.
 
+Soft limits tests the endpoint of the move for straight traverses and feeds. It also checks the endpoint for arcs, and if any part of the arc would extend beyond the work envelope.
+
 The following steps use a Shapeoko2 as an example:
 * Configure the machine dimensions
 <pre>
