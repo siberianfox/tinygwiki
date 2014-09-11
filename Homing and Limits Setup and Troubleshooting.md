@@ -83,7 +83,8 @@ $clear
 <pre>
 {clear:n}
 </pre>
-Since commands arriving after the soft limit are rejected the host can always send a clear, as the buffer will be read until the clear can be processed. If the host is going to attempt job recovery care must be taken to restart the job from the correct point. We recommend using line numbers. It may be moot. If the Gcode file is not sized properly for the work volume there really may be no way to restart the job anyway. 
+Since commands arriving after the soft limit are rejected the host can always send a clear, as the buffer will be read until the clear can be processed. If the host is going to attempt job recovery care must be taken to restart the job from the correct point. We recommend using line numbers. It may be moot. If the Gcode file is not sized properly for the work volume there really may be no way to restart the job anyway.
+
 ###Hard Limits
 
 ##Homing Setup and Configuration
