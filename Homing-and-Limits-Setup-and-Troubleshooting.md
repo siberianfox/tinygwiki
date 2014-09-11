@@ -45,6 +45,8 @@ Soft limits check each new Gcode block to see if it would cause the tool to exce
 
 Soft limits tests the endpoint of the move for straight traverses and feeds. It also checks the endpoint for arcs, and if any part of the arc would extend beyond the work envelope.
 
+Soft limits are only active if (1) soft limits are enabled `$sl=1` or `{sl:1}`and (2) the axes being tested have been homed.
+
 The following steps use a Shapeoko2 as an example:
 * Configure the machine dimensions
 <pre>
