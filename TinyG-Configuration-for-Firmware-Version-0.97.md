@@ -179,7 +179,7 @@ TR needs to be set to the distance the mapped axis will move for one revolution 
 
 For XYZ the travel-per-revolution value is usually the result of the lead screw pitch or pulley circumference.
 * A 10 thread-per-inch (TPI) leadscrew moves 0.100" per revolution. TR in inches would be 0.100, or 2.54 in mm mode. 
-* A 0.500" diameter pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 36.540 mm per revolution. Don't take this as exact - you will need to do your own calibration on your machine to get this setting exact.
+* A 0.500" radius pulley will travel 3.14159" per revolution, absent any other gearing. A typical value for a Shapeoko or Reprap belt driven machine is on the order of 36.540 mm per revolution. Don't take this as exact - you will need to do your own calibration on your machine to get this setting exact.
 
 For ABC the travel-per-revolution value is entered in degrees. This value will be 360 degrees for an axis that is not geared down - one revolution = 360 degrees. The value for a geared rotary axis is 360 divided by the gear ratio. For example, a motor-driven rotary table with 4 degrees of table movement per handle rotation has a gear ratio of 90:1. The Travel per Revolution value should be set to 4. 
 
