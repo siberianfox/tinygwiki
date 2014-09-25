@@ -18,14 +18,14 @@ JSON mode:
 {md:n}      Disable all motors
 </pre>
 
+For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
+
 ###Motor Timeout
 Motor power timeout is set globally using $mt. Examples:
 <pre>
 $mt=300     Set timeout to 5 minutes
 {mt:300}    Set timeout to 5 minutes
 </pre>
-
-For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
 
 ##Per-Motor Power Management Commands
 Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
