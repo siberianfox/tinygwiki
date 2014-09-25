@@ -15,10 +15,10 @@ $1pm=1     Enable motor 1 all the time
 
 These additional commands are also available:
 <pre>
-$me         Enable all motors
-$md         Disable all motors
-{me:n}
-{md:n}
+$me=N       Enable all motors for N seconds
+$md         Disable all motors (immediately)
+{me:60}     JSON command to enable for 60 seconds
+{md:n}      JSON command to disable all motors 
 </pre>
 
 ###Motor Disabled (0)
