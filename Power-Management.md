@@ -1,4 +1,4 @@
-Power management is used to keep the steppers on when you need them and turn them off when you don't. 
+Power management is used to keep the steppers on when you need them and turn them off when you don't. You generally want some form or power management so you don;t leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
 
 ##Global Power Management Commands
 These commands affect all motors
