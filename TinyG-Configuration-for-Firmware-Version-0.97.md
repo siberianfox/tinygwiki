@@ -128,8 +128,8 @@ These $configs invoke reports and functions
 	[$sr](#sr---status-report) | Request status report | SR also sets status report format in JSON mode
 	[$qr]#qr---queue-report) | Request queue report | 
 	[$qf](#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
-	[$md](#md---disable-motors) | Disable motors | Unpower all motors
-	[$me](#me---energize-motors) | Energize motors | Energize all motors with power management mode set to 0 (e.g. $1pm=0) 
+	[$md](Power-Management) | Disable motors | Unpower all motors
+	[$me](Power-Management) | Energize motors | Energize all motors with timeout in seconds 
 	[$test](#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	[$defa](#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
