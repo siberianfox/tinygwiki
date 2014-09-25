@@ -17,6 +17,8 @@ These additional commands are also available:
 <pre>
 $me         Enable all motors
 $md         Disable all motors
+{me:n}
+{md:n}
 </pre>
 
 ###Motor Disabled (0)
