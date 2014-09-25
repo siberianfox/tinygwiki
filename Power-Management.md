@@ -6,6 +6,17 @@ Power management is used to keep the steppers on when you need them and turn the
 2 = Motor powered during a machining cycle (i.e. when any axis is moving)
 3 = Motor only powered when it is moving
 </pre>
+
+Usage examples:
+<pre>
+$1pm=1     Enable motor 1 all the time
+{1pm:1}    JSON equivalent of the above
+</pre>
+
+
+###Motor Disabled (0)
+Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
+
 Examples:
 
 $4pm=2         Set motor 4 to be powered when any axis is moving
