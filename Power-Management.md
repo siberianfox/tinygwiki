@@ -13,7 +13,7 @@ $1pm=1     Enable motor 1 all the time
 {1pm:1}    JSON equivalent of the above
 </pre>
 
-These additional commands are available:
+These additional commands are also available:
 <pre>
 $me         Enable all motors
 $md         Disable all motors
