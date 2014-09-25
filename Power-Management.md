@@ -13,7 +13,8 @@ $1pm=1     Enable motor 1 all the time
 {1pm:1}    JSON equivalent of the above
 </pre>
 
-These additional commands are also available:
+###Global Power Management Commands
+These commands affect all motors
 <pre>
 $me=N       Enable all motors for N seconds
 $md         Disable all motors (immediately)
@@ -21,7 +22,10 @@ $md         Disable all motors (immediately)
 {md:n}      JSON command to disable all motors 
 </pre>
 
-###Motor Disabled (0)
+For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
+
+##Per-Motor Power Management Commands
+###Motor Disabled {1pm:0}
 Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
 
 Examples:
