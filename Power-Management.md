@@ -1,8 +1,8 @@
 Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
-Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations will hold position if you shut off the power when the motor is not moving (like many leadscrew or geared machines), others will not (some belt/pulley configs and some non-cartesian robots). You want to set power management so that the axes powered (powered idle) during a machining cycle to maintain absolute machine position.
+Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations will hold position if you shut off the power when the motor is not moving (like many leadscrew or geared machines), others will not (some belt/pulley configs and some non-cartesian robots). You generally want to set power management so that the motor is powered during a machining cycle to maintain absolute machine position, although there are other options.
 
-You also generally want to use power management so you don't leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
+You also generally want to use power management to de-power the machine if it's left unattended for an extended time. You don't want to leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling.
 
 ##Global Power Management Commands
 These commands affect all motors and take effect as soon as they are issued.
