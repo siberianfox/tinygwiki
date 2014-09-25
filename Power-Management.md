@@ -13,6 +13,11 @@ $1pm=1     Enable motor 1 all the time
 {1pm:1}    JSON equivalent of the above
 </pre>
 
+The following additional commands are available
+<pre>
+$me         Enable all motors
+$md         Disable all motors
+</pre>
 
 ###Motor Disabled (0)
 Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
