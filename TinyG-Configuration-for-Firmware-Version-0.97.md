@@ -89,7 +89,7 @@ These are reported on the startup strings and should be included in any support 
 	[$ja](#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
 	[$ct](#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
 	[$st](#st---switch-type) | Switch type | 0=NO, 1=NC
-	[$mt](#st---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
+	[$mt](#mt---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
 
 
 **Communications Settings**
