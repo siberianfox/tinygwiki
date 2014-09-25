@@ -43,7 +43,7 @@ JSON mode:
 {4pm:3}  or {4:{pm:3}}
 </pre>
 
-Note: All non-disabled motors are powered on startup and from reset. They may time out according to $mt
+Note: All non-disabled motors are powered on startup and from reset, and will time out according to $mt
 
 ###Motor Disabled (0)
 _Example {1pm:0}_<br>
