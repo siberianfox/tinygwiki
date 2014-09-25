@@ -11,6 +11,8 @@ $md         Disable all motors (immediately)
 
 For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
 
+If you do not provide an argument to ME is will use the default idle time, which is usually just a few seconds unless you have set it longer.
+
 ##Per-Motor Power Management Commands
 Power management can be set per motor
 <pre>
