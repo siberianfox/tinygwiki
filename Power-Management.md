@@ -3,11 +3,12 @@ Power management is used to keep the steppers on when you need them and turn the
 ##Global Power Management Commands
 These commands affect all motors.
 <pre>
+Text Mode:
 $me=N       Enable all motors for N seconds
 $me         Enable all motors for the default idle time
 $md         Disable all motors (immediately)
 
-JSON equivalents:
+JSON mode:
 {me:60}     Enable all motors for 60 seconds
 {me:n}      Enable all motors for the default idle time
 {md:n}      Disable all motors (immediately)
@@ -18,12 +19,13 @@ For example, to lock all motors for 3 minutes for a tooling operation send `{me:
 ##Per-Motor Power Management Commands
 Power management can be set per motor using the $1pm command (for each motor number). Settings:
 <pre>
+Text mode:
 $1pm=0     Motor 1 disabled
 $1pm=1     Motor 1 always powered
 $1pm=2     Motor 1 powered during a machining cycle (any axis is moving)
 $4pm=3     Motor 4 only powered when it is moving
 
-JSON equivalents:
+JSON mode:
 {1pm:0}  or {1:{pm:0}}
 {1pm:1}  or {1:{pm:1}}
 {1pm:2}  or {1:{pm:2}}
