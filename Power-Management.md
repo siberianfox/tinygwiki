@@ -43,24 +43,20 @@ JSON mode:
 {4pm:3}  or {4:{pm:3}}
 </pre>
 
+Note: All non-disabled motors are powered on startup and from reset. They may time out according to $mt
+
 ###Motor Disabled (0)
-_Example {1pm:0}_
+_Example {1pm:0}_<br>
 This will turn off motor power and prevent the motor from turning on. Disabling the motor will prevent that axis from participating in any move. This setting takes effect immediately.
 
 ###Motor Always Powered (1)
-_Example {1pm:1}_
+_Example {1pm:1}_<br>
 This will turn on motor power and leave it on until the board is shut down. You generally do not want to use this mode as it will leave the motors on for extended periods of time if you do not power down the machine. Better to set a long motor power timeout and use Enabled In Cycle (2)
 
 ###Motor Powered In Cycle (2)
+_Example {3pm:2}_<br>
 This will turn on the motor power at the start of any move on any axis (a "cycle"), and will de-energize the motors MT seconds after the cycle is complete (all motion stops). The timeout interval is set by the MT value.
 
 ###Motor Powered When Moving (3)
+_Example {2pm:3}_<br>
 This will turn on the motor power only when that axis is moving, and will remove power MT seconds after that axis stops moving.
-
-Other notes:
-
-A motor set to $1pm=2 (or 3) will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ).
-Power mode changes take effect immediately (used to change on the next move)
-All non-disabled motors are powered on startup and from reset. They may time out according to $mt
-All non-disabled motors can be enabled by issuing a $me command ( also {"me":""} )
-All motors are disabled by issuing a $md command ( also {"md":""} )
