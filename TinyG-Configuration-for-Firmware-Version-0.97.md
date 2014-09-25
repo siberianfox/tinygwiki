@@ -222,28 +222,7 @@ $3po=0        Set polarity to normal
 </pre>
 
 ### $1PM - Power Management mode
-Power management is used to keep the steppers on when you need them and turn them off when you don't. Set to one of the following: 
-
-* 0 = Motor disabled
-* 1 = Motor always powered
-* 2 = Motor powered during a machining cycle (i.e. when any axis is moving)
-* 3 = Motor only powered when it is moving
-
-Examples:
-<pre>
-$4pm=2         Set motor 4 to be powered when any axis is moving
-{4pm:2}        Same as above
-{4:{pm:2}}     Same as above
-</pre>
-
-Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots). 
-
-Other notes:
-* A motor set to $1pm=2 (or 3) will become powered and will remain powered for N seconds specified in the $mt variable (e.g. 60 seconds, which would be {"mt":60} ).
-* Power mode changes take effect immediately (used to change on the next move)
-* All non-disabled motors are powered on startup and from reset. They may time out according to $mt 
-* All non-disabled motors can be enabled by issuing a $me command (  also {"me":""}  )
-* All motors are disabled by issuing a $md command  (  also {"md":""}  )
+Power management is used to keep the steppers on when you need them and turn them off when you don't. See [Power Management](Power-Management) page.
 
 ## Axis Settings
 
@@ -440,6 +419,7 @@ $mt=5        - Keep motors energized for 5 seconds after last movement command
 $mt=1000000  - Keep motors energized for 1 million seconds after last movement command (11.57 days)
 </pre> 
 
+See also [Power Management](Power-Management)
 ###Communications Settings
 
 ### $EJ - Enable JSON Mode on Power Up
@@ -640,10 +620,10 @@ Manually request a queue report. See [$QV](https://github.com/synthetos/TinyG/wi
 Removes all Gcode blocks remaining in the planner queue. This is useful to clear the buffer after a feedhold to create homing, jogging, probes and other cycles.
 
 ### $MD - Motor De-energize
-Unpower all motors
+Unpower all motors. See [Power Management](Power-Management)
 
 ### $ME - Motor Energize
-Energizes all non-disabled motors. Motors will time out according to their power management a mode and timeout value.
+Energizes all non-disabled motors. Motors will time out according to their power management a mode and timeout value. See [Power Management](Power-Management)
 
 ### $TEST - Run Self Test
 Execute `$test` to get a listing of available tests. Run `$test=N`, where N is the test number.
