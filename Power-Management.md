@@ -1,5 +1,18 @@
-Power management is used to keep the steppers on when you need them and turn them off when you don't. Set to one of the following:
+Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
+##Global Power Management Commands
+These commands affect all motors
+<pre>
+$me=N       Enable all motors for N seconds
+$md         Disable all motors (immediately)
+{me:60}     JSON command to enable for 60 seconds
+{md:n}      JSON command to disable all motors 
+</pre>
+
+For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
+
+##Per-Motor Power Management Commands
+Power management can be set per motor
 <pre>
 0 = Motor disabled
 1 = Motor always powered
@@ -13,18 +26,6 @@ $1pm=1     Enable motor 1 all the time
 {1pm:1}    JSON equivalent of the above
 </pre>
 
-###Global Power Management Commands
-These commands affect all motors
-<pre>
-$me=N       Enable all motors for N seconds
-$md         Disable all motors (immediately)
-{me:60}     JSON command to enable for 60 seconds
-{md:n}      JSON command to disable all motors 
-</pre>
-
-For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
-
-##Per-Motor Power Management Commands
 ###Motor Disabled - e.g. {1pm:0}
 Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
 
