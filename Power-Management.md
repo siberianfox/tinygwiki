@@ -8,8 +8,9 @@ $me         Enable all motors for the default idle time
 $md         Disable all motors (immediately)
 
 JSON equivalents:
-{me:60}     JSON command to enable for 60 seconds
-{md:n}      JSON command to disable all motors 
+{me:60}     Enable all motors for 60 seconds
+{me:n}      Enable all motors for the default idle time
+{md:n}      Disable all motors (immediately)
 </pre>
 
 For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
