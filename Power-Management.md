@@ -25,7 +25,7 @@ $md         Disable all motors (immediately)
 For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
 
 ##Per-Motor Power Management Commands
-###Motor Disabled {1pm:0}
+###Motor Disabled - e.g. {1pm:0}
 Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
 
 Examples:
