@@ -1,23 +1,27 @@
-Power management is used to keep the steppers on when you need them and turn them off when you don't. You generally want some form of power management so you don't leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
+Power management is used to keep the steppers on when you need them and turn them off when you don't. 
+
+Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations will hold position if you shut off the power when the motor is not moving (like many leadscrew or geared machines), others will not (some belt/pulley configs and some non-cartesian robots). You want to set power management so that the axes powered (powered idle) during a machining cycle to maintain absolute machine position.
+
+You also generally want to use power management so you don't leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
 
 ##Global Power Management Commands
-These commands affect all motors.
+These commands affect all motors and take effect as soon as they are issued.
 <pre>
 Text Mode:
 $me=N       Enable all motors for N seconds
 $me         Enable all motors for the default idle time
-$md         Disable all motors (immediately)
+$md         Disable all motors
 
 JSON mode:
 {me:60}     Enable all motors for 60 seconds
 {me:n}      Enable all motors for the default idle time
-{md:n}      Disable all motors (immediately)
+{md:n}      Disable all motors
 </pre>
 
 For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
 
 ##Per-Motor Power Management Commands
-Power management can be set per motor using the $1pm command (for each motor number). Settings:
+Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 <pre>
 Text mode:
 $1pm=0     Motor 1 disabled
@@ -32,15 +36,25 @@ JSON mode:
 {4pm:3}  or {4:{pm:3}}
 </pre>
 
-###Motor Disabled - e.g. {1pm:0}
-Setting This will turn off motor power and prevent the motor from turning on. Disabling This will prevent 
+Motor power timeout is set globally using $mt. Examples:
+<pre>
+$mt=300     Set timeout to 5 minutes
+{mt:300}    Set timeout to 5 minutes
+</pre>
 
-Examples:
+###Motor Disabled (0)
+_Example {1pm:0}_
+This will turn off motor power and prevent the motor from turning on. Disabling the motor will prevent that axis from participating in any move. This setting takes effect immediately.
 
-$4pm=2         Set motor 4 to be powered when any axis is moving
-{4pm:2}        Same as above
-{4:{pm:2}}     Same as above
-Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations are OK if you shut off the power on idle (like most leadscrew machines), others are not (some belt/pulley configs and some non-cartesian robots).
+###Motor Always Powered (1)
+_Example {1pm:1}_
+This will turn on motor power and leave it on until the board is shut down. You generally do not want to use this mode as it will leave the motors on for extended periods of time if you do not power down the machine. Better to set a long motor power timeout and use Enabled In Cycle (2)
+
+###Motor Powered In Cycle (2)
+This will turn on the motor power at the start of any move on any axis (a "cycle"), and will de-energize the motors MT seconds after the cycle is complete (all motion stops). The timeout interval is set by the MT value.
+
+###Motor Powered When Moving (3)
+This will turn on the motor power only when that axis is moving, and will remove power MT seconds after that axis stops moving.
 
 Other notes:
 
