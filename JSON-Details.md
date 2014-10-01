@@ -120,7 +120,8 @@ In JSON mode Gcode blocks may be provided either as native gcode text or wrapped
 
 	Gcode Request | Response | Notes
 	---------|--------------|---------
-	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode
+	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode, strict syntax
+	{gc:"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode, relaxed syntax
 	g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | unwrapped gcode
 	{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]} |Gcode with comment
 	{"gc":"m0 (msgChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]} | Gcode with message in comment
