@@ -99,6 +99,7 @@ Set communications speeds and modes.
 	--------|-------------|-------
 	[$ej](#ej---enable-json-mode-on-power-up) | Enable JSON mode | 0=text mode, 1=JSON mode
 	[$jv](#jv---set-json-verbosity) | JSON verbosity | 0=silent ... 5=verbose (see details)
+	[$js](#jv---set-json-syntax) | JSON syntax | 0=relaxed, 1=strict
 	[$tv](#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
 	[$qv](#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
@@ -441,6 +442,21 @@ $jv=2      - Messages - Returns footers, exception messages and gcode comment me
 $jv=3      - Configs  - Returns footer, messages, config command body
 $jv=4      - Linenum  - Returns footer, messages, config command body, and gcode line numbers if present
 $jv=5      - Verbose  - Returns footer, messages, config command body, and gcode blocks
+</pre>
+
+### $JS - Set JSON syntax
+Sets relaxed or strict syntax for JSON messages. 
+<pre>
+$js=0      - Relaxed  - Quotes are optional on input; Responses are returned in relaxed mode
+$js=1      - Strict   - Quotes are optional on input; Responses are returned in relaxed mode
+</pre>
+We recommend using relaxed mode if your parser can accept it on the responses. JSON commands are accepted in either strict or relaxed mode in either case.
+<pre>
+Rules for Relaxed JSON
+- Names oo not require quotes - e.g. {st=1}
+- Numeric values do not require quotes - e.g. {st=1}
+- Null values to not require quotes  - e.g. {st=n}
+- String values require quotes - e.g. (gc:"g0x0"}
 </pre>
 
 ### $TV - Set Text mode verbosity
