@@ -106,8 +106,8 @@ It's similar to a response except there is no header or footer element. Since it
 ### JSON Syntax Option - Relaxed or Strict
 JSON can be processed with either relaxed or strict syntax. $JS (also `{js:0}` ) Sets relaxed or strict syntax for JSON messages. 
 <pre>
-$js=0      - Relaxed  - Quotes are optional on input; Responses are returned in relaxed mode
-$js=1      - Strict   - Quotes are optional on input; Responses are returned in relaxed mode
+$js=0      - Relaxed syntax
+$js=1      - Strict syntax
 </pre>
 
 * In strict syntax all rules follow from the [JSON spec](http://www.json.org/). All names and strings must be quoted. You can use [JSON lint](http://jsonlint.com/) to validate if your JSON expression is correctly formatted.
