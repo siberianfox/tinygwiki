@@ -99,7 +99,7 @@ Set communications speeds and modes.
 	--------|-------------|-------
 	[$ej](#ej---enable-json-mode-on-power-up) | Enable JSON mode | 0=text mode, 1=JSON mode
 	[$jv](#jv---set-json-verbosity) | JSON verbosity | 0=silent ... 5=verbose (see details)
-	[$js](#jv---set-json-syntax) | JSON syntax | 0=relaxed, 1=strict
+	[$js](#js---set-json-syntax) | JSON syntax | 0=relaxed, 1=strict
 	[$tv](#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
 	[$qv](#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
