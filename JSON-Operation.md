@@ -104,18 +104,19 @@ The 'r' is the response envelope. The body of the response is the result returne
 It's similar to a response except there is no header or footer element. Since it's asynchronous the status code is irrelevant, as is the number of bytes pulled form the queue (0). Since they are informational a checksum is not provided. The exception is a report that is requested, which will return a footer. E.g. the the command {"sr":""} can be used to request the status report in the above example. Look here for details of the [status reports](https://github.com/synthetos/TinyG/wiki/Status-Reports)
 
 ### JSON Syntax Option - Relaxed or Strict
-JSON can be processed with either relaxed or strict syntax. $JS (also `{js:0}` ) Sets relaxed or strict syntax for JSON messages. 
+JSON can be processed with either relaxed or strict syntax. `$JS` or `{js:_}` sets relaxed or strict syntax for JSON messages.
 <pre>
-$js=0      - Relaxed syntax
-$js=1      - Strict syntax
+$js=0, {js:0}   - Sets relaxed syntax
+$js=1  {js:1}   - Sets strict syntax
+$js    {js:n}   - Returns syntax mode
 </pre>
 
 * In strict syntax all rules follow from the [JSON spec](http://www.json.org/). All names and strings must be quoted. You can use [JSON lint](http://jsonlint.com/) to validate if your JSON expression is correctly formatted.
 * In relaxed syntax names do not require quotes. String values still do.
-* TinyG will accept JSON input in either relaxed or strict form regardl;ess of the syntax setting. I will return responses according to the syntax selected.
-* In either mode the shorthand `n` will suffice for a null value. So this is valid: `{"fv":n}` and this `{fv:n}`
+* TinyG will accept JSON input in either relaxed or strict form regardless of the syntax setting. It will return responses in the syntax selected.
+* In either syntax the shorthand `n` suffices for a null value. So this is valid: `{"fv":n}` and this `{fv:n}`
  
-We recommend using relaxed mode if your parser can accept it on the responses. JSON commands are accepted in either strict or relaxed mode in either case.
+We recommend using relaxed mode if your parser can accept it on the responses.
 
 ###More
 See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
