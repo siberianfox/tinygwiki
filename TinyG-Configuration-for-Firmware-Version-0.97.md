@@ -445,19 +445,7 @@ $jv=5      - Verbose  - Returns footer, messages, config command body, and gcode
 </pre>
 
 ### $JS - Set JSON syntax
-Sets relaxed or strict syntax for JSON messages. 
-<pre>
-$js=0      - Relaxed  - Quotes are optional on input; Responses are returned in relaxed mode
-$js=1      - Strict   - Quotes are optional on input; Responses are returned in relaxed mode
-</pre>
-We recommend using relaxed mode if your parser can accept it on the responses. JSON commands are accepted in either strict or relaxed mode in either case.
-<pre>
-Rules for Relaxed JSON
-- Names oo not require quotes - e.g. {st=1}
-- Numeric values do not require quotes - e.g. {st=1}
-- Null values to not require quotes  - e.g. {st=n}
-- String values require quotes - e.g. (gc:"g0x0"}
-</pre>
+Sets relaxed or strict syntax for JSON messages. See [JSON Syntax](JSON-Operation#json-syntax-option---relaxed-or-strict) for details.
 
 ### $TV - Set Text mode verbosity
 Sets how much information is returned in text mode. We recommend using Verbose, except for very special cases.
