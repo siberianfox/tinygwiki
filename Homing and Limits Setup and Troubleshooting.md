@@ -160,9 +160,7 @@ In CNC-land hitting a limit switch is considered to be an unrecoverable error wh
 Another reason limit switches can get hit is if the machine has lost steps somewhere and is not where it thinks it is. In this case the error usually indicates that the max velocity or feedrates are set too high for the job, or the cornering or acceleration is too extreme and should be tuned for the job/material.
 
 #Troubleshooting
-The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read these pages:
-* [Tinyg Homing](https://github.com/synthetos/TinyG/wiki/TinyG-Homing) page and make sure you understand how homing and limits are supposed work and be configured.
-* [Homing and Limits Setup](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#homing-and-limits-setup)
+The fact that you are here implies you are having problems either getting homing to work, or with limit switches, or both. Please first read this page - [Tinyg Homing Operation](Homing-and-Limits-Description-and-Operation) -  and make sure you understand how homing and limits are supposed work and be configured.
 
 Common Problems:
 * [I think the configuration is wrong](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Setup-and-Troubleshooting#configuration-problems)
