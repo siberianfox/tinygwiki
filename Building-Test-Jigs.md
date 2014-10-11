@@ -24,6 +24,8 @@ This page is a random collection of notes on building test jigs. Mostly it's a r
     * S-100-J-6.7-G headless radius
     * S-100-B-6.7-G headless spear
     * S-100-AP-6.7-G-S headless sharp chisel
+* Assemble all electronics first before attaching pogo pins 
+  * e.g. regulators, connectors...
 * Attaching pogo receptacles to tester board
   * Insert receptacles into all holes to be filled
   * Position spacer plate roughly over holes
