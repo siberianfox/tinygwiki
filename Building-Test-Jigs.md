@@ -20,7 +20,7 @@ This page is a random collection of notes on building test jigs. Mostly it's a r
   * Parts
     * R-100-SC receptacles (sockets)
     * S-100-WO-8-G-S crown head
-    * 101023-097-922 cup head
+    * S-100-A-6.7-G cup head
     * S-100-J-6.7-G headless radius
     * S-100-B-6.7-G headless spear
     * S-100-AP-6.7-G-S headless sharp chisel
