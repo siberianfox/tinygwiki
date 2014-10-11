@@ -7,17 +7,17 @@ This page is a random collection of notes on building test jigs. Mostly it's a r
   * Pogo holes 0.063" (see below)
 * Laser cut a spacer plate of 1/16" clear plexi to line up the pogo sockets
 * Use IDI Size 3 preferentially - 0.125" centers
-  * tester board holes 0.063"
-  * spacer plate holes 0.095"
-  * parts:
+  * Tester board holes 0.063"
+  * Spacer plate holes 0.095"
+  * Parts
     * R-3-SC receptacles (sockets)
     * S-3-H-4-G waffle head
     * S-3-A-4-G cup head
     * S-3-B-7-G spear
-* Use 0.100" only for those things that require this spacing
-  * tester board holes 0.063"
-  * spacer plate holes 0.067"
-  * parts:
+* Use 0.100" only for those things that require tighter spacing
+  * Tester board holes 0.063"
+  * Spacer plate holes 0.067"
+  * Parts
     * R-100-SC receptacles (sockets)
     * S-100-WO-8-G-S crown head
     * 101023-097-922 cup head
@@ -28,7 +28,9 @@ This page is a random collection of notes on building test jigs. Mostly it's a r
   * Insert receptacles into all holes to be filled
   * Position spacer plate roughly over holes
   * Insert pogos through plate to line up pogo receptacles with spacer plate holes
-  * Work the plate onto the pogos, stopping at the annular detent ring
+  * Carefully work the plate onto the pogos
+    * Stop at the annular detent ring
+    * Push too hard and will crack the plate
   * Before soldering - ensure first pogo is at right angle to the board!!! Very important!!!
   * Solder it and do another pogo at the far end, also at a right angle
   * Solder only on the side with the trace to make removal easier (if you eventually need it)
