@@ -23,6 +23,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
     * Account for all test points and mounting holes (for alignment)
     * Use same components as UUT to manage BOM (where possible)
     * Provide indicator LEDs for all voltages, including on-board ones
+    * Leave 1/4" or more from any through-hole part to the edge for easier mounting
     * Run as many traces as possible on the bottom of the board. At least try to make the trace that connects to the pogo pin socket be on the bottom (this simplifies assembly and re-work).
   * Use IDI socketed pogo pins (exclusively). Expensive but worth it
   * Use IDI Size 3 preferentially - 0.125" centers
