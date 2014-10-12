@@ -10,32 +10,40 @@ The following are links to  all information related to test jigs and test proced
 #Building Test Jigs
 The rest of this page is a collection of random notes on building test jigs. Mostly it's a record of mistakes to be avoided.
 
-## Making the pogo board
-* Design and manufacture tester PCB from 0.93" FR4
-  * Use socketed pogo pins (exclusively). IDI on Mouser. Expensive but worth it
-  * Use 4/40 hw for standoffs - 0.125 ID holes, 0.250" clearance
-  * Pogo holes 0.063" (see below)
-* Laser cut a spacer plate of 1/16" clear plexi to line up the pogo sockets
-* Use IDI Size 3 preferentially - 0.125" centers
-  * Tester board holes 0.063"
-  * Spacer plate holes 0.095"
-  * Parts
+### Pogo Board
+* Design a test board (pogo board)
+  * Use the layout of the unit-under-test to line up mounting holes and test points
+  * Use IDI socketed pogo pins (exclusively). Expensive but worth it (see below)
+  * Pogo holes are 0.063"
+  * Mounting holes use 0.125" ID, 0.250" clearance; use 4/40 hw for standoffs
+  * Manufacture tester PCB using 0.93" FR4
+  * Use IDI Size 3 preferentially - 0.125" centers
     * R-3-SC receptacles (sockets)
     * S-3-H-4-G waffle head
     * S-3-A-4-G cup head
     * S-3-B-7-G spear
-* Use 0.100" only for those things that require tighter spacing
-  * Tester board holes 0.063"
-  * Spacer plate holes 0.067"
-  * Parts
+  * Use 0.100" only for those things that require tighter spacing
     * R-100-SC receptacles (sockets)
     * S-100-WO-8-G-S crown head
     * S-100-A-6.7-G cup head
     * S-100-J-6.7-G headless radius
     * S-100-B-6.7-G headless spear
     * S-100-AP-6.7-G-S headless sharp chisel
+
+###Spacer Board
+* Lay out a spacer board (Diptrace) using the UUT layout file
+  * Account for all test points and mounting holes (for alignment)
+  * Holes for 0.125" pogos are 0.095" (clears barrel and stops on annular ring)
+  * Holes for 0.100" pogos are 0.067" (ditto)
+  * Holes for mounting HW are 0.125" (4-40 hardware)
+* Export the drill file as a DXF for laser cutting
+* Laser cut a spacer plate of 1/16" clear plexi to line up the pogo sockets
+* Grind down 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers to 0.700 tall. Ensure there is enough 4-40 thread on the ground end.
+
+###Assembly
 * Assemble all electronics first before attaching pogo pins 
   * e.g. regulators, connectors...
+
 * Attaching pogo receptacles to tester board
   * Insert receptacles into all holes to be filled
   * Position spacer plate roughly over holes
