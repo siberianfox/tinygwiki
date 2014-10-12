@@ -33,7 +33,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 
 ###Spacer Board
 * Lay out a spacer board (Diptrace) using the pogo board layout file
-  * Holes for 0.125" pogos are 0.095" (clears barrel and stops on annular ring)
+  * Holes for 0.125" pogos are 0.095" (clears barrel; stops on annular ring)
   * Holes for 0.100" pogos are 0.067" (ditto)
   * Holes for mounting HW are 0.125" (4-40 hardware)
 * Export the drill file as a DXF for laser cutting
