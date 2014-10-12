@@ -41,17 +41,18 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * Grind down 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers to 0.700 tall. Ensure there is enough 4-40 thread on the ground end.
 
 ###Assembly
-* Assemble all electronics first before attaching pogo pins 
-  * e.g. regulators, connectors...
+* First assemble all electronics before attaching pogo pins 
+  * e.g. regulators, connectors, LEDs, switches...
 
-* Attaching pogo receptacles to tester board
+* Attach pogo receptacles to tester board (tricky)
   * Insert receptacles into all holes to be filled
   * Position spacer plate roughly over holes
-  * Insert pogos through plate to line up pogo receptacles with spacer plate holes
+  * Loosely insert pogos through plate holes to line up pogo receptacles
   * Carefully work the plate onto the pogos
     * Stop at the annular detent ring
-    * Push too hard and will crack the plate
-  * Before soldering - ensure first pogo is at right angle to the board!!! Very important!!!
-  * Solder it and do another pogo at the far end, also at a right angle
-  * Solder only on the side with the trace to make removal easier (if you eventually need it)
-  * Do not flex the sockets. They will break off at the collar
+    * Don't push too hard or you will crack the plate
+  * Screw in at least 2 of the 0.700" standoffs to get pogos to 90 degrees
+    * IMPORTANT - ensure pogos are at right angles to the board
+  * Solder pogos
+    * Solder only on the side with the trace to make removal easier (if you eventually need it)
+    * Do not flex the sockets once they are soldered. They will break off at the collar
