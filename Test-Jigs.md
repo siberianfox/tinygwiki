@@ -43,7 +43,6 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 ###Assembly
 * First assemble all electronics before attaching pogo pins 
   * e.g. regulators, connectors, LEDs, switches...
-
 * Attach pogo receptacles to tester board (tricky)
   * Insert receptacles into all holes to be filled
   * Position spacer plate roughly over holes
