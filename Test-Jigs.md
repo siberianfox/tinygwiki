@@ -31,7 +31,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Manufacture tester PCB using 0.93" FR4
 
 ###Spacer Board
-* Lay out a spacer board (Diptrace) using the UUT layout file
+* Lay out a spacer board (Diptrace) using the pogo board layout file
   * Account for all test points and mounting holes (for alignment)
   * Holes for 0.125" pogos are 0.095" (clears barrel and stops on annular ring)
   * Holes for 0.100" pogos are 0.067" (ditto)
