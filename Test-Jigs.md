@@ -65,5 +65,6 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Screw in at least 2 of the 3/4" standoffs to get pogos to 90 degrees
     * IMPORTANT - ensure pogos are at right angles to the board
   * Solder pogos
+    * Be sure each receptacle is all the way inserted before soldering
     * Solder only on the side with the trace to make removal easier (if you eventually need it)
     * Do not flex the sockets once they are soldered. They will break off at the collar
