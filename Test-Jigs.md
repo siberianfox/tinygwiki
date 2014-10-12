@@ -13,6 +13,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 ### Pogo Board
 * Design a test board (pogo board)
   * Use the layout of the UUT to line up mounting holes and test points
+    * Account for all test points and mounting holes (for alignment)
   * Use IDI socketed pogo pins (exclusively). Expensive but worth it
   * Use IDI Size 3 preferentially - 0.125" centers
     * R-3-SC receptacles (sockets)
@@ -32,7 +33,6 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 
 ###Spacer Board
 * Lay out a spacer board (Diptrace) using the pogo board layout file
-  * Account for all test points and mounting holes (for alignment)
   * Holes for 0.125" pogos are 0.095" (clears barrel and stops on annular ring)
   * Holes for 0.100" pogos are 0.067" (ditto)
   * Holes for mounting HW are 0.125" (4-40 hardware)
