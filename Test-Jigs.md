@@ -8,10 +8,17 @@ The following are links to  all information related to test jigs and test proced
 * [TinyGv9j Manual Programming and Test Instructions](https://github.com/synthetos/TinyG/wiki/TinyGv9j-Manual-Programming-and-Test-Instructions)
 
 #Building Test Jigs
-The rest of this page is a collection of random notes on building test jigs. Mostly it's a record of mistakes to be avoided.
+The rest of this page is a collection of random notes on building test jigs. Mostly it's a record of tricks learned the hard way and mistakes to be avoided.
 
-### Pogo Board
-* Design a test board (pogo board)
+###Parts and Tools Needed
+* Pogo board (tester board)
+* Pogo pins and receptacles (see below)
+* 1/16" plexiglass + laser cutter for spacer plate
+* 4-40 socket-head screws, 1/4" and 3/8"
+* 4-40 1/4" hex standoffs, 3/4" length, female-female
+
+###Pogo Board
+* Design the pogo board
   * Use the layout of the UUT to line up mounting holes and test points
     * Account for all test points and mounting holes (for alignment)
     * Use same components as UUT to manage BOM (where possible)
@@ -33,8 +40,8 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Mounting holes are 0.125" ID, 0.250" clearance (4/40 hw)
   * Manufacture tester PCB using 0.93" FR4
 
-###Spacer Board
-* Lay out a spacer board (Diptrace) using the pogo board layout file
+###Spacer Plate
+* Lay out a spacer plate using the pogo board layout file (Diptrace)
   * Holes for 0.125" pogos are 0.094" ID (clears barrel; stops on annular ring)
   * Holes for 0.100" pogos are 0.067" ID (ditto)
   * NOTE: Test the laser cutter for exact ID - record the following:
@@ -44,20 +51,18 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Holes for 4-40 mounting HW are 0.125"
 * Export the drill file as a DXF for laser cutting
 * Laser cut a spacer plate of 1/16" clear plexi to line up the pogo sockets
-* Grind down 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers to 0.700 tall. Ensure there is enough 4-40 thread on the ground end.
+* Locate 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers
 
 ###Assembly
 * First assemble all electronics before attaching pogo pins 
   * e.g. regulators, connectors, LEDs, switches...
   * Test as much as possible before assembling pogos
 * Attach pogo receptacles to tester board (tricky)
-  * Insert receptacles into all holes to be filled
-  * Position spacer plate roughly over holes
-  * Loosely insert pogos through plate holes to line up pogo receptacles
-  * Carefully work the plate onto the pogos
-    * Stop at the annular detent ring
-    * Don't push too hard or you will crack the plate
-  * Screw in at least 2 of the 0.700" standoffs to get pogos to 90 degrees
+  * Insert receptacles into the spacer plate. Should be a tight fit
+  * Position spacer plate with receptacles over holes in tester board
+  * Maneuver receptacles through holes in tester board
+  * WARNING: Don't push too hard on the plate or you will crack it
+  * Screw in at least 2 of the 3/4" standoffs to get pogos to 90 degrees
     * IMPORTANT - ensure pogos are at right angles to the board
   * Solder pogos
     * Solder only on the side with the trace to make removal easier (if you eventually need it)
