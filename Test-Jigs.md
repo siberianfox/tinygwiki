@@ -14,9 +14,6 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * Design a test board (pogo board)
   * Use the layout of the UUT to line up mounting holes and test points
   * Use IDI socketed pogo pins (exclusively). Expensive but worth it
-  * Pogo holes are 0.063"
-  * Mounting holes are 0.125" ID, 0.250" clearance (4/40 hw)
-  * Manufacture tester PCB using 0.93" FR4
   * Use IDI Size 3 preferentially - 0.125" centers
     * R-3-SC receptacles (sockets)
     * S-3-H-4-G waffle head
@@ -29,6 +26,9 @@ The rest of this page is a collection of random notes on building test jigs. Mos
     * S-100-J-6.7-G headless radius
     * S-100-B-6.7-G headless spear
     * S-100-AP-6.7-G-S headless sharp chisel
+  * Pogo holes are 0.063"
+  * Mounting holes are 0.125" ID, 0.250" clearance (4/40 hw)
+  * Manufacture tester PCB using 0.93" FR4
 
 ###Spacer Board
 * Lay out a spacer board (Diptrace) using the UUT layout file
