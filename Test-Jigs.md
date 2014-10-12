@@ -14,7 +14,8 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * Design a test board (pogo board)
   * Use the layout of the UUT to line up mounting holes and test points
     * Account for all test points and mounting holes (for alignment)
-    * Use same components as UUT to manage BOM (where possible) 
+    * Use same components as UUT to manage BOM (where possible)
+    * Provide indicator LEDs for all voltages, including on-board ones
   * Use IDI socketed pogo pins (exclusively). Expensive but worth it
   * Use IDI Size 3 preferentially - 0.125" centers
     * R-3-SC receptacles (sockets)
