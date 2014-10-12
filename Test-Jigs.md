@@ -35,7 +35,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * Lay out a spacer board (Diptrace) using the pogo board layout file
   * Holes for 0.125" pogos are 0.095" (clears barrel; stops on annular ring)
   * Holes for 0.100" pogos are 0.067" (ditto)
-  * Holes for mounting HW are 0.125" (4-40 hardware)
+  * Holes for 4-40 mounting HW are 0.125"
 * Export the drill file as a DXF for laser cutting
 * Laser cut a spacer plate of 1/16" clear plexi to line up the pogo sockets
 * Grind down 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers to 0.700 tall. Ensure there is enough 4-40 thread on the ground end.
