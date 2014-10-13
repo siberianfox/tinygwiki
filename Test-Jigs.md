@@ -73,10 +73,14 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 
 ###Mounting and Clamping
 * What you will need
-  * Base: 6" x 12" x 3/4" thick white HDPE
+  * Base: 6" x 12" x 3/4" thick white HDPE, food service finish (rough, not smooth)
   * Plate: 1/4" clear plexiglass, cut to size approximately the size of the UUT dimensions
-  * Clamp Riser: 1" to 1-1/2" clear plexiglass, dimensions 2.00" tall x 1.750" wide
+  * Spacer: 1" to 1-1/2" clear plexiglass, dimensions 1/5" tall x 1.750" wide
   * Clamp: De-Sta-Co 202UL clamp
   * Nylon 1" 4-40 socket head screws (McMaster Carr)
-  * 
+* Base
+  * Mark and drill holes to self tap into the HDPE. 
+    * Drill #43 (0.089") for 4-40 self tapping
+    * Drill #25 (0.149") for 10-24 self tapping
+
  
