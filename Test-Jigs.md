@@ -11,11 +11,16 @@ The following are links to  all information related to test jigs and test proced
 The rest of this page is a collection of random notes on building test jigs. Mostly it's a record of tricks learned the hard way and mistakes to be avoided.
 
 ###Parts and Tools Needed
-* Pogo board (tester board)
-* Pogo pins and receptacles (see below)
-* 1/16" plexiglass + laser cutter for spacer plate
-* 4-40 socket-head screws, 1/4" and 3/8"
-* 4-40 1/4" hex standoffs, 3/4" length, female-female
+* Parts
+  * Pogo board (tester board)
+  * Pogo pins and receptacles (see below)
+  * 1/16" plexiglass (spacer plate)
+  * 4-40 socket-head screws, 1/4" and 3/8"
+  * 4-40 1/4" hex standoffs, 3/4" length, female-female
+* Tools
+  * Numbered drill set
+  * Milling machine or drill press
+  * Laser cutter
 
 ###Pogo Board
 * Design the pogo board
