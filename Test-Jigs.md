@@ -70,3 +70,13 @@ The rest of this page is a collection of random notes on building test jigs. Mos
     * Be sure each receptacle is all the way inserted before soldering
     * Solder only on the side with the trace to make removal easier (if you eventually need it)
     * Do not flex the sockets once they are soldered. They will break off at the collar
+
+###Mounting and Clamping
+* What you will need
+  * Base: 6" x 12" x 3/4" thick white HDPE
+  * Plate: 1/4" clear plexiglass, cut to size approximately the size of the UUT dimensions
+  * Clamp Riser: 1" to 1-1/2" clear plexiglass, dimensions 2.00" tall x 1.750" wide
+  * Clamp: De-Sta-Co 202UL clamp
+  * Nylon 1" 4-40 socket head screws (McMaster Carr)
+  * 
+ 
