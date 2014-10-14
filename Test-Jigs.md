@@ -80,12 +80,20 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * What you will need
   * Base: 6" x 12" x 3/4" thick white HDPE, food service finish (rough, not smooth)
   * Plate: 1/4" clear plexiglass, cut to size approximately the size of the UUT dimensions
-  * Spacer: 1" to 1-1/2" clear plexiglass, dimensions 1/5" tall x 1.750" wide
+  * Spacer: 10-24 thick nylon spacers, 1-3/4" (typically 1/2" wide)
   * Clamp: De-Sta-Co 202UL clamp
-  * Nylon 1" 4-40 socket head screws (McMaster Carr)
+  * Nylon 1-1/4" 4-40 socket head screws (about 6 or 8, depending) (McMaster Carr)
+  * 10-24 1" bolts, washers and nuts (2x)
 * Base
   * Mark and drill holes to self tap into the HDPE. 
     * Drill #43 (0.089") for 4-40 self tapping
     * Drill #25 (0.149") for 10-24 self tapping
+* Pressure Plate
+  * Option 1: Cut the plate using the laser cutter
+  * Option 2: cut the plate on a milling machine
+    * Cut 1/4" clear plexiglass to size approximately the size of the UUT dimensions
+    * Locate and mark De-Sta-Co clamp holes for 10/24 (use drill #9)
+    * Locate and mark pressure points - for 4-40 nylon screws (use drill #43)
+    * Drill holes and tap 4-40 while still in mill
+  * Ream 4-40 holes with metal screws before use
 
- 
