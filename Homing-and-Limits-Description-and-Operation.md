@@ -124,6 +124,11 @@ Axes not present are ignored and zero values are not changed.
 
 For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
 
+See also: 
+* [The top of this page](Homing-and-Limits-Description-and-Operation)
+* [Homing Setup and Troubleshooting page](Homing-and-Limits-Setup-and-Troubleshooting)
+
+
 * G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
