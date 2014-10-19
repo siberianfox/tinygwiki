@@ -124,11 +124,6 @@ Axes not present are ignored and zero values are not changed.
 
 For example. G28.2 X0 Y0 will home the X and Y axes only. The values provided for X and Y don't matter, but something must be present.
 
-See also: 
-* [The top of this page](Homing-and-Limits-Description-and-Operation)
-* [Homing Setup and Troubleshooting page](Homing-and-Limits-Setup-and-Troubleshooting)
-
-
 * G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
@@ -141,6 +136,11 @@ See also:
  * Once the switch is hit a Latch Backoff move is performed. This backs off the switch until the switch opens again. 
  * Once the switch is cleared the axis moves further off the sthe switch by the the Zero Backoff amount and sets zero for that axis.
 * Once all axes are processed the affected axes are moved to the absolute home location (machine zero). At this point the homing state will indicate that the machine has been homed. Homing state can also be read using the homing group: $hom. This returns 0 or 1 for each axis to indicate homing state for each axis
+
+See also: 
+* [The top of this page](Homing-and-Limits-Description-and-Operation)
+* [Homing Setup and Troubleshooting page](Homing-and-Limits-Setup-and-Troubleshooting)
+
 
 ## G28.3 - Set Absolute Position 
 G28.3 allows you to set a zero (or other value) for any axes. Some axes cannot be homed. They either don't have switches, are infinite axes like rollers on the Othercutter, or some other reason. Do the following to set a zero - for example:
