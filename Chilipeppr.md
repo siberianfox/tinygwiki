@@ -33,6 +33,13 @@ Please note that SPJS currently maxes at 25,000 lines. Most Gcode files aren't t
 ##Issues Tracking
 https://github.com/chilipeppr/tinyg There is a Github project that is available for tracking issues. Please open a ticket here if you find a bug.
 
+##Community
+There is a ChiliPeppr Google+ Community for posts and discussion. This community is fairly active.
+https://plus.google.com/communities/104346367498010042037
+
+There is also a ChiliPeppr Google Group where you can submit bugs, ask questions, or discuss.
+https://groups.google.com/forum/#!forum/chilipeppr
+
 ##Forking Chilipeppr
 * Step 1. Pick a widget that you want to modify. Pick "Fork" from the upper right menu of the widget. Save your widget in JSFiddle and note the new URL.
 * Step 2. Fork the workspace by choosing "Fork" from upper right menu of the workspace title area. Modify it to point to your new forked widget from Step 1. You'll have to look around inside the code and find where the chilipeppr.load() methods are and change the URL from the old widget to the new one.
