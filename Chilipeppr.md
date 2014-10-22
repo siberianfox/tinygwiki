@@ -14,7 +14,10 @@ Chilipeppr represents a modern way to do CNC software control for the [TinyG](ht
 All open source. Have fun.
 
 ## Getting Started
-The first thing you need to get ChiliPeppr working with TinyG is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network or via your localhost.  Currently, there are Windows, OSX, Linux, Raspberry Pi and BeagleBone Black versions of this server available for download inside ChiliPeppr.  Once you have downloaded and launched [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on. 
+1. Just load the TinyG workspace in ChiliPeppr in your browser. Chrome works best. Firefox is decent. Safari doesn't support WebGL so the 3D Viewer doesn't work. IE won't allow local websockets. [chilipeppr.com/tinyg](http://chilipeppr.com/tinyg)
+2. Download the Serial Port JSON Server (SPJS) from inside the "Serial Port Widget" in lower right. If you're on a Mac you'll have to build SPJS by following the Readme on the Github page. Linux/ARM/Raspi/BeagleBone/Intel Edison/Windows all have pre-built binaries.
+
+After installing the pre-built binaries, or building on the Mac, you need to understand that ChiliPeppr is a browser app but it needs one tiny app running on your computer. This tiny app is a **Serial Port JSON Server** or AKA [SPJS](http://github.com/johnlauer/serial-port-json-server).  This is just a fancy way of saying you need a program running on your local machine that translates serial communications with TinyG to the websocket format.  You can use [SPJS](http://github.com/johnlauer/serial-port-json-server) over the network or via your localhost.  Currently, there are Windows, Linux, Raspberry Pi, Intel Edison, and BeagleBone Black versions of this server available for download inside ChiliPeppr.  For Mac OS X you'll need to build it. Once you have downloaded and launched [SPJS](http://github.com/johnlauer/serial-port-json-server) we are ready to move on. 
 
 _FYI: Here's a tutorial to get Go installed on a mac:_ http://www.cyberciti.biz/faq/installing-go-programming-language-on-mac-os-x/
 
@@ -24,6 +27,8 @@ Go ahead and load up http://chilipeppr.com/tinyg in your browser.  This will bri
 ##Sending Files
 Video walkthrough of the ChiliPeppr Hardware Fiddle - TinyG Workspace.
 [![Screenshot](http://chilipeppr.com/img/vidwalkthrough.png)](http://youtu.be/mKLdgpz8gpQ)
+
+Please note that SPJS currently maxes at 25,000 lines. Most Gcode files aren't this long, so this is unlikely a problem right now. Future modifications will implement throttling in ChiliPeppr to avoid the overflow. For now, just send your lines slow enough to not overflow the 25,000 line buffer. You can adjust the throttle in the settings button of the Gcode Widget. Send around 25 lines at a time each 1 second (1000 ms) depending on the complexity of your Gcode.
 
 ##Issues Tracking
 https://github.com/chilipeppr/tinyg There is a Github project that is available for tracking issues. Please open a ticket here if you find a bug.
