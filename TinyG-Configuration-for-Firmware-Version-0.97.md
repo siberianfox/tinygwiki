@@ -23,8 +23,10 @@ $1ma   equivalents: {"1ma":null}  {1ma:null}   {1ma:n}    {1:{ma:null}}
 $1ma=0 equivalents: {"1ma":0}     {1ma:0}                 {1:{ma:0}}
 </pre>
 There are a few exceptions where JSON offers commands that are not available in text mode. These are noted. See also:
+
 * [JSON Operation - for basic on JSON use](JSON-Operation)
 * [JSON Details - more information](JSON-Details)
+
 ##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board.<br><br>
 _Please note: In TinyG the motor travel settings are independent of each other. You don't need to put them into an equation. The board does this for you. Please see note about this in the [Motor Settings](#motor-settings) section._
