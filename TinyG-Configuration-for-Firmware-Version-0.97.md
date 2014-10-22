@@ -16,6 +16,12 @@ This page describes how configuration works in text mode from the [Command Line]
 Connect to the TinyG USB at 115,200 baud.
 To see a value enter `$cmd`. To set a value enter `$cmd=value`. 
 Most commands are self explanatory. See the sections following the cheat sheet for those that require further explanation.
+### JSON Cheat Sheet
+All of the commands in this cheat sheet are also available using JSON, which is the preferred access method if you are writing a UI or controller. The equivalent JSON commands follow these examples:
+<pre>
+$1ma   equivalents: {"1ma":null}  {1ma:null}   {1ma:n}    {1:{ma:null}}
+$1ma=0 equivalents: {"1ma":0}     {1ma:0}                 {1:{ma:0}}
+</pre>
 
 ##Motor Groups
 Settings specific to a given motor. There are 4 motor groups, numbered 1,2,3,4 as labeled on the TinyG board.<br><br>
