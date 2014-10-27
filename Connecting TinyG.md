@@ -163,9 +163,11 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
 * Now is also a good time to check out [Power Management](TinyG-Configuration-for-Firmware-Version-0.97#1pm---power-management-mode). By default power management is set to $_pm=2: "Motor powered during a machining cycle" (i.e. when any axis is moving).
 
 ## Cooling
-You can get more headroom before thermal shutdown by cooling the board. As much of the board as possible is 2 oz. heatsink copper. Both top and bottom copper provide cooling. But passive cooling can only do so much given the TinyG footprint. 
+Most NEMA17 applications we have seen do not require any additional cooling. Passive cooling as fine as long as you allow for convection. The chip transfers most of the heat to the 2 oz. copper on the bottom of the board. Make sure you have adequate airflow (convection) across the bottom and the top of the board. Vertical orientations are nice for this.
 
-Fan cooling is the best way to cool. TinyG uses copper for cooling both on the top and the bottom of the board, so make sure air flow is provided to both surfaces.
+If you are using those large NEMA17s (e.g. 125 oz.in) or NEMA23's you may need fan cooling. Again - provide adequate airflow across both sides of the board.
+
+Heatsinks are not necessary and should be avoided unless you really need them. If you do decide you need heatsinks attach them to the bare copper on the bottom - not the tops of the chips. Use the exposed pads and be careful not to exceed the pads or you risk shorting some signals to ground.
 
 # Test Drive
 Now that you are connected your motors and limit switches, move on the [Test Drive your TinyG](https://github.com/synthetos/TinyG/wiki/Test-Drive-TinyG)
