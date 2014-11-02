@@ -98,7 +98,7 @@ Now do the pull and get one or more conflicts. Git status will show Unmerged Pat
 
 Type `git mergetool` and hit return at the prompt. Filemerge will open. There is a dot at the bottom of Opendiff that you can drag up to show the resulting file in a new pane (default position does not show the bottom pane). When done, "save" and then quit opendiff completely. It should take you back to the terminal. If there are more files to merge hit return again and repeat.
 
-When done run `git commit`. (from command line - does not work from gitx). It may throw you into vi. Save / Quit using `:x`
+When done run `git commit`. (from command line - does not work from gitx). It may throw you into vi. Save / Quit using `:x`. If you are in vim the command is `ESC` the `:x`
 
 You might end up with one or more xxxx.orig files. Run `git clean -n` to list these. You can then run `git clean -f` to remove them
 
