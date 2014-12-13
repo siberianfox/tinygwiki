@@ -3,8 +3,9 @@ This page describes the function of machine limits, homing cycles and related Gc
 * [Homing Commands and Operation](Homing-and-Limits-Description-and-Operation#homing-commands-and-operation)
 * [Homing and Limits Setup and Troubleshooting](Homing-and-Limits-Setup-and-Troubleshooting)
 
-Please see the following for how to use soft limits and hard limits
-* [Soft and Hard Limits](Homing-and-Limits-Setup-and-Troubleshooting#limit-behaviors---how-its-supposed-to-work)
+The following are also useful references:
+* [How to Use Soft and Hard Limits](Homing-and-Limits-Setup-and-Troubleshooting#limit-behaviors---how-its-supposed-to-work)
+* [How Coordinate Systems Work](Coordinate-Systems)
 
 #Homing Commands and Operation
 ##Overview
