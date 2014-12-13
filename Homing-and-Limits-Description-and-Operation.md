@@ -31,31 +31,30 @@ Note: In high-end CNC machines there is often no user-accessible homing cycle as
 
 
 ## Switches
-### Switch Port
-TinyG has 8 switch pin pairs and a 3.3v take-off located on the J13 jumper next to the reset button.  The switch pairs are labeled:
-(See [here](#tinyg-v7-switch-port) for v7 switch pinouts)
+### Switch Inputs
+TinyG v8 has 8 switch inputs pins available on terminal blocks J7 and J8, along with two ground and two 3.3v terminals co-located on these terminal blocks. These are clearly labeled on the circuit board. (See [here](#tinyg-v7-switch-port) for v7 switch pinouts)
 
-	Pair  | Notes
+	Signal  | Notes
 	-----|-------------
-	3.3v | This pair is located on the J13 connector closest to the corner of the board
-	Xmin | Corresponding switch is typically positioned at left-most travel of the machine
-	Xmax | Switch typically at right-most travel
-	Ymin | Switch typically at front of machine 
-	Ymax | Switch typically at rear of machine 
-	Zmin | Switch typically at minimum height of Z travel or omitted
-	Zmax | Switch typically at maximum height of Z travel
+	Gnd | There is one ground for each terminal block
+	3.3v | There is one 3.3v take-off for each terminal block
+	Xmin | The Xmin switch is typically positioned at left-most travel of the machine
+	Xmax | ...typically at right-most travel
+	Ymin | ...typically at front of machine 
+	Ymax | ...typically at rear of machine 
+	Zmin | ...typically at minimum height of Z travel (work bed), or omitted
+	Zmax | ...typically at maximum height of Z travel
 	Amin | Most of the time A is infinite and not homed. This position can be used for a machine kill
 	Amax | Ditto
 
+The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are de-glitch filtered with a resistor-capacitor circuit (RC circuit), and pulled up to 3.3v on the board via 2.7K ohm resistors (strong pullup).  
 
-For each switch pair the pin closest to the board edge is the ground, the pin next to it is the switch input as labeled on the silkscreen. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
-
-Two 3.3v output pins are made available for opto-coupled and other powered switch options, but TinyG does not currently support this. It should work but you will need to be careful not to damage the inputs. If you draw the 3.3v do not pull more than 30 ma.
+Two 3.3v outputs are made available for opto-coupled and other powered switch options. if using active switches you will need to be careful not to exceed 3.3v on the inputs or you may damage the inputs. If you draw the 3.3v do not pull more than 30 ma.
 
 ### Switch Wiring
-To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches. Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity. 
+To connect a switch to an input pin simply wire the switch across the ground and the input. This applies to both normally open (NO) and normally closed (NC) switches. Either NO or NC switches may be used, but all switches must be of the same type. We recommend using NC switches for better noise immunity to prevent false firings. 
 
-Wire a single switch to each axis that will be part of homing. The following configuration is typical for most milling machines and 3D printers:
+Wire a single switch to each axis that will be part of homing. Homing requires each switch to be independent - i.e. you cannot run switches for multiple exes to a single switch input. The following configuration is typical for most milling machines and 3D printers:
 
 	Pin  | Function    | Position on machine
 	-----|-------------|-------------------------
@@ -64,7 +63,7 @@ Wire a single switch to each axis that will be part of homing. The following con
 	Zmax | Z homing switch | at the top of the Z axis travel
 
 ####Limit Switches
-The unused inputs may be wired as axis limit switches (kill) or left unused. If you wire limits you should connect the switch to its proper axis, and not connect multiple switches to an input. Adding limit switches would add these three switches to the example above:
+Having wired the homing inputs, any other inputs may be wired as axis limit switches (kill) or left unused. If you wire limits you should connect the switch to its proper axis, and not connect multiple switches to an input. use the same switch sense (NC or NO) that you used for the homing switches. Adding limit switches would add these three switches to the example above:
 
 	Pin  | Function    | Position on machine
 	-----|-------------|-------------------------
@@ -74,7 +73,7 @@ The unused inputs may be wired as axis limit switches (kill) or left unused. If 
 
 The A inputs (if otherwise unused) can also be used as a limit.
 
-When a limit switch is tripped the board is reset and will not exit until either a manual reset is pushed or a soft reset is sent via the serial interface. A soft reset is the <ctrl>x character.
+When a limit switch is tripped the board is reset and will not exit until either a manual reset is pushed or a hard reset is sent via the serial interface. A hard reset is the <ctrl>x character.
 
 ### Switch Configuration
 It is mandatory that the switch configuration settings match the physical switch configuration otherwise homing simply won't work. In the case of NC switches the entire machine may be rendered inoperative if these settings are not in alignment.
@@ -166,3 +165,5 @@ TinyG v7 has 8 switch pin pairs and a 3.3v pair take-off located on the J13 jump
 	Zmax | Switch typically at maximum height of Z travel
 	Amin | Most of the time A is infinite and not homed. This position can be used for a machine kill
 	Amax | Ditto
+
+For each switch pair the pin closest to the board edge is the ground, the pin next to it is the switch input as labeled on the silkscreen. The inputs are 3.3v logic inputs and **must not have 5v applied to them or you will burn out the inputs**. The inputs are tied high - with strong pullups for v7 boards and on-chip weak pullups for earlier boards. 
