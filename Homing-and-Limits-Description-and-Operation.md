@@ -150,3 +150,18 @@ g28.3 y0
 </pre> 
 
 G28.3 also supports setting to non-zero values, if that's useful. G28.3 affects the $hom group - any axis set by g28.3 is considered set for $hom
+
+### TinyG v7 Switch Port
+TinyG v7 has 8 switch pin pairs and a 3.3v pair take-off located on the J13 jumper next to the reset button.  The switch pairs are labeled:
+
+	Pair  | Notes
+	-----|-------------
+	3.3v | This pair is located on the J13 connector closest to the corner of the board
+	Xmin | Corresponding switch is typically positioned at left-most travel of the machine
+	Xmax | Switch typically at right-most travel
+	Ymin | Switch typically at front of machine 
+	Ymax | Switch typically at rear of machine 
+	Zmin | Switch typically at minimum height of Z travel or omitted
+	Zmax | Switch typically at maximum height of Z travel
+	Amin | Most of the time A is infinite and not homed. This position can be used for a machine kill
+	Amax | Ditto
