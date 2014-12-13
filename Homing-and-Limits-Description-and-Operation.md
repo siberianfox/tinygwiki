@@ -131,11 +131,10 @@ For example. G28.2 X0 Y0 will home the X and Y axes only, in that order. The val
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
 * Homing begins by checking the pre-conditions for homing
- * One and only one switch must be configured as the homing switch for that axis
- * $xSV homing-search-velocity and $xLV latch velocity must be non-zero for the axis to be processed
- * $xLB latch backoff must be a positive number or zero 
- * $xTN and $xTM - travel minimum and maximum must sum to a non-zero value for total travel
- * Switches must be configured correctly - one and only one homing switch per axis
+ * One and only one switch must be configured as the axis' homing switch
+ * $xSV homing-search-velocity and $xLV latch velocity must be non-zero
+ * $xLB latch backoff must be a positive number or zero
+ * $xTN and $xTM - travel min and max must sum to non-zero total travel
  * Failure of any of these conditions will cancel the homing operation and return status code 240 and a message indicating the offending axis
 * The following is performed for each specified axis:
  * Homing begins by testing for pre-existing switch closure for the current axis. If a switch is tripped the axis will back off the switch by the Latch Backoff ($xLB) distance.
