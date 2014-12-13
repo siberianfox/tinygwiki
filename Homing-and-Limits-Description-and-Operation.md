@@ -109,13 +109,13 @@ The following per-axis settings are used by homing. Substitute any of XYZA for t
 
 	Setting | Description | Notes
 	--------|-------------|--------------
-	**$xTN** | Travel Minimum | Set the minimum travel for this axis
-	**$xTM** | Travel Maximum | Set the maximum travel for this axis
+	**$xTN** | Travel Minimum | Set the minimum travel for this axis (see Note)
+	**$xTM** | Travel Maximum | Set the maximum travel for this axis (see Note)
 	**$xJH** | Homing Jerk | Set this to stop quickly on switches. May need to be larger than the $xJM
-	**$xSV** | Homing Search Velocity | Velocity for initially finding the homing switch
-	**$xLV** | Homing Latch Velocity | Velocity for latching phase
-	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears
-	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero 
+	**$xSV** | Homing Search Velocity | Velocity for initially finding the homing switch. Set a moderate pace, e.g. 1/4 to 1/2 your max velocity
+	**$xLV** | Homing Latch Velocity | Velocity for latching phase. Set this very low for best positional accuracy, e.g. 10 mm/min
+	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears. Must be large enough to totally clear the switch or you will see frustrating errors.
+	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero. Usually no more than a few millimeters 
 
 Min and max travel are used for two functions (1) setting [soft limit](Homing-and-Limits-Setup-and-Troubleshooting#soft-limits) boundaries, and (2) they are added together to determine the total travel that an axis can move in a homing operation. Typically min is set to zero and max is something (e.g. 280mm). For soft limits it can be useful to set set Z max = 0 and Zmin = -something.
 
