@@ -73,13 +73,13 @@ Having wired the homing inputs, any other inputs may be wired as axis limit swit
 
 The A inputs (if otherwise unused) can also be used as a limit.
 
-When a limit switch is tripped the board is reset and will not exit until either a manual reset is pushed or a hard reset is sent via the serial interface. A hard reset is the <ctrl>x character.
+When a limit switch is tripped the board is reset and will not exit until either a manual reset is pushed or a hard reset is sent via the serial interface. A hard reset is the Control x character.
 
 ### Switch Configuration
 It is mandatory that the switch configuration settings match the physical switch configuration otherwise homing simply won't work. In the case of NC switches the entire machine may be rendered inoperative if these settings are not in alignment.
 
 The following switch settings are supported:
-* 0=Disabled - Switch closures will have no effect. Unused switch pins must be disabled.
+* 0=Disabled - Switch closures will have no effect. All unused switch pins must be set to Disabled.
 * 1=Homing-only - Switch is active during homing but has no effect otherwise
 * 2=Limits-only - Switch is not active in homing but will act as a kill switch during normal operation.
 * 3=Homing-and-limits - Switch is active during homing and acts as kill switch during normal operation. 
@@ -101,11 +101,11 @@ The following settings are used for switch configuration.
 **IMPORTANT**
 * It is important to configure all switch pins (all 8) even if you are not using them. Configure all unused switches as Disabled. Otherwise NC configurations will not work.
 
-* An axis should only be configured for one homing switch - it should not have two. The homing switch position (min or max) may be configured as homing-only or homing-and-limit. If there is a second switch on the opposite end it should be either disabled or configured as limit-only.
+* An axis should only be configured for one homing switch - it should not have two. The homing switch position (min or max) may be configured as homing-only or homing-and-limit. If there is a second switch on the opposite end it should be either disabled or configured as limit-only. If the switches are misconfigured homing will not run and you should see a [status code](TinyG-Status-Codes) indicating that switches re mis-configured.
 
 ## Homing Configuration Settings
 
-The following per-axis settings are used by homing. Substitute any of XYZA for the 'x' in the table. The use of the settings is described in G28.1, below.
+The following per-axis settings are used by homing. Substitute any of XYZA for the 'x' in the table. The use of the settings is described in G28.2, below.
 
 	Setting | Description | Notes
 	--------|-------------|--------------
