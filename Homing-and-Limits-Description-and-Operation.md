@@ -117,28 +117,34 @@ The following per-axis settings are used by homing. Substitute any of XYZA for t
 	**$xLB** | Homing Latch Backoff | Distance to back off switch during latch and for clears. Must be large enough to totally clear the switch or you will see frustrating errors.
 	**$xZB** | Homing Zero Backoff | Distance to back off switch before setting machine coordinate system zero. Usually no more than a few millimeters 
 
-Min and max travel are used for two functions (1) setting [soft limit](Homing-and-Limits-Setup-and-Troubleshooting#soft-limits) boundaries, and (2) they are added together to determine the total travel that an axis can move in a homing operation. Typically min is set to zero and max is something (e.g. 280mm). For soft limits it can be useful to set set Z max = 0 and Zmin = -something.
+**Note:** Min and max travel are used for two functions (1) setting [soft limit](Homing-and-Limits-Setup-and-Troubleshooting#soft-limits) boundaries, and (2) they are added together to determine the total travel that an axis can move in a homing operation. Typically min is set to zero and max is something (e.g. 280mm). For soft limits it can be useful to set set Z max = 0 and Zmin = -something. If these values are misconfigured the search  could stop before it reaches the intended switch, and the homing operation is canceled.
 
 ### Homing Operation
 ## G28.2 - Homing Sequence (Homing Cycle)
-G28.2 is used to home to physical home switches. G28.2 will find the home switch for an axis then set machine zero for that axis at an offset from the switch location. Format is: 
+G28.2 is used to home to physical home switches. G28.2 will find the home switch for an axis then set machine zero (absolute coordinate system zero) for that axis at an offset from the switch location. Format is: 
 <pre>G28.2 X0 Y0 Z0 A0 B0 C0</pre>
-Axes not present are ignored and zero values are not changed.
+Axes not present are ignored and their zero values are not changed.
 
-For example. G28.2 X0 Y0 will home the X and Y axes only, and in that order. The values provided for X and Y don't matter, but something must be present.
+For example. G28.2 X0 Y0 will home the X and Y axes only, in that order. The values provided for X and Y don't matter, but something must be present.
 
 * G28.2 homes all axes present in the command 
  * The homing sequence progresses through each axis provided in the G28.2 block in turn - i.e. it does not home on multiple axes simultaneously. 
  * Axes are always executed in order of ZXYABC. The order the axis words occur in the G28.2 block has no effect. 
 * Homing begins by checking the pre-conditions for homing
- * $xSV homing-search-velocity must be non-zero for the axis to be processed
+ * One and only one switch must be configured as the homing switch for that axis
+ * $xSV homing-search-velocity and $xLV latch velocity must be non-zero for the axis to be processed
+ * $xLB latch backoff must be a positive number or zero 
+ * $xTN and $xTM - travel minimum and maximum must sum to a non-zero value for total travel
  * Switches must be configured correctly - one and only one homing switch per axis
+ * Failure of any of these conditions will cancel the homing operation and return status code 240 and a message indicating the offending axis
 * The following is performed for each specified axis:
- * Homing begins by testing homing and limit switches for the currently homing axis. If a switch is tripped the axis will back off the switch by the Latch Backoff ($xLB) distance.
- * Once the switches are cleared a search move is executed. The search will travel at the Search Velocity ($xSV) for Travel Maximum ($_TM) distance towards the homing switch. The search runs until the homing switch is hit or the maximum travel is performed. If maximum travel is reached without hitting a switch the homing sequence is aborted (check your $xTM setting!)
- * Once the switch is hit a Latch Backoff move is performed. This backs off the switch until the switch opens again. 
- * Once the switch is cleared the axis moves further off the switch by the Zero Backoff amount and sets zero for that axis.
-* Once all axes are processed the affected axes are moved to the absolute home location (machine zero). At this point the homing state will indicate that the machine has been homed. Homing state can also be read using the homing group: $hom. This returns 0 or 1 for each axis to indicate homing state for each axis
+ * Homing begins by testing for pre-existing switch closure for the current axis. If a switch is tripped the axis will back off the switch by the Latch Backoff ($xLB) distance.
+ * Once the switches are cleared a search move is executed. The search will travel at the Search Velocity ($xSV) for total travel distance ($xTN + $xTM) towards the homing switch. The search runs until the homing switch is hit or the maximum travel is performed. If maximum travel is reached without hitting the homing switch the homing operation is canceled (check your $xTN and $xTM settings)
+ * Once the switch is hit a Latch Backoff move is performed. This backs off the switch until the switch opens again. This is the repeatable zero location. 
+   * Alternately, if the switch does snot open the latch backoff distance may be reached. This should not happen - check your latch backoff setting if the switch does not open.
+ * Once the latch backoff is complete the axis moves further off the switch by the Zero Backoff amount and sets zero for that axis. The axis is marked as HOMED in the homing state variable ($homx, where 'x' is any axis).
+* Once all axes are processed the affected axes are moved to the absolute home location (machine zero). 
+  * At this point the overall homing state will indicate that the machine has been homed - see '$home'. Homing state can also be read using the homing group: $hom. This returns 0 or 1 for each axis to indicate homing state for each axis and the global homing state, $home
 
 See also: 
 * [The top of this page](Homing-and-Limits-Description-and-Operation)
