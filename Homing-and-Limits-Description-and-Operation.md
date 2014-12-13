@@ -32,7 +32,7 @@ Note: In high-end CNC machines there is often no user-accessible homing cycle as
 
 ## Switches
 ### Switch Port
-TinyG has 8 switch pin pairs and a 3.3v take-off pair located on the J13 jumper next to the reset button.  The switch pairs are labeled:
+TinyG has 8 switch pin pairs and a 3.3v take-off located on the J13 jumper next to the reset button.  The switch pairs are labeled:
 
 	Pair  | Notes
 	-----|-------------
