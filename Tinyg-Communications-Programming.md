@@ -15,7 +15,7 @@ TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command"
 
 	Command Type | Example(s)
 	---------|-------------------------
-	Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10} (both JSON wrapped and unwrapped forms are supported)
+	Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10"} (both JSON wrapped and unwrapped forms are supported)
 	Configuration commands | {"xvm":16000} (set X maximum velocity to 16000), {"1mi":8} (set motor 1 microsteps to 8)
 	Action commands | {"defa":1} (reset config values to default), {"sr":null} (request a status report) 
 	Front-Panel commands | ! (feedhold), ~ (cycle start)
@@ -31,7 +31,7 @@ This in-cycle / out-of-cycle is an important distinction because (notwithstandin
 
 Another way to look at Gcode commands is that the in-cycle commands manipulate the "dynamic model" of the machine. The dynamic model is typically what is returned from [status reports](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Reports). In RESTful terms, the dynamic model is a stateful Resource.
 
-_Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms: `g0x10` or `{"gc":"g0x10}`._
+_Note that Gcode blocks are the exception to JSON mode. Gcode can be sent either wrapped in JSON or as native ASCII. Both of the following are acceptable forms: `g0x10` or `{"gc":"g0x10"}`._
 
 ### Configuration Commands
 Configuration commands are all the motor settings, axis settings, PWM settings, system settings, and other things that should be set up **before** you enter a cycle. This is the "static model" for the machine, and is represented by a series of stateful Resources (e.g. {"x":null}, {"1":null}, {"sys":null} )
