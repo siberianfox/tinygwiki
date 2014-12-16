@@ -19,7 +19,7 @@ Summary:
 
 3. Once you are done checking CTS go ahead and click <code>OK</code>.  Now click the <code>Connect</code> button.  As long as you have the right port selected and the right baud rate set, you should now be connected to TinyG.<br>
 4.  Technically, we could send a file to TinyG now.  However, we need to make sure <code>CTS</code> is enabled on TinyG.  It IS enabled by default, but it is always good to make sure before sending files that will depend on <code>CTS</code>.  To check this you will need to click in the text input box in CoolTerm.  It is at the very bottom of CoolTerm.  Once you are able to type into the input box issue a CTS query by sending: <br><code>$ex</code> then hit enter.  You just issued getter command in TinyG for the CTS enabled property.  If <code>CTS</code> is enabled, you should see something like this:<br>
-$ex 1 - Paste this in.
+$ex 2 - Paste this in.
 5.  Now you are ready to send a gcode file.  Just to re-cap... <br>
 **You are sure you....<p>**
 
