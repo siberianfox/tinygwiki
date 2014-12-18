@@ -40,7 +40,7 @@ Coolterm is a terminal emulator that provides command line access to TinyG and c
  * 8 data bits
  * no parity
  * 1 stop bit
- * XON flow control (assuming you are using XON. See note in **Verify Flow Control** for RTS/CTS usage)<br>
+ * CTS/RTS flow control.
 
 * It's also useful to set the following - but not strictly necessary
  * Options/Terminal - Line Mode
