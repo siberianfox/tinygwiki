@@ -62,14 +62,13 @@ tinyg [mm] ok>
 **Verify Flow Control**
 Once you are connected it's a good idea to verify you have the correct flow control settings
 
-* The default flow control for TinyG is XON, which uses the following settings:
- * Coolterm: `XON` checked
- * TinyG `$ex=1`
-
-* RTS/CTS flow control is also available. Both Coolterm and TinyG must be configured the with these settings:
+* The default flow control for TinyG is CTS, which uses the following settings:
  * Coolterm: `CTS` checked
- * Coolterm: `DTR` checked
- * TinyG: `$ex=2`
+ * TinyG `$ex=2`
+
+* XON/XOFF flow control is also available. Both Coolterm and TinyG must be configured the with these settings:
+ * Coolterm: `XON` checked
+ * TinyG: `$ex=1`
 
 ## Wire Your Motors
 It's best to wire your motors when they are not yet in your machine. This way you can test drive them without worrying about mechanical issues such as excessive friction or crashing into the side of the machine.
