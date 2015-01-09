@@ -26,7 +26,7 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 Next establish USB connection with your host computer. 
 
 ####Install FTDI Drivers
-* If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (see step 2) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
+* If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (instructions below) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
 
 * If not, unplug TinyG and install the drivers on your computer. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
 
@@ -35,7 +35,7 @@ Next establish USB connection with your host computer.
 ####Set up Coolterm
 Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr)
 
-* Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD`. Configure the following settings:
+* Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD` or `COM12`. Configure the following settings:
  * 115,200 baud
  * 8 data bits
  * no parity
