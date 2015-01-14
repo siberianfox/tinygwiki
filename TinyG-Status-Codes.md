@@ -72,7 +72,7 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	104 | INPUT_VALUE_TOO_SMALL | value is under minimum
 	105 | INPUT_VALUE_TOO_LARGE | value is over maximum
 	106 | INPUT_VALUE_RANGE_ERROR | value is out-of-range
-	107 | INPUT_VALUE_UNSUPPORTED | value is not supported
+	107 | INPUT_VALUE_UNSUPPORTED | this parameter is read-only
 	108 | JSON_SYNTAX_ERROR | JSON input string is not well formed
 	109 | JSON_TOO_MANY_PAIRS | JSON input string has too many pairs
 	110 | JSON_TOO_LONG | JSON output exceeds buffer size
