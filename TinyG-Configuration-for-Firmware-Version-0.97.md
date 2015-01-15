@@ -144,6 +144,7 @@ These $configs invoke reports and functions
 	[$test](#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
 	[$defa](#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
+        ^x | Reset tinyG | cntl+x restarts tinyG same as hardware rest button
 	$help | Show help screen | Show system help screen; $h also works
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
