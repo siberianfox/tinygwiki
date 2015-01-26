@@ -11,6 +11,29 @@ The power management commands let you set up the right set of actions for your m
 
 ##Power Management Commands
 
+###Global Power Management Commands
+
+	Setting | Description | Notes
+	--------|-------------|-----------------------------
+	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
+	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
+	$md | Disable all motors | 
+	$mt | Set motor power timeout | In seconds, up to 4 million seconds
+
+<pre>
+Text mode examples:
+$me=180    Lock all motors for 3 minutes for a tooling operation 
+$md        Disable all motors
+$mt=300    Set timeout to 5 minutes
+
+JSON mode equivalents:
+{me:180}
+{me:n}
+{mt:300}
+</pre>
+
+Note: All non-disabled motors are powered on startup and from reset, and will time out according to $mt
+
 ### $1pm - Motor Power Mode (per axis)
 Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 
@@ -37,28 +60,7 @@ JSON mode equivalents:
 
 These commands affect all motors and take effect as soon as they are issued.
 
-###Global Power Management Commands
 
-	Setting | Description | Notes
-	--------|-------------|-----------------------------
-	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
-	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
-	$md | Disable all motors | 
-	$mt | Set motor power timeout | In seconds, up to 4 million seconds
-
-<pre>
-Text mode examples:
-$me=180    Lock all motors for 3 minutes for a tooling operation 
-$md        Disable all motors
-$mt=300    Set timeout to 5 minutes
-
-JSON mode equivalents:
-{me:180}
-{me:n}
-{mt:300}
-</pre>
-
-Note: All non-disabled motors are powered on startup and from reset, and will time out according to $mt
 
 ###Motor Disabled (0)
 _Example {1pm:0}_<br>
