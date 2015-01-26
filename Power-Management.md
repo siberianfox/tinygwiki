@@ -11,7 +11,7 @@ These commands affect all motors and take effect as soon as they are issued.
 
 	Setting | Description | Notes
 	--------|-------------|-----------------------------
-	[$1pm] | Motor power mode | Sets motor power management mode
+	[$1pm] | Motor power mode | Sets motor power management mode. Substitute correct motor number for '1'
 	[$1pm=0] | Disable motor | Motor is disabled via the motor ENABLE line 
 	[$1pm=1] | Always enabled | Motor is always enabled 
 	[$1pm=2] | Enabled in cycle | Motor is enabled during machining cycles and for $mt seconds afterwards 
