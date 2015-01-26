@@ -17,7 +17,13 @@ The power management commands let you set up the right set of actions for your m
 	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
 	$md | Disable all motors | 
 	$mt | Set motor power timeout | In seconds, up to 4 million seconds
-
+	$1pm | Display power mode | Returns one of the power modes below
+	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
+	$1pm=1 | Always enabled | Motor is always enabled 
+	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycle (any axis is moving) and for $mt seconds afterwards
+	$1pm=3 | Enabled while moving | Motor is enabled when it is moving and for $mt seconds afterwards. Motors in this state can disable themselves during cycles if timeout is less than cycle time.
+	$pwr1 | Report enable state | PWRn is like a virtual motor LED that returns 1 if motor N is enabled, 0 if not
+	$pwr | Report enable states | PWR returns all motor states
 
 ##Power Management Commands
 
