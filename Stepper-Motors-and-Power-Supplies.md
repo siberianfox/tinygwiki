@@ -7,6 +7,7 @@ We get a lot of questions about what stepper motors and power supplies to use, s
 Here are some sources that carry some good motors. Please feel free to add your favorites.
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55) See the OSM's in particular. Often have some interesting surplus Lin motors. Have NEMA8's
 * [Pololu](http://www.pololu.com/category/87/stepper-motors) Have some nice smaller motors as well, e.g. NEMA11
+* [3DP2GO](http://www.3dp2go.com/stepper-motor-c-68.html) NEMA11, NEMA14, NEMA17, NEMA23 from China
 * [Sparkfun](https://www.sparkfun.com/categories/178)
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
 * [Oriental Motor Company](http://www.omc-stepperonline.com/)
