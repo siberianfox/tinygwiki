@@ -1,3 +1,5 @@
+_Note: These behaviors are complete in firmware build 438.09 and later_
+
 ##Intro
 Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
@@ -88,4 +90,5 @@ $1pm=1 Always-on motors are always on. They do not time out, either
 $1pm=2 Motors that are powered-in-cycle begin timeout at the end of the cycle, which is when the last motor stops moving.
 $1pm=3 Motors that are powered-while-moving begin timeout at the end of their movement
 
+Motor timeouts are suspended during feedholds. This allows changing or adjusting tools without loss of position.
 
