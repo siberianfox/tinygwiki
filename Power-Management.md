@@ -1,3 +1,4 @@
+###Intro
 Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
 Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations will hold position if you shut off the power when the motor is not moving (like many leadscrew or geared machines), others will not (some belt/pulley configs and some non-cartesian robots). 
