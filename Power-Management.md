@@ -1,15 +1,17 @@
 ###Intro
 Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
-Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Some machine configurations will hold position if you shut off the power when the motor is not moving (like many leadscrew or geared machines), others will not (some belt/pulley configs and some non-cartesian robots). 
+Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Most leadscrew or geared machines will hold position if you shut off the power when the motor is not moving, but belt machines generally do not. 
 
-You generally want to set power management so that the motor is powered during a machining cycle to maintain absolute machine position. Depending on your machine you either may want to remove power some number of seconds after the machining cycle, or leave the motors powered on for as long as the machine is on.
+In either case it's usually a good idea to keep all motors powered during a machining cycle to maintain absolute machine position. Depending on your machine you either may want to remove power some number of seconds after the machining cycle, or leave the motors powered on for as long as the machine is on.
 
-You also generally want to use power management to de-power the machine if it's left unattended for an extended time. You don't want to leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. This can be done by setting motor timeouts.
+You also generally want to use power management to de-power the machine if it's left unattended for an extended time. You don't want to leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
+
+The power management commands let you set up the right set of actions for your machine and use.
 
 ##Power Management Commands
 
-### $1pm - Motor Power Mode
+### $1pm - Motor Power Mode (per axis)
 Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 
 	Text | Description | Notes
@@ -22,13 +24,13 @@ Power management can be set per motor using the $1pm command ($N for each motor 
 <pre>
 Text mode examples:
 $1pm=0     Motor 1 disabled
-$1pm=1     Motor 1 always powered
+$2pm=1     Motor 2 always powered
 $1pm=2     Motor 1 powered during a machining cycle 
 $4pm=3     Motor 4 only powered when it is moving
 
-JSON mode examples:
+JSON mode equivalents:
 {1pm:0}  or {1:{pm:0}}
-{1pm:1}  or {1:{pm:1}}
+{2pm:1}  or {2:{pm:1}}
 {1pm:2}  or {1:{pm:2}}
 {4pm:3}  or {4:{pm:3}}
 </pre>
@@ -44,12 +46,16 @@ These commands affect all motors and take effect as soon as they are issued.
 	$md | Disable all motors | 
 	$mt | Set motor power timeout | In seconds, up to 4 million seconds
 
-Examples
 <pre>
-$me=180     Lock all motors for 3 minutes for a tooling operation 
-{me:180}    JSON equivalent of above
-$mt=300     Set timeout to 5 minutes
-{mt:300}    JSON equivalent of above
+Text mode examples:
+$me=180    Lock all motors for 3 minutes for a tooling operation 
+$md        Disable all motors
+$mt=300    Set timeout to 5 minutes
+
+JSON mode equivalents:
+{me:180}
+{me:n}
+{mt:300}
 </pre>
 
 Note: All non-disabled motors are powered on startup and from reset, and will time out according to $mt
