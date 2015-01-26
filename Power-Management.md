@@ -11,22 +11,21 @@ You also generally want to use power management to de-power the machine if it's 
 ### $1pm - Motor Power Mode
 Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 
-	Setting | Description | Notes
+	Text | Description | Notes
 	--------|-------------|-----------------------------
 	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
 	$1pm=1 | Always enabled | Motor is always enabled 
-	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycles and for $mt seconds afterwards 
-	$1pm=3 | Enabled while moving | Motor is enabled when moving and for $mt seconds afterwards. Motors in this state can disable during cycles if timeout is less than cycle time.
-
+	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycle (any axis is moving) and for $mt seconds afterwards
+	$1pm=3 | Enabled while moving | Motor is enabled when it is moving and for $mt seconds afterwards. Motors in this state can disable themselves during cycles if timeout is less than cycle time.
 
 <pre>
-Text mode:
+Text mode examples:
 $1pm=0     Motor 1 disabled
 $1pm=1     Motor 1 always powered
-$1pm=2     Motor 1 powered during a machining cycle (any axis is moving)
+$1pm=2     Motor 1 powered during a machining cycle 
 $4pm=3     Motor 4 only powered when it is moving
 
-JSON mode:
+JSON mode examples:
 {1pm:0}  or {1:{pm:0}}
 {1pm:1}  or {1:{pm:1}}
 {1pm:2}  or {1:{pm:2}}
