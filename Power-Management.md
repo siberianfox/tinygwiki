@@ -7,41 +7,18 @@ You generally want to set power management so that the motor is powered during a
 You also generally want to use power management to de-power the machine if it's left unattended for an extended time. You don't want to leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. This can be done by setting motor timeouts.
 
 ##Power Management Commands
-These commands affect all motors and take effect as soon as they are issued.
+
+### $1pm - Motor Power Mode
+Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 
 	Setting | Description | Notes
 	--------|-------------|-----------------------------
-	[$1pm] | Motor power mode | Sets motor power management mode. Substitute correct motor number for '1'
-	[$1pm=0] | Disable motor | Motor is disabled via the motor ENABLE line 
-	[$1pm=1] | Always enabled | Motor is always enabled 
-	[$1pm=2] | Enabled in cycle | Motor is enabled during machining cycles and for $mt seconds afterwards 
-	[$1pm=3] | Enabled while moving | Motor is enabled when moving and for $mt seconds afterwards. Motors in this state can disable during cycles if timeout is less than cycle time.
+	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
+	$1pm=1 | Always enabled | Motor is always enabled 
+	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycles and for $mt seconds afterwards 
+	$1pm=3 | Enabled while moving | Motor is enabled when moving and for $mt seconds afterwards. Motors in this state can disable during cycles if timeout is less than cycle time.
 
 
-##Global Power Management Commands
-<pre>
-Text Mode:
-$me=N       Enable all motors for N seconds
-$me         Enable all motors for the default idle time
-$md         Disable all motors
-
-JSON mode:
-{me:60}     Enable all motors for 60 seconds
-{me:n}      Enable all motors for the default idle time
-{md:n}      Disable all motors
-</pre>
-
-For example, to lock all motors for 3 minutes for a tooling operation send `{me:180}`
-
-###Motor Timeout
-Motor power timeout is set globally using $mt. Examples:
-<pre>
-$mt=300     Set timeout to 5 minutes
-{mt:300}    Set timeout to 5 minutes
-</pre>
-
-##Per-Motor Power Management Commands
-Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 <pre>
 Text mode:
 $1pm=0     Motor 1 disabled
@@ -54,6 +31,25 @@ JSON mode:
 {1pm:1}  or {1:{pm:1}}
 {1pm:2}  or {1:{pm:2}}
 {4pm:3}  or {4:{pm:3}}
+</pre>
+
+These commands affect all motors and take effect as soon as they are issued.
+
+###Global Power Management Commands
+
+	Setting | Description | Notes
+	--------|-------------|-----------------------------
+	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
+	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
+	$md | Disable all motors | 
+	$mt | Set motor power timeout | In seconds, up to 4 million seconds
+
+Examples
+<pre>
+$me=180     Lock all motors for 3 minutes for a tooling operation 
+{me:180}    JSON equivalent of above
+$mt=300     Set timeout to 5 minutes
+{mt:300}    JSON equivalent of above
 </pre>
 
 Note: All non-disabled motors are powered on startup and from reset, and will time out according to $mt
