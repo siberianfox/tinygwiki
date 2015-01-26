@@ -13,10 +13,11 @@ The power management commands let you set up the right set of actions for your m
 
 	Setting | Description | Notes
 	--------|-------------|-----------------------------
-	$md | Disable all motors | Takes effect immediately
-	$me | Enable all motors | Enable motors. Motors will be disabled after $mt seconds
-	$me=N | Enable all motors for N seconds | Motors will be disabled after N seconds
-	$mt | Set motor power timeout | In seconds, up to 4 million seconds
+	$md | Disable all motors | Will even disable always-on motors ($1pm=1)
+	$md=N | Disable motor N | Will even disable always-on motor ($1pm=1)
+	$me | Enable all motors | Motors will be disabled after $mt seconds. Will even enable Disabled motors ($1pm=0)
+	$me=N | Enable motor N | Motor N will be disabled after N seconds. Will even enable Disabled motor ($1pm=0)
+	$mt | Set motor enable timeout | In seconds, up to 4 million seconds
 	$1pm | Display power mode | Returns one of the power modes below
 	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
 	$1pm=1 | Always enabled | Motor is always enabled 
