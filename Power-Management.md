@@ -1,4 +1,4 @@
-###Intro
+##Intro
 Power management is used to keep the steppers on when you need them and turn them off when you don't. 
 
 Stepper motors consume maximum power when idle. They hold torque and get hot. If you shut off power the motor has (almost) no holding torque. Most leadscrew or geared machines will hold position if you shut off the power when the motor is not moving, but belt machines generally do not. 
@@ -8,6 +8,16 @@ In either case it's usually a good idea to keep all motors powered during a mach
 You also generally want to use power management to de-power the machine if it's left unattended for an extended time. You don't want to leave the steppers on for extended idle times such as walking away from your machine and leaving it on overnight with the motors idling. 
 
 The power management commands let you set up the right set of actions for your machine and use.
+
+##Cheat Sheet
+
+	Setting | Description | Notes
+	--------|-------------|-----------------------------
+	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
+	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
+	$md | Disable all motors | 
+	$mt | Set motor power timeout | In seconds, up to 4 million seconds
+
 
 ##Power Management Commands
 
@@ -19,6 +29,13 @@ The power management commands let you set up the right set of actions for your m
 	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
 	$md | Disable all motors | 
 	$mt | Set motor power timeout | In seconds, up to 4 million seconds
+	Text | Description | Notes
+	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
+	$1pm=1 | Always enabled | Motor is always enabled 
+	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycle (any axis is moving) and for $mt seconds afterwards
+	$1pm=3 | Enabled while moving | Motor is enabled when it is moving and for $mt seconds afterwards. Motors in this state can disable themselves during cycles if timeout is less than cycle time.
+	$pwr1 | Report enable state | PWRn is like a virtual motor LED that returns 1 if motor N is enabled, 0 if not
+	$pwr | Report enable states | PWR returns all motor states
 
 <pre>
 Text mode examples:
@@ -37,12 +54,6 @@ Note: All non-disabled motors are powered on startup and from reset, and will ti
 ### $1pm - Motor Power Mode (per axis)
 Power management can be set per motor using the $1pm command ($N for each motor number). Settings:
 
-	Text | Description | Notes
-	--------|-------------|-----------------------------
-	$1pm=0 | Disable motor | Motor is disabled via the motor ENABLE line 
-	$1pm=1 | Always enabled | Motor is always enabled 
-	$1pm=2 | Enabled in cycle | Motor is enabled during machining cycle (any axis is moving) and for $mt seconds afterwards
-	$1pm=3 | Enabled while moving | Motor is enabled when it is moving and for $mt seconds afterwards. Motors in this state can disable themselves during cycles if timeout is less than cycle time.
 
 <pre>
 Text mode examples:
