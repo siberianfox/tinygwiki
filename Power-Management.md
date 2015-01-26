@@ -13,7 +13,7 @@ The power management commands let you set up the right set of actions for your m
 
 	Setting | Description | Notes
 	--------|-------------|-----------------------------
-	$md | Disable all motors | 
+	$md | Disable all motors | Takes effect immediately
 	$me | Enable all motors | Motors will be disabled will occur after $mt seconds
 	$me=N | Enable all motors for N seconds | Motors will be disabled will occur after N seconds
 	$mt | Set motor power timeout | In seconds, up to 4 million seconds
