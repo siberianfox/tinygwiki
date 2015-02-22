@@ -66,19 +66,20 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	 | **Application and Data Input Errors**
 	 | **Generic Data Input Errors**
 	100 | UNRECOGNIZED_NAME | parser didn't recognize the command
-	101 | MALFORMED_COMMAND_INPUT | malformed line to parser
+	101 | INVALID_OR_MALFORMED_COMMAND | malformed line to parser
 	102 | BAD_NUMBER_FORMAT | number format error
-	103 | INPUT_EXCEEDS_MAX_LENGTH | input string too long
-	104 | INPUT_VALUE_TOO_SMALL | value is under minimum
-	105 | INPUT_VALUE_TOO_LARGE | value is over maximum
-	106 | INPUT_VALUE_RANGE_ERROR | value is out-of-range
-	107 | INPUT_VALUE_UNSUPPORTED | this parameter is read-only
-	108 | JSON_SYNTAX_ERROR | JSON input string is not well formed
-	109 | JSON_TOO_MANY_PAIRS | JSON input string has too many pairs
-	110 | JSON_TOO_LONG | JSON output exceeds buffer size
-	111 | CONFIG_NOT_TAKEN | config value not taken while in machining cycle
-	112 | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
-	113 – 129 | Reserved
+	103 | BAD_UNSUPPORTED_TYPE | number or JSON type is not supported
+	104 | PARAMETER_IS_READ_ONLY | this parameter is read-only - cannot be set
+	105 | PARAMETER_CANNOT_BE_READ | this parameter is not readable
+	106 | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
+	107 | INPUT_EXCEEDS_MAX_LENGTH | input string too long
+	108 | INPUT_LESS_THAN_MIN_VALUE | value is under minimum
+	109 | INPUT_EXCEEDS_MAX_VALUE | value is over maximum
+	110 | INPUT_VALUE_RANGE_ERROR | value is out-of-range
+	111 | JSON_SYNTAX_ERROR | JSON input string is not well formed
+	112 | JSON_TOO_MANY_PAIRS | JSON input string has too many pairs
+	113 | JSON_TOO_LONG | JSON exceeds buffer size
+	114 – 129 | Reserved
 	 | **Gcode Errors and Warnings** | Most are from NIST
 	130 | GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
 	131 | GCODE_COMMAND_UNSUPPORTED | G command is not supported
