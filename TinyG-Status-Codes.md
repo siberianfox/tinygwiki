@@ -1,4 +1,4 @@
-This page contains status codeas and other enumerations that may be returned in status reports
+This page contains status codes and other enumerations that may be returned in status reports
 See also:
 * [**Gcode Commands**](Gcode-Support)
 * [**Configuration Commands**](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration)
