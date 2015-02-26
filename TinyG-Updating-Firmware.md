@@ -3,6 +3,10 @@ This page explains what you need to know about the process of updating your Tiny
 ### Flashing TinyG (Firmware Updates)
 The TinyG code base is still under development. We introduce new features and fix bugs quite often. All information on how to update TinyG's firmware can be found at [Updating TinyG Firmware](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware).
 
+###Firmware Updates the Easy Way!
+We created a TinyG Updater app that is a GUI and will go and pull the latest Edge and Master PREBUILD binaries to update your TinyG with.  You can read all about it here:
+[Synthetos TG Updater App Instructions](https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App).
+
 ###Downloading TinyG Firmware
 For downloads of the binaries (hex files), see [Synthetos Download Page](http://synthetos.github.io/)
 
