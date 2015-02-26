@@ -3,7 +3,7 @@ The TG Updater App is a full on gui application that allows you to update your T
 Quick and fast way is to use Coolterm and run $$.  Save that output for later.
 
 ###Here is the following steps required:<br>
-1. Download the updater app for your platform (Windows and OSX are the only ones supported at this time) [https://github.com/synthetos/TinyG-Updater/releases](tg updater download)<br>
+1. <a href="https://github.com/synthetos/TinyG-Updater/releases"</a> Download the updater app for your platform (Windows and OSX are the only ones supported at this time) <br>
 2. Plug in your TinyG and make sure that it is not being used by any other application (coolterm, chilipeppr etc.)<br>
 3.  Select your TinyG by clicking the radio button next to your TinyG's name.<br>
 ![tgupdater](https://farm9.staticflickr.com/8640/16627203946_060da01acb_z_d.jpg)<br>
