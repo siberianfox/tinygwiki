@@ -134,7 +134,7 @@ This section should help you sift though any errors you might encounter during t
 ####Firmware Verification Error:
 This error occurs when the `fuse bits` are incorrectly set on your TinyG's XMega CPU.  This error was something we ran into in early 2012 and should not continue to be an issue. However, if you do get this error or you have an older TinyG you should read [this page](https://github.com/synthetos/TinyG/wiki/Firmware-Update-Verification-Failure) for help solving this issue.
 
-####Writing to Flash emits lots of "***failed" lines:
+####Writing to Flash emits lots of "***failed;" lines:
 Try adding `-e` option to avrdude:
 
 ```
@@ -142,6 +142,9 @@ avrdude -p x192a3 -c avr109 -b 115200 -P /dev/ttyUSB0 -e -U flash:w:tinyg----.he
 ```
 
 This option erases a Flash page before writing it and in some cases it's required.
+
+If you've previously used the -e option as a separate command, are now trying to flash the TinyG, and are getting the "***failed;" lines; try using the -D option when trying to flash to disable the page erases.
+
 
 ####Never Ending Flashing Red Light After Update
 So you did everything above and you flashed your TinyG with tinyg.hex file from github.  Now your TinyG just continues to flash a red light on the spindle CW/CCW led.  This most likely was an invalid tinyg.hex file.  99% of the time this occurs when someone tries to save the tinyg.hex file from github and actually just pulls down the HTML vs the raw Intel Hex file format that TinyG needs.  You can verify your tinyg.hex file is valid by opening the file with a text editor.
