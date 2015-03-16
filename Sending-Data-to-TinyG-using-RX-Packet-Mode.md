@@ -44,6 +44,6 @@ We may refine this, but here's where we are now:
 
 - It's a good idea for the host to have its own independent data and control queues (channels). Send Gcode down the data channel and everything else down the control channel. This way you can always inject a control command in the middle of a Gcode job.
 
-- Set up the sender to read from your Gcode "file". Send a line, then look at the available slots. Keep sending as long as there is at least 1 slot free, but always keep at leas 1 slot free for commands. Naturally, if you get a control, send it right way.
+- Set up the sender to read from your Gcode "file". Send a line, then look at the available slots. Keep sending as long as there is at least 1 slot free, but always keep at least 1 slot free for commands. Naturally, if you get a control, send it right way.
 
-- If you need to find out the 
+- Use '{rx:n}` if you need to find out the available slots
