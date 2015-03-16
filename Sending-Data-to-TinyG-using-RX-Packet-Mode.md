@@ -46,4 +46,4 @@ We may refine this, but here's where we are now:
 
 - Set up the sender to read from your Gcode "file". Send a line, then look at the available slots. Keep sending as long as there is at least 1 slot free, but always keep at least 1 slot free for commands. Naturally, if you get a control, send it right way.
 
-- Use '{rx:n}` if you need to find out the number of available slots
+- Use `{rx:n}` if you need to find out the number of available slots
