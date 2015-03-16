@@ -6,7 +6,7 @@ As of 441.xx TinyG supports two types of serial communications - streaming mode 
 Streaming mode is the "classic" way to communicate with the board and the send Gcode. Little has changed:
 
 - Set streaming mode by setting `{rxm:0}`.
-- The serial receive buffer 254 bytes (unchanged)
+- The serial receive buffer is 254 bytes (unchanged)
 - XON/XOFF flow control and RTS/CTS flow control are supported (unchanged)
 - JSON footers are now in the following format `[2,0,254]`
   - The first element is the footer ID which is now `2`
