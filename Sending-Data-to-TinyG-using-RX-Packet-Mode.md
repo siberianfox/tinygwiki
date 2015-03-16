@@ -42,7 +42,7 @@ We may refine this, but here's where we are now:
 
 - You must use JSON mode as the available packet count is returned in the JSON header.
 
-- It's a good idea for the host to have its own independent data queue (channel) and control queue. Send Gcode down the data channel and everything else down the control channel. This way you can always inject a control command in the middle of a Gcode job.
+- It's a good idea for the host to have its own independent data and control queues (channels). Send Gcode down the data channel and everything else down the control channel. This way you can always inject a control command in the middle of a Gcode job.
 
 - Set up the sender to read from your Gcode "file". Send a line, then look at the available slots. Keep sending as long as there is at least 1 slot free, but always keep at leas 1 slot free for commands. Naturally, if you get a control, send it right way.
 
