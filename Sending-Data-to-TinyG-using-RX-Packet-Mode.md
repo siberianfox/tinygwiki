@@ -8,10 +8,10 @@ Streaming mode is the "classic" way to communicate with the board and the send G
 - Set streaming mode by setting `{rxm:0}`.
 - The serial receive buffer is 254 bytes (unchanged)
 - XON/XOFF flow control and RTS/CTS flow control are supported (unchanged)
-- JSON footers are now in the following format `[2,0,254]`
+- JSON footers are now in the following format `[2,0,27]`
   - The first element is the footer ID which is now `2`
   - The second element is status code (unchanged)
-  - The third element is the number of bytes removed from RX (unchanged)
+  - The third element is the number of bytes removed from RX, e.g. 27 (unchanged)
   - There is no fourth element. The checksum has been removed.
 - The `{rx:n}` command returns the number of bytes available in the RX queue
 
