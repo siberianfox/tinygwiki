@@ -29,9 +29,9 @@ Some details of packet mode:
   - The second element is status code (unchanged)
   - The third element is the number of packets free on the board
   - There is no fourth element. The checksum has been removed.
-- The `{rx:n}` command returns the number of packets available
+- The `{rx:n}` command returns the number of packet slots available
 
-Note that the number of available (free) buffers reported back in the packet report will always be 2 less than the number of free buffers you think you should have, i.e. 14 instead of 16. This is because there is always a buffer FILLING, and there is always a buffer PROCESSING.
+Note that the number of available (free) slots reported back in the packet report will always be 2 less than the number of free buffers you think you should have, i.e. 14 instead of 16. This is because there is always a buffer FILLING, and there is always a buffer PROCESSING.
 
 ####Using Packet Mode from the Host
 We may refine this, but here's where we are now:
