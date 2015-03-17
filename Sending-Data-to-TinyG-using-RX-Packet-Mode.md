@@ -50,9 +50,9 @@ We may refine this, but here's where we are now:
 
 ####A Few Things To Be Aware Of
 
-- Each (non-null) request line sent generates a response - an {r: response line. Since the system is now counting packets (and not bytes) the number of packet slots available will go up by exactly 1 for each request.
+- Each (non-null) request line sent generates a response - an `{r:...}` response line. Since the system is now counting packets (and not bytes) the number of packet slots available will go up by exactly 1 for each request.
 
-- Status reports {sr:...}, exception reports {er:...} and single character commands `!, %, ~, ^x` do not affect the packet slot count.
+- Status reports `{sr:...}`, exception reports `{er:...}` and single character commands `!, %, ~, ^x` do not affect the packet slot count.
 
 - Blank lines are not processed and don't take up a packet slot. 
   - A blank line is defined as 0 or more whitespace characters terminate with a CR or an LF (or both). 
