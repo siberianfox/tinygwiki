@@ -38,7 +38,7 @@ We may refine this, but here's where we are now:
 
 - Set up serial communications as normal.
 
-- Select RX packet mode by sending `{rx:1}` (or `{"rx":1}` if so inclined)
+- Select RX packet mode by sending `{rxm:1}` (or `{"rxm":1}` if so inclined)
 
 - You must use JSON mode as the available packet count is returned in the JSON header.
 
@@ -47,3 +47,14 @@ We may refine this, but here's where we are now:
 - Set up the sender to read from your Gcode "file". Send a line, then look at the available slots. Keep sending as long as there is at least 1 slot free, but always keep at least 1 slot free for commands. Naturally, if you get a control, send it right way.
 
 - Use `{rx:n}` if you need to find out the number of available slots
+
+####A Few Things To Be Aware Of
+
+- Each (non-null) request line sent generates a response - an {r: response line. Since the system is now counting packets (and not bytes) the number of packet slots available will go up by exactly 1 for each request.
+
+- Status reports {sr:...}, exception reports {er:...} and single character commands `!, %, ~, ^x` do not affect the packet slot count.
+
+- Blank lines are not processed and don't take up a packet slot. 
+  - A blank line is defined as 0 or more whitespace characters terminate with a CR or an LF (or both). 
+  - This means that if lines are terminated with both CR and LF, the actual line is processed, but the trailing LF (or CR) is ignored. This therefore only takes a single packet slot. 
+  - It also means that if the host sends a CR or LF by itself and expects that to be counted as a packet slot then the hosts slot counter will probably be off.
