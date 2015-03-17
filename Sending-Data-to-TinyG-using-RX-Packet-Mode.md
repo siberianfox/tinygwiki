@@ -50,7 +50,7 @@ We may refine this, but here's where we are now:
 
 ####A Few Things To Be Aware Of
 
-- Each (non-null) request line sent generates a response - an `{r:...}` response line. Since the system is now counting packets (and not bytes) the number of packet slots available will go up by exactly 1 for each request.
+- Each (non-null) request line sent generates a response - an `{r:...}` response line. Since the system is now counting packets (and not bytes) the number of packet slots available reported in the response footer will go up by exactly 1 for each request processed.
 
 - Status reports `{sr:...}`, exception reports `{er:...}` and single character commands `!, %, ~, ^x` do not affect the packet slot count.
 
