@@ -55,6 +55,6 @@ We may refine this, but here's where we are now:
 - Status reports `{sr:...}`, exception reports `{er:...}` and single character commands `!, %, ~, ^x` do not affect the packet slot count.
 
 - Blank lines are not processed and don't take up a packet slot. 
-  - A blank line is defined as 0 or more whitespace characters terminate with a CR or an LF (or both). 
+  - A blank line is defined as zero or more whitespace characters terminated with a CR or an LF (or both). 
   - This means that if lines are terminated with both CR and LF, the actual line is processed, but the trailing LF (or CR) is ignored. This therefore only takes a single packet slot. 
   - It also means that if the host sends a CR or LF by itself and expects that to be counted as a packet slot then the hosts slot counter will probably be off.
