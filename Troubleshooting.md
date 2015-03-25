@@ -66,12 +66,12 @@ $zvm=600   max velocity 600 mm/min. Shapeoko2 Z should be able to do 1000 - 1200
 $zjm=10    10 million. Ramp up to about 50 million once you clear the lower numbers
 </pre>
 
-Another possible culprit are the junction deviation settings that set cornering speeds. Here are some values that work well on a Shapeoko2
+Another possible culprit are the junction deviation settings that set cornering speeds. Here are some values that work well on a Shapeoko2. The most sensitive is the Z axis junction deviation. Start there with a small number such as 0.01 (or smaller in some extreme cases).
 <pre>
 [ja] Junction acceleration = 1 to 2 million (larger is faster)
 [xjd] x junction deviation = 0.1 to 0.01 (larger is faster) 
 [yjd] y junction deviation = 0.1 to 0.01 (larger is faster) 
-[zjd] z junction deviation = 0.1 to 0.01 (may need to be smaller value than X and Y)
+[zjd] z junction deviation = 0.1 to 0.01 (may need to be smaller than X and Y)
 </pre>
 
 Some other things you might check:
