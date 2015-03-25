@@ -1,4 +1,3 @@
-_Updated 8/9/14 - ash_
 This gets pretty deep in the weeds. This page is a collection of common practices we use on Github. It's a way to document the things that have tripped us up on Github and to provide some documentation for common procedures like branch promotion, etc.
 
 TOC
@@ -172,3 +171,8 @@ git merge dev
 git diff dev     (should show no changes)
 git push origin edge
 </pre>
+
+###Tips
+
+- Merge using `--no-ff` That's two dashes
+- To set --no-ff as the default for that repo: `git config --add merge.ff false`
