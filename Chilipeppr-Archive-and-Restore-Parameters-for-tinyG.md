@@ -9,7 +9,8 @@ The widget implements a synchronous parameter by parameter write; each parameter
 A write of the full $$ parameter set typically completes in 2 to 3 seconds.
 ### Parameter Filter ###
 The Restore-from-Archive widget automatically filters (blocks writes of) parameters that are Read-Only or that have been determined to cause verification issues with the parameter write process. At present, the following parameters are filtered: 
-  command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];
+
+  `command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];`
 
 # Detailed How-T0 : Archive #
 From the Chilipeppr/tinyG workspace, find the icon for configuretinyG on the TinyG Widget menu and click to open
