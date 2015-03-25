@@ -59,9 +59,9 @@ See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubles
 Try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
 <pre>
 Run G21 first so all settings are in mm mode
-$3mi=2          set motor3 to 2 microsteps (assuming motor 3 is mapped to the Z axis
-$zvm=400        set max velocity to 400 mm/min. Shapeoko Z should be able to do 1000, but don't start there  
-$zjm=10000000   10 million. Ramp up to about 50 million once you clear the lower numbers
+$4mi=2     motor4 = 2 microsteps (assuming m3 is mapped to Z axis)
+$zvm=600   max velocity 600 mm/min. Shapeoko2 Z should be able to do 1000 - 1200
+$zjm=10    10 million. Ramp up to about 50 million once you clear the lower numbers
 </pre>
 
 Another possible culprit are the junction deviation settings that set cornering speeds. Here are some values that work well on a Shapeoko2
