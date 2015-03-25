@@ -37,5 +37,5 @@ wip
 
 ### Acknowledgements ###
 
-The step by step in these widgets follows closely a set Python scripts originally posted by Scott Carlson
+The step by step in these widgets follows closely a set Python scripts originally posted by Scott Carlson. 
 Kevin Hauser was developing the GUI based tinyG configuration editor for Chilipeppr at the same time and provided the synchronous write code workable in JavaScript. John Laurer provided constant guidance on how jsFiddle and Chilipeppr are structured and work.
