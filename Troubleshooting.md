@@ -52,7 +52,7 @@ Also the board runs better at 24 - 30 volts than 12 volts. The motors are snappi
 See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubleshooting#crashreset-on-move)
 
 ## Z Axis Stalls During Gcode File
-**PROBLEM**: The Z axis stalls when running a gcode file. We have seen this happen on Shapeokos and other machines that have very different dynamics between the XY and Z axes.
+**PROBLEM**: The Z axis stalls when running a gcode file. We have seen this happen on machines that have very different dynamics between the XY and Z axes.
 
 **DIAGNOSIS**: Z axes often have different dynamics than the X and Y axes, and are not capable of the maximum velocities or jerk that the X and Y can sustain. This is especially true for machines that use belts for X and Y and screws for Z (such as the Shapeoko2), or have fast, multi-start screws for X and Y and finer pitched screws for Z. The Probotix Fireball has 5 TPI screws for X and Y and 12 TPI for Z.
 
