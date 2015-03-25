@@ -12,7 +12,7 @@ The Restore-from-Archive widget automatically filters (blocks writes of) paramet
 
   `command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];`
 
-# Detailed How-T0 : Archive #
+# Detailed How-To : Archive #
 From the Chilipeppr/tinyG workspace, find the icon for configuretinyG on the TinyG Widget menu and click to open
 
 ![Open configuretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_226.jpg)
