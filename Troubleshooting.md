@@ -56,7 +56,9 @@ See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubles
 
 **DIAGNOSIS**: Z axes often have different dynamics than the X and Y axes, and are not capable of the maximum velocities or jerk that the X and Y can sustain. This is especially true for machines that use belts for X and Y and screws for Z (such as the Shapeoko2), or have fast, multi-start screws for X and Y and finer pitched screws for Z. The Probotix Fireball has 5 TPI screws for X and Y and 12 TPI for Z.
 
-Try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
+The first thing to check is the Z mechanical system. Does the Z axis turn freely by hand? Eliminate mis-alignment or excess friction first.
+
+Next try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
 <pre>
 Run G21 first so all settings are in mm mode
 $4mi=2     motor4 = 2 microsteps (assuming m3 is mapped to Z axis)
@@ -73,6 +75,7 @@ Another possible culprit are the junction deviation settings that set cornering 
 </pre>
 
 Some other things you might check:
+* Does the Z axis turn freely by hand? Eliminate mis-alignment or excess friction first
 * Where is the Z current pot? It should be about 1/2 way, the 12:00 position. Adjust up or down later
 * Does the Z chip (motor3, presumably) get hot or much hotter than the X and Y chips?
 * Are the 2 large thermal vias under the driver chips soldered on the bottom of the board for all chips?
