@@ -75,7 +75,6 @@ Another possible culprit are the junction deviation settings that set cornering 
 </pre>
 
 Some other things you might check:
-* Does the Z axis turn freely by hand? Eliminate mis-alignment or excess friction first
 * Where is the Z current pot? It should be about 1/2 way, the 12:00 position. Adjust up or down later
 * Does the Z chip (motor3, presumably) get hot or much hotter than the X and Y chips?
 * Are the 2 large thermal vias under the driver chips soldered on the bottom of the board for all chips?
