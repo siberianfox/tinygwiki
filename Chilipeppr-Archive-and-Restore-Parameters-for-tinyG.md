@@ -22,6 +22,7 @@ Then select the down carot adjacent to the SAVE button and click on Archive/Rest
 
 And the widget opens with two Tabbed workspaces, Archive to File and Restore from Archive File
 
+![Widget Workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_228.jpg)
 
 
 
