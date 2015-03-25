@@ -12,6 +12,18 @@ The Restore-from-Archive widget automatically filters (blocks writes of) paramet
   command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];
 
 # Detailed How-T0 : Archive #
+From the Chilipeppr/tinyG workspace, find the icon for configuretinyG on the TinyG Widget menu and click to open
+
+![Open configuretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_226.jpg)
+
+Then select the down carot adjacent to the SAVE button and click on Archive/Restore to/from Local File
+
+![Open archiveandrestoretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_227.jpg)
+
+And the widget opens with two Tabbed workspaces, Archive to File and Restore from Archive File
+
+
+
 
 wip
 
