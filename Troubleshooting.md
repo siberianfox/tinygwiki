@@ -58,6 +58,8 @@ See also: [Crash/Reset on Move](https://github.com/synthetos/TinyG/wiki/Troubles
 
 The first thing to check is the Z mechanical system. Does the Z axis turn freely by hand? Eliminate mis-alignment or excess friction first.
 
+In asymmetric configurations (i.e. different Z axis dynamics) the Z axis is most sensitive to it's junction deviation setting. Try dropping this first to a very small value like 0.01, or smaller. If that doesn't work you may need the general tuning steps below - which are good to go through in any event. 
+
 Next try dropping the Z axis to minimal settings, getting it to work, then ramping settings back up. For a typical screw-driven Z like a Shapeoko you might try:
 <pre>
 Run G21 first so all settings are in mm mode
