@@ -25,10 +25,27 @@ And the widget opens with two Tabbed workspaces, Archive to File and Restore fro
 
 ![Widget Workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_228.jpg)
 
+Click the Upload from tinyG box and the Edit Window populates with the results from a $$ command to tinyG.
 
+A comment line `// Response from $$ Command` is added at the top of the file.
 
-wip
+![Populated Edit Window](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_235.jpg)
 
+Depending on your workflow, you may wish to edit in additional comment rows, starting with '// ', in the file. An example added row is shown with a red arrow above.
+You may also make any other edits to or deletions from to the contents of the Edit window
+
+note: You have the same editing capability once the file is downloaded to you PC. Choose the solution best for you. Always good to remind yourself why you made the backup, perhaps
+ 
+`// tinyG configurations updated and tested `
+`or`
+`// Special tinyG settings for running _xyz_ job`
+
+You can also edit the default file name field to match your workflow preferences.
+
+The final Step for Archive is to save the file to you PCs default Downloads directory as set in your browser settings.This action is initiated by clicking the Download Archive File button. The GUI actions may vary between browsers.
+Using you OS File Browser, navigate to the location of your Downloads directory to find the Archive file. 
+
+Click the Close button at the bottom of the widget window to close the widget and return to the configuretinyG widget.
 
 # Detailed How-To : Restore-from-Archive #
 
