@@ -21,17 +21,17 @@ Then select the down carot adjacent to the SAVE button and click on Archive/Rest
 
 ![Open archiveandrestoretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_227.jpg)
 
-And the widget opens with two Tabbed workspaces, Archive to File and Restore from Archive File
+And the widget opens with two Tabbed workareas, Archive to File and Restore from Archive File
 
 ![Widget Workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_228.jpg)
 
-Click the Upload from tinyG box and the Edit Window populates with the results from a $$ command to tinyG.
+Step 1 - Click the Upload from tinyG box and the Edit Window populates with the results from a $$ command to tinyG.
 
 A comment line `// Response from $$ Command` is added at the top of the file.
 
 ![Populated Edit Window](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_235.jpg)
 
-Depending on your workflow, you may wish to edit in additional comment rows, starting with '// ', in the file. An example added row is shown with a red arrow above.
+Step 2  - Depending on your workflow, you may wish to edit in additional comment rows, starting with '// ', in the file. An example added row is shown with a red arrow above.
 You may also make any other edits to or deletions from to the contents of the Edit window
 
 note: You have the same editing capability once the file is downloaded to you PC. Choose the solution best for you. Always good to remind yourself why you made the backup, perhaps
@@ -42,7 +42,7 @@ note: You have the same editing capability once the file is downloaded to you PC
 
 You can also edit the default file name field to match your workflow preferences.
 
-The final Step for Archive is to save the file to your PC's default Downloads directory as set in your browser settings.This action is initiated by clicking the Download Archive File button. The GUI actions may vary between browsers.
+Step 3 - The final Step for Archive is to save the file to your PC's default Downloads directory as set in your browser settings.This action is initiated by clicking the Download Archive File button. The GUI actions may vary between browsers.
 Using your OS File Browser, navigate to the location of your Downloads directory to find the Archive file. 
 
 Click the Close button at the bottom of the widget window to close the widget and return to the configuretinyG widget.
@@ -85,6 +85,12 @@ At least one tinyG parameter, `$p1frq pwm frequency` , is known to require a tin
 A tinyG reset, either by reset button or sending reset from the Chilipeppr tinyG widgeticon, will cause tinyG to disconnect from the Serial Port Json Server.
 After reconnecting, use the Chilipepper configuretinyG widget and/or the Serial Port Console to check your parameters.
 
+# Using this widget #
+
+Workflows are personal preferences. It is highly recommended to keep configuration archives available for reference use in new builds , firmware upgrades and as attachments to help requests on the various Forums supporting tinyG..
+
+Using an archive file to facilitate transition to a new tinyG FW build has been successfully tested but needs to be carefully studied. Some FW builds introduce new parameters that may need to be configured for the new upgrade. If parameters are removed as part of an upgrade, attempting to write an non-existent parameter will likely cause a failure of the write process.
+A recommendation would be to compare an Archive file from the new FW load to a previous full Archive (manually, or use a tool such as 'diff') to verify parameter usage before attempting a Restore from Archive file.
 
 ### Acknowledgements ###
 
