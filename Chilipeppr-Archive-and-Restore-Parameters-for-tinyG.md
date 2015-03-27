@@ -48,6 +48,44 @@ Using your OS File Browser, navigate to the location of your Downloads directory
 Click the Close button at the bottom of the widget window to close the widget and return to the configuretinyG widget.
 
 # Detailed How-To : Restore-from-Archive #
+From the Chilipeppr/tinyG workspace, find the icon for configuretinyG on the TinyG Widget menu and click to open
+
+![Open configuretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_226.jpg)
+
+Then select the down carot adjacent to the SAVE button and click on Archive/Restore to/from Local File
+
+![Open archiveandrestoretinyG](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_227.jpg)
+
+And the widget opens with two Tabbed workspaces, Archive to File and Restore from Archive File. Click on the Restore from Archive File Tab and the following window appears
+
+![Restore Wondow](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_236.jpg)
+
+Step 1 is to identify a configuration file from which to restore. Click on Choose File and a "file Chooser" window will open. It's appearance is defined by (and provided by) your Operating System; this example is the Dolphin file manager provided by KDE desktop on Linux.
+
+![Typical file chooser interface](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_237.jpg)
+
+Navigate your file system, per you workflow, identify the configuration file you wish to use, select it and click the Open button. You will return to the widget window with the chosen file name indicated (red arrow)
+
+![File selected](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_238.jpg)
+
+Now click on Load File to Text Window and the workarea will populate with the file contents.
+
+![Configuration Archive Loaded](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_239.jpg)
+
+At this point you can scroll thru the parameter file, make optional parameter changes and/or deletions. In the following example, all but the X-axis parameters have been deleted from the workarea.
+
+![Edited workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_240.jpg)
+
+When review and edits are complete, click on Download to tinyG. Each line in the text window is parsed for a writable parameter and the parameters are written to tinyG. For tinyG v7 and v8,  these writes are to on-chip flash memory and take a variable but finite period of time. The widget waits for a parameter write confirmation before moving on to the next line in the workarea.
+Upon completion, the results of processing the parameter writes is displayed in the work area, showing verified status and some diagnostic metrics on the total write cycle time as seen by the widget.
+
+![Response from Download of parameters.](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_241.jpg)
+
+At least one tinyG parameter, `$p1frq pwm frequency` , is known to require a tinyG hard reset to take effect. A good practice is likely to perform such a rest of tinyG after exiting the Widget.
+A tinyG reset, either by reset button or sending reset from the Chilipeppr tinyG widgeticon, will cause tinyG to disconnect from the Serial Port Json Server.
+After reconnecting, use the Chilipepper configuretinyG widget and/or the Serial Port Console to check your parameters.
+
+
 
 
 wip
