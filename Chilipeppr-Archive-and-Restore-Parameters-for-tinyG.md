@@ -12,6 +12,7 @@ A write of the full $$ parameter set typically completes in 2 to 3 seconds.
 The Restore-from-Archive widget automatically filters (blocks writes of) parameters that are Read-Only or that have been determined to cause verification issues with the parameter write process. At present, the following parameters are filtered: 
 
   `command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];`
+[Details here](https://github.com/synthetos/TinyG/wiki/Chilipeppr-Archive-and-Restore-Parameters-for-tinyG#detailed-how-to--restore-from-archive)
 
 # Using this widget #
 Workflows are personal preferences. It is highly recommended to keep configuration archives available for reference use in new builds , firmware upgrades and as attachments to help requests on the various Forums supporting tinyG..
