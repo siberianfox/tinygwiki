@@ -60,7 +60,7 @@ And the widget opens with two Tabbed workspaces, Archive to File and Restore fro
 
 ![Restore Wondow](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_236.jpg)
 
-Step 1 is to identify a configuration file from which to restore. Click on Choose File and a "file Chooser" window will open. It's appearance is defined by (and provided by) your Operating System; this example is the Dolphin file manager provided by KDE desktop on Linux.
+Step 1 is to identify a configuration file from which to restore. Click on Choose File and a "File Chooser" window will open. It's appearance is defined by (and provided by) your Operating System; this example is the file chooser provided by KDE desktop on Linux.
 
 ![Typical file chooser interface](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_237.jpg)
 
@@ -68,7 +68,7 @@ Navigate your file system, per you workflow, identify the configuration file you
 
 ![File selected](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_238.jpg)
 
-Now click on Load File to Text Window and the workarea will populate with the file contents.
+Step 2 - Now click on Load File to Text Window and the workarea will populate with the file contents.
 
 ![Configuration Archive Loaded](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_239.jpg)
 
@@ -76,7 +76,7 @@ At this point you can scroll thru the parameter file, make optional parameter ch
 
 ![Edited workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_240.jpg)
 
-When review and edits are complete, click on Download to tinyG. Each line in the text window is parsed for a writable parameter and the parameters are written to tinyG. For tinyG v7 and v8,  these writes are to on-chip flash memory and take a variable but finite period of time. The widget waits for a parameter write confirmation before moving on to the next line in the workarea.
+Step 3 - When review and edits are complete, click on Download to tinyG. Each line in the text window is parsed for a writable parameter and the parameters are written to tinyG. For tinyG v7 and v8,  these writes are to on-chip flash memory and take a variable but finite period of time. The widget waits for a parameter write confirmation before moving on to the next line in the workarea. If you watch tinyG, you will see the activity LEDs near the USB port flashing.
 Upon completion, the results of processing the parameter writes is displayed in the work area, showing verified status and some diagnostic metrics on the total write cycle time as seen by the widget.
 
 ![Response from Download of parameters.](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_241.jpg)
@@ -85,10 +85,6 @@ At least one tinyG parameter, `$p1frq pwm frequency` , is known to require a tin
 A tinyG reset, either by reset button or sending reset from the Chilipeppr tinyG widgeticon, will cause tinyG to disconnect from the Serial Port Json Server.
 After reconnecting, use the Chilipepper configuretinyG widget and/or the Serial Port Console to check your parameters.
 
-
-
-
-wip
 
 ### Acknowledgements ###
 
