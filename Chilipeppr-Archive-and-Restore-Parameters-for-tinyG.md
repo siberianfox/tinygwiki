@@ -12,6 +12,12 @@ The Restore-from-Archive widget automatically filters (blocks writes of) paramet
 
   `command_filter = ['fb', 'fv', 'hp', 'hv', 'id', 'ej', 'jv', 'js', 'baud'];`
 
+# Using this widget #
+Workflows are personal preferences. It is highly recommended to keep configuration archives available for reference use in new builds , firmware upgrades and as attachments to help requests on the various Forums supporting tinyG..
+
+Using an archive file to facilitate transition to a new tinyG FW build has been successfully tested but needs to be carefully studied. Some FW builds introduce new parameters that may need to be configured for the new upgrade. If parameters are removed as part of an upgrade, attempting to write an non-existent parameter will likely cause a failure of the write process.
+A recommendation would be to compare an Archive file from the new FW load to a previous full Archive (manually, or use a tool such as 'diff') to verify parameter usage before attempting a Restore from Archive file.
+
 # Detailed How-To : Archive #
 From the Chilipeppr/tinyG workspace, find the icon for configuretinyG on the TinyG Widget menu and click to open
 
@@ -87,12 +93,6 @@ At least one tinyG parameter, `$p1frq pwm frequency` , is known to require a tin
 A tinyG reset, either by reset button or sending reset from the Chilipeppr tinyG widgeticon, will cause tinyG to disconnect from the Serial Port Json Server.
 After reconnecting, use the Chilipepper configuretinyG widget and/or the Serial Port Console to check your parameters.
 
-# Using this widget #
-
-Workflows are personal preferences. It is highly recommended to keep configuration archives available for reference use in new builds , firmware upgrades and as attachments to help requests on the various Forums supporting tinyG..
-
-Using an archive file to facilitate transition to a new tinyG FW build has been successfully tested but needs to be carefully studied. Some FW builds introduce new parameters that may need to be configured for the new upgrade. If parameters are removed as part of an upgrade, attempting to write an non-existent parameter will likely cause a failure of the write process.
-A recommendation would be to compare an Archive file from the new FW load to a previous full Archive (manually, or use a tool such as 'diff') to verify parameter usage before attempting a Restore from Archive file.
 
 ### Acknowledgements ###
 
