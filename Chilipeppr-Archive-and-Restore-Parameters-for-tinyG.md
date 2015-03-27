@@ -42,8 +42,8 @@ note: You have the same editing capability once the file is downloaded to you PC
 
 You can also edit the default file name field to match your workflow preferences.
 
-The final Step for Archive is to save the file to you PCs default Downloads directory as set in your browser settings.This action is initiated by clicking the Download Archive File button. The GUI actions may vary between browsers.
-Using you OS File Browser, navigate to the location of your Downloads directory to find the Archive file. 
+The final Step for Archive is to save the file to your PC's default Downloads directory as set in your browser settings.This action is initiated by clicking the Download Archive File button. The GUI actions may vary between browsers.
+Using your OS File Browser, navigate to the location of your Downloads directory to find the Archive file. 
 
 Click the Close button at the bottom of the widget window to close the widget and return to the configuretinyG widget.
 
