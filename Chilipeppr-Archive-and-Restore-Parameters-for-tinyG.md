@@ -58,7 +58,7 @@ Then select the down carot adjacent to the SAVE button and click on Archive/Rest
 
 And the widget opens with two Tabbed workspaces, Archive to File and Restore from Archive File. Click on the Restore from Archive File Tab and the following window appears
 
-![Restore Wondow](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_236.jpg)
+![Restore Window](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_236.jpg)
 
 Step 1 is to identify a configuration file from which to restore. Click on Choose File and a "File Chooser" window will open. It's appearance is defined by (and provided by) your Operating System; this example is the file chooser provided by KDE desktop on Linux.
 
@@ -73,6 +73,8 @@ Step 2 - Now click on Load File to Text Window and the workarea will populate wi
 ![Configuration Archive Loaded](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_239.jpg)
 
 At this point you can scroll thru the parameter file, make optional parameter changes and/or deletions. In the following example, all but the X-axis parameters have been deleted from the workarea.
+note: Changes made in the workarea will be written to tinyG but are not written back to the PC file.
+If you want a copy of your changes, run make a new Archive of tinyG after writing and verifying the new parameters.
 
 ![Edited workspace](https://dl.dropboxusercontent.com/u/50261731/Wiki%20Work/Selection_240.jpg)
 
