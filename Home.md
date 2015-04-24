@@ -30,7 +30,7 @@ Please come visit / join any or all of the above.
 * [Firmware Download Page](http://synthetos.github.io/)
 
 ### Discussion Topics and Reference Pages
-* [Gcode Supported by TInyG](Gcode-Support)
+* [Gcode Supported by TinyG](Gcode-Support)
 * [Command Line Operation](TinyG-Command-Line)
 * [JSON Operation](JSON-Operation) and [JSON Details](JSON-Details)
 * [Status Reports](Status-Reports)
