@@ -4,9 +4,9 @@
 ### Commands and Responses
 Commands in JSON mode are sent as JSON objects. Some request and response examples:
 
-    {"xfr":""}        {"r":{"xfr":12000.000},"f":[1,0,14,3009]}   get the X axis max feed rate
+    {"xfr":n}        {"r":{"xfr":12000.000},"f":[1,0,14,3009]}   get the X axis max feed rate
     {"xfr":12000}     {"r":{"xfr":12000.000},"f":[1,0,14,3009]}   set the X maximum feed rate to 12000 mm/min (assuming the system is in G21 mode)
-    {"x":""}          {"r":{"x":{"am":1,"vm":16000.000,....       get all configuration settings for the X axis
+    {"x":n}          {"r":{"x":{"am":1,"vm":16000.000,....       get all configuration settings for the X axis
     {"gc":"g0 x100"}  {"r":{"gc":"g0x100"},"f":[1,0,17,9360]}     execute the Gcode block "G0 X100"
 
     where  "f":[1,0,255,1234]  
@@ -44,9 +44,9 @@ To get a parameter pass an object with a null value. The value is returned in th
 
 	Request | Response | Description
 	---------|--------------|-------------
-	{"xvm":""} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
-	{"x":{"vm":""}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
-	{"x":""} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
+	{"xvm":n} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+	{"x":{"vm":n}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+	{"x":n} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
 ###Setting Configuration Parameters (like a POST)
 To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands. All requests and responses are on a single line of text (even if the table below wraps on your display).
@@ -62,31 +62,31 @@ To set a parameter pass an object with the value to be set. The value applied is
 ### Groups
 The following groups can be read and set using JSON. The JSON strings provided below (i.e. the group with a null value ("")) will return all members of the group. 
 <pre>
-{"1":""}    return motor 1 settings
-{"2":""}
-{"3":""}
-{"4":""}
-{"x":""}    return X axis settings
-{"y":""}
-{"z":""}
-{"a":""}
-{"b":""}
-{"c":""}
-{"sys":""}  return system settings
-{"pos":""}  return work coordinate positions fox XYZABC axes. In mm or inches depending on G20/G21
-{"mpo":""}  return absolute machine positions fox XYZABC axes. Always in mm, regardless of G20/G21
-{"ofs":""}  return current offsets fox XYZABC axes. Sums coordinate system and G92 offsets. in mm.
-{"hom":""}  return homing state fox XYZABC axes, and 'e' for the entire machine. 1=homed, 0=not.
-{"p1":""}   return PWM channel 1 settings (currently there is only 1 PWM channel)
-{"g54":""}  return offsets for work coordinate system #1 (G54)
-{"g55":""}  #2
-{"g56":""}  #3
-{"g57":""}  #4
-{"g58":""}  #5
-{"g59":""}  #6
-{"g92":""}  return G92 offsets currently in effect
-{"g28":""}  return coordinate saved by G28 command
-{"g30":""}  return coordinate saved by G30 command
+{"1":n}    return motor 1 settings
+{"2":n}
+{"3":n}
+{"4":n}
+{"x":n}    return X axis settings
+{"y":n}
+{"z":n}
+{"a":n}
+{"b":n}
+{"c":n}
+{"sys":n}  return system settings
+{"pos":n}  return work coordinate positions fox XYZABC axes. In mm or inches depending on G20/G21
+{"mpo":n}  return absolute machine positions fox XYZABC axes. Always in mm, regardless of G20/G21
+{"ofs":n}  return current offsets fox XYZABC axes. Sums coordinate system and G92 offsets. in mm.
+{"hom":n}  return homing state fox XYZABC axes, and 'e' for the entire machine. 1=homed, 0=not.
+{"p1":n}   return PWM channel 1 settings (currently there is only 1 PWM channel)
+{"g54":n}  return offsets for work coordinate system #1 (G54)
+{"g55":n}  #2
+{"g56":n}  #3
+{"g57":n}  #4
+{"g58":n}  #5
+{"g59":n}  #6
+{"g92":n}  return G92 offsets currently in effect
+{"g28":n}  return coordinate saved by G28 command
+{"g30":n}  return coordinate saved by G30 command
 </pre>
 
 Values within a group can be set by including that member in the set command. Examples:
