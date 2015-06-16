@@ -41,7 +41,7 @@ Most commands that are available in JSON are also available in text mode, but th
 The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON enables exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Unlike RESTful HTTP, methods are implied by convention as there is no request header in which to declare them. 
 
 ## Basic Concepts
-In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":""}, or a complete group such as {"x":""} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
+In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON validator](http://jsonlint.com)). JSON requests are generally just curly braces and formatting around what would otherwise be a command line request. A JSON line can only contain a single request object. This may be a single value such as {"xvm":null}, or a complete group such as {"x":null} - but only one group. Note that groups with multiple *elements* are accepted. For example, this is OK: 
 {"x":{"vm":16000,"fr":10000}}
 
 ### How things are encoded in JSON
