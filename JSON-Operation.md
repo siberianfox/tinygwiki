@@ -3,7 +3,7 @@ _updated 10/1/14 - ash_
 This page describes JSON operation in TinyG firmware version 0.95. This page provides a JSON cheat sheet and an overview of JSON operation. See [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details) for the real nuts and bolts.
 
 # JSON Cheat Sheet
-This table summarizes using JSON for [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Details are provided in the subsquent sections.
+This table summarizes using JSON for [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Details are provided in the subsequent sections.
 
 	Request | Response | Description
 	---------|--------------|-------------
@@ -29,6 +29,13 @@ X axis group response:
 TinyG can accept commands in [JSON](http://json.org/) (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
+
+####Syntax Notes
+- The examples above are in strict JSON mode, as specified by json.org. TinyG will also accept input in relaxed JSON mode which omits the quotes on all fields except if the value field is a string.
+- The following values can be used in full or by their abbreviations:
+  - 'null' or 'n'
+  - 'true' or 't'
+  - 'false' or f 
 
 ### Is this RESTful?
 The JSON interface is modeled as a RESTful interface, albeit running over USB serial and not HTTP. Using JSON enables exposing system internals as [RESTful resources](http://en.wikipedia.org/wiki/Representational_state_transfer), which makes the embedded system much easier to manipulate using modern programming techniques. Data is treated as resources and state is transfered in and out. Unlike RESTful HTTP, methods are implied by convention as there is no request header in which to declare them. 
