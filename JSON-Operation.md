@@ -49,7 +49,7 @@ In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON valid
 	Term | Description
 	---------------|--------------
 	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
-	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by a pair of quotes `""`, the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value.
+	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value, or in some cases invoke an action.
 	**NVpair** | A name and a value is a name:value pair or NV pair
 	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 
