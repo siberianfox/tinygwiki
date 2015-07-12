@@ -33,11 +33,9 @@ There are 3 ways to update the firmware on your TinyG.  The first two methods is
 The third method is using an AVR Programmer (such as an AVRISP MKII programmer).  This method requires more work and is not described here as of yet.  It is also not needed if you have a bootloader loaded on your TinyG.  If you would like to read more about how to tell if you have a bootloader on your TinyG you can go [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader).  
 
 ###Updating TinyG With Avrdude
-To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load. Here are a few places to find Avrdude for different platforms.
-* https://github.com/arduino/Arduino/blob/master/build/macosx/dist/tools-universal.zip
-* https://github.com/arduino/Arduino/tree/master/build/linux/dist/tools
-* https://github.com/arduino/Arduino/tree/master/build/windows
-* You can also find Avrdude in the Arduino application download. Avrdude is buried in the latest Arduino package, version 1.5.7. Unzip the app and right click to show package contents (these are OSX instructions, other platforms may be different). For example in Windows avrdude.exe is here C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe<br>
+To update the TinyG firmware run avrdude from a directory that has the tinyg.hex file you want to load.  You can get the avrdude prebuilt for your platform here
+
+* https://github.com/arduino/arduino-flash-tools/archive/master.zip
 
 ####**Step0**
 Again, if you have not already acquired the `tinyg.hex` from the code branch your choose (TinyG Firmware File) you will need to do so. In 99.9% of cases you will want the hex file located in the master branch. The tinyg.hex file is found here: [Synthetos Download Page](http://synthetos.github.io/)
