@@ -60,9 +60,10 @@ To update your firmware we must enter your TinyG into bootloader mode.  To enter
 * Send the JSON command `{"boot":1}`
 
 
-To transfer the firmware update to your TinyG you need to use a program called avrdude.  avrdude is open-source and runs on all major operating systems.  The quickest way to get a binary version of avrdude for your system is to download the latest version of the [Arduino IDE](http://arduino.cc/en/Main/Software#toc1).  
+To transfer the firmware update to your TinyG you need to use a program called avrdude.  avrdude is open-source and runs on all major operating systems.  The quickest way to get a binary version of avrdude for your system is to download the latest of the arduino flash tools.  We host a version here:
+https://github.com/synthetos/arduino-flash-tools   
 
-Inside of the Arduino IDE directory you will find avrdude or averdude.exe. Below is the command that you need to issue to send and updated firmware to TinyG. 
+Extract the zip file and inside you will find a folder for your platform (windows, linux, darwin aka osx) inside of that you will find avrdude or averdude.exe located in the bin directory. Below is the command that you need to issue to send and updated firmware to TinyG. 
 `avrdude -p x192a3 -c avr109 -b 115200 -P COM1 -U flash:w:tinyg----.hex`  (use the correct hex file name)
 
 **Notes:**<br> 
