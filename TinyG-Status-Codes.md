@@ -15,7 +15,7 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	Code | Label | Description
 	---------|:--------------|:-------------
 	 | **Low level codes** | System and comms status
-	0 | OK | universal OK code
+	[0](0) | OK | universal OK code
 	1 | ERROR | generic error return
 	2 | EAGAIN | function would block here
 	3 | NOOP | function had no-operation
@@ -134,7 +134,7 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	180 - 199| Reserved | reserved for Gcode errors
 	 | **TinyG Errors and Warnings**
 	200 | GENERIC_ERROR
-	201 | MINIMUM_LENGTH_MOVE | move is less than minimum length
+	[201](201) | MINIMUM_LENGTH_MOVE | move is less than minimum length
 	202 | MINIMUM_TIME_MOVE | move is less than minimum time
 	203 | MACHINE_ALARMED | machine is alarmed. Command not processed
 	204 | LIMIT_SWITCH_HIT | limit switch was hit causing shutdown
