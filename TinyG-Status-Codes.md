@@ -15,158 +15,158 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 	Code | Label | Description
 	---------|:--------------|:-------------
 	 | **Low level codes** | System and comms status
-	0 | OK | universal OK code
-	1 | ERROR | generic error return
-	2 | EAGAIN | function would block here
-	3 | NOOP | function had no-operation
-	4 | COMPLETE | operation is complete
-	5 | TERMINATE | operation terminated (gracefully)
-	6 | RESET | operation was hard reset (sig kill)
-	7 | EOL | returned end-of-line
-	8 | EOF | returned end-of-file
-	9 | FILE_NOT_OPEN
-	10 | FILE_SIZE_EXCEEDED
-	11 | NO_SUCH_DEVICE
-	12 | BUFFER_EMPTY
-	13 | BUFFER_FULL
-	14 | BUFFER_FULL_FATAL
-	15 | INITIALIZING | initializing - not ready for use
-	16 | ENTERING_BOOT_LOADER | emitted by boot loader, not TinyG
-	17 | FUNCTION_IS_STUBBED
-	18 - 19 | Reserved 
+	<a name="0">0</a> | OK | universal OK code
+	<a name="1">1</a> | ERROR | generic error return
+	<a name="2">2</a> | EAGAIN | function would block here
+	<a name="3">3</a> | NOOP | function had no-operation
+	<a name="4">4</a> | COMPLETE | operation is complete
+	<a name="5">5</a> | TERMINATE | operation terminated (gracefully)
+	<a name="6">6</a> | RESET | operation was hard reset (sig kill)
+	<a name="7">7</a> | EOL | returned end-of-line
+	<a name="8">8</a> | EOF | returned end-of-file
+	<a name="9">9</a> | FILE_NOT_OPEN
+	<a name="10">10</a> | FILE_SIZE_EXCEEDED
+	<a name="11">11</a> | NO_SUCH_DEVICE
+	<a name="12">12</a> | BUFFER_EMPTY
+	<a name="13">13</a> | BUFFER_FULL
+	<a name="14">14</a> | BUFFER_FULL_FATAL
+	<a name="15">15</a> | INITIALIZING | initializing - not ready for use
+	<a name="16">16</a> | ENTERING_BOOT_LOADER | emitted by boot loader, not TinyG
+	<a name="17">17</a> | FUNCTION_IS_STUBBED
+	18 - <a name="19">19</a> | Reserved 
 	 | **Internal System Errors**
-20 | INTERNAL_ERROR | unrecoverable internal error
-	21 | INTERNAL_RANGE_ERROR
-	22 | FLOATING_POINT_ERROR | number conversion error
-	23 | DIVIDE_BY_ZERO
-	24 | INVALID_ADDRESS
-	25 | READ_ONLY_ADDRESS
-	26 | INIT_FAIL
-	27 | ALARMED
-	28 | FAILED_TO_GET_PLANNER_BUFFER
-	29 | GENERIC_EXCEPTION_REPORT | used for test
-	30 | PREP_LINE_MOVE_TIME_IS_INFINITE
-	31 | PREP_LINE_MOVE_TIME_IS_NAN
-	32 | FLOAT_IS_INFINITE
-	33 | FLOAT_IS_NAN
-	34 | PERSISTENCE_ERROR
-	35 | BAD_STATUS_REPORT_SETTING
-	36 – 89 | Reserved
+<a name="20">20</a> | INTERNAL_ERROR | unrecoverable internal error
+	<a name="21">21</a> | INTERNAL_RANGE_ERROR
+	<a name="22">22</a> | FLOATING_POINT_ERROR | number conversion error
+	<a name="23">23</a> | DIVIDE_BY_ZERO
+	<a name="24">24</a> | INVALID_ADDRESS
+	<a name="25">25</a> | READ_ONLY_ADDRESS
+	<a name="26">26</a> | INIT_FAIL
+	<a name="27">27</a> | ALARMED
+	<a name="28">28</a> | FAILED_TO_GET_PLANNER_BUFFER
+	<a name="29">29</a> | GENERIC_EXCEPTION_REPORT | used for test
+	<a name="30">30</a> | PREP_LINE_MOVE_TIME_IS_INFINITE
+	<a name="31">31</a> | PREP_LINE_MOVE_TIME_IS_NAN
+	<a name="32">32</a> | FLOAT_IS_INFINITE
+	<a name="33">33</a> | FLOAT_IS_NAN
+	<a name="34">34</a> | PERSISTENCE_ERROR
+	<a name="35">35</a> | BAD_STATUS_REPORT_SETTING
+	36 – <a name="89">89</a> | Reserved
 	 | **Assertion Failures** | Build down from 99 until they meet system errors
-	90 | CONFIG_ASSERTION_FAILURE
-	91 | XIO_ASSERTION_FAILURE
-	92 | ENCODER_ASSERTION_FAILURE
-	93 | STEPPER_ASSERTION_FAILURE
-	94 | PLANNER_ASSERTION_FAILURE
-	95 | CANONICAL_MACHINE ASSERTION_FAILURE
-	96 | CONTROLLER_ASSERTION_FAILURE
-	97 | STACK_OVERFLOW
-	98 | MEMORY_FAULT | generic memory corruption detected
-	99 | GENERIC_ASSERTION_FAILURE | unclassified assertion failure
+	<a name="90">90</a> | CONFIG_ASSERTION_FAILURE
+	<a name="91">91</a> | XIO_ASSERTION_FAILURE
+	<a name="92">92</a> | ENCODER_ASSERTION_FAILURE
+	<a name="93">93</a> | STEPPER_ASSERTION_FAILURE
+	<a name="94">94</a> | PLANNER_ASSERTION_FAILURE
+	<a name="95">95</a> | CANONICAL_MACHINE ASSERTION_FAILURE
+	<a name="96">96</a> | CONTROLLER_ASSERTION_FAILURE
+	<a name="97">97</a> | STACK_OVERFLOW
+	<a name="98">98</a> | MEMORY_FAULT | generic memory corruption detected
+	<a name="99">99</a> | GENERIC_ASSERTION_FAILURE | unclassified assertion failure
 	 | **Application and Data Input Errors**
 	 | **Generic Data Input Errors**
-	100 | UNRECOGNIZED_NAME | parser didn't recognize the command
-	101 | INVALID_OR_MALFORMED_COMMAND | malformed line to parser
-	102 | BAD_NUMBER_FORMAT | number format error
-	103 | BAD_UNSUPPORTED_TYPE | number or JSON type is not supported
-	104 | PARAMETER_IS_READ_ONLY | this parameter is read-only - cannot be set
-	105 | PARAMETER_CANNOT_BE_READ | this parameter is not readable
-	106 | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
-	107 | INPUT_EXCEEDS_MAX_LENGTH | input string too long
-	108 | INPUT_LESS_THAN_MIN_VALUE | value is under minimum
-	109 | INPUT_EXCEEDS_MAX_VALUE | value is over maximum
-	110 | INPUT_VALUE_RANGE_ERROR | value is out-of-range
-	111 | JSON_SYNTAX_ERROR | JSON input string is not well formed
-	112 | JSON_TOO_MANY_PAIRS | JSON input string has too many pairs
-	113 | JSON_TOO_LONG | JSON exceeds buffer size
-	114 – 129 | Reserved
+	<a name="100">100</a> | UNRECOGNIZED_NAME | parser didn't recognize the command
+	<a name="101">101</a> | INVALID_OR_MALFORMED_COMMAND | malformed line to parser
+	<a name="102">102</a> | BAD_NUMBER_FORMAT | number format error
+	<a name="103">103</a> | BAD_UNSUPPORTED_TYPE | number or JSON type is not supported
+	<a name="104">104</a> | PARAMETER_IS_READ_ONLY | this parameter is read-only - cannot be set
+	<a name="105">105</a> | PARAMETER_CANNOT_BE_READ | this parameter is not readable
+	<a name="106">106</a> | COMMAND_NOT_ACCEPTED | command cannot be accepted at this time
+	<a name="107">107</a> | INPUT_EXCEEDS_MAX_LENGTH | input string too long
+	<a name="108">108</a> | INPUT_LESS_THAN_MIN_VALUE | value is under minimum
+	<a name="109">109</a> | INPUT_EXCEEDS_MAX_VALUE | value is over maximum
+	<a name="110">110</a> | INPUT_VALUE_RANGE_ERROR | value is out-of-range
+	<a name="111">111</a> | JSON_SYNTAX_ERROR | JSON input string is not well formed
+	<a name="112">112</a> | JSON_TOO_MANY_PAIRS | JSON input string has too many pairs
+	<a name="113">113</a> | JSON_TOO_LONG | JSON exceeds buffer size
+	114 – <a name="129">129</a> | Reserved
 	 | **Gcode Errors and Warnings** | Most are from NIST
-	130 | GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
-	131 | GCODE_COMMAND_UNSUPPORTED | G command is not supported
-	132 | MCODE_COMMAND_UNSUPPORTED | M command is not supported
-	133 | GCODE_MODAL_GROUP_VIOLATION | gcode modal group error
-	134 | GCODE_AXIS_IS_MISSING | requires at least one axis present
-	135 | GCODE_AXIS_CANNOT_BE_PRESENT | error if G80 has axis words
-	136 | GCODE_AXIS_IS_INVALID | axis specified that’s illegal for command
-	137 | GCODE_AXIS_IS_NOT_CONFIGURED | WARNING: attempt to program an axis that is disabled
-	138 | GCODE_AXIS_NUMBER_IS_MISSING | axis word is missing its value
-	139 | GCODE_AXIS_NUMBER_IS_INVALID | axis word value is illegal
-	140 | GCODE_ACTIVE_PLANE_IS_MISSING | active plane is not programmed
-	141 | GCODE_ACTIVE_PLANE_IS_INVALID | active plane selected not valid for this command
-	142 | GCODE_FEEDRATE_NOT_SPECIFIED | move has no feedrate
-	143 | GCODE_INVERSE_TIME_MODE CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
-	144 | GCODE_ROTARY_AXIS CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
-	145 | GCODE_G53_WITHOUT_G0_OR_G1 | G0 or G1 must be active for G53
-	146 | REQUESTED_VELOCITY EXCEEDS_LIMITS
-	147 | CUTTER_COMPENSATION CANNOT_BE_ENABLED
-	148 | PROGRAMMED_POINT SAME_AS_CURRENT_POINT
-	149 | SPINDLE_SPEED_BELOW_MINIMUM
-	150 | SPINDLE_SPEED_MAX_EXCEEDED
-	151 | S_WORD_IS_MISSING
-	152 | S_WORD_IS_INVALID
-	153 | SPINDLE_MUST_BE_OFF
-	154 | SPINDLE_MUST_BE_TURNING | some canned cycles require spindle to be turning when called
-	155 | ARC_SPECIFICATION_ERROR | generic arc specification error
-	156 | ARC_AXIS_MISSING FOR_SELECTED_PLANE | arc missing axis (axes) required by selected plane
-	157 | ARC_OFFSETS_MISSING FOR_SELECTED_PLANE | one or both offsets are not specified
-	158 | ARC_RADIUS OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
-	159 | ARC_ENDPOINT IS_STARTING_POINT
-	160 | P_WORD_IS_MISSING | P must be present for dwells and other functions
-	161 | P_WORD_IS_INVALID | generic P value error
-	162 | P_WORD_IS_ZERO
-	163 | P_WORD_IS_NEGATIVE | dwells require positive P values
-	164 | P_WORD_IS_NOT_AN_INTEGER | G10s and other commands require integer P numbers
-	165 | P_WORD_IS_NOT_VALID_TOOL_NUMBER
-	166 | D_WORD_IS_MISSING
-	167 | D_WORD_IS_INVALID
-	168 | E_WORD_IS_MISSING
-	169 | E_WORD_IS_INVALID
-	170 | H_WORD_IS_MISSING
-	171 | H_WORD_IS_INVALID
-	172 | L_WORD_IS_MISSING
-	173 | L_WORD_IS_INVALID
-	174 | Q_WORD_IS_MISSING
-	175 | Q_WORD_IS_INVALID
-	176 | R_WORD_IS_MISSING
-	177 | R_WORD_IS_INVALID
-	178 | T_WORD_IS_MISSING
-	179 | T_WORD_IS_INVALID
+	<a name="130">130</a> | GCODE_GENERIC_INPUT_ERROR | generic error for gcode input
+	<a name="131">131</a> | GCODE_COMMAND_UNSUPPORTED | G command is not supported
+	<a name="132">132</a> | MCODE_COMMAND_UNSUPPORTED | M command is not supported
+	<a name="133">133</a> | GCODE_MODAL_GROUP_VIOLATION | gcode modal group error
+	<a name="134">134</a> | GCODE_AXIS_IS_MISSING | requires at least one axis present
+	<a name="135">135</a> | GCODE_AXIS_CANNOT_BE_PRESENT | error if G80 has axis words
+	<a name="136">136</a> | GCODE_AXIS_IS_INVALID | axis specified that’s illegal for command
+	<a name="137">137</a> | GCODE_AXIS_IS_NOT_CONFIGURED | WARNING: attempt to program an axis that is disabled
+	<a name="138">138</a> | GCODE_AXIS_NUMBER_IS_MISSING | axis word is missing its value
+	<a name="139">139</a> | GCODE_AXIS_NUMBER_IS_INVALID | axis word value is illegal
+	<a name="140">140</a> | GCODE_ACTIVE_PLANE_IS_MISSING | active plane is not programmed
+	<a name="141">141</a> | GCODE_ACTIVE_PLANE_IS_INVALID | active plane selected not valid for this command
+	<a name="142">142</a> | GCODE_FEEDRATE_NOT_SPECIFIED | move has no feedrate
+	<a name="143">143</a> | GCODE_INVERSE_TIME_MODE CANNOT_BE_USED | G38.2 and some canned cycles cannot accept inverse time mode
+	<a name="144">144</a> | GCODE_ROTARY_AXIS CANNOT_BE_USED | G38.2 and some other commands cannot have rotary axes
+	<a name="145">145</a> | GCODE_G53_WITHOUT_G0_OR_G<a name="1">1</a> | G0 or G1 must be active for G53
+	<a name="146">146</a> | REQUESTED_VELOCITY EXCEEDS_LIMITS
+	<a name="147">147</a> | CUTTER_COMPENSATION CANNOT_BE_ENABLED
+	<a name="148">148</a> | PROGRAMMED_POINT SAME_AS_CURRENT_POINT
+	<a name="149">149</a> | SPINDLE_SPEED_BELOW_MINIMUM
+	<a name="150">150</a> | SPINDLE_SPEED_MAX_EXCEEDED
+	<a name="151">151</a> | S_WORD_IS_MISSING
+	<a name="152">152</a> | S_WORD_IS_INVALID
+	<a name="153">153</a> | SPINDLE_MUST_BE_OFF
+	<a name="154">154</a> | SPINDLE_MUST_BE_TURNING | some canned cycles require spindle to be turning when called
+	<a name="155">155</a> | ARC_SPECIFICATION_ERROR | generic arc specification error
+	<a name="156">156</a> | ARC_AXIS_MISSING FOR_SELECTED_PLANE | arc missing axis (axes) required by selected plane
+	<a name="157">157</a> | ARC_OFFSETS_MISSING FOR_SELECTED_PLANE | one or both offsets are not specified
+	<a name="158">158</a> | ARC_RADIUS OUT_OF_TOLERANCE | WARNING - radius arc is too large - accuracy in question
+	<a name="159">159</a> | ARC_ENDPOINT IS_STARTING_POINT
+	<a name="160">160</a> | P_WORD_IS_MISSING | P must be present for dwells and other functions
+	<a name="161">161</a> | P_WORD_IS_INVALID | generic P value error
+	<a name="162">162</a> | P_WORD_IS_ZERO
+	<a name="163">163</a> | P_WORD_IS_NEGATIVE | dwells require positive P values
+	<a name="164">164</a> | P_WORD_IS_NOT_AN_INTEGER | G10s and other commands require integer P numbers
+	<a name="165">165</a> | P_WORD_IS_NOT_VALID_TOOL_NUMBER
+	<a name="166">166</a> | D_WORD_IS_MISSING
+	<a name="167">167</a> | D_WORD_IS_INVALID
+	<a name="168">168</a> | E_WORD_IS_MISSING
+	<a name="169">169</a> | E_WORD_IS_INVALID
+	<a name="170">170</a> | H_WORD_IS_MISSING
+	<a name="171">171</a> | H_WORD_IS_INVALID
+	<a name="172">172</a> | L_WORD_IS_MISSING
+	<a name="173">173</a> | L_WORD_IS_INVALID
+	<a name="174">174</a> | Q_WORD_IS_MISSING
+	<a name="175">175</a> | Q_WORD_IS_INVALID
+	<a name="176">176</a> | R_WORD_IS_MISSING
+	<a name="177">177</a> | R_WORD_IS_INVALID
+	<a name="178">178</a> | T_WORD_IS_MISSING
+	<a name="179">179</a> | T_WORD_IS_INVALID
 	180 - 199| Reserved | reserved for Gcode errors
 	 | **TinyG Errors and Warnings**
-	200 | GENERIC_ERROR
-	201 | MINIMUM_LENGTH_MOVE | move is less than minimum length
-	202 | MINIMUM_TIME_MOVE | move is less than minimum time
-	203 | MACHINE_ALARMED | machine is alarmed. Command not processed
-	204 | LIMIT_SWITCH_HIT | limit switch was hit causing shutdown
-	205 | PLANNER_FAILED_TO_CONVERGE | planner can throw this exception
+	<a name="200">200</a> | GENERIC_ERROR
+	<a name="201">201</a> | MINIMUM_LENGTH_MOVE | move is less than minimum length
+	<a name="202">202</a> | MINIMUM_TIME_MOVE | move is less than minimum time
+	<a name="203">203</a> | MACHINE_ALARMED | machine is alarmed. Command not processed
+	<a name="204">204</a> | LIMIT_SWITCH_HIT | limit switch was hit causing shutdown
+	<a name="205">205</a> | PLANNER_FAILED_TO_CONVERGE | planner can throw this exception
 	206 - 219| Reserved
-	220 | SOFT_LIMIT_EXCEEDED | soft limit error - axis unspecified
-	221 | SOFT_LIMIT_EXCEEDED_XMIN | soft limit error - X minimum
-	222 | SOFT_LIMIT_EXCEEDED_XMAX | soft limit error - X maximum
-	223 | SOFT_LIMIT_EXCEEDED_YMIN | soft limit error - Y minimum
-	224 | SOFT_LIMIT_EXCEEDED_YMAX | soft limit error - Y maximum
-	225 | SOFT_LIMIT_EXCEEDED_ZMIN | soft limit error - Z minimum
-	226 | SOFT_LIMIT_EXCEEDED_ZMAX | soft limit error - Z maximum
-	227 | SOFT_LIMIT_EXCEEDED_AMIN | soft limit error - A minimum
-	228 | SOFT_LIMIT_EXCEEDED_AMAX | soft limit error - A maximum
-	229 | SOFT_LIMIT_EXCEEDED_BMIN | soft limit error - B minimum
-	230 | SOFT_LIMIT_EXCEEDED_BMAX | soft limit error - B maximum
-	231 | SOFT_LIMIT_EXCEEDED_CMIN | soft limit error - C minimum
-	232 | SOFT_LIMIT_EXCEEDED_CMAX | soft limit error - C maximum
-	233 – 239 | Reserved
-	240 | HOMING_CYCLE_FAILED 240 | homing cycle did not complete
-	241 | HOMING_ERROR_BAD_OR_NO_AXIS 
-	242 | HOMING_ERROR_SWITCH_MISCONFIGURATION 
-	243 | HOMING_ERROR_ZERO_SEARCH_VELOCITY 
-	244 | HOMING_ERROR_ZERO_LATCH_VELOCITY 
-	245 | HOMING_ERROR_TRAVEL_MIN_MAX_IDENTICAL 
-	246 | HOMING_ERROR_NEGATIVE_LATCH_BACKOFF 
-	247 | HOMING_ERROR_SEARCH_FAILED 
-	248 | Reserved 
-	249 | Reserved 
-	250 | PROBE_CYCLE_FAILED | probing cycle did not complete
-	251 | PROBE_ENDPOINT IS_STARTING_POINT 
-	252 | JOGGING_CYCLE_FAILED | jogging cycle did not complete
+	<a name="220">220</a> | SOFT_LIMIT_EXCEEDED | soft limit error - axis unspecified
+	<a name="221">221</a> | SOFT_LIMIT_EXCEEDED_XMIN | soft limit error - X minimum
+	<a name="222">222</a> | SOFT_LIMIT_EXCEEDED_XMAX | soft limit error - X maximum
+	<a name="223">223</a> | SOFT_LIMIT_EXCEEDED_YMIN | soft limit error - Y minimum
+	<a name="224">224</a> | SOFT_LIMIT_EXCEEDED_YMAX | soft limit error - Y maximum
+	<a name="225">225</a> | SOFT_LIMIT_EXCEEDED_ZMIN | soft limit error - Z minimum
+	<a name="226">226</a> | SOFT_LIMIT_EXCEEDED_ZMAX | soft limit error - Z maximum
+	<a name="227">227</a> | SOFT_LIMIT_EXCEEDED_AMIN | soft limit error - A minimum
+	<a name="228">228</a> | SOFT_LIMIT_EXCEEDED_AMAX | soft limit error - A maximum
+	<a name="229">229</a> | SOFT_LIMIT_EXCEEDED_BMIN | soft limit error - B minimum
+	<a name="230">230</a> | SOFT_LIMIT_EXCEEDED_BMAX | soft limit error - B maximum
+	<a name="231">231</a> | SOFT_LIMIT_EXCEEDED_CMIN | soft limit error - C minimum
+	<a name="232">232</a> | SOFT_LIMIT_EXCEEDED_CMAX | soft limit error - C maximum
+	233 – <a name="239">239</a> | Reserved
+	<a name="240">240</a> | HOMING_CYCLE_FAILED <a name="240">240</a> | homing cycle did not complete
+	<a name="241">241</a> | HOMING_ERROR_BAD_OR_NO_AXIS 
+	<a name="242">242</a> | HOMING_ERROR_SWITCH_MISCONFIGURATION 
+	<a name="243">243</a> | HOMING_ERROR_ZERO_SEARCH_VELOCITY 
+	<a name="244">244</a> | HOMING_ERROR_ZERO_LATCH_VELOCITY 
+	<a name="245">245</a> | HOMING_ERROR_TRAVEL_MIN_MAX_IDENTICAL 
+	<a name="246">246</a> | HOMING_ERROR_NEGATIVE_LATCH_BACKOFF 
+	<a name="247">247</a> | HOMING_ERROR_SEARCH_FAILED 
+	<a name="248">248</a> | Reserved 
+	<a name="249">249</a> | Reserved 
+	<a name="250">250</a> | PROBE_CYCLE_FAILED | probing cycle did not complete
+	<a name="251">251</a> | PROBE_ENDPOINT IS_STARTING_POINT 
+	<a name="252">252</a> | JOGGING_CYCLE_FAILED | jogging cycle did not complete
 
 
 ## Status Report Enumerations
