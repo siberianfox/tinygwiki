@@ -437,25 +437,27 @@ See also [Power Management](Power-Management)
 ### $EJ - Enable JSON Mode on Power Up
 This sets the startup mode. JSON mode can be invoked at any time by sending a line starting with an open curly '{'. JSON mode is exited any time by sending a line starting with '$', '?' or 'h'
 
-_Note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board._
-
 <pre>
 $ej=0      - Disable JSON mode on power-up and reset
 $ej=1      - Enable JSON mode on power-up and reset
 </pre>
 
+_Note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board._
+
+_Note: Disabling JSON mode using JSON (`{ej:0}`) will return a `stat` message in text mode. Since you just disabled JSON mode your response will be in text mode. Parsers beware._
+
 ### $JV - Set JSON verbosity
 Sets how much information is returned in JSON mode. If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably do not full verbose mode (5). 
 <pre>
-$jv=0      - Silent   - No response is provided for any command
-$jv=1      - Footer   - Returns footer only - no command echo, gcode blocks or messages
-$jv=2      - Messages - Returns footers, exception messages and gcode comment messages
-$jv=3      - Configs  - Returns footer, messages, config command body
-$jv=4      - Linenum  - Returns footer, messages, config command body, and gcode line numbers if present
-$jv=5      - Verbose  - Returns footer, messages, config command body, and gcode blocks
+$jv=0 - Silent   - No response is provided for any command
+$jv=1 - Footer   - Returns footer only - no command echo, gcode blocks or messages
+$jv=2 - Messages - Returns footers, exception messages and gcode comment messages
+$jv=3 - Configs  - Returns footer, messages, config command body
+$jv=4 - Linenum  - Returns footer, messages, config command body, and gcode line numbers if present
+$jv=5 - Verbose  - Returns footer, messages, config command body, and gcode blocks
 </pre>
 
-Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). This `{jv:0}` or this `{"jv":0}` will not return a response.
+_Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). `{jv:0}` or `{"jv":0}` will not return a response._
 
 ### $JS - Set JSON syntax
 Sets relaxed or strict syntax for JSON messages. See [JSON Syntax](JSON-Operation#json-syntax-option---relaxed-or-strict) for details.
