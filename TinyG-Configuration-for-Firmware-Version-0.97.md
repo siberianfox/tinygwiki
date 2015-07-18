@@ -450,11 +450,11 @@ _Note: Disabling JSON mode using JSON (`{ej:0}`) will return a `stat` message in
 Sets how much information is returned in JSON mode. If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably do not full verbose mode (5). 
 <pre>
 $jv=0 - Silent   - No response is provided for any command
-$jv=1 - Footer   - Returns footer only - no command echo, gcode blocks or messages
+$jv=1 - Footer   - Returns footer only - no command echo, gcode or messages
 $jv=2 - Messages - Returns footers, exception messages and gcode comment messages
-$jv=3 - Configs  - Returns footer, messages, config command body
-$jv=4 - Linenum  - Returns footer, messages, config command body, and gcode line numbers if present
-$jv=5 - Verbose  - Returns footer, messages, config command body, and gcode blocks
+$jv=3 - Configs  - Returns footer, messages, config commands
+$jv=4 - Linenum  - Returns footer, messages, config commands, and gcode line #s
+$jv=5 - Verbose  - Returns footer, messages, config commands, and gcode blocks
 </pre>
 
 _Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). `{jv:0}` or `{"jv":0}` will not return a response._
