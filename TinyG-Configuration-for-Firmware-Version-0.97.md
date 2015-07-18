@@ -455,6 +455,8 @@ $jv=4      - Linenum  - Returns footer, messages, config command body, and gcode
 $jv=5      - Verbose  - Returns footer, messages, config command body, and gcode blocks
 </pre>
 
+Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). This `{jv:0}` or this `{"jv":0}` will not return a response.
+
 ### $JS - Set JSON syntax
 Sets relaxed or strict syntax for JSON messages. See [JSON Syntax](JSON-Operation#json-syntax-option---relaxed-or-strict) for details.
 
