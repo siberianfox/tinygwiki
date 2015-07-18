@@ -444,7 +444,7 @@ $ej=1      - Enable JSON mode on power-up and reset
 
 _Note: The two startup lines on reset will always be in JSON format regardless of setting in order to allow UIs to sync with an unknown board._
 
-_Note: Disabling JSON mode using JSON (`{ej:0}`) will return a `stat` message in text mode. Since you just disabled JSON mode your response will be in text mode. Parsers beware._
+_Note: Disabling JSON mode using JSON `{ej:0}` will return a response in text mode (typically `stat:N`. Since you just disabled JSON mode your response will be in text mode. Parsers beware._
 
 ### $JV - Set JSON verbosity
 Sets how much information is returned in JSON mode. If you are using JSON mode with high-speed files (many short lines at high feed rates) you probably do not full verbose mode (5). 
@@ -457,7 +457,7 @@ $jv=4 - Linenum  - Returns footer, messages, config commands, and gcode line #s
 $jv=5 - Verbose  - Returns footer, messages, config commands, and gcode blocks
 </pre>
 
-_Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). `{jv:0}` or `{"jv":0}` will not return a response._
+_Note that if you set verbosity to 0 using JSON mode you will not get a response, as that's what you just told it to do (i.e. not respond). `{jv:0}` or `{"jv":0}` will not return a response. Parsers beware._
 
 ### $JS - Set JSON syntax
 Sets relaxed or strict syntax for JSON messages. See [JSON Syntax](JSON-Operation#json-syntax-option---relaxed-or-strict) for details.
