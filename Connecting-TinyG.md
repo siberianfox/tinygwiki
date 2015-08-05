@@ -26,21 +26,23 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 Next establish USB connection with your host computer. 
 
 ####Install FTDI Drivers
-* If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. The easiest way to check if you have them is to fire up CoolTerm (instructions below) and see if something like `tty.usbserial-AE01DVWD` or `usbserial-CRAZYMON` shows up when you scan the serial ports. On Windows you will see something like `COM12`, and no indication of what that connects to, so you might have to hunt. 
+* If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. 
 
-* If not, unplug TinyG and install the drivers on your computer. You can get them from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. 
+* PC Installation - Get the latest Windows driver from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. Install and reboot your system.
 
-* **Please note: As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, there is a bug in the mac drivers that can cause a job to stall midstream. You still need to install the FTDI suppled drivers. For OSX you want the [FTDI VCP driver of OSX, version 2.2.18](http://www.ftdichip.com/Drivers/VCP.htm), presumably 64 bit X86 if that's what your machine supports.**
+* MAC Installation - As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, the native mac drivers do not perform flow control with the FTDI on the v8, so they will not work. You need the VCP 2.3 driver from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You must also reboot your system once the installation is finished (they don't tell you this). If installed correctly you should see something like `usbserial-DA00Y5MM` when you scan for new serial ports. (Note that the Mac native driver will also show you this, sos the only real way to tell if you have the FTDI driver is to look in APPLE_IN_THE_UPPER_LEFT_CORNER / About This Mac / System Report / Software / Extensions for FTDIUSBSerialDriver, version 2.3)
 
 ####Set up Coolterm
-Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr)
+Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to connect and test your tinyg. Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr)
 
-* Download and connect to Roger Meier's [Coolterm](http://freeware.the-meiers.org/). You will need the FTDI drivers mentioned above to do this. Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD` or `COM12`. Configure the following settings:
+* Download and install [Coolterm](http://freeware.the-meiers.org/). For the Mac we have noticed that the latest version (1.4.5) does not do well on large file transmissions. So we still use version 1.4.3. This is available from the bottom of the page under Previous Releases.
+
+* Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD` or `COM12`. Configure the following settings:
  * 115,200 baud
  * 8 data bits
  * no parity
  * 1 stop bit
- * CTS/RTS flow control.
+ * XON flow control (or use CTS, but make sure the $ex setting agrees)
 
 * It's also useful to set the following - but not strictly necessary
  * Options/Terminal - Line Mode
