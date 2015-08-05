@@ -35,7 +35,7 @@ Next establish USB connection with your host computer.
 ####Set up Coolterm
 Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to connect and test your tinyg. Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr)
 
-* Download and install [Coolterm](http://freeware.the-meiers.org/). For the Mac we have noticed that the latest version (1.4.5) does not do well on large file transmissions. So we still use version 1.4.3. This is available from the bottom of the page under Previous Releases.
+* Download and install [Coolterm](http://freeware.the-meiers.org/). For the Mac we have noticed that the latest version (1.4.5) does not do well on large file transmissions. So we still use version 1.4.3. This is available on the Coolterm page under [Previous Releases](http://freeware.the-meiers.org/previous/).
 
 * Go to the Options menu and Re-Scan Serial Ports. You should see something like `usbserial-AE01DVWD` or `COM12`. Configure the following settings:
  * 115,200 baud
