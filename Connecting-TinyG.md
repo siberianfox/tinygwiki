@@ -35,7 +35,7 @@ Next establish USB connection with your host computer.
 _Note that the Mac native driver will also show the usbserial port, so the only real way to tell if you have the FTDI driver is to look in APPLE_IN_THE_UPPER_LEFT_CORNER / About This Mac / System Report / Software / Extensions for FTDIUSBSerialDriver, version 2.3)_
 
 ####Set up Coolterm
-Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to connect and test your tinyg. Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr)
+Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to connect and test your tinyg. Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr), which is a better way to actually run jobs once you have the system set up.
 
 * Download and install [Coolterm](http://freeware.the-meiers.org/). For the Mac we have noticed that the latest version (1.4.5) does not do well on large file transmissions. So we still use version 1.4.3. This is available on the Coolterm page under [Previous Releases](http://freeware.the-meiers.org/previous/).
 
