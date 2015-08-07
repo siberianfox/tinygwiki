@@ -12,7 +12,7 @@ See also:
 
 ## Main Differences Between 0.97 and 0.98
 * Digital inputs are now configurable "objects" that allow individual inputs to be:
-  * Set as Normally Open or Normally Closed (NO/NC, aka active HI / active LO)
+  * Set as Normally Open or Normally Closed (NO/NC, aka activeLO / activeHI)
   * Mapped to an immediate action, such as feedhold, halt, shutdown, or reset
   * Mapped to a function such as limit switch, homing, probing, shutdown, or safety interlock
   * Switch state is available for inspection in text mode and JSON mode
