@@ -374,6 +374,28 @@ For example; if the A radius is set to 10 mm it means that a value of 62.8318531
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
 ### Digital Input Settings
+Digital inputs are numbered from 1 to N. On the TinyG v8 there are 8 inputs that correspond to the board silkscreen as so: 
+* Xmin = 1
+* Xmax = 2
+* Ymin = 3
+* Ymax = 4
+* Zmin = 5
+* Zmax = 6
+* Amin = 7
+* Amax = 8
+
+Each input has the following parameters:
+
+#### $diN, $xTM - Travel Minimum, Travel Maximum
+di1mo
+di1ac
+di1fn
+
+Digital inputs exist as a group. You can list all paramters for di1 using $di1 or {di:1}
+
+[di1mo] input mode              1 [-1=disabled, 0=NO,1=NC]
+[di1ac] input action            1 [0=none,1=stop,2=halt,3=stop_steps,4=panic,5=reset]
+[di1fn] input function          1 [0=none,1=limit,2=interlock,3=shutdown]
 
 ### Homing Settings
 Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for details and more help on homing settings:
