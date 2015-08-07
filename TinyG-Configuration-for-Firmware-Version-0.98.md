@@ -23,7 +23,7 @@ See also:
     * `st` global switch type
     * `Xsn` minimum switch type 
     * `Xsx` maximum switch type
-  * See [Digital Inputs]() on this page
+  * See [Digital Input Settings](#digital-input-settings) on this page
 * New Homing Behavior. Homing is more accurate and easier to configure
   * Takes advantage of new digital inputs
   * Switches can be independent or "ganged", and mix of NO/NC styles
@@ -31,7 +31,7 @@ See also:
   * Parameters added to support new homing:
     * `Xhi` homing input number (which input is the home switch on?)
     * `Xhd` homing search direction
-  * See [Homing Configuration]() on this page
+  * See [Homing Settings](#homing-settings) on this page
 * New system state management differentiates between alarms, shutdown and panic. 
   * Supports recoverable safety interlock and external emergency stop
   * Parameters added to support state management:
@@ -324,7 +324,7 @@ $xtm = 0
 ### $xJM - Jerk Maximum
 Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, Probotix with 5 pitch X and Y screws and 12 pitch Z screws, and any machine with both linear and rotary axes.
 
-Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the the examples below:
+Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the below examples:
 
 <pre>
 $xjm=50000000   Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
@@ -332,7 +332,7 @@ $zjm=25000000   A reasonable setting for a slower Z axis
 $xjm=5000000000 X jerk for Shapeoko. Yes, that's 5 billion
 </pre> 
 
-Because these numbers are so unwieldy, jerk values that are less than 1,000,000 are assumed to be multiplied by 1 million. This keeps from having to keep track of all those zeros. Here are the same examples:
+Because these numbers are so unwieldy, jerk values that are less than 1,000,000 are assumed to be multiplied by 1 million. This keeps from having to keep track of all those zeros. All jerk values are displayed in text and JSON  in divided-by-one-million form. Here are the same examples:
 
 <pre>
 $xjm=50         Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
@@ -351,6 +351,7 @@ The jerk term in mm is measured in mm/min^3. In inches mode it's units are inche
 ### $xJH - Jerk High
 Sets the jerk value used for high-speed operations such as halts and homing to stop movement when switches are hit or released. You generally want this value to be larger than the $xJM value, as this determines how fast the axis will stop once it hits the switch. You generally want this as fast as you can get it without losing steps on the accelerations.
 
+
 ### $xJD - Junction Deviation
 This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on [Sonny Jeon's blog: Improving grbl cornering algorithm] (http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). 
 
@@ -359,10 +360,10 @@ It's important to realize that the tool head does not actually follow the contro
 While JA is set globally and applies to all axes, JD is set per axis and can vary depending on the characteristics of the axis. An axis that moves more slowly should have a JD that is less than an axis that can move more quickly, as the larger the JD the faster the machine will move through the junction (i.e. a bigger controlling circle). The following example has some representative values for a Probotix Fireball V90 machine. The V90 has 5 TPI X and Y screws, and 12 TPI Z. All values in MM. 
 
 <pre>
- $xJD 0.05     Units are mm
+ $xJD 0.05      Units are mm
  $yJD 0.05
- $zJD 0.02     Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
- $JA 200,000   Units are mm/min^2. As before, commas are ignored and are provided only for clarity
+ $zJD 0.02      Setting Z to a smaller value means that moves with a change in the Z component will move proportionately slower depending on the contribution in Z. 
+ $JA 200000     Units are mm/min^2
 </pre>
 
 ### $aRA - Radius value
@@ -372,11 +373,13 @@ For example; if the A radius is set to 10 mm it means that a value of 62.8318531
 
 Note that the Travel per Revolution value ($1TR) is used but unaffected in radius mode. The degrees per revolution still applies, it's just that the degrees were computed based on the radius and the Gcode axis values. See Travel per Revolution (See $1TR) in the motor group. 
 
+### Digital Input Settings
+
 ### Homing Settings
 Please see [TinyG Homing](https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation) for details and more help on homing settings:
 
-* $xSN - Minimum switch mode
-* $xSX - Maximum switch mode
+* $xHI - Homing Input number
+* $xHD - Homing Direction
 * $xSV - Homing Search Velocity
 * $xLV - Homing Latch Velocity
 * $xLB - Homing Latch Backoff
@@ -387,7 +390,7 @@ By way of example, my Shapeoko is set up this way:
 	Setting | Description | Example
 	--------|-------------|--------------
 	$ST | Switch Type | 1=NC
-	$XJH | X Homing Jerk | 10000000000 (10 billion)
+	$XJH | X High Jerk | 10000 (10 billion)
 	$XSN | X Minimum Switch Mode | 3=limit-and-homing
 	$XSX | X Maximum Switch Mode | 2=limit-only
 	$XTM | X Travel Maximum | 180 mm
@@ -424,12 +427,12 @@ These are general system-wide parameters and are part of the "sys" group.
 ###Identification Settings
 
 ### $FB - Firmware Build number
-Read-only value. Example `$fb=345.06`<br>
+Read-only value. Example `$fb=444.01`<br>
 Indicates the build of firmware and changes frequently. Please provide this number in any communication about an issue.
 
 ### $FV - Firmware Version
-Read-only value. Example `$fv=0.97`<br>
-Indicates the major version of the firmware; changes infrequently. Generally all settings, behaviors and other system functions will remain the same within a version - that's why this page is useful for all 0.97 versions.
+Read-only value. Example `$fv=0.98`<br>
+Indicates the major version of the firmware; changes infrequently. Generally all settings, behaviors and other system functions will remain the same within a version - that's why this page is useful for all 0.98 versions.
 
 ### $HP - Hardware Platform
 Read-only value. Returns:
@@ -449,8 +452,8 @@ Read-only value.
 In conjunction with the global $jd setting sets the cornering speed. See $jd for explanation
 
 <pre>
-$ja=50000   - 50,000 mm/min^2 - a reasonable value for a modest performance machine
-$ja=200000  - 200,000 mm/min^2 - a reasonable value for a higher performance machine
+$ja=50000       50,000 mm/min^2 - a reasonable value for a modest performance machine
+$ja=200000      200,000 mm/min^2 - a reasonable value for a higher performance machine
 </pre> 
 
 ### $CT - Chordal Tolerance
@@ -458,13 +461,13 @@ Arcs are generated as sets of very short straight lines that approximate a curve
 
 Setting chordal tolerance high will make curves "rougher", but they can execute faster. Setting them smaller will make for smoother arcs that may take longer to execute. The lower-limit of $ct is set by the minimum arc segment length, which really should not be changed (See hidden parameters).
 <pre>
-$ct=0.01   - Normally a good value (in mm)
+$ct=0.01        Normally a good value (in mm)
 </pre> 
 
 ### $ST - Switch Type
 Sets the type of switch used for homing and/or limits. All switches must be of the same type (mixes are not supported).
 <pre>
-$st=0   - Normally Open switches (NO)
+$st=0          Normally Open switches (NO)
 $st=1   - Normally Closed switches (NC)
 </pre> 
 
