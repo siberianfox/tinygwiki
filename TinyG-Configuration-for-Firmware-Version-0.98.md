@@ -57,7 +57,9 @@ See also:
 * Added G10 L20 support
 
 <br>
-This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
+This page illustrates how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted. 
+
+**If you are writing a UI or controller we recommend using JSON instead of the command line**
 
 **Note: If you are scripting or otherwise automating settings see [Scripting Settings]()**
 
