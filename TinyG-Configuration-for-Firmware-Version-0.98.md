@@ -27,9 +27,13 @@ See also:
 * New Homing Behavior. Homing is more accurate and easier to configure
   * Takes advantage of new digital inputs
   * Switches can be independent or "ganged", and mix of NO/NC styles
-  * Homing performs a 2 pass sequence and records exact step position on switch close
+  * Homing performs a 2 pass sequence and records exact position on switch close
+  * Parameters added to support new homing:
+    * `Xhi` homing input number (which input is the home switch on?)
+    * `Xhd` homing search direction
   * See [Homing Configuration]() on this page
-* New system state management differentiates between alarms, shutdown and panic. Also supports recoverable safety interlock feature and external emergency stop functions
+* New system state management differentiates between alarms, shutdown and panic. 
+  * Supports recoverable safety interlock and external emergency stop
   * Parameters added to support state management:
     * `alarm` invoke an alarm from serial input
     * `shutd` invoke a shutdown from serial input
@@ -37,13 +41,11 @@ See also:
     * `clear` clear alarms and shutdowns (aka `clr`)
     * `lim` limit switch enable/override
     * `saf` safety interlock enable/override
-* Parameters Added - The following parameters and queries have been added
+* Other Parameters Added:
   * `g92e` indicates if g92 offsets are active
   * `pwrN` returns `1` when motors 1 - N are enabled
-  * `Xhi` homing input number has been added. See [Homing Configuration]()
-  * `Xhd` homing direction has been added. See [Homing Configuration]()
-* Retired - the following commands have been retired
-  * `fd` JSON footer depth retired. Fd is now always zero (0), making the footer object `f` a peer object to the response object `r`
+* Retired Parameters:
+  * `fd` JSON footer depth. Fd is now always zero (0), making the footer object `f` a peer object to the response object `r`
   * `ms` segment microsecond hidden parameter has been removed
   * `ml` minimum line length hidden parameter has been removed
 * Status Codes have some changes
