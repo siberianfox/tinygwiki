@@ -19,6 +19,10 @@ See also:
   * Parameters added to support digital inputs:
     * `diN` read/set digital input configurations
     * `inN` digital input state readout (switch closed indicators)
+  * Parameters removed to support digital inputs:
+    * `st` global switch type
+    * `Xsn` minimum switch type 
+    * `Xsx` maximum switch type
   * See [Digital Inputs]() on this page
 * New Homing Behavior. Homing is more accurate and easier to configure
   * Takes advantage of new digital inputs
@@ -31,8 +35,8 @@ See also:
     * `shutd` invoke a shutdown from serial input
     * `panic` invoke a panic from serial input
     * `clear` clear alarms and shutdowns (aka `clr`)
-    * 'lim' limit switch enable/override
-    * 'saf' safety interlock enable/override
+    * `lim` limit switch enable/override
+    * `saf` safety interlock enable/override
 * Parameters Added - The following parameters and queries have been added
   * `g92e` indicates if g92 offsets are active
   * `pwrN` returns `1` when motors 1 - N are enabled
@@ -40,8 +44,6 @@ See also:
   * `Xhd` homing direction has been added. See [Homing Configuration]()
 * Retired - the following commands have been retired
   * `fd` JSON footer depth retired. Fd is now always zero (0), making the footer object `f` a peer object to the response object `r`
-  * `st` switch type removed. See [Digital Inputs]()
-  * `Xsn` and `Xsx` switch parameters removed from axis config. See [Digital Inputs]()
   * `ms` segment microsecond hidden parameter has been removed
   * `ml` minimum line length hidden parameter has been removed
 * Status Codes have some changes
