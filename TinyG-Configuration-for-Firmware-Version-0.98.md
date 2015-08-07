@@ -39,6 +39,7 @@ See also:
     * `shutd` invoke a shutdown from serial input
     * `panic` invoke a panic from serial input
     * `clear` clear alarms and shutdowns (aka `clr`)
+    * `m2` and `m30` PROGRAM_END commands will also clear alarms
     * `lim` limit switch enable/override
     * `saf` safety interlock enable/override
 * Other Parameters Added:
@@ -46,8 +47,9 @@ See also:
   * `pwrN` returns `1` when motors 1 - N are enabled
 * Retired Parameters:
   * `fd` JSON footer depth. Fd is now always zero (0), making the footer object `f` a peer object to the response object `r`
-  * `ms` segment microsecond hidden parameter has been removed
-  * `ml` minimum line length hidden parameter has been removed
+  * `ms` segment microsecond hidden parameter removed
+  * `ml` minimum line length hidden parameter removed
+  * `ma` minimum arc segment length hidden parameter removed
 * Status Codes have some changes
   * Also have been broken out into a separate `error.h` file 
   * See [Status Codes]()
