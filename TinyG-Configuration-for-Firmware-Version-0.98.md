@@ -90,7 +90,7 @@ _Please note: In TinyG the motor travel settings are independent of each other. 
 	[$1mi](#1mi---microsteps) | Microsteps | Microsteps per whole step. TinyG uses 1,2,4 and 8. Other values are accepted but warned
 	[$1po](#1po---polarity) | Polarity | Set polarity for proper movement of the axis. 0=clockwise rotation, 1=counterclockwise - although these are dependent on your motor wiring, and axis movement is dependent on the mechanical system.
 	[$1pm](Power-Management) | Power management mode | 0=motor disabled, 1=motor always on, 2=motor on when in cycle, 3=motor on only when moving
-	[$1pl](#1pm---power-management-mode) | Power level (ARM only) | 0.000=no power to steppers, 1.00=max power to steppers
+	[$1pl](#1pm---power-management-mode) | Power level (ARM only) | 0.00=no power to steppers, 1.00=max power to steppers
 
 ## Axis Groups
 Settings specific to a given axis. There are 6 axis groups, X,Y,Z linear axes, and A,B,C rotary axes. Not all axes have all parameters.
@@ -103,11 +103,11 @@ Settings specific to a given axis. There are 6 axis groups, X,Y,Z linear axes, a
 	[$xtn](#xtn-xtm---travel-minimum-travel-maximum) | Travel minimum | Minimum travel in absolute coordinates. Used by homing and soft limits 
 	[$xtm](#xtn-xtm---travel-minimum-travel-maximum) | Travel maximum | Maximum travel in absolute coordinates. Used by homing and soft limits 
 	[$xjm](#xjm---jerk-maximum) | Jerk maximum | Main parameter for acceleration management (Note: takes the place of a max acceleration value)
-	[$xjh](#xjh---jerk-homing) | Jerk Homing | Jerk used during homing operations. (found on axes XYZA only)
+	[$xjh](#xjh---jerk-high) | Jerk High | Jerk used for high-speed operations. (found on axes XYZA only)
 	[$xjd](#xjd---junction-deviation) | Junction deviation | Sets the theoretical radius For cornering control. Larger values yield faster cornering, but more corner jerk.
 	[$ara](#ara---radius-value) | Radius setting | An artificial radius to convert incoming linear values to degrees. Found on rotational axes (ABC) only.
-	[$xsn](#homing-settings) | Minimum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
-	[$xsx](#homing-settings) | Maximum switch mode | 0=disabled, 1=homing-only, 2=limit-only, 3=homing-and-limit (XYZA only)
+	[$xhi](#homing-settings) | Homing Input | an input from 1-8
+	[$xhd](#homing-settings) | Homing Direction | 0=move towards minimum, 1=move towards maximum
 	[$xsv](#homing-settings) | Search velocity | Homing speed during search phase (drive to switch) (XYZA only)
 	[$xlv](#homing-settings) | Latch velocity | Homing speed during latch phase (drive off switch) (XYZA only)
 	[$xlb](#homing-settings) | Latch backoff | Maximum distance to back off switch during latch phase (drive off switch) (XYZA only)
@@ -149,7 +149,6 @@ These are reported on the startup strings and should be included in any support 
 	--------|-------------|-------
 	[$ja](#ja---junction-acceleration) | Junction acceleration | Global cornering acceleration value
 	[$ct](#ct---chordal-tolerance) | Chordal tolerance | Sets precision of arc drawing. Trades off precision for max arc draw rate 
-	[$st](#st---switch-type) | Switch type | 0=NO, 1=NC
 	[$mt](#mt---motor-power-timeout) | Motor disable timeout | Number of seconds before motor power is automatically released. Maximum value is 40 million.
 
 
@@ -164,8 +163,7 @@ Set communications speeds and modes.
 	[$tv](#tv---set-text-mode-verbosity) | Text mode verbosity | 0=silent, 1=verbose
 	[$qv](#qv---queue-report-verbosity) | Queue report verbosity | 0=off, 1=filtered, 2=verbose
 	[$sv](#sv---status-report-verbosity) | Status report verbosity | 0=off, 1=filtered, 2=verbose
-	[$si](#si---status-interval) | Status report interval | in milliseconds (50 ms minimum interval)
-	[$ic](#ic---ignore-cr-or-lf-on-rx) | Ignore CR / LF on RX | REMOVED IN 0.97. Not needed.
+	[$si](#si---status-interval) | Status report interval | in milliseconds (100 ms minimum interval)
 	[$ec](#ec---expand-lf-to-crlf-on-tx-data) | Enable CR on TX | 0=send LF line termination on TX, 1= send both LF and CR termination
 	[$ee](#ee---enable-character-echo) | Enable character echo | 0=off, 1=enabled
 	[$ex](#ex---enable-flow-control) | Enable flow control | 0=off, 1=XON/XOFF enabled, 2=RTS/CTS enabled
@@ -192,23 +190,13 @@ These $configs invoke reports and functions
 	[$qf](#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
 	[$md](Power-Management) | Disable motors | Unpower all motors
 	[$me](Power-Management) | Energize motors | Energize all motors with timeout in seconds 
-	[$test](#test---run-self-test) | Invoke self tests | $test=n for test number; $test returns help screen in text mode
+	[$test](#test---run-self-test) | Invoke self tests | $test=1; in text mode $test returns help screen
 	[$defa](#defa---reset-default-profile-settings) | Reset to factory defaults | $defa=1 to reset
 	$boot | Enter boot loader | $boot=1 enters boot loader
         ^x | Reset tinyG | cntl+x restarts tinyG same as hardware rest button
 	$help | Show help screen | Show system help screen; $h also works
 
 Note: Status report parameters is settable in JSON only - see JSON mode for details
-
-**Hidden System Settings**
-
-The following settings are accessible but do not appear in the system group listings. This is because they really should not be messed with.
-
-	Setting | Description | Notes
-	--------|-------------|-------
-	[$ml](#ml--minimum-line-segment) | Minimum line length | 
-	[$ma](#ma---minimum-arc-segment) | Arc segment length |
-	[$ms](#ms---minimum-segment-time-in-microseconds---refers-to-s-curve-interpolation-segments) | Segment timing | 
 <br>
 <br>
 # Settings Details
