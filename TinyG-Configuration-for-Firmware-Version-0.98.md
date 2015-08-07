@@ -11,7 +11,7 @@ See also:
 * [Configuration for Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
 
 ## Main Differences Between 0.97 and 0.98
-* Digital inputs are now set up as configurable "objects" that allow individual inputs to be:
+* Digital inputs are now configurable "objects" that allow individual inputs to be:
   * Set as NO or NC operations (active HI or active LO)
   * Mapped to an immediate action, such as feedhold, halt, shutdown, or reset
   * Mapped to a function such as limit switch, homing, probing, shutdown, or safety interlock
