@@ -51,7 +51,8 @@ See also:
   * `ml` minimum line length hidden parameter removed
   * `ma` minimum arc segment length hidden parameter removed
 * Status Codes have some changes
-  * Also have been broken out into a separate `error.h` file 
+  * Also have been broken out into a separate `error.h` file
+  * Exception reports are more detailed and carry text indicating exception source
   * See [Status Codes]()
 * Added G10 L20 support
 
