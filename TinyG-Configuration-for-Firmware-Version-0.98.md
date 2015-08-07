@@ -186,7 +186,7 @@ These $configs invoke reports and functions
 	Command | Description | Notes
 	--------|-------------|-------
 	[$sr](#sr---status-report) | Request status report | SR also sets status report format in JSON mode
-	[$qr]#qr---queue-report) | Request queue report | 
+	[$qr](#qr---queue-report) | Request queue report | 
 	[$qf](#qf---queue-flush) | Flush planner queue | Used with '!' feedhold for jogging, probes and other sequences. Usage: {"qf":1}
 	[$md](Power-Management) | Disable motors | Unpower all motors
 	[$me](Power-Management) | Energize motors | Energize all motors with timeout in seconds 
@@ -212,11 +212,11 @@ _Note: In TinyG the motor travel settings are independent of each other. You don
 Axes must be input as numbers, with X=0, Y=1, Z=2, A=3, B=4 and C=5. As you might expect, mapping motor 1 to X will cause X movement to drive motor 1. The example below is a way to run a dual-Y gantry such as a 4 motor Shapeoko setup. Movement in Y will drive both motor2 and motor4. 
 
 <pre>
- $1ma=0	    Maps motor 1 to the X axis
- $2ma=1	    Maps motor 2 to the Y axis
- $3ma=2	    Maps motor 3 to the Z axis
- $4ma=1	    Maps motor 4 to the Y axis
-</pre> 
+ $1ma=0	        Map motor 1 to the X axis
+ $2ma=1	        Map motor 2 to the Y axis
+ $3ma=1	        Map motor 3 to the Y axis  (second Y axis)
+ $4ma=2	        Map motor 4 to the Z axis
+</pre>
 
 ### $1SA - Step Angle for the motor
 This is a decimal number which is often 1.8 degrees per step, but should reflect the motor in use. You might also find 0.9, 3.6, 7.5 or other values. You can usually read this off the motor label. If a motor is indicated in steps per revolution just divide 360 by that number. A 200 step-per-rev motor is 1.8 degrees, a 400 step-per-rev motor has 0.9 degrees per step.
@@ -239,7 +239,7 @@ Note that the travel-per-revolution is independent of the radius setting in the 
 Note that Travel per Revolution is a motor parameter, not an axis parameter as one might think. Consider the case of a dual Y gantry with lead screws of different pitch (how weird). The travel per revolution would be different for each motor. 
 
 <pre>
-$1tr=2.54          Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
+$1tr=2.54       Set motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
 </pre>
 
 ### $1MI - MIcrosteps
@@ -269,7 +269,7 @@ Polarity sets which direction the motor will turn when presented with positive a
 Travel in X and Y is dependent on the conventions for your particular machine and CAD setup. Typically X is left/right movement, and Y is towards and away from you, but people often set up the machine to agree with the visualization their CAD program provides, and can depend on where you stand when operating the machine. Typically X+ moves to the right, X- to the left, Y+ away from you, and Y- towards you. Z is by convention the cutting axis, which is the vertical axis on a typical milling machine. Z+ should move up, and Z- should move down, into the work.
 
 <pre>
-$3po=0        Set polarity to normal
+$3po=0          Set motor 3 polarity to normal
 </pre>
 
 ### $1PM - Power Management mode
@@ -286,7 +286,7 @@ Sets the function of the axis.
 * 3 = Radius mode. (Rotary axes only) In radius mode gcode values are interpreted as linear units; either inches or mm depending on the prevailing G20/G21 setting. The conversion of linear units to degrees is accomplished using the radius setting for that axis. See $aRA for details. 
 
 <pre>
-$zam=2 	     Inhibit the Z axis; $zam1 will restore standard operation
+$zam=2 	        Inhibit the Z axis; $zam=1 will restore standard operation
 </pre>
 
 ### $xVM - Velocity Maximum
@@ -295,9 +295,9 @@ $zam=2 	     Inhibit the Z axis; $zam1 will restore standard operation
 Note that the max velocity is *per-axis*. Diagonal / multi-axis traverses will actually occur at the fastest speed the combined set of axes and the geometry will allow, and may be faster than the individual axis max velocities. For example, max velocity for X and Y are set to 1000 mm/min. For a 45 degree traverse in X and Y the toolhead would travel at 1414.21 mm/min. 
 
 <pre>
-$xvm=1200        sets X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
-$zvm=30.0        sets Z to 30 inches per minute - assuming G20 is active (i.e. inches mode)
-$avm=36000       sets A to 100 revolutions per minute (360 * 100)
+$xvm=1200       Set X maximum velocity (G0) to 1200 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
+$zvm=30.0       Set Z to 30 inches per minute - assuming G20 is active (i.e. inches mode)
+$avm=36000      Set A to 100 revolutions per minute (360 * 100)
 </pre>
  
 ### $xFR - Feed Rate maximum
@@ -306,7 +306,7 @@ Sets the maximum velocity the axis will move during a feed in a G1, G2, or G3 mo
 Axis feed rates should be equal to or less than the maximum velocity. See [TinyG Tuning](https://github.com/synthetos/TinyG/wiki/TinyG-Tuning) for more details. 
 
 <pre>
-$xfr=1000       sets X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
+$xfr=1000       Set X max feed rate to 1000 mm/min - assuming G21 is active (i.e. the machine is in MM mode)
 </pre> 
 
 ### $xTN, $xTM - Travel Minimum, Travel Maximum
@@ -324,25 +324,32 @@ $xtm = 0
 ### $xJM - Jerk Maximum
 Sets the maximum jerk value for that axis. Jerk is settable independently for each axis to support machines with different dynamics per axis - such as Shapeoko with belts for X and Y, screws for Z, Probotix with 5 pitch X and Y screws and 12 pitch Z screws, and any machine with both linear and rotary axes.
 
-Jerk is in units per minutes^3, so the numbers are quite large (but see note below). Some common values are shown in *millimeters* in the examples below 
+Jerk is in units per minutes^3, so the numbers are quite large. Some common values are shown in *millimeters* in the the examples below:
 
 <pre>
-$xjm=50,000,000          Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
-$zjm=25,000,000          A reasonable setting for a slower Z axis
-$xjm=5,000,000,000       X jerk for Shapeoko. Yes, that's 5 billion
+$xjm=50000000   Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
+$zjm=25000000   A reasonable setting for a slower Z axis
+$xjm=5000000000 X jerk for Shapeoko. Yes, that's 5 billion
+</pre> 
+
+Because these numbers are so unwieldy, jerk values that are less than 1,000,000 are assumed to be multiplied by 1 million. This keeps from having to keep track of all those zeros. Here are the same examples:
+
+<pre>
+$xjm=50         Set X jerk to 50 million MM per min^3. This is a good value for a moderate speed machine
+$zjm=25         A reasonable setting for a slower Z axis
+$xjm=5000       X jerk for Shapeoko. Yes, that's 5 billion
 </pre> 
 
 The jerk term in mm is measured in mm/min^3. In inches mode it's units are inches/min^3. So the conversion from mm to inches is 1/(25.4). The same values as above are shown in inches are: 
 <pre>
-50,000,000 mm/min^3      is 1,968,504 in/min^3 2,000,000 would suffice
-25,000,000 mm/min^3      is 984,251 in/min^3 1,000,000 would suffice
-5,000,000,000 mm/min^3   is 196,850,400 in/min^3 200,000,000 would suffice
+50 million mm/min^3 is 1,968,504 in/min^3, is approximately 2 million, can be entered as 2
+25 million mm/min^3 is 984,251 in/min^3, is approximately 1 million, can be entered as 1
+5000 million mm/min^3 is 196,850,400 in/min^3 is approximately 200 million, can be entered as 200
 </pre> 
 
-_Note: Jerk values that are less than 1,000,000 are assumed to be multiplied by 1 million. This keeps from having to keep track of all those zeros. For example, to enter 5 billion the value '5000' can be entered._
 
-### $xJH - Jerk Homing
-Sets the jerk value used for homing to stop movement when switches are hit or released. You generally want this value to be larger than the $xJM value, as this determines how fast the axis will stop once it hits the switch. You generally want this as fast as you can get it without losing steps on the accelerations.
+### $xJH - Jerk High
+Sets the jerk value used for high-speed operations such as halts and homing to stop movement when switches are hit or released. You generally want this value to be larger than the $xJM value, as this determines how fast the axis will stop once it hits the switch. You generally want this as fast as you can get it without losing steps on the accelerations.
 
 ### $xJD - Junction Deviation
 This one is somewhat complicated. Junction deviation - in combination with Junction Acceleration ($JA) from the system group - sets the velocity reduction used during cornering through the junction of two lines. The reduction is based on controlling the centripetal acceleration through the junction to the value set in JA with the junction deviation being the "tightness" of the controlling cornering circle. An explanation of what's happening here can be found on [Sonny Jeon's blog: Improving grbl cornering algorithm] (http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/ onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). 
