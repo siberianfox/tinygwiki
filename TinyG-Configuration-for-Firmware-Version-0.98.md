@@ -16,24 +16,38 @@ See also:
   * Mapped to an immediate action, such as feedhold, halt, shutdown, or reset
   * Mapped to a function such as limit, homing, probing, shutdown, or safety interlock
   * Switch state is available for inspection in text mode and JSON mode
+  * Parameters added to support digital inputs:
+    * `diN` read/set digital input configurations
+    * `inN` digital input state readout (switch closed indicators)
   * See [Digital Inputs]() on this page
 * New Homing Behavior. Homing is more accurate and easier to configure
   * Takes advantage of new digital inputs
   * Switches can be independent or "ganged", and mix of NO/NC styles
   * Homing performs a 2 pass sequence and records exact step position on switch close
   * See [Homing Configuration]() on this page
+* New system state management differentiates between alarms, shutdown and panic. Also supports recoverable safety interlock feature and external emergency stop functions
+  * Parameters added to support state management:
+    * `alarm` invoke an alarm from serial input
+    * `shutd` invoke a shutdown from serial input
+    * `panic` invoke a panic from serial input
+    * `clear` clear alarms and shutdowns (aka `clr`)
+    * 'lim' limit switch enable/override
+    * 'saf' safety interlock enable/override
 * Parameters Added - The following parameters and queries have been added
-  * g92e - indicates if g92 offsets are active
-  * pwrN - return `1` when motors 1 - N are enabled
+  * `g92e` indicates if g92 offsets are active
+  * `pwrN` returns `1` when motors 1 - N are enabled
+  * `Xhi` homing input number has been added. See [Homing Configuration]()
+  * `Xhd` homing direction has been added. See [Homing Configuration]()
 * Retired - the following commands have been retired
-  * JSON footer depth (fd parameter) has ben retired. Footer depth is always zero (0), making the footer object `f` a peer object to the response object `r`
-  * `Xsn` and `Xsx` switch paramteres no longer part of axis config. See [Digital Inputs]()
-  * Hidden parameter segment microsecond (ms) has been removed
-  * Hidden parameter minimum line length (ml) has been removed
-* Added G10 L20 support
+  * `fd` JSON footer depth retired. Fd is now always zero (0), making the footer object `f` a peer object to the response object `r`
+  * `st` switch type removed. See [Digital Inputs]()
+  * `Xsn` and `Xsx` switch parameters removed from axis config. See [Digital Inputs]()
+  * `ms` segment microsecond hidden parameter has been removed
+  * `ml` minimum line length hidden parameter has been removed
 * Status Codes have some changes
   * Also have been broken out into a separate `error.h` file 
-  * See Status Codes
+  * See [Status Codes]()
+* Added G10 L20 support
 
 <br>
 This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
