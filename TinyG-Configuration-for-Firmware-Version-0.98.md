@@ -1,7 +1,7 @@
 **The settings on this page are for firmware version 0.98.**
 **Version 0.98 is currently experimental, and can be found in the Edge branch as firmware build 444.xx**  
 
-If you are running a "stock" tinyg please use one of the configuration pages below - and you probably have fv 0.97. The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 435.xx and later.
+If you are running a "stock" tinyg please use one of the configuration pages below - and you probably have fv 0.97. The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 440.xx.
 
 See also:
 * [Configuration Main Page](TinyG-Configuration)
@@ -9,6 +9,30 @@ See also:
 * [Configuration for Version 0.96](TinyG-Configuration-for-Firmware-Version-0.96)
 * [Configuration for Version 0.95](TinyG-Configuration-for-Firmware-Version-0.95) 
 * [Configuration for Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
+
+# Main Differences Between 0.97 and 0.98
+* Digital inputs are now set up as configurable "objects" that allow individual inputs to be:
+  * Set as NO or NC operations (active HI or active LO)
+  * Mapped to an immediate action, such as feedhold, halt, shutdown, or reset
+  * Mapped to a function such as limit switch, homing, probing, shutdown, or safety interlock
+  * Switch state is available for inspection in text mode and JSON mode
+  * See Digital Inputs on this page
+* New Homing Behavior. Homing is more accurate and easier to configure
+  * Takes advantage of new digital inputs
+  * Switches can be independent or "ganged", and mix of NO/NC styles
+  * Homing performs a 2 pass sequence and records exact step position on switch close
+  * See Homing Configuration on this page
+* Status Codes have some changes
+  * Also have been broken out into a separate `error.h` file 
+  * See Status Codes
+* Parameters Added - The following parameters and queries have been added
+  * g92e - indicates if g92 offsets are active
+  * pwrN - return `1` when motors 1 - N are enabled
+* Retired - the following commands have been retired
+  * JSON footer depth (fd parameter) has ben retired. Footer depth is always zero (0), making the footer object `f` a peer object to the response object `r`
+  * Hidden parameter segment microsecond (ms) has been removed
+  * Hidden parameter minimum line length (ml) has been removed
+* Added G10 L20 support
 
 <br>
 This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
