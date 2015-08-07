@@ -103,7 +103,7 @@ Settings specific to a given axis. There are 6 axis groups, X,Y,Z linear axes, a
 	[$xtn](#xtn-xtm---travel-minimum-travel-maximum) | Travel minimum | Minimum travel in absolute coordinates. Used by homing and soft limits 
 	[$xtm](#xtn-xtm---travel-minimum-travel-maximum) | Travel maximum | Maximum travel in absolute coordinates. Used by homing and soft limits 
 	[$xjm](#xjm---jerk-maximum) | Jerk maximum | Main parameter for acceleration management (Note: takes the place of a max acceleration value)
-	[$xjh](#xjh---jerk-high) | Jerk High | Jerk used for high-speed operations. (found on axes XYZA only)
+	[$xjh](#xjh---jerk-high) | Jerk High | Jerk used for high-speed operations such as homing and halting
 	[$xjd](#xjd---junction-deviation) | Junction deviation | Sets the theoretical radius For cornering control. Larger values yield faster cornering, but more corner jerk.
 	[$ara](#ara---radius-value) | Radius setting | An artificial radius to convert incoming linear values to degrees. Found on rotational axes (ABC) only.
 	[$xhi](#homing-settings) | Homing Input | an input from 1-8
