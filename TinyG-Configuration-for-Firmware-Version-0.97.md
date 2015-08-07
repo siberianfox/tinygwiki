@@ -1,5 +1,5 @@
 **The settings on this page are for firmware version 0.97.** 
-The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 435.xx and later.
+The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 440.xx and later.
 
 See also:
 * [Configuration Main Page](TinyG-Configuration)
