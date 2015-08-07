@@ -16,23 +16,24 @@ See also:
   * Mapped to an immediate action, such as feedhold, halt, shutdown, or reset
   * Mapped to a function such as limit, homing, probing, shutdown, or safety interlock
   * Switch state is available for inspection in text mode and JSON mode
-  * See Digital Inputs on this page
+  * See [Digital Inputs]() on this page
 * New Homing Behavior. Homing is more accurate and easier to configure
   * Takes advantage of new digital inputs
   * Switches can be independent or "ganged", and mix of NO/NC styles
   * Homing performs a 2 pass sequence and records exact step position on switch close
-  * See Homing Configuration on this page
-* Status Codes have some changes
-  * Also have been broken out into a separate `error.h` file 
-  * See Status Codes
+  * See [Homing Configuration]() on this page
 * Parameters Added - The following parameters and queries have been added
   * g92e - indicates if g92 offsets are active
   * pwrN - return `1` when motors 1 - N are enabled
 * Retired - the following commands have been retired
   * JSON footer depth (fd parameter) has ben retired. Footer depth is always zero (0), making the footer object `f` a peer object to the response object `r`
+  * `Xsn` and `Xsx` switch paramteres no longer part of axis config. See [Digital Inputs]()
   * Hidden parameter segment microsecond (ms) has been removed
   * Hidden parameter minimum line length (ml) has been removed
 * Added G10 L20 support
+* Status Codes have some changes
+  * Also have been broken out into a separate `error.h` file 
+  * See Status Codes
 
 <br>
 This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
