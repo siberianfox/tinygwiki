@@ -1,8 +1,11 @@
-**The settings on this page are for firmware version 0.97.** 
-The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 435.xx and later.
+**The settings on this page are for firmware version 0.98.**
+**Version 0.98 is currently experimental, and can be found in the Edge branch as firmware build 444.xx**  
+
+If you are running a "stock" tinyg please use one of the configuration pages below - and you probably have fv 0.97. The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 435.xx and later.
 
 See also:
 * [Configuration Main Page](TinyG-Configuration)
+* [Configuration for Version 0.97](TinyG-Configuration-for-Firmware-Version-0.97)
 * [Configuration for Version 0.96](TinyG-Configuration-for-Firmware-Version-0.96)
 * [Configuration for Version 0.95](TinyG-Configuration-for-Firmware-Version-0.95) 
 * [Configuration for Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
