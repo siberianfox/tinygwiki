@@ -1,3 +1,8 @@
+### ATTENTION WINDOWS USERS
+
+###If you are using windows and attempting the TG-Updater there currently is a BUG!  We are working to resolve this but for now please use this method: [Avrdude Method](https://github.com/synthetos/TinyG/wiki/TinyG-Updating-Firmware#updating-tinyg-with-avrdude)
+
+
 #TinyG Updater App
 The TG Updater App is a full on gui application that allows you to update your TinyG v6-v8 (no v9 support at this time) firmware with minimal effort on your part.  One thing to note is you should backup your current TinyG's settings.  You will lose them on your update.
 Quick and fast way is to use Coolterm and run $$.  Save that output for later.
