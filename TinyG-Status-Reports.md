@@ -114,7 +114,7 @@ Incremental status report setup is supported as of build 440.22. Everything abov
  
 Error conditions:
   - All failures leave original status report list untouched
-  - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH
-  - A key that is not recognized fails with STAT_UNRECOGNIZED_NAME
-  - A value other than 't', or 'f' fails with STAT_UNSUPPORTED_TYPE
-  - Malformed JSON fails as usual
+  - A key that is not recognized fails with STAT_UNRECOGNIZED_NAME (stat=100)
+  - A value other than 't', or 'f' fails with STAT_INPUT_VALUE_RANGE_ERROR (stat=110)
+  - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH (stat=107)
+  - Malformed JSON (bad syntax) fails as usual (stat=111)
