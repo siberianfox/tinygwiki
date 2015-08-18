@@ -105,15 +105,16 @@ Incremental status report setup is supported as of build 440.22. Everything abov
 
  * `{sr:f}` removes all status reports (clears)
  * `{sr:t}` restores status reports to default settings for the stored profile
- * `{sr:{<key1>:t,...<keyN>:t}}` adds <key1> through <keyN> to the status report list
- * `{sr:{<key1>:f,...<keyN>:t}}` removes <key1> through <keyN> from the status report list
+ * `{sr:{<key1>:t,...<keyN>:t}}` adds key1 through keyN to the status report list
+ * `{sr:{<key1>:f,...<keyN>:t}}` removes key1 through keyN from the status report list
  
+
   - Lines may have a mix of t and f pairs
   - List ordering is not guaranteed in the case of mixed removes and adds in the same command
  
 Error conditions:
-  - All failures leave original SR list untouched
+  - All failures leave original status report list untouched
   - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH
-  - A token that is not recognized fails with STAT_UNRECOGNIZED_NAME
+  - A key that is not recognized fails with STAT_UNRECOGNIZED_NAME
   - A value other than 't', or 'f' fails with STAT_UNSUPPORTED_TYPE
   - Malformed JSON fails as usual
