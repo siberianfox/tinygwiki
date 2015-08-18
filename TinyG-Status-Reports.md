@@ -1,4 +1,4 @@
-# Status Reports in JSON
+## Status Reports
 Status reports provide a view of what's going on in the controller. They report "dynamic gcode model" state. In plain English, they tell you where you are (position), if the machine is moving, how fast, what it's doing, when a move is done, and other stuff as well. They can be returned on-demand, or can be automatically generated during movement so you can see move progress. They are delivered in JSON so the UI can use it, or can be delivered in plain test for a command-line user.  
 
 The following variables can be reported in a status report
@@ -90,7 +90,8 @@ Filtered status reports `{sv:1}` return only variables that have changed since t
 {si:250}      request status reports every 250 ms during movement
 </pre> 
 
-### Set Status Report Fields - Firmware Build 440.21 and earlier
+##Setting Status Report Fields
+#### Set Status Report Fields - Firmware Build 440.21 and earlier
 In addition to on-demand and automatic status reports, JSON mode also supports setting the fields to be displayed in status reports. Although this command is only supported in JSON mode, the fields set in JSON apply to both JSON and text mode reports.
 
 Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. For example, the string below could be used to set up the status report in the example above. It will eliminate any previously recorded settings. Note that the `t` is not in quotes - it is actually an abbreviated JSON value for `true`, not a string that says "true". Example:
@@ -100,7 +101,7 @@ Variables to be included in a status reports are selected by setting values to '
 
 In firmware build 440.21 and below there is no incremental setting of variables - all variables are reset and must be specified in a single SET command. _See Incremental Status Report Setting (below) for further details_
 
-### Set Status Report Fields - Firmware Build 440.22 and later
+#### Set Status Report Fields - Firmware Build 440.22 and later
 Incremental status report setup is supported as of build 440.22. Everything above still applies except that sending a status report setup string will add to the existing settings. Behaviors are:
 
  * `{sr:f}` removes all status reports (clears)
