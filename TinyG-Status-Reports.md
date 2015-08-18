@@ -101,19 +101,19 @@ Variables to be included in a status reports are selected by setting values to '
 In firmware build 440.21 and below there is no incremental setting of variables - all variables are reset and must be specified in a single SET command. _See Incremental Status Report Setting (below) for further details_
 
 ### Set Status Report Fields - Firmware Build 440.22 and later
-Incremental status report setup is supported as of build 440.22. Everything above still applies except that sending a status report setup string will add to the existing settings. Full behaviors are below
+Incremental status report setup is supported as of build 440.22. Everything above still applies except that sending a status report setup string will add to the existing settings. Behaviors are:
 
  * `{sr:f}` removes all status reports (clears)
  * `{sr:t}` restores status reports to default settings for the stored profile
  * `{sr:{<key1>:t,...<keyN>:t}}` adds <key1> through <keyN> to the status report list
  * `{sr:{<key1>:f,...<keyN>:t}}` removes <key1> through <keyN> from the status report list
  
-    - Lines may have a mix of t and f pairs
-    - List ordering is not guaranteed in the case of mixed removes and adds in the same command
+  - Lines may have a mix of t and f pairs
+  - List ordering is not guaranteed in the case of mixed removes and adds in the same command
  
-   Error conditions:
-    - All failures leave original SR list untouched
-    - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH
-    - A token that is not recognized fails with STAT_UNRECOGNIZED_NAME
-    - A value other than 't', or 'f' fails with STAT_UNSUPPORTED_TYPE
-    - Malformed JSON fails as usual
+Error conditions:
+  - All failures leave original SR list untouched
+  - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH
+  - A token that is not recognized fails with STAT_UNRECOGNIZED_NAME
+  - A value other than 't', or 'f' fails with STAT_UNSUPPORTED_TYPE
+  - Malformed JSON fails as usual
