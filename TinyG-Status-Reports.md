@@ -21,16 +21,16 @@ The following variables can be reported in a status report
 	mots | motion state | internal state for deeper inspection
 	hold | hold state | internal state for deeper inspection
 
-The following are available for all axes, XYZABC. Only `pos` is expanded for illustration
+The following are available for all axes, XYZABC. Only *posX* is shown for all axes for illustration. The rest are implied.
 
 	Request | Response | Description
 	---------|--------------|-------------
 	posx | x work position | X work position in prevailing units (mm or inch) 
-	posy | y work position
-	posz | z work position
-	posa | a work position
-	posb | b work position
-	posc | c work position
+	_posy_ | _y work position_
+	_posz_ | _z work position_
+	_posa_ | _a work position_
+	_posb_ | _b work position_
+	_posc_ | _c work position_
 	mpox | x absolute position | X machine position in absolute coordinate system (mm or inch).
 	g92x | offset | G92 origin offset for X axis
 	g54x | coord 1 offset | X axis G54 coordinate system offset
@@ -48,7 +48,7 @@ It's also worth noting that any variable can be independently queried as an indi
 
 ## Text Mode Status Reports
 ### Text Mode On-Demand Status Reports
-Enter a '?' to get a status report in text mode.
+Enter a `?` to get a status report in text mode.
 
 ### Text Mode Automatic Status Reports
 Automatically generated status reports may enabled with `$sv=1` or `$sv=2` and a corresponding status interval `$si=250` set in milliseconds. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
@@ -64,32 +64,56 @@ $si=250    request status reports every 250 ms during movement
 ## JSON Mode Status Reports
 JSON mode status reports are parent/child objects with a "sr" parent and one or more child NV pairs, as in the example below.<br> 
 
-    {"sr": {"line":1245, "posx":23.4352, "posx":-9.4386, "posx":0.125, "vel":600, "unit":"1", "stat":"5"}"f":[1,0,19,2131]}}
+<pre>
+{"sr":{"line":1245,"posx":23.4352,"posx":-9.4386,"posx":0.125,"vel":600,"unit":"1","stat":"5"}}
+</pre>
 
 ### JSON Mode On-Demand Status Reports
-This will return a single status report. The two forms below are equivalent.
+The following will return a single status report. The forms below are equivalent.
 <pre>
-{"sr":""}
-{"sr":null}         the `null` value is used instead of "" in this case. Either are accepted.
+{"sr":null}    request status report in strict JSON mode
+{"sr":n}       same as above but null is abbreviated to n
+{sr:n}         request status report in relaxed JSON mode
+
+Note that JSON can be received in either strict or relaxed mode, but results 
+will be will be returned in strict or relaxed mode depending on {js:N} setting
 </pre> 
 
 ### JSON Mode Automatic Status Reports
-Automatically generated status reports may enabled with {"sv":1} or {"sv":2}. Reports will be generated for each new command entered, during movement every N milliseconds, and when the machine has stopped (i.e. at the end of the final move in the buffer).
+Automatically generated status reports may enabled with `{sv:1}` or `{sv:2}`. Reports will be generated for each new command entered, during movement every N milliseconds according to `{si:N}`, and when the machine has stopped (i.e. at the end of the final move in the buffer).
 
-Filtered status reports `{"sv":1}` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time.
+Filtered status reports `{sv:1}` return only variables that have changed since the previous report. This saves serial bandwidth and host processing time. However, "stat" is always returned for a final report (i.e. after movement has stopped) so that UI's can reliably know that motion is complete (stat=3) or an M2/M30 program end has been received (stat=4). We recommend using filtered status reports for all UIs.
 <pre>
-{"sv":0}      turn off automatic status reports
-{"sv":1}      turn on filtered automatic status reports
-{"sv":2}      turn on unfiltered automatic status reports
-{"si":200}    request status reports every 200 ms during movement
+{sv:0}        turn off automatic status reports
+{sv:1}        turn on filtered automatic status reports
+{sv:2}        turn on unfiltered automatic status reports
+{si:250}      request status reports every 250 ms during movement
 </pre> 
 
-### Set Status Report Fields
+### Set Status Report Fields - Firmware Build 440.21 and earlier
 In addition to on-demand and automatic status reports, JSON mode also supports setting the fields to be displayed in status reports. Although this command is only supported in JSON mode, the fields set in JSON apply to both JSON and text mode reports.
 
-Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. There is no incremental setting of variables - all variables are reset and must be specified in a single SET command. 
-
-For example, the string below could be used to set up the status report in the example above, and eliminate any previously recorded settings. Note that the 'true' term is not in quotes - it is actually the JSON value for `true`, not a string that says "true". Example:
+Variables to be included in a status reports are selected by setting values to 'true'. These variables will be returned on subsequent SR requests in the order they were provided in the SET command. For example, the string below could be used to set up the status report in the example above. It will eliminate any previously recorded settings. Note that the `t` is not in quotes - it is actually an abbreviated JSON value for `true`, not a string that says "true". Example:
 <pre>
-{"sr":{"line":true,"posx":true, "posy":true,"posz":true, "vel":true, "unit":true, "stat":true}}
+{sr:{line:t,posx:t,posy:t,posz:t,vel:t,unit:t,stat:t}}
 </pre> 
+
+In firmware build 440.21 and below there is no incremental setting of variables - all variables are reset and must be specified in a single SET command. _See Incremental Status Report Setting (below) for further details_
+
+### Set Status Report Fields - Firmware Build 440.22 and later
+Incremental status report setup is supported as of build 440.22. Everything above still applies except that sending a status report setup string will add to the existing settings. Full behaviors are below
+
+ * `{sr:f}` removes all status reports (clears)
+ * `{sr:t}` restores status reports to default settings for the stored profile
+ * `{sr:{<key1>:t,...<keyN>:t}}` adds <key1> through <keyN> to the status report list
+ * `{sr:{<key1>:f,...<keyN>:t}}` removes <key1> through <keyN> from the status report list
+ 
+    - Lines may have a mix of t and f pairs
+    - List ordering is not guaranteed in the case of mixed removes and adds in the same command
+ 
+   Error conditions:
+    - All failures leave original SR list untouched
+    - An attempt to add an element that exceeds list max fails with STAT_INPUT_EXCEEDS_MAX_LENGTH
+    - A token that is not recognized fails with STAT_UNRECOGNIZED_NAME
+    - A value other than 't', or 'f' fails with STAT_UNSUPPORTED_TYPE
+    - Malformed JSON fails as usual
