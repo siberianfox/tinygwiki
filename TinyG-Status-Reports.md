@@ -1,7 +1,5 @@
 # Status Reports in JSON
-Status reports return the dynamic gcode model state. In plain English, they tell you where you are. And other stuff as well. This is useful for the user or the UI to know what's happening in the machine. For example, hitting '?' from the command line will return the current XYZ position, the inches/mm units mode, and some other relevant data.
-
-Status reports can also be automatically generated during movement so you can see move progress. 
+Status reports provide a view of what's going on in the controller. They report "dynamic gcode model" state. In plain English, they tell you where you are (position), if the machine is moving, how fast, what it's doing, when a move is done, and other stuff as well. They can be returned on-demand, or can be automatically generated during movement so you can see move progress. They are delivered in JSON so the UI can use it, or can be delivered in plain test for a command-line user.  
 
 The following variables can be reported in a status report
 
@@ -10,7 +8,7 @@ The following variables can be reported in a status report
 	n | line_number | Gcode line number (N word)
 	vel | velocity | actual velocity - may be different than programmed feed rate 
 	feed | feed_rate          | gcode programmed feed rate (F word) 
-	stat | machine_state      | 1=reset, 2=shutdown, 3=stop, 4=end, 5=run, 6=hold, 9=homing 
+	stat | machine_state      | 1=reset, 2=alarm, 3=stop, 4=end, 5=run, 6=hold, 7=probe, 9=homing 
 	unit | units_mode         | 0=inch, 1=mm
 	coor | coordinate_system  | 0=g53, 1=g54, 2=g55, 3=g56, 4=g57, 5=g58, 6=g59
 	momo | motion_mode        | 0=traverse, 1=straight feed, 2=cw arc, 3=ccw arc
@@ -18,7 +16,10 @@ The following variables can be reported in a status report
 	path | path_control_mode  | 0=exact stop, 1=exact path, 2=continuous
 	dist | distance_mode      | 0=absolute distance mode, 1=incremental distance mode
 	frmo | feed_rate_mode     | 0=units-per-minute-mode, 1=inverse-time-mode
-	gc | gcode_block        | gcode block currently being run
+	macs | internal machine state | internal state for deeper inspection
+	cycs | internal cycle state | internal state for deeper inspection
+	mots | internal motion state | internal state for deeper inspection
+	hold | internal hold state | internal state for deeper inspection
 
 The following are available for all axes, XYZABC. Only `pos` is expanded for illustration
 
