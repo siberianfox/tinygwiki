@@ -3,7 +3,7 @@ _This is an experimental page_
 ###JSON Request Objects
 To date, there have been no request objects to wrap an incoming command to TinyG. TinyG accepts the following types of commands without any wrappers:
 
-- Gcode block - e.g. N20 G0 X111.3 Y 21.0
+- Gcode block - e.g. N20 G0 X111.3 Y21.0
 - JSON command - e.g. {"xvm":15000} 
 - Text command - e.g. $x
 - Special character - includes !, ~, %, ^x
