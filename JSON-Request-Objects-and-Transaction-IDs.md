@@ -17,19 +17,32 @@ JSON request objects support wrapping the above in JSON. The reasons for this in
 ###JSON Request Wrappers
 The following elements can be present in a request wrapper.
 
-- **Command Line**. One of:
+- **Command Line** Mandatory String. One of:
 
         {cmd:"<command>"}    command is either control or data (unidentified)
         {ctl:"<command>"}    command is a control
         {dat:"<command>"}    command is data (Gcode)
 
-    There must be a command in a request and there can only be 1 command per request<br>
-    JSON commands may have escapes for quotes. _When in doubt, see [jsonlint](http://jsonlint.org/)_<br>
+  - There must be a command in a request and there can only be one command per request
+  - JSON commands may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
+  - Examples:
 
-- **Transaction ID**:
+          {cmd:"N20 G0 X111.3 Y21.0"}
+          {cmd:"{\"xvm\":15000}"}
+
+- **Transaction ID** Optional. Numeric. Format:
 
         {tid:<txn_ID>}
 
+  - The transaction ID is a number from 1 - 1,000,000 (will increase to 4B) (Zero is considered "no ID")
+  - If a transaction ID is present tid:NNNN will be provided in the response to that command
+  - Examples:
+
+          {tid:42}
+          {cmd:"{\"xvm\":15000}",tid:42}
+          {tid:42,cmd:"{\"xvm\":15000}"}
+
+### Handling
 Valid form
   - Handling is:
     - Gcode block - will return JSON response to Gcode
