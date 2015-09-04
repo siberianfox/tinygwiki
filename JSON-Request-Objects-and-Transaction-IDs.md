@@ -4,26 +4,26 @@ _This is an experimental page_
 TinyG JSON handling has for a long time now provided an r{} response to commands entered in JSON mode. To date, there have been no request objects to wrap an incoming command to TinyG. TinyG accepts the following types of commands without any wrappers:
 
 - Gcode block - e.g. N20 G0 X111.3 Y21.0
-- JSON command - e.g. {"xvm":15000} 
+- JSON command - e.g. {"xvm":15000} or {x:n}
 - Text command - e.g. $xvm=15000
 - Special characters:  !, ~, %, ^x
 
-This page discusses how JSON request objects will support wrapping the above in JSON. The reasons for this include:
+This page discusses how JSON request objects support wrapping the above in JSON. The reasons for this include:
 
-- Supporting a transaction ID that is independent of the command
-- Allowing the sender to distinguish between control, data and 'either' commands
-- Supporting explicit routing of requests to specific endpoints (addressing)
+- Support a transaction ID that is independent of the command
+- Allow the sender to label commands as 'control', 'data' or 'either'
+- Support explicit routing of requests to specific endpoints (a form of command addressing)
 
 ###JSON Request Wrappers
 The following elements can be present in a request wrapper.
 
-- **Command Line** Mandatory String. One of:
+- **Command Line** Mandatory. String. One of:
 
-        {cmd:"<command>"}    command is either control or data (unidentified)
         {ctl:"<command>"}    command is a control
-        {dat:"<command>"}    command is data (Gcode)
+        {dat:"<command>"}    command is data (i.e. Gcode)
+        {cmd:"<command>"}    command is either control or data (unidentified)
 
-  - There must be a command in a request and there can only be one command per request
+  - A command is mandatory in a request and there can only be one command per request
   - JSON commands may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
   - Examples:
 
@@ -34,12 +34,10 @@ The following elements can be present in a request wrapper.
 
         {tid:<txn_ID>}
 
-  - The transaction ID is a number from 1 - 1,000,000. Zero is considered "no ID". _(Note: range will be increased to 4 billion)_
-  - If transaction ID is present it will be returned in the `r` response for that command
-  - A lone tid (with no command) will simply be returned in the response when it is processed
+  - The transaction ID is a number from 1 - 1,000,000. Zero is considered "no ID". _(Note: range will be 4 billion)_
+  - If transaction ID is present it will be returned in the r{} response for that command
   - Examples:
 
-          {tid:42}
           {cmd:"{\"xvm\":15000}",tid:42}    not order dependent
           {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
 
@@ -65,7 +63,7 @@ The following describes how different types of commands are handled and what to 
   - If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
 
 - **Special Characters**
-  - The special characters and their JSON wrapping are listed below:
+  - The special characters and their JSON wrappings are listed below:
 
     <pre>
     !     ctl:"!"     feedhold
@@ -76,6 +74,7 @@ The following describes how different types of commands are handled and what to 
     </pre>
 
   - Note these operational differences if these commands are wrapped instead of sent as single chars:
-    - A tid may be included with the command
+    - An r{} response will be generated for the command (Single character commands to not have responses)
+    - A tid may be included in the request and response
     - The command may be routed to a destination endpoint
     - The command will be received as a control line and processed in-turn as a control, potentially behind any previously queued controls. Note also that the act of processing the command as JSON will add approximately 5 - 10 milliseconds to the service time versus the equivalent unwrapped command.
