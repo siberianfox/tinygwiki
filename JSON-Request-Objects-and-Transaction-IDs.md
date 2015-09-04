@@ -34,8 +34,8 @@ The following elements can be present in a request wrapper.
 
         {tid:<txn_ID>}
 
-  - The transaction ID is a number from 1 - 1,000,000 (will increase to 4B) (Zero is considered "no ID")
-  - If a transaction ID is present tid:NNNN will be provided in the response to that command
+  - The transaction ID is a number from 1 - 1,000,000. Zero is considered "no ID". _(Note: range will be increased to 4 billion)_
+  - If transaction ID is present it will be returned in the `r` response for that command
   - A lone tid (with no command) will simply be returned in the response when it is processed
   - Examples:
 
@@ -44,6 +44,8 @@ The following elements can be present in a request wrapper.
           {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
 
 ### Handling
+The following describes how different types of commands are handled, and what to expect in the responses.
+
 Valid form
   - Handling is:
     - Gcode block - will return JSON response to Gcode
