@@ -8,11 +8,11 @@ TinyG JSON handling has for a long time now provided an r{} response to commands
 - Text command - e.g. $xvm=15000
 - Special characters:  !, ~, %, ^x
 
-JSON request objects support wrapping the above in JSON. The reasons for this include:
+This page discusses how JSON request objects will support wrapping the above in JSON. The reasons for this include:
 
 - Supporting a transaction ID that is independent of the command
 - Allowing the sender to distinguish between control, data and 'either' commands
-- Supporting routing of requests to specific endpoints (addressing)
+- Supporting explicit routing of requests to specific endpoints (addressing)
 
 ###JSON Request Wrappers
 The following elements can be present in a request wrapper.
@@ -43,29 +43,39 @@ The following elements can be present in a request wrapper.
           {cmd:"{\"xvm\":15000}",tid:42}    not order dependent
           {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
 
-- **Routing Tag** TBD
+- **Routing Tag** TBD later
 
 ### Handling
-The following describes how different types of commands are handled, and what to expect in the responses.
+The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
+  - The request will be executed as Gcode. 
+  - An r{} response will be generated as is currently done. 
+  - If a tid was provided in the request it will returned in the r{}.
 
-  Handling is simple. The request will be executed as Gcode. An r{} response 
-    - Gcode block - will return JSON response to Gcode
-    - JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
+- **JSON Command**
+  - The JSON will be executed as per usual. 
+  - An r{} response will be generated as is currently done. 
+  - If a tid was provided in the request it will returned in the r{}.
 
+- **Text Mode Command**
+  - This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. 
+  - The text-mode request will be executed as per the $ command. 
+  - The response from the text-mode command will be returned in a "msg" tag with the response in the string.
+  - If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
 
-Valid request wrapper forms:
+- **Special Characters**
+  - The special characters and their JSON wrapping are listed below:
 
-    {tid:<txn_number>,cmd:"<command>"}
-    {tid:<txn_number>,ctl:"<command>"}
-    {tid:<txn_number>,dat:"<command>"}
+    <pre>
+    !     ctl:"!"     feedhold
+    ~     ctl:"~"     cycle start (resume)
+    %     ctl:"%"     queue flush
+    ^x    ctl:"CAN"   cancel (^x by itself is non-printable ASCII)
+    ^x    ctl:"can"   cancel (as above)
+    </pre>
 
-    {cmd:"<command>",tid:<txn_number>}
-    {ctl:"<command>",tid:<txn_number>}
-    {dat:"<command>",tid:<txn_number>}
-
-
-If in doubt, test the full request object 
-
-, or a text mode command
+  - Note these operational differences if these commands are wrapped instead of sent as single chars:
+    - A tid may be included with the command
+    - The command may be routed to a destination endpoint
+    - The command will be received as a control line and processed in-turn as a control, potentially behind any previously queued controls. Note also that the act of processing the command as JSON will add approximately 5 - 10 milliseconds to the service time versus the equivalent unwrapped command.
