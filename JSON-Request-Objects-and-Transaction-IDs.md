@@ -36,11 +36,12 @@ The following elements can be present in a request wrapper.
 
   - The transaction ID is a number from 1 - 1,000,000 (will increase to 4B) (Zero is considered "no ID")
   - If a transaction ID is present tid:NNNN will be provided in the response to that command
+  - A lone tid (with no command) will simply be returned in the response when it is processed
   - Examples:
 
           {tid:42}
-          {cmd:"{\"xvm\":15000}",tid:42}
-          {tid:42,cmd:"{\"xvm\":15000}"}
+          {cmd:"{\"xvm\":15000}",tid:42}    not order dependent
+          {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
 
 ### Handling
 Valid form
