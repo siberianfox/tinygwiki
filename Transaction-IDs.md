@@ -3,9 +3,16 @@ _This is an experimental page_
 Request wrapper format:
 
     <pre>
-    {s:"<command string>",t:<txn_number>}
-    {c:"<command string>",t:<txn_number>}
-    {d:"<command string>",t:<txn_number>}
+    Valid forms:
+    {cmd:"<command string>"}
+    {ctl:"<command string>"}
+    {dat:"<command string>"}
+    {tid:<txn_number>,cmd:"<command string>"}
+    {tid:<txn_number>,ctl:"<command string>"}
+    {tid:<txn_number>,dat:"<command string>"}
+    {cmd:"<command string>",tid:<txn_number>}
+    {ctl:"<command string>",tid:<txn_number>}
+    {dat:"<command string>",tid:<txn_number>}
     </pre>
 
 
