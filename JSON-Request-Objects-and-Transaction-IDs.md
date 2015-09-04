@@ -17,15 +17,15 @@ JSON request objects support wrapping the above in JSON. The reasons for this in
 ###JSON Request Wrappers
 The following elements can be present in a request wrapper.
 
-**Command Line**. One of:
+- **Command Line**. One of:
 
     {cmd:"<command string>"}    command is either control or data (unidentified)
     {ctl:"<command string>"}    command is a control
     {dat:"<command string>"}    command is data (Gcode)
 
-Handling is:
-- Gcode block - will return JSON response to Gcode
-- JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
+  - Handling is:
+    - Gcode block - will return JSON response to Gcode
+    - JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
 
 
 Valid request wrapper forms:
