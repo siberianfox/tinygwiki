@@ -5,8 +5,8 @@ To date, there have been no request objects to wrap an incoming command to TinyG
 
 - Gcode block - e.g. N20 G0 X111.3 Y21.0
 - JSON command - e.g. {"xvm":15000} 
-- Text command - e.g. $x
-- Special character - includes !, ~, %, ^x
+- Text command - e.g. $xvm=15000
+- Special characters - !, ~, %, ^x
 
 JSON request objects support wrapping the above in JSON. The reasons for this include:
 
