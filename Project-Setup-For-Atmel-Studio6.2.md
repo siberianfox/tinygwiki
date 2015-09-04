@@ -14,7 +14,7 @@ We use VMware running Windows 7 on Max OSX (10.9 or 10.10). Here's what we've le
 * _Note that if you are installing under VMware and have your project files in a shared volume (//vmware-host/...) you will need to map a network drive so that AS6.2 can see a windows path as opposed to a UNC path. You can tell by looking at the full filepath in the directory window to see if it contains Z:\... (or Y:\...)  If not then the IDE will not be able to compile._
 
 ### Get The Studio6.2 Complete Install Kit
-* Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET Framework 4 part. It's about 800 Mbytes. Current build is build 1548, service pack 2 (as of Sept, 2015).
+* Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET Framework 4 part. It's about 800 Mbytes. Current build is build 1563, service pack 2 (as of Sept, 2015).
 * Walk through the entire installation process. You will not need the Atmel Solutions framework when asked. You will need the USB drivers when asked.
 
 ### Get a Hardware Programmer
@@ -54,7 +54,7 @@ Use GDB as the debugger. Select the AVR8 version. FRom the ADVANCED tab of the T
 They disappear into little open circles with tiny triangular warnings. You must compile in Debug, not Release profile.
 
 #### AtmelStudio6 fails verification when programming the xmega
-We've seen this with earlier versions and Studio6.0 builds. We have not heard of this yet for AS6.2. Make sure you are up to Studio6.**2** build 1543, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
+We've seen this with earlier versions and Studio6.0 builds. We have not heard of this yet for AS6.2. Make sure you are up to Studio6.**2** build 1563, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
 
 We've found that even though the verification failed the programming is good. You can either turn off verification or chose to ignore the warning. By the way - we've never seen this failure on Studio4. I actually think this is a bug in Studio6 rather than and actual failure. I have not seen any code die or act erratically when I get these errors.
 
@@ -67,4 +67,3 @@ Who knows why this happens. The get the debugger (simulator) back do the followi
 
 
 (1) It gets worse. If you mess up and do things wrong studio6 will remember your paths in "recents" and fail the next time you try to set something up because things aren't where it thinks they should be. You have to go to the File/Recent Projects and Solutions, try to open the old paths, then remove them when they can't be found (you must have deleted the directories beforehand)
-
