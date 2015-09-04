@@ -1,7 +1,7 @@
 _This is an experimental page_
 
 ###JSON Request Objects
-To date, there have been no request objects to wrap an incoming command to TinyG. TinyG accepts the following types of commands without any wrappers:
+TinyG JSON handling has for a long time now provided an r{} response to commands entered in JSON mode. To date, there have been no request objects to wrap an incoming command to TinyG. TinyG accepts the following types of commands without any wrappers:
 
 - Gcode block - e.g. N20 G0 X111.3 Y21.0
 - JSON command - e.g. {"xvm":15000} 
@@ -43,11 +43,14 @@ The following elements can be present in a request wrapper.
           {cmd:"{\"xvm\":15000}",tid:42}    not order dependent
           {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
 
+- **Routing Tag** TBD
+
 ### Handling
 The following describes how different types of commands are handled, and what to expect in the responses.
 
-Valid form
-  - Handling is:
+- **Gcode Block**
+
+  Handling is simple. The request will be executed as Gcode. An r{} response 
     - Gcode block - will return JSON response to Gcode
     - JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
 
