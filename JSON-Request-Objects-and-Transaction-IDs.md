@@ -19,10 +19,18 @@ The following elements can be present in a request wrapper.
 
 - **Command Line**. One of:
 
-    {cmd:"<command string>"}    command is either control or data (unidentified)
-    {ctl:"<command string>"}    command is a control
-    {dat:"<command string>"}    command is data (Gcode)
+        {cmd:"<command>"}    command is either control or data (unidentified)
+        {ctl:"<command>"}    command is a control
+        {dat:"<command>"}    command is data (Gcode)
 
+    There must be a command in a request and there can only be 1 command per request<br>
+    JSON commands may have escapes for quotes. _When in doubt, see [jsonlint](http://jsonlint.org/)_<br>
+
+- **Transaction ID**:
+
+        {tid:<txn_ID>}
+
+Valid form
   - Handling is:
     - Gcode block - will return JSON response to Gcode
     - JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
@@ -30,14 +38,13 @@ The following elements can be present in a request wrapper.
 
 Valid request wrapper forms:
 
+    {tid:<txn_number>,cmd:"<command>"}
+    {tid:<txn_number>,ctl:"<command>"}
+    {tid:<txn_number>,dat:"<command>"}
 
-    {tid:<txn_number>,cmd:"<command string>"}
-    {tid:<txn_number>,ctl:"<command string>"}
-    {tid:<txn_number>,dat:"<command string>"}
-
-    {cmd:"<command string>",tid:<txn_number>}
-    {ctl:"<command string>",tid:<txn_number>}
-    {dat:"<command string>",tid:<txn_number>}
+    {cmd:"<command>",tid:<txn_number>}
+    {ctl:"<command>",tid:<txn_number>}
+    {dat:"<command>",tid:<txn_number>}
 
 
 If in doubt, test the full request object 
