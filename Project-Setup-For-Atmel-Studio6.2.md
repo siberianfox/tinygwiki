@@ -1,20 +1,20 @@
-This page provides in instructions to set up an Atmel Studio 6.2 project for TinyG. TinyG is maintained in this environment so all the project files are available. TinyG is also under development in various other environments that support AVRCCC, such as AVR Studio 4.
+This page provides in instructions to set up an Atmel Studio 6.2 project for TinyG. TinyG is maintained in this environment so all the project files are available.
 
 ## Setting Up TinyG as an Atmel Studio 6.2 Project
 
 ### Get a Windows Environment that will Support this
-We use VMware (5 or 6) running Windows 7 on Max OSX (10.8 or 10.9). Here's what we've learned about this setup
-* If you can, build a dedicated VM for this application. Who knows how Windows programs interact if you have more than one in an environment. 
-* Allocate 2 Gb of RAM to the W7 OS and about 40 - 60 Gb of disk. 
-* Select the option to break the disk into 2Gb chunks. 
-* Do not snapshot as it bloats the VM image. Make offline backups instead. 
-* Make sure the VM is set to the number of cores on your machine or it may run excessively slowly. There's some kind of bug in the communications if the cores are mismatched. This may have been fixed.
+We use VMware running Windows 7 on Max OSX (10.9 or 10.10). Here's what we've learned about this setup:
+* If you can, build a dedicated VM for this application. 
+* Allocate at least 2 Gb of RAM to the W7 OS. We use 4 Gb
+* Allocate about 40 - 60 Gb of disk, and select the option to break the disk into 2Gb chunks. 
+* Do not snapshot as it bloats the VM image. Make offline backups instead. Or snapshot, then remove it once you are satisfied with the results.
+* Make sure the VM is set to the number of cores on your machine or it may run excessively slowly. There's some kind of bug in the communications if the cores are mismatched. This may have been fixed in later VMware.
 * Use the C: drive only for installing the Studio6.2 and the rest of the tool chain 
 * Mount the Mac filesystem as an external filesystem and use this for all your project files. See note below:
-* _Note that if you are installing under VMware and have your project files in a shared volume (//vmware-host/...) you will need to map a network drive so that AS6.2 can see a windows path as opposed to a UNC path. You can tell by looking at the full filepath in the directory window to see if it starts with Z:\... or Y:\...  If not then the IDE will not be able to compile._
+* _Note that if you are installing under VMware and have your project files in a shared volume (//vmware-host/...) you will need to map a network drive so that AS6.2 can see a windows path as opposed to a UNC path. You can tell by looking at the full filepath in the directory window to see if it contains Z:\... (or Y:\...)  If not then the IDE will not be able to compile._
 
 ### Get The Studio6.2 Complete Install Kit
-* Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET part. It's about 700 Mbytes. Current build is build 1153.
+* Go to Atmel and sign up to download the entire Atmel Studio IDE 6.2 production install package, including the .NET Framework 4 part. It's about 800 Mbytes. Current build is build 1548, service pack 2 (as of Sept, 2015).
 * Walk through the entire installation process. You will not need the Atmel Solutions framework when asked. You will need the USB drivers when asked.
 
 ### Get a Hardware Programmer
@@ -37,7 +37,7 @@ This seems to be a known bug with AVRGCC 4.8.1. The fix is to compile under -O2.
 `-fno-align-functions  -fno-align-jumps  -fno-align-loops -fno-align-labels -fno-reorder-blocks -fno-reorder-blocks-and-partition -fno-prefetch-loop-arrays -fno-tree-vect-loop-version`
 
 #### Can't view ASCII strings in the debugger
-The problem is that ASCII display are shown as decimal or hedidecimal numbers. There is a way around this documented here: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
+The problem is that ASCII display are shown as decimal or hexidecimal numbers. There is a way around this documented here: http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=105137&start=0
 
 * Add the variable as a quickwatch and append ",c" to it. If the var is part of a struct you need the entire reference, e.g. tg.inbuf,c  Then add the quickwatch to the watch. Of course this is impractical if you have a lot of ASCII vars to track. Once you have made these time-consuming changes you will want to save your project.
 
@@ -54,7 +54,7 @@ Use GDB as the debugger. Select the AVR8 version. FRom the ADVANCED tab of the T
 They disappear into little open circles with tiny triangular warnings. You must compile in Debug, not Release profile.
 
 #### AtmelStudio6 fails verification when programming the xmega
-We've seen this with earlier versions and Studio6.0 build 1996. We have not heard of this yet for AS6.2. Make sure you are up to Studio6 build 1996, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
+We've seen this with earlier versions and Studio6.0 builds. We have not heard of this yet for AS6.2. Make sure you are up to Studio6.**2** build 1543, service pack 2. See the `help` tab. Also make sure you are on the latest firmware for your programmer (Atmel-ICE or AVRISP mkii).
 
 We've found that even though the verification failed the programming is good. You can either turn off verification or chose to ignore the warning. By the way - we've never seen this failure on Studio4. I actually think this is a bug in Studio6 rather than and actual failure. I have not seen any code die or act erratically when I get these errors.
 
