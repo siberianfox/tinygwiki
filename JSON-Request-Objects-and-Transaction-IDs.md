@@ -40,19 +40,22 @@ The following elements can be present in a request wrapper.
           {txt:"{\"xvm\":15000}",tid:42}       relaxed JSON mode, not order dependent
           {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-### Handling txt: Commands
-Commands are 
+### Adding Transaction IDs to Commands
 The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
   - The request will be executed as Gcode. 
-  - An r{} response will be generated as is currently done. 
-  - If a tid was provided in the request it will returned in the r{}.
+  - An r{} response will be generated with the tid returned in the response
+
+          {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
+
 
 - **JSON Command**
   - The JSON will be executed as per usual. 
-  - An r{} response will be generated as is currently done. 
-  - If a tid was provided in the request it will returned in the r{}.
+  - An r{} response will be generated with the tid returned in the response
+
+          {tid:12345,txt:"{\"xvm\":15000}"}
+
 
 - **Text Mode Command**
   - This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. 
