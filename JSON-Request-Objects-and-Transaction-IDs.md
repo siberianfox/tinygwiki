@@ -11,24 +11,23 @@ TinyG JSON handling has for a long time now provided an r{} response to commands
 This page discusses how JSON request objects support wrapping the above in JSON. The reasons for this include:
 
 - Support a transaction ID that is independent of the command
-- Allow the sender to label commands as 'control', 'data' or 'either'
+- Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
 ###JSON Request Wrappers
 The following elements can be present in a request wrapper.
 
-- **Command Line** Mandatory. String. One of:
+- **Text Command** Mandatory. String. Format:
 
-        {ctl:"<command>"}    command is a control
-        {dat:"<command>"}    command is data (i.e. Gcode)
-        {cmd:"<command>"}    command is either control or data (unidentified)
+        {txt:"<command>"}    command is arbitrary text
 
-  - A command is mandatory in a request and there can only be one command per request
-  - JSON commands may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
+  - The command is arbitrary text that may otherwise be entered without a JSON wrapper
+  - The command may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
   - Examples:
 
-          {cmd:"N20 G0 X111.3 Y21.0"}
-          {cmd:"{\"xvm\":15000}"}
+          {txt:"N20 G0 X111.3 Y21.0"}
+          {txt:"{\"xvm\":15000}"}
+          {txt:"$x"}
 
 - **Transaction ID** Optional. Numeric. Format:
 
@@ -38,12 +37,11 @@ The following elements can be present in a request wrapper.
   - If transaction ID is present it will be returned in the r{} response for that command
   - Examples:
 
-          {cmd:"{\"xvm\":15000}",tid:42}    not order dependent
-          {tid:42,cmd:"{\"xvm\":15000}"}    not order dependent
+          {txt:"{\"xvm\":15000}",tid:42}       relaxed JSON mode, not order dependent
+          {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-- **Routing Tag** TBD later
-
-### Handling
+### Handling txt: Commands
+Commands are 
 The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
