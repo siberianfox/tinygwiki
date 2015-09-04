@@ -14,7 +14,7 @@ This page discusses how JSON request objects support wrapping the above in JSON.
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
-###JSON Request Wrappers
+###JSON Wrappers
 The following elements can be present in a request wrapper.
 
 - **Text Command** Mandatory. String. Format:
@@ -40,38 +40,41 @@ The following elements can be present in a request wrapper.
           {txt:"{\"xvm\":15000}",tid:42}       relaxed JSON mode, not order dependent
           {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-### Adding Transaction IDs to Commands
+### Requests and Responses
 The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
-  - The request will be executed as Gcode. 
-  - An r{} response will be generated with the tid returned in the response
+The request will be executed as Gcode. An r{} response will be generated with the transaction ID returned in the response. The example below shows a response with e transaction ID where JV is set to JV_FOOTER (1), but is representative of other JV settings
 
-          {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
+          request:  {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
+          response: {r:{tid:12345},f:[3,0,24]}
+          response: {r:{},tid:12345,f:[3,0,24]}
 
+- **JSON Command** The JSON will be executed as per usual. An r{} response will be generated with the tid returned in the response:
 
-- **JSON Command**
-  - The JSON will be executed as per usual. 
-  - An r{} response will be generated with the tid returned in the response
+          request:  {tid:23456,txt:"{\"xvm\":15000}"}
+          response: {r:{xvm:1500,tid:23456},f:[3,0,24]}
+          response: {r:{xvm:1500},tid:23456,f:[3,0,24]}
 
-          {tid:12345,txt:"{\"xvm\":15000}"}
+- **Text Mode Command**  This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. The text-mode request will be executed as per the $ command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
 
+          request:  {tid:34567,txt:"$xvm"}
 
-- **Text Mode Command**
-  - This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. 
-  - The text-mode request will be executed as per the $ command. 
-  - The response from the text-mode command will be returned in a "msg" tag with the response in the string.
-  - If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
+          response: {r:{msg:"[xvm] X velocity maximum    15000 mm/min
+                    ",tid:12345},f:[3,0,24]}
 
-- **Special Characters**
-  - The special characters and their JSON wrappings are listed below:
+          response: {r:{msg:"[xvm] X velocity maximum    15000 mm/min
+                    "},tid:12345,f:[3,0,24]}
+
+  - Note that the text line contains a line feed which causes the text message to span two lines 
+
+- **Special Characters** The special characters are substituted with JSON equivalents. These are listed below:
 
     <pre>
-    !     ctl:"!"     feedhold
-    ~     ctl:"~"     cycle start (resume)
-    %     ctl:"%"     queue flush
-    ^x    ctl:"CAN"   cancel (^x by itself is non-printable ASCII)
-    ^x    ctl:"can"   cancel (as above)
+    !     !:t       feedhold
+    ~     ~:t       cycle start (resume)
+    %     %:t       queue flush
+    ^x    can:t     cancel (^x by itself is non-printable ASCII)
     </pre>
 
   - Note these operational differences if these commands are wrapped instead of sent as single chars:
