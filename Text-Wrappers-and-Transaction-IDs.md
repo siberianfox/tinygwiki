@@ -1,25 +1,29 @@
 _This is an experimental page_
 
 ###JSON Request Objects
-TinyG JSON handling has for a long time now provided an r{} response to commands entered in JSON mode. To date, there have been no request objects to wrap an incoming command to TinyG. TinyG accepts the following types of commands without any wrappers:
+TinyG accepts the following types of commands:
 
-- Gcode block - e.g. N20 G0 X111.3 Y21.0
 - JSON command - e.g. {"xvm":15000} or {x:n}
 - Text command - e.g. $xvm=15000
+- Gcode block - e.g. N20 G0 X111.3 Y21.0
 - Special characters:  !, ~, %, ^x
 
-This page discusses how JSON request objects support wrapping the above in JSON. The reasons for this include:
+The handling of requests and responses depends on the type of command:
+- JSON commands are received as JSON and returned as JSON. 
+- Text commands are received and returned as text. 
+- Gcode may be received as raw gcode or wrapped in JSON (gc:). Responses are provided as text or JSON depending on current mode.
+- Special characters are single characters that are intercepted by the serial IO system. Special characters do not generate responses.  
+
+This page discusses using a 'txt' key so that all requests can be wrapped and responded in JSON. It also describes how a transaction ID can be applied to these JSON request objects and their responses. The reasons for this include:
 
 - Support a transaction ID that is independent of the command
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
-###JSON Wrappers
-The following elements can be present in a request wrapper.
+###Txt Key
+The 'txt' key can be used to wrap any text that can otherwise be provided via a command line. Format is:
 
-- **Text Command** Mandatory. String. Format:
-
-        {txt:"<command>"}    command is arbitrary text
+    {txt:"<command>"}    command is arbitrary text
 
   - The command is arbitrary text that may otherwise be entered without a JSON wrapper
   - The command may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
@@ -29,9 +33,10 @@ The following elements can be present in a request wrapper.
           {txt:"{\"xvm\":15000}"}
           {txt:"$x"}
 
-- **Transaction ID** Optional. Numeric. Format:
+###Transaction ID
+A transaction ID 'tid' can be provided on a JSON line. It will be returned with the JSON response. Format is:
 
-        {tid:<txn_ID>}
+    {tid:<txn_ID>}
 
   - The transaction ID is a number from 1 - 1,000,000. Zero is considered "no ID". _(Note: range will be 4 billion)_
   - If transaction ID is present it will be returned in the r{} response for that command
@@ -40,7 +45,7 @@ The following elements can be present in a request wrapper.
           {txt:"{\"xvm\":15000}",tid:42}       relaxed JSON mode, not order dependent
           {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-### Requests and Responses
+## Requests and Responses
 The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
