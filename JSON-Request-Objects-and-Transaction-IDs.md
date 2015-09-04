@@ -15,11 +15,21 @@ JSON request objects support wrapping the above in JSON. The reasons for this in
 - Supporting routing of requests to specific endpoints (addressing)
 
 ###JSON Request Wrappers
+The following elements can be present in a request wrapper.
+
+**Command Line**. One of:
+
+    {cmd:"<command string>"}    command is either control or data (unidentified)
+    {ctl:"<command string>"}    command is a control
+    {dat:"<command string>"}    command is data (Gcode)
+
+Handling is:
+- Gcode block - will return JSON response to Gcode
+- JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. 
+
+
 Valid request wrapper forms:
 
-    {cmd:"<command string>"}
-    {ctl:"<command string>"}
-    {dat:"<command string>"}
 
     {tid:<txn_number>,cmd:"<command string>"}
     {tid:<txn_number>,ctl:"<command string>"}
@@ -30,8 +40,6 @@ Valid request wrapper forms:
     {dat:"<command string>",tid:<txn_number>}
 
 
-- a `cmd` string is any valid (or invalid!) command to the TinyG. Handling is:
-  - Gcode block - will return JSON response to Gcode
-  - JSON command - will return JSON response to JSON request. The incoming JSON request may be escaped for quotes. If in doubt, test the full request object 
+If in doubt, test the full request object 
 
 , or a text mode command
