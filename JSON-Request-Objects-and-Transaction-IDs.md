@@ -74,7 +74,7 @@ The following describes how different types of commands are handled and what to 
     </pre>
 
   - Note these operational differences if these commands are wrapped instead of sent as single chars:
-    - An r{} response will be generated for the command (Single character commands to not have responses)
+    - An r{} response will be generated for the command (Special Characters sent as single character commands do not generate responses)
     - A tid may be included in the request and response
     - The command may be routed to a destination endpoint
     - The command will be received as a control line and processed in-turn as a control, potentially behind any previously queued controls. Note also that the act of processing the command as JSON will add approximately 5 - 10 milliseconds to the service time versus the equivalent unwrapped command.
