@@ -53,13 +53,13 @@ The request will be executed as Gcode. An r{} response will be generated with th
 
           request:  {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
           response: {r:{tid:12345},f:[3,0,24]}
-          response: {r:{},tid:12345,f:[3,0,24]}
+          (Note: we are still discussing whether the tid response belongs in the r{} or as a separate tid element)
 
 - **JSON Command** The JSON will be executed as per usual. An r{} response will be generated with the tid returned in the response:
 
           request:  {tid:23456,txt:"{\"xvm\":15000}"}
           response: {r:{xvm:1500,tid:23456},f:[3,0,24]}
-          response: {r:{xvm:1500},tid:23456,f:[3,0,24]}
+          (Note: we are still discussing whether the tid response belongs in the r{} or as a separate tid element)
 
 - **Text Mode Command**  This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. The text-mode request will be executed as per the $ command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
 
@@ -68,22 +68,19 @@ The request will be executed as Gcode. An r{} response will be generated with th
           response: {r:{msg:"[xvm] X velocity maximum    15000 mm/min
                     ",tid:12345},f:[3,0,24]}
 
-          response: {r:{msg:"[xvm] X velocity maximum    15000 mm/min
-                    "},tid:12345,f:[3,0,24]}
-
   - Note that the text line contains a line feed which causes the text message to span two lines 
 
 - **Special Characters** The special characters are substituted with JSON equivalents. These are listed below:
 
     <pre>
-    !     !:t       feedhold
-    ~     ~:t       cycle start (resume)
-    %     %:t       queue flush
-    ^x    can:t     cancel (^x by itself is non-printable ASCII)
+    chr   cmd        w/tid
+    !     {!:t}      {!:t,tid:42}     feedhold (shown as relaxed JSON)
+    ~     {~:t}      {~:t,tid:42}     cycle start (resume)
+    %     {%:t}      {%:t,tid:42}     queue flush
+    ^x    {can:t}    {can:t,tid:42}   cancel (^x by itself is non-printable ASCII)
     </pre>
 
   - Note these operational differences if these commands are wrapped instead of sent as single chars:
     - An r{} response will be generated for the command (Special Characters sent as single character commands do not generate responses)
     - A tid may be included in the request and response
-    - The command may be routed to a destination endpoint
     - The command will be received as a control line and processed in-turn as a control, potentially behind any previously queued controls. Note also that the act of processing the command as JSON will add approximately 5 - 10 milliseconds to the service time versus the equivalent unwrapped command.
