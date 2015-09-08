@@ -74,6 +74,8 @@ The request will be executed as Gcode. The response is shown below with JSON ver
           request:  {tid:45678,txt:"$"}
           response: {"r":{"msg":"[fb]  firmware build            440.32\n[fv]  firmware version            0.97\n[hp]  hardware platform           1.00\n[hv]  hardware version            8.00\n[id]  TinyG ID                    3X3566-YMB\n[ja]  junction acceleration 2000000 mm\n[ct]  chordal tolerance           0.0100 mm\n[sl]  soft limit enable           0\n[st]  switch type                 1 [0=NO,1=NC]\n[mt]  motor idle timeout          2.00 Sec\n[ej]  enable json mode            2 [0=text,1=JSON]\n[jv]  json verbosity              5 [0=silent,1=footer,2=messages,3=configs,4=linenum,5=verbose]\n[js]  json serialize style        1 [0=relaxed,1=strict]\n[tv]  text verbosity              1 [0=silent,1=verbose]\n[qv]  queue report verbosity      0 [0=off,1=single,2=triple]\n[sv]  status report verbosity     1 [0=off,1=filtered,2=verbose]\n[si]  status interval           250 ms\n[ec]  expand LF to CRLF on TX     0 [0=off,1=on]\n[ee]  enable echo                 0 [0=off,1=on]\n[ex]  enable flow control         2 [0=off,1=XON/XOFF,2=RTS/CTS]\n[rxm] serial RX mode              1 [0=char_mode,1=line_mode]\n[baud] USB baud rate              5 [1=9600,2=19200,3=38400,4=57600,5=115200,6=230400]\n[gpl] default gcode plane         0 [0=G17,1=G18,2=G19]\n[gun] default gcode units mode    1 [0=G20,1=G21]\n[gco] default gcode coord system  1 [1-6 (G54-G59)]\n[gpa] default gcode path control  2 [0=G61,1=G61.1,2=G64]\n[gdi] default gcode distance mode 0 [0=G90,1=G91]\n","tid":45678,"f":[3,0,24]}}
 
+          request:  {tid:45678,txt:"?"}
+          response: {"r":{"msg":"X position:         10.000 mm\nY position:          0.000 mm\nZ position:          0.000 mm\nA position:          0.000 deg\nFeed rate:         200.000 mm/min\nVelocity:            0.000 mm/min\nUnits:               G21 - millimeter mode\nCoordinate system:   G54 - coordinate system 1\nDistance mode:       G90 - absolute distance mode\nFeed rate mode:      G94 - units-per-minute mode (i.e. feedrate mode)\nMachine state:       Stop\n","tid":45678,"f":[3,0,24]}}
 
 - **Special Characters** The special characters are substituted with JSON equivalents. These are listed below:
 
@@ -84,6 +86,11 @@ The request will be executed as Gcode. The response is shown below with JSON ver
     %     {%:t}      {%:t,tid:42}     queue flush
     ^x    {can:t}    {can:t,tid:42}   cancel (^x by itself is non-printable ASCII)
     </pre>
+
+
+          request:  {tid:45678,txt:"!"}
+          response: {"r":{"msg":"","tid":45678,"f":[3,0,24]}}
+
 
   - Note these operational differences if these commands are wrapped instead of sent as single chars:
     - An r{} response will be generated for the command (Special Characters sent as single character commands do not generate responses)
