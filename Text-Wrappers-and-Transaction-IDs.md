@@ -66,14 +66,14 @@ The request will be executed as Gcode. The response is shown below with JSON ver
           request:  {tid:23456,txt:"{\"xvm\":15000}"}
           response: {"r":{"xvm":15000},"tid":23456,"f":[3,0,24]}
 
-- **Text Mode Command**  This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. The text-mode request will be executed as per the $ command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
+- **Text Mode Command**  Wrapped text introduces a new behavior - allowing the submission of a text-mode command in a JSON wrapper. The wrapped text will be executed as a text-mode command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. The msg string will be escaped to conform to JSON rules - i.e. if the response string has LF it will be returned as '\n'. These JSON responses may span multiple lines.
 
           request:  {tid:34567,txt:"$xvm"}
+          response: {"r":{"msg":"[xvm] x velocity maximum      15000 mm/min\n","tid":34567,"f":[3,0,24]}}
 
-          response: {r:{msg:"[xvm] X velocity maximum    15000 mm/min
-                    ",tid:12345},f:[3,0,24]}
+          request:  {tid:45678,txt:"$"}
+          response: {"r":{"msg":"[fb]  firmware build            440.32\n[fv]  firmware version            0.97\n[hp]  hardware platform           1.00\n[hv]  hardware version            8.00\n[id]  TinyG ID                    3X3566-YMB\n[ja]  junction acceleration 2000000 mm\n[ct]  chordal tolerance           0.0100 mm\n[sl]  soft limit enable           0\n[st]  switch type                 1 [0=NO,1=NC]\n[mt]  motor idle timeout          2.00 Sec\n[ej]  enable json mode            2 [0=text,1=JSON]\n[jv]  json verbosity              5 [0=silent,1=footer,2=messages,3=configs,4=linenum,5=verbose]\n[js]  json serialize style        1 [0=relaxed,1=strict]\n[tv]  text verbosity              1 [0=silent,1=verbose]\n[qv]  queue report verbosity      0 [0=off,1=single,2=triple]\n[sv]  status report verbosity     1 [0=off,1=filtered,2=verbose]\n[si]  status interval           250 ms\n[ec]  expand LF to CRLF on TX     0 [0=off,1=on]\n[ee]  enable echo                 0 [0=off,1=on]\n[ex]  enable flow control         2 [0=off,1=XON/XOFF,2=RTS/CTS]\n[rxm] serial RX mode              1 [0=char_mode,1=line_mode]\n[baud] USB baud rate              5 [1=9600,2=19200,3=38400,4=57600,5=115200,6=230400]\n[gpl] default gcode plane         0 [0=G17,1=G18,2=G19]\n[gun] default gcode units mode    1 [0=G20,1=G21]\n[gco] default gcode coord system  1 [1-6 (G54-G59)]\n[gpa] default gcode path control  2 [0=G61,1=G61.1,2=G64]\n[gdi] default gcode distance mode 0 [0=G90,1=G91]\n","tid":45678,"f":[3,0,24]}}
 
-  - Note that the text line contains a line feed which causes the text message to span two lines 
 
 - **Special Characters** The special characters are substituted with JSON equivalents. These are listed below:
 
