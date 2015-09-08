@@ -3,16 +3,16 @@ _This is an experimental page_
 ###JSON Request Objects
 TinyG accepts the following types of commands:
 
+- Gcode block - e.g. N20 G0 X111.3 Y21.0
 - JSON command - e.g. {"xvm":15000} or {x:n}
 - Text command - e.g. $xvm=15000
-- Gcode block - e.g. N20 G0 X111.3 Y21.0
 - Special characters:  !, ~, %, ^x
 
 The handling of requests and responses depends on the type of command:
 - JSON commands are received as JSON and returned as JSON. 
 - Text commands are received and returned as text. 
-- Gcode may be received as raw gcode or wrapped in JSON (gc:). Responses are provided as text or JSON depending on current mode.
-- Special characters are single characters that are intercepted by the serial IO system. Special characters do not generate responses.  
+- Gcode may be received as raw gcode or wrapped in JSON (e.g. {"gc":"N20 G0 X111.3 Y21.0"}  ). Gcode responses are provided as JSON or text depending on current mode.
+- Special characters are single characters that are intercepted by the serial IO system to perform feedhold, cycle start (resume), queue flush, and reset. Special characters do not generate responses.
 
 This page discusses using a 'txt' key so that all requests can be wrapped and responded in JSON. It also describes how a transaction ID can be applied to these JSON request objects and their responses. The reasons for this include:
 
