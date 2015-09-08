@@ -20,8 +20,8 @@ This page discusses using a 'txt' key so that all requests can be wrapped and re
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
-###JSON "txt" Wrapper
-The 'txt' key can be used to wrap any text that can otherwise be provided via a command line. Format is:
+###JSON Text Wrapper - "txt"
+The 'txt' key can be used to wrap any text that can otherwise be provided via a command line. This permits a UI to issue text mode commands without leaving JSON mode, and display responses back to a user as if they were working directly ay the TinyG command line. The format is:
 
     {txt:"<command>"}    command is arbitrary text
 
@@ -36,10 +36,10 @@ The 'txt' key can be used to wrap any text that can otherwise be provided via a 
 
     _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/))_
 
-###Transaction ID
+###Transaction ID - "tid"
 A transaction ID 'tid' can be provided on a JSON line. It will be returned with the JSON response. Format is:
 
-    {tid:<txn_ID>}
+    {tid:<txn_ID>}    a number from 1 to 4 billion
 
   - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID".
   - If transaction ID is present it will be returned in the response for that command.
@@ -48,24 +48,23 @@ A transaction ID 'tid' can be provided on a JSON line. It will be returned with 
           {txt:"{xvm:15000}",tid:42}           relaxed JSON mode, not order dependent
           {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-## Txt and Iid Requests and Responses
-The following describes how different types of commands are handled and what to expect in the responses.
+## Requests and Responses using "txt" and "tid"
+The following describes how different types of commands are handled and what to expect in the responses. All types of commands follow the same scheme. For the purposes of these examples we'll assume thre is a non-zero tid in the request. The response will then be a JSON object with three top-level objects:
+
+    r{} response with response data about the command
+    tid echoing back the transaction ID
+    f{} footer with the usual footer information 
 
 - **Gcode Block**
-The request will be executed as Gcode. The response will be a JSON object with three top-level objects:
-  - r{} response with data about the Gcode command
-  - tid echoing back the transaction ID (if a non-zero tid was present in the request)
-  - f{} footer with will be generated with the transaction ID returned in the response. The example below shows a response with e transaction ID where JV is set to JV_FOOTER (1), but is representative of other JV settings
+The request will be executed as Gcode. The response is shown below with JSON verbosity (JV) set to JV_VERBOSE (maximum):
 
-          request:  {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
-          response: {r:{tid:12345},f:[3,0,24]}
-          (Note: we are still discussing whether the tid response belongs in the r{} or as a separate tid element)
+          request:  {tid:31415926,txt:"n42 g0 x10"}
+          response: {"r":{"gc":"N42G0X10","n":42},"tid":31415926,"f":[3,0,24]}
 
-- **JSON Command** The JSON will be executed as per usual. An r{} response will be generated with the tid returned in the response:
+- **JSON Command** The JSON will be executed as per usual. In this example the incoming JSON is a mix of relaxed and strict - output is strict. The encapsulated JSON is escaped to adhere to JSON format rules. 
 
           request:  {tid:23456,txt:"{\"xvm\":15000}"}
-          response: {r:{xvm:1500,tid:23456},f:[3,0,24]}
-          (Note: we are still discussing whether the tid response belongs in the r{} or as a separate tid element)
+          response: {"r":{"xvm":15000},"tid":23456,"f":[3,0,24]}
 
 - **Text Mode Command**  This mode introduces a new behavior, which is submission of a text-mode command in a JSON wrapper. The text-mode request will be executed as per the $ command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. If the string has CR or LF in it these will returned as well, i.e. the JSON response may span multiple lines.
 
