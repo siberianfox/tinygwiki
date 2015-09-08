@@ -9,7 +9,7 @@ TinyG accepts the following types of commands:
 - Special characters:  !, ~, %, ^x
 
 The handling of requests and responses depends on the type of command:
-- JSON commands are received as JSON and returned as JSON. 
+- JSON commands are received and returned as JSON. See [TinyG JSON Handling](JSON-Operation) for JSON details.
 - Text commands are received and returned as text. 
 - Gcode may be received as raw gcode or wrapped in JSON (e.g. {"gc":"N20 G0 X111.3 Y21.0"}  ). Gcode responses are provided as JSON or text depending on current mode.
 - Special characters are single characters that are intercepted by the serial IO system to perform feedhold, cycle start (resume), queue flush, and reset. Special characters do not generate responses.
@@ -20,36 +20,42 @@ This page discusses using a 'txt' key so that all requests can be wrapped and re
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
-###Txt Key
+###JSON "txt" Wrapper
 The 'txt' key can be used to wrap any text that can otherwise be provided via a command line. Format is:
 
     {txt:"<command>"}    command is arbitrary text
 
   - The command is arbitrary text that may otherwise be entered without a JSON wrapper
-  - The command may have escapes for quotes. _(When in doubt, see [jsonlint](http://jsonlint.org/))_
+  - The command must be a quoted string, and may have escaped quotes - i.e. must follow valid JSON syntax
   - Examples:
 
           {txt:"N20 G0 X111.3 Y21.0"}
           {txt:"{\"xvm\":15000}"}
           {txt:"$x"}
+          {txt:"!"}
+
+    _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/))_
 
 ###Transaction ID
 A transaction ID 'tid' can be provided on a JSON line. It will be returned with the JSON response. Format is:
 
     {tid:<txn_ID>}
 
-  - The transaction ID is a number from 1 - 1,000,000. Zero is considered "no ID". _(Note: range will be 4 billion)_
-  - If transaction ID is present it will be returned in the r{} response for that command
+  - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID".
+  - If transaction ID is present it will be returned in the response for that command.
   - Examples:
 
-          {txt:"{\"xvm\":15000}",tid:42}       relaxed JSON mode, not order dependent
+          {txt:"{xvm:15000}",tid:42}           relaxed JSON mode, not order dependent
           {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
 
-## Requests and Responses
+## Txt and Iid Requests and Responses
 The following describes how different types of commands are handled and what to expect in the responses.
 
 - **Gcode Block**
-The request will be executed as Gcode. An r{} response will be generated with the transaction ID returned in the response. The example below shows a response with e transaction ID where JV is set to JV_FOOTER (1), but is representative of other JV settings
+The request will be executed as Gcode. The response will be a JSON object with three top-level objects:
+  - r{} response with data about the Gcode command
+  - tid echoing back the transaction ID (if a non-zero tid was present in the request)
+  - f{} footer with will be generated with the transaction ID returned in the response. The example below shows a response with e transaction ID where JV is set to JV_FOOTER (1), but is representative of other JV settings
 
           request:  {tid:12345,txt:"N20 G0 X111.3 Y21.0"}
           response: {r:{tid:12345},f:[3,0,24]}
