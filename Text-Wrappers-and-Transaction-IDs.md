@@ -92,7 +92,7 @@ The request will be executed as Gcode. The response is shown below with JSON ver
           response: {"r":{"msg":"","tid":45678,"f":[3,0,24]}}
 
 
-  - Note these operational differences if these commands are wrapped instead of sent as single chars:
-    - An r{} response will be generated for the command (Special Characters sent as single character commands do not generate responses)
+  - Note these operational differences if single-character commands are wrapped instead of sent as single chars:
+    - A blank r{} response will be generated for the command (Special Characters sent as single character commands do not generate responses)
     - A tid may be included in the request and response
     - The command will be received as a control line and processed in-turn as a control, potentially behind any previously queued controls. Note also that the act of processing the command as JSON will add approximately 5 - 10 milliseconds to the service time versus the equivalent unwrapped command.
