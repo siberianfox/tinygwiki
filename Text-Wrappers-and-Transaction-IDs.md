@@ -45,9 +45,9 @@ A transaction ID 'tid' can be provided on a JSON line. It will be returned with 
 
     {tid:<txn_ID>}    a number from 1 to 4 billion
 
-  - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID"
-  - If transaction ID is present it will be returned in the response for that command
+  - The transaction ID is a number from 1 - 4,294,967,295. Zero is considered "no ID"
   - A tid tag can be anywhere in the request - it is not order dependent
+  - If transaction ID is present it will be returned as a tid tag in the response for that command
   - Transaction IDs are ALWAYS returned as a top-level object in the response
   - Examples:
 
@@ -63,22 +63,25 @@ A transaction ID 'tid' can be provided on a JSON line. It will be returned with 
             response: {"r":{"gc":"N42G0X10","n":290},"tid":31415926,"f":[3,0,24]}
 
 ## Requests and Responses using "txt" and "tid"
-The following describes how different types of commands are handled and what to expect in the responses. All types of commands follow the same scheme. For the purposes of these examples we'll assume thre is a non-zero tid in the request. The response will then be a JSON object with three top-level objects:
+The following describes how different types of commands are handled and what to expect in the responses. All types of commands follow the same scheme. For the purposes of these examples we'll assume there is a non-zero tid in the request. The response will then be a JSON object with three top-level objects:
 
     r{} response with response data about the command
     tid echoing back the transaction ID
-    f{} footer with the usual footer information 
+    f{} footer with the usual footer information
 
 - **Gcode Block**
-The request will be executed as Gcode. The response is shown below with JSON verbosity (JV) set to JV_VERBOSE (maximum):
+The request will be executed as Gcode. The response is shown below with JSON verbosity set to JV_VERBOSE (JV is maximum):
 
           request:  {tid:31415926,txt:"n42 g0 x10"}
           response: {"r":{"gc":"N42G0X10","n":42},"tid":31415926,"f":[3,0,24]}
 
 - **JSON Command** The JSON will be executed as per usual. In this example the incoming JSON is a mix of relaxed and strict - output is strict. The encapsulated JSON is escaped to adhere to JSON format rules. 
 
-          request:  {tid:23456,txt:"{\"xvm\":15000}"}
-          response: {"r":{"xvm":15000},"tid":23456,"f":[3,0,24]}
+          request:  {tid:8675309,txt:"{\"xvm\":15000}"}
+          response: {"r":{"xvm":15000},"tid":8675309,"f":[3,0,24]}
+
+          request:  {"tid":6060842,"txt":"{\"x\":n}"}
+          response: {"r":{"x":{"am":1,"vm":15000,"fr":16000,"tn":0.000,"tm":290.000,"jm":5000,"jh":10000,"jd":0.0100,"sn":1,"sx":0,"sv":3000,"lv":100,"lb":10.000,"zb":2.000}},"tid":6060842,"f":[3,0,24]}
 
 - **Text Mode Command**  Wrapped text introduces a new behavior - allowing the submission of a text-mode command in a JSON wrapper. The wrapped text will be executed as a text-mode command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. The msg string will be escaped to conform to JSON rules - i.e. if the response string has LF it will be returned as '\n'. These JSON responses may span multiple lines.
 
