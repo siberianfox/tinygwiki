@@ -10,13 +10,16 @@ TinyG accepts the following types of commands:
 
 The handling of requests and responses depends on the type of command:
 - JSON commands are received and returned as JSON. See [TinyG JSON Handling](JSON-Operation) for JSON details.
-- Text commands are received and returned as text. 
-- Gcode may be received as raw gcode or wrapped in JSON (e.g. {"gc":"N20 G0 X111.3 Y21.0"}  ). Gcode responses are provided as JSON or text depending on current mode.
+- Text commands are received and returned as lines of text. 
+- Gcode may be received:
+  - As a raw gcode block on a single text line or 
+  - Wrapped in JSON - e.g. {"gc":"N20 G0 X111.3 Y21.0"}
+  - Gcode responses are returned as text mode or JSON depending on currently active communications mode.
 - Special characters are single characters that are intercepted by the serial IO system to perform feedhold, cycle start (resume), queue flush, and reset. Special characters do not generate responses.
 
-This page discusses using a 'txt' key so that all requests can be wrapped and responded in JSON. It also describes how a transaction ID can be applied to these JSON request objects and their responses. The reasons for this include:
+This page discusses using a 'txt' key so that any of the above requests can be wrapped and returned as JSON. It also describes how a transaction ID can be applied to these JSON requests and their responses. The reasons for this include:
 
-- Support a transaction ID that is independent of the command
+- Support a transaction ID that is independent of any data in the command
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
@@ -29,10 +32,11 @@ The 'txt' key can be used to wrap any text that can otherwise be provided via a 
   - The command must be a quoted string, and may have escaped quotes - i.e. must follow valid JSON syntax
   - Examples:
 
-          {txt:"N20 G0 X111.3 Y21.0"}
-          {txt:"{\"xvm\":15000}"}
-          {txt:"$x"}
-          {txt:"!"}
+          {txt:"N20 G0 X111.3 Y21.0"}     - Gcode sent as txt, relaxed JSON mode
+          {"txt":"N20 G0 X111.3 Y21.0"}   - Gcode sent as txt, strict JSON mode
+          {"txt":"{\"xvm\":15000}"}       - JSON sent in a JSON wrapper, strict JSON mode
+          {txt:"$x"}                      - A text mode command sent in relaxed JSON mode
+          {txt:"!"}                       - Feedhold sent as wrapped text
 
     _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/))_
 
