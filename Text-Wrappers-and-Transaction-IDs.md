@@ -47,10 +47,19 @@ A transaction ID 'tid' can be provided on a JSON line. It will be returned with 
 
   - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID".
   - If transaction ID is present it will be returned in the response for that command.
+  - Transaction IDs are ALWAYS returned as a top-level object in the response.
   - Examples:
 
-          {txt:"{xvm:15000}",tid:42}           relaxed JSON mode, not order dependent
-          {"tid":42,"txt":"{\"xvm\":15000}"}   strict JSON mode, not order dependent
+          Relaxed JSON mode example
+            request:  {txt:"{xvm:15000}",tid:42}           
+            response: {r:{xvm:15000},tid:42,f:[3,0,24]}
+
+          Strict JSON mode examples
+            request:  {"tid":42,"txt":"{\"xvm\":15000}"}
+            response: {"r":{"xvm":15000},"tid":42,"f":[3,0,24]}
+
+            request:  {"tid":31415926,"txt":"n290 g0 x10"}
+            response: {"r":{"gc":"N42G0X10","n":290},"tid":31415926,"f":[3,0,24]}
 
 ## Requests and Responses using "txt" and "tid"
 The following describes how different types of commands are handled and what to expect in the responses. All types of commands follow the same scheme. For the purposes of these examples we'll assume thre is a non-zero tid in the request. The response will then be a JSON object with three top-level objects:
