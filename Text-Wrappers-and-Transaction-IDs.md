@@ -38,7 +38,7 @@ The 'txt' key can be used to wrap any text that can otherwise be provided via a 
           {txt:"$x"}                      - A text mode command sent in relaxed JSON mode
           {txt:"!"}                       - Feedhold sent as wrapped text
 
-    _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/))_
+    _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/) or [jslint](http://www.jslint.com/))_
 
 ###Transaction ID - "tid"
 A transaction ID 'tid' can be provided on a JSON line. It will be returned with the JSON response. Format is:
