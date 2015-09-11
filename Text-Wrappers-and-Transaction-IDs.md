@@ -83,7 +83,7 @@ The request will be executed as Gcode. The response is shown below with JSON ver
           request:  {"tid":6060842,"txt":"{\"x\":n}"}
           response: {"r":{"x":{"am":1,"vm":15000,"fr":16000,"tn":0.000,"tm":290.000,"jm":5000,"jh":10000,"jd":0.0100,"sn":1,"sx":0,"sv":3000,"lv":100,"lb":10.000,"zb":2.000}},"tid":6060842,"f":[3,0,24]}
 
-- **Text Mode Command**  Wrapped text introduces a new behavior - allowing the submission of a text-mode command in a JSON wrapper. The wrapped text will be executed as a text-mode command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. The msg string will be escaped to conform to JSON rules - i.e. if the response string has LF it will be returned as '\n'. These JSON responses may span multiple lines.
+- **Text Mode Command**  Wrapped text introduces a new behavior - allowing the submission of a text-mode command in a JSON wrapper. The wrapped text will be executed as a text-mode command. The response from the text-mode command will be returned in a "msg" tag with the response in the string. The msg string will be escaped to conform to JSON rules - i.e. if the response string has LF it (which they almost all do) LF will be returned as '\n'. The UI can then unwrap these responses into multi-line displays for the end-user.
 
           request:  {tid:34567,txt:"$xvm"}
           response: {"r":{"msg":"[xvm] x velocity maximum      15000 mm/min\n","tid":34567,"f":[3,0,24]}}
