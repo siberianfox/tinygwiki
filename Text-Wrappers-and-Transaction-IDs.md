@@ -45,9 +45,10 @@ A transaction ID 'tid' can be provided on a JSON line. It will be returned with 
 
     {tid:<txn_ID>}    a number from 1 to 4 billion
 
-  - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID".
-  - If transaction ID is present it will be returned in the response for that command.
-  - Transaction IDs are ALWAYS returned as a top-level object in the response.
+  - The transaction ID is a number from 1 - 4,000,000,000. Zero is considered "no ID"
+  - If transaction ID is present it will be returned in the response for that command
+  - A tid tag can be anywhere in the request - it is not order dependent
+  - Transaction IDs are ALWAYS returned as a top-level object in the response
   - Examples:
 
           Relaxed JSON mode example
