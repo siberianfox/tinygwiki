@@ -3,3 +3,15 @@ Most of the time, mills and CNC electrical components are designed and built to 
 Correcting radiated noise is trickier than correcting line noise, as radiated noise must either be trapped and grounded at the source with a appropriate shielding (think Faraday cage), or your critical milling electronics must be shielded from their environment, which is now filled with this interfering electrical noise. Since the examples that are most likely to occur are noise transmitted over wiring, we'll focus on correcting that issue.
 
 Using the Panther PCB mill as an example (it's shown to exhibit this problem in the past), it is very easy to remove this noise from the overall circuitry in your mill. In the case of the Panther CNC mill, the noise is being generated not by the mill itself, but by the spindle chosen in the setup shown in the image below. This spindle is a generic 220W DC brushed motor spindle that generates a lot of electrical noise that travels back down the power cable. The noise is so great that it interferes with the TinyG USB communications, even through the 24V switched power supply used (PSU) to power the TinyG. Since the PSU and the spindle are connected to the same 120V household circuit, the electrical noise can easily move from one device to another through the power cords. (It's important to note that this noise can travel to other devices in the house, as well, but that's out of the scope of this article.) 
+
+[insert image of panther setup]
+Figure 1: Panther PCB mill with 220W brushed DC spindle connected to the same power strip as the laptop and TinyG PSUs.
+
+The solution to the problem is installing an electro-magnetic interference (EMI) line filter in between the source of the noise (the brushed spindle, in this case) and the rest of the circuitry. You can buy in-line filters with bare leads, filtering receptacles, filtering switches, or build your own.
+
+In the Panther example, when trying to mill with the spindle on and no filter, the USB port on the TinyG and laptop would lock up within seconds of starting the milling operation. Luckily, the results in this case were always that the spindle would simply stop moving, so there were no crashes to worry about or broken bits. Without proper axis homing, however, restarting the operation with the same material would be tricky. Additionally, the laptop and TinyG would have to be restarted before either would communicated properly over USB again.
+
+To correct the noise, a sliding dimmer switch with built-in EMI filtering was installed between the spindle power connection and the rest of the mill circuitry. The filtering dimmer switch effectively eliminated the electrical noise, and all milling operations since have exhibited no 'glitches.' For this little DC spindle, the dimmer has the added bonus of being able to fine-tune the spindle speed.
+
+[insert image of dimmer switch]
+Figure 2: This quick and dirty control box, originally built to test filtering for tesla coils, has two EMI filtering dimmer switches installed, each controlling the power to their own extension cord. The Panther's spindle was connected to Line 1 for this test.
