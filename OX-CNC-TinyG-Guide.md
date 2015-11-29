@@ -9,7 +9,7 @@ Typically the configuration is as follows:
 * Motor 3 - Y axis
 * Motor 4 - Z axis
 
-The OX's spindle can also be controlled via TinyG/gcode or manually with a potentiometer (manual nob).  If you plan on using TinyG's PWM feature to control your OX please see the Spindle Settings below [link](#spindle-settings).
+The OX's spindle can also be controlled via TinyG/gcode or manually with a potentiometer (manual nob).  If you plan on using TinyG's PWM feature to control your OX please see the [Spindle Settings](#spindle-settings).
 
 This is a dual Y setup.
 ##Motor Configurations
