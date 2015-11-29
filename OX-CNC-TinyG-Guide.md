@@ -1,13 +1,15 @@
 ## Overview
 The OX is an open source CNC machine that is sold by [smw3d](http://www.smw3d.com/ox-diy-cnc-kit/). This page is a work in progress please feel free to update it as needed.
 
-### Settings
+### Settings Overview
 
 Typically the configuration is as follows:
 * Motor 1 - X axis
 * Motor 2 - Y axis
 * Motor 3 - Y axis
 * Motor 4 - Z axis
+
+The OX's spindle can also be controlled via TinyG/gcode or manually with a potentiometer (manual nob).  If you plan on using TinyG's PWM feature to control your OX please see the Spindle Sbelow.s below.
 
 This is a dual Y setup.
 ##Motor Configurations
