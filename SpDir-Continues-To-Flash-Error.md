@@ -7,3 +7,24 @@ To fix this you will need:
 
 ## Instructions
 1. You can get the xboot.hex file here.  [xboot.hex (https://raw.github.com/synthetos/TinyG/master/xboot/xboot/xboot.hex)  **NOTE: You need to right click and save as on the xboot.hex link to download the hex file correctly.**
+2. Launch Atmel Studio and press CTRL-SHIFT-P (or click on the chip with a lightning bolt on it from the menu).
+You should see a screen like this:
+![](https://farm2.staticflickr.com/1697/23739145324_44027a6a15_b.jpg)
+3.  Select your programmer (assuming its plugged in correctly to your tinyg and your tinyg is powered up), select the Atxmega192A3 as the chip and then click apply and then read.  If all went well you should see your device signature populate.
+4. Next click on the `Lock Bits` menu on the left (only visible after a successful step 3).  It will look like this:
+![](https://www.flickr.com/photos/rileyporter/24071049480/in/dateposted-public/)
+Notice how they do not all say `NOLOCK`.  They need to ALL say `NOLOCK`.
+5. Change all LOCKS to say `NOLOCK` from the dropdown menus.  
+6. Then click the program button below once they all are set to `NOLOCK`.
+***NOTE*** Sometimes this works sometimes it does not.  I have not figured out why it works only sometimes.  Not to worry move on to the section below if it fails.  If it works then you should be good to go and ready to update your tinyg firmware like normal.
+
+
+### Failed To Set Lock Bits
+
+If the above method failed its time to just erase the chip.
+1. Click on the `Memories` tab on the left.  Then click on the erase chip like this:
+![](https://farm2.staticflickr.com/1558/23739809703_a028949ca6_b.jpg)
+2. Now go back to the `LOCKBITS` tab and verify that they are all set to `NOLOCK`.
+3. We now have no bootloader so follow the steps [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#flashing-the-boot-loader-onto-the-xmega-chip) to load your bootloader onto your TinyGv7-8.
+4. Now we need to load a tinyg firmware onto your board via the newly flashed bootloader you loaded in step 3.  
+5. Remove the AVRISP programmer as you not need it to flash your board.  Follow the instructions [here](https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App).
