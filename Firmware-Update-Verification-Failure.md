@@ -1,7 +1,7 @@
 The cause of the `Firmware Update Verification Failure` is that the processors LOCKBITS were set.  These need to be reset to `NOLOCK` status.
 
 ##Things You Will Need
-1. AVRstudio 6.1
+1. AVRstudio 6.1 or later.
 2. [AVRISP mkII Programmer](http://www.mouser.com/ProductDetail/Atmel/ATAVRISP2/?qs=%2fha2pyFaduiIjcuCL2xhGrtJ51CCcGyXEp%252bMX%2fCQhFCtUWPqBN19Gg%3d%3d) (NOT A CLONE OR A KNOCKOFF)
 3. Windows Machine
 
