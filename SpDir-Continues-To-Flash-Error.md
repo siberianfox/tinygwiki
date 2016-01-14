@@ -10,7 +10,7 @@ To fix this you will need:
 2. Launch Atmel Studio and press CTRL-SHIFT-P (or click on the chip with a lightning bolt on it from the menu).
 You should see a screen like this:
 ![](https://farm2.staticflickr.com/1697/23739145324_44027a6a15_b.jpg)
-3.  Select your programmer (assuming its plugged in correctly to your tinyg and your tinyg is powered up), select the Atxmega192A3 as the chip and then click apply and then read.  If all went well you should see your device signature populate.
+3.  Select your programmer (assuming its plugged in correctly to your tinyg and your tinyg is powered up, the raised part  on one side of the connector matches up with the gap in the white outline around the target on the tinyg), select the Atxmega192A3 as the chip and then click apply and then read.  If all went well you should see your device signature populate.
 4. Next click on the `Lock Bits` menu on the left (only visible after a successful step 3).  It will look like this:
 ![](https://www.flickr.com/photos/rileyporter/24071049480/in/dateposted-public/)
 Notice how they do not all say `NOLOCK`.  They need to ALL say `NOLOCK`.
