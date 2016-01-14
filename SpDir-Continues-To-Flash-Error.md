@@ -24,7 +24,8 @@ Notice how they do not all say `NOLOCK`.  They need to ALL say `NOLOCK`.
 If the above method failed its time to just erase the chip.
 1. Click on the `Memories` tab on the left.  Then click on the erase chip like this:
 ![](https://farm2.staticflickr.com/1558/23739809703_a028949ca6_b.jpg)
-2. Now go back to the `LOCKBITS` tab and verify that they are all set to `NOLOCK`.
+2. Now go back to the `LOCKBITS` tab and verify that they are all set to `NOLOCK`. Like this:
+![](https://farm2.staticflickr.com/1643/23738449894_f7a6a6043f_b.jpg)
 3. We now have no bootloader so follow the steps [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#flashing-the-boot-loader-onto-the-xmega-chip) to load your bootloader onto your TinyGv7-8.
 4. Now we need to load a tinyg firmware onto your board via the newly flashed bootloader you loaded in step 3.  
 5. Remove the AVRISP programmer as you not need it to flash your board.  Follow the instructions [here](https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App).
