@@ -29,12 +29,17 @@ Also, regardless of method you want to make sure to get the [xmega fuses](https:
 
 
 ### Atmel Studio 6.1
-These instructions use Atmel Studio 6.1 which is currently in Beta. 
-* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Atmel Studio 6.1
+These instructions use Atmel Studio from versions 6.1 and up.  Programming the TinyG from Atmel Studio can be used to flash a bootloader or the actual TinyG hex firmware file.  To explain this better, what this means is you cannot use Atmel Studio to flash the bootloader + tinyg firmware onto your TinyG.  Why do you care?  The issue with this is, if you flash a tinyg.hex file directly to your tinyg (not flashing a bootloader) you will not be able to update your TinyG over the serial port (or USB) which is the normal method of updating TinyG.  This method is not recommended for beginners and is normally reserved for developers experimenting with custom builds and debugging of tinyg firmwares.<br>
+ 
+* First connect the programmer to the 6 pin programming header on the TinyG. Observe polarity - the red wire should be next to the white dot on the board. Plug in the programmer's USB connector to your computer running Atmel Studio
+
+![](https://farm2.staticflickr.com/1639/23738825984_bfb8618444_k.jpg)
 * Apply power to the TinyG. The board will not program unless it's powered up. The board's USB does not need to be connected. If the board already has a bootloader wait for the boot loader to stop flashing the spindle direction light. You can also hit the reset button and wait until it stops flashing.
-* Bring up Studio 6.1. If you are in a virtual machine make sure the Atmel AVRISP mkII device is connected to the virtual machine.
-* If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.
-* From the menu bar select Tools / Device Programming. Select Tool to be AVRISP mkII and hit Apply. Device should read ATxmega192A3, Interface should read PDI, and a left navigation bar should appear giving you some options. If the Device is not ATxmega192A3 use the drop down from that field to select ATxmega192A3.
+* Bring up Studio.  If you are in a virtual machine make sure the Atmel AVRISP mkII device is connected to the virtual machine.
+* If you get a dialog about upgrading the firmware on the programmer at any point, do it. You may need to re-plug afterwards to re-establish connection.   
+* From the menu bar select Tools / Device Programming. 
+![](https://farm2.staticflickr.com/1658/24284586251_9ae99a9876_b.jpg)
+* Select Tool to be AVRISP mkII and hit Apply. Device should read ATxmega192A3, Interface should read PDI, and a left navigation bar should appear giving you some options. If the Device is not ATxmega192A3 use the drop down from that field to select ATxmega192A3.
  * If nothing shows up in the Device Signature and Target Voltages boxes click the Read buttons next to each. 
 * Next go to the Fuses tab and program them according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses). If you are not installing the boot loader select BOOTRST to be "Application Reset". If you are installing the bootloader select "Boot Loader Reset".
  * Select Lockbits and make sure they are set up as listed. 
