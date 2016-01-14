@@ -3,7 +3,7 @@ TinyG can be programmed over the USB serial port with the boot loader or it can 
 There are (at least) 3 ways to program the board using the AVRISP2:
 * Programming using [AVR Studio4](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#avr-studio-4)
 * Programming using [Atmel Studio 6.1](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-an-External-Programmer#atmel-studio-61)
-* Programming using [AVRDUDE with AVRISP2](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#avrdude-with-avrisp2)
+* Programming using [AVRDUDE with AVRISP2](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-an-External-Programmer#avrdude-with-avrisp2)
 
 Also, regardless of method you want to make sure to get the [xmega fuses](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-the-Atmel-AVRISP-Mkii-Programmer#fuses) right
 
