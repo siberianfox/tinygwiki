@@ -6,7 +6,7 @@ The cause of the `Firmware Update Verification Failure` is that the processors L
 3. Windows Machine
 
 ## Procedure
-1. Launch AVRStudio 6.1
+1. Launch AVRStudio
 2. Go to the `Tools` menu then the `Device Programming`
 3. Now for the `Tool` select `AVRISP mkII` from the drop down menu.
 4. Then select `ATxmega192A3` from the Device drop down menu.
