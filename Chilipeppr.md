@@ -51,6 +51,7 @@ Video Tutorial of Creating a Hello World Fork
 
 ##Offline Chilipeppr
 Updates: offline available here https://github.com/pistolero/chilipeppr-offline
+
 For those of you who want to run ChiliPeppr offline, here are some strategy ideas to achieve this. ChiliPeppr is dynamically pulling all of the widgets/elements from JSFiddle's or other code sources across the Internet. For instance, the 3D Viewer pulls roughly 10 different Javascript files from different CDN networks. To create an offline version you would have to pull down locally each Javascript file and each JSFiddle and perhaps host your own web server. You would have to scan through all of the code and repoint the Javascript files to your local server. This can be achieved, but would just require somebody to write a script that did all of the redirecting.
 
 1. You could visit ChiliPeppr.com and load the workspace and then disconnect from the Internet. As long as you never reload you should be ok. It is likely you will need to reload at some point, so this is a short-lived solution.
