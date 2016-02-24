@@ -1,11 +1,11 @@
-Build 441.xx and later supports packet mode serial transmission. This greatly simplifies communication from the host to TinyG and provides some other advantages.
+Build 446.xx and later supports packet mode serial transmission. This greatly simplifies communication from the host to TinyG and provides some other advantages.
 
 ##Theory of Operation
-As of 441.xx TinyG supports two types of serial communications - streaming mode and packet mode. 
+As of 446.xx TinyG supports two types of serial communications - streaming mode and packet mode. 
 ###Streaming Mode 
 Streaming mode is the "classic" way to communicate with the board and the send Gcode. Little has changed:
 
-- Set streaming mode by setting `{rxm:0}`.
+- Set streaming mode by setting `{rxm:0}`. (Setting {'rxm:1'} would set it to line mode.. Not what you want)
 - The serial receive buffer is 254 bytes (unchanged)
 - XON/XOFF flow control and RTS/CTS flow control are supported (unchanged)
 - JSON footers are now in the following format `[2,0,27]`
