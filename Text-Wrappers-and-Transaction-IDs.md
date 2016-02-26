@@ -1,4 +1,4 @@
-_This is an experimental page_
+_This page applies to edge-0.97 branch only_
 
 ###JSON Request Objects
 TinyG accepts the following types of commands:
