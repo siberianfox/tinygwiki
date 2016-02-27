@@ -19,13 +19,18 @@ Notice how they do not all say `NOLOCK`.  They need to ALL say `NOLOCK`.
 ***NOTE*** Sometimes this works sometimes it does not.  I have not figured out why it works only sometimes.  Not to worry move on to the section below if it fails.  If it works then you should be good to go and ready to update your tinyg firmware like normal.
 
 
-### Failed To Set Lock Bits
+## Failed To Set Lock Bits
 
 If the above method failed its time to just erase the chip.
 1. Click on the `Memories` tab on the left.  Then click on the erase chip like this:
 ![](https://farm2.staticflickr.com/1558/23739809703_a028949ca6_b.jpg)
 2. Now go back to the `LOCKBITS` tab and verify that they are all set to `NOLOCK`. Like this:
 ![](https://farm2.staticflickr.com/1643/23738449894_f7a6a6043f_b.jpg)
-3. We now have no bootloader so follow the steps [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#flashing-the-boot-loader-onto-the-xmega-chip) to load your bootloader onto your TinyGv7-8.
-4. Now we need to load a tinyg firmware onto your board via the newly flashed bootloader you loaded in step 3.  
-5. Remove the AVRISP programmer as you not need it to flash your board.  Follow the instructions [here](https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App).
+
+## Re-flashing TinyG & the Bootloader
+If you were able to reset the lockbit without erasing the board you are pretty much done.  However if you had to erase the board we now have no bootloader so follow the steps below to reflash the bootloader AND the new TinyG firmware.
+<br>
+
+1. Follow the steps [here](https://github.com/synthetos/TinyG/wiki/TinyG-Boot-Loader#flashing-the-boot-loader-onto-the-xmega-chip) to load your bootloader onto your TinyGv7-8.
+**But come back here to finalize loading the TinyG firmware**
+2. Now we need to load a tinyg firmware onto your board via the newly flashed bootloader you loaded in step 1. Remove the AVRISP programmer as you not need it to flash your board.  Follow the instructions [here](https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App).
