@@ -37,13 +37,10 @@ The following instructions are how to flash the boot loader using Atmel Studio6.
 
 **Step 3**. Set the fuses. Go to [Fuses](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-an-External-Programmer#fuses) and set according to [here](https://github.com/synthetos/TinyG/wiki/Programming-TinyG-with-an-External-Programmer#fuses). Hit `Program` to program the fuses.
 
-**Step 4**. Go to `Memories`. Select xboot.hex in the `Flash` section. Do not use xboot-boot.hex as it's org'ed in the wrong place (0 instead of 0x30000). Check the `Erase Flash Before programming` box or it won't verify. Hit `Program`.
+**Step 4**. Go to `Memories`. Select xboot.hex in the `Flash` section.  Hit `Program`.
 
-**Step 5**. Do this step if you also want to program TinyG onto the chip. Select tinyg.hex in the `Flash` section. Uncheck the `Erase Flash Before programming` box. Hit `Program`.
-
-
-If this all worked you will see the Spindle Direction light flash for about 3 seconds then TinyG will deliver its startup messages.
-
+If this all worked you will see the Spindle Direction light will continue to flash.  You now need to load the TinyG firmware onto your board.  To to that follow the instructions [here].(https://github.com/synthetos/TinyG/wiki/TinyG-TG-Updater-App)
+<br>
 <a id="projectsetup"></a>
 ### Compiling the Boot Loader for TinyG
 Use these instructions if you want to change the xboot.hex file. If all you want to do is flash it onto TinyG see the previous section.
