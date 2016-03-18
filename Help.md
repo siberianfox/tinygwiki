@@ -51,3 +51,5 @@ For configuration details see: https://github.com/synthetos/TinyG/wiki/TinyG-Con
 Enter $defa=1 to reset the system to the factory default values.
 This will overwrite any changes you have made.
 
+## Boot Loader
+Enter $boot=1 to enter the boot loader.
