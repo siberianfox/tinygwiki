@@ -47,4 +47,7 @@ To update settings enter token equals value:
 For example $yfr=800 to set the Y max feed rate to 800 mm/minute.<br>
 For configuration details see: https://github.com/synthetos/TinyG/wiki/TinyG-Configuration
 
+## Restore Defaults
+Enter $defa=1 to reset the system to the factory default values.
+This will overwrite any changes you have made.
 
