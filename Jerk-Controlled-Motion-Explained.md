@@ -3,7 +3,7 @@ TinyG and G2 Core use **7th-order jerk-controlled** motion planning in real-time
 ## Why Does It Matter?
 Simply put, controlled jerk ("S-curve") motion planning provides better machining results than constant acceleration motion planning. Benefits include:
 
-- Better surface finish, as speeds change gradually without discontinuities that result in temporary micro-positional errors
+- Better surface finish - speeds change gradually without discontinuities that result in temporary micro-positional errors
 - Less machine vibration and resonance, resulting in less chatter and skip
 - Less wear on mechanical parts, as machine "impacts" are greatly reduced
 - "Steadier hand" for rapid operations such as pick and place, pipetting, etc.
