@@ -1,4 +1,4 @@
-TinyG and G2 Core use **7th-order jerk-controlled** motion planning in real-time. Other motion control systems (both open-source and most proprietary) use **constant acceleration** motion planning for real-time applications. This page explains what those terms mean, and the differences and benefits of controlled-jerk motion planning.
+TinyG and G2 Core use **6th-order jerk-controlled** motion planning in real-time. Other motion control systems (both open-source and most proprietary) use **constant acceleration** motion planning for real-time applications. This page explains what those terms mean, and the differences and benefits of controlled-jerk motion planning.
 
 ## Why Does It Matter?
 Simply put, controlled jerk ("S-curve") motion planning provides better machining results than constant acceleration motion planning. Benefits include:
@@ -15,7 +15,7 @@ Controlled jerk gets more out of the motors. Higher accelerations and better pow
 
 At it's core, controlled jerk motion planning is about ensuring that motors, and hence the entire machine, more closely obey the physics of motion. From a math and physics perspective, the derivatives ("rates of change") of position are velocity (1st derivative), acceleration (2nd derivative), and jerk (3rd derivative). To **_control_** the jerk means to keep it within the limits of the machine. In TinyG and G2 Core the velocity and jerk limits are tunable. 
 
-_Note: In the past TinyG used 3rd-order "constant jerk" motion planning, similar to a form of controlled-jerk motion planning that is found in some commercial products. As far as we know, no commercial CNC products advertise that they use 7th-order motion planning. TinyG has since moved on to even smoother motion control that uses further derivatives "snap" (4th derivative), "crackle" (5th derivative), "pop" (6th derivative), and the unnamed 7th derivative as well._
+_Note: In the past TinyG used 3rd-order "constant jerk" motion planning, similar to a form of controlled-jerk motion planning that is found in some commercial products. As far as we know, no commercial CNC products advertise that they use 6th-order motion planning. TinyG has since moved on to even smoother motion control that uses further derivatives "snap" (4th derivative), "crackle" (5th derivative), and "pop" (6th derivative)._
 
 *The animations below illustrate a typical acceleration move from 0 mm/min to 2000mm/min, using both controlled jerk and constant acceleration. Settings used are typical for machines such as a Shapeoko2, Shapeoko3, or Xcarve.*
 
@@ -40,7 +40,7 @@ Transitions from move-to-move are handled in a similar manner; jerk imparted to 
 
 ### How Is This Done in Real-Time?
 
-TinyG is able to plan and execute motion with 7th-order jerk control in real-time with math that is optimized to run on small, inexpensive microcontrollers, including 32-bit ARM processors (G2 Core project) and 8 bit Atmel Xmega (TinyG project). 
+TinyG is able to plan and execute motion with 6th-order jerk control in real-time with math that is optimized to run on small, inexpensive microcontrollers, including 32-bit ARM processors (G2 Core project) and 8 bit Atmel Xmega (TinyG project). 
 
 The math used is as accurate as the floating point math of the processors allows for, and motion is true to the provided GCode within the configured machine limits. The inevitable inaccuracies of floating point math are accounted for and corrected: positional accuracy is maintained at the fractional-microstep level over jobs of any length.
 
