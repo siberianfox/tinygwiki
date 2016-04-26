@@ -15,7 +15,7 @@ Controlled jerk gets more out of the motors. Higher accelerations and better pow
 
 At it's core, controlled jerk motion planning is about ensuring that motors, and hence the entire machine, more closely obey the physics of motion. From a math and physics perspective, the derivatives ("rates of change") of position are velocity (1st derivative), acceleration (2nd derivative), and jerk (3rd derivative). To **_control_** the jerk means to keep it within the limits of the machine. In TinyG and G2 Core the velocity and jerk limits are tunable. 
 
-_Note: In the past TinyG used 3rd-order "constant jerk" motion planning, similar to a form of controlled-jerk motion planning that is found in some commercial products. As far as we know, no commercial CNC products advertise that they use 6th-order motion planning. TinyG has since moved on to even smoother motion control that uses further derivatives "snap" (4th derivative), "crackle" (5th derivative), and "pop" (6th derivative)._
+_Note: In the past TinyG used 3rd-order "constant jerk" motion planning, similar to a form of controlled-jerk motion planning that is found in some commercial products. TinyG has since moved on to even smoother motion control that uses further derivatives "snap" (4th derivative), "crackle" (5th derivative), and "pop" (6th derivative). As far as we know, no commercial CNC products advertise that they use 6th-order motion planning._
 
 *The animations below illustrate a typical acceleration move from 0 mm/min to 2000mm/min, using both controlled jerk and constant acceleration. Settings used are typical for machines such as a Shapeoko2, Shapeoko3, or Xcarve.*
 
