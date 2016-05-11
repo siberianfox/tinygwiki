@@ -53,7 +53,7 @@ Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to 
 * Hit OK to leave the Options menu
 
 ####Test Connection to TinyG
-* Hit the "Connect" button. Hit the space bar and enter a few carriage returns. TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
+* Hit the "Connect" button. In the terminal enter a few carriage returns (May need to add a space before enter). TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
 <pre>
 {"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
 {"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"SYSTEM READY","f":[1,0,0,8820]}}
