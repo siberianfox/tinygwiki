@@ -154,7 +154,7 @@ Attach one pair to A1/A2 and the other pair to B1/B2. If your motor spins the wr
    * Set current to zero by gently turning the trimpot all the way counter-clockwise
    * Send a relatively slow move to that axis, something like `g1 f400 x50`
    * Adjust the current up (clockwise) until the motor moves or starts humming (meaning it's stalled)
-   * Try the move again at this new setting. If it's still stalled increase the current some more and try again, or drop to a slower feed rate (F value).
+   * Try the move again at this new setting. If it's still stalled increase the current some more and try again, or drop to a slower feed rate (F value). Note: If you hit the up arrow in terminal to try the `g1 f400 x50` move it will do nothing as you are already there. Simply use `g1 f400 x-50` to return to x0. At any point in the terminal you can type '?' to find your position.
    * Once the motor is running turn the current down until it stops. Mark this as the low current spot.
    * Run the motor again and adjust current up until it runs rough or goes into thermal shutdown (see below).
    * Now back off until the cycling stops and the motor runs smoothly, and mark this as your upper limit.
