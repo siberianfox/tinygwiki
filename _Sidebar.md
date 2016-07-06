@@ -28,10 +28,6 @@
 1. [ ] [TinyG-Feedhold-and-Resume](TinyG-Feedhold-and-Resume)
 1. [ ] [TinyG-Licensing](TinyG-Licensing)
 1. [ ] [TinyG-Tuning](TinyG-Tuning)
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
 
 **Discussion Topics**
 
@@ -43,11 +39,7 @@
 1. [ ] [Stepper Motors and Power Supplies](Stepper-Motors-and-Power-Supplies)
 1. [ ] [Test-Drive-TinyG](Test-Drive-TinyG)
 1. [ ] [TinyG-Projects](TinyG-Projects)
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
-
+1. [ ] [TinyG-Using-External-Drivers](TinyG-Using-External-Drivers)
 
 **Chilipeppr**
 
@@ -60,11 +52,6 @@
 **Troubleshooting**
 1. [ ] [Troubleshooting](Troubleshooting)
 1. [ ] [SpDir Continues To Flash Error](SpDir-Continues-To-Flash-Error)
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
-1. [ ] []()
-
 
 **Developer Pages**
 
@@ -74,6 +61,4 @@
 1. [ ] [Continuous-Delivery-Process](Continuous-Delivery-Process)
 1. [ ] [Git Notes](Github-Notes)
 1. [ ] [TinyG-State-Model](TinyG-State-Model)
-1. [ ] []()
-1. [ ] []()
 
