@@ -50,6 +50,7 @@
 1. [ ] [Automatic Z Homing When Milling PCBs](Automatic-Z-Homing-When-Milling-PCBs)
 
 **Troubleshooting**
+
 1. [ ] [Troubleshooting](Troubleshooting)
 1. [ ] [SpDir Continues To Flash Error](SpDir-Continues-To-Flash-Error)
 
