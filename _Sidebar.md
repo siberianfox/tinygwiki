@@ -6,7 +6,7 @@
 1. [ ] [Connecting to TinyG](Connecting-TinyG)
 1. [ ] [Configuring TinyG](TinyG-Configuration)
 1. [ ] [Sending Files](TinyG-Sending-Files)
-1. [ ] [Flashing TinyG](TinyG-TG-Updater-App)
+1. [ ] [Flashing TinyG](TinyG-Updating-Firmware)
 
 **Reference Pages**
 
@@ -19,12 +19,15 @@
 1. [ ] [Jerk Controlled Motion](Jerk-Controlled-Motion-Explained)
 1. [ ] [Alarms & Exceptions](TinyG-Alarms)
 1. [ ] [Coordinate Systems](Coordinate-Systems)
-1. [ ] [Status Codes](Status-Codes)
+1. [ ] [Status Codes](TinyG-Status-Codes)
 1. [ ] [TinyG v8 Data Sheet](Data-Sheets)
 1. [ ] [TinyG-Status-Reports](TinyG-Status-Reports)
 1. [ ] [Power-Management](Power-Management)
 1. [ ] [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer)
 1. [ ] [Text-Wrappers-and-Transaction-IDs](Text-Wrappers-and-Transaction-IDs)
+1. [ ] [TinyG-Feedhold-and-Resume](TinyG-Feedhold-and-Resume)
+1. [ ] [TinyG-Licensing](TinyG-Licensing)
+1. [ ] [TinyG-Tuning](TinyG-Tuning)
 1. [ ] []()
 1. [ ] []()
 1. [ ] []()
@@ -39,7 +42,7 @@
 1. [ ] [Milling With Noisy Spindles](Milling-With-Noisy-Spindles)
 1. [ ] [Stepper Motors and Power Supplies](Stepper-Motors-and-Power-Supplies)
 1. [ ] [Test-Drive-TinyG](Test-Drive-TinyG)
-1. [ ] []()
+1. [ ] [TinyG-Projects](TinyG-Projects)
 1. [ ] []()
 1. [ ] []()
 1. [ ] []()
@@ -66,7 +69,11 @@
 **Developer Pages**
 
 1. [ ] [Introduction to the TinyG Code Base](Introduction-to-the-TinyG-Code-Base)
-Project-Setup-For-Atmel-Studio6.2
+1. [ ] [TinyG-Developer-Notes](TinyG-Developer-Notes)
+1. [ ] [Project-Setup-For-Atmel-Studio6.2](Project-Setup-For-Atmel-Studio6.2)
+1. [ ] [Continuous-Delivery-Process](Continuous-Delivery-Process)
 1. [ ] [Git Notes](Github-Notes)
-Continuous-Delivery-Process
+1. [ ] [TinyG-State-Model](TinyG-State-Model)
+1. [ ] []()
+1. [ ] []()
 
