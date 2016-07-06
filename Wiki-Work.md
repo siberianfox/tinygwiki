@@ -16,12 +16,16 @@ Riley has created some good pages around flashing problems. THese need to reside
 - [Data-Sheet---Version-8](Data-Sheet---Version-8)
 - [Initial-Setup](Initial-Setup)
 - [Status-Reports](Status-Reports)
-
+- [TinyG-Networking](TinyG-Networking)
 
 ### Pages that should be reviewed and revised
 - [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something 
+- [TinyG-Developer-Notes](TinyG-Developer-Notes)
 - [Dual-Gantry-Configuration](Dual-Gantry-Configuration) Superseded by the Shapeoko page
 - [Probing-Description-and-Operation](Probing-Description-and-Operation) is blank
+- Data Sheets. Should have all the schematics and files. Do we want to go fully OSH on this now?
+- [TinyG-Shapeoko-Notes](TinyG-Shapeoko-Notes) Has TGFX in it.
+
 
 
 ###Pages that should be deleted
