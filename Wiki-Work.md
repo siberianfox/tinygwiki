@@ -1,7 +1,7 @@
 This page contains nots for things that should be done to clean up the wiki.
 
 ###Communicating with TinyG
-This whole area is a mess. We need a page with some backgorund, and a page on the proper use of Linemode transmission protocol. 
+This whole area is a mess. We need a page with some backgorund, and a page on the proper use of Linemode transmission protocol (4 buffer method).
 - [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Should be the start page. Other pages already link to this one.
 
 Related pages that may useful data. Use these and get rid of stuff we don;t want:
