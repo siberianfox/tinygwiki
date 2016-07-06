@@ -30,3 +30,5 @@ If your Spindir light keeps flashing after you update your TinyG try this whole 
 
 `https://www.synthetos.com/contact-us/` and we will get back to you to help get you going again.
 
+###Update fails verification / Lock Bits are set
+See [Firmware Update Verification Failure](Firmware-Update-Verification-Failure)
