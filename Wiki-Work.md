@@ -9,6 +9,16 @@ This whole area is a mess. We need:
   - [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
   - [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Useful background, but flow control is all wrong
 
+###Updating Firmware and Problems with Flashing
+These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These might be just fine the way they are, I'm not sure.
+- [TinyG-Updating-Firmware](TinyG-Updating-Firmware) Parent page. Linked from sidebar
+- [TinyG-TG-Updater-App](TinyG-TG-Updater-App) Child page
+- [SpDir-Continues-To-Flash-Error](SpDir-Continues-To-Flash-Error) related page
+- [Firmware-Update-Verification-Failure](Firmware-Update-Verification-Failure) related page
+- [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
+- []()
+- []()
+
 ###Troubleshooting
 Riley has created some good pages around flashing problems. THese need to reside unde Troubleshooting. Perhapos we need 
 
