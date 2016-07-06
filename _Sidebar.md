@@ -12,7 +12,7 @@
 
 **Reference Pages**
 
-Help
+1. [ ] [TinyG Help Page](Help)
 1. [ ] [Gcode Support](Gcode-Support)
 1. [ ] [JSON in TinyG](JSON-Operation)
 1. [ ] [Homing and Limits](Homing-and-Limits-Description-and-Operation)
