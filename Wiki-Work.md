@@ -17,8 +17,6 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [SpDir-Continues-To-Flash-Error](SpDir-Continues-To-Flash-Error) related page
 - [Firmware-Update-Verification-Failure](Firmware-Update-Verification-Failure) related page
 - [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
-- []()
-- []()
 
 ### Pages that should be reviewed and revised
 - [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something 
