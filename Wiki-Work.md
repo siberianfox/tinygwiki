@@ -11,12 +11,21 @@ Related pages that may useful data. Use these and get rid of stuff we don;t want
 ###Updating Firmware and Problems with Flashing
 These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. I put a bulleted list of related pages at the top of the parent page. Here are the related pages that I found:
 
+- synthetos.github.io
 - [TinyG-Updating-Firmware](TinyG-Updating-Firmware) Parent page. Linked from sidebar
 - [TinyG-TG-Updater-App](TinyG-TG-Updater-App) Child page
 - [SpDir-Continues-To-Flash-Error](SpDir-Continues-To-Flash-Error) related page
 - [Firmware-Update-Verification-Failure](Firmware-Update-Verification-Failure) related page
 - [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
 - [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
+
+###CNC Guides
+We already have an OX CNC Guide and a Shapeoko guide, in the form of these 2 pages:
+
+- [TinyG-Shapeoko-Notes](TinyG-Shapeoko-Notes)
+- [TinyG-Shapeoko-Setup](TinyG-Shapeoko-Setup)
+
+We might want to consolidate the Shapeoko stuff to a single start page and any child pages. If we have any machines we want to to feature we can use the same format. Just create a guide for each one. This is probably less important that a bunch of other stuff.
 
 
 ### Pages that should be reviewed and revised
