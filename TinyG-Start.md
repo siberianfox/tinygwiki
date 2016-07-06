@@ -4,7 +4,6 @@ If you have a TinyG v8 this is the place to start. The board revision is printed
 * [TinyG version 6 or earlier](https://github.com/synthetos/TinyG/wiki/TinyG-Start-v6-and-Earlier)
 
 Here's some background if you want to know [about TinyG](https://github.com/synthetos/TinyG/wiki/What-is-TinyG)<br>
-Here's some additional information about [Initial Setup](https://github.com/synthetos/TinyG/wiki/Initial-Setup)<br>
 Here is a list of [differences between the v7 and v8 boards](https://github.com/synthetos/TinyG/wiki/TinyG-Start#changes-in-v8-from-v7)
 
 Here are the steps to get started. We recommend following them in order.
