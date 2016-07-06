@@ -1,13 +1,13 @@
 This page contains nots for things that should be done to clean up the wiki.
 
 ###Communicating with TinyG
-This whole area is a mess. We need:
-- A page on the proper use of Linemode transmission protocol. 
-- Related pages: Incorporate any useful data, possibly get rid of:
-  - [Flow-Control-and-Footers](Flow-Control-and-Footers)
-  - [Sending-Data-to-TinyG-using-RX-Packet-Mode](Sending-Data-to-TinyG-using-RX-Packet-Mode)
-  - [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
-  - [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Useful background, but flow control is all wrong
+This whole area is a mess. We need a page with some backgorund, and a page on the proper use of Linemode transmission protocol. 
+- [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Should be the start page. Other pages already link to this one.
+
+Related pages that may useful data. Use these and get rid of stuff we don;t want:
+- [Flow-Control-and-Footers](Flow-Control-and-Footers)
+- [Sending-Data-to-TinyG-using-RX-Packet-Mode](Sending-Data-to-TinyG-using-RX-Packet-Mode)
+- [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
 
 ###Updating Firmware and Problems with Flashing
 These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. My suggestion would be to put a bulleted list of all pages at the top of the parent page. Here are the related pages that I found:
