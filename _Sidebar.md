@@ -6,31 +6,45 @@
 1. [ ] [Connecting to TinyG](Connecting-TinyG)
 1. [ ] [Configuring TinyG](TinyG-Configuration)
 1. [ ] [Sending Files](TinyG-Sending-Files)
-1. [ ] [Troubleshooting](Troubleshooting)
 1. [ ] [Flashing TinyG](TinyG-TG-Updater-App)
 
 **Reference Pages**
 
 1. [ ] [TinyG Help Page](Help)
 1. [ ] [Gcode Support](Gcode-Support)
+1. [ ] [TinyG-Command-Line](TinyG-Command-Line)
 1. [ ] [JSON in TinyG](JSON-Operation)
 1. [ ] [Homing and Limits](Homing-and-Limits-Description-and-Operation)
 1. [ ] [Inch and MM Units](Inch-and-Millimeter-Units-Mode)
 1. [ ] [Jerk Controlled Motion](Jerk-Controlled-Motion-Explained)
-1. [ ] [Alarms & Exceptions](Alarm-Processing)
+1. [ ] [Alarms & Exceptions](TinyG-Alarms)
 1. [ ] [Coordinate Systems](Coordinate-Systems)
 1. [ ] [Status Codes](Status-Codes)
-1. [ ] [Arduino Due Pinout]()
-1. [ ] [G2 Communications]()
 1. [ ] [TinyG v8 Data Sheet](Data-Sheets)
-
-TinyG-Shapeoko-Setup
-
+1. [ ] [TinyG-Status-Reports](TinyG-Status-Reports)
+1. [ ] [Power-Management](Power-Management)
+1. [ ] [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer)
+1. [ ] [Text-Wrappers-and-Transaction-IDs](Text-Wrappers-and-Transaction-IDs)
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
 
 **Discussion Topics**
 
 1. [ ] [Gcode Parsing]()
-1. [ ] [Creating-Gcode-Files](Creating-Gcode-Files)
+1. [ ] [TinyG Shapeoko Setup](TinyG-Shapeoko-Setup)
+1. [ ] [OX CNC TinyG Guide](OX-CNC-TinyG-Guide)
+1. [ ] [Creating Gcode Files](Creating-Gcode-Files)
+1. [ ] [Milling With Noisy Spindles](Milling-With-Noisy-Spindles)
+1. [ ] [Stepper Motors and Power Supplies](Stepper-Motors-and-Power-Supplies)
+1. [ ] [Test-Drive-TinyG](Test-Drive-TinyG)
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+
 
 **Chilipeppr**
 
@@ -40,12 +54,19 @@ TinyG-Shapeoko-Setup
 1. [ ] [ChiliPeppr PCB Auto Level](ChiliPeppr-PCB-Auto-Level)
 1. [ ] [Automatic Z Homing When Milling PCBs](Automatic-Z-Homing-When-Milling-PCBs)
 
+**Troubleshooting**
+1. [ ] [Troubleshooting](Troubleshooting)
+1. [ ] [SpDir Continues To Flash Error](SpDir-Continues-To-Flash-Error)
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+1. [ ] []()
+
+
 **Developer Pages**
 
 1. [ ] [Introduction to the TinyG Code Base](Introduction-to-the-TinyG-Code-Base)
-1. [ ] [Compiling G2](Compiling-G2)
-1. [ ] [Debugging G2 on OSX](Debugging-G2-on-OSX-with-GDB-and-Atmel-ICE)
+Project-Setup-For-Atmel-Studio6.2
 1. [ ] [Git Notes](Github-Notes)
-1. [ ] [Board and Machine Profiles](Adding-and-Revising-Boards)
 Continuous-Delivery-Process
 
