@@ -1,5 +1,7 @@
 This is the specification data sheet for the TinyG version 8 board. All specifications are subject to change as we improve the product.
 
+See also: [TinyG Hardware Information](TinyG-Hardware-Information)
+
 <dl>
 <dt>version
 <dd>8
