@@ -9,7 +9,7 @@ Related pages that may useful data. Use these and get rid of stuff we don;t want
 - [Sending-Data-to-TinyG-using-RX-Packet-Mode](Sending-Data-to-TinyG-using-RX-Packet-Mode)
 
 ###Updating Firmware and Problems with Flashing
-These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. My suggestion would be to put a bulleted list of all pages at the top of the parent page. Here are the related pages that I found:
+These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. I put a bulleted list of related pages at the top of the parent page. Here are the related pages that I found:
 
 - [TinyG-Updating-Firmware](TinyG-Updating-Firmware) Parent page. Linked from sidebar
 - [TinyG-TG-Updater-App](TinyG-TG-Updater-App) Child page
