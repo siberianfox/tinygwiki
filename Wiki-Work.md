@@ -32,6 +32,9 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [Status-Reports](Status-Reports)
 - [TinyG-Networking](TinyG-Networking)
 - [Tool-Chains-and-Project-Setup](Tool-Chains-and-Project-Setup)
+- [zzz%5BDEPRECATED%5DJSON-Flow-Control-Specification](zzz%5BDEPRECATED%5DJSON-Flow-Control-Specification)
+- [zzz(DEPRECATED)-5th-and-6th-Axis-Dual-Board-Operation](zzz(DEPRECATED)-5th-and-6th-Axis-Dual-Board-Operation)
+- [zzz---BeagleBone-Black-AVR-Programmer](zzz---BeagleBone-Black-AVR-Programmer)
 
 Move Elsewhere:
 - [TinyGv9k-Programming-and-Test-Instructions](TinyGv9k-Programming-and-Test-Instructions)
