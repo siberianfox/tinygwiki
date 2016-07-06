@@ -1,11 +1,10 @@
 **The settings on this page are for firmware version 0.97.** 
 The version number can be found as the fv variable in the startup JSON message, or by typing $fv. Version 0.97 encompasses builds 412.01 - 440.xx and later.
 
-See also:
-* [Configuration Main Page](TinyG-Configuration)
-* [Configuration for Version 0.96](TinyG-Configuration-for-Firmware-Version-0.96)
-* [Configuration for Version 0.95](TinyG-Configuration-for-Firmware-Version-0.95) 
-* [Configuration for Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
+If you have an older firmware version:
+* [Configuration for Firmware Version 0.96](TinyG-Configuration-for-Firmware-Version-0.96)
+* [Configuration for Firmware Version 0.95](TinyG-Configuration-for-Firmware-Version-0.95) 
+* [Configuration for Firmware Version 0.94](TinyG-Configuration-for-Firmware-Version-0.94-and-Earlier) 
 
 <br>
 This page describes how configuration works in text mode from the [Command Line](TinyG-Command-Line). All configs on this page are also accessible in [JSON mode](JSON-Operation). Well almost. Those few commands that apply to only one mode or the other are noted.
