@@ -31,6 +31,7 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [Initial-Setup](Initial-Setup)
 - [Status-Reports](Status-Reports)
 - [TinyG-Networking](TinyG-Networking)
+- [TinyG-Configuration](TinyG-Configuration) Not used anymore - goes direct to current version
 - [Tool-Chains-and-Project-Setup](Tool-Chains-and-Project-Setup)
 - [zzz%5BDEPRECATED%5DJSON-Flow-Control-Specification](zzz%5BDEPRECATED%5DJSON-Flow-Control-Specification)
 - [zzz(DEPRECATED)-5th-and-6th-Axis-Dual-Board-Operation](zzz(DEPRECATED)-5th-and-6th-Axis-Dual-Board-Operation)
