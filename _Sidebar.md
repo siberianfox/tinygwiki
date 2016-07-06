@@ -17,7 +17,6 @@
 1. [ ] [Homing and Limits](Homing-and-Limits-Description-and-Operation)
 1. [ ] [Inch and MM Units](Inch-and-Millimeter-Units-Mode)
 1. [ ] [Jerk Controlled Motion](Jerk-Controlled-Motion-Explained)
-
 1. [ ] [Alarms & Exceptions](Alarm-Processing)
 1. [ ] [Coordinate Systems](Coordinate-Systems)
 1. [ ] [Status Codes](Status-Codes)
