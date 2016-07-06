@@ -3,7 +3,7 @@
 1. [ ] [Home](https://github.com/synthetos/TinyG/wiki)
 1. [ ] [What is TinyG?](What-is-TinyG)
 1. [ ] [Getting Started](TinyG-Start)
-1. [ ] [Connecting to TinyG](Connecting-TinyG)
+1. [ ] [Connecting TinyG](Connecting-TinyG)
 1. [ ] [Configuring TinyG](TinyG-Configuration)
 1. [ ] [Sending Files](TinyG-Sending-Files)
 1. [ ] [Flashing TinyG](TinyG-Updating-Firmware)
