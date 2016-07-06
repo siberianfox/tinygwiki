@@ -5,7 +5,7 @@ Basics:
 <br> 
 * This project is based on the [NIST RS274NGC_3 Gcode specification](https://rs274ngc.googlecode.com/files/RS274NGC_3.pdf)
 * Additional guidance is provided by "CNC Programming Handbook, 3rd Edition" by Peter Smid (sorry, no link. buy the book)<br> 
-* TinyG was originally forked from [grbl](https://github.com/grbl/grbl) in March 2010 and has diverged wildly / been replaced since then.
+* TinyG was originally forked from [grbl](https://github.com/grbl/grbl) in March 2010 when grbl had no acceleration management. TinyG and has diverged wildly since then. All acceleration management and planner functions were developed independently of the grbl project.
 * The TinyG project is Open Source under [GPLv2 with the beRTOS exception](https://github.com/synthetos/TinyG/wiki/TinyG-Licensing) for software and Creative Commons NC-BY-SA for HW.<br> 
 
 ## Code Notes
