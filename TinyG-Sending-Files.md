@@ -5,5 +5,4 @@ Currently there are a number of ways to send gcode files to TinyG.<br>
 
 1. [Sending Files with Chillipeppr (Web Application)](Chilipeppr)
 1. [Sending Files with CoolTerm](TinyG-Sending-Files-with-CoolTerm)
-1. [Sending Files with tgFX](TinyG-Sending-Files-with-tgFX) - **NO longer supported**
 1. [Sending Files programmatically](Tinyg-Communications-Programming)
