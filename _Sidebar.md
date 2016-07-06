@@ -1,11 +1,13 @@
 **Getting Started Pages**
 
 1. [ ] [Home](https://github.com/synthetos/TinyG/wiki)
-1. [ ] [What is G2?](What-is-G2)
-1. [ ] [Getting Started with G2](Getting-Started-with-G2)
-1. [ ] [Connecting to G2](Connecting-to-TinyG)
-1. [ ] [Configuring G2](Configuring-TinyG)
-1. [ ] [Flashing G2](Flashing-G2)
+1. [ ] [What is TinyG?](What-is-TinyG)
+1. [ ] [Getting Started](TinyG-Start)
+1. [ ] [Connecting to TinyG](Connecting-TinyG)
+1. [ ] [Configuring TinyG](TinyG-Configuration)
+1. [ ] [Sending Files](TinyG-Sending-Files)
+1. [ ] [Troubleshooting](Troubleshooting)
+1. [ ] [Flashing TinyG](TinyG-Updating-Firmware)
 
 **Reference Pages**
 
