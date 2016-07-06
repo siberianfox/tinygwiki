@@ -7,7 +7,6 @@ This whole area is a mess. We need a page with some backgorund, and a page on th
 Related pages that may useful data. Use these and get rid of stuff we don;t want:
 - [Flow-Control-and-Footers](Flow-Control-and-Footers)
 - [Sending-Data-to-TinyG-using-RX-Packet-Mode](Sending-Data-to-TinyG-using-RX-Packet-Mode)
-- [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
 
 ###Updating Firmware and Problems with Flashing
 These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. My suggestion would be to put a bulleted list of all pages at the top of the parent page. Here are the related pages that I found:
@@ -17,6 +16,8 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [SpDir-Continues-To-Flash-Error](SpDir-Continues-To-Flash-Error) related page
 - [Firmware-Update-Verification-Failure](Firmware-Update-Verification-Failure) related page
 - [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
+- [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
+
 
 ### Pages that should be reviewed and revised
 - [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something 
