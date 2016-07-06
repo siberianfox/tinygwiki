@@ -21,9 +21,17 @@
 
 **Discussion Topics**
 
+1. [ ] [Automatic Z Homing When Milling PCBs](Automatic-Z-Homing-When-Milling-PCBs)
 1. [ ] [Gcode Parsing](GCode-Parsing)
 1. [ ] [G2 3DP Dialect](g2dialect)
 1. [ ] [Digital DRO](Digital-DRO)
+
+**Chilipeppr
+
+1. [ ] [Chilipeppr](Chilipeppr)
+1. [ ] [Chilipeppr - Advanced Usage](Chilipeppr---Advanced-Usage)
+1. [ ] [Chilipeppr Archive and Restore Parameters](Chilipeppr-Archive-and-Restore-Parameters-for-tinyG)
+
 
 **Developer Pages**
 
