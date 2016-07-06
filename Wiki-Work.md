@@ -10,7 +10,8 @@ This whole area is a mess. We need:
   - [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Useful background, but flow control is all wrong
 
 ###Updating Firmware and Problems with Flashing
-These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These might be just fine the way they are, I'm not sure.
+These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. My suggestion would be to put a bulleted list of all pages at the top of the parent page. Here are the related pages that I found:
+
 - [TinyG-Updating-Firmware](TinyG-Updating-Firmware) Parent page. Linked from sidebar
 - [TinyG-TG-Updater-App](TinyG-TG-Updater-App) Child page
 - [SpDir-Continues-To-Flash-Error](SpDir-Continues-To-Flash-Error) related page
@@ -18,15 +19,6 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
 - []()
 - []()
-
-###Troubleshooting
-Riley has created some good pages around flashing problems. THese need to reside unde Troubleshooting. Perhapos we need 
-
-###Pages to Delete
-- [Data-Sheet---Version-8](Data-Sheet---Version-8)
-- [Initial-Setup](Initial-Setup)
-- [Status-Reports](Status-Reports)
-- [TinyG-Networking](TinyG-Networking)
 
 ### Pages that should be reviewed and revised
 - [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something 
@@ -36,6 +28,18 @@ Riley has created some good pages around flashing problems. THese need to reside
 - Data Sheets. Should have all the schematics and files. Do we want to go fully OSH on this now?
 - [TinyG-Shapeoko-Notes](TinyG-Shapeoko-Notes) Has TGFX in it.
 
+###Pages to Delete
+- [Data-Sheet---Version-8](Data-Sheet---Version-8)
+- [Initial-Setup](Initial-Setup)
+- [Status-Reports](Status-Reports)
+- [TinyG-Networking](TinyG-Networking)
+- [Tool-Chains-and-Project-Setup](Tool-Chains-and-Project-Setup)
 
-
-###Pages that should be deleted
+Move Elsewhere:
+- [TinyGv9k-Programming-and-Test-Instructions](TinyGv9k-Programming-and-Test-Instructions)
+- [TinyGv9j-Manual-Programming-and-Test-Instructions](TinyGv9j-Manual-Programming-and-Test-Instructions)
+- [TinyGv8g-Tester---BeagleBone-Black-Test-Rig-Setup](TinyGv8g-Tester---BeagleBone-Black-Test-Rig-Setup)
+- [TInyGv8g-BeagleBone-Black-Test-Rig-Operation](TInyGv8g-BeagleBone-Black-Test-Rig-Operation)
+- [TinyGv8-Production-Test-Instructions-for-Revision-2-Tester](TinyGv8-Production-Test-Instructions-for-Revision-2-Tester)
+- [TinyGv8-Production-Test-Instructions-for-Revision-1-Tester](TinyGv8-Production-Test-Instructions-for-Revision-1-Tester)
+- [TinyG-v7-data-sheet](TinyG-v7-data-sheet)
