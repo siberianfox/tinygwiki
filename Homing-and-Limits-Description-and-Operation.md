@@ -7,6 +7,8 @@ The following are also useful references:
 * [How to Use Soft and Hard Limits](Homing-and-Limits-Setup-and-Troubleshooting#limit-behaviors---how-its-supposed-to-work)
 * [How Coordinate Systems Work](Coordinate-Systems)
 
+See also: [TinyG Homing for Version 0.94 and Earlier](TinyG-Homing-for-Version-0.94-and-Earlier)
+
 #Homing Commands and Operation
 ##Overview
 The term "homing" in this context means setting the absolute machine coordinates to a known zero location, or _zeroing the machine_. The absolute machine coordinate system (aka "absolute coordinate system", "machine coordinate system", or "G53 coordinate system") is the reference coordinate system for the machine. Work coordinate systems G54, G55, G56, G57, G58, G59 can be defined on top of G53 as offsets to the machine coordinates, and G92 can be used to put offsets on the offsets. Yes. It gets confusing. The [coordinate systems](Coordinate-Systems) page may help.
