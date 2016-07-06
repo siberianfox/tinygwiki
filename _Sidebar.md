@@ -4,7 +4,7 @@
 1. [ ] [What is TinyG?](What-is-TinyG)
 1. [ ] [Getting Started](TinyG-Start)
 1. [ ] [Connecting TinyG](Connecting-TinyG)
-1. [ ] [Configuring TinyG](TinyG-Configuration)
+1. [ ] [Configuring TinyG](TinyG-Configuration-for-Firmware-Version-0.97)
 1. [ ] [Sending Files](TinyG-Sending-Files)
 1. [ ] [Flashing TinyG](TinyG-Updating-Firmware)
 
