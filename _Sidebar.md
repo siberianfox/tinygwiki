@@ -9,15 +9,14 @@
 1. [ ] [Troubleshooting](Troubleshooting)
 1. [ ] [Flashing TinyG](TinyG-TG-Updater-App)
 
-
 **Reference Pages**
 
 1. [ ] [TinyG Help Page](Help)
 1. [ ] [Gcode Support](Gcode-Support)
 1. [ ] [JSON in TinyG](JSON-Operation)
 1. [ ] [Homing and Limits](Homing-and-Limits-Description-and-Operation)
-1. [ ] [Inch and Millimeter Units Modes](Inch-and-Millimeter-Units-Mode)
-1. [ ] [Jerk Controlled Motion Explained](Jerk-Controlled-Motion-Explained)
+1. [ ] [Inch and MM Units](Inch-and-Millimeter-Units-Mode)
+1. [ ] [Jerk Controlled Motion](Jerk-Controlled-Motion-Explained)
 
 1. [ ] [Alarms & Exceptions](Alarm-Processing)
 1. [ ] [Coordinate Systems](Coordinate-Systems)
