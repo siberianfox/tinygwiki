@@ -107,7 +107,7 @@ Incremental status report setup is supported as of build 440.22. Everything abov
  * `{sr:f}` removes all status reports (clears)
  * `{sr:t}` restores status reports to default settings for the stored profile
  * `{sr:{<key1>:t,...<keyN>:t}}` adds key1 through keyN to the status report list
- * `{sr:{<key1>:f,...<keyN>:t}}` removes key1 through keyN from the status report list
+ * `{sr:{<key1>:f,...<keyN>:f}}` removes key1 through keyN from the status report list
  
 
   - Lines may have a mix of t and f pairs
