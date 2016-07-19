@@ -172,34 +172,40 @@ _Earlier revisions (build 380.xx) may be using [these status codes](#legacy-stat
 ## Status Report Enumerations
 Values commonly reported in status reports are listed below. See canonical_machine.h for the actual code.
 
+** Notice: as per recent documentation on the Synthetos github some changes (new codes as well as re-arrangements) are planned. These have been last updated here as per 440.21 (Latest commit d785510  on Sep 14, 2015)
+
 	Token | Value | Description
 	------|-------|-------------
 	"stat" || Machine State
 	| 0 | machine is initializing
 	| 1 | machine is ready for use
-	| 2 | machine is in alarm state (shut down)
+	| 2 | machine is in alarm state (soft shut down)
 	| 3 | program stop or no more blocks (M0, M1, M60)
 	| 4 | program end via M2, M30
 	| 5 | motion is running
 	| 6 | motion is holding
 	| 7 | probe cycle active
 	| 8 | machine is running (cycling)
-	| 9 | machine is homing 
+	| 9 | machine is homing
+	| 10 | machine is jogging 
+	| 11 | machine is in hard alarm state (shut down)
 	"momo" | | Gcode Motion Mode
-	| 0 | G0 - straight traverse
-	| 1 | G1 - straight feed
-	| 2 | G3/G4 - arc traverse
-	| 3 | G80 - cancel motion mode (no motion mode active)
+	| 0 | G0 - straight (linear) traverse
+	| 1 | G1 - straight (linear) feed
+	| 2 | G2 - CW arc traverse
+	| 3 | G3 - CCW arc traverse
+	| 4 | G80 - cancel motion mode (no motion mode active)
 	"unit" | | Gcode Units
 	| 0 | G20 - inches mode
 	| 1 | G21 - millimeter mode
 	"macs" || Raw Machine State
 	| 0 | machine is initializing
 	| 1 | machine is ready for use
-	| 2 | machine is in alarm state (shut down)
+	| 2 | machine is in alarm state (soft shut down)
 	| 3 | program stop or no more blocks (M0, M1, M60)
 	| 4 | program end via M2, M30
 	| 5 | machine is in cycle
+	| 6 | machine is in shutdown state
 	"cycs" || Cycle State
 	| 0 | cycle off (not in cycle)
 	| 1 | normal machine cycle
@@ -230,15 +236,16 @@ Values commonly reported in status reports are listed below. See canonical_machi
 	| 1 | G18 - XZ plane
 	| 2 | G19 - YZ plane
 	"path" || Gcode Path Control Mode
-	| 0 | G61 - Exact stop mode
-	| 1 | G61.1 - Exact path mode
+	| 0 | G61 - Exact path mode
+	| 1 | G61.1 - Exact stop mode
 	| 2 | G64 - Continuous mode
 	"dist" || Gcode Distance Mode
 	| 0 | G90 - Absolute distance mode
 	| 1 | G91 - Incremental distance mode
 	"frmo" || Gcode Feed Rate Mode
-	| 0 | G94 - Normal time mode (cancel inverse time mode)
-	| 1 | G93 - Inverse time mode
+	| 0 | G93 - Inverse time mode
+	| 1 | G94 - Units-per-minute mode (i.e. feedrate mode)
+	| 2 | G95 - Units-per-revolution mode
 
 ## ASCII Character Usage
 
