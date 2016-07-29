@@ -37,9 +37,9 @@ This table summarizes Gcode supported. _axes_ means one or more of X,Y,Z,A,B,C.
 	G57 | | Select coord system 4 |
 	G58 | | Select coord system 5 |
 	G59 | | Select coord system 6 |
-	[G61](#g61-g611-g64-path-control-modes) | | Exact stop mode | Motion will stop between each Gcode block
-	[G61.1](#g61-g611-g64-path-control-modes) | | Exact path mode | Continuous motion between Gcode blocks - exact path will be traced
-	[G64](#g61-g611-g64-path-control-modes) | | Continuous path mode | Same as exact path mode 
+	[G61](#g61-g611-g64-path-control-modes) | | Exact stop mode | Continuous motion between Gcode blocks - exact path will be traced - stops only if it must
+	[G61.1](#g61-g611-g64-path-control-modes) | | Exact path mode | Motion will stop between each Gcode block
+	[G64](#g61-g611-g64-path-control-modes) | | Continuous path mode | Sacrifice path following accuracy in order to keep the feed rate up
 	G80 | | Cancel motion mode |
 	G90 | | Set absolute mode |
 	G91 | | Set incremental mode |
