@@ -1,5 +1,5 @@
 ## Status Reports
-Status reports provide a view of what's going on in the controller. They report "dynamic gcode model" state. In plain English, they tell you where you are (position), if the machine is moving, how fast, what it's doing, when a move is done, and other stuff as well. They can be returned on-demand, or can be automatically generated during movement so you can see move progress. They are delivered in JSON so the UI can use it, or can be delivered in plain test for a command-line user.  
+Status reports provide a view of what's going on in the controller. They report "dynamic gcode model" state. In plain English, they tell you where you are (position), if the machine is moving, how fast, what it's doing, when a move is done, and other stuff as well. They can be returned on-demand, or can be automatically generated during movement so you can see move progress. They are delivered in JSON so the UI can use it, or can be delivered in plain text for a command-line user.  
 
 The following variables can be reported in a status report
 
