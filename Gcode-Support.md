@@ -106,7 +106,7 @@ Example:
 * Send G91 G28 Z10 - this will move to x100 y100. The tool will initially lift z by 10 mm (or inches); G91 is used to set relative mode for this command. 
 
 ##G61, G61.1, G64 Path Control Modes
-TinyG supports exact stop mode (G61) and exact path mode (G61.1). G64 is recognized, but is treated as exact path mode. In exact stop mode motion will stop between each Gcode block. In exact path mode the exact path is followed (i.e. corners are not rounded). The velocity at the points joining 2 blocks is controlled to keep the change in direction between the blocks within centripetal acceleration limit set by $JA. Please see [here](https://github.com/synthetos/TinyG/wiki/Configuration#xjd---junction-deviation) for an explanation.
+TinyG supports exact path mode (G61) and exact stop mode (G61.1). G64 is recognized, but is treated as exact path mode. In exact stop mode motion will stop between each Gcode block. In exact path mode the exact path is followed (i.e. corners are not rounded). The velocity at the points joining 2 blocks is controlled to keep the change in direction between the blocks within centripetal acceleration limit set by $JA. Please see [here](https://github.com/synthetos/TinyG/wiki/Configuration#xjd---junction-deviation) for an explanation.
 
 ##M2, M30 Program End
 program END (M2, M30) performs the following actions:
@@ -127,7 +127,7 @@ program END (M2, M30) performs the following actions:
 <pre>
 Valid comment cases       Notes:
 G0X10                      - command only - no comment
-G0X10 (comment text)       - comment with comment
+G0X10 (comment text)       - command with comment
 G0X10 (comment text        - it's OK to drop the trailing paren
 G0X10 ;comment text        - comment delimited by semicolon (firmware build 378.05 and later) 
 (comment text)             - there is no command on this line
