@@ -7,6 +7,7 @@
 1. [ ] [Configuring TinyG](TinyG-Configuration-for-Firmware-Version-0.97)
 1. [ ] [Sending Gcode Files](TinyG-Sending-Files)
 1. [ ] [Flashing TinyG](TinyG-Updating-Firmware)
+1. [ ] [Chilipeppr](https://github.com/synthetos/TinyG/wiki/Chilipeppr)
 
 **Reference Pages**
 
