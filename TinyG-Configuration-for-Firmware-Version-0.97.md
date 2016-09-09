@@ -206,7 +206,7 @@ Note that the equation for units-per-step is:
 <pre>
 units = travel-per-revolution / ((360/step-angle) * microsteps)
 
-Example: 0.00078125 mm = 1.25 / (360/1.8) * 8)
+Example: 0.00078125 mm = 1.25 / ((360/1.8) * 8)
 </pre>
 
 ### $1MI - MIcrosteps
