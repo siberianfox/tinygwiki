@@ -202,6 +202,14 @@ Note that Travel per Revolution is a motor parameter, not an axis parameter as o
 $1tr=2.54          Sets motor 1 to a 10 TPI travel from millimeters (2.54 mm per revolution)
 </pre>
 
+Note that the equation for units-per-step is:
+<pre>
+units = travel-per-revolution / ((360/step-angle) * microsteps)
+
+Example:
+0.00078125 mm = 1.25 / (360/1.8) * 8)
+</pre>
+
 ### $1MI - MIcrosteps
 TinyG microsteps are set in firmware, not as hardware jumpers as on some other systems. The following microstep values are supported: 
 
@@ -217,16 +225,6 @@ $3mi=8	        Set 1/8 microsteps for motor 3
 TinyG can also drive external stepper drivers using the breakout headers. Some drivers use other values than the above, so any value is accepted. Values other than those above are warned as non-standard.
 
 _Note about Microsteps: It is a misconception that higher microstep values are better - beyond a certain point they are a detriment to performance. In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power._
-
-Note that the equation for units-per-step is:
-<pre>
-
-units = travel-per-revolution / ((360/step-angle) * microsteps)
-
-Example:
-
-0.00078125 mm = 1.25 / (360/1.8) * 8)
-</pre>
 
 ### $1PO - POlarity
 Set to one of the following: 
