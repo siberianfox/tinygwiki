@@ -218,6 +218,16 @@ TinyG can also drive external stepper drivers using the breakout headers. Some d
 
 _Note about Microsteps: It is a misconception that higher microstep values are better - beyond a certain point they are a detriment to performance. In a typical setup the total power delivered to the motor (and hence torque) will go down as you increase the microsteps, especially at higher speeds. Also, using microsteps to set the finest machine resolution is source of error as the shaft angle isn't necessarily going to be at the theoretical point. Don't just assume that 1/8 microstepping is the right setting for your application. Try out different settings to balance smoothness and power._
 
+Note that the equation for units-per-step is:
+<pre>
+
+units = travel-per-revolution / ((360/step-angle) * microsteps)
+
+Example:
+
+0.00078125 mm = 1.25 / (360/1.8) * 8)
+</pre>
+
 ### $1PO - POlarity
 Set to one of the following: 
 
