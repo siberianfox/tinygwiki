@@ -48,7 +48,7 @@ We also routinely run NEMA34's, but not in high mechanical load situations. The 
 Some of out favorite sources for stepper motors are: 
 
 * [Automation Technology Inc. (Keling)](http://www.automationtechnologiesinc.com/)
-* [Alltronics](http://www.alltronics.com/cgi-bin/category/55 www.alltronics.com/cgi-bin/category/55)
+* [Alltronics](http://www.alltronics.com/cgi-bin/category/55)
 * [MPJA](http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/)
 * [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html)
 * [Sparkfun](https://www.sparkfun.com/categories/178)
