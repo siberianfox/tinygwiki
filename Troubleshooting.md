@@ -92,9 +92,10 @@ Some other things you might check:
 
 **DIAGNOSIS**: This is usually a failure in the serial communications to the board, where the Gcode commands are getting garbled. One of the following things is probably happening:
 
-1. On OSX 10.9 and above the native USB drivers are being used instead of the FTDI drivers. OSX has been known to revert to the native drivers in a major upgrade. See [here]() for remedy.
+1. Flow control is not configured correctly at the board and the host. Set either XON/XOFF or RTS/CTS using the $ex command, and make sure the host is configured the same. Not that some hosts do not perform flow control properly 
+1. On OSX 10.9 and above the native USB drivers are being used instead of the FTDI drivers. OSX has been known to revert to the native drivers in a major upgrade. See [here](/Connecting-TinyG#install-ftdi-drivers) for remedy.
 1. The serial buffer is being overwritten because the host is not performing adequate flow control
-1. $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
+1. $ configuration commands are being sent while the tool is in motion or are being sent too rapidly
 
 Are you using Coolterm to send files? Are you using Xon/Xoff mode? It is enabled in both Coolterm and on TinyG ($ex)?
 
