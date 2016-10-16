@@ -31,6 +31,8 @@ Next establish USB connection with your host computer.
 
 * MAC Installation - As of Mavericks (OSX 10.9.x) OSX will appear to communicate with TinyG without loading the FTDI supplied drivers. However, the native mac drivers do not perform flow control with the FTDI on the v8, so they will not work. You need the VCP 2.3 driver from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You must also reboot your system once the installation is finished (they don't tell you this). If installed correctly you should see something like `usbserial-DA00Y5MM` when you scan for new serial ports. 
 
+**NOTE: We have seen that a major OSX upgrade can remove the FTDI drivers. If you experience problems with bad commands and files generally not working after an OSX upgrade repeat the FTDI VCP driver installation, above** 
+
 _Note that the Mac native driver will also show the usbserial port, so the only real way to tell if you have the FTDI driver is to look in APPLE_IN_THE_UPPER_LEFT_CORNER / About This Mac / System Report / Software / Extensions for FTDIUSBSerialDriver, version 2.3)_
 
 ####Set up Coolterm
