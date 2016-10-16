@@ -88,8 +88,13 @@ Some other things you might check:
 * Rapid moves to random locations
 * Z axis plunging unexpectedly
 * Gcode errors returned in message line
+* System goes onto Alarm (status code 204) for no apparent reason
 
-**DIAGNOSIS**: This is usually a failure in the program sending Gcode to the board. One of two things is probably happening (1) the serial buffer is being overwritten because the host is not performing adequate flow control, or (2) $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
+**DIAGNOSIS**: This is usually a failure in the serial communications to the board, where the Gcode commands are getting garbled. One of the following things is probably happening:
+
+1. On OSX 10.9 and above the native USB drivers are being used instead of the FTDI drivers. OSX has been known to revert to the native drivers in a major upgrade. See [here]() for remedy.
+1. The serial buffer is being overwritten because the host is not performing adequate flow control
+1. $ configuration commands are being sent while the tool is in motion or are being sent too rapidly.
 
 Are you using Coolterm to send files? Are you using Xon/Xoff mode? It is enabled in both Coolterm and on TinyG ($ex)?
 
