@@ -50,7 +50,7 @@ Some of out favorite sources for stepper motors are:
 * [Automation Technology Inc. (Keling)](http://www.automationtechnologiesinc.com/)
 * [Alltronics](http://www.alltronics.com/cgi-bin/category/55 www.alltronics.com/cgi-bin/category/55)
 * [MPJA](http://www.mpja.com/Stepper-Motors/products/101/ www.mpja.com/Stepper-Motors/products/101/)
-* [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html 
+* [All Electronics](http://www.allelectronics.com/make-a-store/category/400/Motors/1.html)
 * [Sparkfun](https://www.sparkfun.com/categories/178)
 * [Phidgets](http://www.phidgets.com/products.php?category=23)
 * [Oriental Motor Company](http://www.omc-stepperonline.com/)
