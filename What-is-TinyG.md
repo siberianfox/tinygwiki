@@ -1,4 +1,4 @@
-The TinyG project is a multi-axis motion control system. It is designed for CNC applications and other applications that require highly precise motion control. TinyG is meant to be a complete embedded solution for small/medium motor control. Here are some of the main features of the v8 hardware.
+The TinyG project is a multi-axis motion control system. It is designed for CNC applications and other applications that require highly precise motion control. TinyG is meant to be a complete embedded solution for small/medium motor control. Here are some of the main features of the v8 hardware.   [**You can purchase a TinyG V8 here.**](https://synthetos.myshopify.com/collections/assembled-electronics/products/tinyg)
 
 * Integrated motion control system with embedded microcontroller (Atmel ATxmega192) 
 * 4 stepper motor drivers (TI DRV8818) integrated on a ~4 inch square board 
