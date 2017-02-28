@@ -2,7 +2,6 @@ If you are on this page we can assume you want to write a program that talks to 
 
 If you are just looking for an off-the-shelf way to drive TinyG please see these other links:
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
-* [Sending Files with tgFX](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-tgFX)<br>
 
 This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base). This page on [flow control and footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers) also has some notes that were used in developing the system communications.
 
