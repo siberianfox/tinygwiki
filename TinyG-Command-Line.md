@@ -44,19 +44,19 @@ x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get)
 ## Groups
 A group is a collection of related tokens. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite. Groups simplify configuration management and reporting by collecting related values together. The following groups are defined. All parameters within the groups are persistent (stored in EEPROM) unless noted.
 
-	Group | Tokens | Notes
-	--------|----------|-------
-	axis | x y x a b c | Contain all settings for that axis
-	motor | 1 2 3 4 | Contain all settings for that motor
-	pwm | p1 | Contain all settings for pulse width modulation channel
-	offsets | g54 g55 g56 g57 g58 g59 | Contain offset settings xyzabc in named coordinate system. 
-	temp offset | g92 | Contain g92 offset settings. These are not persistent
-	return to home values | g28, g30 | Contain return values in machine coordinates. These are not persistent
-	pos | x y x a b c | current work position, with offsets
-	mpo | x y x a b c | current machine position, no offsets, and always reports in millimeters
-	ofs | x y x a b c | current offsets,  always reports in millimeters
-	hom | x y x a b c e | axis homing stateus. 'e' reports homing status for Entire machine
-	system | sys | Contain system parameters
+Group | Tokens | Notes
+--------|----------|-------
+axis | x y x a b c | Contain all settings for that axis
+motor | 1 2 3 4 | Contain all settings for that motor
+pwm | p1 | Contain all settings for pulse width modulation channel
+offsets | g54 g55 g56 g57 g58 g59 | Contain offset settings xyzabc in named coordinate system. 
+temp offset | g92 | Contain g92 offset settings. These are not persistent
+return to home values | g28, g30 | Contain return values in machine coordinates. These are not persistent
+pos | x y x a b c | current work position, with offsets
+mpo | x y x a b c | current machine position, no offsets, and always reports in millimeters
+ofs | x y x a b c | current offsets,  always reports in millimeters
+hom | x y x a b c e | axis homing stateus. 'e' reports homing status for Entire machine
+system | sys | Contain system parameters
 
 To list a group type in the group prefix; for example:
 * type $x to list the X group
@@ -66,12 +66,12 @@ To list a group type in the group prefix; for example:
 ### Uber-Groups
 In text mode (but not JSON mode) the following groups of groups are also available for display:
 
-	Uber-Group | Token | Notes
-	--------|----------|-------
-	axis | q | All axis settings for all axes
-	motor | m | All settings for all motors
-	offsets | o | All offset settings including g92's
-	all | $ | All settings. Invoked as $$
+Uber-Group | Token | Notes
+--------|----------|-------
+axis | q | All axis settings for all axes
+motor | m | All settings for all motors
+offsets | o | All offset settings including g92's
+all | $ | All settings. Invoked as $$
 
 For example type $q to list all axis groups. 
 The list of uber-groups can be seen by asking for the system help screen using $h.
@@ -84,11 +84,11 @@ _Settings can be displayed and entered in either inches or millimeters. All valu
 
 To display a setting type $<the-mnemonic-for-the=setting-you-want-to-display>. It will respond with the value taken. For example:
 
-	Request | Response | Notes
-	--------|----------|-------
-	$xvm | [xvm] x_velocity_maximum      16000.000 mm/min | Show X axis maximum velocity
-	$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
-	$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
+Request | Response | Notes
+--------|----------|-------
+$xvm | [xvm] x_velocity_maximum      16000.000 mm/min | Show X axis maximum velocity
+$3po | [3po] m3_polarity                 0 [0,1] | Show motor 3 polarity
+$ex | [ex]  enable_xon_xoff             1 [0,1] | Show XON/XOFF setting
 
 The following commands will display groups.
 <pre>
@@ -174,10 +174,10 @@ To update a setting enter $token=value
 
 Tokens are a mnemonic plus a group prefix (system settings have no prefix). The setting is taken and the value is echoed in a descriptive text line. No spaces are allowed. Numeric values can contain embedded commas. The following are examples of valid and invalid inputs. 
 
-	Request | Response | Notes
-	--------|----------|-------
-	$yfr=800 | [yfr] y_feedrate_maximum        800.000 mm/min | Set Y axis feed rate maximum to 800 mm/min
-	$yfr=16,000 | [yfr] y_feedrate_maximum      16000.000 mm/min |  Set Y axis feed rate maximum to 16000 mm/min
-	$2po=1 | [2po] m2_polarity                 1 [0,1] | Set motor 2 polarity
-	$ex=1 | [ex]  enable_xon_xoff             1 [0,1] | Enable XON/XOFF protocol
-	$ted=1 | error: Unrecognized command $ted | Example of an error
+Request | Response | Notes
+--------|----------|-------
+$yfr=800 | [yfr] y_feedrate_maximum        800.000 mm/min | Set Y axis feed rate maximum to 800 mm/min
+$yfr=16,000 | [yfr] y_feedrate_maximum      16000.000 mm/min |  Set Y axis feed rate maximum to 16000 mm/min
+$2po=1 | [2po] m2_polarity                 1 [0,1] | Set motor 2 polarity
+$ex=1 | [ex]  enable_xon_xoff             1 [0,1] | Enable XON/XOFF protocol
+$ted=1 | error: Unrecognized command $ted | Example of an error
