@@ -1,6 +1,6 @@
 **NOTE: This page describes JSON operations in release 0.95 and later. This page is really a continuation of [this page](https://github.com/synthetos/TinyG/wiki/JSON-Operation)**
 
-##JSON Mode Protocol
+## JSON Mode Protocol
 ### Commands and Responses
 Commands in JSON mode are sent as JSON objects. Some request and response examples:
 
@@ -16,48 +16,48 @@ Responses are wrapped in a response body and include a footer. Requests and resp
 
 The footer contains a 4 element array:
 
-	Element  | Notes
-	-------|-------------------------
-	array_ID/version | Initially set to 1. This number identifies the array and version for the parser. It will be incremented if protocol changes are made that would affect hosts/clients
-	status_code | 0 means the command executed `OK`. All others are exceptions. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for details.
-	RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. This allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer starts with 254 bytes free. The terminating `<LF>` or `<CR>` counts as a byte.
-	checksum | A hashcode checksum for the line; typically 4 digits but may be anything from 1 to 4 digits. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to limit the length to no more than 4 characters. See compute_checksum() in util.c for C code.
+Element  | Notes
+-------|-------------------------
+array_ID/version | Initially set to 1. This number identifies the array and version for the parser. It will be incremented if protocol changes are made that would affect hosts/clients
+status_code | 0 means the command executed `OK`. All others are exceptions. See [Status Codes](https://github.com/synthetos/TinyG/wiki/TinyG-Status-Codes) for details.
+RX_received | Indicates how many characters were removed from the serial RX buffer to process this command. This allows the host to keep a running total of the bytes available in the TinyG RX buffer. The RX buffer starts with 254 bytes free. The terminating `<LF>` or `<CR>` counts as a byte.
+checksum | A hashcode checksum for the line; typically 4 digits but may be anything from 1 to 4 digits. The checksum is generated for the JSON line up to but not including the comma preceding the checksum itself. I.e, the comma is where the nul termination would exist. The checksum is computed as a [Java hashcode](http://en.wikipedia.org/wiki/Java_hashCode(\)) from which a modulo 9999 is taken to limit the length to no more than 4 characters. See compute_checksum() in util.c for C code.
 
 ### Response Verbosity
 Character echo ($ee) is always an option; it's just not a good one for JSON. In JSON mode it should be turned off (  $ee=0, or {"ee":0}  ). It's a matter of preference for text mode.
 
 JSON verbosity ($jv) sets the level of verbosity in JSON responses. It is set by {"jv":N} where N is one of:
 
-	Num | label | description
-	----|-------|-------------
-	0 | JV_SILENT | No response is provided for any command
-	1 | JV_FOOTER | Returns footer only - no command echo, gcode blocks or messages
-	2 | JV_MESSAGES | Returns footer, messages (exception messages and gcode comment messages)
-	3 | JV_CONFIGS | Returns footer, messages, config commands
-	4 | JV_LINENUM | Returns footer, messages, config commands, gcode line numbers if present
-	5 | JV_VERBOSE | Returns footer, messages, config commands, gcode blocks
+Num | label | description
+----|-------|-------------
+0 | JV_SILENT | No response is provided for any command
+1 | JV_FOOTER | Returns footer only - no command echo, gcode blocks or messages
+2 | JV_MESSAGES | Returns footer, messages (exception messages and gcode comment messages)
+3 | JV_CONFIGS | Returns footer, messages, config commands
+4 | JV_LINENUM | Returns footer, messages, config commands, gcode line numbers if present
+5 | JV_VERBOSE | Returns footer, messages, config commands, gcode blocks
 
 Generally levels 2, 3 or 4 are recommended.
 
 ### Reading Configuration Parameters (like a GET)
 To get a parameter pass an object with a null value. The value is returned in the response. Some examples of valid requests and responses are provided below. 
 
-	Request | Response | Description
-	---------|--------------|-------------
-	{"xvm":n} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
-	{"x":{"vm":n}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
-	{"x":n} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
+Request | Response | Description
+---------|--------------|-------------
+{"xvm":n} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+{"x":{"vm":n}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+{"x":n} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group
 
-###Setting Configuration Parameters (like a POST)
+### Setting Configuration Parameters (like a POST)
 To set a parameter pass an object with the value to be set. The value applied is returned in the response. The response value may be different than the requested valued in some cases. For example, an attempt to set a status report interval less than the minimum will return the minimum interval. Trying to set a read-only value will return that value; for example, firmware version. In some other cases a value of 'false' will be returned. The following are examples of valid set commands. All requests and responses are on a single line of text (even if the table below wraps on your display).
 
-	Request | Response | Description
-	---------|--------------|-------------
-	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]} | set X axis maximum velocity to 15000
-	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}} | alternate form to set X axis maximum velocity to 15000
-	{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]} | Set status minimum interval to 250 ms. 
-	{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Try to set status interval to 10 ms, but minimum was 50
-	{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | The version stays at 0.95 despite your wishes :(
+Request | Response | Description
+---------|--------------|-------------
+{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]} | set X axis maximum velocity to 15000
+{"x":{"vm":15000}} | {"r":{"x":{"vm":15000},"f":[1,0,19,2131]}} | alternate form to set X axis maximum velocity to 15000
+{"si":250} | {"r":{"si":250.000},"f":[1,0,19,2131]} | Set status minimum interval to 250 ms. 
+{"si":10} | {"r":{"si":50.000},"f":[1,0,19,2131]} | Try to set status interval to 10 ms, but minimum was 50
+{"fv":2.0} | {"r":{"fv":0.950},"f":[1,0,19,2131]} | The version stays at 0.95 despite your wishes :(
 
 ### Groups
 The following groups can be read and set using JSON. The JSON strings provided below (i.e. the group with a null value ("")) will return all members of the group. 
@@ -111,19 +111,19 @@ There are 2 cases where messages are returned in responses
 ### Gcode line numbers 
 Gcode line numbers are returned as `n` objects if they are provided in a Gcode file - i.e. the line starts with Nxxxx where xxxxx is a number. An example is:
 
-	Request | Response | Description
-	---------|--------------|-------------
-	N20 G1 F240 X2.01 Y2.99 | "n":20 | is returned as part of the response in the response
+Request | Response | Description
+---------|--------------|-------------
+N20 G1 F240 X2.01 Y2.99 | "n":20 | is returned as part of the response in the response
 
 ## Gcode in JSON Mode
 In JSON mode Gcode blocks may be provided either as native gcode text or wrapped in JSON as a "gc" object. In either case responses will be returned in JSON format. A JSON wrapper may only contain a single gcode block.<br> 
 
-	Gcode Request | Response | Notes
-	---------|--------------|---------
-	{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode, [strict syntax](JSON-Operation#json-syntax-option---relaxed-or-strict)
-	{gc:"g0 x100"} | {r:{gc:"G0X100"},f:[1,0,19,2131]} | wrapped gcode, [relaxed syntax](JSON-Operation#json-syntax-option---relaxed-or-strict)
-	g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | unwrapped gcode
-	{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]} |Gcode with comment
-	{"gc":"m0 (msgChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]} | Gcode with message in comment
+Gcode Request | Response | Notes
+---------|--------------|---------
+{"gc":"g0 x100"} | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | wrapped gcode, [strict syntax](JSON-Operation#json-syntax-option---relaxed-or-strict)
+{gc:"g0 x100"} | {r:{gc:"G0X100"},f:[1,0,19,2131]} | wrapped gcode, [relaxed syntax](JSON-Operation#json-syntax-option---relaxed-or-strict)
+g0 x100 | {"r":{"gc":"G0X100"},"f":[1,0,19,2131]} | unwrapped gcode
+{"gc":"g0 x100 (Initial move)"} | {"r":{"gc":"G0X100 (Initial move)"},"f":[1,0,19,2131]} |Gcode with comment
+{"gc":"m0 (msgChange tool)"} | {"r":{"gc":"M0","msg":"Change tool"},"f":[1,0,19,2131]} | Gcode with message in comment
 
 The first responses are pretty normal. The third has a comment in it. The fourth is what would happen if a MSG were communicated in the Gcode comment. 
