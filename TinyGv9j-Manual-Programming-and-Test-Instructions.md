@@ -1,4 +1,4 @@
-##Setup
+## Setup
 The assembled board should be set up with the following:
 * Atmel-ICE programmer
 * Four stepper motors
@@ -23,13 +23,13 @@ The assembled board should be set up with the following:
 **VERIFY that the blue power LED is lit when the power supply is turned on**<br>
 (Some other LEDs may also be lit)
 
-##Board Setup
+## Board Setup
 Make sure the following jumpers are placed:
 * J19 jump pins 1 and 2 (+12v position). J19 is located behind the fan connector
 * J20 jump pins 1 and 2 (3.3v position). J20 is located above the U10 14 pin SOIC
 * J15 jump pins 13 and 26. (Interlock override) These pins are located above the 10 pin mini-JTAG connector J6, and are marked with white silkscreen and labeled "Jump for Operation"
 
-##Programming
+## Programming
 If you have not already done so bring up the host computer and related programs
 * Boot the mac (which is what we are using in this example. You know the password)
 * Start the Windows 7 virtual machine (virtual machine labeled as `W7 WORKING CURRENT`)
@@ -43,7 +43,7 @@ If you have not already done so bring up the host computer and related programs
 
 ![device-programming](https://farm4.staticflickr.com/3902/14606994178_5385b2c3fe_b.jpg)
 
-* Under TOOL select the Atmel ICE. See the second picture if you don't see the Atmel-ICE as an option 
+* Under TOOL select the Atmel ICE. See the second picture if you don't see the Atmel-ICE as an option
 * Under DEVICE select ATSAM3X8C from the long list of Atmel products
 * Under INTERFACE select SWD programming mode
 * Hit APPLY
@@ -62,14 +62,14 @@ If the Atmel-ICE is not an option it's either because it's (1) not plugged in, o
 
 ![memories](https://farm4.staticflickr.com/3904/14793271732_1052df055e_b.jpg)
 
-* Program the chip. 
+* Program the chip.
 * First you must select the tinyg2.elf file you wish to program onto the chip. This is usually in the project directory in which you found the TinyG2.atsln file. The file select is sticky so it will stay selected if you are doing more than one board.
 * Hit PROGRAM. Programming and verification takes about 20-30 seconds
 * When done the red TX LED on the board should cycle at about 1 Hz.
 
 ![](https://farm4.staticflickr.com/3885/14606985478_22c4f78c2a_b.jpg)
 
-* Select GPNVM Bits. 
+* Select GPNVM Bits.
 * Select boot options:
   * Flash
   * Bank 0
@@ -79,7 +79,7 @@ If the Atmel-ICE is not an option it's either because it's (1) not plugged in, o
 * Close the programming dialog box. This is necessary to release the USB port so it can be connected to Coolterm.<br><br>
 **Verify programming is OK - the red TX LED on the board should be lit and will begin to cycle at about 1 Hz.**
 
-##Test the Motors
+## Test the Motors
 Gentlemen, start your Coolterm.
 
 * Select the Options menu and Re-Scan Serial Ports
@@ -95,7 +95,7 @@ If you see something other than usbmodem001 (like usbmodemfa12121) then try the 
 ![rescan-ports](https://farm3.staticflickr.com/2919/14606961019_465d4811c4_b.jpg)
 
 * Select the Terminal window
-* Set to LINE mode 
+* Set to LINE mode
 * Set to CR
 
 ![transmit](https://farm6.staticflickr.com/5555/14606959559_128d4b7fda_b.jpg)
@@ -108,7 +108,7 @@ If you see something other than usbmodem001 (like usbmodemfa12121) then try the 
 
 ![startup string](https://farm3.staticflickr.com/2899/14770612536_398eb602f0_b.jpg)
 
-* Enter The following Gcode sequence and look for proper motor movement. 
+* Enter The following Gcode sequence and look for proper motor movement.
 * The test file is on the mac Desktop as `Test Pattern.txt` or `Test Pattern.gcode`
 <pre>
 G0 X20
@@ -137,8 +137,8 @@ The string you type into the dialog box will remain available for the next board
 ## The Next Board
 The instructions above were for the first board. Here's what's different for subsequent boards.
 
-###Programming the Next Board
+### Programming the Next Board
 * You should be able to just re-open the Studio6 programming dialog. Most values will be the same, but you still have to APPLY the programmer, READ the chip, select MEMORIES, PROGRAM the chip, and then exit.
 
-###Testing the Next Board
+### Testing the Next Board
 * The previous board is probably still connected - at least in Coolterm's mind. You will need to hit the DISCONNECT button and CONNECT again to establish connection with the new board. You can probably skip the whole OPTIONS dialog as the next board will also come up as usbmodem001. If the board does not connect go back to the options dialog, rescan, and look for the new board in the USB choices.

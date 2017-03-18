@@ -1,6 +1,6 @@
 This page discusses G20/G21 units mode selection and related topics. It explains how things work and what to expect.
 
-###G20 / G21 - Set Units Mode
+### G20 / G21 - Set Units Mode
 Basically:
 * G20 will cause all gcode and settings from this point on to be interpreted in inches
 * G21 will cause all gcode and settings from this point on to be interpreted in millimeters
@@ -19,21 +19,21 @@ The units mode affects all the following:
   * Position reporting (except mpos)
 * Configuration settings, including:
   * Almost all axis settings
-  * Travel per revolution motor setting {1tr:...} 
+  * Travel per revolution motor setting {1tr:...}
   * Junction acceleration {ja:...}
   * Chordal tolerance {ct:...}
 
-###JSON versus Text Mode
+### JSON versus Text Mode
 The units mode should be the same regardless of whether the system is operating in JSON mode or text mode.
 
-###$GUN, {gun:_} - Set Default Units Mode
-The GUN setting sets the default (starting) units mode on power-on or reset. Gun does not change the units mode on the board if it is changed. It only affects the mode during power on or reset. 
+### $GUN, {gun:_} - Set Default Units Mode
+The GUN setting sets the default (starting) units mode on power-on or reset. Gun does not change the units mode on the board if it is changed. It only affects the mode during power on or reset.
 
 ###Status Reports
 Status reports return all values in the prevailing units mode with the following exceptions.
 
 * mpox ... mpoc - Machine positions
-The machine positions values (mpox, mpoy ...mpoc) are always in millimeter units and always in the machine absolute coordinate system (G53). This is so that hosts and UI's can always have a stable position reference for display generation regardless of the G2/G21 setting or the coordinate system and offsets selected (G54-G59, G92). 
+The machine positions values (mpox, mpoy ...mpoc) are always in millimeter units and always in the machine absolute coordinate system (G53). This is so that hosts and UI's can always have a stable position reference for display generation regardless of the G2/G21 setting or the coordinate system and offsets selected (G54-G59, G92).
 
 * ofsx ... ofsc - Work offsets are also always returned in mm mode for the same reasons.
 

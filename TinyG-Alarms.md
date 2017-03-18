@@ -1,14 +1,14 @@
 _This page currently applies to code In the Edge and Dev branches - build 407xx and later (as of 1/27/14)_ <br><br>
-TinyG distinguishes between hard and soft alarms. 
+TinyG distinguishes between hard and soft alarms.
 
-A hard alarm is unrecoverable and sends the machine into a shutdown state. Hard alarms are caused by hitting a limit switch or by an internal error indicating the firmware may have lost its mind (e.g. assertion failures or conditional branches that should never happen). In this case the system is considered unrecoverable and the current job is presumed lost. All position information is lost and the machine must be recovered from reset. 
+A hard alarm is unrecoverable and sends the machine into a shutdown state. Hard alarms are caused by hitting a limit switch or by an internal error indicating the firmware may have lost its mind (e.g. assertion failures or conditional branches that should never happen). In this case the system is considered unrecoverable and the current job is presumed lost. All position information is lost and the machine must be recovered from reset.
 
 A soft alarm preserves machine state and may be recoverable by the host.
 
-## Hard Alarms 
+## Hard Alarms
 ### Hard Alarms in Version 0.96 and Earlier
 The current system behavior for an alarm is:
-* A switch configured as a limit being hit causes the board to go into an ALARM state (status code = 2). 
+* A switch configured as a limit being hit causes the board to go into an ALARM state (status code = 2).
 * (Another case generating a hard alarm is an internal assertion failure such as a memory corruption or stack overflow).
 * Everything is shut down immediately and the spindle direction LED flashes quickly. (Note: an assertion failure might find the system so compromised that it cannot even do this and remaining steps)
 * A hard-alarm exception report is generated indicating the cause
@@ -18,7 +18,7 @@ The current system behavior for an alarm is:
 ### Hard Alarms in Version 0.97 and Later
 Hard alarms still work like above but the status code is moved from 2 to 11. The '2' status code is now reserved for a soft alarm.
 
-## Soft Alarms 
+## Soft Alarms
 Soft alarms are introduced in version 0.97. Soft alarms can occur for the following reasons
 * The system determines that a move will exceed the soft limits
 * An illegal Gcode command is detected
@@ -33,12 +33,12 @@ If a soft alarm is triggered the following happens:
 
 
 
-###(old text - deprecated)
+### (old text - deprecated)
 * System halts all movement with a feedhold and preserves position at the feedhold point.
 * Stops processing any commands in the planner or serial queue
 * Generates an exception report indicating the type of alarm. The type is returned as a status code (2) and some displayable message text.
 
-The interesting question is what to do next. If the serial RX buffer is empty it's easy enough to send in a command to release the alarm state (calm), but if it's not that's a different story. Running the system using queue reports can keep the buffer empty. 
+The interesting question is what to do next. If the serial RX buffer is empty it's easy enough to send in a command to release the alarm state (calm), but if it's not that's a different story. Running the system using queue reports can keep the buffer empty.
 
 (a) One possible solution to a non-empty RX buffer is to read and reject all motion commands with a known error response such as "system alarmed, command rejected" until a calm command is received. This puts the burden of replay back on the controller. Status reports and other queries should be possible prior to receiving a calm.
 

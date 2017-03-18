@@ -1,6 +1,6 @@
 _This page applies to edge-0.97 branch only_
 
-###JSON Request Objects
+### JSON Request Objects
 TinyG accepts the following types of commands:
 
 - Gcode block - e.g. N20 G0 X111.3 Y21.0
@@ -10,9 +10,9 @@ TinyG accepts the following types of commands:
 
 The handling of requests and responses depends on the type of command:
 - JSON commands are received and returned as JSON. See [TinyG JSON Handling](JSON-Operation) for JSON details.
-- Text commands are received and returned as lines of text. 
+- Text commands are received and returned as lines of text.
 - Gcode may be received:
-  - As a raw gcode block on a single text line or 
+  - As a raw gcode block on a single text line or
   - Wrapped in JSON - e.g. {"gc":"N20 G0 X111.3 Y21.0"}
   - Gcode responses are returned as text mode or JSON depending on currently active communications mode.
 - Special characters are single characters that are intercepted by the serial IO system to perform feedhold, cycle start (resume), queue flush, and reset. Special characters do not generate responses.
@@ -23,7 +23,7 @@ This page discusses using a 'txt' key so that any of the above requests can be w
 - Allow the protocol to be extended to add qualifiers, such as 'control', 'data', etc.
 - Support explicit routing of requests to specific endpoints (a form of command addressing)
 
-###JSON Text Wrapper - "txt"
+### JSON Text Wrapper - "txt"
 The 'txt' key can be used to wrap any text that can otherwise be provided via a command line. This permits a UI to issue text mode commands without leaving JSON mode, and display responses back to a user as if they were working directly ay the TinyG command line. The format is:
 
     {txt:"<command>"}    command is arbitrary text
@@ -40,7 +40,7 @@ The 'txt' key can be used to wrap any text that can otherwise be provided via a 
 
     _(When in doubt of valid JSON format, see [jsonlint](http://jsonlint.org/) or [jslint](http://www.jslint.com/))_
 
-###Transaction ID - "tid"
+### Transaction ID - "tid"
 A transaction ID 'tid' can be provided on a JSON line. It will be returned with the JSON response. Format is:
 
     {tid:<txn_ID>}    a number from 1 to 4 billion
@@ -75,7 +75,7 @@ The request will be executed as Gcode. The response is shown below with JSON ver
           request:  {tid:31415926,txt:"n42 g0 x10"}
           response: {"r":{"gc":"N42G0X10","n":42},"tid":31415926,"f":[3,0,24]}
 
-- **JSON Command** The JSON will be executed as per usual. In this example the incoming JSON is a mix of relaxed and strict - output is strict. The encapsulated JSON is escaped to adhere to JSON format rules. 
+- **JSON Command** The JSON will be executed as per usual. In this example the incoming JSON is a mix of relaxed and strict - output is strict. The encapsulated JSON is escaped to adhere to JSON format rules.
 
           request:  {tid:8675309,txt:"{\"xvm\":15000}"}
           response: {"r":{"xvm":15000},"tid":8675309,"f":[3,0,24]}

@@ -12,14 +12,14 @@ Typically the configuration is as follows:
 The OX's spindle can also be controlled via TinyG/gcode or manually with a potentiometer (manual nob).  If you plan on using TinyG's PWM feature to control your OX please see the [Spindle Settings](#spindle-settings).
 
 This is a dual Y setup.
-##Motor Configurations
+## Motor Configurations
 **Important settings to get right:** (Note these settings are all in MM)
 * $1tr=60 - Gt3 belt 40 tooth pulley
 * $2tr=60 - Gt3 belt 40 tooth pulley
 * $3tr=60 - Gt3 belt 40 tooth pulley
 * $4tr=8  - The acme lead screw
 
-##Spindle Settings
+## Spindle Settings
 **Please make sure you apply these settings BEFORE you hookup the spindle PWM to your TinyG and apply power.  If not your spindle could start spinning on power up.**
 * $p1frq=5000
 * $p1csl=0

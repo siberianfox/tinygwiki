@@ -1,25 +1,25 @@
 ## Background and Shorthand
 The following shorthand is used in these instructions:
 
-	Term | Description
-	-----|--------------
-	DUT | Device Under Test. They TinyGv8 board that is being programmed and tested
-	BBB | Beaglebone Black. The single-board computer located on the left of the test rig. See details below
-	AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
-	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
-	DUT POWER | The switch that supplies power to the DUT is located on the right hand side of the test rig
+Term | Description
+-----|--------------
+DUT | Device Under Test. They TinyGv8 board that is being programmed and tested
+BBB | Beaglebone Black. The single-board computer located on the left of the test rig. See details below
+AVRISP | The blue Atmel programmer connected to the BBB. It has a USB connector and a programming header
+TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
+DUT POWER | The switch that supplies power to the DUT is located on the right hand side of the test rig
 
 
 **BeagleBone Black (BBB) Details**
 * The BBB is connected to 5v power via the wall power supply and the barrel jack on the front right corner of the BBB. Unlike DUT POWER which is cycled for each board, the BBB power remains on for the entire test run.
 * The BBB has 4 indicator lights located on the left front of the board. These are used as status indicators.
-* The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut. 
+* The BBB reset button is the small button at the left front labeled RESET and S1. It is located to the left of the indicator LEDs and directly below the mounting nut.
 * When the BB is reset it takes 30 - 40 seconds to boot and become available. During this time the 4 indicator lights blink. When reset is complete the right-most indicator light should be ON and the other three OFF.
 
 ## Program and Test Instructions Using Laptop Based Tester
-### Setup Test Rig 
+### Setup Test Rig
 
-These steps only need to be completed once at the start of a test run. 
+These steps only need to be completed once at the start of a test run.
 
 ![Tester](http://farm6.staticflickr.com/5329/9458736352_65e87354f9_b_d.jpg)
 
@@ -34,7 +34,7 @@ These steps only need to be completed once at the start of a test run.
  1. Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB and the AVRISP.
 * **SETUP STEP 5** Align motor flags so they all point vertically - i.e. the 12:00 position. Note: Do not attempt to position flags if green lights are lit on a DUT, as they are locked.
 * **SETUP STEP 6** Setup the laptop for testing using these steps:
- 1. Turn on laptop power using the power button at the top left 
+ 1. Turn on laptop power using the power button at the top left
  1. Once the computer has booted (Windows started) click on the CoolTerm icon to start CoolTerm. Ignore the warning that there are no serial ports. There will be once you connect a DUT to the USB (later). Click OK to ignore (Perhaps twice).
  1. Connect a USB cable to the laptop (not the DUT, yet)
 
@@ -49,7 +49,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 * **STEP 2** Fasten the DUT under test to top of tester. Make sure POGO pins make contact. Secure with two 4/40 standoffs though the mounting holes on the right-hand side of the DUT
 * **STEP 3** Connect the AVRISP programming header to DUT J10 (PDI) located in the upper left hand corner of the board. The red polarity marking should be towards the white dot labeled "PDI"
 * **STEP 4** Turn on DUT POWER power using switch on right side of test jig
- 1. Verify that the DUT blue LED D2 is lit 
+ 1. Verify that the DUT blue LED D2 is lit
 * **STEP 5** Press PROGRAM button on the BBB. Programming takes about 10 seconds, during which time the green LED inside the AVRISP should flash and the LED on the outside of the case should turn orange. If programming is successful the following should occur:
  1. The AVRISP LED inside the case will turn solid green
  1. The AVRISP LED on the case will turn from orange to green
@@ -57,7 +57,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
  1. LED D7 (red) will be dimly lit
  1. Green LEDs D9-D12 will turn off after about 2 seconds
  1. If the above occurs the DUT is now programmed. If not, execute step 5R as in Alternate Steps
-* **STEP 6** Disconnect the AVRISP programming header from J10 PDI 
+* **STEP 6** Disconnect the AVRISP programming header from J10 PDI
 * **STEP 7** Connect the USB from the laptop to the DUT. An installing message will appear in the lower left. Wait until it says "Your device is ready to use" before continuing.
 * **STEP 8** Click on the Options button (if not already open) and follow these steps
  1. Click the "Re-Scan Serial Ports" button. There should be a COMx serial port named.
@@ -81,7 +81,7 @@ Run these steps for each board to be programmed and tested. Each DUT should take
 
 You can now go back to Step 1 for the next DUT board.
 
-####Sample Status Report
+#### Sample Status Report
 <pre>
 Line number:         0
 X position:          0.000 mm
@@ -96,8 +96,8 @@ Distance mode:       G90 - absolute distance mode
 Feed rate mode:      G94 - units-per-minute mode (i.e. feedrate mode)
 Motion mode:         G0  - linear traverse (seek)
 Machine state:       Ready
-tinyg [mm] ok> 
-tinyg [mm] ok> 
+tinyg [mm] ok>
+tinyg [mm] ok>
 </pre>
 
 #### Alternate Steps

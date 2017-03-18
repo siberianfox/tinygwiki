@@ -1,6 +1,6 @@
-This page contains nots for things that should be done to clean up the wiki.
+This page contains notes for things that should be done to clean up the wiki.
 
-###Communicating with TinyG
+### Communicating with TinyG
 This whole area is a mess. We need a page with some backgorund, and a page on the proper use of Linemode transmission protocol (4 buffer method).
 - [Tinyg-Communications-Programming](Tinyg-Communications-Programming) Should be the start page. Other pages already link to this one.
 
@@ -8,7 +8,7 @@ Related pages that may useful data. Use these and get rid of stuff we don;t want
 - [Flow-Control-and-Footers](Flow-Control-and-Footers)
 - [Sending-Data-to-TinyG-using-RX-Packet-Mode](Sending-Data-to-TinyG-using-RX-Packet-Mode)
 
-###Updating Firmware and Problems with Flashing
+### Updating Firmware and Problems with Flashing
 These pages should be reviewed so they hold together under one "Updating Firmware" or "Flashing TinyG" page. These pages mostly hang together, bit not all are linked from the parent page. I put a bulleted list of related pages at the top of the parent page. Here are the related pages that I found:
 
 - synthetos.github.io
@@ -19,7 +19,7 @@ These pages should be reviewed so they hold together under one "Updating Firmwar
 - [Programming-TinyG-with-an-External-Programmer](Programming-TinyG-with-an-External-Programmer) Outdated?
 - [TinyG-Boot-Loader](TinyG-Boot-Loader) May be a child page of something else.
 
-###CNC Guides
+### CNC Guides
 We already have an OX CNC Guide and a Shapeoko guide, in the form of these 2 pages:
 
 - [TinyG-Shapeoko-Notes](TinyG-Shapeoko-Notes)
@@ -29,14 +29,14 @@ We might want to consolidate the Shapeoko stuff to a single start page and any c
 
 
 ### Pages that should be reviewed and revised
-- [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something 
+- [Developer-Home-Page](Developer-Home-Page) is blank. It either needs to be deleted or used for something
 - [TinyG-Developer-Notes](TinyG-Developer-Notes)
 - [Dual-Gantry-Configuration](Dual-Gantry-Configuration) Superseded by the Shapeoko page
 - [Probing-Description-and-Operation](Probing-Description-and-Operation) is blank
 - Data Sheets. Should have all the schematics and files. Do we want to go fully OSH on this now?
 - [TinyG-Shapeoko-Notes](TinyG-Shapeoko-Notes) Has TGFX in it.
 
-###Pages to Delete
+### Pages to Delete
 - [Data-Sheet---Version-8](Data-Sheet---Version-8)
 - [Initial-Setup](Initial-Setup)
 - [Status-Reports](Status-Reports)

@@ -1,18 +1,18 @@
 ## Background and Shorthand
 The following shorthand is used in these instructions:
 
-	Term | Description
-	-----|--------------
-	UUT | Unit Under Test. They TinyGv8 board that is being programmed and tested
-	HOST | Tester's host computer used to program the board and start the tests via USB
-	AVRISP | The blue Atmel programmer. It has a USB connector and a programming header
-	TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
-	POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
+Term | Description
+-----|--------------
+UUT | Unit Under Test. They TinyGv8 board that is being programmed and tested
+HOST | Tester's host computer used to program the board and start the tests via USB
+AVRISP | The blue Atmel programmer. It has a USB connector and a programming header
+TESTER | The large blue board with four mounting standoffs, 18 pogo pins, and the wired motor and power connectors
+POWER SUPPLY | The bench power supply providing current-limited 24 volts for testing
 
 Verification steps are marked as **[VERIFIED xxxxxx]** for the step
 
-#Initial Setup
-##Host Setup
+# Initial Setup
+## Host Setup
 The host computer can be a Mac OSX machine, Linux or a Windows machine. Instructions are provided for OSX, but Linux and Windows should be similar. The host needs to be set up with Avrdude and a terminal application (Coolterm). Setup steps are:
 * Download and install [Coolterm](http://freeware.the-meiers.org/) for your platform.
 * Set up a directory for programming. Copy in everything that's in this [directory](https://www.dropbox.com/sh/a98g2zxpqbqt6nb/AACiT2CrDZeA-4hcnr1e7wdqa). The Avrdude in the directory is for OSX. Other platforms can be found here:
@@ -21,7 +21,7 @@ The host computer can be a Mac OSX machine, Linux or a Windows machine. Instruct
  * https://github.com/arduino/Arduino/tree/master/build/windows
 * The tinyg.hex file in the directory is the current release. If you need a different hex file replace this one.
 
-##Test Rig Setup
+## Test Rig Setup
 The test rig should look something like this:
 
 ![Tester-wide](https://farm4.staticflickr.com/3859/14634630352_4098b8a3e6_o_d.jpg)
@@ -44,16 +44,16 @@ The large bench supply, oscilloscope and the Ultimaker in the picture are not pa
 
 **[VERIFIED TEST JIG KIT]**
 
-#Prep for a Test Run
+# Prep for a Test Run
 These steps need to be done at the start of each test run
 
 * Turn off the bench supply.
 * Inspect the test rig and verify against the picture above
  1. Verify that you have at least two 1 inch 4/40 hex standoffs available to secure the UUT to the tester
-* With power off, align motor flags so they all point vertically - i.e. the 12:00 position. 
+* With power off, align motor flags so they all point vertically - i.e. the 12:00 position.
 * Boot the host computer
 * Connect the AVRISP (blue thing) and the USB cable for the TinyG board to the host USB ports
-  * Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB 
+  * Verify the green LED inside the AVRISP is lit (not flashing). This verifies USB connection between the BBB
 * Start Coolterm
 * Select the `OPTIONS` dialog and set up the Serial Port and Terminal windows as shown. You don't have a board plugged in yet so you won't see the usbserial-xxxxx option. Just set the baud rate and flow control.
 
@@ -67,7 +67,7 @@ These steps need to be done at the start of each test run
 
 **[VERIFIED PREP]**
 
-#Per-Board Instructions
+# Per-Board Instructions
 Per-board tests should take about 1 to 2 minutes minute to complete.
 
 ## Per Board Summary
@@ -98,7 +98,7 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 1. Confirm motor movement and current levels **[VERIFIED MOTOR DRIVERS]**
 1. Turn off bench power and wait for blue LED to turn off before removing board
 
-##Mount and Prep Board
+## Mount and Prep Board
 * With the bench supply off, affix the UUT board onto the tester. Make sure all pogos connect, and secure with two hold-down standoffs as pictured.
 * Plug in the programmer (blue thing) and the USB port to the board
 ![Tester-with-board](https://farm4.staticflickr.com/3855/14654991973_2ace1fbd3d_o_d.jpg)
@@ -106,15 +106,15 @@ Per-board tests should take about 1 to 2 minutes minute to complete.
 * Verify that the potentiometers are in the 50% position:
 ![Board-pots](https://farm3.staticflickr.com/2933/14631844071_55065a3316_o_d.jpg)
 
-* Place a jumper on the +12v position on J12 
+* Place a jumper on the +12v position on J12
 ![Board-jumper](https://farm4.staticflickr.com/3904/14635093995_0914d6625e_o_d.jpg)
 
-* Turn ON bench power supply. 
+* Turn ON bench power supply.
 * Verify that the blue power LED is lit
 
 **[VERIFIED 3.3v POWER]**
 
-##Program the Board
+## Program the Board
 * Go to the terminal window. Copy and paste the programming string from the ProgrammingString.txt file into the terminal window and hit return: `avrdude -q -c avrisp2 -p atxmega192a3 -P usb -u -U flash:w:tinyg.hex -U boot:w:xboot-boot.hex -U fuse0:w:0xFF:m -U fuse1:w:0x00:m -U fuse2:w:0xBE:m -U fuse4:w:0xFE:m -U fuse5:w:0xEB:m`
 
 * If you don't have AVRdude already installed you can get if from these links:
@@ -208,11 +208,11 @@ avrdude done.  Thank you.
 
 **[VERIFIED PROGRAMMING]**
 
-##Connect to Board
+## Connect to Board
 To connect Coolterm to the board:
 * Hit `Disconnect` if connection to previous board has not already been disconnected.
 * In the `Options`, `Serial Port` dialog box hit `Re-Scan Serial Ports`. Select the one that looks like `usbserial-DA00xxxx` on OSX, or a new COM-xx port on Windows. (Note: There is a bug on Windows that prevents the com port from incrementing past 255. We have a fix for that. Ask us if you need it).
-* Connect to the board using the `Connect` button. 
+* Connect to the board using the `Connect` button.
 ![Coolterm-connect](https://farm6.staticflickr.com/5489/14632997114_9190193f99_o_d.jpg)
 * You should be able to enter in one or more ?'s and see something like below. The TinyG firmware takes about 4 seconds to start up, so it will be unresponsive until then.
 
@@ -229,12 +229,12 @@ Distance mode:       G90 - absolute distance mode
 Feed rate mode:      G94 - units-per-minute mode (i.e. feedrate mode)
 Motion mode:         G80 - cancel motion mode (none active)
 Machine state:       Ready
-tinyg [mm] ok> 
+tinyg [mm] ok>
 </pre>
 
 **[VERIFIED USB CONNECTION]**
 
-* Press the RESET button and verify that the SpDIR LED flashes about 12 times then returns the PWM LED 
+* Press the RESET button and verify that the SpDIR LED flashes about 12 times then returns the PWM LED
 
   You should see the startup strings below. <pre>
 {"r":{"fv":0.970,"fb":435.24,"hp":1,"hv":8,"id":"3X3566-HUR","msg":"Initializing configs to default settings"},"f":[1,15,0,3266]}
@@ -243,7 +243,7 @@ tinyg [mm] ok>
 
 **[VERIFIED BOOT LOADER]**
 
-##Run Board Functional Tests
+## Run Board Functional Tests
 
 In Coolterm:
 * Enter `$test=1` followed by carriage return to start the on-board tests. _Please note that (at least on the mac) Coolterm may not always accept the first character ($) and you may need to type it twice._

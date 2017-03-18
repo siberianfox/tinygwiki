@@ -1,4 +1,4 @@
-#Test Jigs and Procedures
+# Test Jigs and Procedures
 The following are links to  all information related to test jigs and test procedures
 
 * [TinyGv8 Production Test Instructions for Revision 1 Tester](https://github.com/synthetos/TinyG/wiki/TinyGv8-Production-Test-Instructions-for-Revision-1-Tester)
@@ -7,10 +7,10 @@ The following are links to  all information related to test jigs and test proced
 * [BeagleBone Black Test Rig Operation](https://github.com/synthetos/TinyG/wiki/BeagleBone-Black-Test-Rig-Operation)
 * [TinyGv9j Manual Programming and Test Instructions](https://github.com/synthetos/TinyG/wiki/TinyGv9j-Manual-Programming-and-Test-Instructions)
 
-#Building Test Jigs
+# Building Test Jigs
 The rest of this page is a collection of random notes on building test jigs. Mostly it's a record of tricks learned the hard way and mistakes to be avoided.
 
-###Parts and Tools Needed
+### Parts and Tools Needed
 * Parts
   * Pogo board (tester board)
   * Pogo pins and receptacles (see below)
@@ -22,7 +22,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Milling machine or drill press
   * Laser cutter
 
-###Pogo Board
+### Pogo Board
 * Design the pogo board
   * Use the layout of the UUT to line up mounting holes and test points
     * Account for all test points and mounting holes (for alignment)
@@ -61,7 +61,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
 * Locate 1/4" diameter X 3/4" length 4-40 female-female aluminum hex spacers
 
 ###Assembly
-* First assemble all electronics before attaching pogo pins 
+* First assemble all electronics before attaching pogo pins
   * e.g. regulators, connectors, LEDs, switches...
   * Test as much as possible before assembling pogos
 * Attach pogo receptacles to tester board (tricky)
@@ -85,7 +85,7 @@ The rest of this page is a collection of random notes on building test jigs. Mos
   * Nylon 1-1/4" 4-40 socket head screws (about 6 or 8, depending) (McMaster Carr)
   * 10-24 1" bolts, washers and nuts (2x)
 * Base
-  * Mark and drill holes to self tap into the HDPE. 
+  * Mark and drill holes to self tap into the HDPE.
     * Drill #43 (0.089") for 4-40 self tapping
     * Drill #25 (0.149") for 10-24 self tapping
 * Pressure Plate
@@ -96,4 +96,3 @@ The rest of this page is a collection of random notes on building test jigs. Mos
     * Locate and mark pressure points - for 4-40 nylon screws (use drill #43)
     * Drill holes and tap 4-40 while still in mill
   * Ream 4-40 holes with metal screws before use
-

@@ -4,11 +4,11 @@ _This issue obviously affects the current FTDI-driven USB, but we are also consi
 
 _Updated 11/13/13 to reflect current state - circa 380.08 (master) and build 398.xx in dev_
 
-##Flow Control Problem Statement
+## Flow Control Problem Statement
 
-The control of the commands going to the TinyG board and the responses returned is a complex problem that we have been working through for some time now. It's one class of problem if the machine is moving at nominal feed rates and long-ish Gcode segment lengths (block lengths); it becomes significantly harder as the feed rates and command rates increase and the segment lengths decrease. 
+The control of the commands going to the TinyG board and the responses returned is a complex problem that we have been working through for some time now. It's one class of problem if the machine is moving at nominal feed rates and long-ish Gcode segment lengths (block lengths); it becomes significantly harder as the feed rates and command rates increase and the segment lengths decrease.
 
-###Flow Control Issues Explained
+### Flow Control Issues Explained
 
 RS-232-style serial communication like that employed by the TinyG between the FTDI USB-to-serial converter and the Atmel XMega microcontroller has several advantages but also a few disadvantages.
 
@@ -18,11 +18,11 @@ The disadvantage of this style of communication is that the TX and the RX are ea
 
 There are many type of flow control, but there are two general methods we will employ, software XON/XOFF and hardware RTS/CTS (Request-To-Send, Clear-To-Send)
 
-In software flow control, the two devices will send special data (XON and XOFF characters) over the line to indicate that it is ready for more data or that it doesn't have room for more data, respectively. This is problematic because the XON/XOFF characters are then part of the stream, and in some cases, that means that they go into the end of a transmit buffer. This means that all of the characters ahead of it in the buffer must transmit first. If the hardware on both ends of the line supports XON/XOFF, and will transmit those characters ahead of any internal buffers, then the response time is pretty good. 
+In software flow control, the two devices will send special data (XON and XOFF characters) over the line to indicate that it is ready for more data or that it doesn't have room for more data, respectively. This is problematic because the XON/XOFF characters are then part of the stream, and in some cases, that means that they go into the end of a transmit buffer. This means that all of the characters ahead of it in the buffer must transmit first. If the hardware on both ends of the line supports XON/XOFF, and will transmit those characters ahead of any internal buffers, then the response time is pretty good.
 
 With hardware flow control, two additional wires are used, one for the RX (RTS, or Request To Send) and one for TX (CTS, or Clear To Send). Once device controls RTS, and the other controls CTS. For each device, they set RTS when they have buffer space, and clear it when the buffer is (almost) full. When transmitting, the device reads the CTS line, and if it's set we send data. This means that the response to a buffer full condition is near immediate.
 
-###How this effects TinyG
+### How this effects TinyG
 
 The challenge is to accomplish and balance these four things:
 
@@ -35,11 +35,11 @@ Turns out this is actually a hard problem. Here are some things to make note of:
 
 * Many commands other than just Gcode movement will end up in the planner buffer, and it's possible that a line of Gcode will consume from 0 to 4 buffers. Possibly more. Basically, any command that needs to be synchronized with Gcode execution needs to be queued, so this includes M commands, spindle commands, dwells, etc. Since it's possible to put multiple non-modally-related commands on the same Gcode line there can be more than 1 command per line that ends up in the planner queue. This mostly happens at the start of the Gcode file during setup. It's less common during actual Gcode move execution.
 
-* Further complicating things is that the generation of queue reports (QRs) is not always one-to-one with commands sent. When a QR is requested it is not sent until the system "gets around to" generating reports and queueing transmissions. In other words, a request for a QR is logged but the report is not generated or sent yet. If the system is really busy pushing out a lot of really short Gcode lines - e.g. 5 or 10 ms each, it's going to spend it's time generating and pulsing those lines, not generating and sending reports. So in heavy cases there may be multiple requests for QRs made before one is actually sent. When one IS sent it does reflect the current state of the system - it may have "humped" a few states, however. This is unavoidable if you want to the system to prioritize step generation and processing new moves over serial IO. 
+* Further complicating things is that the generation of queue reports (QRs) is not always one-to-one with commands sent. When a QR is requested it is not sent until the system "gets around to" generating reports and queueing transmissions. In other words, a request for a QR is logged but the report is not generated or sent yet. If the system is really busy pushing out a lot of really short Gcode lines - e.g. 5 or 10 ms each, it's going to spend it's time generating and pulsing those lines, not generating and sending reports. So in heavy cases there may be multiple requests for QRs made before one is actually sent. When one IS sent it does reflect the current state of the system - it may have "humped" a few states, however. This is unavoidable if you want to the system to prioritize step generation and processing new moves over serial IO.
 
 * The same is true of status reports (SRs). Depending on the rate of command processing and the minimum reporting interval set in the $SI setting there may be multiple state changes occurring before a status report is actually generated and sent. This can look like "skipping ahead" through multiple line numbers, and other jumps. Again, this is unavoidable if the rate of processing exceeds the rate at which the reports can be sent. TinyG manages this so that status reports do not flood.
 
-* Even with very rapid movement the planner queue does not need to be full to optimally plan. Typically about 8 buffers are required for optimal planning. The minimum time for a MOVE in the planner to execute is 5 ms, occasionally less. Non-moves (e.g. M codes) may execute faster. So on average 8 buffers would take a minimum of 40 ms, probably longer. 24 would take 120 ms, probably longer. This gives you an idea of how fast the host must react to prevent queue starvation. 
+* Even with very rapid movement the planner queue does not need to be full to optimally plan. Typically about 8 buffers are required for optimal planning. The minimum time for a MOVE in the planner to execute is 5 ms, occasionally less. Non-moves (e.g. M codes) may execute faster. So on average 8 buffers would take a minimum of 40 ms, probably longer. 24 would take 120 ms, probably longer. This gives you an idea of how fast the host must react to prevent queue starvation.
  * If the USB channel is running at 115,200 baud then the channel can handle about 100 characters per millisecond, so if the planner is running maximally fast (5 ms per gcode block) then you could theoretically send 500 characters to TinyG in that time (which is way more than you need for a Gcode block). So the dominant factor is the latency with which the host will respond.
 
 * In order to manage inbound command flow and avoid buffer full conditions the serial buffer will hold an input line until there are at least 4 buffers available in the planner queue. This is to ensure that the line can be processed, and will not result in an exception. The current queue depth is 28 buffers, so at any given point no more than 24 buffers can be filled.
@@ -52,26 +52,26 @@ The following methods are currently possible and supported in the Master Branch 
 
 * Managing serial queue depth by character counting. The footer returns the number of bytes removed from the serial queue so that the host can know how many bytes are occupied in the serial queue. If the serial queue is non-zero, then the assumption is that the planner queue is full or near full. This method is brittle as the character count can get out of phase with errors, and is therefore not the preferred method.
 
-* Managing planner queue depth with queue reports. Enabling queue reports ($qv=1) will cause the queue depth to be reported each time a command(s) is added to the planner. As mentioned earlier, these queue reports may be throttled by the system if they are very closely spaced. This method, coupled with some form of flow control, is preferred. 
+* Managing planner queue depth with queue reports. Enabling queue reports ($qv=1) will cause the queue depth to be reported each time a command(s) is added to the planner. As mentioned earlier, these queue reports may be throttled by the system if they are very closely spaced. This method, coupled with some form of flow control, is preferred.
 
 * RTS/CTS flow control
-RTS/CTS is currently in master branch (build 380.08) and later builds. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g. 
+RTS/CTS is currently in master branch (build 380.08) and later builds. RTS/CTS is available in addition to XON/XOFF as mutually exclusive settings: e.g.
 $ex=0  no flow control
 $ex=1  XON/XOFF flow control
 $ex=2  RTS/CTS flow control
 
 ## Additional Flow Control Options Available in Edge Branch
 
-### Triple queue reports 
+### Triple queue reports
 The following is in test in dev and edge: Setting $qv=2 (triple reports) will return:
 
-{"qr":27, "qi":1, "qo":0} 
+{"qr":27, "qi":1, "qo":0}
 
 Where qr (27) is the number of available buffers in the queue
 qi (1) is the number of buffers added to the queue since the previous queue report
 qo (0) is the number of buffers removed from the queue since the previous queue report
 
-This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer. 
+This allows the host to know not only the queue depth, but the rate at which it is filling and emptying, and therefore manage the transmission of new Gcode blocks. A simple throttling scheme is just to send lines until the buffer fills to some level - say 4 buffers left - then use the buffers removed value as the number of lines to send to replenish the buffer.
 
 This allows the host to make a decision to send more lines or not, and roughly how many more lines it should send to avoid starvation. Keep in mind the following facts:
 
