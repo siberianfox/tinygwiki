@@ -5,19 +5,19 @@ This page describes JSON operation in TinyG firmware version 0.95. This page pro
 # JSON Cheat Sheet
 This table summarizes using JSON for [configuration and commands](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration). Details are provided in the subsequent sections.
 
-	Request | Response | Description
-	---------|--------------|-------------
-	{"xvm":n} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
-	{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
-	{"x":{"vm":n}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
-	{"x":{"vm":15000}} | {"r":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| alternate form to set X axis maximum velocity to 15000
-	{"x":n} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group (see below for entire response)
-	{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send Gcode with verbosity=1, 2 or 3
-	{"gc":"n20g0x20"} | {"r":{"n":20},"f":[1,0,9,5362]} | send Gcode with verbosity=4
-	{"gc":"n20g0x20"} | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send Gcode with verbosity=5
-	{"gc":"g0x10"} | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send Gcode with verbosity=5
-	n20g0x20 | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send unwrapped Gcode with verbosity=5
-	g0x10 | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send unwrapped Gcode with verbosity=5
+Request | Response | Description
+---------|--------------|-------------
+{"xvm":n} | {"r":{"xvm":16000},"f":[1,0,11,1301]}<nl>| get X axis maximum velocity
+{"xvm":15000} | {"r":{"xvm":15000},"f":[1,0,14,9253]}<nl>| set X axis maximum velocity to 15000
+{"x":{"vm":n}} | {"r":{"x":{"vm":16000}},"f":[1,0,16,2128]}<nl>| alternate form to get X axis maximum velocity
+{"x":{"vm":15000}} | {"r":{"x":{"vm":15000}},"f":[1,0,19,2131]}<nl>| alternate form to set X axis maximum velocity to 15000
+{"x":n} | {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,.... | get entire X axis group (see below for entire response)
+{"gc":"g0x10"} | {"f":[1,0,11,1234]}<nl>| send Gcode with verbosity=1, 2 or 3
+{"gc":"n20g0x20"} | {"r":{"n":20},"f":[1,0,9,5362]} | send Gcode with verbosity=4
+{"gc":"n20g0x20"} | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send Gcode with verbosity=5
+{"gc":"g0x10"} | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send Gcode with verbosity=5
+n20g0x20 | {"r":{"gc":"n20g0x20","n":20},"f":[1,0,9,7209]} | send unwrapped Gcode with verbosity=5
+g0x10 | {"r":{"gc":"g0x10"},"f":[1,0,6,8628]}<nl>| send unwrapped Gcode with verbosity=5
 
 X axis group response:
 <pre>
@@ -46,22 +46,22 @@ In JSON mode TinyG expects well structured JSON (if in doubt use the [JSON valid
 
 ### How things are encoded in JSON
 
-	Term | Description
-	---------------|--------------
-	**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
-	**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value, or in some cases invoke an action.
-	**NVpair** | A name and a value is a name:value pair or NV pair
-	**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
+Term | Description
+---------------|--------------
+**name** | A name is a JSON name (aka **token**) describing a single data value or a group of data values. Examples of names include "xfr" referring to the X axis maximum feed rate, or "x" referring to all values associated with the X axis (the X axis group).<br>Names are not case sensitive.
+**value** | A value is a number, a quoted string, true/false, or null (as per JSON spec).<br>True and false values can be represented as `true` and `false` or `t` and `f` for short<br>NULL values can be represented by the word `null` (case insensitive), or simply `n` for short<br>Null values signal a GET, all others will set (PUT) the value, or in some cases invoke an action.
+**NVpair** | A name and a value is a name:value pair or NV pair
+**group** | A group is a collection of one or more NV pairs. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite.
 
 ### What is encoded in JSON
 
-	Term | Description
-	---------------|--------------
-	**config** | A **config** is a static configuration setting for some aspect of the machine. These parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
-	**block** | **Gcode blocks** are lines of gcode consisting of one or more gcode words, optional comments and possibly gcode messages
-	**word** | **Gcode words** encode gcode commands. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
-	**comment** | A **Gcode comment** is denoted by parentheses - (this is a gcode comment). 
-	**message** | A **Gcode message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
+Term | Description
+---------------|--------------
+**config** | A **config** is a static configuration setting for some aspect of the machine. These parameters are not changed by Gcode execution (but see the G10 exception). Xfr is an example of a config. So is 1po. So is the X group.
+**block** | **Gcode blocks** are lines of gcode consisting of one or more gcode words, optional comments and possibly gcode messages
+**word** | **Gcode words** encode gcode commands. G1 is an example of a gcode word. So is x23.43. [Gcode supported by TinyG is listed here.](https://github.com/synthetos/TinyG/wiki/TinyG-Gcode-Support)  
+**comment** | A **Gcode comment** is denoted by parentheses - (this is a gcode comment). 
+**message** | A **Gcode message** is a special form of comment that is echoed to the machine operator. It's the part of the comment that follows a `(msg` preamble. For example: (msgThis part is echoed to the user). 
 
 ## JSON Overview & TinyG Subset
 
