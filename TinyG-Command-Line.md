@@ -3,18 +3,18 @@ This page describes what you can do from the command line in TinyG. Basically, i
 ## Text Mode and JSON Mode
 TinyG can operate in either text mode (command line mode) or JSON mode. In text mode TinyG accepts $ config lines and normal Gcode blocks, and returns responses as human-friendly ASCII text. Example:
  
-	Command | Description
-	--------|--------------
-	$xvm | View X axis maximum velocity
-	$xvm=16000 | Set X axis maximum velocity
+Command | Description
+--------|--------------
+$xvm | View X axis maximum velocity
+$xvm=16000 | Set X axis maximum velocity
 
 
 TinyG can also operate using JSON commands. This is the preferred way to drive TinyG from a UI or controller. Using JSON dramatically simplifies the UI as the board can be treated as a RESTful resource, and no parsers or special handlers need to be written. Example:
 
-	Command | Description
-	--------|--------------
-	{"xvm":""} | View X axis maximum velocity
-	{"xvm":16000} | Set X axis maximum velocity
+Command | Description
+--------|--------------
+{"xvm":""} | View X axis maximum velocity
+{"xvm":16000} | Set X axis maximum velocity
 
 See [JSON Operation](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details).
 
@@ -33,13 +33,13 @@ Names are short mnemonic tokens that can be 1 to 5 characters in length. Axis an
 
 Tokens are case insensitive and can only contain alphanumeric characters. See [TinyG Configuration](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration) for a complete list of the tokens used for settings. Some examples are provided below: 
 
-	Token | as Text | as JSON | Description
-	------|---------|---------|--------------
-	xfr | $xfr | {"xfr":""} | X axis maximum feed rate
-	cjm | $cjm | {"cjm":""} | C axis maximum jerk 
-	1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
-	home | $home | {"home":""} | Homing state
-	x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get). In JSON mode a group can be queried and can also be used to set any or all values in the group
+Token | as Text | as JSON | Description
+------|---------|---------|--------------
+xfr | $xfr | {"xfr":""} | X axis maximum feed rate
+cjm | $cjm | {"cjm":""} | C axis maximum jerk 
+1mi | $1mi | {"1mi":""} | Motor 1 microstep setting 
+home | $home | {"home":""} | Homing state
+x | $x | {"x":""} | X axis group. In text mode a group can only be queried (get). In JSON mode a group can be queried and can also be used to set any or all values in the group
 
 ## Groups
 A group is a collection of related tokens. Groups are used to specify all parameters for a motor, an axis, a PWM channel, or other logical grouping. A group is similar in concept to a RESTful resource or composite. Groups simplify configuration management and reporting by collecting related values together. The following groups are defined. All parameters within the groups are persistent (stored in EEPROM) unless noted.
