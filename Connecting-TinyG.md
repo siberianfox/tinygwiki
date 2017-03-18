@@ -24,7 +24,7 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 ## Establish USB connection
 Next establish USB connection with your host computer. 
 
-####Install FTDI Drivers
+#### Install FTDI Drivers
 * If you do not have the FTDI VCP USB drivers for your host computer you will need to install them. It's possible they are already on your system as many applications use them, including the older Arduinos. 
 
 * PC Installation - Get the latest Windows driver from the [FDTI VCP Driver Page](http://www.ftdichip.com/Drivers/VCP.htm). You want the VCP driver for your host, not some of the other drivers they offer. Install and reboot your system.
@@ -35,7 +35,7 @@ _Note that the Mac native driver will also show the usbserial port, so the only 
 
 **NOTE: We have seen that a major OSX upgrade can remove the FTDI drivers. If you experience problems with bad commands and files generally not working after an OSX upgrade repeat the FTDI VCP driver installation, above** 
 
-####Set up Coolterm
+#### Set up Coolterm
 Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to connect and test your tinyg. Coolterm is a terminal emulator that provides command line access to TinyG and can also stream files to TinyG.  We use Coolterm as the preferred way to test the board without introducing variables from advanced UIs and host controllers such as [ChiliPeppr](Chilipeppr), which is a better way to actually run jobs once you have the system set up.
 
 * Download and install [Coolterm](http://freeware.the-meiers.org/). For the Mac we have noticed that the latest version (1.4.5) does not do well on large file transmissions. So we still use version 1.4.3. This is available on the Coolterm page under [Previous Releases](http://freeware.the-meiers.org/previous/).
@@ -53,7 +53,7 @@ Once you have the FTDI drivers in place you will want Roger Meier's Coolterm to 
 
 * Hit OK to leave the Options menu
 
-####Test Connection to TinyG
+#### Test Connection to TinyG
 * Hit the "Connect" button. In the terminal enter a few carriage returns (May need to add a space before enter). TinyG should respond with prompts. If not, hit the reset button on the TinyG. You should see some JSON startup messages wrapped in JSON curly braces something like this:
 <pre>
 {"r":{"fb":371.030,"fv":0.950,"hv":7.000,"id":"9H3583-RMP","msg":"Loading configs from EEPROM","f":[1,15,0,8891]}}
