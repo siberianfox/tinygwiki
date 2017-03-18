@@ -1,5 +1,3 @@
-_updated 10/1/14 - ash_
-
 This page describes JSON operation in TinyG firmware version 0.95. This page provides a JSON cheat sheet and an overview of JSON operation. See [JSON Details](https://github.com/synthetos/TinyG/wiki/JSON-Details) for the real nuts and bolts.
 
 # JSON Cheat Sheet
@@ -23,14 +21,14 @@ X axis group response:
 <pre>
  {"r":{"x":{"am":1,"vm":16000.000,"fr":16000.000,"tm":220.000,"jm":5000000000.000,"jd":0.010,"sn":3,"sx":2,"sv":3000.000,"lv":100.000,"lb":20.000,"zb":3.000}},"f":[1,0,9,9580]} 
 </pre>
-#JSON Summary
+# JSON Summary
 ## General
 
 TinyG can accept commands in [JSON](http://json.org/) (JavaScript Object Notation) mode or text mode. Using JSON simplifies writing host GUIs in languages such as Python, Ruby, JavaScript, Java, Processing and other languages that support dictionaries / hashmaps. 
 
 Most commands that are available in JSON are also available in text mode, but there are some differences. ASCII communications overhead is somewhat higher in JSON than text mode but is still quite efficient and manageable.
 
-####Syntax Notes
+#### Syntax Notes
 - The examples above are in strict JSON mode, as specified by json.org. TinyG will also accept input in relaxed JSON mode which omits the quotes on all fields except if the value field is a string.
 - The following values can be used in full or by their abbreviations:
   - 'null' or 'n'
@@ -78,7 +76,7 @@ TinyG implements a subset of JSON with the following limitations:
 * Limited object nesting is supported (you won't see more than 3 levels)
 * All JSON input and output is on a single text line. There is only one `<LF>`, it's at the end of the line (broken lines are not supported)
 
-##JSON Request and Response Formats
+## JSON Request and Response Formats
 JSON requests are used to perform the following actions {with examples}
 
 * Return the value of a single setting or state variable {"1mi":n}
@@ -125,10 +123,10 @@ $js    {js:n}   - Returns syntax mode
  
 We recommend using relaxed mode if your parser can accept it on the responses.
 
-###More
+### More
 See [JSON Detail](https://github.com/synthetos/TinyG/wiki/JSON-Details) for more information
 
-#Random Notes
+# Random Notes
 _NOTE 1: In text mode the differences in units are obvious in the responses. In JSON there is no inherent units indication - so best to issue {"gc":"g20"} or {"gc":"g21"} at the start of every config session._
 
 _NOTE 2: internally, everything is converted to mm mode, so if you do a bunch of settings in one units mode then change to the other the settings are still valid. Try it. Change back and forth by issuing in sequence: $x, G20, $x, G21, $x_
