@@ -2,10 +2,7 @@
 
 Welcome to the TinyG wiki!
 
-<div data-embed_type="product" data-shop="synthetos.myshopify.com" data-product_name="TinyG" data-product_handle="tinyg" data-has_image="false" data-display_size="compact" data-redirect_to="checkout" data-buy_button_text="Buy now" data-buy_button_out_of_stock_text="Out of Stock" data-buy_button_product_unavailable_text="Unavailable" data-button_background_color="7db461" data-button_text_color="ffffff" data-product_modal="false" data-product_title_color="000000" data-next_page_button_text="Next page"></div>
-<script type="text/javascript">
-document.getElementById('ShopifyEmbedScript') || document.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
-</script>
+<div da
 <noscript>Don't have a TinyG?  <a href="https://synthetos.myshopify.com/cart/341591135:1" target="_blank">Buy a TinyG now.</a></noscript>
 <p>
 <br>
