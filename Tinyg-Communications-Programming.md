@@ -42,7 +42,7 @@ Writing a config value (e.g.  {"xvm":16000} ) is more complicated. Writing usual
 1. You cannot do a configuration write during a machining cycle as the steppers will stop
 2. There can be no serial activity the duration of the write (something < 30 ms)
 
-The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a gcode file.
+The simplest way to deal with this is to (1) don't issue config commands during a cycle, and (2) always run configuration commands synchronously. In other words, always wait until you receive the response from a command before sending the next one. Do not just blast them down to the serial buffer as you would a Gcode file.
 
 ### Action Commands
 There are a small number of commands that look like configs but actually perform actions or return 'reports". These are:
