@@ -12,13 +12,11 @@ This page discusses issues and approaches to writing a good programatic interfac
 If you are writing a programmatic interface we highly recommend that you use the [JSON syntax](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples here are provide in JSON form.
 
 ## Vocabulary
-A **_host_** is any computer that talks to a g2core board. Typically this is an OSX, Linux, or Windows laptop or desktop computer communicating over USB. A **_microhost_** is a tiny linux system like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. These usually talk to g2core over a direct serial UART - although they may alternately communicate over USB.
+By **_board_** we mean and TinyG or g2core flavored controller board.
 
-A **_command_** is a single line of text sent from the host to the board. A command can be either **_data_** or **_control_**.
+A **_host_** is any computer that talks to a board - typically an OSX, Linux, or Windows laptop or desktop computer communicating over USB, or a **_microhost_** like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. Microhosts usually talk to a board over a direct serial UART - although they may alternately communicate over USB.
 
-Gcode lines are always **_data_** commands. Generally, unless a line is identified as a control, it's considered data.
-
-JSON commands are always _**controls**_. So are single-character commands such as `!` feedhold, `%` queue flush, `~` resume
+A **_command_** is a single line of text sent from the host to the board. A command can be either **_data_** or **_control_**. Gcode lines are always **_data_** commands. Generally, unless a line is identified as a control, it's considered data. JSON commands are always _**controls**_. So are single-character commands such as `!` feedhold, `%` queue flush, `~` resume
 
 **_Multiplexed Channels_**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between control and data lines and keeps separate logical queues for each. Controls are always executed before data - so they "jump the queue".
 
