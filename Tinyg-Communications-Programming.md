@@ -20,7 +20,7 @@ Gcode lines are always **_data_** commands. Generally, unless a line is identifi
 
 JSON commands are always _**controls**_. So are single-character commands such as `!` feedhold, `%` queue flush, `~` resume
 
-**_Multiplexed Channels_**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between Command and Data lines and keeps separate logical queues for each. It always executed executes controls first.
+**_Multiplexed Channels_**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between control and data lines and keeps separate logical queues for each. Controls are always executed before data - so they "jump the queue".
 
 ## Theory of Operation
 TinyG communicates over a single USB serial channel terminated by an FTDI chip (USB serial emulation). The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group). 
