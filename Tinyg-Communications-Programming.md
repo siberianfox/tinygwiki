@@ -11,6 +11,8 @@ This page discusses issues and approaches to writing a good programatic interfac
 
 If you are writing a programmatic interface we highly recommend that you use the [JSON syntax](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples here are provide in JSON form.
 
+If you want to skip the background info you can skip right to the [linemode protocol](#driving-the-board-from-a-host-computer)
+
 ## Vocabulary
 By **_board_** we mean and TinyG or g2core flavored controller board.
 
