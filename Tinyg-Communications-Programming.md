@@ -1,4 +1,6 @@
-If you are on this page we can assume you want to write a program that talks to TinyG to send Gcode files, and possibly also to read and set configuration variables, report machine status, control jogging and homing, and other functions.
+If you are on this page we can assume you want to write a program that talks to TinyG to send Gcode files, and possibly also to read and set configuration variables, report machine status, control jogging and homing, and other functions. It is intended for GUI developers and other low-level access. 
+
+**We strongly recommend using the [node-g2core-api](https://github.com/synthetos/node-g2core-api) nodeJS module, which already handles the communications**. This page is useful if for some reason you need to write your own communications handler, or just want to know how it works._
 
 If you are just looking for an off-the-shelf way to drive TinyG please see these other links:
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
@@ -69,57 +71,188 @@ For ease of processing these are single character commands. This is so that they
 
 BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
 
-## Host Programming Considerations
+## Driving TinyG from a Host Computer
 Now that we've described how the commands work, let's talk about how to feed commands to TinyG for optimal program execution.
 
-### Flow Control Theory
-The main topic is flow control. Let's review. There are 2 queues to manage (1) the planner buffer that contains the Gcode moves and synchronized commands, and (2) the serial buffer that feeds the controller, and hence the downstream planner queue.
+A **_host_** is any computer that talks to a g2core board. Typically this is an OSX, Linux, or Windows laptop or desktop computer communicating over USB. A **_microhost_** is a tiny linux system like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. These usually talk to g2core over a direct serial UART - although they may alternately communicate over USB.
 
-The steady-state you want during movement (i.e. in cycle) is that the planner buffer is close to full, and the serial buffer is empty or close to empty. If the planner is too empty the planner will "starve" and motion will get rough and jerky. This can be heard as a rough or bumpy movement where a smooth movement should be.
+We recommended using **_Line Mode protocol_** for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
 
-To understand planner queue starvation look at how the planner buffer is built. Let's say there are a series of short segments that want to run at some reasonable feed rate (velocity), say 1000 mm/min. (By the way, this is the case for the vast majority of Gcode files - lots of short G1 moves with some target velocity FNNNN set for all of them). Bear in mind that the planner must always plan the last block it knows about to zero velocity (a stop). So when the first Gcode block (move) is presented it plans it up from zero then down to zero. Since this a short move it probably cannot achieve the target velocity of 1000 mm/min. Then the next block comes in. Now the planner can reach a higher velocity by joining the two moves than it could for just the one move, but perhaps still not the target velocity. This continues as new moves are added - each new move allows the planner to achieve a higher target velocity, until there is some critical number of moves that allows the planner to achieve and maintain the target velocity as new moves come in.
+We recommend using the [node-g2core-api](https://github.com/synthetos/node-g2core-api) nodeJS module, which already handles the communications. Or just use it as a worked example if you are writing your own.
 
-For the velocities and move lengths achievable by TinyG the planner is usually happy with a small number of moves, somewhere between 4 and 12 moves. So as long as you can keep this number in the planner, the file will execute optimally (i.e. at the target velocity). Less than this and it will starve, never reliably achieving the target velocity.
+TinyG and g2core also support character mode (byte streaming) which is deprecated and may be removed at a later time. 
 
-On the other hand, If the planner is always full then the serial buffer will back up. This means you will lose a lot of data in the serial buffer if you need to recover from a soft alarm, or you will introduce delays if want to inject some of the more complex front-panel commands that we have planned. You don't want that, either.
+##Overview of Communications Model
+### Control and Data Channels
 
-So the optimal way to feed the system is to have about 20 to 24 moves in the planner buffer at all times once movement has started. This overage (relative to 12 moves, for example) is useful to absorb the non-movement synchronized commands such as M commands, etc. This will keep the serial buffer free at all times.
+A **Command** is a single line of text sent from the host to the board. A command can be either **data** or **control**.
 
-_Note: The planner queue actually has 28 buffers, but the controller will not process a command from the serial buffer unless at least 4 buffers are free, so the effective max queue depth is actually 24, not 28_
+* **Data**: Gcode lines are always data commands. Generally, unless a line is identified as a control, it's considered data.
+* **Control**: JSON commands (_not_ JSON in active comments, which are actually gcode lines) and single-character commands (`!` feedhold, `%` queue flush, `~` resume, etc) are considered as control commands. 
 
-### Flow Control Options
+* **Multiplexed Channels**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between Command and Data lines and keeps separate logical queues for each. It always executed executes controls first.
 
-#### Using Queue Reports for Flow Control
-The best way to feed the system and ensure that the planner queue is happy is to use the queue reports. The following variables are available:
+## Linemode Protocol
 
-Variable  | Description
----------|-------------------------
-qr | Buffers remaining in planner queue - i.e. 0 means the planner is full
-qi | Buffers added to planner queue since last report (in)
-qo | Buffers removed from queue since last report (out)
+We designed the _linemode protocol_ to help prevent the serial buffer from either filling completely (preventing time-critical commands from getting through) while keeping the serial buffer full enough in order to prevent degradation to motion quality due to the motion commands not making it to the machine in a timely manner.
 
-A queue report that returns the qr value values can be requested by {"qv":1}  (1=QR_SINGLE). A queue report that returns all 3 values can be requested by {"qv":2}  (2=QR_TRIPLE). Queue reports will be returned every time the planner buffer changes state, or at a maximum rate set by how fast the system can process queue reports. This means that not every planner queue transition will return a result, which is why the in and out values are useful.
+The protocol is simple - "blast" 4 lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
 
-#### Serial Flow Control
-If you overflow the serial buffer you will get erratic results as characters will be dropped. If the machine takes off with "a mind of its own" this is probably what's happening.
+In implementation it's actually rather simple:
 
-Serial flow control uses channel level flow control to make sure the serial buffer is not overrun. TinyG supports both XON/XOFF flow control and RTS/RTS flow control. One or the other - they cannot be both used at the same time time.
+1. Prepare or start reading the list of _data_ lines to send to the g2core. We'll call this list `line_queue`.
+2. Set `lines_to_send` to `4`.
+  * `4` has been determined to be a good starting point. This is subject to tuning, and might be adjusted based on your results.
+3. Send the first `lines_to_send` lines of `line_queue` to the g2core, decrementing `lines_to_send` by one for _each line sent_.
+  * If you need to read more lines into `line_queue`, do so as soon as `lines_to_send` is zero.
+  * If `line_queue` is being filled by dynamically generated commands then you can send up to `lines_to_send` lines immedately.
+  * Don't forget to decrement `lines_to_send` for _each line sent_! And don't send more than `lines_to_send` lines!
+4. When a `{r:...}` response comes back from the g2core, add one to `lines_to_send`.
+  * It's **vital** that when any `{r:...}` comes back that `lines_to_send`. If one is lost or ignored then the system will get out of sync and sending will stall.
+5. Loop back to 3. (Better yet, have 3 and 4 each loop in their own thread or context.)
 
-Serial flow control is not as good as using queue reports, but does work. The host must stop transmitting when TinyG sends the OFF signal. TinyG sends an OFF signal (e.g. XOFF) when the serial input buffer reaches about 80% full. In this case the system is "jammed", i.e. there will be a significant amount of data in the serial buffers. At 115.200 that's about 100 uSec per char to react to an XOFF, so 80% of 254 chars gives about 50 chars, so that host has about 5 ms to stop sending before it would overrun the buffer.
+Notes:
+* Steps 3 and 4 are best to run in their own threads or context. (In node we have each in event handlers, for example.) If that's not practical, it's vital that when a `{r:...}` comes in that `lines_to_send` is incremented and that lines can be sent as quickly after that as possible.
+* It is possible (and common) to get two or more `{r:...}` responses before you send another line. This is why it's vital to keep track of `lines_to_send`.
+* Note that only _data_ (gcode) lines go into `line_queue`! For configuration JSON or single-line commands, they are sent immediately.
+  * It's important to maintain `lines_to_send` even when sending past the `line_queue`.
+    * Single-character commands will *not* generate a `{r:...}` response (they may generate other output, however), so there's nothing to do (see following notes). 
+    * JSON commands (`{` being the first character on the line) **will** have a `{r:...}` response, so when you send one of those past the queue you should still subtract one from `lines_to_send`, or `lines_to_send` will get out of sync and the sender will eventually stall waiting for responses. This is the *only* case where `lines_to_send` may go negative.
+  * Note that control commands, like dta commands, must start at the beginning of a line, so you should always send whole lines. IOW, don't interrupt a line being sent from the `line_queue` to send a JSON command or feedhold `!`.
+* **All** communications to the g2core **must** go through this protocol. It's not acceptable to occasionally send a JSON command or gcode line directly past this protocol, or `lines_to_send` will get out of sync and the sender will eventually stall waiting for responses.
 
-Serial flow control has its own challenges. Unfortunately, much of the serial code used by host-side Java, Python, Node and other languages does not implement either XON or RTS flow control properly. The root cause is sloppy programming in the RXTX libraries that most of these packages rely on or are derived from. The only way we know to reliably run serial flow control is to implement a good application-level XON/XOFF implementation as some of our users have done.
+# Backgrounder: Problem Description - the "Bucket Brigade"
 
-Separately, we have fixed the serial handling in the Node voodootiki project, but this is not part if the default release yet.
+[![Bucket Brigade](http://www.stepneyct.org/history/ht/images/stop_17e_430x195.jpg)](http://www.stepneyct.org/history/ht/stop17.html)
 
----- INCOMPLETE FROM HERE ON DOWN ----
+With a single channel of communication, either UART or USB, we have two single-file lines of bytes: one going to the g2core, and one coming from the g2core.
 
-#### Serial Flow Control by Byte Counting
-It is possible for the host to keep track of the number of bytes it has loaded into the serial buffer and remove
+In both cases, there are often several "players" involved between the two endpoints of the channel. For example, for USB, there is:
 
-The
+  * Your UI application →
+  * The language's serial buffers →
+  * The OS serial USB driver buffers →
+  * The OS USB buffers →
+  * The g2core USB peripheral buffers →
+  * The g2core serial buffers, then, finally →
+  * The g2core line parser.
 
-So the planner is the second queue that needs to be managed. The planner has 24 buffers. As long as there is space in the planner the controller will continue to pull commands from the serial buffer. Once the planner fills up the serial buffer will start filling up. See Flow Control for more info on this.
+This amounts to a "bucket brigade," where once you pass the line into the serial system, it has to pass through several "hidden" layers (there may be more or less than listed above) before it gets to the g2core, and then there's a buffer before it can be parsed and handled.
 
-Commands are not pulled from the serial buffer until the firmware knows it has the resources (time and space) to process them.
- one at a time from the serial buffer.
-the designated termination character set by  with a  (aka a Gcode "block", if it's Gcode).
+This is generally fine, as long as you don't need to stop the flow of commands. For example, to execute a feed-hold you send a `!` character at the beginning of a new line. It has to get through all of those buffers before it is even seen by the g2core. So, if there are too many lines in the buffer before the g2core, the feedhold may take a noticeable (and unacceptable) amount of time to go into effect.
+
+To complicate matters, the g2core cannot blindly read lines, but only reads lines as there is room for the parsed results. This generally means that as a line is read and parsed, room is made in the internal serial buffer. If the motion buffer is full, however, there is no room for new moves to be stored, so g2core will stop reading and parsing _data_ lines until room is made in the motion buffer. It will continue to read _control_ lines in any case.
+
+To help with this the g2core serial system will "pre-parse" the incoming serial buffer, even when data lines are no longer being read (due to the motion buffer being full, a feedhold in place, etc), and look for lines that begin with "{" or one of the single-character commands (`!`, `~`, `%`, `^D`, `^X`, etc.). If it locates one of these lines, it will mark it as a control line and the next control-line-read will see it and execute it immediately.
+
+So, as long as the serial buffer is not completely filled with data lines, there is at least room for a single-line command and generally room for a JSON command as well.
+
+There are other issues that are dealt with in other ways, such as if the serial buffer _does_ fill completely (even if very briefly) we need to ensure that we don't lose data. This is mostly a concern with UART, and in that case we require some form of _flow control_. Currently we only support hardware flow-control, using the additional `RTS`/`CTS` lines. Linemode is _not_ a replacement for flow-control, and will not prevent lost data due to buffer overflow on it's own.
+
+One further note: Due to the way g2core plans motion in real-time, if the gcode commands request moves of very brief duration, and the serial buffer isn't kept full enough of moves, then there will be a noticeable degradation in velocity and in some configurations the machine will exhibit a noticeable "stutter" as it executes each move on it's own or in small groups.
+
+# OLD (BUT NEWER), DEPRECATED. REMOVE WHEN DONE
+
+Linemode allocates 8 "line slots". The board can hold 8 lines of text before declaring that it has no more room in the receive buffer. Lines are processed in the order the command lines were received, but any control commands take precedence over data commands and are processed first. 
+
+The number of line buffers available is returned as the third (last) number in the `{r:...}` response footer, and can also be queried by sending an `{rx:n}` command. You will never see more than 7, because the command being processed is one of the 8. However, in normal operation the host will not use the available lines count, as this is only necessary to handle some exceptional cases.
+
+The protocol is simple - "blast" 4 lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
+
+The above protocol works for all cases we have seen. A belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. We have not seen this 
+
+
+# OLD, DEPRECATED. REMOVE WHEN DONE
+
+Not all communications modes are supported by all of the above use cases
+ 
+- Single Endpoint / Packet Mode
+  - Ctrl+Data channel, probably 8 packets or 128 chars each
+  - One packet is reserved for each control channel, the rest are pooled for data
+  - Free packet count is returned in the footer
+    - This is not counting partially written or "reserved for control" packets.
+  - Selected by {rxm:1} (this is the default)
+
+- Single Endpoint / Character mode
+  - This is a simulation of character mode that is actually running packet mode. It's in here for people that have already coded character counting and don't want to recode
+  - Simulates character mode by returning the bytes consumed by the command in the footer
+  - {rx:n} returns something less than the total remaining free bytes in available packets, e.g. 1/2 of the available bytes left in the packet. 
+  - Selected by {rxm:0)
+  - Not recommended for new implementations
+
+- Dual Endpoint / Packet Mode
+  - As packet mode above, but the endpoints are separate
+
+- Dual Endpoint / Character mode
+  - As character mode above, but the endpoints are separate
+
+###Host APIs and Support
+There are 3 packages made available (planned) to the host as APIs
+
+####USB Port Discovery Tool
+Cross-platform C/C++ tool to examine the host's USB subsystem and return a JSON object per TinyG/G2, with at least the following information:
+- OS device names for the ports associated with this device as an array of one or more strings.
+  - Examples: `COM10`, `/dev/ttyACM1`, `/dev/usbserial-ABCDEF1123`
+  - They are in no particular order -- order does NOT imply function.
+- Type of protocol supported
+  - The only options now are USB Serial / Dual USB Serial
+
+Other information we will have that we could also return (perhaps in a "Verbose mode"):
+- Manufacturer (Vendor ID)
+- Device (Device ID)
+- Serial number
+
+####Low-Level Communications API
+Cross platform C/C++ library / process performs the following
+- Port discovery (above)
+- Transparent port binding for single or dual channel mode -- instead they simply talk to a G-device. They don't need to know or care how many or what type of ports, beyond the minimum ability to select from multiple G-devices.
+- Hiding and handling of underlying comm protocol (e.g. USB, serial, SPI)
+- Streams data (jobs) to the CNCcore
+
+Questions:
+- How is this exposed to the caller? Separate control and data channels? Here's the work in this option.
+  - *RG:* The user should be able to open the TinyG/G2 Core connection as a process, and pipe STDIN, STDOUT, and maybe STDERR. All communications can happen via standard OS IPC, including signals. (Windows is always the odd duck here, but I'm not going to spend to many cycles there. There are decades of solutions for that problem, we just need to pick one.)
+
+####High-Level Communications API
+
+Placeholder for job control and config API
+
+###Drivers
+The APIs are exposed as drivers for the major platforms
+
+###Backlog and Options
+How do we get John where he needs to be?
+
+- His requirements (let's treat these as constraints)
+  - The user is responsible for establishing connection (root of the problem, I think)
+  - Need to support multiple g2's running from the same CP
+  - SPJS cannot deal with a single upstream channel from 2 ports
+  - We need to solve the "slow feedhold" problem (and no starving)
+
+- Immediate Solution (near term)
+  - Force system into 1 port mode somehow. Options:
+    - Release a version that only has 1 port
+    - Have SPJS force close a data only port 
+      - Able to interrogate a port to find out if it's ctrl, data, or ctrl+data
+    - Have the second port only appear as a pro-active command from SPJS
+  - We need g2 to manage ctrl / data channels internally (packet mode). 
+    - Appears as streaming to the sender
+    - Sender is still responsible for application level flow control based on byte counts 
+  - What we do:
+    - Port discovery tool
+    - We will re-write the dual port hiding
+    - Streaming / packet mode
+
+- Middle Term Solution
+  - Low-level communications API
+  - Exposed as a driver (?)
+  - Capable of presenting 1 or 2 channel models
+  - Does it buffer and send, or only route?
+    - Buffering: buffering and file handling, etc.
+
+- Long Term Solution
+  - High-level, Object Oriented API supporting:
+    - Jobs
+    - In-Cycle controls
+    - Configuration 
+    - Machine State
