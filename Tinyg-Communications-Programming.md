@@ -125,11 +125,11 @@ Notes:
 ## Resyncing
 
 If the host somehow loses responses the line count could potentially get out of sync. We have only seen this in two cases -
- on where the host's internal program flow was dropping responses, and once when there was a bug in the g2core USB the prevented occasional USB packets from getting through (this was fixed). In any case, a belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. 
+ one where the host's internal program flow was dropping responses due to inter-process communications and mutual exclusion problems, and once when there was a bug in the g2core USB stack that prevented occasional USB packets from getting through (this was fixed). In any case, a belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. 
 
 The number of line buffers available is returned as the third (last) number in the `{r:...}` response footer, and can also be queried by sending an `{rx:n}` command. You will never see more than 7, because the command being processed is one of the 8. However, in normal operation the host will not use the available lines count, as this is only necessary to handle some exceptional cases.
 
-The buffer count can be tested this way, but realize that the only truly accurate count will be if the job has stalled.
+The buffer count can be tested this way, but realize that the only truly accurate count will be if the job has stalled. Otherwise the asynchronous nature of the communications and processing may be off by one. However, if you see there are only 0 or 1 buffers available it may be a good idea to back off sending until the buffer count comes back up to 4 or 5 in subsequent response footers. 
 
 # Backgrounder: The "Bucket Brigade" Problem
 
