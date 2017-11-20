@@ -25,16 +25,16 @@ TinyG communicates over a single USB serial channel terminated by an FTDI chip (
 
 g2core is configured similarly, but uses a native USB channel that will transmit at 12 Mbps or 480Mbps, depending on the exact board and host used. It can alternately be connected to a using a 4-wire serial port (rx/tx/rts/cts).
 
-The board has a 1000 byte serial buffer that can buffer up to 12 lines of ASCII text. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines from the buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
+The board has a 1000 byte serial buffer that can buffer up to 8 lines of ASCII text. A "command" is a line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines from the buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
 
 Command Type | Example(s)
 ---------|-------------------------
-Gcode blocks (data) | g0x10, m7, g17, {"gc":"g0x10"} (both JSON wrapped and unwrapped forms are supported)
-Configuration commands | {"xvm":16000} (set X maximum velocity to 16000), {"1mi":8} (set motor 1 microsteps to 8)
-Action commands | {"defa":1} (reset config values to default), {"sr":null} (request a status report)
-Front-Panel commands | ! (feedhold), ~ (cycle start)
+Gcode blocks (data) | g0x10, m7, g17
+Configuration (control) | {"xvm":16000} (set X maximum velocity to 16000), {"1mi":8} (set motor 1 microsteps to 8)
+Action (control) | {"defa":1} (reset config values to default), {"sr":null} (request a status report)
+Front-Panel (control) | ! (feedhold), ~ (cycle start)
 
-Commands from the serial buffer are handled as per below:
+Commands from the serial buffer are handled as:
 
 ### Gcode Blocks
 When a Gcode block is encountered it is passed to the Gcode parser. Depending on the gcode command it is either executed immediately or queued to the motion planner. All motion commands, dwells and most M commands are queued to the planner - i.e. "synchronized with motion". Examples of commands that are executed immediately are G20 and G21 - which set inches and millimeter units, respectively. These are executed immediately as the next gcode block that arrives needs to be interpreted in the correct units.
@@ -80,27 +80,20 @@ Command  | Description
 ! | Feedhold (pause)
 ~ | Cycle start (resume)
 
-For ease of processing these are single character commands. This is so that they can be removed from the serial stream and acted on immediately - therefore "jumping the queue". (Hopefully this will be clearer after you read about flow control in the next section.)
-
-BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
-
 # Driving the Board from a Host Computer
 Now that we've discussed how commands work let's talk about how to feed commands to TinyG for optimal program execution.
 
-We recommended using Line Mode protocol for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
+We recommend using Line Mode protocol for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
 
 We recommend using the [node-g2core-api](https://github.com/synthetos/node-g2core-api) nodeJS module, which already handles line mode communications. Or just use it as a worked example if you are writing your own.
 
 TinyG and g2core also support character mode (byte streaming) which is deprecated and may be removed at a later time. 
 
-##Overview of Communications Model
-
-
 ## Linemode Protocol
 
-We designed the _linemode protocol_ to help prevent the serial buffer from either filling completely (preventing time-critical commands from getting through) while keeping the serial buffer full enough in order to prevent degradation to motion quality due to the motion commands not making it to the machine in a timely manner.
+Linemode protocol was designed to help prevent the serial buffer from either filling completely (preventing time-critical commands from getting through) while keeping the serial buffer full enough in order to prevent degradation to motion quality due to the motion commands not making it to the machine in a timely manner.
 
-The protocol is simple - "blast" 4 lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
+The protocol is simple - "blast" 4 command lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
 
 In implementation it's actually rather simple:
 
