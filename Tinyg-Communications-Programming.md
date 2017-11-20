@@ -14,6 +14,14 @@ If you are writing a programmatic interface we highly recommend that you use the
 ## Vocabulary
 A **_host_** is any computer that talks to a g2core board. Typically this is an OSX, Linux, or Windows laptop or desktop computer communicating over USB. A **_microhost_** is a tiny linux system like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. These usually talk to g2core over a direct serial UART - although they may alternately communicate over USB.
 
+A **_command_** is a single line of text sent from the host to the board. A command can be either **_data_** or **_control_**.
+
+Gcode lines are always **_data_** commands. Generally, unless a line is identified as a control, it's considered data.
+
+JSON commands are always _**controls**_. So are single-character commands such as `!` feedhold, `%` queue flush, `~` resume
+
+**_Multiplexed Channels_**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between Command and Data lines and keeps separate logical queues for each. It always executed executes controls first.
+
 ## Theory of Operation
 TinyG communicates over a single USB serial channel terminated by an FTDI chip (USB serial emulation). The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group). 
 
@@ -23,7 +31,7 @@ The board has a 1000 byte serial buffer that can buffer up to 12 lines of ASCII 
 
 Command Type | Example(s)
 ---------|-------------------------
-Gcode blocks (commands) | g0x10, m7, g17, {"gc":"g0x10"} (both JSON wrapped and unwrapped forms are supported)
+Gcode blocks (data) | g0x10, m7, g17, {"gc":"g0x10"} (both JSON wrapped and unwrapped forms are supported)
 Configuration commands | {"xvm":16000} (set X maximum velocity to 16000), {"1mi":8} (set motor 1 microsteps to 8)
 Action commands | {"defa":1} (reset config values to default), {"sr":null} (request a status report)
 Front-Panel commands | ! (feedhold), ~ (cycle start)
@@ -78,24 +86,17 @@ For ease of processing these are single character commands. This is so that they
 
 BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
 
-# Driving TinyG from a Host Computer
-Now that we've discusses how commands work let's talk about how to feed commands to TinyG for optimal program execution.
+# Driving the Board from a Host Computer
+Now that we've discussed how commands work let's talk about how to feed commands to TinyG for optimal program execution.
 
-We recommended using **_Line Mode protocol_** for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
+We recommended using Line Mode protocol for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
 
-We recommend using the [node-g2core-api](https://github.com/synthetos/node-g2core-api) nodeJS module, which already handles the communications. Or just use it as a worked example if you are writing your own.
+We recommend using the [node-g2core-api](https://github.com/synthetos/node-g2core-api) nodeJS module, which already handles line mode communications. Or just use it as a worked example if you are writing your own.
 
 TinyG and g2core also support character mode (byte streaming) which is deprecated and may be removed at a later time. 
 
 ##Overview of Communications Model
-### Control and Data Channels
 
-A **Command** is a single line of text sent from the host to the board. A command can be either **data** or **control**.
-
-* **Data**: Gcode lines are always data commands. Generally, unless a line is identified as a control, it's considered data.
-* **Control**: JSON commands (_not_ JSON in active comments, which are actually gcode lines) and single-character commands (`!` feedhold, `%` queue flush, `~` resume, etc) are considered as control commands. 
-
-* **Multiplexed Channels**: Even though there is only a single physical host-to-board connection (USB or serial) the communications channel distinguishes between Command and Data lines and keeps separate logical queues for each. It always executed executes controls first.
 
 ## Linemode Protocol
 
