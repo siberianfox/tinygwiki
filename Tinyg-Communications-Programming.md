@@ -91,7 +91,9 @@ TinyG and g2core also support character mode (byte streaming) which is deprecate
 
 ## Linemode Protocol
 
-Linemode protocol was designed to help prevent the serial buffer from either filling completely (preventing time-critical commands from getting through) while keeping the serial buffer full enough in order to prevent degradation to motion quality due to the motion commands not making it to the machine in a timely manner.
+Linemode protocol was designed to help prevent the serial buffer from either filling completely (preventing time-critical commands from getting through) while keeping the serial buffer full enough in order to prevent degradation to motion quality due to the motion commands not making it to the machine in a timely manner. Lines are processed in the order the command lines were received, but any control commands take precedence over data commands and are processed first.
+
+Linemode allocates 8 "line slots" - the board can hold 8 lines of text before declaring that it has no more room in the receive buffer. It's been determined that 8 is a good number, it allows 4 slots to be always filled with data (gcode), while leaving slots open for controls. This keeps the Gcode flowing and allows responsive controls.
 
 The protocol is simple - "blast" 4 command lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
 
@@ -148,108 +150,11 @@ There are other issues that are dealt with in other ways, such as if the serial 
 
 One further note: Due to the way g2core plans motion in real-time, if the gcode commands request moves of very brief duration, and the serial buffer isn't kept full enough of moves, then there will be a noticeable degradation in velocity and in some configurations the machine will exhibit a noticeable "stutter" as it executes each move on it's own or in small groups.
 
-# OLD (BUT NEWER), DEPRECATED. REMOVE WHEN DONE
+## Resyncing
 
-Linemode allocates 8 "line slots". The board can hold 8 lines of text before declaring that it has no more room in the receive buffer. Lines are processed in the order the command lines were received, but any control commands take precedence over data commands and are processed first. 
+If the host somehow loses responses the line count could potentially get out of sync. We have only seen this in two cases -
+ on where the host's internal program flow was dropping responses, and once when there was a bug in the g2core USB the prevented occasional USB packets from getting through (this was fixed). In any case, a belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. 
 
 The number of line buffers available is returned as the third (last) number in the `{r:...}` response footer, and can also be queried by sending an `{rx:n}` command. You will never see more than 7, because the command being processed is one of the 8. However, in normal operation the host will not use the available lines count, as this is only necessary to handle some exceptional cases.
 
-The protocol is simple - "blast" 4 lines to the board without waiting for responses. From that point on send a single line for every `{r:...}` response received. Every command will return one and only one response. **The exceptions are single character commands, such as !, ~, or ENQ, which do not consume line buffers and do not generate responses.**
-
-The above protocol works for all cases we have seen. A belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. We have not seen this 
-
-
-# OLD, DEPRECATED. REMOVE WHEN DONE
-
-Not all communications modes are supported by all of the above use cases
- 
-- Single Endpoint / Packet Mode
-  - Ctrl+Data channel, probably 8 packets or 128 chars each
-  - One packet is reserved for each control channel, the rest are pooled for data
-  - Free packet count is returned in the footer
-    - This is not counting partially written or "reserved for control" packets.
-  - Selected by {rxm:1} (this is the default)
-
-- Single Endpoint / Character mode
-  - This is a simulation of character mode that is actually running packet mode. It's in here for people that have already coded character counting and don't want to recode
-  - Simulates character mode by returning the bytes consumed by the command in the footer
-  - {rx:n} returns something less than the total remaining free bytes in available packets, e.g. 1/2 of the available bytes left in the packet. 
-  - Selected by {rxm:0)
-  - Not recommended for new implementations
-
-- Dual Endpoint / Packet Mode
-  - As packet mode above, but the endpoints are separate
-
-- Dual Endpoint / Character mode
-  - As character mode above, but the endpoints are separate
-
-###Host APIs and Support
-There are 3 packages made available (planned) to the host as APIs
-
-####USB Port Discovery Tool
-Cross-platform C/C++ tool to examine the host's USB subsystem and return a JSON object per TinyG/G2, with at least the following information:
-- OS device names for the ports associated with this device as an array of one or more strings.
-  - Examples: `COM10`, `/dev/ttyACM1`, `/dev/usbserial-ABCDEF1123`
-  - They are in no particular order -- order does NOT imply function.
-- Type of protocol supported
-  - The only options now are USB Serial / Dual USB Serial
-
-Other information we will have that we could also return (perhaps in a "Verbose mode"):
-- Manufacturer (Vendor ID)
-- Device (Device ID)
-- Serial number
-
-####Low-Level Communications API
-Cross platform C/C++ library / process performs the following
-- Port discovery (above)
-- Transparent port binding for single or dual channel mode -- instead they simply talk to a G-device. They don't need to know or care how many or what type of ports, beyond the minimum ability to select from multiple G-devices.
-- Hiding and handling of underlying comm protocol (e.g. USB, serial, SPI)
-- Streams data (jobs) to the CNCcore
-
-Questions:
-- How is this exposed to the caller? Separate control and data channels? Here's the work in this option.
-  - *RG:* The user should be able to open the TinyG/G2 Core connection as a process, and pipe STDIN, STDOUT, and maybe STDERR. All communications can happen via standard OS IPC, including signals. (Windows is always the odd duck here, but I'm not going to spend to many cycles there. There are decades of solutions for that problem, we just need to pick one.)
-
-####High-Level Communications API
-
-Placeholder for job control and config API
-
-###Drivers
-The APIs are exposed as drivers for the major platforms
-
-###Backlog and Options
-How do we get John where he needs to be?
-
-- His requirements (let's treat these as constraints)
-  - The user is responsible for establishing connection (root of the problem, I think)
-  - Need to support multiple g2's running from the same CP
-  - SPJS cannot deal with a single upstream channel from 2 ports
-  - We need to solve the "slow feedhold" problem (and no starving)
-
-- Immediate Solution (near term)
-  - Force system into 1 port mode somehow. Options:
-    - Release a version that only has 1 port
-    - Have SPJS force close a data only port 
-      - Able to interrogate a port to find out if it's ctrl, data, or ctrl+data
-    - Have the second port only appear as a pro-active command from SPJS
-  - We need g2 to manage ctrl / data channels internally (packet mode). 
-    - Appears as streaming to the sender
-    - Sender is still responsible for application level flow control based on byte counts 
-  - What we do:
-    - Port discovery tool
-    - We will re-write the dual port hiding
-    - Streaming / packet mode
-
-- Middle Term Solution
-  - Low-level communications API
-  - Exposed as a driver (?)
-  - Capable of presenting 1 or 2 channel models
-  - Does it buffer and send, or only route?
-    - Buffering: buffering and file handling, etc.
-
-- Long Term Solution
-  - High-level, Object Oriented API supporting:
-    - Jobs
-    - In-Cycle controls
-    - Configuration 
-    - Machine State
+The buffer count can be tested this way, but realize that the only truly accurate count will be if the job has stalled.
