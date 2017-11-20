@@ -122,7 +122,16 @@ Notes:
   * Note that control commands, like dta commands, must start at the beginning of a line, so you should always send whole lines. IOW, don't interrupt a line being sent from the `line_queue` to send a JSON command or feedhold `!`.
 * **All** communications to the g2core **must** go through this protocol. It's not acceptable to occasionally send a JSON command or gcode line directly past this protocol, or `lines_to_send` will get out of sync and the sender will eventually stall waiting for responses.
 
-# Backgrounder: Problem Description - the "Bucket Brigade"
+## Resyncing
+
+If the host somehow loses responses the line count could potentially get out of sync. We have only seen this in two cases -
+ on where the host's internal program flow was dropping responses, and once when there was a bug in the g2core USB the prevented occasional USB packets from getting through (this was fixed). In any case, a belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. 
+
+The number of line buffers available is returned as the third (last) number in the `{r:...}` response footer, and can also be queried by sending an `{rx:n}` command. You will never see more than 7, because the command being processed is one of the 8. However, in normal operation the host will not use the available lines count, as this is only necessary to handle some exceptional cases.
+
+The buffer count can be tested this way, but realize that the only truly accurate count will be if the job has stalled.
+
+# Backgrounder: The "Bucket Brigade" Problem
 
 [![Bucket Brigade](http://www.stepneyct.org/history/ht/images/stop_17e_430x195.jpg)](http://www.stepneyct.org/history/ht/stop17.html)
 
@@ -152,11 +161,4 @@ There are other issues that are dealt with in other ways, such as if the serial 
 
 One further note: Due to the way g2core plans motion in real-time, if the gcode commands request moves of very brief duration, and the serial buffer isn't kept full enough of moves, then there will be a noticeable degradation in velocity and in some configurations the machine will exhibit a noticeable "stutter" as it executes each move on it's own or in small groups.
 
-## Resyncing
 
-If the host somehow loses responses the line count could potentially get out of sync. We have only seen this in two cases -
- on where the host's internal program flow was dropping responses, and once when there was a bug in the g2core USB the prevented occasional USB packets from getting through (this was fixed). In any case, a belt and suspenders approach is for the host to time out responses, and examine the last received buffer count to re-sync. 
-
-The number of line buffers available is returned as the third (last) number in the `{r:...}` response footer, and can also be queried by sending an `{rx:n}` command. You will never see more than 7, because the command being processed is one of the 8. However, in normal operation the host will not use the available lines count, as this is only necessary to handle some exceptional cases.
-
-The buffer count can be tested this way, but realize that the only truly accurate count will be if the job has stalled.
