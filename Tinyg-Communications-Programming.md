@@ -5,14 +5,21 @@ If you are on this page we can assume you want to write a program that talks to 
 If you are just looking for an off-the-shelf way to drive TinyG please see these other links:
 * [Sending Files with CoolTerm](https://github.com/synthetos/TinyG/wiki/TinyG-Sending-Files-with-CoolTerm)<br>
 
-This page attempts to lay out the issues and approaches to writing a good programatic interface to TinyG. It may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base). This page on [flow control and footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers) also has some notes that were used in developing the system communications.
+# Introduction
 
-If you are writing a programmatic interface we highly recommend that you use the [JSON syntax](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples are provide in JSON form.
+This page discusses issues and approaches to writing a good programatic interface to TinyG/g2core. It may also be useful to review the [introduction to the tinyg code base](https://github.com/synthetos/TinyG/wiki/Introduction-to-the-TinyG-Code-Base). This page on [flow control and footers](https://github.com/synthetos/TinyG/wiki/Flow-Control-and-Footers) also has some notes that were used in developing the system communications.
+
+If you are writing a programmatic interface we highly recommend that you use the [JSON syntax](https://github.com/synthetos/TinyG/wiki/JSON-Operation) and avoid the command line (plain text) form. Text mode is really just a convenience for driving the interface from a command line for debugging and system discovery. All examples here are provide in JSON form.
+
+## Vocabulary
+A **_host_** is any computer that talks to a g2core board. Typically this is an OSX, Linux, or Windows laptop or desktop computer communicating over USB. A **_microhost_** is a tiny linux system like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. These usually talk to g2core over a direct serial UART - although they may alternately communicate over USB.
 
 ## Theory of Operation
-TinyG communicates over a single USB serial channel. The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group)
+TinyG communicates over a single USB serial channel terminated by an FTDI chip (USB serial emulation). The default baud rate is 115,200 baud, but can be set to values between 9600 and 230,400 using the {"baud":N} command. See [Configuring TinyG](https://github.com/synthetos/TinyG/wiki/TinyG-Configuration#system-group). 
 
-TinyG has a 254 byte serial buffer that receives raw ASCII commands. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines off the serial buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
+g2core is configured similarly, but uses a native USB channel that will transmit at 12 Mbps or 480Mbps, depending on the exact board and host used. It can alternately be connected to a using a 4-wire serial port (rx/tx/rts/cts).
+
+The board has a 1000 byte serial buffer that can buffer up to 12 lines of ASCII text. A "command" is a single line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines from the buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
 
 Command Type | Example(s)
 ---------|-------------------------
@@ -71,10 +78,8 @@ For ease of processing these are single character commands. This is so that they
 
 BUT - This queue-hopping does not work on the newer ARM ports, and we are planning more complex front-panel commands such as feed rate overrides that will not be possible to execute as single character commands.
 
-## Driving TinyG from a Host Computer
-Now that we've described how the commands work, let's talk about how to feed commands to TinyG for optimal program execution.
-
-A **_host_** is any computer that talks to a g2core board. Typically this is an OSX, Linux, or Windows laptop or desktop computer communicating over USB. A **_microhost_** is a tiny linux system like a Beaglebone, Raspberry Pi, or NextThingCo CHIP. These usually talk to g2core over a direct serial UART - although they may alternately communicate over USB.
+# Driving TinyG from a Host Computer
+Now that we've discusses how commands work let's talk about how to feed commands to TinyG for optimal program execution.
 
 We recommended using **_Line Mode protocol_** for host-to-board communications. In line mode the board works on complete command lines, instead of characters. The host sends a few command lines to prime the board's serial receive queue, then the host sends a new line each time it receives a response from a processed line. That's it. So if you are building a sender that's all you need to do. 
 
