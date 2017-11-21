@@ -27,7 +27,7 @@ TinyG communicates over a single USB serial channel terminated by an FTDI chip (
 
 g2core is configured similarly, but uses a native USB channel that will transmit at 12 Mbps or 480Mbps, depending on the exact board and host used. It can alternately be connected to a using a 4-wire serial port (rx/tx/rts/cts).
 
-The board has a 1000 byte serial buffer that can buffer up to 8 lines of ASCII text. A "command" is a line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines from the buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
+The board has at least a 1000 byte serial buffer that can buffer up to 8 typical lines of ASCII text. A "command" is a line of ASCII text ending with a CR or LF; or one or the other depending on the {"ic":N} setting. The "controller" pulls serial lines from the buffer and passes them to the correct parser for that type of command. There are 4 general classes of commands that can be pulled from the serial buffer:
 
 Command Type | Example(s)
 ---------|-------------------------
