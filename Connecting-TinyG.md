@@ -13,9 +13,6 @@ The **MOST IMPORTANT** thing to do is to wire your power input correctly. So che
 
 ![TinyG diagram version 8](images/v8%20drawing.png)
 
-![TinyG diagram version 8](http://farm3.staticflickr.com/2842/10495433164_c3e47f475a_o.png)
-
-
 **THIS PAGE ASSUMES THAT THE POWER SUPPLY'S BLACK IS GROUND AND RED OR YELLOW IS +24VOLT (HOT)**. Not all power supplies adhere to this convention so you still need to check this carefully. Read below:
 
 1. Check you have the correct power supply. You should have a DC power supply between 12 and 30 volts --- 24 volts is ideal. It should be capable of providing 4 to 15 amps. 
