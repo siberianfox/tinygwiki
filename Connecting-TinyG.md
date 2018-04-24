@@ -11,7 +11,7 @@ Connecting TinyG Steps
 ## Connect Power
 The **MOST IMPORTANT** thing to do is to wire your power input correctly. So check and double check this before actually turning on the power.
 
-![TinyG diagram version 8](images/v8 drawing.png)
+![TinyG diagram version 8](images/v8%20drawing.png)
 
 ![TinyG diagram version 8](http://farm3.staticflickr.com/2842/10495433164_c3e47f475a_o.png)
 
