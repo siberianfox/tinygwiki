@@ -1,4 +1,4 @@
-[Universal G-Code Sender](https://github.com/winder/Universal-G-Code-Sender) is a Java based, cross platform G-Code sender, compatible with GRBL and TinyG/g2core. 
+[Universal G-Code Sender](https://github.com/winder/Universal-G-Code-Sender) (or UGS) is a Java based, cross platform G-Code sender, compatible with GRBL and TinyG/g2core. 
 
 ![Screenshot](http://winder.github.io/ugs_website/img/platform/screenshot.png)
 
