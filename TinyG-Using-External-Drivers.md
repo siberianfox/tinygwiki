@@ -3,7 +3,7 @@ This page discusses using TinyG with external drivers. While some users are usin
 All pinouts and other board information refers to the version 8 boards (v8), but with some translation should apply as well to the v7 (v6 and earlier did not bring these signals out).
 
 ### Connectors
-The following connectors are brought out for driving external stepper drivers. [my v8 TinyG has plated-through-holes but no connectors at these locations - is there a spec/part number for the matching screw-terminal connectors that I might obtain to solder in in those positions.  J17 is five position, others are four pos]
+The following connectors are brought out for driving external stepper drivers. [question - my v8 TinyG has plated-through-holes but no connectors at these locations - is there a spec/part number for the matching screw-terminal connectors that I might obtain to solder in in those positions.  J17 is five position, others are four pos]
 
 * J17 - corresponds to motor 1
 * J18 - corresponds to motor 2
